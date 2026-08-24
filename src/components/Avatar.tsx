@@ -116,13 +116,13 @@ type SpoutFrame = readonly (readonly [number, number])[];
  * `avatar.test.ts` checks — otherwise the water would just repaint the statue.
  */
 const SPOUT_FRAMES: readonly SpoutFrame[] = [
-  [[1, 6]],
-  [[1, 6], [0, 6]],
-  [[1, 6], [0, 6], [0, 7]],
-  [[1, 6], [0, 6], [0, 7], [0, 8]],
-  [[1, 6], [0, 6], [0, 7], [0, 8], [0, 9]],
-  [[0, 6], [0, 7], [0, 8], [0, 9], [0, 10]],
-  [[0, 7], [0, 9], [0, 11], [0, 12]],
+  [[0, 6]],
+  [[0, 6], [0, 7]],
+  [[0, 6], [0, 7], [0, 8]],
+  [[0, 6], [0, 7], [0, 8], [0, 9]],
+  [[0, 6], [0, 7], [0, 9], [0, 10]],
+  [[0, 7], [0, 8], [0, 10], [0, 11]],
+  [[0, 8], [0, 10], [0, 12]],
   [[0, 11], [0, 13]],
 ];
 
@@ -316,28 +316,28 @@ const SPRITES: Record<AvatarId, Sprite> = {
   merlion: {
     labelKey: "avatar.merlion",
     patch: {
-      0: ".........hhhh...",
-      1: ".......aahhhhhh.",
-      2: "......aaaahhhhh.",
-      3: ".....aaaaaahhhhh",
-      4: "....aaeaaaaahhh.",
-      5: "..aaaaaaaaaahhhh",
-      6: "..eeaaaaaaaahhh.",
-      7: "...eaaaaaaaahhhh",
-      8: "....aaaaaaaahhh.",
-      9: ".....aaaaaahhh..", // snout
-      10: "......hhhhhhhh..", // mane
-      11: ".....aaaaaaaa...",
-      12: "....aaaaaaaaaa..",
-      13: "....aaaaaaaaaa..",
-      14: "....aaaaaaaaad..",
-      15: "...caaaaaaaaad..",
-      16: "..ccaaaaaaaaad..",
-      17: ".cccaaaaaaaaad..",
-      18: "ccccaaaaaaaad...", // tail fins, not legs
-      19: ".cccaaaaaaad....",
+      0: ".....hhhhh......",
+      1: "...aaahhhhhhh...",
+      2: "..aaaaahhhhhhhh.",
+      3: ".aaeaaahhhhhhhh.",
+      4: ".aaaaaahhhhhhhhh",
+      5: "eeaaaaahhhhhhhh.",
+      6: ".aaaaahhhhhhhhh.",
+      7: "..aaahhhhhhhhh..",
+      8: "...hhhhhhhhhh...",
+      9: "...bbbbbbbbbb...", // snout
+      10: "..bbbbbbbbbbbb..", // mane
+      11: "..bbbbbbbbbbbb..",
+      12: ".bbbbbbbbbbbbbb.",
+      13: ".bbbbbbbbbbbbbd.",
+      14: ".bbbbbbbbbbbbdd.",
+      15: "cbbbbbbbbbbbddd.",
+      16: "ccbbbbbbbbbdddd.",
+      17: "cccbbbbbbdddd...",
+      18: ".ccbbbbdddddd...", // tail fins, not legs
+      19: "..cbddddddd.....",
     },
-    colors: { h: "#ffffff", a: "#b9c9dc", d: "#8995a3", c: "#8ba5c4", e: "#2a2434" },
+    colors: { h: "#ffffff", a: "#8ea6c4", d: "#697b91", b: "#c9d6e6", c: "#5f93bd", e: "#2a2434" },
     spout: SPOUT_FRAMES,
   },
 };
