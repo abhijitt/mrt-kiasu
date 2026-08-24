@@ -26,6 +26,36 @@ interface Props {
  * A plain <select> with 180 stations is unusable on a phone, so this filters as
  * you type while still working without JavaScript-heavy combobox machinery.
  */
+/**
+ * The clear cross, drawn rather than typeset.
+ *
+ * It used to be a "✕" character in the pixel font, which sat visibly off
+ * centre: Press Start 2P has no glyph at U+2715, so it silently fell back to
+ * a system font, and its own tall-and-high metrics mean flex centres the line
+ * box rather than the ink inside it. An SVG is centred by geometry, so it
+ * cannot drift with the font, the locale or the platform — and crisp diagonal
+ * steps suit the rest of the art better than a smooth typographic cross.
+ */
+function ClearIcon() {
+  return (
+    <svg
+      viewBox="0 0 12 12"
+      width={16}
+      height={16}
+      aria-hidden
+      focusable="false"
+      shapeRendering="crispEdges"
+    >
+      <path
+        d="M2 2 L10 10 M10 2 L2 10"
+        stroke="currentColor"
+        strokeWidth={2}
+        fill="none"
+      />
+    </svg>
+  );
+}
+
 export function StationPicker({ label, value, onChange, stations, exclude }: Props) {
   const t = useT();
   const id = useId();
@@ -78,10 +108,10 @@ export function StationPicker({ label, value, onChange, stations, exclude }: Pro
               onChange("");
               setQuery("");
             }}
-            className="pixel-btn font-pixel flex h-11 w-11 shrink-0 items-center justify-center text-sm text-fg-muted"
+            className="pixel-btn flex h-11 w-11 shrink-0 items-center justify-center text-fg-muted"
             aria-label={`${t("common.clear")} ${label}`}
           >
-            ✕
+            <ClearIcon />
           </button>
         </div>
       ) : (
