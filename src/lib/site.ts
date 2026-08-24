@@ -14,3 +14,11 @@ export function siteUrl(): string {
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
   return "http://localhost:3000";
 }
+
+/**
+ * Where the source and the data live.
+ *
+ * A constant rather than a message string: it is a URL, not prose, so it must
+ * not drift between the four translations.
+ */
+export const REPO_URL = "https://github.com/abhijitt/mrt-kiasu";

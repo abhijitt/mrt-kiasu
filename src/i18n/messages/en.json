@@ -311,5 +311,9 @@
   "egg.dismiss": "Okay lah",
   "egg.anniversary": "{years} years ago today, this was one of the first five MRT stations to open.",
   "egg.unlocked": "Secret avatar unlocked",
-  "avatar.merlion": "Merlion"
+  "avatar.merlion": "Merlion",
+  "nav.source": "Source",
+  "about.sourceTitle": "Open source",
+  "about.sourceBody": "The code and the data are public, so anyone can check what the app claims and where it got it. Door positions are the hard part: almost all of them are still estimates, and each platform someone verifies helps every commuter who uses it afterwards. Corrections, surveys and better translations are all welcome.",
+  "about.sourceCta": "View on GitHub"
 }

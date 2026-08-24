@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Hud } from "@/components/Hud";
 import { useT } from "@/i18n/I18nProvider";
+import { REPO_URL } from "@/lib/site";
 import type { MessageKey } from "@/i18n/I18nProvider";
 
 export interface Section {
@@ -84,6 +85,16 @@ export function LegalFooter() {
       <Link href="/report" className="font-pixel text-[11px] uppercase text-fg-muted underline">
         {t("report.link")}
       </Link>
+      {/* Leaves the site, so it is a plain anchor rather than a Link, and
+          carries noreferrer alongside noopener. */}
+      <a
+        href={REPO_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-pixel text-[11px] uppercase text-fg-muted underline"
+      >
+        {t("nav.source")}
+      </a>
     </nav>
   );
 }

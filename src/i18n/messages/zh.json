@@ -311,5 +311,9 @@
   "egg.dismiss": "好啦",
   "egg.anniversary": "{years} 年前的今天，这里是最早启用的五个地铁站之一。",
   "egg.unlocked": "解锁隐藏头像",
-  "avatar.merlion": "鱼尾狮"
+  "avatar.merlion": "鱼尾狮",
+  "nav.source": "源代码",
+  "about.sourceTitle": "开源",
+  "about.sourceBody": "代码与数据均已公开，任何人都可以核对本应用的说法及其来源。车门位置是最难的部分：目前几乎全是估算值，每有一个站台被实地核实，之后使用它的每位通勤者都会受益。欢迎提交更正、实地勘察和更好的翻译。",
+  "about.sourceCta": "在 GitHub 上查看"
 }
