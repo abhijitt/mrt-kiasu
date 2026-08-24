@@ -54,6 +54,8 @@ export function CrowdForecast({
 }) {
   const { t, locale } = useI18n();
   const [intervals, setIntervals] = useState<Interval[] | null>(null);
+  // When the forecast above was fetched, so filtering stays pure across renders.
+  const [fetchedAt, setFetchedAt] = useState<number | null>(null);
   const [state, setState] = useState<"loading" | "ready" | "unavailable">("loading");
 
   useEffect(() => {
@@ -71,6 +73,11 @@ export function CrowdForecast({
           ?.flatMap((d) => d.Stations ?? [])
           .find((s) => s.Station === stationCode);
         setIntervals(match?.Interval ?? null);
+        // Stamped here rather than read during render: Date.now() in a render
+        // makes the output depend on when React happens to re-render. The
+        // forecast is filtered relative to when it was fetched, which is both
+        // pure and what the reader is actually being shown.
+        setFetchedAt(Date.now());
         setState("ready");
       })
       .catch(() => {
@@ -82,8 +89,8 @@ export function CrowdForecast({
   }, [stationCode, line]);
 
   const upcoming = useMemo(() => {
-    if (!intervals) return [];
-    const now = Date.now();
+    if (!intervals || fetchedAt === null) return [];
+    const now = fetchedAt;
     return intervals
       .map((i) => ({ ...i, at: new Date(i.Start).getTime() }))
       .filter((i) => !Number.isNaN(i.at))
@@ -91,7 +98,7 @@ export function CrowdForecast({
       .filter((i) => i.at >= now - 30 * 60 * 1000)
       .sort((a, b) => a.at - b.at)
       .slice(0, HOURS_AHEAD * 2);
-  }, [intervals]);
+  }, [intervals, fetchedAt]);
 
   const quietest = useMemo(() => {
     const low = upcoming.filter((i) => i.CrowdLevel === "l");

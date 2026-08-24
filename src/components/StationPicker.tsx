@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { LINES, type LineCode } from "@/lib/lines";
 import { useT } from "@/i18n/I18nProvider";
 import { EGG_TRIGGERS, EasterEgg, type EggId } from "./EasterEgg";
@@ -35,10 +35,15 @@ export function StationPicker({ label, value, onChange, stations, exclude }: Pro
 
   // Typing something only a local would try gets a small reward. It never
   // interferes with the search itself.
-  useEffect(() => {
-    const hit = EGG_TRIGGERS[query.trim().toLowerCase()];
+  //
+  // Checked where the text changes rather than in an effect on `query`: an
+  // effect would render the egg a frame late, and it must stay dismissable,
+  // which derived state cannot do while the trigger is still in the box.
+  function type(next: string) {
+    setQuery(next);
+    const hit = EGG_TRIGGERS[next.trim().toLowerCase()];
     if (hit) setEgg(hit);
-  }, [query]);
+  }
 
   const matches = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -84,7 +89,7 @@ export function StationPicker({ label, value, onChange, stations, exclude }: Pro
             value={query}
             placeholder={t("form.typeStation")}
             autoComplete="off"
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => type(e.target.value)}
             onFocus={() => setFocused(true)}
             // Delay so a tap on a suggestion registers before the list closes.
             onBlur={() => setTimeout(() => setFocused(false), 150)}

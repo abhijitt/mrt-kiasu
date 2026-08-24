@@ -6,7 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
+  useSyncExternalStore,
 } from "react";
 import en from "./messages/en.json";
 import zh from "./messages/zh.json";
@@ -49,42 +49,72 @@ function interpolate(template: string, vars?: Record<string, string | number>): 
   );
 }
 
-export function I18nProvider({ children }: { children: React.ReactNode }) {
-  // Start on the default so server and first client render agree; the real
-  // preference is applied in an effect to avoid a hydration mismatch.
-  const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
-  const [ready, setReady] = useState(false);
+/**
+ * The chosen locale, read once from storage and the browser's own languages.
+ *
+ * Cached because useSyncExternalStore compares snapshots by identity and calls
+ * getSnapshot on every render — re-reading localStorage each time would be
+ * wasteful, and re-detecting would be worse.
+ */
+let localeSnapshot: Locale | null = null;
+const localeListeners = new Set<() => void>();
 
-  useEffect(() => {
-    let chosen: Locale = DEFAULT_LOCALE;
-    try {
-      const stored = window.localStorage.getItem(STORAGE_KEY);
-      chosen = isLocale(stored)
-        ? stored
-        : detectLocale(navigator.languages ?? [navigator.language]);
-    } catch {
-      // Blocked storage: fall back to the browser's languages alone.
-      chosen = detectLocale(
-        typeof navigator !== "undefined"
-          ? (navigator.languages ?? [navigator.language])
-          : [],
-      );
-    }
-    setLocaleState(chosen);
-    setReady(true);
-  }, []);
+function readLocale(): Locale {
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (isLocale(stored)) return stored;
+    return detectLocale(navigator.languages ?? [navigator.language]);
+  } catch {
+    // Blocked storage: fall back to the browser's languages alone.
+    return detectLocale(
+      typeof navigator !== "undefined"
+        ? (navigator.languages ?? [navigator.language])
+        : [],
+    );
+  }
+}
+
+function getLocaleSnapshot(): Locale {
+  if (localeSnapshot === null) localeSnapshot = readLocale();
+  return localeSnapshot;
+}
+
+/** The server cannot know the reader's language, so it renders the default. */
+function getServerLocaleSnapshot(): Locale {
+  return DEFAULT_LOCALE;
+}
+
+function subscribeLocale(listener: () => void): () => void {
+  localeListeners.add(listener);
+  return () => localeListeners.delete(listener);
+}
+
+export function I18nProvider({ children }: { children: React.ReactNode }) {
+  // Server and first client render both produce DEFAULT_LOCALE, so hydration
+  // matches; React then re-renders with the stored preference.
+  const locale = useSyncExternalStore(
+    subscribeLocale,
+    getLocaleSnapshot,
+    getServerLocaleSnapshot,
+  );
+  const ready = useSyncExternalStore(
+    subscribeLocale,
+    () => true,
+    () => false,
+  );
 
   useEffect(() => {
     document.documentElement.lang = locale;
   }, [locale]);
 
   const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next);
+    localeSnapshot = next;
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
     } catch {
       // Non-fatal: the choice still applies for this session.
     }
+    for (const listener of localeListeners) listener();
   }, []);
 
   const t = useCallback<Translate>(

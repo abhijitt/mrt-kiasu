@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 import { DEFAULT_SKIN_TONE, type AvatarId, type SkinToneId } from "@/components/Avatar";
 import type { FeatureType } from "@/lib/positions";
 
@@ -55,30 +55,64 @@ function applyTheme(theme: ThemeChoice): void {
 }
 
 /**
+ * One store shared by every caller of useSettings.
+ *
+ * Each hook used to hold its own copy hydrated in an effect, which meant
+ * changing the avatar in Settings left the home screen and the route page
+ * showing the old one until they remounted. A single store fixes that, and
+ * `useSyncExternalStore` is the supported way to read browser state that the
+ * server cannot see without a cascading render on mount.
+ */
+let snapshot: Settings | null = null;
+const listeners = new Set<() => void>();
+
+function getSnapshot(): Settings {
+  // Cached: useSyncExternalStore compares by identity, so returning a freshly
+  // parsed object every call would loop forever.
+  if (snapshot === null) snapshot = read();
+  return snapshot;
+}
+
+/** The server has no localStorage, so it always renders the defaults. */
+function getServerSnapshot(): Settings {
+  return DEFAULT_SETTINGS;
+}
+
+function subscribe(listener: () => void): () => void {
+  listeners.add(listener);
+  return () => listeners.delete(listener);
+}
+
+function write(next: Settings): void {
+  snapshot = next;
+  try {
+    window.localStorage.setItem(KEY, JSON.stringify(next));
+  } catch {
+    // Ignore: the change still applies for this session.
+  }
+  for (const listener of listeners) listener();
+}
+
+/**
  * Settings live entirely in the browser — the app requires no login, so there
  * is nothing to sync and nothing to leak.
  */
 export function useSettings() {
-  const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    setSettings(read());
-    setLoaded(true);
-  }, []);
+  const settings = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const update = useCallback((patch: Partial<Settings>) => {
-    setSettings((prev) => {
-      const next = { ...prev, ...patch };
-      try {
-        window.localStorage.setItem(KEY, JSON.stringify(next));
-      } catch {
-        // Ignore: the change still applies for this session.
-      }
-      if (patch.theme) applyTheme(patch.theme);
-      return next;
-    });
+    const next = { ...getSnapshot(), ...patch };
+    if (patch.theme) applyTheme(patch.theme);
+    write(next);
   }, []);
+
+  // True once the client has read localStorage. Callers use it to avoid
+  // flashing default settings before the real ones are known.
+  const loaded = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
 
   return { settings, update, loaded };
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useId, useState, useSyncExternalStore } from "react";
 import { useI18n } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import {
@@ -9,6 +9,23 @@ import {
   type ErrorReport,
   type ReportType,
 } from "@/lib/report-types";
+
+/**
+ * Where the reporter is, as "<path> <width>x<height>".
+ *
+ * Captured rather than asked for: someone standing on a platform who has just
+ * found a wrong door position should be describing the problem, not the page
+ * they happen to be on.
+ */
+function getClientSnapshot(): string {
+  if (typeof window === "undefined") return "";
+  return `${window.location.pathname} ${window.innerWidth}x${window.innerHeight}`;
+}
+
+function subscribeViewport(listener: () => void): () => void {
+  window.addEventListener("resize", listener);
+  return () => window.removeEventListener("resize", listener);
+}
 
 type Status =
   | { kind: "idle" }
@@ -36,22 +53,38 @@ export function ReportForm({ subject }: { subject?: string }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const [copied, setCopied] = useState(false);
-  const [context, setContext] = useState<ErrorReport["context"] | null>(null);
 
-  useEffect(() => {
-    setContext({
-      path: window.location.pathname,
+  // A string, so useSyncExternalStore can compare snapshots by value — an
+  // object rebuilt on each call would never look equal and would loop.
+  // Read this way rather than in an effect: it is browser state the server
+  // cannot see, and an effect would set state during the first commit.
+  const client = useSyncExternalStore(
+    subscribeViewport,
+    getClientSnapshot,
+    () => "",
+  );
+
+  // reportedAt is stamped at submit rather than on mount: someone may sit on
+  // this form for a while, and the useful timestamp is when they sent it.
+  function buildContext(): ErrorReport["context"] | null {
+    if (!client) return null;
+    const [path, viewport] = client.split(" ");
+    return {
+      path,
       locale,
       ...(subject ? { subject } : {}),
       reportedAt: new Date().toISOString(),
-      viewport: `${window.innerWidth}x${window.innerHeight}`,
-    });
-  }, [locale, subject]);
+      viewport,
+    };
+  }
+
+  const context = buildContext();
 
   const ready = message.trim().length > 0;
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
+    const context = buildContext();
     if (!ready || !context) return;
 
     const report: ErrorReport = {

@@ -1,17 +1,26 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
+/**
+ * Flat config, consumed by the ESLint CLI directly.
+ *
+ * Next 16 removed the `next lint` command and `next build` no longer lints, so
+ * linting is its own step in package.json and in CI. `eslint-config-next` now
+ * ships native flat configs, which replaced the `FlatCompat` shim this file
+ * used to need — the core-web-vitals entry already bundles `next` and
+ * `next/typescript`.
+ */
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
+    // `next lint` used to supply these; running the CLI directly does not, and
+    // without them ESLint walks the build output.
+    ignores: [".next/**", "out/**", "coverage/**", "next-env.d.ts"],
+  },
+  ...nextCoreWebVitals,
+  {
+    // Scoped to TS: the flat config registers `@typescript-eslint` only for
+    // these files, so an unscoped override fails on the .mjs configs and
+    // scripts, where the plugin is not defined.
+    files: ["**/*.ts", "**/*.tsx"],
     rules: {
       // Underscore-prefixed arguments are deliberately unused — they exist to
       // give a mock or callback the right signature.

@@ -88,9 +88,13 @@ export function useKonami(onUnlock: () => void): void {
 
   // Held in a ref so the listeners below can be registered once. Passing the
   // callback straight into the effect re-subscribed on every render, since
-  // callers write it inline.
+  // callers write it inline. Assigned in an effect rather than during render:
+  // a render can be discarded, and a discarded render must not leave a ref
+  // pointing at a callback that was never committed.
   const unlock = useRef(onUnlock);
-  unlock.current = onUnlock;
+  useEffect(() => {
+    unlock.current = onUnlock;
+  }, [onUnlock]);
 
   const advance = useCallback(
     (
