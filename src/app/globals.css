@@ -412,8 +412,21 @@ svg {
 
 /* Panels arrive in sequence rather than all at once, so the eye is led
    down the page in the order the content should be read. */
+/*
+ * `backwards`, deliberately not `both`.
+ *
+ * `both` also means `forwards`, which pins the element on the animation's last
+ * frame — including `transform: translateY(0)`. A transform other than `none`
+ * creates a stacking context permanently, which trapped every dropdown inside
+ * the section that animated it: the station picker rendered *under* the
+ * service notices below it however high its z-index went.
+ *
+ * The end state here is identical to the element's natural state, so
+ * `forwards` bought nothing. `backwards` still applies the opening frame
+ * during the delay, which is what stops the pre-animation flash.
+ */
 .anim-enter {
-  animation: snap-in 220ms steps(4) both;
+  animation: snap-in 220ms steps(4) backwards;
 }
 
 .anim-enter-1 { animation-delay: 40ms; }

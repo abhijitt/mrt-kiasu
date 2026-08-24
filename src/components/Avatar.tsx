@@ -116,14 +116,14 @@ type SpoutFrame = readonly (readonly [number, number])[];
  * `avatar.test.ts` checks — otherwise the water would just repaint the statue.
  */
 const SPOUT_FRAMES: readonly SpoutFrame[] = [
-  [[0, 6]],
-  [[0, 6], [0, 7]],
-  [[0, 6], [0, 7], [0, 8]],
-  [[0, 6], [0, 7], [0, 8], [0, 9]],
-  [[0, 6], [0, 7], [0, 9], [0, 10]],
-  [[0, 7], [0, 8], [0, 10], [0, 11]],
-  [[0, 8], [0, 10], [0, 12]],
-  [[0, 11], [0, 13]],
+  [[2, 5]],
+  [[2, 5], [1, 5]],
+  [[2, 5], [1, 5], [0, 6]],
+  [[2, 5], [1, 5], [0, 6], [0, 7]],
+  [[2, 5], [1, 5], [0, 6], [0, 7], [0, 8]],
+  [[1, 5], [0, 6], [0, 7], [0, 8], [0, 9]],
+  [[0, 6], [0, 8], [0, 10]],
+  [[0, 9], [0, 11]],
 ];
 
 interface Sprite {
@@ -316,23 +316,23 @@ const SPRITES: Record<AvatarId, Sprite> = {
   merlion: {
     labelKey: "avatar.merlion",
     patch: {
-      0: ".....hhhhh......",
-      1: "...aaahhhhhhh...",
-      2: "..aaaaahhhhhhhh.",
-      3: ".aaeaaahhhhhhhh.",
-      4: ".aaaaaahhhhhhhhh",
-      5: "eeaaaaahhhhhhhh.",
-      6: ".aaaaahhhhhhhhh.",
-      7: "..aaahhhhhhhhh..",
-      8: "...hhhhhhhhhh...",
-      9: "...bbbbbbbbbb...", // snout
-      10: "..bbbbbbbbbbbb..", // mane
-      11: "..bbbbbbbbbbbb..",
-      12: ".bbbbbbbbbbbbbb.",
-      13: ".bbbbbbbbbbbbbd.",
-      14: ".bbbbbbbbbbbbdd.",
-      15: "cbbbbbbbbbbbddd.",
-      16: "ccbbbbbbbbbdddd.",
+      0: "........hhhh....",
+      1: "......aaahhhhhh.",
+      2: ".....aaaaahhhhh.",
+      3: "....aaeaaahhhhhh",
+      4: "....aaaaaahhhhh.",
+      5: "...eeaaaaahhhhhh",
+      6: "....aaaaahhhhhh.",
+      7: ".....aaahhhhhh..",
+      8: "......hhhhhhh...",
+      9: ".....bbbbbbbb...", // snout
+      10: "....bbbbbbbbbb..", // mane
+      11: "....bbbbbbbbbb..",
+      12: "...bbbbbbbbbbbb.",
+      13: "...bbbbbbbbbbbd.",
+      14: "...bbbbbbbbbbdd.",
+      15: "..cbbbbbbbbbddd.",
+      16: ".ccbbbbbbbbdddd.",
       17: "cccbbbbbbdddd...",
       18: ".ccbbbbdddddd...", // tail fins, not legs
       19: "..cbddddddd.....",
