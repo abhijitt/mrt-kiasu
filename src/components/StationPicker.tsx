@@ -69,13 +69,16 @@ export function StationPicker({ label, value, onChange, stations, exclude }: Pro
       {value ? (
         <div className="pixel-box-sm flex items-center gap-3 px-3 py-3">
           <span className="flex-1 text-base text-fg">{value}</span>
+          {/* 44x44 minimum: this is a thumb target on a platform, not a
+              mouse target. It was a bare glyph with 2px of padding, which is
+              roughly a quarter of the area a finger needs. */}
           <button
             type="button"
             onClick={() => {
               onChange("");
               setQuery("");
             }}
-            className="font-pixel px-2 py-1 text-xs text-fg-muted"
+            className="pixel-btn font-pixel flex h-11 w-11 shrink-0 items-center justify-center text-sm text-fg-muted"
             aria-label={`${t("common.clear")} ${label}`}
           >
             ✕
