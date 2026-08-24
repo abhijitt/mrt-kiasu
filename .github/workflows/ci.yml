@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Cheapest checks first, so an obvious failure reports in seconds.
+      - name: Data integrity
+        run: npm run validate-data
+
+      - name: Types
+        run: npx tsc --noEmit
+
+      - name: Lint
+        run: npx next lint
+
+      - name: Tests
+        run: npm test
+
+      # The build runs validate-data and check-bundle again; the bundle guard
+      # needs a real build to inspect, so it can only run here.
+      - name: Build and bundle guard
+        run: npm run build
+        env:
+          # A dummy key: the build must not depend on live LTA access.
+          LTA_ACCOUNT_KEY: ci-placeholder

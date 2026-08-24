@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <rect width="32" height="32" fill="#12121d"/>
+  <!-- Train body -->
+  <rect x="4" y="10" width="20" height="12" fill="#d42e12" stroke="#f0ede2" stroke-width="2"/>
+  <!-- Nose, pointing in the direction of travel -->
+  <polygon points="24,10 29,16 24,22" fill="#d42e12" stroke="#f0ede2" stroke-width="2"/>
+  <!-- Doors -->
+  <rect x="7" y="17" width="3" height="4" fill="#fa9e0d"/>
+  <rect x="12" y="17" width="3" height="4" fill="#fa9e0d"/>
+  <rect x="17" y="17" width="3" height="4" fill="#fa9e0d"/>
+  <!-- Platform -->
+  <rect x="2" y="24" width="28" height="2" fill="#8a8a9e"/>
+</svg>

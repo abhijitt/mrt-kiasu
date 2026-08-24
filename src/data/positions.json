@@ -1,0 +1,16 @@
+{
+  "_schema": {
+    "description": "Platform feature positions \u2014 which door on a platform is nearest an escalator, lift, stairs, or transfer corridor.",
+    "doorIndex": "1..N counted from the platform's REFERENCE END, which is the end facing the LOWER station code on that line (e.g. the HarbourFront end on the NEL). Direction-independent by design: car numbers are derived at render time by src/lib/doors.ts.",
+    "platformKey": "\"<stationCode>:<direction>\" where direction is \"asc\" (toward higher station codes) or \"desc\" (toward lower codes). An island platform has one entry per face.",
+    "source": "One of: survey | osm | official-map | user. Required.",
+    "confidence": "One of: verified | candidate. Required. Only 'verified' is presented as fact in the UI.",
+    "leadsTo": "Exit codes as printed on station signage (e.g. [\"C\"]), or a line code for a transfer (e.g. \"CCL\")."
+  },
+  "_status": {
+    "surveyed": 0,
+    "note": "No platform has been surveyed yet. No public dataset provides this information (verified against LTA DataMall, data.gov.sg, SMRT and SBS Transit), so every entry must come from a field survey or an OSM-derived candidate that a person has then checked. The app shows 'not yet mapped' until an entry exists \u2014 it does not estimate.",
+    "lastUpdated": "2026-08-23"
+  },
+  "platforms": {}
+}

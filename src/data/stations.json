@@ -1,0 +1,6713 @@
+{
+  "_source": {
+    "codes": "https://datamall.lta.gov.sg/content/datamall/en/static-data.html",
+    "codesDataset": "LTA Train Station Codes and Chinese Names",
+    "openingDates": "Wikidata (P1619, keyed by P296 station code), with per-station Wikipedia infoboxes filling the stations Wikidata does not cover",
+    "openingDatesNote": "These are station opening dates, not per-platform. At an interchange the later line's platforms carry the station's original date.",
+    "coordinates": "Derived from exits.json (LTA MRT Station Exit, data.gov.sg)",
+    "interchanges": "Derived: a station name with more than one official code.",
+    "note": "Codes follow LTA signage. Wikipedia numbers the Circle Line Extension CC33/CC34 where LTA uses CE1/CE2, so opening dates are matched by station name rather than code.",
+    "importedAt": "2026-08-23"
+  },
+  "stations": [
+    {
+      "code": "BP1",
+      "name": "Choa Chu Kang",
+      "nameZh": "蔡厝港",
+      "line": "BPLRT",
+      "lineName": "Bukit Panjang LRT",
+      "opened": "1999-11-06",
+      "interchanges": [
+        {
+          "code": "NS4",
+          "line": "NSL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.74456,
+          "lat": 1.3854
+        },
+        {
+          "code": "B",
+          "lng": 103.74447,
+          "lat": 1.3846
+        },
+        {
+          "code": "C",
+          "lng": 103.74447,
+          "lat": 1.38573
+        },
+        {
+          "code": "D",
+          "lng": 103.74411,
+          "lat": 1.38537
+        },
+        {
+          "code": "E",
+          "lng": 103.74462,
+          "lat": 1.385
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "BP2",
+      "name": "South View",
+      "nameZh": "南山",
+      "line": "BPLRT",
+      "lineName": "Bukit Panjang LRT",
+      "opened": "1999-11-06",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7451011,
+          "lat": 1.3803177
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "BP3",
+      "name": "Keat Hong",
+      "nameZh": "吉丰",
+      "line": "BPLRT",
+      "lineName": "Bukit Panjang LRT",
+      "opened": "1999-11-06",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7492268,
+          "lat": 1.378465
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "BP4",
+      "name": "Teck Whye",
+      "nameZh": "德惠",
+      "line": "BPLRT",
+      "lineName": "Bukit Panjang LRT",
+      "opened": "1999-11-06",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7538261,
+          "lat": 1.3765642
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "BP5",
+      "name": "Phoenix",
+      "nameZh": "凤凰",
+      "line": "BPLRT",
+      "lineName": "Bukit Panjang LRT",
+      "opened": "1999-11-06",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7582525,
+          "lat": 1.3786141
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "BP6",
+      "name": "Bukit Panjang",
+      "nameZh": "武吉班让",
+      "line": "BPLRT",
+      "lineName": "Bukit Panjang LRT",
+      "opened": "2015-12-27",
+      "interchanges": [
+        {
+          "code": "DT1",
+          "line": "DTL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7595978,
+          "lat": 1.3807451
+        },
+        {
+          "code": "B",
+          "lng": 103.7613705,
+          "lat": 1.3786189
+        },
+        {
+          "code": "C",
+          "lng": 103.7627225,
+          "lat": 1.3779279
+        },
+        {
+          "code": "D",
+          "lng": 103.7632519,
+          "lat": 1.3780241
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "BP7",
+      "name": "Petir",
+      "nameZh": "柏提",
+      "line": "BPLRT",
+      "lineName": "Bukit Panjang LRT",
+      "opened": "1999-11-06",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.766793,
+          "lat": 1.3776032
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "BP8",
+      "name": "Pending",
+      "nameZh": "秉定",
+      "line": "BPLRT",
+      "lineName": "Bukit Panjang LRT",
+      "opened": "1999-11-06",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7713278,
+          "lat": 1.3762971
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "BP9",
+      "name": "Bangkit",
+      "nameZh": "万吉",
+      "line": "BPLRT",
+      "lineName": "Bukit Panjang LRT",
+      "opened": "1999-11-06",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7725906,
+          "lat": 1.3798533
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "BP10",
+      "name": "Fajar",
+      "nameZh": "法嘉",
+      "line": "BPLRT",
+      "lineName": "Bukit Panjang LRT",
+      "opened": "1999-11-06",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7706755,
+          "lat": 1.3844651
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "BP11",
+      "name": "Segar",
+      "nameZh": "实加",
+      "line": "BPLRT",
+      "lineName": "Bukit Panjang LRT",
+      "opened": "1999-11-06",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7694099,
+          "lat": 1.3878116
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "BP12",
+      "name": "Jelapang",
+      "nameZh": "泽拉邦",
+      "line": "BPLRT",
+      "lineName": "Bukit Panjang LRT",
+      "opened": "1999-11-06",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7646768,
+          "lat": 1.3868327
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "BP13",
+      "name": "Senja",
+      "nameZh": "信佳",
+      "line": "BPLRT",
+      "lineName": "Bukit Panjang LRT",
+      "opened": "1999-11-06",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7623258,
+          "lat": 1.3828754
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC1",
+      "name": "Dhoby Ghaut",
+      "nameZh": "多美歌",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "1987-12-12",
+      "interchanges": [
+        {
+          "code": "NS24",
+          "line": "NSL"
+        },
+        {
+          "code": "NE6",
+          "line": "NEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.846788,
+          "lat": 1.2984451
+        },
+        {
+          "code": "B",
+          "lng": 103.8452296,
+          "lat": 1.2990559
+        },
+        {
+          "code": "C",
+          "lng": 103.8447479,
+          "lat": 1.2996492
+        },
+        {
+          "code": "D",
+          "lng": 103.8450301,
+          "lat": 1.2999307
+        },
+        {
+          "code": "E",
+          "lng": 103.8453723,
+          "lat": 1.2997485
+        },
+        {
+          "code": "F",
+          "lng": 103.8458423,
+          "lat": 1.2996349
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC2",
+      "name": "Bras Basah",
+      "nameZh": "百胜",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2010-04-17",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8513273,
+          "lat": 1.2968589
+        },
+        {
+          "code": "B",
+          "lng": 103.8504743,
+          "lat": 1.2960462
+        },
+        {
+          "code": "C",
+          "lng": 103.8502499,
+          "lat": 1.2970144
+        },
+        {
+          "code": "D",
+          "lng": 103.8501575,
+          "lat": 1.2975515
+        },
+        {
+          "code": "E",
+          "lng": 103.8504232,
+          "lat": 1.2975355
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC3",
+      "name": "Esplanade",
+      "nameZh": "滨海中心",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2010-04-17",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8563056,
+          "lat": 1.2933705
+        },
+        {
+          "code": "B",
+          "lng": 103.8561757,
+          "lat": 1.2929272
+        },
+        {
+          "code": "C",
+          "lng": 103.8558552,
+          "lat": 1.2929043
+        },
+        {
+          "code": "D",
+          "lng": 103.8558338,
+          "lat": 1.2926237
+        },
+        {
+          "code": "E",
+          "lng": 103.8555678,
+          "lat": 1.2931288
+        },
+        {
+          "code": "F",
+          "lng": 103.8551046,
+          "lat": 1.2938195
+        },
+        {
+          "code": "G",
+          "lng": 103.8549202,
+          "lat": 1.2935864
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC4",
+      "name": "Promenade",
+      "nameZh": "宝门廊",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2010-04-17",
+      "interchanges": [
+        {
+          "code": "DT15",
+          "line": "DTL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8606736,
+          "lat": 1.2917117
+        },
+        {
+          "code": "B",
+          "lng": 103.8601369,
+          "lat": 1.2938621
+        },
+        {
+          "code": "C",
+          "lng": 103.8602365,
+          "lat": 1.2941028
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC5",
+      "name": "Nicoll Highway",
+      "nameZh": "尼诰大道",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2010-04-17",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.863506,
+          "lat": 1.3001697
+        },
+        {
+          "code": "B",
+          "lng": 103.8641517,
+          "lat": 1.2996608
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC6",
+      "name": "Stadium",
+      "nameZh": "体育场",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2010-04-17",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8744,
+          "lat": 1.3025111
+        },
+        {
+          "code": "B",
+          "lng": 103.8762262,
+          "lat": 1.3033702
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC7",
+      "name": "Mountbatten",
+      "nameZh": "蒙巴登",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2010-04-17",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8825975,
+          "lat": 1.3067527
+        },
+        {
+          "code": "B",
+          "lng": 103.8832483,
+          "lat": 1.3060459
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC8",
+      "name": "Dakota",
+      "nameZh": "达科达",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2010-04-17",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8893072,
+          "lat": 1.3088142
+        },
+        {
+          "code": "B",
+          "lng": 103.8879793,
+          "lat": 1.3080968
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC9",
+      "name": "Paya Lebar",
+      "nameZh": "巴耶利峇",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "1989-11-04",
+      "interchanges": [
+        {
+          "code": "EW8",
+          "line": "EWL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8927883,
+          "lat": 1.318216
+        },
+        {
+          "code": "B",
+          "lng": 103.8922172,
+          "lat": 1.3183475
+        },
+        {
+          "code": "C",
+          "lng": 103.8917211,
+          "lat": 1.3181493
+        },
+        {
+          "code": "D",
+          "lng": 103.8920777,
+          "lat": 1.3165877
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CE1",
+      "name": "Bayfront",
+      "nameZh": "海湾舫",
+      "line": "CCL",
+      "lineName": "Circle Line Extension",
+      "opened": "2012-01-14",
+      "interchanges": [
+        {
+          "code": "DT16",
+          "line": "DTL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8587319,
+          "lat": 1.2809674
+        },
+        {
+          "code": "B",
+          "lng": 103.8597592,
+          "lat": 1.2827052
+        },
+        {
+          "code": "C",
+          "lng": 103.8595969,
+          "lat": 1.2828349
+        },
+        {
+          "code": "D",
+          "lng": 103.8594938,
+          "lat": 1.2828344
+        },
+        {
+          "code": "E",
+          "lng": 103.858441,
+          "lat": 1.2811046
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CE2",
+      "name": "Marina Bay",
+      "nameZh": "滨海湾",
+      "line": "CCL",
+      "lineName": "Circle Line Extension",
+      "opened": "1989-11-04",
+      "interchanges": [
+        {
+          "code": "NS27",
+          "line": "NSL"
+        },
+        {
+          "code": "TE20",
+          "line": "TEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.85447,
+          "lat": 1.277353
+        },
+        {
+          "code": "2",
+          "lng": 103.8550033,
+          "lat": 1.2761589
+        },
+        {
+          "code": "3",
+          "lng": 103.8553717,
+          "lat": 1.2754164
+        },
+        {
+          "code": "4",
+          "lng": 103.8564888,
+          "lat": 1.2736342
+        },
+        {
+          "code": "5",
+          "lng": 103.8543195,
+          "lat": 1.2746933
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC10",
+      "name": "MacPherson",
+      "nameZh": "麦波申",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2010-04-17",
+      "interchanges": [
+        {
+          "code": "DT26",
+          "line": "DTL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8897933,
+          "lat": 1.3266788
+        },
+        {
+          "code": "B",
+          "lng": 103.8906657,
+          "lat": 1.325855
+        },
+        {
+          "code": "C",
+          "lng": 103.8902626,
+          "lat": 1.3254815
+        },
+        {
+          "code": "D",
+          "lng": 103.8884548,
+          "lat": 1.3251455
+        },
+        {
+          "code": "E",
+          "lng": 103.8886152,
+          "lat": 1.3261928
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC11",
+      "name": "Tai Seng",
+      "nameZh": "大成",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2010-04-17",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8876274,
+          "lat": 1.3359141
+        },
+        {
+          "code": "B",
+          "lng": 103.8882141,
+          "lat": 1.3346209
+        },
+        {
+          "code": "C",
+          "lng": 103.8882612,
+          "lat": 1.3357724
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC12",
+      "name": "Bartley",
+      "nameZh": "巴特礼",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2009-05-28",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8802559,
+          "lat": 1.3422487
+        },
+        {
+          "code": "B",
+          "lng": 103.8789087,
+          "lat": 1.3435011
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC13",
+      "name": "Serangoon",
+      "nameZh": "实龙岗",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2003-06-20",
+      "interchanges": [
+        {
+          "code": "NE12",
+          "line": "NEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8739574,
+          "lat": 1.3494817
+        },
+        {
+          "code": "B",
+          "lng": 103.8736413,
+          "lat": 1.3498337
+        },
+        {
+          "code": "C",
+          "lng": 103.873694,
+          "lat": 1.3505951
+        },
+        {
+          "code": "D",
+          "lng": 103.8743219,
+          "lat": 1.3499016
+        },
+        {
+          "code": "E",
+          "lng": 103.8729021,
+          "lat": 1.3508202
+        },
+        {
+          "code": "F",
+          "lng": 103.8714493,
+          "lat": 1.3509483
+        },
+        {
+          "code": "G",
+          "lng": 103.8728667,
+          "lat": 1.3507902
+        },
+        {
+          "code": "H",
+          "lng": 103.8735465,
+          "lat": 1.3497277
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC14",
+      "name": "Lorong Chuan",
+      "nameZh": "罗弄泉",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2009-05-28",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8649337,
+          "lat": 1.3514391
+        },
+        {
+          "code": "B",
+          "lng": 103.8629183,
+          "lat": 1.3517385
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC15",
+      "name": "Bishan",
+      "nameZh": "碧山",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "1987-11-07",
+      "interchanges": [
+        {
+          "code": "NS17",
+          "line": "NSL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.848305,
+          "lat": 1.3505796
+        },
+        {
+          "code": "B",
+          "lng": 103.8483123,
+          "lat": 1.3510644
+        },
+        {
+          "code": "C",
+          "lng": 103.8482093,
+          "lat": 1.3505849
+        },
+        {
+          "code": "D",
+          "lng": 103.8502011,
+          "lat": 1.3510532
+        },
+        {
+          "code": "E",
+          "lng": 103.8484329,
+          "lat": 1.3510348
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC16",
+      "name": "Marymount",
+      "nameZh": "玛丽蒙",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2009-05-28",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.839088,
+          "lat": 1.3489804
+        },
+        {
+          "code": "B",
+          "lng": 103.8400589,
+          "lat": 1.3478661
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC17",
+      "name": "Caldecott",
+      "nameZh": "加利谷",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2011-10-08",
+      "interchanges": [
+        {
+          "code": "TE9",
+          "line": "TEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8394067,
+          "lat": 1.3371053
+        },
+        {
+          "code": "2",
+          "lng": 103.8403875,
+          "lat": 1.3382597
+        },
+        {
+          "code": "3",
+          "lng": 103.8404647,
+          "lat": 1.337832
+        },
+        {
+          "code": "4",
+          "lng": 103.8398824,
+          "lat": 1.3367509
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC19",
+      "name": "Botanic Gardens",
+      "nameZh": "植物园",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2015-12-27",
+      "interchanges": [
+        {
+          "code": "DT9",
+          "line": "DTL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8149769,
+          "lat": 1.3225346
+        },
+        {
+          "code": "B",
+          "lng": 103.8159141,
+          "lat": 1.3226846
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC20",
+      "name": "Farrer Road",
+      "nameZh": "花拉路",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2011-10-08",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8079652,
+          "lat": 1.3174937
+        },
+        {
+          "code": "B",
+          "lng": 103.8073892,
+          "lat": 1.317552
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC21",
+      "name": "Holland Village",
+      "nameZh": "荷兰村",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2011-10-08",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7961391,
+          "lat": 1.3112203
+        },
+        {
+          "code": "B",
+          "lng": 103.7957691,
+          "lat": 1.3110695
+        },
+        {
+          "code": "C",
+          "lng": 103.7957538,
+          "lat": 1.3107112
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC22",
+      "name": "Buona Vista",
+      "nameZh": "波那维斯达",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "1988-03-12",
+      "interchanges": [
+        {
+          "code": "EW21",
+          "line": "EWL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7904492,
+          "lat": 1.3073095
+        },
+        {
+          "code": "B",
+          "lng": 103.7906566,
+          "lat": 1.3071973
+        },
+        {
+          "code": "C",
+          "lng": 103.7905994,
+          "lat": 1.3069129
+        },
+        {
+          "code": "D",
+          "lng": 103.7909301,
+          "lat": 1.3062981
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC23",
+      "name": "one-north",
+      "nameZh": "纬壹",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2011-10-08",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7869075,
+          "lat": 1.2990275
+        },
+        {
+          "code": "B",
+          "lng": 103.7879278,
+          "lat": 1.3003595
+        },
+        {
+          "code": "C",
+          "lng": 103.7875655,
+          "lat": 1.2997147
+        },
+        {
+          "code": "D",
+          "lng": 103.7877848,
+          "lat": 1.3000747
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC24",
+      "name": "Kent Ridge",
+      "nameZh": "肯特岗",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2011-10-08",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7844659,
+          "lat": 1.2943159
+        },
+        {
+          "code": "B",
+          "lng": 103.7848096,
+          "lat": 1.2924281
+        },
+        {
+          "code": "C",
+          "lng": 103.7844905,
+          "lat": 1.2939848
+        },
+        {
+          "code": "D",
+          "lng": 103.7845347,
+          "lat": 1.2932188
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC25",
+      "name": "Haw Par Villa",
+      "nameZh": "虎豹别墅",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2011-10-08",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7820064,
+          "lat": 1.2830553
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC26",
+      "name": "Pasir Panjang",
+      "nameZh": "巴西班让",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2011-10-08",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7920302,
+          "lat": 1.2760032
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC27",
+      "name": "Labrador Park",
+      "nameZh": "拉柏多公园",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2011-10-08",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8023556,
+          "lat": 1.272107
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC28",
+      "name": "Telok Blangah",
+      "nameZh": "直落布兰雅",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2011-10-08",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8098837,
+          "lat": 1.2707212
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC29",
+      "name": "HarbourFront",
+      "nameZh": "港湾",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2003-06-20",
+      "interchanges": [
+        {
+          "code": "NE1",
+          "line": "NEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8204684,
+          "lat": 1.2660132
+        },
+        {
+          "code": "B",
+          "lng": 103.8205088,
+          "lat": 1.2651547
+        },
+        {
+          "code": "C",
+          "lng": 103.8225317,
+          "lat": 1.2652599
+        },
+        {
+          "code": "D",
+          "lng": 103.8213989,
+          "lat": 1.2659793
+        },
+        {
+          "code": "E",
+          "lng": 103.8215803,
+          "lat": 1.264972
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT1",
+      "name": "Bukit Panjang",
+      "nameZh": "武吉班让",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2015-12-27",
+      "interchanges": [
+        {
+          "code": "BP6",
+          "line": "BPLRT"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7595978,
+          "lat": 1.3807451
+        },
+        {
+          "code": "B",
+          "lng": 103.7613705,
+          "lat": 1.3786189
+        },
+        {
+          "code": "C",
+          "lng": 103.7627225,
+          "lat": 1.3779279
+        },
+        {
+          "code": "D",
+          "lng": 103.7632519,
+          "lat": 1.3780241
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT2",
+      "name": "Cashew",
+      "nameZh": "凯秀",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2015-12-27",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7642345,
+          "lat": 1.3698333
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT3",
+      "name": "Hillview",
+      "nameZh": "山景",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2015-12-27",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7676883,
+          "lat": 1.3624742
+        },
+        {
+          "code": "B",
+          "lng": 103.7671085,
+          "lat": 1.3620843
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT4",
+      "name": "Hume",
+      "nameZh": "谦道",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2025-02-28",
+      "interchanges": [],
+      "exits": [],
+      "dataGaps": [
+        "gap.noExitData"
+      ]
+    },
+    {
+      "code": "DT5",
+      "name": "Beauty World",
+      "nameZh": "美世界",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2015-12-27",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7759843,
+          "lat": 1.3416961
+        },
+        {
+          "code": "B",
+          "lng": 103.7754507,
+          "lat": 1.3415822
+        },
+        {
+          "code": "C",
+          "lng": 103.7757615,
+          "lat": 1.3399819
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT6",
+      "name": "King Albert Park",
+      "nameZh": "阿尔柏王园",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2015-12-27",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7830303,
+          "lat": 1.3355371
+        },
+        {
+          "code": "B",
+          "lng": 103.7845616,
+          "lat": 1.335976
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT7",
+      "name": "Sixth Avenue",
+      "nameZh": "第六道",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2015-12-27",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7965661,
+          "lat": 1.3307805
+        },
+        {
+          "code": "B",
+          "lng": 103.7968482,
+          "lat": 1.3315213
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT8",
+      "name": "Tan Kah Kee",
+      "nameZh": "陈嘉庚",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2015-12-27",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8077991,
+          "lat": 1.3253331
+        },
+        {
+          "code": "B",
+          "lng": 103.8078009,
+          "lat": 1.3261462
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT9",
+      "name": "Botanic Gardens",
+      "nameZh": "植物园",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2015-12-27",
+      "interchanges": [
+        {
+          "code": "CC19",
+          "line": "CCL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8149769,
+          "lat": 1.3225346
+        },
+        {
+          "code": "B",
+          "lng": 103.8159141,
+          "lat": 1.3226846
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT10",
+      "name": "Stevens",
+      "nameZh": "史蒂芬",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2015-12-27",
+      "interchanges": [
+        {
+          "code": "TE11",
+          "line": "TEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8257284,
+          "lat": 1.3199516
+        },
+        {
+          "code": "2",
+          "lng": 103.8260136,
+          "lat": 1.3188289
+        },
+        {
+          "code": "3",
+          "lng": 103.8249916,
+          "lat": 1.3194705
+        },
+        {
+          "code": "4",
+          "lng": 103.8258829,
+          "lat": 1.3215199
+        },
+        {
+          "code": "5",
+          "lng": 103.8263226,
+          "lat": 1.3209377
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT11",
+      "name": "Newton",
+      "nameZh": "纽顿",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "1987-12-12",
+      "interchanges": [
+        {
+          "code": "NS21",
+          "line": "NSL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8378813,
+          "lat": 1.3125978
+        },
+        {
+          "code": "B",
+          "lng": 103.8382191,
+          "lat": 1.3120755
+        },
+        {
+          "code": "C",
+          "lng": 103.8382424,
+          "lat": 1.3136173
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT12",
+      "name": "Little India",
+      "nameZh": "小印度",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2003-06-20",
+      "interchanges": [
+        {
+          "code": "NE7",
+          "line": "NEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.84936,
+          "lat": 1.3056053
+        },
+        {
+          "code": "B",
+          "lng": 103.8489851,
+          "lat": 1.3065636
+        },
+        {
+          "code": "C",
+          "lng": 103.8497048,
+          "lat": 1.3063516
+        },
+        {
+          "code": "D",
+          "lng": 103.849,
+          "lat": 1.3068547
+        },
+        {
+          "code": "E",
+          "lng": 103.8503222,
+          "lat": 1.3074264
+        },
+        {
+          "code": "F",
+          "lng": 103.8483044,
+          "lat": 1.3076835
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT13",
+      "name": "Rochor",
+      "nameZh": "梧槽",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2015-12-27",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.852375,
+          "lat": 1.3034041
+        },
+        {
+          "code": "B",
+          "lng": 103.8531043,
+          "lat": 1.3042148
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT14",
+      "name": "Bugis",
+      "nameZh": "武吉士",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "1989-11-04",
+      "interchanges": [
+        {
+          "code": "EW12",
+          "line": "EWL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8559241,
+          "lat": 1.3012041
+        },
+        {
+          "code": "B",
+          "lng": 103.8563366,
+          "lat": 1.3007822
+        },
+        {
+          "code": "C",
+          "lng": 103.8556857,
+          "lat": 1.3000069
+        },
+        {
+          "code": "D",
+          "lng": 103.8568907,
+          "lat": 1.2990788
+        },
+        {
+          "code": "E",
+          "lng": 103.857408,
+          "lat": 1.2993046
+        },
+        {
+          "code": "F",
+          "lng": 103.8571475,
+          "lat": 1.2996382
+        },
+        {
+          "code": "G",
+          "lng": 103.8570674,
+          "lat": 1.2989565
+        },
+        {
+          "code": "H",
+          "lng": 103.8560352,
+          "lat": 1.3003435
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT15",
+      "name": "Promenade",
+      "nameZh": "宝门廊",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2010-04-17",
+      "interchanges": [
+        {
+          "code": "CC4",
+          "line": "CCL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8606736,
+          "lat": 1.2917117
+        },
+        {
+          "code": "B",
+          "lng": 103.8601369,
+          "lat": 1.2938621
+        },
+        {
+          "code": "C",
+          "lng": 103.8602365,
+          "lat": 1.2941028
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT16",
+      "name": "Bayfront",
+      "nameZh": "海湾舫",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2012-01-14",
+      "interchanges": [
+        {
+          "code": "CE1",
+          "line": "CCL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8587319,
+          "lat": 1.2809674
+        },
+        {
+          "code": "B",
+          "lng": 103.8597592,
+          "lat": 1.2827052
+        },
+        {
+          "code": "C",
+          "lng": 103.8595969,
+          "lat": 1.2828349
+        },
+        {
+          "code": "D",
+          "lng": 103.8594938,
+          "lat": 1.2828344
+        },
+        {
+          "code": "E",
+          "lng": 103.858441,
+          "lat": 1.2811046
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT17",
+      "name": "Downtown",
+      "nameZh": "市中心",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2013-12-22",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8526466,
+          "lat": 1.2797735
+        },
+        {
+          "code": "B",
+          "lng": 103.8529081,
+          "lat": 1.2796013
+        },
+        {
+          "code": "C",
+          "lng": 103.8531521,
+          "lat": 1.2794444
+        },
+        {
+          "code": "D",
+          "lng": 103.8530138,
+          "lat": 1.279176
+        },
+        {
+          "code": "E",
+          "lng": 103.852478,
+          "lat": 1.2795279
+        },
+        {
+          "code": "F",
+          "lng": 103.8524277,
+          "lat": 1.2797962
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT18",
+      "name": "Telok Ayer",
+      "nameZh": "直落亚逸",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2013-12-22",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8485065,
+          "lat": 1.2818874
+        },
+        {
+          "code": "B",
+          "lng": 103.8487733,
+          "lat": 1.2824973
+        },
+        {
+          "code": "C",
+          "lng": 103.8488417,
+          "lat": 1.2822507
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT19",
+      "name": "Chinatown",
+      "nameZh": "牛车水",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2003-06-20",
+      "interchanges": [
+        {
+          "code": "NE4",
+          "line": "NEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8437979,
+          "lat": 1.2837128
+        },
+        {
+          "code": "C",
+          "lng": 103.8428129,
+          "lat": 1.2846749
+        },
+        {
+          "code": "D",
+          "lng": 103.8434762,
+          "lat": 1.2854065
+        },
+        {
+          "code": "E",
+          "lng": 103.8444281,
+          "lat": 1.2850441
+        },
+        {
+          "code": "F",
+          "lng": 103.8454625,
+          "lat": 1.2842748
+        },
+        {
+          "code": "G",
+          "lng": 103.8444585,
+          "lat": 1.2847361
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT20",
+      "name": "Fort Canning",
+      "nameZh": "福康宁",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2017-10-21",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.84417,
+          "lat": 1.2924061
+        },
+        {
+          "code": "B",
+          "lng": 103.844425,
+          "lat": 1.2928303
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT21",
+      "name": "Bencoolen",
+      "nameZh": "明古连",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2017-10-21",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8508434,
+          "lat": 1.2991952
+        },
+        {
+          "code": "B",
+          "lng": 103.8495605,
+          "lat": 1.2981994
+        },
+        {
+          "code": "C",
+          "lng": 103.8492717,
+          "lat": 1.2976991
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT22",
+      "name": "Jalan Besar",
+      "nameZh": "惹兰勿刹",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2017-10-21",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8552961,
+          "lat": 1.3048899
+        },
+        {
+          "code": "B",
+          "lng": 103.8552446,
+          "lat": 1.3054673
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT23",
+      "name": "Bendemeer",
+      "nameZh": "明地迷亚",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2017-10-21",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.863074,
+          "lat": 1.3138525
+        },
+        {
+          "code": "B",
+          "lng": 103.8632192,
+          "lat": 1.3134807
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT24",
+      "name": "Geylang Bahru",
+      "nameZh": "芽笼峇鲁",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2017-10-21",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8715556,
+          "lat": 1.3215617
+        },
+        {
+          "code": "B",
+          "lng": 103.8717943,
+          "lat": 1.3211091
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT25",
+      "name": "Mattar",
+      "nameZh": "玛达",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2017-10-21",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8827321,
+          "lat": 1.3272514
+        },
+        {
+          "code": "B",
+          "lng": 103.8837484,
+          "lat": 1.3264635
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT26",
+      "name": "MacPherson",
+      "nameZh": "麦波申",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2010-04-17",
+      "interchanges": [
+        {
+          "code": "CC10",
+          "line": "CCL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8897933,
+          "lat": 1.3266788
+        },
+        {
+          "code": "B",
+          "lng": 103.8906657,
+          "lat": 1.325855
+        },
+        {
+          "code": "C",
+          "lng": 103.8902626,
+          "lat": 1.3254815
+        },
+        {
+          "code": "D",
+          "lng": 103.8884548,
+          "lat": 1.3251455
+        },
+        {
+          "code": "E",
+          "lng": 103.8886152,
+          "lat": 1.3261928
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT27",
+      "name": "Ubi",
+      "nameZh": "乌美",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2017-10-21",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8998767,
+          "lat": 1.3299508
+        },
+        {
+          "code": "B",
+          "lng": 103.8985856,
+          "lat": 1.3298308
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT28",
+      "name": "Kaki Bukit",
+      "nameZh": "加基武吉",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2017-10-21",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9094051,
+          "lat": 1.3353112
+        },
+        {
+          "code": "B",
+          "lng": 103.9091463,
+          "lat": 1.3349219
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT29",
+      "name": "Bedok North",
+      "nameZh": "勿洛北",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2017-10-21",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9180498,
+          "lat": 1.3351263
+        },
+        {
+          "code": "B",
+          "lng": 103.9191343,
+          "lat": 1.3343725
+        },
+        {
+          "code": "C",
+          "lng": 103.9178105,
+          "lat": 1.3344226
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT30",
+      "name": "Bedok Reservoir",
+      "nameZh": "勿洛蓄水池",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2017-10-22",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9328868,
+          "lat": 1.3363478
+        },
+        {
+          "code": "B",
+          "lng": 103.9334872,
+          "lat": 1.3365549
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT31",
+      "name": "Tampines West",
+      "nameZh": "淡滨尼西",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2017-10-21",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9381967,
+          "lat": 1.3456306
+        },
+        {
+          "code": "B",
+          "lng": 103.9389485,
+          "lat": 1.3449992
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT32",
+      "name": "Tampines",
+      "nameZh": "淡滨尼",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "1989-12-16",
+      "interchanges": [
+        {
+          "code": "EW2",
+          "line": "EWL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9447663,
+          "lat": 1.353764
+        },
+        {
+          "code": "B",
+          "lng": 103.9450896,
+          "lat": 1.3535391
+        },
+        {
+          "code": "C",
+          "lng": 103.944904,
+          "lat": 1.3533983
+        },
+        {
+          "code": "D",
+          "lng": 103.9436782,
+          "lat": 1.3548706
+        },
+        {
+          "code": "E",
+          "lng": 103.9426588,
+          "lat": 1.3558534
+        },
+        {
+          "code": "F",
+          "lng": 103.9426537,
+          "lat": 1.3541939
+        },
+        {
+          "code": "G",
+          "lng": 103.9427235,
+          "lat": 1.3545963
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT33",
+      "name": "Tampines East",
+      "nameZh": "淡滨尼东",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2017-10-21",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9545404,
+          "lat": 1.3564608
+        },
+        {
+          "code": "B",
+          "lng": 103.95517,
+          "lat": 1.3555882
+        },
+        {
+          "code": "C",
+          "lng": 103.9557047,
+          "lat": 1.3555532
+        },
+        {
+          "code": "D",
+          "lng": 103.9557174,
+          "lat": 1.3569702
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT34",
+      "name": "Upper Changi",
+      "nameZh": "樟宜上段",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2017-10-21",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9609606,
+          "lat": 1.3420065
+        },
+        {
+          "code": "B",
+          "lng": 103.9614763,
+          "lat": 1.3410377
+        },
+        {
+          "code": "C",
+          "lng": 103.9616173,
+          "lat": 1.3419927
+        },
+        {
+          "code": "D",
+          "lng": 103.9610431,
+          "lat": 1.3408405
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "DT35",
+      "name": "Expo",
+      "nameZh": "博览",
+      "line": "DTL",
+      "lineName": "Downtown Line",
+      "opened": "2001-01-10",
+      "interchanges": [
+        {
+          "code": "CG1",
+          "line": "EWL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.961943,
+          "lat": 1.3353217
+        },
+        {
+          "code": "B",
+          "lng": 103.9620753,
+          "lat": 1.3352529
+        },
+        {
+          "code": "C",
+          "lng": 103.962161,
+          "lat": 1.335951
+        },
+        {
+          "code": "D",
+          "lng": 103.9631007,
+          "lat": 1.3348349
+        },
+        {
+          "code": "E",
+          "lng": 103.9621234,
+          "lat": 1.3348633
+        },
+        {
+          "code": "F",
+          "lng": 103.9628657,
+          "lat": 1.3347119
+        },
+        {
+          "code": "G",
+          "lng": 103.963049,
+          "lat": 1.3350193
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CG1",
+      "name": "Expo",
+      "nameZh": "博览",
+      "line": "EWL",
+      "lineName": "Changi Airport Branch Line",
+      "opened": "2001-01-10",
+      "interchanges": [
+        {
+          "code": "DT35",
+          "line": "DTL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.961943,
+          "lat": 1.3353217
+        },
+        {
+          "code": "B",
+          "lng": 103.9620753,
+          "lat": 1.3352529
+        },
+        {
+          "code": "C",
+          "lng": 103.962161,
+          "lat": 1.335951
+        },
+        {
+          "code": "D",
+          "lng": 103.9631007,
+          "lat": 1.3348349
+        },
+        {
+          "code": "E",
+          "lng": 103.9621234,
+          "lat": 1.3348633
+        },
+        {
+          "code": "F",
+          "lng": 103.9628657,
+          "lat": 1.3347119
+        },
+        {
+          "code": "G",
+          "lng": 103.963049,
+          "lat": 1.3350193
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CG2",
+      "name": "Changi Airport",
+      "nameZh": "樟宜机场",
+      "line": "EWL",
+      "lineName": "Changi Airport Branch Line",
+      "opened": "2002-02-08",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9892766,
+          "lat": 1.3563414
+        },
+        {
+          "code": "B",
+          "lng": 103.9873046,
+          "lat": 1.3572203
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW1",
+      "name": "Pasir Ris",
+      "nameZh": "巴西立",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1989-12-16",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9493334,
+          "lat": 1.372842
+        },
+        {
+          "code": "B",
+          "lng": 103.9491369,
+          "lat": 1.3728862
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW2",
+      "name": "Tampines",
+      "nameZh": "淡滨尼",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1989-12-16",
+      "interchanges": [
+        {
+          "code": "DT32",
+          "line": "DTL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9447663,
+          "lat": 1.353764
+        },
+        {
+          "code": "B",
+          "lng": 103.9450896,
+          "lat": 1.3535391
+        },
+        {
+          "code": "C",
+          "lng": 103.944904,
+          "lat": 1.3533983
+        },
+        {
+          "code": "D",
+          "lng": 103.9436782,
+          "lat": 1.3548706
+        },
+        {
+          "code": "E",
+          "lng": 103.9426588,
+          "lat": 1.3558534
+        },
+        {
+          "code": "F",
+          "lng": 103.9426537,
+          "lat": 1.3541939
+        },
+        {
+          "code": "G",
+          "lng": 103.9427235,
+          "lat": 1.3545963
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW3",
+      "name": "Simei",
+      "nameZh": "四美",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1989-12-16",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9538187,
+          "lat": 1.3426618
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW4",
+      "name": "Tanah Merah",
+      "nameZh": "丹那美拉",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1989-11-04",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9457947,
+          "lat": 1.3268577
+        },
+        {
+          "code": "B",
+          "lng": 103.945723,
+          "lat": 1.3270613
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW5",
+      "name": "Bedok",
+      "nameZh": "勿洛",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1989-11-04",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9291571,
+          "lat": 1.3235686
+        },
+        {
+          "code": "B",
+          "lng": 103.9296731,
+          "lat": 1.3242683
+        },
+        {
+          "code": "C",
+          "lng": 103.9294043,
+          "lat": 1.3240746
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW6",
+      "name": "Kembangan",
+      "nameZh": "景万岸",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1989-11-04",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9129411,
+          "lat": 1.3209238
+        },
+        {
+          "code": "B",
+          "lng": 103.9128993,
+          "lat": 1.3211521
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW7",
+      "name": "Eunos",
+      "nameZh": "友诺士",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1989-11-04",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9028941,
+          "lat": 1.3195173
+        },
+        {
+          "code": "B",
+          "lng": 103.9025821,
+          "lat": 1.3195625
+        },
+        {
+          "code": "C",
+          "lng": 103.9032152,
+          "lat": 1.3195299
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW8",
+      "name": "Paya Lebar",
+      "nameZh": "巴耶利峇",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1989-11-04",
+      "interchanges": [
+        {
+          "code": "CC9",
+          "line": "CCL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8927883,
+          "lat": 1.318216
+        },
+        {
+          "code": "B",
+          "lng": 103.8922172,
+          "lat": 1.3183475
+        },
+        {
+          "code": "C",
+          "lng": 103.8917211,
+          "lat": 1.3181493
+        },
+        {
+          "code": "D",
+          "lng": 103.8920777,
+          "lat": 1.3165877
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW9",
+      "name": "Aljunied",
+      "nameZh": "阿裕尼",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1989-11-04",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8824967,
+          "lat": 1.3162385
+        },
+        {
+          "code": "B",
+          "lng": 103.8824729,
+          "lat": 1.3164879
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW10",
+      "name": "Kallang",
+      "nameZh": "加冷",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1989-11-04",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8717306,
+          "lat": 1.3115405
+        },
+        {
+          "code": "B",
+          "lng": 103.8715871,
+          "lat": 1.3117818
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW11",
+      "name": "Lavender",
+      "nameZh": "劳明达",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1989-11-04",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8630431,
+          "lat": 1.3071695
+        },
+        {
+          "code": "B",
+          "lng": 103.8626503,
+          "lat": 1.3076185
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW12",
+      "name": "Bugis",
+      "nameZh": "武吉士",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1989-11-04",
+      "interchanges": [
+        {
+          "code": "DT14",
+          "line": "DTL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8559241,
+          "lat": 1.3012041
+        },
+        {
+          "code": "B",
+          "lng": 103.8563366,
+          "lat": 1.3007822
+        },
+        {
+          "code": "C",
+          "lng": 103.8556857,
+          "lat": 1.3000069
+        },
+        {
+          "code": "D",
+          "lng": 103.8568907,
+          "lat": 1.2990788
+        },
+        {
+          "code": "E",
+          "lng": 103.857408,
+          "lat": 1.2993046
+        },
+        {
+          "code": "F",
+          "lng": 103.8571475,
+          "lat": 1.2996382
+        },
+        {
+          "code": "G",
+          "lng": 103.8570674,
+          "lat": 1.2989565
+        },
+        {
+          "code": "H",
+          "lng": 103.8560352,
+          "lat": 1.3003435
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW13",
+      "name": "City Hall",
+      "nameZh": "政府大厦",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1987-12-12",
+      "interchanges": [
+        {
+          "code": "NS25",
+          "line": "NSL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8530204,
+          "lat": 1.2932271
+        },
+        {
+          "code": "B",
+          "lng": 103.8519602,
+          "lat": 1.2930999
+        },
+        {
+          "code": "C",
+          "lng": 103.8529803,
+          "lat": 1.2930418
+        },
+        {
+          "code": "D",
+          "lng": 103.8518023,
+          "lat": 1.2934548
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW14",
+      "name": "Raffles Place",
+      "nameZh": "莱佛士坊",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1987-12-12",
+      "interchanges": [
+        {
+          "code": "NS26",
+          "line": "NSL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8514384,
+          "lat": 1.2841251
+        },
+        {
+          "code": "B",
+          "lng": 103.85148,
+          "lat": 1.2846069
+        },
+        {
+          "code": "C",
+          "lng": 103.8515625,
+          "lat": 1.2836305
+        },
+        {
+          "code": "D",
+          "lng": 103.8513532,
+          "lat": 1.2836414
+        },
+        {
+          "code": "E",
+          "lng": 103.8515226,
+          "lat": 1.2832116
+        },
+        {
+          "code": "F",
+          "lng": 103.8509609,
+          "lat": 1.2825386
+        },
+        {
+          "code": "G",
+          "lng": 103.8514781,
+          "lat": 1.2850169
+        },
+        {
+          "code": "H",
+          "lng": 103.8516217,
+          "lat": 1.2852583
+        },
+        {
+          "code": "I",
+          "lng": 103.8514333,
+          "lat": 1.2823823
+        },
+        {
+          "code": "J",
+          "lng": 103.851296,
+          "lat": 1.2826262
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW15",
+      "name": "Tanjong Pagar",
+      "nameZh": "丹戎巴葛",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1987-12-12",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.844834,
+          "lat": 1.2764085
+        },
+        {
+          "code": "B",
+          "lng": 103.8465446,
+          "lat": 1.2766717
+        },
+        {
+          "code": "C",
+          "lng": 103.8465336,
+          "lat": 1.2760892
+        },
+        {
+          "code": "D",
+          "lng": 103.8469088,
+          "lat": 1.2760648
+        },
+        {
+          "code": "E",
+          "lng": 103.8470958,
+          "lat": 1.2762591
+        },
+        {
+          "code": "F",
+          "lng": 103.8469276,
+          "lat": 1.2773795
+        },
+        {
+          "code": "G",
+          "lng": 103.8469531,
+          "lat": 1.2777845
+        },
+        {
+          "code": "H",
+          "lng": 103.8464451,
+          "lat": 1.2754509
+        },
+        {
+          "code": "I",
+          "lng": 103.845656,
+          "lat": 1.276448
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW16",
+      "name": "Outram Park",
+      "nameZh": "欧南园",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1987-12-12",
+      "interchanges": [
+        {
+          "code": "NE3",
+          "line": "NEL"
+        },
+        {
+          "code": "TE17",
+          "line": "TEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8386577,
+          "lat": 1.2816024
+        },
+        {
+          "code": "2",
+          "lng": 103.8389348,
+          "lat": 1.2816753
+        },
+        {
+          "code": "3",
+          "lng": 103.8397892,
+          "lat": 1.2809933
+        },
+        {
+          "code": "4",
+          "lng": 103.8403868,
+          "lat": 1.2802134
+        },
+        {
+          "code": "5",
+          "lng": 103.8395492,
+          "lat": 1.278947
+        },
+        {
+          "code": "6",
+          "lng": 103.8385373,
+          "lat": 1.2790512
+        },
+        {
+          "code": "7",
+          "lng": 103.8386402,
+          "lat": 1.281022
+        },
+        {
+          "code": "8",
+          "lng": 103.8381171,
+          "lat": 1.2823216
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW17",
+      "name": "Tiong Bahru",
+      "nameZh": "中峇鲁",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1988-03-12",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8269906,
+          "lat": 1.2857595
+        },
+        {
+          "code": "B",
+          "lng": 103.8274964,
+          "lat": 1.2863619
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW18",
+      "name": "Redhill",
+      "nameZh": "红山",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1988-03-12",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8169945,
+          "lat": 1.2893707
+        },
+        {
+          "code": "B",
+          "lng": 103.8172494,
+          "lat": 1.2894859
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW19",
+      "name": "Queenstown",
+      "nameZh": "女皇镇",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1988-03-12",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8061828,
+          "lat": 1.2942473
+        },
+        {
+          "code": "B",
+          "lng": 103.8063115,
+          "lat": 1.2943299
+        },
+        {
+          "code": "C",
+          "lng": 103.8055847,
+          "lat": 1.2954463
+        },
+        {
+          "code": "D",
+          "lng": 103.8054922,
+          "lat": 1.2953829
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW20",
+      "name": "Commonwealth",
+      "nameZh": "联邦",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1988-03-12",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7979583,
+          "lat": 1.3026482
+        },
+        {
+          "code": "B",
+          "lng": 103.7980579,
+          "lat": 1.3027528
+        },
+        {
+          "code": "C",
+          "lng": 103.7987786,
+          "lat": 1.302077
+        },
+        {
+          "code": "D",
+          "lng": 103.7987203,
+          "lat": 1.3020127
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW21",
+      "name": "Buona Vista",
+      "nameZh": "波那维斯达",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1988-03-12",
+      "interchanges": [
+        {
+          "code": "CC22",
+          "line": "CCL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7904492,
+          "lat": 1.3073095
+        },
+        {
+          "code": "B",
+          "lng": 103.7906566,
+          "lat": 1.3071973
+        },
+        {
+          "code": "C",
+          "lng": 103.7905994,
+          "lat": 1.3069129
+        },
+        {
+          "code": "D",
+          "lng": 103.7909301,
+          "lat": 1.3062981
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW22",
+      "name": "Dover",
+      "nameZh": "杜弗",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "2001-10-18",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7783047,
+          "lat": 1.3114154
+        },
+        {
+          "code": "B",
+          "lng": 103.7784648,
+          "lat": 1.3116932
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW23",
+      "name": "Clementi",
+      "nameZh": "金文泰",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1988-03-12",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7649821,
+          "lat": 1.3153736
+        },
+        {
+          "code": "B",
+          "lng": 103.7651856,
+          "lat": 1.3154691
+        },
+        {
+          "code": "C",
+          "lng": 103.7657498,
+          "lat": 1.3141623
+        },
+        {
+          "code": "D",
+          "lng": 103.7655701,
+          "lat": 1.3140784
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW24",
+      "name": "Jurong East",
+      "nameZh": "裕廊东",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1988-11-05",
+      "interchanges": [
+        {
+          "code": "NS1",
+          "line": "NSL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7417599,
+          "lat": 1.3339896
+        },
+        {
+          "code": "B",
+          "lng": 103.7426402,
+          "lat": 1.3325262
+        },
+        {
+          "code": "C",
+          "lng": 103.7427621,
+          "lat": 1.3327487
+        },
+        {
+          "code": "D",
+          "lng": 103.7422982,
+          "lat": 1.3335813
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW25",
+      "name": "Chinese Garden",
+      "nameZh": "裕华园",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1988-11-05",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7322202,
+          "lat": 1.3424387
+        },
+        {
+          "code": "B",
+          "lng": 103.7327418,
+          "lat": 1.3419821
+        },
+        {
+          "code": "C",
+          "lng": 103.7333931,
+          "lat": 1.3415658
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW26",
+      "name": "Lakeside",
+      "nameZh": "湖畔",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1988-11-05",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7204485,
+          "lat": 1.3439833
+        },
+        {
+          "code": "B",
+          "lng": 103.7210754,
+          "lat": 1.3440815
+        },
+        {
+          "code": "C",
+          "lng": 103.7217128,
+          "lat": 1.3443042
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW27",
+      "name": "Boon Lay",
+      "nameZh": "文礼",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "1990-07-06",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.705409,
+          "lat": 1.33828
+        },
+        {
+          "code": "B",
+          "lng": 103.7061455,
+          "lat": 1.3384207
+        },
+        {
+          "code": "C",
+          "lng": 103.7059552,
+          "lat": 1.3387381
+        },
+        {
+          "code": "D",
+          "lng": 103.70565,
+          "lat": 1.3386295
+        },
+        {
+          "code": "E",
+          "lng": 103.7053534,
+          "lat": 1.3385141
+        },
+        {
+          "code": "F",
+          "lng": 103.705795,
+          "lat": 1.3382732
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW28",
+      "name": "Pioneer",
+      "nameZh": "先驱",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "2009-02-28",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.6971554,
+          "lat": 1.3373446
+        },
+        {
+          "code": "B",
+          "lng": 103.6971295,
+          "lat": 1.3378316
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW29",
+      "name": "Joo Koon",
+      "nameZh": "裕群",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "2009-02-28",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.6785207,
+          "lat": 1.3275021
+        },
+        {
+          "code": "B",
+          "lng": 103.6786441,
+          "lat": 1.3279561
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW30",
+      "name": "Gul Circle",
+      "nameZh": "卡尔圈 站",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "2017-06-18",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.6604441,
+          "lat": 1.3190323
+        },
+        {
+          "code": "B",
+          "lng": 103.6594349,
+          "lat": 1.3188372
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW31",
+      "name": "Tuas Crescent",
+      "nameZh": "大士弯站",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "2017-06-18",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.6489587,
+          "lat": 1.3207638
+        },
+        {
+          "code": "B",
+          "lng": 103.6492868,
+          "lat": 1.3212436
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW32",
+      "name": "Tuas West Road",
+      "nameZh": "大 士 西 路站",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "2017-06-18",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.6392843,
+          "lat": 1.3298724
+        },
+        {
+          "code": "B",
+          "lng": 103.6397907,
+          "lat": 1.3301823
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "EW33",
+      "name": "Tuas Link",
+      "nameZh": "大士连路站",
+      "line": "EWL",
+      "lineName": "East-West Line",
+      "opened": "2017-06-18",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.6372457,
+          "lat": 1.3404269
+        },
+        {
+          "code": "B",
+          "lng": 103.6368407,
+          "lat": 1.3409401
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE1",
+      "name": "HarbourFront",
+      "nameZh": "港湾",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "2003-06-20",
+      "interchanges": [
+        {
+          "code": "CC29",
+          "line": "CCL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8204684,
+          "lat": 1.2660132
+        },
+        {
+          "code": "B",
+          "lng": 103.8205088,
+          "lat": 1.2651547
+        },
+        {
+          "code": "C",
+          "lng": 103.8225317,
+          "lat": 1.2652599
+        },
+        {
+          "code": "D",
+          "lng": 103.8213989,
+          "lat": 1.2659793
+        },
+        {
+          "code": "E",
+          "lng": 103.8215803,
+          "lat": 1.264972
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE3",
+      "name": "Outram Park",
+      "nameZh": "欧南园",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "1987-12-12",
+      "interchanges": [
+        {
+          "code": "EW16",
+          "line": "EWL"
+        },
+        {
+          "code": "TE17",
+          "line": "TEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8386577,
+          "lat": 1.2816024
+        },
+        {
+          "code": "2",
+          "lng": 103.8389348,
+          "lat": 1.2816753
+        },
+        {
+          "code": "3",
+          "lng": 103.8397892,
+          "lat": 1.2809933
+        },
+        {
+          "code": "4",
+          "lng": 103.8403868,
+          "lat": 1.2802134
+        },
+        {
+          "code": "5",
+          "lng": 103.8395492,
+          "lat": 1.278947
+        },
+        {
+          "code": "6",
+          "lng": 103.8385373,
+          "lat": 1.2790512
+        },
+        {
+          "code": "7",
+          "lng": 103.8386402,
+          "lat": 1.281022
+        },
+        {
+          "code": "8",
+          "lng": 103.8381171,
+          "lat": 1.2823216
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE4",
+      "name": "Chinatown",
+      "nameZh": "牛车水",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "2003-06-20",
+      "interchanges": [
+        {
+          "code": "DT19",
+          "line": "DTL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8437979,
+          "lat": 1.2837128
+        },
+        {
+          "code": "C",
+          "lng": 103.8428129,
+          "lat": 1.2846749
+        },
+        {
+          "code": "D",
+          "lng": 103.8434762,
+          "lat": 1.2854065
+        },
+        {
+          "code": "E",
+          "lng": 103.8444281,
+          "lat": 1.2850441
+        },
+        {
+          "code": "F",
+          "lng": 103.8454625,
+          "lat": 1.2842748
+        },
+        {
+          "code": "G",
+          "lng": 103.8444585,
+          "lat": 1.2847361
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE5",
+      "name": "Clarke Quay",
+      "nameZh": "克拉码头",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "2003-06-20",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8460645,
+          "lat": 1.2868988
+        },
+        {
+          "code": "B",
+          "lng": 103.8459034,
+          "lat": 1.2878058
+        },
+        {
+          "code": "C",
+          "lng": 103.8466658,
+          "lat": 1.2893839
+        },
+        {
+          "code": "E",
+          "lng": 103.8470326,
+          "lat": 1.2890002
+        },
+        {
+          "code": "F",
+          "lng": 103.8471297,
+          "lat": 1.2894056
+        },
+        {
+          "code": "G",
+          "lng": 103.8465939,
+          "lat": 1.2891993
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE6",
+      "name": "Dhoby Ghaut",
+      "nameZh": "多美歌",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "1987-12-12",
+      "interchanges": [
+        {
+          "code": "NS24",
+          "line": "NSL"
+        },
+        {
+          "code": "CC1",
+          "line": "CCL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.846788,
+          "lat": 1.2984451
+        },
+        {
+          "code": "B",
+          "lng": 103.8452296,
+          "lat": 1.2990559
+        },
+        {
+          "code": "C",
+          "lng": 103.8447479,
+          "lat": 1.2996492
+        },
+        {
+          "code": "D",
+          "lng": 103.8450301,
+          "lat": 1.2999307
+        },
+        {
+          "code": "E",
+          "lng": 103.8453723,
+          "lat": 1.2997485
+        },
+        {
+          "code": "F",
+          "lng": 103.8458423,
+          "lat": 1.2996349
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE7",
+      "name": "Little India",
+      "nameZh": "小印度",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "2003-06-20",
+      "interchanges": [
+        {
+          "code": "DT12",
+          "line": "DTL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.84936,
+          "lat": 1.3056053
+        },
+        {
+          "code": "B",
+          "lng": 103.8489851,
+          "lat": 1.3065636
+        },
+        {
+          "code": "C",
+          "lng": 103.8497048,
+          "lat": 1.3063516
+        },
+        {
+          "code": "D",
+          "lng": 103.849,
+          "lat": 1.3068547
+        },
+        {
+          "code": "E",
+          "lng": 103.8503222,
+          "lat": 1.3074264
+        },
+        {
+          "code": "F",
+          "lng": 103.8483044,
+          "lat": 1.3076835
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE8",
+      "name": "Farrer Park",
+      "nameZh": "花拉公园",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "2003-06-20",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8547727,
+          "lat": 1.3123269
+        },
+        {
+          "code": "B",
+          "lng": 103.8547638,
+          "lat": 1.313544
+        },
+        {
+          "code": "C",
+          "lng": 103.8532668,
+          "lat": 1.3119107
+        },
+        {
+          "code": "D",
+          "lng": 103.8529746,
+          "lat": 1.3124536
+        },
+        {
+          "code": "E",
+          "lng": 103.852651,
+          "lat": 1.3118835
+        },
+        {
+          "code": "F",
+          "lng": 103.8531994,
+          "lat": 1.311422
+        },
+        {
+          "code": "G",
+          "lng": 103.855501,
+          "lat": 1.312259
+        },
+        {
+          "code": "H",
+          "lng": 103.8560989,
+          "lat": 1.3118835
+        },
+        {
+          "code": "I",
+          "lng": 103.8558067,
+          "lat": 1.3117659
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE9",
+      "name": "Boon Keng",
+      "nameZh": "文庆",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "2003-06-20",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8615024,
+          "lat": 1.3201069
+        },
+        {
+          "code": "B",
+          "lng": 103.8619037,
+          "lat": 1.3192352
+        },
+        {
+          "code": "C",
+          "lng": 103.8607068,
+          "lat": 1.3179148
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE10",
+      "name": "Potong Pasir",
+      "nameZh": "波东巴西",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "2003-06-20",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8689664,
+          "lat": 1.3328014
+        },
+        {
+          "code": "B",
+          "lng": 103.8693332,
+          "lat": 1.3311481
+        },
+        {
+          "code": "C",
+          "lng": 103.8687039,
+          "lat": 1.3310667
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE11",
+      "name": "Woodleigh",
+      "nameZh": "兀里",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "2011-06-20",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8709406,
+          "lat": 1.3385107
+        },
+        {
+          "code": "B",
+          "lng": 103.8705085,
+          "lat": 1.3385831
+        },
+        {
+          "code": "C",
+          "lng": 103.8710538,
+          "lat": 1.3398672
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE12",
+      "name": "Serangoon",
+      "nameZh": "实龙岗",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "2003-06-20",
+      "interchanges": [
+        {
+          "code": "CC13",
+          "line": "CCL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8739574,
+          "lat": 1.3494817
+        },
+        {
+          "code": "B",
+          "lng": 103.8736413,
+          "lat": 1.3498337
+        },
+        {
+          "code": "C",
+          "lng": 103.873694,
+          "lat": 1.3505951
+        },
+        {
+          "code": "D",
+          "lng": 103.8743219,
+          "lat": 1.3499016
+        },
+        {
+          "code": "E",
+          "lng": 103.8729021,
+          "lat": 1.3508202
+        },
+        {
+          "code": "F",
+          "lng": 103.8714493,
+          "lat": 1.3509483
+        },
+        {
+          "code": "G",
+          "lng": 103.8728667,
+          "lat": 1.3507902
+        },
+        {
+          "code": "H",
+          "lng": 103.8735465,
+          "lat": 1.3497277
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE13",
+      "name": "Kovan",
+      "nameZh": "高文",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "2003-06-20",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8843074,
+          "lat": 1.3597076
+        },
+        {
+          "code": "B",
+          "lng": 103.8847217,
+          "lat": 1.3602056
+        },
+        {
+          "code": "C",
+          "lng": 103.8854506,
+          "lat": 1.360028
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE14",
+      "name": "Hougang",
+      "nameZh": "后港",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "2003-06-20",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8924457,
+          "lat": 1.3702086
+        },
+        {
+          "code": "B",
+          "lng": 103.8929724,
+          "lat": 1.3719461
+        },
+        {
+          "code": "C",
+          "lng": 103.891975,
+          "lat": 1.3721418
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE15",
+      "name": "Buangkok",
+      "nameZh": "万国",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "2006-01-15",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8928838,
+          "lat": 1.3834098
+        },
+        {
+          "code": "B",
+          "lng": 103.8934632,
+          "lat": 1.3826497
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE16",
+      "name": "Sengkang",
+      "nameZh": "盛港",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "2003-01-18",
+      "interchanges": [
+        {
+          "code": "STC",
+          "line": "SKLRT"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8954057,
+          "lat": 1.3918291
+        },
+        {
+          "code": "B",
+          "lng": 103.8956369,
+          "lat": 1.3917956
+        },
+        {
+          "code": "C",
+          "lng": 103.8952094,
+          "lat": 1.3908816
+        },
+        {
+          "code": "D",
+          "lng": 103.8957055,
+          "lat": 1.3923708
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE17",
+      "name": "Punggol",
+      "nameZh": "榜鹅",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "2003-06-20",
+      "interchanges": [
+        {
+          "code": "PTC",
+          "line": "PGLRT"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.902306,
+          "lat": 1.4053396
+        },
+        {
+          "code": "B",
+          "lng": 103.9025982,
+          "lat": 1.4051862
+        },
+        {
+          "code": "C",
+          "lng": 103.9021156,
+          "lat": 1.4043006
+        },
+        {
+          "code": "D",
+          "lng": 103.9017985,
+          "lat": 1.4044383
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NE18",
+      "name": "Punggol Coast",
+      "nameZh": "榜鹅海岸",
+      "line": "NEL",
+      "lineName": "North East Line",
+      "opened": "2024-12-10",
+      "interchanges": [],
+      "exits": [],
+      "dataGaps": [
+        "gap.noExitData"
+      ]
+    },
+    {
+      "code": "NS1",
+      "name": "Jurong East",
+      "nameZh": "裕廊东",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1988-11-05",
+      "interchanges": [
+        {
+          "code": "EW24",
+          "line": "EWL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7417599,
+          "lat": 1.3339896
+        },
+        {
+          "code": "B",
+          "lng": 103.7426402,
+          "lat": 1.3325262
+        },
+        {
+          "code": "C",
+          "lng": 103.7427621,
+          "lat": 1.3327487
+        },
+        {
+          "code": "D",
+          "lng": 103.7422982,
+          "lat": 1.3335813
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS2",
+      "name": "Bukit Batok",
+      "nameZh": "武吉巴督",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1990-03-10",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.749974,
+          "lat": 1.3495611
+        },
+        {
+          "code": "B",
+          "lng": 103.749937,
+          "lat": 1.3493896
+        },
+        {
+          "code": "C",
+          "lng": 103.7497666,
+          "lat": 1.3495201
+        },
+        {
+          "code": "D",
+          "lng": 103.7491184,
+          "lat": 1.3484054
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS3",
+      "name": "Bukit Gombak",
+      "nameZh": "武吉甘柏",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1990-03-10",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7520764,
+          "lat": 1.3590698
+        },
+        {
+          "code": "B",
+          "lng": 103.752093,
+          "lat": 1.3586953
+        },
+        {
+          "code": "C",
+          "lng": 103.7517266,
+          "lat": 1.359065
+        },
+        {
+          "code": "D",
+          "lng": 103.751951,
+          "lat": 1.3592979
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS4",
+      "name": "Choa Chu Kang",
+      "nameZh": "蔡厝港",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1999-11-06",
+      "interchanges": [
+        {
+          "code": "BP1",
+          "line": "BPLRT"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.74456,
+          "lat": 1.3854
+        },
+        {
+          "code": "B",
+          "lng": 103.74447,
+          "lat": 1.3846
+        },
+        {
+          "code": "C",
+          "lng": 103.74447,
+          "lat": 1.38573
+        },
+        {
+          "code": "D",
+          "lng": 103.74411,
+          "lat": 1.38537
+        },
+        {
+          "code": "E",
+          "lng": 103.74462,
+          "lat": 1.385
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS5",
+      "name": "Yew Tee",
+      "nameZh": "油池",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1996-02-10",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7471952,
+          "lat": 1.3976555
+        },
+        {
+          "code": "B",
+          "lng": 103.7473299,
+          "lat": 1.3980678
+        },
+        {
+          "code": "C",
+          "lng": 103.7474319,
+          "lat": 1.3970008
+        },
+        {
+          "code": "D",
+          "lng": 103.7471114,
+          "lat": 1.3972725
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS7",
+      "name": "Kranji",
+      "nameZh": "克兰芝",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1996-02-10",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7620185,
+          "lat": 1.4247392
+        },
+        {
+          "code": "B",
+          "lng": 103.7619406,
+          "lat": 1.4248526
+        },
+        {
+          "code": "C",
+          "lng": 103.7617547,
+          "lat": 1.4251259
+        },
+        {
+          "code": "D",
+          "lng": 103.7624968,
+          "lat": 1.425125
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS8",
+      "name": "Marsiling",
+      "nameZh": "马西岭",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1996-02-10",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.7742105,
+          "lat": 1.4328017
+        },
+        {
+          "code": "B",
+          "lng": 103.7744105,
+          "lat": 1.4327514
+        },
+        {
+          "code": "C",
+          "lng": 103.7738205,
+          "lat": 1.4324695
+        },
+        {
+          "code": "D",
+          "lng": 103.7739971,
+          "lat": 1.4327514
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS9",
+      "name": "Woodlands",
+      "nameZh": "兀兰",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1996-02-10",
+      "interchanges": [
+        {
+          "code": "TE2",
+          "line": "TEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.7857356,
+          "lat": 1.4366969
+        },
+        {
+          "code": "2",
+          "lng": 103.7865081,
+          "lat": 1.4366731
+        },
+        {
+          "code": "3",
+          "lng": 103.7871082,
+          "lat": 1.4372434
+        },
+        {
+          "code": "4",
+          "lng": 103.7880055,
+          "lat": 1.4375404
+        },
+        {
+          "code": "5",
+          "lng": 103.7889643,
+          "lat": 1.4358439
+        },
+        {
+          "code": "6",
+          "lng": 103.7890891,
+          "lat": 1.4348152
+        },
+        {
+          "code": "7",
+          "lng": 103.7879768,
+          "lat": 1.4344955
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS10",
+      "name": "Admiralty",
+      "nameZh": "海军部",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1996-02-10",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8009895,
+          "lat": 1.4403457
+        },
+        {
+          "code": "B",
+          "lng": 103.8005335,
+          "lat": 1.4401524
+        },
+        {
+          "code": "C",
+          "lng": 103.8005425,
+          "lat": 1.4405963
+        },
+        {
+          "code": "D",
+          "lng": 103.8013645,
+          "lat": 1.4405334
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS11",
+      "name": "Sembawang",
+      "nameZh": "三巴旺",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1996-02-10",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8201097,
+          "lat": 1.4488373
+        },
+        {
+          "code": "B",
+          "lng": 103.8197902,
+          "lat": 1.4487683
+        },
+        {
+          "code": "C",
+          "lng": 103.819759,
+          "lat": 1.4491568
+        },
+        {
+          "code": "D",
+          "lng": 103.8204016,
+          "lat": 1.4489273
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS12",
+      "name": "Canberra",
+      "nameZh": "坎 贝 拉",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "2019-11-02",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.829528,
+          "lat": 1.4436301
+        },
+        {
+          "code": "B",
+          "lng": 103.8299617,
+          "lat": 1.4429351
+        },
+        {
+          "code": "C",
+          "lng": 103.8297003,
+          "lat": 1.4428045
+        },
+        {
+          "code": "D",
+          "lng": 103.8292546,
+          "lat": 1.4435113
+        },
+        {
+          "code": "E",
+          "lng": 103.8301162,
+          "lat": 1.4432559
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS13",
+      "name": "Yishun",
+      "nameZh": "义顺",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1988-12-20",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8347836,
+          "lat": 1.4293972
+        },
+        {
+          "code": "B",
+          "lng": 103.8348655,
+          "lat": 1.4296363
+        },
+        {
+          "code": "C",
+          "lng": 103.8350908,
+          "lat": 1.4291168
+        },
+        {
+          "code": "D",
+          "lng": 103.8348635,
+          "lat": 1.4291065
+        },
+        {
+          "code": "E",
+          "lng": 103.8356437,
+          "lat": 1.4296656
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS14",
+      "name": "Khatib",
+      "nameZh": "卡迪",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1988-12-20",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8329224,
+          "lat": 1.4170582
+        },
+        {
+          "code": "B",
+          "lng": 103.8327067,
+          "lat": 1.4171434
+        },
+        {
+          "code": "C",
+          "lng": 103.8328869,
+          "lat": 1.4175447
+        },
+        {
+          "code": "D",
+          "lng": 103.833231,
+          "lat": 1.417869
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS15",
+      "name": "Yio Chu Kang",
+      "nameZh": "杨厝港",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1987-11-07",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8448342,
+          "lat": 1.3816444
+        },
+        {
+          "code": "B",
+          "lng": 103.8449468,
+          "lat": 1.3815475
+        },
+        {
+          "code": "C",
+          "lng": 103.8446458,
+          "lat": 1.3819536
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS16",
+      "name": "Ang Mo Kio",
+      "nameZh": "宏茂桥",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1987-11-07",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.849939,
+          "lat": 1.3694647
+        },
+        {
+          "code": "B",
+          "lng": 103.8495961,
+          "lat": 1.3696853
+        },
+        {
+          "code": "C",
+          "lng": 103.8493433,
+          "lat": 1.3694405
+        },
+        {
+          "code": "D",
+          "lng": 103.8498246,
+          "lat": 1.3698824
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS17",
+      "name": "Bishan",
+      "nameZh": "碧山",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1987-11-07",
+      "interchanges": [
+        {
+          "code": "CC15",
+          "line": "CCL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.848305,
+          "lat": 1.3505796
+        },
+        {
+          "code": "B",
+          "lng": 103.8483123,
+          "lat": 1.3510644
+        },
+        {
+          "code": "C",
+          "lng": 103.8482093,
+          "lat": 1.3505849
+        },
+        {
+          "code": "D",
+          "lng": 103.8502011,
+          "lat": 1.3510532
+        },
+        {
+          "code": "E",
+          "lng": 103.8484329,
+          "lat": 1.3510348
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS18",
+      "name": "Braddell",
+      "nameZh": "布莱德",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1987-11-07",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8464295,
+          "lat": 1.341069
+        },
+        {
+          "code": "B",
+          "lng": 103.8464065,
+          "lat": 1.3407443
+        },
+        {
+          "code": "C",
+          "lng": 103.8474408,
+          "lat": 1.3406722
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS19",
+      "name": "Toa Payoh",
+      "nameZh": "大巴窑",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1987-11-07",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8477238,
+          "lat": 1.3323764
+        },
+        {
+          "code": "B",
+          "lng": 103.8475776,
+          "lat": 1.3323155
+        },
+        {
+          "code": "C",
+          "lng": 103.8473198,
+          "lat": 1.3329941
+        },
+        {
+          "code": "D",
+          "lng": 103.8465174,
+          "lat": 1.3332787
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS20",
+      "name": "Novena",
+      "nameZh": "诺维娜",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1987-12-12",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8443893,
+          "lat": 1.3210949
+        },
+        {
+          "code": "B",
+          "lng": 103.8433397,
+          "lat": 1.3198959
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS21",
+      "name": "Newton",
+      "nameZh": "纽顿",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1987-12-12",
+      "interchanges": [
+        {
+          "code": "DT11",
+          "line": "DTL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8378813,
+          "lat": 1.3125978
+        },
+        {
+          "code": "B",
+          "lng": 103.8382191,
+          "lat": 1.3120755
+        },
+        {
+          "code": "C",
+          "lng": 103.8382424,
+          "lat": 1.3136173
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS22",
+      "name": "Orchard",
+      "nameZh": "乌节",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1987-12-12",
+      "interchanges": [
+        {
+          "code": "TE14",
+          "line": "TEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8325243,
+          "lat": 1.3048922
+        },
+        {
+          "code": "2",
+          "lng": 103.8326196,
+          "lat": 1.3043544
+        },
+        {
+          "code": "3",
+          "lng": 103.8327708,
+          "lat": 1.3041611
+        },
+        {
+          "code": "4",
+          "lng": 103.8320398,
+          "lat": 1.3045605
+        },
+        {
+          "code": "5",
+          "lng": 103.8320238,
+          "lat": 1.3039447
+        },
+        {
+          "code": "6",
+          "lng": 103.8323209,
+          "lat": 1.3036477
+        },
+        {
+          "code": "7",
+          "lng": 103.8321716,
+          "lat": 1.3031675
+        },
+        {
+          "code": "8",
+          "lng": 103.8317861,
+          "lat": 1.3034457
+        },
+        {
+          "code": "9",
+          "lng": 103.8315069,
+          "lat": 1.3036655
+        },
+        {
+          "code": "10",
+          "lng": 103.8311266,
+          "lat": 1.3040457
+        },
+        {
+          "code": "11",
+          "lng": 103.8304967,
+          "lat": 1.304218
+        },
+        {
+          "code": "12",
+          "lng": 103.8306631,
+          "lat": 1.3028576
+        },
+        {
+          "code": "13",
+          "lng": 103.8321248,
+          "lat": 1.3022992
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS23",
+      "name": "Somerset",
+      "nameZh": "索美塞",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1987-12-12",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8383993,
+          "lat": 1.3000285
+        },
+        {
+          "code": "B",
+          "lng": 103.838459,
+          "lat": 1.3007665
+        },
+        {
+          "code": "C",
+          "lng": 103.8387656,
+          "lat": 1.3004362
+        },
+        {
+          "code": "D",
+          "lng": 103.8397341,
+          "lat": 1.3002411
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS24",
+      "name": "Dhoby Ghaut",
+      "nameZh": "多美歌",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1987-12-12",
+      "interchanges": [
+        {
+          "code": "NE6",
+          "line": "NEL"
+        },
+        {
+          "code": "CC1",
+          "line": "CCL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.846788,
+          "lat": 1.2984451
+        },
+        {
+          "code": "B",
+          "lng": 103.8452296,
+          "lat": 1.2990559
+        },
+        {
+          "code": "C",
+          "lng": 103.8447479,
+          "lat": 1.2996492
+        },
+        {
+          "code": "D",
+          "lng": 103.8450301,
+          "lat": 1.2999307
+        },
+        {
+          "code": "E",
+          "lng": 103.8453723,
+          "lat": 1.2997485
+        },
+        {
+          "code": "F",
+          "lng": 103.8458423,
+          "lat": 1.2996349
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS25",
+      "name": "City Hall",
+      "nameZh": "政府大厦",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1987-12-12",
+      "interchanges": [
+        {
+          "code": "EW13",
+          "line": "EWL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8530204,
+          "lat": 1.2932271
+        },
+        {
+          "code": "B",
+          "lng": 103.8519602,
+          "lat": 1.2930999
+        },
+        {
+          "code": "C",
+          "lng": 103.8529803,
+          "lat": 1.2930418
+        },
+        {
+          "code": "D",
+          "lng": 103.8518023,
+          "lat": 1.2934548
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS26",
+      "name": "Raffles Place",
+      "nameZh": "莱佛士坊",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1987-12-12",
+      "interchanges": [
+        {
+          "code": "EW14",
+          "line": "EWL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8514384,
+          "lat": 1.2841251
+        },
+        {
+          "code": "B",
+          "lng": 103.85148,
+          "lat": 1.2846069
+        },
+        {
+          "code": "C",
+          "lng": 103.8515625,
+          "lat": 1.2836305
+        },
+        {
+          "code": "D",
+          "lng": 103.8513532,
+          "lat": 1.2836414
+        },
+        {
+          "code": "E",
+          "lng": 103.8515226,
+          "lat": 1.2832116
+        },
+        {
+          "code": "F",
+          "lng": 103.8509609,
+          "lat": 1.2825386
+        },
+        {
+          "code": "G",
+          "lng": 103.8514781,
+          "lat": 1.2850169
+        },
+        {
+          "code": "H",
+          "lng": 103.8516217,
+          "lat": 1.2852583
+        },
+        {
+          "code": "I",
+          "lng": 103.8514333,
+          "lat": 1.2823823
+        },
+        {
+          "code": "J",
+          "lng": 103.851296,
+          "lat": 1.2826262
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS27",
+      "name": "Marina Bay",
+      "nameZh": "滨海湾",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "1989-11-04",
+      "interchanges": [
+        {
+          "code": "CE2",
+          "line": "CCL"
+        },
+        {
+          "code": "TE20",
+          "line": "TEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.85447,
+          "lat": 1.277353
+        },
+        {
+          "code": "2",
+          "lng": 103.8550033,
+          "lat": 1.2761589
+        },
+        {
+          "code": "3",
+          "lng": 103.8553717,
+          "lat": 1.2754164
+        },
+        {
+          "code": "4",
+          "lng": 103.8564888,
+          "lat": 1.2736342
+        },
+        {
+          "code": "5",
+          "lng": 103.8543195,
+          "lat": 1.2746933
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "NS28",
+      "name": "Marina South Pier",
+      "nameZh": "滨海南码头",
+      "line": "NSL",
+      "lineName": "North-South Line",
+      "opened": "2014-11-23",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8623301,
+          "lat": 1.27053
+        },
+        {
+          "code": "B",
+          "lng": 103.8635797,
+          "lat": 1.2714378
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "PE1",
+      "name": "Cove",
+      "nameZh": "海湾",
+      "line": "PGLRT",
+      "lineName": "Punggol LRT",
+      "opened": "2005-01-29",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9059287,
+          "lat": 1.3991244
+        },
+        {
+          "code": "B",
+          "lng": 103.906176,
+          "lat": 1.3993027
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "PE2",
+      "name": "Meridian",
+      "nameZh": "丽园",
+      "line": "PGLRT",
+      "lineName": "Punggol LRT",
+      "opened": "2005-01-29",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9089658,
+          "lat": 1.3966811
+        },
+        {
+          "code": "B",
+          "lng": 103.9088695,
+          "lat": 1.3971217
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "PE3",
+      "name": "Coral Edge",
+      "nameZh": "珊瑚",
+      "line": "PGLRT",
+      "lineName": "Punggol LRT",
+      "opened": "2005-01-29",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9126522,
+          "lat": 1.3936847
+        },
+        {
+          "code": "B",
+          "lng": 103.9127087,
+          "lat": 1.3939708
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "PE4",
+      "name": "Riviera",
+      "nameZh": "里维拉",
+      "line": "PGLRT",
+      "lineName": "Punggol LRT",
+      "opened": "2005-01-29",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9162631,
+          "lat": 1.3943256
+        },
+        {
+          "code": "B",
+          "lng": 103.9159355,
+          "lat": 1.3945591
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "PE5",
+      "name": "Kadaloor",
+      "nameZh": "卡达鲁",
+      "line": "PGLRT",
+      "lineName": "Punggol LRT",
+      "opened": "2005-01-29",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9163875,
+          "lat": 1.3998093
+        },
+        {
+          "code": "B",
+          "lng": 103.9165171,
+          "lat": 1.3994115
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "PE6",
+      "name": "Oasis",
+      "nameZh": "绿洲",
+      "line": "PGLRT",
+      "lineName": "Punggol LRT",
+      "opened": "2007-06-15",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9126461,
+          "lat": 1.4025071
+        },
+        {
+          "code": "B",
+          "lng": 103.9127546,
+          "lat": 1.4021037
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "PE7",
+      "name": "Damai",
+      "nameZh": "达迈",
+      "line": "PGLRT",
+      "lineName": "Punggol LRT",
+      "opened": "2011-06-20",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9087922,
+          "lat": 1.4052846
+        },
+        {
+          "code": "B",
+          "lng": 103.9086139,
+          "lat": 1.405046
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "PTC",
+      "name": "Punggol",
+      "nameZh": "榜鹅",
+      "line": "PGLRT",
+      "lineName": "Punggol LRT",
+      "opened": "2003-06-20",
+      "interchanges": [
+        {
+          "code": "NE17",
+          "line": "NEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.902306,
+          "lat": 1.4053396
+        },
+        {
+          "code": "B",
+          "lng": 103.9025982,
+          "lat": 1.4051862
+        },
+        {
+          "code": "C",
+          "lng": 103.9021156,
+          "lat": 1.4043006
+        },
+        {
+          "code": "D",
+          "lng": 103.9017985,
+          "lat": 1.4044383
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "PW1",
+      "name": "Sam Kee",
+      "nameZh": "三记",
+      "line": "PGLRT",
+      "lineName": "Punggol LRT",
+      "opened": "2016-02-29",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9050386,
+          "lat": 1.4097025
+        },
+        {
+          "code": "B",
+          "lng": 103.9047923,
+          "lat": 1.4098277
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "PW2",
+      "name": "Teck Lee",
+      "nameZh": "德利",
+      "line": "PGLRT",
+      "lineName": "Punggol LRT",
+      "opened": "2024-08-15",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9067815,
+          "lat": 1.4128757
+        },
+        {
+          "code": "B",
+          "lng": 103.9065108,
+          "lat": 1.412929
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "PW3",
+      "name": "Punggol Point",
+      "nameZh": "榜鹅坊",
+      "line": "PGLRT",
+      "lineName": "Punggol LRT",
+      "opened": "2016-12-29",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9068178,
+          "lat": 1.4169148
+        },
+        {
+          "code": "B",
+          "lng": 103.9066933,
+          "lat": 1.4166641
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "PW4",
+      "name": "Samudera",
+      "nameZh": "山姆",
+      "line": "PGLRT",
+      "lineName": "Punggol LRT",
+      "opened": "2017-03-31",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9019115,
+          "lat": 1.4158654
+        },
+        {
+          "code": "B",
+          "lng": 103.9023616,
+          "lat": 1.4159059
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "PW5",
+      "name": "Nibong",
+      "nameZh": "尼蒙",
+      "line": "PGLRT",
+      "lineName": "Punggol LRT",
+      "opened": "2014-06-29",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9000738,
+          "lat": 1.4117728
+        },
+        {
+          "code": "B",
+          "lng": 103.9005316,
+          "lat": 1.4119103
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "PW6",
+      "name": "Sumang",
+      "nameZh": "苏芒",
+      "line": "PGLRT",
+      "lineName": "Punggol LRT",
+      "opened": "2014-06-29",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8983357,
+          "lat": 1.4083684
+        },
+        {
+          "code": "B",
+          "lng": 103.8987571,
+          "lat": 1.4084879
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "PW7",
+      "name": "Soo Teck",
+      "nameZh": "树德",
+      "line": "PGLRT",
+      "lineName": "Punggol LRT",
+      "opened": "2014-06-29",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8970299,
+          "lat": 1.4050149
+        },
+        {
+          "code": "B",
+          "lng": 103.8974086,
+          "lat": 1.4052449
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "SE1",
+      "name": "Compassvale",
+      "nameZh": "康埔桦",
+      "line": "SKLRT",
+      "lineName": "Sengkang LRT",
+      "opened": "2003-01-18",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9006165,
+          "lat": 1.3943275
+        },
+        {
+          "code": "B",
+          "lng": 103.9007066,
+          "lat": 1.3945342
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "SE2",
+      "name": "Rumbia",
+      "nameZh": "棕美",
+      "line": "SKLRT",
+      "lineName": "Sengkang LRT",
+      "opened": "2003-01-18",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9060188,
+          "lat": 1.3913405
+        },
+        {
+          "code": "B",
+          "lng": 103.9061058,
+          "lat": 1.3914142
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "SE3",
+      "name": "Bakau",
+      "nameZh": "码高",
+      "line": "SKLRT",
+      "lineName": "Sengkang LRT",
+      "opened": "2003-01-18",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9054456,
+          "lat": 1.3881854
+        },
+        {
+          "code": "B",
+          "lng": 103.9054821,
+          "lat": 1.3878408
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "SE4",
+      "name": "Kangkar",
+      "nameZh": "港脚",
+      "line": "SKLRT",
+      "lineName": "Sengkang LRT",
+      "opened": "2003-01-18",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.9021476,
+          "lat": 1.3840745
+        },
+        {
+          "code": "B",
+          "lng": 103.9022764,
+          "lat": 1.3837652
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "SE5",
+      "name": "Ranggung",
+      "nameZh": "兰岗",
+      "line": "SKLRT",
+      "lineName": "Sengkang LRT",
+      "opened": "2003-01-18",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8973217,
+          "lat": 1.3841764
+        },
+        {
+          "code": "B",
+          "lng": 103.8972239,
+          "lat": 1.3841049
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "STC",
+      "name": "Sengkang",
+      "nameZh": "盛港",
+      "line": "SKLRT",
+      "lineName": "Sengkang LRT",
+      "opened": "2003-01-18",
+      "interchanges": [
+        {
+          "code": "NE16",
+          "line": "NEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8954057,
+          "lat": 1.3918291
+        },
+        {
+          "code": "B",
+          "lng": 103.8956369,
+          "lat": 1.3917956
+        },
+        {
+          "code": "C",
+          "lng": 103.8952094,
+          "lat": 1.3908816
+        },
+        {
+          "code": "D",
+          "lng": 103.8957055,
+          "lat": 1.3923708
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "SW1",
+      "name": "Cheng Lim",
+      "nameZh": "振林",
+      "line": "SKLRT",
+      "lineName": "Sengkang LRT",
+      "opened": "2013-01-01",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8936849,
+          "lat": 1.3963732
+        },
+        {
+          "code": "B",
+          "lng": 103.8939203,
+          "lat": 1.396187
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "SW2",
+      "name": "Farmway",
+      "nameZh": "农道",
+      "line": "SKLRT",
+      "lineName": "Sengkang LRT",
+      "opened": "2007-11-15",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8894074,
+          "lat": 1.3972003
+        },
+        {
+          "code": "B",
+          "lng": 103.889115,
+          "lat": 1.3971335
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "SW3",
+      "name": "Kupang",
+      "nameZh": "古邦",
+      "line": "SKLRT",
+      "lineName": "Sengkang LRT",
+      "opened": "2015-06-27",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8811392,
+          "lat": 1.3982842
+        },
+        {
+          "code": "B",
+          "lng": 103.8811379,
+          "lat": 1.3981588
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "SW4",
+      "name": "Thanggam",
+      "nameZh": "丹甘",
+      "line": "SKLRT",
+      "lineName": "Sengkang LRT",
+      "opened": "2005-01-29",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8755664,
+          "lat": 1.397198
+        },
+        {
+          "code": "B",
+          "lng": 103.8756868,
+          "lat": 1.3971925
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "SW5",
+      "name": "Fernvale",
+      "nameZh": "芬微",
+      "line": "SKLRT",
+      "lineName": "Sengkang LRT",
+      "opened": "2005-01-29",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8762617,
+          "lat": 1.3921583
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "SW6",
+      "name": "Layar",
+      "nameZh": "拉雅",
+      "line": "SKLRT",
+      "lineName": "Sengkang LRT",
+      "opened": "2005-01-29",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8801597,
+          "lat": 1.3920262
+        },
+        {
+          "code": "B",
+          "lng": 103.8801428,
+          "lat": 1.3921445
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "SW7",
+      "name": "Tongkang",
+      "nameZh": "同港",
+      "line": "SKLRT",
+      "lineName": "Sengkang LRT",
+      "opened": "2005-01-29",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8859621,
+          "lat": 1.3891802
+        },
+        {
+          "code": "B",
+          "lng": 103.8860844,
+          "lat": 1.389379
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "SW8",
+      "name": "Renjong",
+      "nameZh": "仁宗",
+      "line": "SKLRT",
+      "lineName": "Sengkang LRT",
+      "opened": "2005-01-29",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8904092,
+          "lat": 1.386698
+        },
+        {
+          "code": "B",
+          "lng": 103.8904382,
+          "lat": 1.3868141
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE1",
+      "name": "Woodlands North",
+      "nameZh": "兀 兰 北",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2020-01-31",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.7854291,
+          "lat": 1.4479365
+        },
+        {
+          "code": "2",
+          "lng": 103.7851023,
+          "lat": 1.4490473
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE2",
+      "name": "Woodlands",
+      "nameZh": "兀 兰",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "1996-02-10",
+      "interchanges": [
+        {
+          "code": "NS9",
+          "line": "NSL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.7857356,
+          "lat": 1.4366969
+        },
+        {
+          "code": "2",
+          "lng": 103.7865081,
+          "lat": 1.4366731
+        },
+        {
+          "code": "3",
+          "lng": 103.7871082,
+          "lat": 1.4372434
+        },
+        {
+          "code": "4",
+          "lng": 103.7880055,
+          "lat": 1.4375404
+        },
+        {
+          "code": "5",
+          "lng": 103.7889643,
+          "lat": 1.4358439
+        },
+        {
+          "code": "6",
+          "lng": 103.7890891,
+          "lat": 1.4348152
+        },
+        {
+          "code": "7",
+          "lng": 103.7879768,
+          "lat": 1.4344955
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE3",
+      "name": "Woodlands South",
+      "nameZh": "兀 兰 南",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2020-01-31",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.7930275,
+          "lat": 1.427302
+        },
+        {
+          "code": "2",
+          "lng": 103.7934137,
+          "lat": 1.427605
+        },
+        {
+          "code": "3",
+          "lng": 103.7945605,
+          "lat": 1.4274268
+        },
+        {
+          "code": "4",
+          "lng": 103.7944238,
+          "lat": 1.4266842
+        },
+        {
+          "code": "5",
+          "lng": 103.7943652,
+          "lat": 1.4258434
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE4",
+      "name": "Springleaf",
+      "nameZh": "春叶",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2021-08-28",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8180034,
+          "lat": 1.3987872
+        },
+        {
+          "code": "2",
+          "lng": 103.8183906,
+          "lat": 1.3978208
+        },
+        {
+          "code": "3",
+          "lng": 103.8180816,
+          "lat": 1.3976842
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE5",
+      "name": "Lentor",
+      "nameZh": "伦多",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2021-08-28",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.83536,
+          "lat": 1.3854098
+        },
+        {
+          "code": "2",
+          "lng": 103.8358235,
+          "lat": 1.385891
+        },
+        {
+          "code": "3",
+          "lng": 103.8373981,
+          "lat": 1.384602
+        },
+        {
+          "code": "4",
+          "lng": 103.8373387,
+          "lat": 1.3836278
+        },
+        {
+          "code": "5",
+          "lng": 103.8368395,
+          "lat": 1.3841624
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE6",
+      "name": "Mayflower",
+      "nameZh": "美华",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2021-08-28",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8367168,
+          "lat": 1.372704
+        },
+        {
+          "code": "2",
+          "lng": 103.8370317,
+          "lat": 1.3737198
+        },
+        {
+          "code": "3",
+          "lng": 103.837461,
+          "lat": 1.3735321
+        },
+        {
+          "code": "4",
+          "lng": 103.836796,
+          "lat": 1.3712763
+        },
+        {
+          "code": "5",
+          "lng": 103.8367603,
+          "lat": 1.3707773
+        },
+        {
+          "code": "6",
+          "lng": 103.8363087,
+          "lat": 1.3708961
+        },
+        {
+          "code": "7",
+          "lng": 103.836285,
+          "lat": 1.3713773
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE7",
+      "name": "Bright Hill",
+      "nameZh": "光明山",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2021-08-28",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8336354,
+          "lat": 1.3640372
+        },
+        {
+          "code": "2",
+          "lng": 103.8335106,
+          "lat": 1.3632828
+        },
+        {
+          "code": "3",
+          "lng": 103.8323757,
+          "lat": 1.3621838
+        },
+        {
+          "code": "4",
+          "lng": 103.8319538,
+          "lat": 1.363164
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE8",
+      "name": "Upper Thomson",
+      "nameZh": "汤申路上段",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2021-08-28",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8319162,
+          "lat": 1.3548336
+        },
+        {
+          "code": "2",
+          "lng": 103.831833,
+          "lat": 1.3557366
+        },
+        {
+          "code": "3",
+          "lng": 103.8339246,
+          "lat": 1.3541446
+        },
+        {
+          "code": "4",
+          "lng": 103.8337939,
+          "lat": 1.353503
+        },
+        {
+          "code": "5",
+          "lng": 103.8326352,
+          "lat": 1.3544178
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE9",
+      "name": "Caldecott",
+      "nameZh": "加利谷",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2011-10-08",
+      "interchanges": [
+        {
+          "code": "CC17",
+          "line": "CCL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8394067,
+          "lat": 1.3371053
+        },
+        {
+          "code": "2",
+          "lng": 103.8403875,
+          "lat": 1.3382597
+        },
+        {
+          "code": "3",
+          "lng": 103.8404647,
+          "lat": 1.337832
+        },
+        {
+          "code": "4",
+          "lng": 103.8398824,
+          "lat": 1.3367509
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE11",
+      "name": "Stevens",
+      "nameZh": "史蒂芬",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2015-12-27",
+      "interchanges": [
+        {
+          "code": "DT10",
+          "line": "DTL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8257284,
+          "lat": 1.3199516
+        },
+        {
+          "code": "2",
+          "lng": 103.8260136,
+          "lat": 1.3188289
+        },
+        {
+          "code": "3",
+          "lng": 103.8249916,
+          "lat": 1.3194705
+        },
+        {
+          "code": "4",
+          "lng": 103.8258829,
+          "lat": 1.3215199
+        },
+        {
+          "code": "5",
+          "lng": 103.8263226,
+          "lat": 1.3209377
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE12",
+      "name": "Napier",
+      "nameZh": "纳比雅",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2022-11-13",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8194838,
+          "lat": 1.306936
+        },
+        {
+          "code": "2",
+          "lng": 103.8195066,
+          "lat": 1.306345
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE13",
+      "name": "Orchard Boulevard",
+      "nameZh": "乌节大道",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2022-11-13",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8236379,
+          "lat": 1.303624
+        },
+        {
+          "code": "2",
+          "lng": 103.8238956,
+          "lat": 1.3024633
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE14",
+      "name": "Orchard",
+      "nameZh": "乌节",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "1987-12-12",
+      "interchanges": [
+        {
+          "code": "NS22",
+          "line": "NSL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8325243,
+          "lat": 1.3048922
+        },
+        {
+          "code": "2",
+          "lng": 103.8326196,
+          "lat": 1.3043544
+        },
+        {
+          "code": "3",
+          "lng": 103.8327708,
+          "lat": 1.3041611
+        },
+        {
+          "code": "4",
+          "lng": 103.8320398,
+          "lat": 1.3045605
+        },
+        {
+          "code": "5",
+          "lng": 103.8320238,
+          "lat": 1.3039447
+        },
+        {
+          "code": "6",
+          "lng": 103.8323209,
+          "lat": 1.3036477
+        },
+        {
+          "code": "7",
+          "lng": 103.8321716,
+          "lat": 1.3031675
+        },
+        {
+          "code": "8",
+          "lng": 103.8317861,
+          "lat": 1.3034457
+        },
+        {
+          "code": "9",
+          "lng": 103.8315069,
+          "lat": 1.3036655
+        },
+        {
+          "code": "10",
+          "lng": 103.8311266,
+          "lat": 1.3040457
+        },
+        {
+          "code": "11",
+          "lng": 103.8304967,
+          "lat": 1.304218
+        },
+        {
+          "code": "12",
+          "lng": 103.8306631,
+          "lat": 1.3028576
+        },
+        {
+          "code": "13",
+          "lng": 103.8321248,
+          "lat": 1.3022992
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE15",
+      "name": "Great World",
+      "nameZh": "大世界",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2022-11-13",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8339046,
+          "lat": 1.293321
+        },
+        {
+          "code": "2",
+          "lng": 103.8326271,
+          "lat": 1.2928695
+        },
+        {
+          "code": "3",
+          "lng": 103.8327341,
+          "lat": 1.29382
+        },
+        {
+          "code": "4",
+          "lng": 103.8330371,
+          "lat": 1.2960298
+        },
+        {
+          "code": "5",
+          "lng": 103.8334055,
+          "lat": 1.2965526
+        },
+        {
+          "code": "6",
+          "lng": 103.832841,
+          "lat": 1.2931843
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE16",
+      "name": "Havelock",
+      "nameZh": "合乐",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2022-11-13",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8338398,
+          "lat": 1.2866767
+        },
+        {
+          "code": "2",
+          "lng": 103.8334951,
+          "lat": 1.2869441
+        },
+        {
+          "code": "3",
+          "lng": 103.8333695,
+          "lat": 1.2888436
+        },
+        {
+          "code": "4",
+          "lng": 103.8340035,
+          "lat": 1.2901669
+        },
+        {
+          "code": "5",
+          "lng": 103.8339619,
+          "lat": 1.289561
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE17",
+      "name": "Outram Park",
+      "nameZh": "欧南园",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "1987-12-12",
+      "interchanges": [
+        {
+          "code": "EW16",
+          "line": "EWL"
+        },
+        {
+          "code": "NE3",
+          "line": "NEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8386577,
+          "lat": 1.2816024
+        },
+        {
+          "code": "2",
+          "lng": 103.8389348,
+          "lat": 1.2816753
+        },
+        {
+          "code": "3",
+          "lng": 103.8397892,
+          "lat": 1.2809933
+        },
+        {
+          "code": "4",
+          "lng": 103.8403868,
+          "lat": 1.2802134
+        },
+        {
+          "code": "5",
+          "lng": 103.8395492,
+          "lat": 1.278947
+        },
+        {
+          "code": "6",
+          "lng": 103.8385373,
+          "lat": 1.2790512
+        },
+        {
+          "code": "7",
+          "lng": 103.8386402,
+          "lat": 1.281022
+        },
+        {
+          "code": "8",
+          "lng": 103.8381171,
+          "lat": 1.2823216
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE18",
+      "name": "Maxwell",
+      "nameZh": "麦士威",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2022-11-13",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8441644,
+          "lat": 1.2810343
+        },
+        {
+          "code": "2",
+          "lng": 103.8448955,
+          "lat": 1.2809194
+        },
+        {
+          "code": "3",
+          "lng": 103.8429163,
+          "lat": 1.2801915
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE19",
+      "name": "Shenton Way",
+      "nameZh": "珊顿道",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2022-11-13",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8518357,
+          "lat": 1.2774621
+        },
+        {
+          "code": "2",
+          "lng": 103.8509151,
+          "lat": 1.2770031
+        },
+        {
+          "code": "3",
+          "lng": 103.8501288,
+          "lat": 1.2776296
+        },
+        {
+          "code": "4",
+          "lng": 103.8510341,
+          "lat": 1.2776559
+        },
+        {
+          "code": "5",
+          "lng": 103.851808,
+          "lat": 1.2771436
+        },
+        {
+          "code": "6",
+          "lng": 103.8498932,
+          "lat": 1.2779292
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE20",
+      "name": "Marina Bay",
+      "nameZh": "滨海湾",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "1989-11-04",
+      "interchanges": [
+        {
+          "code": "NS27",
+          "line": "NSL"
+        },
+        {
+          "code": "CE2",
+          "line": "CCL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.85447,
+          "lat": 1.277353
+        },
+        {
+          "code": "2",
+          "lng": 103.8550033,
+          "lat": 1.2761589
+        },
+        {
+          "code": "3",
+          "lng": 103.8553717,
+          "lat": 1.2754164
+        },
+        {
+          "code": "4",
+          "lng": 103.8564888,
+          "lat": 1.2736342
+        },
+        {
+          "code": "5",
+          "lng": 103.8543195,
+          "lat": 1.2746933
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE22",
+      "name": "Gardens by the Bay",
+      "nameZh": "滨海湾花园",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2022-11-13",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8685867,
+          "lat": 1.2803708
+        },
+        {
+          "code": "2",
+          "lng": 103.8679688,
+          "lat": 1.2788262
+        },
+        {
+          "code": "3",
+          "lng": 103.8671541,
+          "lat": 1.2783034
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE23",
+      "name": "Tanjong Rhu",
+      "nameZh": "丹戎禺",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2024-06-23",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8734779,
+          "lat": 1.2964595
+        },
+        {
+          "code": "2",
+          "lng": 103.8736027,
+          "lat": 1.2982
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE24",
+      "name": "Katong Park",
+      "nameZh": "加东公园",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2024-06-23",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8870921,
+          "lat": 1.2975385
+        },
+        {
+          "code": "2",
+          "lng": 103.8850692,
+          "lat": 1.2983797
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE25",
+      "name": "Tanjong Katong",
+      "nameZh": "丹戎加东",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2024-06-23",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.8970455,
+          "lat": 1.2990387
+        },
+        {
+          "code": "2",
+          "lng": 103.8976931,
+          "lat": 1.2990161
+        },
+        {
+          "code": "3",
+          "lng": 103.8977153,
+          "lat": 1.3002292
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE26",
+      "name": "Marine Parade",
+      "nameZh": "马林百列",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2024-06-23",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.9059104,
+          "lat": 1.3020933
+        },
+        {
+          "code": "2",
+          "lng": 103.9045912,
+          "lat": 1.3025317
+        },
+        {
+          "code": "3",
+          "lng": 103.9060529,
+          "lat": 1.303594
+        },
+        {
+          "code": "4",
+          "lng": 103.9076275,
+          "lat": 1.3045659
+        },
+        {
+          "code": "5",
+          "lng": 103.9090937,
+          "lat": 1.3055802
+        },
+        {
+          "code": "6",
+          "lng": 103.9077879,
+          "lat": 1.3042985
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE27",
+      "name": "Marine Terrace",
+      "nameZh": "马林台",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2024-06-23",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.9150522,
+          "lat": 1.3063987
+        },
+        {
+          "code": "2",
+          "lng": 103.913253,
+          "lat": 1.3057892
+        },
+        {
+          "code": "3",
+          "lng": 103.9130866,
+          "lat": 1.3065793
+        },
+        {
+          "code": "4",
+          "lng": 103.9150201,
+          "lat": 1.3068953
+        },
+        {
+          "code": "5",
+          "lng": 103.9170891,
+          "lat": 1.3074383
+        },
+        {
+          "code": "6",
+          "lng": 103.9169453,
+          "lat": 1.3070628
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE28",
+      "name": "Siglap",
+      "nameZh": "实乞纳",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2024-06-23",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.9287926,
+          "lat": 1.3088503
+        },
+        {
+          "code": "2",
+          "lng": 103.9285863,
+          "lat": 1.3097766
+        },
+        {
+          "code": "3",
+          "lng": 103.9312459,
+          "lat": 1.3105892
+        },
+        {
+          "code": "4",
+          "lng": 103.9312911,
+          "lat": 1.3102017
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "TE29",
+      "name": "Bayshore",
+      "nameZh": "碧湾",
+      "line": "TEL",
+      "lineName": "Thomson-East Coast Line",
+      "opened": "2024-06-23",
+      "interchanges": [],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.9412617,
+          "lat": 1.3118987
+        },
+        {
+          "code": "2",
+          "lng": 103.9406735,
+          "lat": 1.3121839
+        },
+        {
+          "code": "3",
+          "lng": 103.940721,
+          "lat": 1.313568
+        },
+        {
+          "code": "4",
+          "lng": 103.9426759,
+          "lat": 1.3135264
+        },
+        {
+          "code": "5",
+          "lng": 103.9425844,
+          "lat": 1.3128967
+        }
+      ],
+      "dataGaps": []
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+MIT License
+
+Copyright (c) 2026 MRT Kiasu contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+DATA LICENCES — the code above is MIT; the datasets under src/data/ are not.
+
+  src/data/exits.json, stations.json
+    Contains information from the Land Transport Authority accessed via
+    data.gov.sg and LTA DataMall, under the Singapore Open Data Licence.
+    https://data.gov.sg/open-data-licence
+
+  src/data/landmarks.json
+    Derived from OpenStreetMap data, © OpenStreetMap contributors.
+    Available under the Open Database Licence (ODbL) 1.0. As a Derived
+    Database, redistribution must keep it under ODbL.
+    https://opendatacommons.org/licenses/odbl/
+
+  src/data/trivia.json, trivia.translated.json
+    Text from Wikipedia, CC BY-SA 4.0. Opening dates from Wikidata, CC0.
+    Translations are machine-generated from the Wikipedia text and inherit
+    CC BY-SA 4.0.
+
+  src/data/estimates.json
+    Computed from the LTA exit data above; inherits the Singapore Open Data
+    Licence terms of its source.

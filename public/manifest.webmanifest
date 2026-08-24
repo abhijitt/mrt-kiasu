@@ -1,0 +1,15 @@
+{
+  "name": "MRT Kiasu",
+  "short_name": "MRT Kiasu",
+  "description": "Stand at the right door. Singapore MRT platform positions for the fastest exit and transfer.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#12121d",
+  "theme_color": "#12121d",
+  "categories": ["travel", "navigation", "utilities"],
+  "lang": "en-SG",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

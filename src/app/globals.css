@@ -1,26 +1,464 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ---------------------------------------------------------------
+   MRT Kiasu design tokens — 8-bit, but readable.
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+   Light is the base palette on bare :root. Dark is redefined twice:
+   once under prefers-color-scheme (guarded so an explicit light
+   choice wins) and once under [data-theme="dark"] so the manual
+   toggle wins in both directions.
+   --------------------------------------------------------------- */
+
+:root {
+  /* Surfaces — warm off-white, like a well-lit platform */
+  --bg: #f2eee1;
+  --bg-raised: #ffffff;
+  --bg-sunken: #e4dece;
+  --bg-hud: #1a1a2e;
+  --hud-fg: #f2eee1;
+
+  /* Ink */
+  --fg: #1a1a2e;
+  --fg-muted: #5c5c73;
+  --fg-faint: #8a8a9e;
+
+  /* Structure — the chunky pixel borders */
+  --border: #1a1a2e;
+  --border-soft: #b8b2a0;
+  --shadow: #1a1a2e;
+
+  /* Semantic */
+  --accent: #d42e12;
+  --accent-fg: #ffffff;
+  --ok: #009645;
+  --warn: #fa9e0d;
+  --danger: #d42e12;
+
+  /* Crowd levels, from LTA's l/m/h */
+  --crowd-l: #009645;
+  --crowd-m: #fa9e0d;
+  --crowd-h: #d42e12;
+  --crowd-na: #8a8a9e;
+
+  /* Data confidence — used to keep unverified data visibly unverified */
+  --verified: #009645;
+  --candidate: #fa9e0d;
+
+  /* Official MRT line colours */
+  --line-nsl: #d42e12;
+  --line-ewl: #009645;
+  --line-nel: #9016b2;
+  --line-ccl: #fa9e0d;
+  --line-dtl: #005ec4;
+  --line-tel: #9d5b25;
+  --line-jrl: #0099aa;
+  --line-lrt: #718573;
+
+  --ink-nsl: #ffffff;
+  --ink-ewl: #ffffff;
+  --ink-nel: #ffffff;
+  --ink-ccl: #1a1a2e;
+  --ink-dtl: #ffffff;
+  --ink-tel: #ffffff;
+  --ink-lrt: #ffffff;
+
+  --px: 4px;
+
+  /* Font stacks live here, not in @theme: `@theme inline` resolves values into
+     the utilities it generates and does not emit custom properties, so a
+     var(--font-pixel) lookup in plain CSS found nothing and every heading fell
+     back to system sans — which is why none of the 8-bit type was rendering.
+
+     Press Start 2P and Inter are Latin-only, so Chinese and Tamil fall through
+     to the platform's own faces rather than rendering as tofu. */
+  --pixel-stack: var(--font-press-start), "PingFang SC", "Noto Sans CJK SC",
+    "Microsoft YaHei", "Noto Sans Tamil", "Latha", "Courier New", monospace;
+  --body-stack: var(--font-body), system-ui, -apple-system, "PingFang SC",
+    "Noto Sans CJK SC", "Microsoft YaHei", "Noto Sans Tamil", "Latha", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    --bg: #12121d;
+    --bg-raised: #21213a;
+    --bg-sunken: #0a0a12;
+    --bg-hud: #000010;
+    --hud-fg: #f0ede2;
+
+    --fg: #f0ede2;
+    --fg-muted: #a8a4b8;
+    --fg-faint: #6e6a80;
+
+    --border: #f0ede2;
+    --border-soft: #3d3d52;
+    --shadow: #000000;
+
+    --accent: #ff5a3c;
+    --accent-fg: #14141f;
+    --ok: #2ecc71;
+    --warn: #ffb84d;
+    --danger: #ff5a3c;
+
+    --crowd-l: #2ecc71;
+    --crowd-m: #ffb84d;
+    --crowd-h: #ff5a3c;
+    --crowd-na: #6e6a80;
+
+    --verified: #2ecc71;
+    --candidate: #ffb84d;
+
+    --line-nsl: #ff5a3c;
+    --line-ewl: #2ecc71;
+    --line-nel: #c04ae0;
+    --line-ccl: #ffb84d;
+    --line-dtl: #4d9aff;
+    --line-tel: #c98a52;
+    --line-jrl: #35c6d8;
+    --line-lrt: #9aab9a;
+
+    --ink-nsl: #1a1a2e;
+    --ink-ewl: #0a2818;
+    --ink-nel: #ffffff;
+    --ink-ccl: #2a1a00;
+    --ink-dtl: #06203f;
+    --ink-tel: #2a1a0a;
+    --ink-lrt: #16211a;
   }
 }
 
+:root[data-theme="dark"] {
+  --bg: #12121d;
+  --bg-raised: #21213a;
+  --bg-sunken: #0a0a12;
+  --bg-hud: #000010;
+  --hud-fg: #f0ede2;
+
+  --fg: #f0ede2;
+  --fg-muted: #a8a4b8;
+  --fg-faint: #6e6a80;
+
+  --border: #f0ede2;
+  --border-soft: #3d3d52;
+  --shadow: #000000;
+
+  --accent: #ff5a3c;
+  --accent-fg: #14141f;
+  --ok: #2ecc71;
+  --warn: #ffb84d;
+  --danger: #ff5a3c;
+
+  --crowd-l: #2ecc71;
+  --crowd-m: #ffb84d;
+  --crowd-h: #ff5a3c;
+  --crowd-na: #6e6a80;
+
+  --verified: #2ecc71;
+  --candidate: #ffb84d;
+
+  --line-nsl: #ff5a3c;
+  --line-ewl: #2ecc71;
+  --line-nel: #c04ae0;
+  --line-ccl: #ffb84d;
+  --line-dtl: #4d9aff;
+  --line-tel: #c98a52;
+  --line-jrl: #35c6d8;
+  --line-lrt: #9aab9a;
+
+  --ink-nsl: #1a1a2e;
+  --ink-ewl: #0a2818;
+  --ink-nel: #ffffff;
+  --ink-ccl: #2a1a00;
+  --ink-dtl: #06203f;
+  --ink-tel: #2a1a0a;
+  --ink-lrt: #16211a;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-raised: var(--bg-raised);
+  --color-bg-sunken: var(--bg-sunken);
+  --color-bg-hud: var(--bg-hud);
+  --color-hud-fg: var(--hud-fg);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-faint: var(--fg-faint);
+  --color-border-hard: var(--border);
+  --color-border-soft: var(--border-soft);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-verified: var(--verified);
+  --color-candidate: var(--candidate);
+  --color-crowd-l: var(--crowd-l);
+  --color-crowd-m: var(--crowd-m);
+  --color-crowd-h: var(--crowd-h);
+  --color-crowd-na: var(--crowd-na);
+  --color-line-nsl: var(--line-nsl);
+  --color-line-ewl: var(--line-ewl);
+  --color-line-nel: var(--line-nel);
+  --color-line-ccl: var(--line-ccl);
+  --color-line-dtl: var(--line-dtl);
+  --color-line-tel: var(--line-tel);
+  --color-line-jrl: var(--line-jrl);
+  --color-line-lrt: var(--line-lrt);
+  --color-ink-nsl: var(--ink-nsl);
+  --color-ink-ewl: var(--ink-ewl);
+  --color-ink-nel: var(--ink-nel);
+  --color-ink-ccl: var(--ink-ccl);
+  --color-ink-dtl: var(--ink-dtl);
+  --color-ink-tel: var(--ink-tel);
+  --color-ink-lrt: var(--ink-lrt);
+
+  --font-pixel: var(--pixel-stack);
+  --font-sans: var(--body-stack);
+}
+
+* {
+  border-color: var(--border);
+}
+
+/* The 3px border weight the panels use isn't a Tailwind default. */
+.border-3 { border-width: 3px; }
+.border-b-3 { border-bottom-width: 3px; }
+.border-r-3 { border-right-width: 3px; }
+
+html {
+  background: var(--bg);
+  /* Keeps pixel art crisp when scaled */
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body-stack);
+  min-height: 100dvh;
+}
+
+/* CRT scanlines over the whole app. Fixed and pointer-events:none so it never
+   interferes; at 6% it reads as texture rather than as stripes. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    color-mix(in srgb, var(--shadow) 6%, transparent) 2px,
+    color-mix(in srgb, var(--shadow) 6%, transparent) 3px
+  );
+}
+
+/* Pixel-perfect rendering for sprites and diagrams */
+img,
+svg {
+  image-rendering: pixelated;
+}
+
+/* Headings and numerals use the pixel face; body copy never does. */
+.font-pixel {
+  font-family: var(--pixel-stack);
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+/* Non-Latin scripts get no benefit from the pixel face and are much harder to
+   read squeezed into it, so give them a little more room. */
+:root:lang(zh) .font-pixel,
+:root:lang(ta) .font-pixel {
+  letter-spacing: 0;
+  line-height: 1.7;
+}
+
+/* ---------------------------------------------------------------
+   Surfaces
+
+   Corners are notched rather than square: a 4px clip on each corner
+   is the cheapest way to read as "drawn on a pixel grid" instead of
+   as a plain CSS border, and it costs no extra markup.
+   --------------------------------------------------------------- */
+
+.pixel-box {
+  border: 3px solid var(--border);
+  box-shadow: 5px 5px 0 0 var(--shadow);
+  background: var(--bg-raised);
+  clip-path: polygon(
+    0 4px, 4px 4px, 4px 0,
+    calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px,
+    100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%,
+    4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px)
+  );
+}
+
+/* The one panel per screen that matters most. */
+.pixel-box-hero {
+  border: 3px solid var(--border);
+  box-shadow: 7px 7px 0 0 var(--shadow);
+  background: var(--bg-raised);
+}
+
+.pixel-box-sm {
+  border: 2px solid var(--border);
+  box-shadow: 2px 2px 0 0 var(--shadow);
+  background: var(--bg-raised);
+}
+
+/* Buttons press down instead of fading — reads as tactile on mobile */
+.pixel-btn {
+  border: 3px solid var(--border);
+  box-shadow: 4px 4px 0 0 var(--shadow);
+  background: var(--bg-raised);
+  transition: transform 60ms steps(2), box-shadow 60ms steps(2);
+  touch-action: manipulation;
+}
+
+.pixel-btn:active:not(:disabled) {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 0 var(--shadow);
+}
+
+.pixel-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Game-HUD strip: dark bar the app's identity sits in, on every screen. */
+.hud {
+  background: var(--bg-hud);
+  color: var(--hud-fg);
+  border-bottom: 3px solid var(--border);
+}
+
+/* Controls inside the HUD need their own palette: the bar stays dark in both
+   themes, so a normal .pixel-btn (white surface, inherited light text) is
+   unreadable there in light mode. */
+.hud-btn {
+  border: 3px solid var(--hud-fg);
+  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.6);
+  background: transparent;
+  color: var(--hud-fg);
+  transition: transform 60ms steps(2), box-shadow 60ms steps(2);
+  touch-action: manipulation;
+}
+
+.hud-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.6);
+}
+
+/* A line's colour as a solid block, with its own hard shadow. */
+.line-chip {
+  border: 2px solid var(--border);
+  box-shadow: 2px 2px 0 0 var(--shadow);
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Classic 2-colour dither, for edges that would otherwise be flat fills. */
+.dither {
+  background-image:
+    linear-gradient(45deg, var(--fg) 25%, transparent 25%, transparent 75%, var(--fg) 75%),
+    linear-gradient(45deg, var(--fg) 25%, transparent 25%, transparent 75%, var(--fg) 75%);
+  background-size: 4px 4px;
+  background-position: 0 0, 2px 2px;
+  opacity: 0.12;
+}
+
+/* Visible focus that survives the high-contrast palette */
+:where(a, button, input, select, [tabindex]):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------
+   Motion
+
+   Everything is stepped, not eased. Smooth easing is what every web
+   app does; sprite animation moves in discrete frames, and using
+   steps() is the difference between "a website with transitions"
+   and something that feels like it runs on a console.
+   --------------------------------------------------------------- */
+
+@keyframes snap-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes roll-in {
+  from { transform: translateX(14px); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-2px); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.25; }
+}
+
+@keyframes pop {
+  0%   { transform: scale(0.9); }
+  60%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+/* Panels arrive in sequence rather than all at once, so the eye is led
+   down the page in the order the content should be read. */
+.anim-enter {
+  animation: snap-in 220ms steps(4) both;
+}
+
+.anim-enter-1 { animation-delay: 40ms; }
+.anim-enter-2 { animation-delay: 80ms; }
+.anim-enter-3 { animation-delay: 120ms; }
+.anim-enter-4 { animation-delay: 160ms; }
+
+/* The train pulls into the platform. */
+.anim-train {
+  animation: roll-in 260ms steps(5) both;
+}
+
+/* The avatar idles, the way a sprite does when you leave it alone. */
+.anim-bob {
+  animation: bob 1.4s steps(2) infinite;
+}
+
+/* Draws the eye to the door marker without shouting. */
+.anim-blink {
+  animation: blink 1.1s steps(2) infinite;
+}
+
+.anim-pop {
+  animation: pop 260ms steps(4) both;
+}
+
+/* Tap the nose and the train pulls out of the station, then comes back. */
+@keyframes depart {
+  0%   { transform: translateX(0); opacity: 1; }
+  55%  { transform: translateX(140%); opacity: 1; }
+  56%  { transform: translateX(-140%); opacity: 0; }
+  70%  { opacity: 1; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+.anim-depart {
+  animation: depart 1500ms steps(12) 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,0 +1,1930 @@
+{
+  "_source": {
+    "method": "Machine translation via OpenRouter (anthropic/claude-opus-5)",
+    "sourceContent": "English Wikipedia summaries and infobox values",
+    "caveat": "Machine translated and not reviewed by native speakers. The English original remains the source of truth; each station page links to the Wikipedia article it came from.",
+    "generatedAt": "2026-08-24"
+  },
+  "locales": {
+    "zh": {
+      "Admiralty": {
+        "summary": "海军部地铁站是新加坡兀兰的一座地铁高架车站，位于南北线。该站由新加坡地铁有限公司（SMRT Corporation）营运，服务附近多所学校及海军部坊（Admiralty Place）、海军部村庄（Kampung Admiralty）和兀兰邻里警局等地标。",
+        "structure": "高架"
+      },
+      "Aljunied": {
+        "summary": "阿裕尼地铁站是新加坡芽笼的一座地铁高架车站，位于东西线。该站由新加坡地铁列车有限公司（SMRT Trains）营运，服务芽笼内同名的阿裕尼分区。",
+        "structure": "高架"
+      },
+      "Ang Mo Kio": {
+        "summary": "宏茂桥地铁站是新加坡宏茂桥的一座地面以上地铁车站，位于南北线。",
+        "structure": "高架(南北线)地下(跨岛线)"
+      },
+      "Bakau": {
+        "summary": "盛港轻轨线是位于新加坡盛港的一条10.7公里长的高架自动导轨交通线。这条无人驾驶线路由两个环线上的14个车站组成，其中盛港站是两个环线的转换站，并与大众快速交通系统的东北线衔接。"
+      },
+      "Bangkit": {
+        "summary": "武吉班让轻轨是新加坡武吉班让一条长8公里的自动导轨交通线。武吉班让轻轨目前是新加坡地铁列车公司营运的唯一一条轻轨列车线。"
+      },
+      "Bartley": {
+        "summary": "巴特礼地铁站是新加坡实龙岗的一座地铁地下车站，位于环线。该站由新加坡地铁（SMRT）营运，服务海星中学、巴特礼中学和新加坡罗摩克里希那传道会等附近地标。"
+      },
+      "Bayfront": {
+        "summary": "海湾舫地铁站是位于滨海市区线与环线的一座地铁地下转换站。该站位于新加坡的市中心，处于海湾大道（Bayfront Avenue）地下，服务滨海湾金沙和滨海湾花园等主要旅游景点。"
+      },
+      "Bayshore": {
+        "summary": "海滨地铁站是新加坡勿洛的一座地铁地下车站，位于汤申—东海岸线。该站坐落于Bayshore Road，服务多个私人住宅区以及Calvary Assembly of God Church和Holy Grace Presbyterian Church等地标。",
+        "structure": "地下"
+      },
+      "Beauty World": {
+        "summary": "美世界地铁站是新加坡武吉知马的一座地铁地下车站，位于滨海市区线。该站坐落于上武吉知马路，站名取自历史上的美世界market，即曾位于附近的游乐园和market。",
+        "structure": "地下"
+      },
+      "Bedok": {
+        "summary": "勿洛地铁站是新加坡勿洛的一座地铁高架车站，位于东西线。该站由新加坡地铁列车有限公司（SMRT Trains）营运，服务勿洛一带及勿洛巴士转换站和勿洛坊（Bedok Mall）等地标。",
+        "structure": "高架"
+      },
+      "Bedok North": {
+        "summary": "勿洛北地铁站是新加坡勿洛北部的一座地铁地下车站，位于滨海市区线，坐落于勿洛北路，靠近泛岛快速公路高架桥和勿洛市镇公园。该站服务附近的建屋发展局住宅区和邻近的达迈小学，并将服务该区未来的综合医院。",
+        "structure": "地下"
+      },
+      "Bedok Reservoir": {
+        "summary": "勿洛蓄水池地铁站是新加坡勿洛的一座地铁地下车站，位于滨海市区线。该站坐落于勿洛蓄水池路、勿洛北3道旁，服务住在勿洛蓄水池附近的居民，以及勿洛绿林中学、育能小学、凤山小学和红卍字学校的学生。",
+        "structure": "地下"
+      },
+      "Bencoolen": {
+        "summary": "明古连地铁站是新加坡的一座地铁地下车站，位于滨海市区线。该站坐落于明古连街地下，主要服务南洋艺术学院、新加坡管理大学及周边发展项目。",
+        "structure": "地下"
+      },
+      "Bendemeer": {
+        "summary": "明地迷亚地铁站是新加坡梧槽以东的一座地铁地下车站，位于滨海市区线。",
+        "structure": "地下"
+      },
+      "Bishan": {
+        "summary": "碧山地铁站是位于新加坡碧山的南北线与环线地铁转换站。车站位于镇中心内的碧山道旁，靠近 Junction 8 购物中心、碧山巴士转换站和碧山体育场。"
+      },
+      "Boon Keng": {
+        "summary": "文庆地铁站是位于新加坡加冷的东北线地下地铁站。车站位于实龙岗路地下，就在与 Towner Road 和文庆路的交通枢纽路口之后，主要服务文庆一带。"
+      },
+      "Boon Lay": {
+        "summary": "文礼地铁站是位于新加坡裕廊西的东西线地铁站。车站位于文礼道旁，直接连接文礼巴士转换站和裕廊坊购物中心，形成文礼综合交通枢纽。"
+      },
+      "Botanic Gardens": {
+        "summary": "植物园地铁站是环线与滨海市区线的地下地铁转换站。车站位于新加坡东陵，坐落于新加坡植物园西北面，武吉知马路与 Cluny Park Road 的路口。"
+      },
+      "Braddell": {
+        "summary": "布莱德地铁站是位于新加坡大巴窑的南北线地下地铁站。由于工程条件限制，它与甘拜地站是南北线上唯一设有侧式月台的车站。",
+        "structure": "地下"
+      },
+      "Bras Basah": {
+        "summary": "百胜地铁站是位于新加坡博物馆规划区的环线地下地铁站。车站位于百胜路地下，毗邻滑铁卢街和女皇街。",
+        "structure": "地下"
+      },
+      "Bright Hill": {
+        "summary": "光明山地铁站是汤申—东海岸线的地下地铁站。车站位于新加坡碧山西部的新民大道旁，服务车站周边的多个住宅区。",
+        "structure": "地下"
+      },
+      "Buangkok": {
+        "summary": "万国地铁站是新加坡东北线的地下地铁站，位于盛港中路与 Compassvale Bow 的路口附近。车站服务万国住宅区及周边发展项目，包括万国巴士转换站、Sengkang Grand Residence 和 Sengkang Grand Mall。",
+        "structure": "地下  cite web"
+      },
+      "Bugis": {
+        "summary": "武吉士地铁站是位于新加坡武吉士的东西线与滨海市区线地下地铁转换站。车站位于梧槽路与维多利亚街路口的地下。",
+        "structure": "地下"
+      },
+      "Bukit Batok": {
+        "summary": "武吉巴督地铁站是位于新加坡武吉巴督的南北线地面地铁站。车站由 SMRT Trains 营运，服务附近的地标，包括武吉巴督巴士转换站、West Mall 和武吉巴督图书馆。",
+        "structure": "高架"
+      },
+      "Bukit Gombak": {
+        "summary": "武吉甘柏地铁站是位于新加坡武吉甘柏的南北线地面地铁站。车站由 SMRT 营运，服务多个地标，如武吉巴督镇公园、武吉甘柏体育场和武吉甘柏体育馆。",
+        "structure": "高架"
+      },
+      "Bukit Panjang": {
+        "summary": "武吉班让地铁/轻轨站是新加坡滨海市区线与武吉班让轻轨线的地铁与轻轨转换站。车站位于同名的武吉班让住宅区内，坐落于上武吉知马路与 Petir Road 的路口。"
+      },
+      "Buona Vista": {
+        "summary": "Buona Vista 地铁站是新加坡女皇镇一座位于东西线和环线上的地铁转换站。此站靠近 one-north，那是一个专为生物医学、信息通信技术和媒体行业设立的高科技商业园。"
+      },
+      "Caldecott": {
+        "summary": "Caldecott 地铁站是位于新加坡大巴窑规划区的一座地下地铁转换站，服务环线和汤申—东海岸线。它位于大巴窑通道（Toa Payoh Link）地底，靠近大巴窑坡（Toa Payoh Rise）交叉路口，邻近新加坡视障人士协会、Caldecott 广播中心和安微尼亚山医院。",
+        "structure": "地下"
+      },
+      "Canberra": {
+        "summary": "Canberra 地铁站是南北线上的一座高架地铁站，位于新加坡三巴旺的 Canberra Link，与 Canberra Way 交界处。它是地铁网络中的第二座增设站，也是新加坡首座月台与天桥在同一层直接相连的车站。",
+        "structure": "高架"
+      },
+      "Cashew": {
+        "summary": "Cashew 地铁站是新加坡滨海市区线上的一座地下地铁站，位于上武吉知马路与 Cashew Road 之间。它是距离国防部总部以及中央人力局（CMPB）最近的地铁站。",
+        "structure": "地下"
+      },
+      "Changi Airport": {
+        "summary": "樟宜机场地铁站是位于新加坡樟宜的一座地下地铁站。此站是东西线樟宜机场支线的终点站；由新加坡地铁列车公司（SMRT Trains）营运，以东西走向建造。",
+        "structure": "地下"
+      },
+      "Chinatown": {
+        "summary": "牛车水地铁站是位于新加坡欧南的一座地下地铁转换站，服务东北线和滨海市区线。它服务牛车水这一族群聚居区。"
+      },
+      "Chinese Garden": {
+        "summary": "裕华园地铁站是位于新加坡裕廊湖区的一座高架地铁站，属东西线。此站由新加坡地铁列车公司（SMRT Trains）营运，服务裕华园。",
+        "structure": "高架"
+      },
+      "Choa Chu Kang": {
+        "summary": "蔡厝港地铁/轻轨站是位于新加坡蔡厝港的一座高架地铁与轻轨转换站。此站服务南北线和武吉班让轻轨线，邻近蔡厝港巴士转换站和 Lot One 购物中心。"
+      },
+      "City Hall": {
+        "summary": "政府大厦地铁站是新加坡一座位于南北线和东西线上的地下地铁转换站。它位于市中心区，在史丹福路地底，靠近北桥路和圣安德烈路的交叉路口。",
+        "structure": "地下"
+      },
+      "Clarke Quay": {
+        "summary": "克拉码头地铁站是新加坡东北线上的一座地下地铁站。它位于余东旋街，靠近三马路（Merchant Road）与新桥北路（North Canal Road）交叉路口，处于新加坡河南面、The Central 地底。",
+        "structure": "地下"
+      },
+      "Clementi": {
+        "summary": "金文泰地铁站是位于新加坡金文泰的一座高架地铁站，属东西线。此站位于西联邦大道（Commonwealth Avenue West），服务金文泰广场、金文泰巴士转换站和金文泰消防局等地标。",
+        "structure": "高架(东西线)地下(跨岛线)"
+      },
+      "Commonwealth": {
+        "summary": "联邦地铁站是位于新加坡女皇镇的一座地面以上地铁站，属东西线。此站由新加坡地铁公司（SMRT Corporation）营运，服务信心卫理公会教堂和女皇道中学等邻近地标。"
+      },
+      "Compassvale": {
+        "summary": "盛港轻轨线是位于新加坡盛港的一条10.7公里长的高架自动导轨交通线。这条无人驾驶线路由两个环线上的14个车站组成，其中盛港站是两个环线的转换站，并与大众快速交通系统的东北线衔接。"
+      },
+      "Coral Edge": {
+        "summary": "榜鹅轻轨线是位于新加坡榜鹅的一条10.3公里长的高架自动导轨交通线。这个无人驾驶系统由两个环线上的15个车站组成，其中榜鹅站是两个环线的转换站，并将该线与新加坡地铁东北线衔接。"
+      },
+      "Cove": {
+        "summary": "榜鹅轻轨线是位于新加坡榜鹅的一条10.3公里长的高架自动导轨交通线。这个无人驾驶系统由两个环线上的15个车站组成，其中榜鹅站是两个环线的转换站，并将该线与新加坡地铁东北线衔接。"
+      },
+      "Dakota": {
+        "summary": "Dakota地铁站是位于新加坡芽笼的一个环线地下地铁站。该站由新加坡地铁有限公司营运,服务周边地标,如Dakota Crescent住宅区、播道中学、光华学校以及旧机场熟食中心与购物商场。",
+        "structure": "地下"
+      },
+      "Damai": {
+        "summary": "Damai轻轨站可指:Damai轻轨站 Damai轻轨站"
+      },
+      "Dhoby Ghaut": {
+        "summary": "多美歌地铁站是位于新加坡的一个地下地铁转换站,是南北线、东北线和环线的交汇站。该站位于博物馆规划区多美歌乌节路购物带东端的地底,与商业发展项目The Atrium@Orchard衔接。",
+        "structure": "地下"
+      },
+      "Dover": {
+        "summary": "Dover地铁站是位于新加坡的一个东西线高架地铁站。该站位于西联邦大道旁,直接与新加坡理工学院衔接,并服务该区多个住宅发展项目。",
+        "structure": "高架"
+      },
+      "Downtown": {
+        "summary": "市中心地铁站是滨海市区线的一个地下地铁站。该站位于新加坡市中心core地区中央大道(Central Boulevard)地底,服务包括滨海湾金融中心、亚洲广场和新交所大厦在内的多个商业发展项目。",
+        "structure": "地下"
+      },
+      "Esplanade": {
+        "summary": "滨海中心地铁站是位于新加坡的一个环线地下地铁站。该站位于市中心core地区,处于勿拉士巴沙路、莱佛士林荫道与尼路高速公路的交汇处。"
+      },
+      "Eunos": {
+        "summary": "友诺士地铁站是位于新加坡芽笼的一个东西线高架地铁站。该站由新加坡地铁有限公司营运,与友诺士巴士转换站相连。"
+      },
+      "Expo": {
+        "summary": "博览地铁站是位于新加坡淡滨尼规划区的一个地铁转换站,是东西线与滨海市区线的交汇站。该站位于樟宜城市广场与新加坡博览中心之间,坐落于樟宜南1道与Expo Drive交汇处。"
+      },
+      "Fajar": {
+        "summary": "武吉班让轻轨是新加坡武吉班让一条长8公里的自动导轨交通线。武吉班让轻轨目前是新加坡地铁列车公司营运的唯一一条轻轨列车线。"
+      },
+      "Farmway": {
+        "summary": "盛港轻轨线是位于新加坡盛港的一条10.7公里长的高架自动导轨交通线。这条无人驾驶线路由两个环线上的14个车站组成，其中盛港站是两个环线的转换站，并与大众快速交通系统的东北线衔接。"
+      },
+      "Farrer Park": {
+        "summary": "花拉公园地铁站是东北线的一个地下地铁站,位于新加坡加冷与梧槽规划区的交界处。为便利该站的建造工程,附近数座建筑物必须关闭并腾空。",
+        "structure": "地下"
+      },
+      "Farrer Road": {
+        "summary": "花拉路地铁站是新加坡环线的一个地下大众快速交通车站，位于Farrer Court与Tyersall规划区的交界处。车站建于花拉路下方，车站名称即取自这条大道，并邻近Farrer Gardens Estate。",
+        "structure": "地下"
+      },
+      "Fernvale": {
+        "summary": "盛港轻轨线是位于新加坡盛港的一条10.7公里长的高架自动导轨交通线。这条无人驾驶线路由两个环线上的14个车站组成，其中盛港站是两个环线的转换站，并与大众快速交通系统的东北线衔接。"
+      },
+      "Fort Canning": {
+        "summary": "福康宁地铁站是新加坡滨海市区线的一个地下大众快速交通车站，位于博物馆规划区与新加坡河规划区的交界处。车站坐落于新加坡河北岸，位于福康宁山脚下，车站即以福康宁命名。",
+        "structure": "地下"
+      },
+      "Gardens by the Bay": {
+        "summary": "滨海湾花园地铁站是汤申—东海岸线的一个地下大众快速交通车站。车站位于新加坡滨海南，服务滨海湾花园与滨海堤坝。",
+        "structure": "地下"
+      },
+      "Geylang Bahru": {
+        "summary": "芽笼峇鲁地铁站是新加坡加冷滨海市区线的一个地下大众快速交通车站。",
+        "structure": "地下"
+      },
+      "Great World": {
+        "summary": "大世界地铁站是汤申—东海岸线的一个地下大众快速交通车站。车站位于新加坡里峇峇利，邻近大世界购物中心及周边的住宅发展项目。",
+        "structure": "地下"
+      },
+      "Gul Circle": {
+        "summary": "卡尔圈地铁站是东西线的一个高架大众快速交通车站。车站位于新加坡西部的大士，服务周边的JTC Space @ Tuas与Mapletree Pioneer Logistic Hub等工业区。",
+        "structure": "高架"
+      },
+      "HarbourFront": {
+        "summary": "港湾地铁站是新加坡的一个地下大众快速交通转换站。它是环线的车站，也是东北线的终点站，服务港湾一带与圣淘沙。",
+        "structure": "地下"
+      },
+      "Havelock": {
+        "summary": "Havelock站可指：新加坡的快速交通车站合乐地铁站；加拿大安大略省的前火车站Havelock火车站"
+      },
+      "Haw Par Villa": {
+        "summary": "虎豹别墅地铁站是新加坡女皇镇环线的一个地下大众快速交通车站。车站位于西海岸公路与巴西班让路下方，服务附近的虎豹别墅以及巴西班让批发中心。",
+        "structure": "地下"
+      },
+      "Hillview": {
+        "summary": "山景地铁站是新加坡滨海市区线的一个地下大众快速交通车站，位于武吉巴督的山景分区与武吉班让的自然保护区分区的交界处。",
+        "structure": "地下"
+      },
+      "Holland Village": {
+        "summary": "荷兰村地铁站是新加坡环线的一个地下大众快速交通车站，位于武吉知马与女皇镇规划区的交界处。车站靠近荷兰大道与荷兰路的交叉口，主要服务荷兰村一带，车站名称即由此而来。",
+        "structure": "地下"
+      },
+      "Hougang": {
+        "summary": "后港地铁站是新加坡后港东北线的一个地下大众快速交通车站。车站位于后港中心与后港中心巴士转换站下方，服务后港购物中心与后港体育馆等多处地标。",
+        "structure": "地下"
+      },
+      "Hume": {
+        "summary": "休姆地铁站是新加坡武吉巴督一座位于滨海市区线的地下地铁站。车站位于休姆道(Hume Avenue)与武吉知马上路交界处,服务的地标包括武吉知马山、武吉知马自然保护区、铁道走廊、The Rail Mall以及前福特汽车厂。",
+        "structure": "地下"
+      },
+      "Jalan Besar": {
+        "summary": "惹兰勿刹地铁站是新加坡梧槽一座位于滨海市区线的地下地铁站。车站位于惹兰勿刹与卫理路(Weld Road)交界处的地底,故以此命名。",
+        "structure": "地下"
+      },
+      "Jelapang": {
+        "summary": "武吉班让轻轨是新加坡武吉班让一条长8公里的自动导轨交通线。武吉班让轻轨目前是新加坡地铁列车公司营运的唯一一条轻轨列车线。"
+      },
+      "Joo Koon": {
+        "summary": "裕群地铁站是新加坡先驱规划区一座位于东西线的地面地铁站。",
+        "structure": "高架"
+      },
+      "Jurong East": {
+        "summary": "裕廊东地铁站是新加坡裕廊东一座位于南北线和东西线的高架地铁转换站。车站坐落于裕廊门户路(Jurong Gateway Road),邻近Jem、Westgate、IMM、黄廷方综合医院、裕廊东巴士转换站和裕廊镇大会堂巴士转换站。",
+        "structure": "高架"
+      },
+      "Kadaloor": {
+        "summary": "榜鹅轻轨线是位于新加坡榜鹅的一条10.3公里长的高架自动导轨交通线。这个无人驾驶系统由两个环线上的15个车站组成，其中榜鹅站是两个环线的转换站，并将该线与新加坡地铁东北线衔接。"
+      },
+      "Kaki Bukit": {
+        "summary": "加基武吉地铁站是滨海市区线的一座地下地铁站。车站位于新加坡加基武吉,坐落于加基武吉1道(Kaki Bukit Avenue 1)。",
+        "structure": "地下"
+      },
+      "Kallang": {
+        "summary": "加冷地铁站是新加坡加冷一座位于东西线的高架地铁站。车站由新加坡地铁列车有限公司(SMRT Trains)营运,主要服务加冷一带以及芽笼1巷巴士终站。",
+        "structure": "高架"
+      },
+      "Kangkar": {
+        "summary": "盛港轻轨线是位于新加坡盛港的一条10.7公里长的高架自动导轨交通线。这条无人驾驶线路由两个环线上的14个车站组成，其中盛港站是两个环线的转换站，并与大众快速交通系统的东北线衔接。"
+      },
+      "Katong Park": {
+        "summary": "加东公园地铁站是汤申—东海岸线的一座地下地铁站。车站坐落于美雅路(Meyer Road),紧邻加东公园,服务德明政府中学、新加坡游泳学校以及附近的住宅项目。",
+        "structure": "地下"
+      },
+      "Keat Hong": {
+        "summary": "武吉班让轻轨是新加坡武吉班让一条长8公里的自动导轨交通线。武吉班让轻轨目前是新加坡地铁列车公司营运的唯一一条轻轨列车线。"
+      },
+      "Kembangan": {
+        "summary": "景万岸地铁站是新加坡勿洛一座位于东西线的高架地铁站。车站由新加坡地铁列车有限公司(SMRT Trains)营运,服务勿洛境内同名的景万岸分区。",
+        "structure": "高架"
+      },
+      "Kent Ridge": {
+        "summary": "肯特岗地铁站是环线的一座地下地铁站。车站位于新加坡女皇镇同名的肯特岗一带,靠近南武吉知马路(South Buona Vista Road)与肯特岗下路(Lower Kent Ridge Road)交界处。",
+        "structure": "地下"
+      },
+      "Khatib": {
+        "summary": "卡迪地铁站是南北线的一座地面地铁站,位于新加坡卡迪,属义顺规划区的一个分区。",
+        "structure": "高架"
+      },
+      "King Albert Park": {
+        "summary": "阿尔柏王园地铁站是新加坡武吉知马一座位于滨海市区线的地下地铁站。车站位于武吉知马路西端与Blackmore Drive交界处,服务武吉知马一带的私人住宅区。",
+        "structure": "地下"
+      },
+      "Kovan": {
+        "summary": "高文地铁站是新加坡后港一座位于东北线的地下地铁站。车站位于实龙岗上路地底,服务Heartland Mall商场以及周边的公共和私人住宅。",
+        "structure": "地下"
+      },
+      "Kranji": {
+        "summary": "克兰芝地铁站是南北线上的一个高架地铁站。它位于新加坡双溪加株的兀兰路旁,服务新加坡赛马公会和兀兰晶圆制造园。",
+        "structure": "高架"
+      },
+      "Kupang": {
+        "summary": "盛港轻轨线是位于新加坡盛港的一条10.7公里长的高架自动导轨交通线。这条无人驾驶线路由两个环线上的14个车站组成，其中盛港站是两个环线的转换站，并与大众快速交通系统的东北线衔接。"
+      },
+      "Labrador Park": {
+        "summary": "拉柏多公园地铁站是环线上的一个地下地铁站,位于新加坡红山规划区内。",
+        "structure": "地下"
+      },
+      "Lakeside": {
+        "summary": "湖畔地铁站是新加坡裕廊西东西线上的一个高架地铁站。该站由新加坡地铁有限公司营运,服务与站同名的裕廊湖以及凤山和裕廊园住宅区。",
+        "structure": "高架"
+      },
+      "Lavender": {
+        "summary": "劳明达地铁站是新加坡加冷东西线上的一个地下地铁站。该站位于加冷路底下,靠近移民与关卡局大厦和惹兰勿刹体育场。",
+        "structure": "地下"
+      },
+      "Layar": {
+        "summary": "盛港轻轨线是位于新加坡盛港的一条10.7公里长的高架自动导轨交通线。这条无人驾驶线路由两个环线上的14个车站组成，其中盛港站是两个环线的转换站，并与大众快速交通系统的东北线衔接。"
+      },
+      "Lentor": {
+        "summary": "伦多地铁站是汤申—东海岸线上的一个地下地铁站。它位于新加坡宏茂桥北部的伦多道底下。",
+        "structure": "地下"
+      },
+      "Lorong Chuan": {
+        "summary": "罗弄泉地铁站是新加坡实龙岗环线上的一个地下地铁站。该站由新加坡地铁有限公司营运,服务附近多个地标,如布莱德岭民众俱乐部,以及多所学校。",
+        "structure": "地下"
+      },
+      "MacPherson": {
+        "summary": "麦波申地铁站是新加坡芽笼规划区内滨海市区线和环线上的一个地下地铁转换站,位于巴耶利峇路与Circuit Link和乌美2道交叉口的底下。",
+        "structure": "地下"
+      },
+      "Marina Bay": {
+        "summary": "滨海湾地铁站是新加坡南北线、环线和汤申—东海岸线上的一个地下地铁转换站。该站位于市中心区内滨海湾附近,服务滨海盛景豪苑、滨海湾豪苑和滨海湾金融中心。",
+        "structure": "地下"
+      },
+      "Marina South Pier": {
+        "summary": "滨海南码头地铁站是新加坡海峡景的一个地下地铁站。该站是1公里长的南北线延长线的一部分,也是该线的南端终点站。",
+        "structure": "地下"
+      },
+      "Marine Parade": {
+        "summary": "马林百列地铁站是新加坡马林百列汤申—东海岸线上的一个地下地铁站。该站位于马林百列路底下,服务附近的住宅和商业发展项目,包括百汇广场、乐斯广场和I12加东。",
+        "structure": "地下"
+      },
+      "Marine Terrace": {
+        "summary": "马林台地铁站是汤申—东海岸线上的一个地下地铁站。它位于马林百列住宅区内,服务该区多所学校以及马林台巴刹与熟食中心。",
+        "structure": "地下"
+      },
+      "Marsiling": {
+        "summary": "马西岭地铁站是新加坡兀兰马西岭南北线上的一个地面地铁站。该站由新加坡地铁有限公司营运,服务附近多个地标,如马西岭小学和中学以及福春小学和中学。"
+      },
+      "Marymount": {
+        "summary": "玛丽蒙地铁站是位于新加坡碧山的一座环线地下地铁站。该站由SMRT营运，服务碧山消防局、莱佛士书院和莱佛士初级学院等邻近地标。",
+        "structure": "地下"
+      },
+      "Mattar": {
+        "summary": "玛达地铁站是位于新加坡芽笼的一座滨海市区线地下地铁站。车站位于玛达路地下，靠近Merpati Road交叉路口。"
+      },
+      "Maxwell": {
+        "summary": "麦士威地铁站是新加坡一座汤申-东海岸线地下地铁站。车站位于市中心与欧南一带的尼路沿线，靠近佛牙寺龙华院、马里安曼兴都庙和麦士威熟食中心。",
+        "structure": "地下"
+      },
+      "Mayflower": {
+        "summary": "美华地铁站是位于新加坡宏茂桥的一座汤申-东海岸线地下地铁站。车站位于宏茂桥4道地下，服务哥文谷高地住宅区、哥文谷民众联络所和圣尼各拉女校等多个地标。",
+        "structure": "地下"
+      },
+      "Meridian": {
+        "summary": "榜鹅轻轨线是位于新加坡榜鹅的一条10.3公里长的高架自动导轨交通线。这个无人驾驶系统由两个环线上的15个车站组成，其中榜鹅站是两个环线的转换站，并将该线与新加坡地铁东北线衔接。"
+      },
+      "Mountbatten": {
+        "summary": "蒙巴登地铁站是位于新加坡加冷的一座环线地下地铁站。车站位于蒙巴登路交叉路口，服务加冷球场和古德曼艺术中心等邻近地标。",
+        "structure": "地下"
+      },
+      "Napier": {
+        "summary": "纳比雅地铁站是一座汤申-东海岸线地下地铁站。车站位于新加坡东陵，处于纳比雅路、荷兰路和克鲁尼路的交叉路口。",
+        "structure": "地下"
+      },
+      "Newton": {
+        "summary": "纽顿地铁站是南北线和滨海市区线的一座地下地铁转换站。车站位于新加坡纽顿，处于史各士路与武吉知马路交叉路口，靠近纽顿圆环。",
+        "structure": "地下"
+      },
+      "Nibong": {
+        "summary": "榜鹅轻轨线是位于新加坡榜鹅的一条10.3公里长的高架自动导轨交通线。这个无人驾驶系统由两个环线上的15个车站组成，其中榜鹅站是两个环线的转换站，并将该线与新加坡地铁东北线衔接。"
+      },
+      "Nicoll Highway": {
+        "summary": "尼诰大道地铁站是新加坡一座环线地下地铁站。车站位于市中心的共和大道地下，靠近加冷河，服务尼诰大道沿线的商业与住宅发展项目，如黄金坊和The Concourse。",
+        "structure": "地下"
+      },
+      "Novena": {
+        "summary": "诺维娜地铁站是一座南北线地下地铁站。车站位于新加坡诺维娜的汤申路沿线，靠近陈笃生医院、伊丽莎白诺维娜医院和联合广场等地标。",
+        "structure": "地下"
+      },
+      "Oasis": {
+        "summary": "榜鹅轻轨线是位于新加坡榜鹅的一条10.3公里长的高架自动导轨交通线。这个无人驾驶系统由两个环线上的15个车站组成，其中榜鹅站是两个环线的转换站，并将该线与新加坡地铁东北线衔接。"
+      },
+      "Orchard": {
+        "summary": "乌节地铁站是新加坡一座地下地铁转换站，位于南北线和汤申-东海岸线上。车站位于乌节林荫道沿线、ION Orchard地下，服务乌节路购物区的多个商业与零售发展项目，包括联达大厦、义安城、会德丰广场、威士马广场和邵氏大厦等。",
+        "structure": "地下"
+      },
+      "Orchard Boulevard": {
+        "summary": "乌节林荫道地铁站是一座汤申-东海岸线地下地铁站。车站位于新加坡乌节，处于乌节林荫道与格兰芝路交汇的尽头。",
+        "structure": "地下"
+      },
+      "Outram Park": {
+        "summary": "欧南园地铁站是新加坡一座地下地铁转换站。车站位于东西线、东北线和汤申-东海岸线上，靠近欧南路、余东旋街和新桥路交叉路口，处于红山与欧南规划区的交界。",
+        "structure": "地下"
+      },
+      "Pasir Panjang": {
+        "summary": "巴西班让地铁站是环线上的一个地下大众快速交通（地铁）车站。顾名思义，它位于新加坡女皇镇规划区南部的巴西班让。",
+        "structure": "地下"
+      },
+      "Pasir Ris": {
+        "summary": "巴西立地铁站是新加坡巴西立一个位于东西线的高架大众快速交通（地铁）车站。车站坐落在Pasir Ris Central，毗邻巴西立巴士转换站、Pasir Ris Mall和白沙购物中心，是东西线的东部终点站。",
+        "structure": "高架(东西线)地下(跨岛线)"
+      },
+      "Paya Lebar": {
+        "summary": "巴耶利峇地铁站是新加坡东西线与环线的大众快速交通（地铁）转换站。尽管名称如此，该站并不位于巴耶利峇规划区，而是在芽笼的巴耶利峇路上，靠近与沈氏道的交叉口。"
+      },
+      "Pending": {
+        "summary": "武吉班让轻轨是新加坡武吉班让一条长8公里的自动导轨交通线。武吉班让轻轨目前是新加坡地铁列车公司营运的唯一一条轻轨列车线。"
+      },
+      "Petir": {
+        "summary": "武吉班让轻轨是新加坡武吉班让一条长8公里的自动导轨交通线。武吉班让轻轨目前是新加坡地铁列车公司营运的唯一一条轻轨列车线。"
+      },
+      "Phoenix": {
+        "summary": "武吉班让轻轨是新加坡武吉班让一条长8公里的自动导轨交通线。武吉班让轻轨目前是新加坡地铁列车公司营运的唯一一条轻轨列车线。"
+      },
+      "Pioneer": {
+        "summary": "先驱地铁站是新加坡的一个大众快速交通（地铁）车站。它属于东西线，服务先驱住宅区。",
+        "structure": "高架"
+      },
+      "Potong Pasir": {
+        "summary": "波东巴西地铁站是新加坡大巴窑规划区内东北线上的一个地下大众快速交通（地铁）车站。它位于实龙岗上路地下，处于与波东巴西1道和Wan Tho Avenue的交叉口。",
+        "structure": "地下"
+      },
+      "Promenade": {
+        "summary": "宝门廊地铁站是新加坡市中心内市区线与环线的一个地下大众快速交通（地铁）转换站。车站位于淡马锡大道地下，毗邻Millenia Tower，服务新达城和车站命名所依据的Marina Promenade等多个重要景点和地点。",
+        "structure": "地下"
+      },
+      "Punggol": {
+        "summary": "榜鹅地铁／轻轨站是新加坡榜鹅的一个大众快速交通（地铁）与轻轨转换站。它是东北线与榜鹅轻轨之间的转换站，也是榜鹅规划区内两个地铁站之一。"
+      },
+      "Punggol Coast": {
+        "summary": "榜鹅海岸地铁站是新加坡榜鹅北部东北线上的一个地下大众快速交通（地铁）车站。该站是东北线的终点站，服务榜鹅数码园区以及新加坡理工大学的新校园。",
+        "structure": "地下"
+      },
+      "Punggol Point": {
+        "summary": "榜鹅轻轨线是位于新加坡榜鹅的一条10.3公里长的高架自动导轨交通线。这个无人驾驶系统由两个环线上的15个车站组成，其中榜鹅站是两个环线的转换站，并将该线与新加坡地铁东北线衔接。"
+      },
+      "Queenstown": {
+        "summary": "女皇镇地铁站是新加坡女皇镇一个位于东西线的高架大众快速交通（地铁）车站。车站位于联邦大道，服务周边地标如女皇镇小学和Princess House，以及附近的数座教堂。",
+        "structure": "高架"
+      },
+      "Raffles Place": {
+        "summary": "莱佛士坊地铁站是新加坡南北线与东西线的一个地下大众快速交通（地铁）转换站。车站位于市中心，处于新加坡河以南的莱佛士坊地下。",
+        "structure": "地下"
+      },
+      "Ranggung": {
+        "summary": "盛港轻轨线是位于新加坡盛港的一条10.7公里长的高架自动导轨交通线。这条无人驾驶线路由两个环线上的14个车站组成，其中盛港站是两个环线的转换站，并与大众快速交通系统的东北线衔接。"
+      },
+      "Redhill": {
+        "summary": "红山地铁站是新加坡东西线上一个位于地面上的大众快速交通（地铁）车站。该站由SMRT营运，服务附近的地标如Delta Swimming Complex和Thye Hong Centre。",
+        "structure": "高架"
+      },
+      "Renjong": {
+        "summary": "盛港轻轨线是位于新加坡盛港的一条10.7公里长的高架自动导轨交通线。这条无人驾驶线路由两个环线上的14个车站组成，其中盛港站是两个环线的转换站，并与大众快速交通系统的东北线衔接。"
+      },
+      "Riviera": {
+        "summary": "里维拉轻轨站是新加坡榜鹅的一个高架轻轨车站。该站服务榜鹅轻轨线的东环线，位于Punggol East，处于Punggol Central与Punggol Field交叉口之间。"
+      },
+      "Rochor": {
+        "summary": "梧槽地铁站是新加坡梧槽一座位于地下的地铁站,属滨海市区线。车站位于双溪路与梧槽运河路之间,服务森林大厦、拉萨尔艺术学院和竹脚中心等地标。",
+        "structure": "地下"
+      },
+      "Rumbia": {
+        "summary": "盛港轻轨线是位于新加坡盛港的一条10.7公里长的高架自动导轨交通线。这条无人驾驶线路由两个环线上的14个车站组成，其中盛港站是两个环线的转换站，并与大众快速交通系统的东北线衔接。"
+      },
+      "Sam Kee": {
+        "summary": "榜鹅轻轨线是位于新加坡榜鹅的一条10.3公里长的高架自动导轨交通线。这个无人驾驶系统由两个环线上的15个车站组成，其中榜鹅站是两个环线的转换站，并将该线与新加坡地铁东北线衔接。"
+      },
+      "Sembawang": {
+        "summary": "三巴旺地铁站是南北线上的一座高架地铁站。车站位于新加坡三巴旺三巴旺路旁,靠近 Sun Plaza 购物中心和三巴旺巴士转换站。",
+        "structure": "高架"
+      },
+      "Sengkang": {
+        "summary": "盛港地铁/轻轨站是新加坡盛港的一座地铁与轻轨转换站,是东北线与盛港轻轨之间的转换站。"
+      },
+      "Senja": {
+        "summary": "武吉班让轻轨是新加坡武吉班让一条长8公里的自动导轨交通线。武吉班让轻轨目前是新加坡地铁列车公司营运的唯一一条轻轨列车线。"
+      },
+      "Serangoon": {
+        "summary": "实龙岗地铁站是东北线与环线上的一座地下地铁转换站。车站位于新加坡实龙岗,沿实龙岗上路与实龙岗中路,与 nex 购物商场和实龙岗巴士转换站相连。",
+        "structure": "地下"
+      },
+      "Shenton Way": {
+        "summary": "珊顿道地铁站是汤申-东海岸线上的一座地下地铁站。车站位于新加坡市中心区,邻近珊顿道以及亚洲广场和 Marina One 等商业发展项目。",
+        "structure": "地下"
+      },
+      "Siglap": {
+        "summary": "实乞纳地铁站是新加坡实乞纳一座位于地下的地铁站,属汤申-东海岸线。车站服务维多利亚学校和 St. 等邻近地标。",
+        "structure": "地下"
+      },
+      "Simei": {
+        "summary": "四美地铁站是新加坡淡滨尼一座位于高架的地铁站,属东西线。车站由 SMRT 列车公司营运,服务的邻近地标包括 Eastpoint 购物中心以及 Changkat 小学和中学。"
+      },
+      "Sixth Avenue": {
+        "summary": "14街/第六大道车站是纽约地铁一个位于地下的车站综合体,坐落于曼哈顿的格林尼治村和切尔西一带,属IRT百老汇—第七大道线、BMT卡纳西线和IND第六大道线。车站位于14街,介于第六大道与第七大道之间。"
+      },
+      "Somerset": {
+        "summary": "索美塞地铁站是新加坡乌节一座位于地下的地铁站,属南北线。它是位于著名购物带乌节路沿线的三个车站之一。",
+        "structure": "地下"
+      },
+      "Soo Teck": {
+        "summary": "榜鹅轻轨线是位于新加坡榜鹅的一条10.3公里长的高架自动导轨交通线。这个无人驾驶系统由两个环线上的15个车站组成，其中榜鹅站是两个环线的转换站，并将该线与新加坡地铁东北线衔接。"
+      },
+      "South View": {
+        "summary": "武吉班让轻轨是新加坡武吉班让一条长8公里的自动导轨交通线。武吉班让轻轨目前是新加坡地铁列车公司营运的唯一一条轻轨列车线。"
+      },
+      "Springleaf": {
+        "summary": "春叶地铁站是新加坡义顺一座位于地下的地铁站,属汤申-东海岸线。车站位于汤申路上段旁,服务春叶一带及邻近的春叶自然公园。",
+        "structure": "地下"
+      },
+      "Stadium": {
+        "summary": "体育场地铁站是环线上的一座地下地铁站。车站位于新加坡中区加冷一带,服务 The Kallang 及其设施,包括国家体育场、室内体育馆、加冷剧场和 Leisure Park Kallang。",
+        "structure": "地下"
+      },
+      "Stevens": {
+        "summary": "史蒂芬地铁站是滨海市区线与汤申-东海岸线上的一座地下地铁转换站。车站位于史蒂芬路与武吉知马路交界处,服务邻近的新加坡华侨女子中学和 St.",
+        "structure": "地下"
+      },
+      "Sumang": {
+        "summary": "榜鹅轻轨线是位于新加坡榜鹅的一条10.3公里长的高架自动导轨交通线。这个无人驾驶系统由两个环线上的15个车站组成，其中榜鹅站是两个环线的转换站，并将该线与新加坡地铁东北线衔接。"
+      },
+      "Tai Seng": {
+        "summary": "大成地铁站是新加坡大成一座位于地下的地铁站,属环线。车站由 SMRT 集团营运,服务 Tai Seng Point、Sakae 大厦和 Leong Huat 大厦等邻近地标。",
+        "structure": "地下"
+      },
+      "Tampines": {
+        "summary": "淡滨尼地铁站是新加坡淡滨尼一个大众快速交通转换站,属东西线和滨海市区线。车站位于市镇中心,毗邻淡滨尼4道、淡滨尼中4和淡滨尼中5,靠近淡滨尼巴士转换站和淡滨尼广场巴士转换站。"
+      },
+      "Tampines East": {
+        "summary": "淡滨尼东地铁站是新加坡淡滨尼一个位于地下的大众快速交通车站,属滨海市区线。车站位于淡滨尼7道,靠近与淡滨尼2道的交叉路口。"
+      },
+      "Tampines West": {
+        "summary": "淡滨尼西地铁站是新加坡淡滨尼一个位于地下的大众快速交通车站,属滨海市区线。车站位于淡滨尼4道,靠近与淡滨尼1道的交叉路口。",
+        "structure": "地下"
+      },
+      "Tan Kah Kee": {
+        "summary": "陈嘉庚地铁站是新加坡武吉知马一个位于地下的大众快速交通车站,属滨海市区线。车站位于华侨中学校园的正下方,以该校创办人陈嘉庚命名。",
+        "structure": "地下"
+      },
+      "Tanah Merah": {
+        "summary": "丹那美拉地铁站是东西线一个高架的大众快速交通车站。车站位于新加坡勿洛,坐落于新樟宜上路,服务多个住宅区。",
+        "structure": "高架"
+      },
+      "Tanjong Katong": {
+        "summary": "丹戎加东地铁站是新加坡一个位于地下的大众快速交通车站,属汤申—东海岸线。车站位于安柏路地下,靠近丹戎加东南路与美雅路的交叉路口,服务附近的公寓如Aalto和King's Mansion。",
+        "structure": "地下"
+      },
+      "Tanjong Rhu": {
+        "summary": "丹戎禺地铁站是新加坡加冷一个位于地下的大众快速交通车站,属汤申—东海岸线。车站位于丹戎禺路与丹戎禺坊的交叉路口,服务附近的公寓如Pebble Bay和Casuarina Cove。"
+      },
+      "Teck Lee": {
+        "summary": "德利轻轨站是新加坡榜鹅一个高架的轻轨列车车站,属榜鹅轻轨线西环线。车站由新捷运营运,服务附近的地标如新加坡理工大学榜鹅校区、榜鹅海岸巴士转换站和圣方济沙勿略修院。",
+        "structure": "高架"
+      },
+      "Teck Whye": {
+        "summary": "武吉班让轻轨是新加坡武吉班让一条长8公里的自动导轨交通线。武吉班让轻轨目前是新加坡地铁列车公司营运的唯一一条轻轨列车线。"
+      },
+      "Telok Ayer": {
+        "summary": "直落亚逸地铁站是滨海市区线一个位于地下的大众快速交通车站。车站位于新加坡欧南,服务禧街与直落亚逸街交叉路口一带的各办公楼与商业发展项目。",
+        "structure": "地下"
+      },
+      "Telok Blangah": {
+        "summary": "直落布兰雅地铁站是环线一个位于地下的大众快速交通车站,位于新加坡红山规划区。车站坐落于直落布兰雅路,靠近亨德森路交叉路口,主要服务直落布兰雅住宅区。"
+      },
+      "Thanggam": {
+        "summary": "盛港轻轨线是位于新加坡盛港的一条10.7公里长的高架自动导轨交通线。这条无人驾驶线路由两个环线上的14个车站组成，其中盛港站是两个环线的转换站，并与大众快速交通系统的东北线衔接。"
+      },
+      "Tiong Bahru": {
+        "summary": "中峇鲁地铁站是位于新加坡红山的东西线地下大众快速交通车站。对东行和西行列车而言，这分别是第一个和最后一个地下车站。",
+        "structure": "地下"
+      },
+      "Toa Payoh": {
+        "summary": "大巴窑地铁站是位于新加坡大巴窑的南北线地下大众快速交通车站。它位于大巴窑镇中心，与大巴窑巴士转换站以及建屋发展局总部建屋局大厦相连。"
+      },
+      "Tuas Crescent": {
+        "summary": "大士弯地铁站是位于新加坡大士的东西线地面以上大众快速交通车站。此站以邻近的一条道路命名。",
+        "structure": "高架"
+      },
+      "Tuas Link": {
+        "summary": "大士连地铁站是位于新加坡西部的高架大众快速交通车站。它位于大士的大士西大道，靠近大士车厂和大士关卡。",
+        "structure": "高架"
+      },
+      "Tuas West Road": {
+        "summary": "大士西路地铁站是位于新加坡大士的东西线地面以上大众快速交通车站。它位于先驱路，服务大士焚化厂和Tuas Amenity Centre等邻近建筑。"
+      },
+      "Ubi": {
+        "summary": "乌美地铁站是市区线的地下大众快速交通车站。车站位于新加坡芽笼规划区，靠近乌美一道与乌美二道的交叉路口。",
+        "structure": "地下"
+      },
+      "Upper Changi": {
+        "summary": "上樟宜地铁站是位于新加坡淡滨尼规划区的市区线地下大众快速交通车站，位于上樟宜路东段之下。",
+        "structure": "地下"
+      },
+      "Upper Thomson": {
+        "summary": "汤申路上段地铁站是位于新加坡汤申的汤申—东海岸线地下大众快速交通车站。顾名思义，它位于汤申路上段。",
+        "structure": "地下"
+      },
+      "Woodlands": {
+        "summary": "兀兰地铁站是新加坡南北线与汤申-东海岸线的地铁转换站。车站位于兀兰，是首个在南北线站体下方设有地下巴士转换站的地铁站。"
+      },
+      "Woodlands North": {
+        "summary": "兀兰北地铁站是位于新加坡兀兰的地下地铁站。该站是汤申-东海岸线的北端终点站。",
+        "structure": "地下"
+      },
+      "Woodlands South": {
+        "summary": "兀兰南地铁站是位于新加坡兀兰的地下地铁站。该站服务汤申-东海岸线，位于兀兰1道地下。",
+        "structure": "地下"
+      },
+      "Woodleigh": {
+        "summary": "胡姬地铁站是位于新加坡比达达利的东北线地下地铁站。该站位于实龙岗上路地下，靠近与阿裕尼上路的交叉路口。",
+        "structure": "地下"
+      },
+      "Yew Tee": {
+        "summary": "油池地铁站是位于新加坡油池的南北线地面地铁站。该站由新加坡地铁有限公司（SMRT）营运，服务附近多处地标，如联合中学和Yew Tee Point。",
+        "structure": "高架"
+      },
+      "Yio Chu Kang": {
+        "summary": "杨厝港地铁站是位于新加坡宏茂桥的南北线地面地铁站，靠近宏茂桥6道与宏茂桥8道的交叉路口。",
+        "structure": "高架"
+      },
+      "Yishun": {
+        "summary": "义顺地铁站是位于新加坡义顺的南北线地面地铁站。该站位于义顺2道与义顺5道的交叉路口，目前是服务义顺新镇的两个地铁站之一，另一个是卡迪地铁站。",
+        "structure": "高架"
+      },
+      "one-north": {
+        "summary": "纬壹地铁站是位于新加坡女皇镇的环线地下地铁站。该站位于亚逸拉惹大道旁、Fusionpolis One地下，服务纬壹商业园。",
+        "structure": "地下"
+      }
+    },
+    "ms": {
+      "Admiralty": {
+        "summary": "Stesen MRT Admiralty ialah stesen Mass Rapid Transit bertingkat di Laluan Utara–Selatan di Woodlands, Singapura. Dikendalikan oleh SMRT Corporation, stesen ini melayani beberapa sekolah dan mercu tanda berdekatan seperti Admiralty Place, Kampung Admiralty, dan Pusat Polis Kejiranan Woodlands.",
+        "structure": "Bertingkat"
+      },
+      "Aljunied": {
+        "summary": "Stesen MRT Aljunied ialah stesen Mass Rapid Transit bertingkat di Laluan Timur–Barat di Geylang, Singapura. Dikendalikan oleh SMRT Trains, stesen ini melayani subzon Aljunied di Geylang yang senama dengannya.",
+        "structure": "Bertingkat"
+      },
+      "Ang Mo Kio": {
+        "summary": "Stesen MRT Ang Mo Kio ialah stesen Mass Rapid Transit di atas tanah di Laluan Utara–Selatan di Ang Mo Kio, Singapura.",
+        "structure": "Bertingkat (NSL) Bawah tanah (CRL)"
+      },
+      "Bakau": {
+        "summary": "Laluan LRT Sengkang ialah laluan transit panduan automatik bertingkat sepanjang 10.7 kilometer di Sengkang, Singapura. Laluan tanpa pemandu ini terdiri daripada 14 stesen di dua gelungan, dengan stesen Sengkang berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkannya dengan Laluan North East pada sistem Mass Rapid Transit."
+      },
+      "Bangkit": {
+        "summary": "Bukit Panjang LRT ialah laluan transit berpandu automatik sepanjang 8 kilometer di Bukit Panjang, Singapura. BPLRT kini merupakan satu-satunya laluan Transit Rel Ringan yang dikendalikan oleh SMRT Trains."
+      },
+      "Bartley": {
+        "summary": "Stesen MRT Bartley ialah stesen Mass Rapid Transit bawah tanah di Laluan Lingkaran di Serangoon, Singapura. Dikendalikan oleh SMRT, stesen ini melayani mercu tanda berdekatan seperti Maris Stella High School, Bartley Secondary School, dan Ramakrishna Mission Singapore."
+      },
+      "Bayfront": {
+        "summary": "Stesen MRT Bayfront ialah stesen pertukaran Mass Rapid Transit bawah tanah di Laluan Downtown dan Laluan Lingkaran. Terletak di Downtown Core, Singapura, stesen ini berada di bawah Bayfront Avenue dan melayani tarikan pelancong utama iaitu Marina Bay Sands dan Gardens by the Bay."
+      },
+      "Bayshore": {
+        "summary": "Stesen MRT Bayshore ialah stesen Mass Rapid Transit bawah tanah di Laluan Thomson–Pantai Timur di Bedok, Singapura. Terletak di sepanjang Bayshore Road, stesen ini melayani berbagai estet kediaman persendirian dan mercu tanda seperti Calvary Assembly of God Church dan Holy Grace Presbyterian Church.",
+        "structure": "Bawah tanah"
+      },
+      "Beauty World": {
+        "summary": "Stesen MRT Beauty World ialah stesen Mass Rapid Transit bawah tanah di Laluan Downtown di Bukit Timah, Singapura. Terletak di sepanjang Upper Bukit Timah Road, stesen ini mengambil namanya daripada Pasar Beauty World yang bersejarah, sebuah taman hiburan dan pasar yang pernah berdiri di sekitarnya.",
+        "structure": "Bawah tanah"
+      },
+      "Bedok": {
+        "summary": "Stesen MRT Bedok ialah stesen Mass Rapid Transit bertingkat di Laluan Timur–Barat di Bedok, Singapura. Dikendalikan oleh SMRT Trains, stesen ini melayani kawasan Bedok dan mercu tandanya seperti Pertukaran Bas Bedok dan Bedok Mall.",
+        "structure": "Bertingkat"
+      },
+      "Bedok North": {
+        "summary": "Stesen MRT Bedok North ialah stesen Mass Rapid Transit bawah tanah di Laluan Downtown di bahagian utara Bedok, Singapura, terletak di sepanjang Bedok North Road, dekat jejantas Lebuhraya Pan Island dan Taman Bandar Bedok. Stesen ini melayani estet HDB berdekatan, Damai Primary School yang berdekatan dan akan melayani sebuah hospital bersepadu pada masa hadapan di kawasan itu.",
+        "structure": "Bawah tanah"
+      },
+      "Bedok Reservoir": {
+        "summary": "Stesen MRT Bedok Reservoir ialah stesen Mass Rapid Transit bawah tanah di Laluan Downtown di Bedok, Singapura. Terletak di Bedok Reservoir Road bersebelahan Bedok North Avenue 3, stesen ini melayani penduduk yang tinggal berdekatan Kolam Takungan Bedok serta pelajar Bedok Green Secondary School, Yu Neng Primary School, Fengshan Primary School dan Red Swastika School.",
+        "structure": "Bawah tanah"
+      },
+      "Bencoolen": {
+        "summary": "Stesen MRT Bencoolen ialah stesen Mass Rapid Transit bawah tanah di Laluan Downtown di Singapura. Terletak di bawah Bencoolen Street, stesen ini terutamanya melayani Nanyang Academy of Fine Arts, Singapore Management University dan pembangunan di sekitarnya.",
+        "structure": "Bawah tanah"
+      },
+      "Bendemeer": {
+        "summary": "Stesen MRT Bendemeer ialah stesen Mass Rapid Transit bawah tanah di Laluan Downtown di sebelah timur Rochor, Singapura.",
+        "structure": "Bawah tanah"
+      },
+      "Bishan": {
+        "summary": "Stesen MRT Bishan ialah sebuah stesen pertukaran Mass Rapid Transit di Laluan Utara–Selatan dan Laluan Circle di Bishan, Singapura. Stesen ini terletak di sepanjang Bishan Road dalam pusat bandar; ia berdekatan dengan pusat beli-belah Junction 8, Terminal Bas Bishan dan Stadium Bishan."
+      },
+      "Boon Keng": {
+        "summary": "Stesen MRT Boon Keng ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Timur Laut di Kallang, Singapura. Terletak di bawah Serangoon Road sejurus selepas persimpangan lalu lintas dengan Towner Road dan Boon Keng Road, stesen ini terutamanya berkhidmat untuk kawasan Boon Keng."
+      },
+      "Boon Lay": {
+        "summary": "Stesen MRT Boon Lay ialah sebuah stesen Mass Rapid Transit di Laluan Timur–Barat di Jurong West, Singapura. Terletak di sepanjang Boon Lay Way, stesen ini bersambung secara terus dengan Terminal Bas Boon Lay dan pusat beli-belah Jurong Point, membentuk Hab Pengangkutan Bersepadu Boon Lay."
+      },
+      "Botanic Gardens": {
+        "summary": "Stesen MRT Botanic Gardens ialah sebuah stesen pertukaran Mass Rapid Transit bawah tanah di Laluan Circle dan Laluan Downtown. Terletak di Tanglin, Singapura, stesen ini terletak di barat laut Taman Botani Singapura di persimpangan Bukit Timah Road dan Cluny Park Road."
+      },
+      "Braddell": {
+        "summary": "Stesen MRT Braddell ialah sebuah stesen Mass Rapid Transit bawah tanah yang terletak di Laluan Utara–Selatan di Toa Payoh, Singapura. Disebabkan kekangan kejuruteraan, ia dan stesen Canberra merupakan satu-satunya stesen di NSL yang mempunyai platform sisi.",
+        "structure": "Bawah tanah"
+      },
+      "Bras Basah": {
+        "summary": "Stesen MRT Bras Basah ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Circle yang terletak di kawasan perancangan Museum, Singapura. Ia terletak di bawah Bras Basah Road, bersempadan dengan Waterloo Street dan Queen Street.",
+        "structure": "Bawah tanah"
+      },
+      "Bright Hill": {
+        "summary": "Stesen MRT Bright Hill ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Thomson–Pantai Timur. Terletak di sepanjang Sin Ming Avenue di bahagian barat Bishan, Singapura, ia berkhidmat untuk berbagai-bagai estet kediaman di sekitar stesen.",
+        "structure": "Bawah tanah"
+      },
+      "Buangkok": {
+        "summary": "Stesen MRT Buangkok ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Timur Laut di Singapura, terletak berdekatan persimpangan jalan Sengkang Central dan Compassvale Bow. Stesen ini berkhidmat untuk kawasan kediaman Buangkok dan pembangunan sekitarnya termasuk Terminal Bas Buangkok, Sengkang Grand Residence, dan Sengkang Grand Mall.",
+        "structure": "Bawah tanah  cite web"
+      },
+      "Bugis": {
+        "summary": "Stesen MRT Bugis ialah sebuah stesen pertukaran Mass Rapid Transit bawah tanah di Laluan Timur–Barat dan Laluan Downtown, di Bugis, Singapura. Stesen ini terletak di bawah persimpangan Rochor Road dan Victoria Street.",
+        "structure": "Bawah tanah"
+      },
+      "Bukit Batok": {
+        "summary": "Stesen MRT Bukit Batok ialah sebuah stesen Mass Rapid Transit atas tanah di Laluan Utara–Selatan di Bukit Batok, Singapura. Dikendalikan oleh SMRT Trains, stesen ini berkhidmat untuk mercu tanda berdekatan termasuk Terminal Bas Bukit Batok, West Mall, dan Perpustakaan Bukit Batok.",
+        "structure": "Bertingkat"
+      },
+      "Bukit Gombak": {
+        "summary": "Stesen MRT Bukit Gombak ialah sebuah stesen Mass Rapid Transit atas tanah di Laluan Utara–Selatan di Bukit Gombak, Singapura. Dikendalikan oleh SMRT, stesen ini berkhidmat untuk berbagai-bagai mercu tanda seperti Taman Bandar Bukit Batok, Stadium Bukit Gombak, dan Dewan Sukan Bukit Gombak.",
+        "structure": "Bertingkat"
+      },
+      "Bukit Panjang": {
+        "summary": "Stesen MRT/LRT Bukit Panjang ialah sebuah stesen pertukaran Mass Rapid Transit dan Light Rail Transit di Laluan Downtown dan laluan LRT Bukit Panjang di Singapura. Terletak di estet yang senama, Bukit Panjang, stesen ini berada di persimpangan Upper Bukit Timah Road dan Petir Road."
+      },
+      "Buona Vista": {
+        "summary": "Stesen MRT Buona Vista ialah stesen pertukaran Transit Aliran Massa di Laluan Timur–Barat dan Laluan Circle di Queenstown, Singapura. Stesen ini terletak berdekatan one-north, sebuah taman perniagaan berteknologi tinggi untuk industri sains bioperubatan, teknologi infokomunikasi dan media."
+      },
+      "Caldecott": {
+        "summary": "Stesen MRT Caldecott ialah stesen pertukaran Transit Aliran Massa bawah tanah di Laluan Circle dan Thomson–East Coast, terletak di kawasan perancangan Toa Payoh, Singapura. Ia terletak di bawah Toa Payoh Link berhampiran persimpangan Toa Payoh Rise, berdekatan Singapore Association of the Visually Handicapped, Caldecott Broadcast Centre dan Mount Alvernia Hospital.",
+        "structure": "Bawah tanah"
+      },
+      "Canberra": {
+        "summary": "Stesen MRT Canberra ialah stesen Transit Aliran Massa layang di Laluan Utara–Selatan, terletak di sepanjang Canberra Link di persimpangan dengan Canberra Way di Sembawang, Singapura. Ia merupakan stesen sisipan kedua dalam rangkaian MRT, dan yang pertama di Singapura dengan platform yang disambungkan terus ke jejantas pada aras yang sama.",
+        "structure": "Bertingkat"
+      },
+      "Cashew": {
+        "summary": "Stesen MRT Cashew ialah stesen Transit Aliran Massa bawah tanah di Laluan Downtown di Singapura, terletak antara Upper Bukit Timah Road dan Cashew Road. Ia merupakan stesen MRT yang paling hampir dengan ibu pejabat Kementerian Pertahanan, serta CMPB.",
+        "structure": "Bawah tanah"
+      },
+      "Changi Airport": {
+        "summary": "Stesen MRT Changi Airport ialah stesen Transit Aliran Massa bawah tanah di Changi, Singapura. Stesen ini merupakan penamat bagi cabang Changi Airport Laluan Timur–Barat; ia dikendalikan oleh SMRT Trains dan dibina dalam orientasi timur–barat.",
+        "structure": "Bawah tanah"
+      },
+      "Chinatown": {
+        "summary": "Stesen MRT Chinatown ialah stesen pertukaran Transit Aliran Massa bawah tanah di Laluan Timur Laut dan Laluan Downtown di Outram, Singapura. Ia berkhidmat kepada enklaf etnik Chinatown."
+      },
+      "Chinese Garden": {
+        "summary": "Stesen MRT Chinese Garden ialah stesen Transit Aliran Massa layang di Laluan Timur–Barat di Jurong Lake District, Singapura. Dikendalikan oleh SMRT Trains, stesen ini berkhidmat kepada Chinese Garden.",
+        "structure": "Bertingkat"
+      },
+      "Choa Chu Kang": {
+        "summary": "Stesen MRT/LRT Choa Chu Kang ialah stesen pertukaran Transit Aliran Massa dan Transit Rel Ringan layang di Choa Chu Kang, Singapura. Berkhidmat untuk Laluan Utara–Selatan dan laluan LRT Bukit Panjang, stesen ini terletak berdekatan Terminal Bas Choa Chu Kang dan pusat beli-belah Lot One."
+      },
+      "City Hall": {
+        "summary": "Stesen MRT City Hall ialah stesen pertukaran Transit Aliran Massa Singapura bawah tanah di Laluan Utara–Selatan dan Laluan Timur–Barat. Terletak di daerah Downtown Core, ia berada di bawah Stamford Road berhampiran persimpangan jalan dengan North Bridge Road dan St Andrew's Road.",
+        "structure": "Bawah tanah"
+      },
+      "Clarke Quay": {
+        "summary": "Stesen MRT Clarke Quay ialah stesen Transit Aliran Massa bawah tanah di Laluan Timur Laut di Singapura. Terletak di sepanjang Eu Tong Sen Street, berhampiran persimpangan Merchant Road dan North Canal Road, ia berada di selatan Sungai Singapura di bawah The Central.",
+        "structure": "Bawah tanah"
+      },
+      "Clementi": {
+        "summary": "Stesen MRT Clementi ialah stesen Transit Aliran Massa layang di Laluan Timur–Barat di Clementi, Singapura. Stesen ini terletak di sepanjang Commonwealth Avenue West dan berkhidmat kepada mercu tanda seperti Clementi Mall, Terminal Bas Clementi, dan Balai Bomba Clementi.",
+        "structure": "Bertingkat (EWL) Bawah tanah (CRL)"
+      },
+      "Commonwealth": {
+        "summary": "Stesen MRT Commonwealth ialah stesen Transit Aliran Massa di atas tanah di Laluan Timur–Barat di Queenstown, Singapura. Dikendalikan oleh SMRT Corporation, stesen ini berkhidmat kepada mercu tanda berdekatan seperti Faith Methodist Church dan Sekolah Menengah Queensway."
+      },
+      "Compassvale": {
+        "summary": "Laluan LRT Sengkang ialah laluan transit panduan automatik bertingkat sepanjang 10.7 kilometer di Sengkang, Singapura. Laluan tanpa pemandu ini terdiri daripada 14 stesen di dua gelungan, dengan stesen Sengkang berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkannya dengan Laluan North East pada sistem Mass Rapid Transit."
+      },
+      "Coral Edge": {
+        "summary": "Laluan LRT Punggol ialah laluan transit panduan automatik bertingkat sepanjang 10.3 kilometer di Punggol, Singapura. Sistem tanpa pemandu ini terdiri daripada 15 stesen di dua gelungan, dengan stesen Punggol berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkan laluan ini dengan Laluan North East pada MRT Singapura."
+      },
+      "Cove": {
+        "summary": "Laluan LRT Punggol ialah laluan transit panduan automatik bertingkat sepanjang 10.3 kilometer di Punggol, Singapura. Sistem tanpa pemandu ini terdiri daripada 15 stesen di dua gelungan, dengan stesen Punggol berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkan laluan ini dengan Laluan North East pada MRT Singapura."
+      },
+      "Dakota": {
+        "summary": "Stesen MRT Dakota ialah sebuah stesen Transit Aliran Pesat bawah tanah di Circle Line di Geylang, Singapura. Dikendalikan oleh SMRT Trains, stesen ini melayani mercu tanda berdekatan seperti estet perumahan Dakota Crescent, Sekolah Menengah Broadrick, Sekolah Kong Hwa, dan Old Airport Food Court & Shopping Mall.",
+        "structure": "Bawah tanah"
+      },
+      "Damai": {
+        "summary": "Stesen LRT Damai mungkin merujuk kepada:Stesen LRT Damai Stesen LRT Damai"
+      },
+      "Dhoby Ghaut": {
+        "summary": "Stesen MRT Dhoby Ghaut ialah sebuah stesen pertukaran Transit Aliran Pesat bawah tanah di North–South Line, North East Line dan Circle Line di Singapura. Terletak di bawah hujung timur zon beli-belah Orchard Road di Dhoby Ghaut, Kawasan Perancangan Museum, stesen ini disatukan dengan pembangunan komersial The Atrium@Orchard.",
+        "structure": "Bawah tanah"
+      },
+      "Dover": {
+        "summary": "Stesen MRT Dover ialah sebuah stesen Transit Aliran Pesat bertingkat di East–West Line di Singapura. Terletak di sepanjang Commonwealth Avenue West, stesen ini terhubung secara langsung dengan Politeknik Singapura dan melayani pelbagai pembangunan perumahan di kawasan tersebut.",
+        "structure": "Bertingkat"
+      },
+      "Downtown": {
+        "summary": "Stesen MRT Downtown ialah sebuah stesen Transit Aliran Pesat bawah tanah di Downtown Line. Terletak di Downtown Core, Singapura, di bawah Central Boulevard, stesen ini melayani pelbagai pembangunan komersial termasuk Marina Bay Financial Centre, Asia Square dan SGX Centre.",
+        "structure": "Bawah tanah"
+      },
+      "Esplanade": {
+        "summary": "Stesen MRT Esplanade ialah sebuah stesen Transit Aliran Pesat bawah tanah di Circle Line di Singapura. Terletak di Downtown Core, stesen ini berada di persimpangan Bras Basah Road, Raffles Boulevard dan Nicoll Highway."
+      },
+      "Eunos": {
+        "summary": "Stesen MRT Eunos ialah sebuah stesen Transit Aliran Pesat bertingkat di East–West Line di Geylang, Singapura. Dikendalikan oleh SMRT Trains, stesen ini bersambung dengan Terminal Bas Eunos."
+      },
+      "Expo": {
+        "summary": "Stesen MRT Expo ialah sebuah stesen pertukaran Transit Aliran Pesat di East–West Line dan Downtown Line di kawasan perancangan Tampines, Singapura. Stesen ini terletak antara Changi City Point dan Singapore Expo, di sepanjang Changi South Avenue 1 di persimpangan Expo Drive."
+      },
+      "Fajar": {
+        "summary": "Bukit Panjang LRT ialah laluan transit berpandu automatik sepanjang 8 kilometer di Bukit Panjang, Singapura. BPLRT kini merupakan satu-satunya laluan Transit Rel Ringan yang dikendalikan oleh SMRT Trains."
+      },
+      "Farmway": {
+        "summary": "Laluan LRT Sengkang ialah laluan transit panduan automatik bertingkat sepanjang 10.7 kilometer di Sengkang, Singapura. Laluan tanpa pemandu ini terdiri daripada 14 stesen di dua gelungan, dengan stesen Sengkang berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkannya dengan Laluan North East pada sistem Mass Rapid Transit."
+      },
+      "Farrer Park": {
+        "summary": "Stesen MRT Farrer Park ialah sebuah stesen Transit Aliran Pesat bawah tanah di sepanjang North East Line, terletak di sempadan kawasan perancangan Kallang dan Rochor, Singapura. Bagi memudahkan pembinaannya, beberapa bangunan di sekitarnya perlu ditutup dan dikosongkan.",
+        "structure": "Bawah tanah"
+      },
+      "Farrer Road": {
+        "summary": "Stesen MRT Farrer Road ialah sebuah stesen Mass Rapid Transit bawah tanah di Circle Line, terletak di sepanjang sempadan kawasan perancangan Farrer Court dan Tyersall, Singapura. Stesen ini dibina di bawah Farrer Road, jalan utama yang menjadi asal nama stesen ini, dan terletak berdekatan Farrer Gardens Estate.",
+        "structure": "Bawah tanah"
+      },
+      "Fernvale": {
+        "summary": "Laluan LRT Sengkang ialah laluan transit panduan automatik bertingkat sepanjang 10.7 kilometer di Sengkang, Singapura. Laluan tanpa pemandu ini terdiri daripada 14 stesen di dua gelungan, dengan stesen Sengkang berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkannya dengan Laluan North East pada sistem Mass Rapid Transit."
+      },
+      "Fort Canning": {
+        "summary": "Stesen MRT Fort Canning ialah sebuah stesen Mass Rapid Transit bawah tanah di Downtown Line, terletak di sempadan kawasan perancangan Museum dan Singapore River, Singapura. Terletak di tebing utara Sungai Singapura, stesen ini berada di kaki Fort Canning, iaitu asal nama stesen ini.",
+        "structure": "Bawah tanah"
+      },
+      "Gardens by the Bay": {
+        "summary": "Stesen MRT Gardens by the Bay ialah sebuah stesen Mass Rapid Transit bawah tanah di Thomson–East Coast Line. Terletak di Marina South, Singapura, stesen ini berkhidmat kepada Gardens by the Bay dan Marina Barrage.",
+        "structure": "Bawah tanah"
+      },
+      "Geylang Bahru": {
+        "summary": "Stesen MRT Geylang Bahru ialah sebuah stesen Mass Rapid Transit bawah tanah di Downtown Line di Kallang, Singapura.",
+        "structure": "Bawah tanah"
+      },
+      "Great World": {
+        "summary": "Stesen MRT Great World ialah sebuah stesen Mass Rapid Transit bawah tanah di Thomson–East Coast Line. Terletak di River Valley, Singapura, stesen ini berdekatan pusat beli-belah Great World dan pembangunan kediaman di sekelilingnya.",
+        "structure": "Bawah tanah"
+      },
+      "Gul Circle": {
+        "summary": "Stesen MRT Gul Circle ialah sebuah stesen Mass Rapid Transit bertingkat di East–West Line. Terletak di Tuas, di bahagian barat Singapura, stesen ini berkhidmat kepada industri di sekelilingnya iaitu JTC Space @ Tuas dan Mapletree Pioneer Logistic Hub.",
+        "structure": "Bertingkat"
+      },
+      "HarbourFront": {
+        "summary": "Stesen MRT HarbourFront ialah sebuah stesen pertukaran Mass Rapid Transit bawah tanah di Singapura. Sebuah stesen di Circle Line dan stesen penghujung North East Line, stesen ini berkhidmat kepada kawasan HarbourFront dan Sentosa.",
+        "structure": "Bawah tanah"
+      },
+      "Havelock": {
+        "summary": "Stesen Havelock mungkin merujuk kepada: Stesen MRT Havelock, sebuah stesen transit cepat di Singapura; Stesen kereta api Havelock, sebuah bekas stesen kereta api di Ontario, Kanada"
+      },
+      "Haw Par Villa": {
+        "summary": "Stesen MRT Haw Par Villa ialah sebuah stesen Mass Rapid Transit bawah tanah di Circle Line di Queenstown, Singapura. Terletak di bawah West Coast Highway dan Pasir Panjang Road, stesen ini berkhidmat kepada Haw Par Villa yang berdekatan, di samping Pasir Panjang Wholesale Centre.",
+        "structure": "Bawah tanah"
+      },
+      "Hillview": {
+        "summary": "Stesen MRT Hillview ialah sebuah stesen Mass Rapid Transit bawah tanah di Downtown Line, terletak di sempadan subzon perancangan Hillview dan Nature Reserve masing-masing di Bukit Batok dan Bukit Panjang, Singapura.",
+        "structure": "Bawah tanah"
+      },
+      "Holland Village": {
+        "summary": "Stesen MRT Holland Village ialah sebuah stesen Mass Rapid Transit bawah tanah di Circle Line, terletak di sepanjang sempadan kawasan perancangan Bukit Timah dan Queenstown di Singapura. Terletak berhampiran persimpangan Holland Avenue dan Holland Road, stesen ini terutamanya berkhidmat kepada kawasan Holland Village, iaitu asal namanya.",
+        "structure": "Bawah tanah"
+      },
+      "Hougang": {
+        "summary": "Stesen MRT Hougang ialah sebuah stesen Mass Rapid Transit bawah tanah di North East Line di Hougang, Singapura. Di bawah Hougang Central dan Pertukaran Bas Hougang Central, stesen ini berkhidmat kepada berbagai mercu tanda, termasuk Hougang Mall dan Hougang Sports Hall.",
+        "structure": "Bawah tanah"
+      },
+      "Hume": {
+        "summary": "Stesen MRT Hume ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Downtown di Bukit Batok, Singapura. Terletak di persimpangan Hume Avenue dan Upper Bukit Timah Road, stesen ini berkhidmat kepada mercu tanda seperti Bukit Timah Hill, Bukit Timah Nature Reserve, Rail Corridor, Rail Mall dan Former Ford Factory.",
+        "structure": "Bawah tanah"
+      },
+      "Jalan Besar": {
+        "summary": "Stesen MRT Jalan Besar ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Downtown di Rochor, Singapura. Stesen ini terletak di bawah Jalan Besar, di persimpangan dengan Weld Road, justeru namanya.",
+        "structure": "Bawah tanah"
+      },
+      "Jelapang": {
+        "summary": "Bukit Panjang LRT ialah laluan transit berpandu automatik sepanjang 8 kilometer di Bukit Panjang, Singapura. BPLRT kini merupakan satu-satunya laluan Transit Rel Ringan yang dikendalikan oleh SMRT Trains."
+      },
+      "Joo Koon": {
+        "summary": "Stesen MRT Joo Koon ialah sebuah stesen Mass Rapid Transit di atas tanah di sepanjang Laluan Timur–Barat di kawasan perancangan Pioneer, Singapura.",
+        "structure": "Bertingkat"
+      },
+      "Jurong East": {
+        "summary": "Stesen MRT Jurong East ialah sebuah stesen pertukaran Mass Rapid Transit layang di Laluan Utara–Selatan dan Timur–Barat di Jurong East, Singapura. Terletak di sepanjang Jurong Gateway Road, stesen ini terletak berdekatan dengan Jem, Westgate, IMM, Hospital Umum Ng Teng Fong, Pertukaran Bas Jurong East dan Pertukaran Bas Jurong Town Hall.",
+        "structure": "Bertingkat"
+      },
+      "Kadaloor": {
+        "summary": "Laluan LRT Punggol ialah laluan transit panduan automatik bertingkat sepanjang 10.3 kilometer di Punggol, Singapura. Sistem tanpa pemandu ini terdiri daripada 15 stesen di dua gelungan, dengan stesen Punggol berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkan laluan ini dengan Laluan North East pada MRT Singapura."
+      },
+      "Kaki Bukit": {
+        "summary": "Stesen MRT Kaki Bukit ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Downtown. Terletak di Kaki Bukit, Singapura, stesen ini terletak di sepanjang Kaki Bukit Avenue 1.",
+        "structure": "Bawah tanah"
+      },
+      "Kallang": {
+        "summary": "Stesen MRT Kallang ialah sebuah stesen Mass Rapid Transit layang di Laluan Timur–Barat di Kallang, Singapura. Dikendalikan oleh SMRT Trains, stesen ini terutamanya berkhidmat kepada kawasan Kallang serta terminal bas Lorong 1 Geylang.",
+        "structure": "Bertingkat"
+      },
+      "Kangkar": {
+        "summary": "Laluan LRT Sengkang ialah laluan transit panduan automatik bertingkat sepanjang 10.7 kilometer di Sengkang, Singapura. Laluan tanpa pemandu ini terdiri daripada 14 stesen di dua gelungan, dengan stesen Sengkang berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkannya dengan Laluan North East pada sistem Mass Rapid Transit."
+      },
+      "Katong Park": {
+        "summary": "Stesen MRT Katong Park ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Thomson–East Coast. Terletak di sepanjang Meyer Road dan bersebelahan Katong Park, stesen ini berkhidmat kepada Dunman High School dan Singapore Swimming School bersama pembangunan kediaman berdekatan.",
+        "structure": "Bawah tanah"
+      },
+      "Keat Hong": {
+        "summary": "Bukit Panjang LRT ialah laluan transit berpandu automatik sepanjang 8 kilometer di Bukit Panjang, Singapura. BPLRT kini merupakan satu-satunya laluan Transit Rel Ringan yang dikendalikan oleh SMRT Trains."
+      },
+      "Kembangan": {
+        "summary": "Stesen MRT Kembangan ialah sebuah stesen Mass Rapid Transit layang di Laluan Timur–Barat di Bedok, Singapura. Dikendalikan oleh SMRT Trains, stesen ini berkhidmat kepada subzon Kembangan yang senama di Bedok.",
+        "structure": "Bertingkat"
+      },
+      "Kent Ridge": {
+        "summary": "Stesen MRT Kent Ridge ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Circle. Terletak di Kent Ridge yang senama di Queenstown, Singapura, stesen ini berdekatan dengan persimpangan South Buona Vista Road dan Lower Kent Ridge Road.",
+        "structure": "Bawah tanah"
+      },
+      "Khatib": {
+        "summary": "Stesen MRT Khatib ialah sebuah stesen Mass Rapid Transit di atas tanah di Laluan Utara–Selatan yang terletak di Khatib, Singapura, sebuah subzon di kawasan perancangan Yishun.",
+        "structure": "Bertingkat"
+      },
+      "King Albert Park": {
+        "summary": "Stesen MRT King Albert Park ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Downtown di Bukit Timah, Singapura. Terletak di hujung barat Bukit Timah Road di persimpangan Blackmore Drive, stesen ini berkhidmat kepada estet kediaman persendirian di sepanjang koridor Bukit Timah.",
+        "structure": "Bawah tanah"
+      },
+      "Kovan": {
+        "summary": "Stesen MRT Kovan ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Timur Laut di Hougang, Singapura. Terletak di bawah Upper Serangoon Road, stesen ini berkhidmat kepada pembangunan peruncitan Heartland Mall serta kediaman awam dan persendirian di sekitarnya.",
+        "structure": "Bawah tanah"
+      },
+      "Kranji": {
+        "summary": "Stesen MRT Kranji ialah sebuah stesen Mass Rapid Transit bertingkat di Laluan Utara–Selatan. Terletak di Sungei Kadut, Singapura, di sepanjang Woodlands Road, stesen ini melayani Singapore Turf Club dan Woodlands Wafer Fabrication Park.",
+        "structure": "Bertingkat"
+      },
+      "Kupang": {
+        "summary": "Laluan LRT Sengkang ialah laluan transit panduan automatik bertingkat sepanjang 10.7 kilometer di Sengkang, Singapura. Laluan tanpa pemandu ini terdiri daripada 14 stesen di dua gelungan, dengan stesen Sengkang berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkannya dengan Laluan North East pada sistem Mass Rapid Transit."
+      },
+      "Labrador Park": {
+        "summary": "Stesen MRT Labrador Park ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Circle, terletak di dalam kawasan perancangan Bukit Merah, Singapura.",
+        "structure": "Bawah tanah"
+      },
+      "Lakeside": {
+        "summary": "Stesen MRT Lakeside ialah sebuah stesen Mass Rapid Transit bertingkat di Laluan Timur–Barat di Jurong West, Singapura. Dikendalikan oleh SMRT Trains, stesen ini melayani Tasik Jurong yang senama serta estet kediaman Hong Kah dan Taman Jurong.",
+        "structure": "Bertingkat"
+      },
+      "Lavender": {
+        "summary": "Stesen MRT Lavender ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Timur–Barat di Kallang, Singapura. Terletak di bawah Kallang Road, stesen ini berdekatan dengan Bangunan Pihak Berkuasa Imigresen dan Pusat Pemeriksaan serta stadium Jalan Besar.",
+        "structure": "Bawah tanah"
+      },
+      "Layar": {
+        "summary": "Laluan LRT Sengkang ialah laluan transit panduan automatik bertingkat sepanjang 10.7 kilometer di Sengkang, Singapura. Laluan tanpa pemandu ini terdiri daripada 14 stesen di dua gelungan, dengan stesen Sengkang berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkannya dengan Laluan North East pada sistem Mass Rapid Transit."
+      },
+      "Lentor": {
+        "summary": "Stesen MRT Lentor ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Thomson–East Coast. Ia terletak di utara Ang Mo Kio, Singapura, di bawah Lentor Drive.",
+        "structure": "Bawah tanah"
+      },
+      "Lorong Chuan": {
+        "summary": "Stesen MRT Lorong Chuan ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Circle di Serangoon, Singapura. Dikendalikan oleh SMRT Trains, stesen ini melayani beberapa mercu tanda berdekatan seperti Kelab Masyarakat Braddell Heights, serta beberapa buah sekolah.",
+        "structure": "Bawah tanah"
+      },
+      "MacPherson": {
+        "summary": "Stesen MRT MacPherson ialah sebuah stesen pertukaran Mass Rapid Transit bawah tanah di Laluan Downtown dan Laluan Circle di kawasan perancangan Geylang, Singapura, terletak di bawah Paya Lebar Road di persimpangan dengan Circuit Link dan Ubi Avenue 2.",
+        "structure": "Bawah tanah"
+      },
+      "Marina Bay": {
+        "summary": "Stesen MRT Marina Bay ialah sebuah stesen pertukaran Mass Rapid Transit bawah tanah di Laluan Utara–Selatan, Circle dan Thomson–East Coast di Singapura. Terletak di daerah Downtown Core berdekatan Marina Bay, stesen ini melayani Marina One Residences, Marina Bay Suites dan Marina Bay Financial Centre.",
+        "structure": "Bawah tanah"
+      },
+      "Marina South Pier": {
+        "summary": "Stesen MRT Marina South Pier ialah sebuah stesen Mass Rapid Transit bawah tanah di Straits View, Singapura. Stesen ini dibina sebagai bahagian daripada Lanjutan Laluan Utara–Selatan sepanjang 1 kilometer, dan merupakan terminal selatan laluan tersebut.",
+        "structure": "Bawah tanah"
+      },
+      "Marine Parade": {
+        "summary": "Stesen MRT Marine Parade ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Thomson–East Coast di Marine Parade, Singapura. Terletak di bawah Marine Parade Road, stesen ini melayani pembangunan kediaman dan komersial berdekatan termasuk Parkway Parade, Roxy Square dan I12 Katong.",
+        "structure": "Bawah tanah"
+      },
+      "Marine Terrace": {
+        "summary": "Stesen MRT Marine Terrace ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Thomson–East Coast. Terletak di estet Marine Parade, ia melayani banyak sekolah di kawasan itu serta Pasar dan Pusat Makanan Marine Terrace.",
+        "structure": "Bawah tanah"
+      },
+      "Marsiling": {
+        "summary": "Stesen MRT Marsiling ialah sebuah stesen Mass Rapid Transit atas tanah di Laluan Utara–Selatan di Marsiling, Woodlands, Singapura. Dikendalikan oleh SMRT Trains, stesen ini melayani berbagai mercu tanda berdekatan seperti Sekolah Rendah dan Sekolah Menengah Marsiling serta Sekolah Rendah dan Sekolah Menengah Fuchun."
+      },
+      "Marymount": {
+        "summary": "Stesen MRT Marymount ialah stesen Mass Rapid Transit bawah tanah di Laluan Circle di Bishan, Singapura. Dikendalikan oleh SMRT, stesen ini berkhidmat kepada mercu tanda berdekatan seperti Balai Bomba Bishan, Raffles Institution dan Raffles Junior College.",
+        "structure": "Bawah tanah"
+      },
+      "Mattar": {
+        "summary": "Stesen MRT Mattar ialah stesen Mass Rapid Transit bawah tanah di Laluan Downtown di Geylang, Singapura. Stesen ini terletak di bawah Mattar Road berhampiran persimpangan Merpati Road."
+      },
+      "Maxwell": {
+        "summary": "Stesen MRT Maxwell ialah stesen Mass Rapid Transit bawah tanah di Laluan Thomson–East Coast di Singapura. Terletak di Downtown Core dan Outram di sepanjang Neil Road, stesen ini berdekatan dengan Buddha Tooth Relic Temple and Museum, Kuil Sri Mariamman dan Maxwell Food Centre.",
+        "structure": "Bawah tanah"
+      },
+      "Mayflower": {
+        "summary": "Stesen MRT Mayflower ialah stesen Mass Rapid Transit bawah tanah di Laluan Thomson–East Coast di Ang Mo Kio, Singapura. Terletak di bawah Ang Mo Kio Avenue 4, stesen ini berkhidmat kepada pelbagai mercu tanda termasuk Kebun Baru Heights Estate, Pusat Komuniti Kebun Baru dan CHIJ Saint Nicholas Girls' School.",
+        "structure": "Bawah tanah"
+      },
+      "Meridian": {
+        "summary": "Laluan LRT Punggol ialah laluan transit panduan automatik bertingkat sepanjang 10.3 kilometer di Punggol, Singapura. Sistem tanpa pemandu ini terdiri daripada 15 stesen di dua gelungan, dengan stesen Punggol berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkan laluan ini dengan Laluan North East pada MRT Singapura."
+      },
+      "Mountbatten": {
+        "summary": "Stesen MRT Mountbatten ialah stesen Mass Rapid Transit bawah tanah di Laluan Circle di Kallang, Singapura. Terletak di persimpangan Mountbatten Road, stesen ini berkhidmat kepada mercu tanda berdekatan seperti Kallang Field dan Goodman Arts Centre.",
+        "structure": "Bawah tanah"
+      },
+      "Napier": {
+        "summary": "Stesen MRT Napier ialah stesen Mass Rapid Transit bawah tanah di Laluan Thomson–East Coast. Terletak di Tanglin, Singapura, stesen ini berada di persimpangan Napier Road, Holland Road dan Cluny Road.",
+        "structure": "Bawah tanah"
+      },
+      "Newton": {
+        "summary": "Stesen MRT Newton ialah stesen pertukaran Mass Rapid Transit bawah tanah di Laluan Utara–Selatan dan Downtown. Ia terletak di Newton, Singapura, di persimpangan Scotts Road dan Bukit Timah Road berhampiran Newton Circus.",
+        "structure": "Bawah tanah"
+      },
+      "Nibong": {
+        "summary": "Laluan LRT Punggol ialah laluan transit panduan automatik bertingkat sepanjang 10.3 kilometer di Punggol, Singapura. Sistem tanpa pemandu ini terdiri daripada 15 stesen di dua gelungan, dengan stesen Punggol berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkan laluan ini dengan Laluan North East pada MRT Singapura."
+      },
+      "Nicoll Highway": {
+        "summary": "Stesen MRT Nicoll Highway ialah stesen Mass Rapid Transit bawah tanah di Laluan Circle di Singapura. Terletak di Downtown Core di bawah Republic Avenue berhampiran Sungai Kallang, stesen ini berkhidmat kepada pembangunan komersial dan kediaman di sepanjang Nicoll Highway, seperti Golden Mile Complex dan The Concourse.",
+        "structure": "Bawah tanah"
+      },
+      "Novena": {
+        "summary": "Stesen MRT Novena ialah stesen Mass Rapid Transit bawah tanah di Laluan Utara–Selatan. Terletak di sepanjang Thomson Road di Novena, Singapura, stesen ini berdekatan dengan mercu tanda seperti Hospital Tan Tock Seng, Hospital Mount Elizabeth Novena dan United Square.",
+        "structure": "Bawah tanah"
+      },
+      "Oasis": {
+        "summary": "Laluan LRT Punggol ialah laluan transit panduan automatik bertingkat sepanjang 10.3 kilometer di Punggol, Singapura. Sistem tanpa pemandu ini terdiri daripada 15 stesen di dua gelungan, dengan stesen Punggol berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkan laluan ini dengan Laluan North East pada MRT Singapura."
+      },
+      "Orchard": {
+        "summary": "Stesen MRT Orchard ialah stesen pertukaran Mass Rapid Transit bawah tanah di Singapura, di Laluan Utara–Selatan dan Thomson–East Coast. Terletak di sepanjang Orchard Boulevard dan di bawah ION Orchard, stesen ini berkhidmat kepada pelbagai pembangunan komersial dan peruncitan di daerah beli-belah Orchard Road, termasuk Liat Towers, Ngee Ann City, Wheelock Place, Wisma Atria dan Shaw House, antara lain.",
+        "structure": "Bawah tanah"
+      },
+      "Orchard Boulevard": {
+        "summary": "Stesen MRT Orchard Boulevard ialah stesen Mass Rapid Transit bawah tanah di Laluan Thomson–East Coast. Terletak di Orchard, Singapura, stesen ini berada di penghujung Orchard Boulevard dengan Grange Road.",
+        "structure": "Bawah tanah"
+      },
+      "Outram Park": {
+        "summary": "Stesen MRT Outram Park ialah stesen pertukaran Mass Rapid Transit bawah tanah di Singapura. Stesen ini terletak di Laluan Timur–Barat, North East dan Thomson–East Coast, dan berhampiran persimpangan Outram Road, Eu Tong Sen Street dan New Bridge Road di sempadan kawasan perancangan Bukit Merah dan Outram.",
+        "structure": "Bawah tanah"
+      },
+      "Pasir Panjang": {
+        "summary": "Stesen MRT Pasir Panjang ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Circle. Seperti yang ditunjukkan oleh namanya, ia terletak di Pasir Panjang di bahagian selatan kawasan perancangan Queenstown, Singapura.",
+        "structure": "Bawah tanah"
+      },
+      "Pasir Ris": {
+        "summary": "Stesen MRT Pasir Ris ialah sebuah stesen Mass Rapid Transit layang di Laluan Timur–Barat di Pasir Ris, Singapura. Terletak di sepanjang Pasir Ris Central bersebelahan Pertukaran Bas Pasir Ris, Pasir Ris Mall dan pusat beli-belah White Sands, ia merupakan terminus timur EWL.",
+        "structure": "Bertingkat (EWL) Bawah tanah (CRL)"
+      },
+      "Paya Lebar": {
+        "summary": "Stesen MRT Paya Lebar ialah sebuah stesen pertukaran Mass Rapid Transit di Laluan Timur–Barat dan Laluan Circle di Singapura. Walaupun namanya sedemikian, stesen ini tidak terletak di kawasan perancangan Paya Lebar tetapi di sepanjang Paya Lebar Road, yang terletak di Geylang, berhampiran persimpangan dengan Sims Avenue."
+      },
+      "Pending": {
+        "summary": "Bukit Panjang LRT ialah laluan transit berpandu automatik sepanjang 8 kilometer di Bukit Panjang, Singapura. BPLRT kini merupakan satu-satunya laluan Transit Rel Ringan yang dikendalikan oleh SMRT Trains."
+      },
+      "Petir": {
+        "summary": "Bukit Panjang LRT ialah laluan transit berpandu automatik sepanjang 8 kilometer di Bukit Panjang, Singapura. BPLRT kini merupakan satu-satunya laluan Transit Rel Ringan yang dikendalikan oleh SMRT Trains."
+      },
+      "Phoenix": {
+        "summary": "Bukit Panjang LRT ialah laluan transit berpandu automatik sepanjang 8 kilometer di Bukit Panjang, Singapura. BPLRT kini merupakan satu-satunya laluan Transit Rel Ringan yang dikendalikan oleh SMRT Trains."
+      },
+      "Pioneer": {
+        "summary": "Stesen MRT Pioneer ialah sebuah stesen Mass Rapid Transit di Singapura. Ia merupakan sebahagian daripada Laluan Timur–Barat dan berkhidmat kepada kawasan perumahan Pioneer.",
+        "structure": "Bertingkat"
+      },
+      "Potong Pasir": {
+        "summary": "Stesen MRT Potong Pasir ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Timur Laut di kawasan perancangan Toa Payoh, Singapura. Ia terletak di bawah Upper Serangoon Road di persimpangan dengan Potong Pasir Avenue 1 dan Wan Tho Avenue.",
+        "structure": "Bawah tanah"
+      },
+      "Promenade": {
+        "summary": "Stesen MRT Promenade ialah sebuah stesen pertukaran Mass Rapid Transit bawah tanah di Laluan Downtown dan Laluan Circle di Downtown Core, Singapura. Terletak di bawah Temasek Avenue dan bersebelahan Millenia Tower, stesen ini berkhidmat kepada beberapa tarikan dan lokasi utama seperti Suntec City dan Marina Promenade, iaitu asal nama stesen ini.",
+        "structure": "Bawah tanah"
+      },
+      "Punggol": {
+        "summary": "Stesen MRT/LRT Punggol ialah sebuah stesen pertukaran Mass Rapid Transit dan Light Rail Transit di Punggol, Singapura. Ia merupakan stesen pertukaran antara Laluan Timur Laut dan LRT Punggol, dan salah satu daripada dua stesen MRT yang terletak dalam kawasan perancangan Punggol."
+      },
+      "Punggol Coast": {
+        "summary": "Stesen MRT Punggol Coast ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Timur Laut di utara Punggol, Singapura. Stesen ini merupakan terminus NEL dan berkhidmat kepada Punggol Digital District bersama kampus baharu Singapore Institute of Technology.",
+        "structure": "Bawah tanah"
+      },
+      "Punggol Point": {
+        "summary": "Laluan LRT Punggol ialah laluan transit panduan automatik bertingkat sepanjang 10.3 kilometer di Punggol, Singapura. Sistem tanpa pemandu ini terdiri daripada 15 stesen di dua gelungan, dengan stesen Punggol berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkan laluan ini dengan Laluan North East pada MRT Singapura."
+      },
+      "Queenstown": {
+        "summary": "Stesen MRT Queenstown ialah sebuah stesen Mass Rapid Transit layang di Laluan Timur–Barat di Queenstown, Singapura. Terletak di Commonwealth Avenue, ia berkhidmat kepada mercu tanda sekitarnya seperti Sekolah Rendah Queenstown dan Princess House serta beberapa gereja berdekatan.",
+        "structure": "Bertingkat"
+      },
+      "Raffles Place": {
+        "summary": "Stesen MRT Raffles Place ialah sebuah stesen pertukaran Mass Rapid Transit bawah tanah di Laluan Utara–Selatan dan Laluan Timur–Barat di Singapura. Terletak di Downtown Core, stesen ini berada di bawah Raffles Place di selatan Sungai Singapura.",
+        "structure": "Bawah tanah"
+      },
+      "Ranggung": {
+        "summary": "Laluan LRT Sengkang ialah laluan transit panduan automatik bertingkat sepanjang 10.7 kilometer di Sengkang, Singapura. Laluan tanpa pemandu ini terdiri daripada 14 stesen di dua gelungan, dengan stesen Sengkang berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkannya dengan Laluan North East pada sistem Mass Rapid Transit."
+      },
+      "Redhill": {
+        "summary": "Stesen MRT Redhill ialah sebuah stesen Mass Rapid Transit di atas tanah di Singapura di Laluan Timur–Barat. Dikendalikan oleh SMRT, stesen ini berkhidmat kepada mercu tanda berdekatan seperti Kompleks Renang Delta dan Thye Hong Centre.",
+        "structure": "Bertingkat"
+      },
+      "Renjong": {
+        "summary": "Laluan LRT Sengkang ialah laluan transit panduan automatik bertingkat sepanjang 10.7 kilometer di Sengkang, Singapura. Laluan tanpa pemandu ini terdiri daripada 14 stesen di dua gelungan, dengan stesen Sengkang berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkannya dengan Laluan North East pada sistem Mass Rapid Transit."
+      },
+      "Riviera": {
+        "summary": "Stesen LRT Riviera ialah sebuah stesen Light Rail Transit layang di Punggol, Singapura. Berkhidmat kepada gelung timur laluan LRT Punggol, stesen ini terletak di sepanjang Punggol East antara persimpangan Punggol Central dan Punggol Field."
+      },
+      "Rochor": {
+        "summary": "Stesen MRT Rochor ialah sebuah stesen Transit Aliran Massa bawah tanah di Laluan Downtown di Rochor, Singapura. Terletak di antara Sungei Road dan Rochor Canal Road, stesen ini berkhidmat kepada mercu tanda seperti Sim Lim Square, Lasalle College of the Arts dan Tekka Centre.",
+        "structure": "Bawah tanah"
+      },
+      "Rumbia": {
+        "summary": "Laluan LRT Sengkang ialah laluan transit panduan automatik bertingkat sepanjang 10.7 kilometer di Sengkang, Singapura. Laluan tanpa pemandu ini terdiri daripada 14 stesen di dua gelungan, dengan stesen Sengkang berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkannya dengan Laluan North East pada sistem Mass Rapid Transit."
+      },
+      "Sam Kee": {
+        "summary": "Laluan LRT Punggol ialah laluan transit panduan automatik bertingkat sepanjang 10.3 kilometer di Punggol, Singapura. Sistem tanpa pemandu ini terdiri daripada 15 stesen di dua gelungan, dengan stesen Punggol berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkan laluan ini dengan Laluan North East pada MRT Singapura."
+      },
+      "Sembawang": {
+        "summary": "Stesen MRT Sembawang ialah sebuah stesen Transit Aliran Massa atas tanah di Laluan Utara–Selatan. Terletak di Sembawang, Singapura di sepanjang Sembawang Road, stesen ini berdekatan dengan pusat beli-belah Sun Plaza dan Terminal Bas Sembawang.",
+        "structure": "Bertingkat"
+      },
+      "Sengkang": {
+        "summary": "Stesen MRT/LRT Sengkang ialah sebuah stesen pertukaran Transit Aliran Massa dan Transit Rel Ringan di Sengkang, Singapura. Ia merupakan stesen pertukaran antara Laluan Timur Laut dan LRT Sengkang."
+      },
+      "Senja": {
+        "summary": "Bukit Panjang LRT ialah laluan transit berpandu automatik sepanjang 8 kilometer di Bukit Panjang, Singapura. BPLRT kini merupakan satu-satunya laluan Transit Rel Ringan yang dikendalikan oleh SMRT Trains."
+      },
+      "Serangoon": {
+        "summary": "Stesen MRT Serangoon ialah sebuah stesen pertukaran Transit Aliran Massa bawah tanah di Laluan Timur Laut dan Laluan Circle. Terletak di Serangoon, Singapura di sepanjang Upper Serangoon Road dan Serangoon Central, stesen ini bersepadu dengan kompleks beli-belah Nex dan Terminal Bas Serangoon.",
+        "structure": "Bawah tanah"
+      },
+      "Shenton Way": {
+        "summary": "Stesen MRT Shenton Way ialah sebuah stesen Transit Aliran Massa bawah tanah di Laluan Thomson–East Coast. Terletak di Downtown Core, Singapura, stesen ini berdekatan dengan Shenton Way serta pembangunan komersial seperti Asia Square dan Marina One.",
+        "structure": "Bawah tanah"
+      },
+      "Siglap": {
+        "summary": "Stesen MRT Siglap ialah sebuah stesen Transit Aliran Massa bawah tanah di Laluan Thomson–East Coast di Siglap, Singapura. Stesen ini berkhidmat kepada mercu tanda berdekatan seperti Victoria School dan St.",
+        "structure": "Bawah tanah"
+      },
+      "Simei": {
+        "summary": "Stesen MRT Simei ialah sebuah stesen Transit Aliran Massa atas tanah di Laluan Timur–Barat di Tampines, Singapura. Dikendalikan oleh SMRT Trains, mercu tanda berdekatan yang dikhidmati stesen ini termasuk Eastpoint Mall dan Changkat Primary and Secondary School."
+      },
+      "Sixth Avenue": {
+        "summary": "Stesen 14th Street/Sixth Avenue ialah kompleks stesen New York City Subway bawah tanah di kejiranan Greenwich Village dan Chelsea di Manhattan, di IRT Broadway–Seventh Avenue Line, BMT Canarsie Line dan IND Sixth Avenue Line. Ia terletak di 14th Street antara Sixth Avenue dan Seventh Avenue."
+      },
+      "Somerset": {
+        "summary": "Stesen MRT Somerset ialah sebuah stesen Transit Aliran Massa bawah tanah di Laluan Utara–Selatan di Orchard, Singapura. Ia merupakan satu daripada tiga stesen yang terletak di sepanjang jalur beli-belah popular, Orchard Road.",
+        "structure": "Bawah tanah"
+      },
+      "Soo Teck": {
+        "summary": "Laluan LRT Punggol ialah laluan transit panduan automatik bertingkat sepanjang 10.3 kilometer di Punggol, Singapura. Sistem tanpa pemandu ini terdiri daripada 15 stesen di dua gelungan, dengan stesen Punggol berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkan laluan ini dengan Laluan North East pada MRT Singapura."
+      },
+      "South View": {
+        "summary": "Bukit Panjang LRT ialah laluan transit berpandu automatik sepanjang 8 kilometer di Bukit Panjang, Singapura. BPLRT kini merupakan satu-satunya laluan Transit Rel Ringan yang dikendalikan oleh SMRT Trains."
+      },
+      "Springleaf": {
+        "summary": "Stesen MRT Springleaf ialah sebuah stesen Transit Aliran Massa bawah tanah di Laluan Thomson–East Coast di Yishun, Singapura. Terletak di sepanjang Upper Thomson Road, ia berkhidmat kepada kawasan kejiranan Springleaf dan Springleaf Nature Park yang berdekatan.",
+        "structure": "Bawah tanah"
+      },
+      "Stadium": {
+        "summary": "Stesen MRT Stadium ialah sebuah stesen Transit Aliran Massa bawah tanah di Laluan Circle. Terletak di kawasan Kallang, Wilayah Tengah, Singapura, stesen ini berkhidmat kepada The Kallang dan kemudahannya termasuk Stadium Nasional, Indoor Stadium, Kallang Theatre dan Leisure Park Kallang.",
+        "structure": "Bawah tanah"
+      },
+      "Stevens": {
+        "summary": "Stesen MRT Stevens ialah sebuah stesen pertukaran Transit Aliran Massa bawah tanah di Laluan Downtown dan Laluan Thomson–East Coast. Terletak di persimpangan Stevens Road dan Bukit Timah Road, ia berkhidmat kepada Singapore Chinese Girls' School yang berdekatan dan St.",
+        "structure": "Bawah tanah"
+      },
+      "Sumang": {
+        "summary": "Laluan LRT Punggol ialah laluan transit panduan automatik bertingkat sepanjang 10.3 kilometer di Punggol, Singapura. Sistem tanpa pemandu ini terdiri daripada 15 stesen di dua gelungan, dengan stesen Punggol berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkan laluan ini dengan Laluan North East pada MRT Singapura."
+      },
+      "Tai Seng": {
+        "summary": "Stesen MRT Tai Seng ialah sebuah stesen Transit Aliran Massa bawah tanah di Laluan Circle di Tai Seng, Singapura. Dikendalikan oleh SMRT Corporation, stesen ini berkhidmat kepada mercu tanda berdekatan seperti Tai Seng Point, Sakae Building dan Leong Huat Building.",
+        "structure": "Bawah tanah"
+      },
+      "Tampines": {
+        "summary": "Stesen MRT Tampines ialah stesen pertukaran Transit Aliran Massa di Laluan Timur–Barat dan Laluan Downtown di Tampines, Singapura. Terletak di pusat bandar bersebelahan Tampines Avenue 4, Tampines Central 4 dan Tampines Central 5, ia berdekatan dengan Terminal Bas Tampines dan Terminal Bas Tampines Concourse."
+      },
+      "Tampines East": {
+        "summary": "Stesen MRT Tampines East ialah stesen Transit Aliran Massa bawah tanah di Laluan Downtown di Tampines, Singapura. Ia terletak di sepanjang Tampines Avenue 7, berhampiran persimpangan dengan Tampines Avenue 2."
+      },
+      "Tampines West": {
+        "summary": "Stesen MRT Tampines West ialah stesen Transit Aliran Massa bawah tanah di Laluan Downtown di Tampines, Singapura. Ia terletak di Tampines Avenue 4, berhampiran persimpangan dengan Tampines Avenue 1.",
+        "structure": "Bawah tanah"
+      },
+      "Tan Kah Kee": {
+        "summary": "Stesen MRT Tan Kah Kee ialah stesen Transit Aliran Massa bawah tanah di Laluan Downtown di Bukit Timah, Singapura. Terletak tepat di bawah kampus Hwa Chong Institution, stesen ini dinamakan sempena pengasas institusi itu, Tan Kah Kee.",
+        "structure": "Bawah tanah"
+      },
+      "Tanah Merah": {
+        "summary": "Stesen MRT Tanah Merah ialah stesen Transit Aliran Massa layang di Laluan Timur–Barat. Terletak di Bedok, Singapura, stesen ini berada di sepanjang New Upper Changi Road dan melayani berbagai pembangunan kediaman.",
+        "structure": "Bertingkat"
+      },
+      "Tanjong Katong": {
+        "summary": "Stesen MRT Tanjong Katong ialah stesen Transit Aliran Massa bawah tanah di Laluan Thomson–East Coast di Singapura. Terletak di bawah Amber Road di persimpangan dengan Tanjong Katong Road South dan Meyer Road, stesen ini melayani kondominium berdekatan seperti Aalto dan King's Mansion.",
+        "structure": "Bawah tanah"
+      },
+      "Tanjong Rhu": {
+        "summary": "Stesen MRT Tanjong Rhu ialah stesen Transit Aliran Massa bawah tanah di Laluan Thomson–East Coast di Kallang, Singapura. Terletak di persimpangan Tanjong Rhu Road dan Tanjong Rhu Place, stesen ini melayani kondominium berdekatan seperti Pebble Bay dan Casuarina Cove."
+      },
+      "Teck Lee": {
+        "summary": "Stesen LRT Teck Lee ialah stesen Transit Rel Ringan layang di Lingkaran Barat laluan LRT Punggol di Punggol, Singapura. Dikendalikan oleh SBS Transit, stesen ini melayani mercu tanda berdekatan seperti kampus Punggol Singapore Institute of Technology, Terminal Bas Punggol Coast, dan Saint Francis Xavier Major Seminary.",
+        "structure": "Bertingkat"
+      },
+      "Teck Whye": {
+        "summary": "Bukit Panjang LRT ialah laluan transit berpandu automatik sepanjang 8 kilometer di Bukit Panjang, Singapura. BPLRT kini merupakan satu-satunya laluan Transit Rel Ringan yang dikendalikan oleh SMRT Trains."
+      },
+      "Telok Ayer": {
+        "summary": "Stesen MRT Telok Ayer ialah stesen Transit Aliran Massa bawah tanah di Laluan Downtown. Terletak di Outram, Singapura, stesen ini melayani pelbagai pejabat dan pembangunan komersial di sekitar persimpangan Cross Street dan Telok Ayer Street.",
+        "structure": "Bawah tanah"
+      },
+      "Telok Blangah": {
+        "summary": "Stesen MRT Telok Blangah ialah stesen Transit Aliran Massa bawah tanah di Laluan Circle, terletak di kawasan perancangan Bukit Merah, Singapura. Ia terletak di sepanjang Telok Blangah Road berhampiran persimpangan Henderson Road, dan terutamanya melayani kawasan kediaman Telok Blangah."
+      },
+      "Thanggam": {
+        "summary": "Laluan LRT Sengkang ialah laluan transit panduan automatik bertingkat sepanjang 10.7 kilometer di Sengkang, Singapura. Laluan tanpa pemandu ini terdiri daripada 14 stesen di dua gelungan, dengan stesen Sengkang berfungsi sebagai pertukaran bagi kedua-dua gelungan dan menghubungkannya dengan Laluan North East pada sistem Mass Rapid Transit."
+      },
+      "Tiong Bahru": {
+        "summary": "Stesen MRT Tiong Bahru ialah stesen Mass Rapid Transit bawah tanah di Laluan East–West di Bukit Merah, Singapura. Ini ialah stesen bawah tanah pertama dan terakhir bagi tren ke arah timur dan ke arah barat masing-masing.",
+        "structure": "Bawah tanah"
+      },
+      "Toa Payoh": {
+        "summary": "Stesen MRT Toa Payoh ialah stesen Mass Rapid Transit bawah tanah di Laluan North–South di Toa Payoh, Singapura. Terletak di pusat bandar Toa Payoh, stesen ini bersepadu dengan Pertukaran Bas Toa Payoh dan HDB Hub, ibu pejabat Lembaga Pembangunan dan Perumahan."
+      },
+      "Tuas Crescent": {
+        "summary": "Stesen MRT Tuas Crescent ialah stesen Mass Rapid Transit atas tanah di sepanjang Laluan East–West di Tuas, Singapura. Stesen ini dinamakan menurut sebuah jalan di sekitarnya.",
+        "structure": "Bertingkat"
+      },
+      "Tuas Link": {
+        "summary": "Stesen MRT Tuas Link ialah stesen Mass Rapid Transit bertingkat di barat Singapura. Terletak di Tuas di sepanjang Tuas West Drive, stesen ini berdekatan dengan Depoh Tuas dan Pusat Pemeriksaan Tuas.",
+        "structure": "Bertingkat"
+      },
+      "Tuas West Road": {
+        "summary": "Stesen MRT Tuas West Road ialah stesen Mass Rapid Transit atas tanah di sepanjang Laluan East–West di Tuas, Singapura. Terletak di sepanjang Pioneer Road, stesen ini melayani bangunan berdekatan seperti Loji Pembakaran Tuas dan Tuas Amenity Centre."
+      },
+      "Ubi": {
+        "summary": "Stesen MRT Ubi ialah stesen Mass Rapid Transit bawah tanah di Laluan Downtown . Terletak di kawasan perancangan Geylang, Singapura, stesen ini berdekatan dengan simpang Ubi Avenue 1 dan Ubi Avenue 2.",
+        "structure": "Bawah tanah"
+      },
+      "Upper Changi": {
+        "summary": "Stesen MRT Upper Changi ialah stesen Mass Rapid Transit bawah tanah di Laluan Downtown di kawasan perancangan Tampines, Singapura, terletak di bawah Upper Changi Road East.",
+        "structure": "Bawah tanah"
+      },
+      "Upper Thomson": {
+        "summary": "Stesen MRT Upper Thomson ialah stesen Mass Rapid Transit bawah tanah di Laluan Thomson–East Coast di Thomson, Singapura. Seperti yang dicadangkan oleh namanya, stesen ini terletak di sepanjang Upper Thomson Road.",
+        "structure": "Bawah tanah"
+      },
+      "Woodlands": {
+        "summary": "Stesen MRT Woodlands ialah sebuah stesen pertukaran Mass Rapid Transit di Laluan Utara–Selatan dan Laluan Thomson–East Coast di Singapura. Terletak di Woodlands, stesen MRT ini merupakan yang pertama mempunyai pertukaran bas bawah tanah di bawah stesen NSL."
+      },
+      "Woodlands North": {
+        "summary": "Stesen MRT Woodlands North ialah sebuah stesen Mass Rapid Transit bawah tanah di Woodlands, Singapura. Stesen ini merupakan terminal utara Laluan Thomson–East Coast.",
+        "structure": "Bawah tanah"
+      },
+      "Woodlands South": {
+        "summary": "Stesen MRT Woodlands South ialah sebuah stesen Mass Rapid Transit bawah tanah di Woodlands, Singapura. Melayani Laluan Thomson–East Coast, stesen ini terletak di bawah Woodlands Avenue 1.",
+        "structure": "Bawah tanah"
+      },
+      "Woodleigh": {
+        "summary": "Stesen MRT Woodleigh ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Timur Laut, di Bidadari, Singapura. Stesen ini terletak di bawah Upper Serangoon Road, dekat persimpangan dengan Upper Aljunied Road.",
+        "structure": "Bawah tanah"
+      },
+      "Yew Tee": {
+        "summary": "Stesen MRT Yew Tee ialah sebuah stesen Mass Rapid Transit atas tanah di Laluan Utara–Selatan di Yew Tee, Singapura. Dikendalikan oleh SMRT Corporation, stesen ini melayani beberapa mercu tanda berdekatan seperti Sekolah Menengah Unity dan Yew Tee Point.",
+        "structure": "Bertingkat"
+      },
+      "Yio Chu Kang": {
+        "summary": "Stesen MRT Yio Chu Kang ialah sebuah stesen Mass Rapid Transit atas tanah di Laluan Utara–Selatan di Ang Mo Kio, Singapura, dekat persimpangan Ang Mo Kio Avenue 6 dan Ang Mo Kio Avenue 8.",
+        "structure": "Bertingkat"
+      },
+      "Yishun": {
+        "summary": "Stesen MRT Yishun ialah sebuah stesen Mass Rapid Transit atas tanah di Laluan Utara–Selatan di Yishun, Singapura. Stesen ini terletak di persimpangan Yishun Avenue 2 dan Yishun Avenue 5, dan kini merupakan salah satu daripada dua stesen MRT yang melayani Bandar Baru Yishun; yang satu lagi ialah stesen Khatib.",
+        "structure": "Bertingkat"
+      },
+      "one-north": {
+        "summary": "Stesen MRT one-north ialah sebuah stesen Mass Rapid Transit bawah tanah di Laluan Circle di Queenstown, Singapura. Terletak di sepanjang Ayer Rajah Avenue di bawah Fusionpolis One, stesen ini melayani taman perniagaan one-north.",
+        "structure": "Bawah tanah"
+      }
+    },
+    "ta": {
+      "Admiralty": {
+        "summary": "அட்மிரால்டி எம்ஆர்டி நிலையம், சிங்கப்பூரின் உட்லண்ட்ஸில் வடக்கு–தெற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு உயர்நிலை விரைவுப் பெருந்திரள் போக்குவரத்து நிலையம். எஸ்எம்ஆர்டி கார்ப்பரேஷனால் இயக்கப்படும் இந்த நிலையம், அருகிலுள்ள பல பாடசாலைகளுக்கும், அட்மிரால்டி பிளேஸ், கம்போங் அட்மிரால்டி, உட்லண்ட்ஸ் அக்கம்பக்க காவல் நிலையம் போன்ற முக்கிய இடங்களுக்கும் சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Aljunied": {
+        "summary": "அல்ஜுனிட் எம்ஆர்டி நிலையம், சிங்கப்பூரின் கேலாங்கில் கிழக்கு–மேற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு உயர்நிலை விரைவுப் பெருந்திரள் போக்குவரத்து நிலையம். எஸ்எம்ஆர்டி டிரெயின்ஸால் இயக்கப்படும் இந்த நிலையம், அதே பெயரைக் கொண்ட கேலாங்கின் அல்ஜுனிட் துணைவட்டாரத்திற்கு சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Ang Mo Kio": {
+        "summary": "அங் மோ கியோ எம்ஆர்டி நிலையம், சிங்கப்பூரின் அங் மோ கியோவில் வடக்கு–தெற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு தரைமேல் விரைவுப் பெருந்திரள் போக்குவரத்து நிலையம்.",
+        "structure": "உயர்மட்டம் (NSL) நிலத்தடி (CRL)"
+      },
+      "Bakau": {
+        "summary": "செங்காங் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், செங்காங்கில் அமைந்துள்ள 10.7 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த வழித்தடம் இரு வளையங்களில் 14 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் செங்காங் நிலையம், மாஸ் ரேபிட் டிரான்சிட் அமைப்பின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Bangkit": {
+        "summary": "பூகிட் பாஞ்சாங் LRT என்பது சிங்கப்பூரின் பூகிட் பாஞ்சாங்கில் உள்ள 8-கிலோமீட்டர் நீளமுள்ள தானியங்கி வழிகாட்டுப் பாதை போக்குவரத்து வழித்தடம். BPLRT தற்போது SMRT Trains-ஆல் இயக்கப்படும் ஒரே லைட் ரெயில் ட்ரான்சிட் வழித்தடமாக உள்ளது."
+      },
+      "Bartley": {
+        "summary": "பார்ட்லி எம்ஆர்டி நிலையம், சிங்கப்பூரின் சிராங்கூனில் வட்ட வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் பெருந்திரள் போக்குவரத்து நிலையம். எஸ்எம்ஆர்டியால் இயக்கப்படும் இது, மாரிஸ் ஸ்டெல்லா உயர்நிலைப் பாடசாலை, பார்ட்லி உயர்நிலைப் பாடசாலை, ராமகிருஷ்ணா மிஷன் சிங்கப்பூர் போன்ற அருகிலுள்ள முக்கிய இடங்களுக்கு சேவை வழங்குகிறது."
+      },
+      "Bayfront": {
+        "summary": "பேபிரண்ட் எம்ஆர்டி நிலையம், டவுன்டவுன் வழித்தடத்திலும் வட்ட வழித்தடத்திலும் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் பெருந்திரள் போக்குவரத்து சந்திப்பு நிலையம். சிங்கப்பூரின் டவுன்டவுன் கோரில் அமைந்துள்ள இந்த நிலையம், பேபிரண்ட் அவென்யூவின் கீழ் உள்ளது; மரீனா பே சாண்ட்ஸ் மற்றும் கார்டன்ஸ் பை தி பே ஆகிய முக்கிய சுற்றுலாத் தலங்களுக்கு சேவை வழங்குகிறது."
+      },
+      "Bayshore": {
+        "summary": "பேஷோர் எம்ஆர்டி நிலையம், சிங்கப்பூரின் பிடோக்கில் தாம்சன்–கிழக்குக் கடற்கரை வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் பெருந்திரள் போக்குவரத்து நிலையம். பேஷோர் சாலையில் அமைந்துள்ள இந்த நிலையம், பல தனியார் குடியிருப்புப் பகுதிகளுக்கும், கால்வரி அசெம்பிளி ஆஃப் காட் தேவாலயம் மற்றும் ஹோலி கிரேஸ் பிரெஸ்பிட்டீரியன் தேவாலயம் போன்ற முக்கிய இடங்களுக்கும் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Beauty World": {
+        "summary": "பியூட்டி வேர்ல்ட் எம்ஆர்டி நிலையம், சிங்கப்பூரின் புக்கிட் திமாவில் டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் பெருந்திரள் போக்குவரத்து நிலையம். அப்பர் புக்கிட் திமா சாலையில் அமைந்துள்ள இந்த நிலையம், ஒரு காலத்தில் இப்பகுதியில் இருந்த முன்னாள் பொழுதுபோக்குப் பூங்காவும் சந்தையுமான வரலாற்று முக்கியத்துவம் வாய்ந்த பியூட்டி வேர்ல்ட் சந்தையிலிருந்து தன் பெயரைப் பெற்றது.",
+        "structure": "நிலத்தடி"
+      },
+      "Bedok": {
+        "summary": "பிடோக் எம்ஆர்டி நிலையம், சிங்கப்பூரின் பிடோக்கில் கிழக்கு–மேற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு உயர்நிலை விரைவுப் பெருந்திரள் போக்குவரத்து நிலையம். எஸ்எம்ஆர்டி டிரெயின்ஸால் இயக்கப்படும் இந்த நிலையம், பிடோக் பகுதிக்கும் பிடோக் பஸ் இடைநிலையம், பிடோக் மால் போன்ற அதன் முக்கிய இடங்களுக்கும் சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Bedok North": {
+        "summary": "பிடோக் வடக்கு எம்ஆர்டி நிலையம், சிங்கப்பூரின் பிடோக்கின் வடக்குப் பகுதியில் டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் பெருந்திரள் போக்குவரத்து நிலையம்; இது பிடோக் நார்த் சாலையில், பான் ஐலண்ட் விரைவுச்சாலை மேம்பாலம் மற்றும் பிடோக் டவுன் பூங்காவுக்கு அருகில் அமைந்துள்ளது. இது அருகிலுள்ள வீடமைப்பு வளர்ச்சிக் கழக குடியிருப்புப் பகுதிகளுக்கும், அருகிலுள்ள டாமாய் தொடக்கப் பாடசாலைக்கும் சேவை வழங்குகிறது; மேலும் இப்பகுதியில் எதிர்காலத்தில் அமையும் ஒருங்கிணைந்த மருத்துவமனைக்கும் சேவை வழங்கும்.",
+        "structure": "நிலத்தடி"
+      },
+      "Bedok Reservoir": {
+        "summary": "பிடோக் நீர்த்தேக்கம் எம்ஆர்டி நிலையம், சிங்கப்பூரின் பிடோக்கில் டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் பெருந்திரள் போக்குவரத்து நிலையம். பிடோக் நார்த் அவென்யூ 3-க்கு அடுத்துள்ள பிடோக் ரிசர்வாயர் சாலையில் அமைந்துள்ள இது, பிடோக் நீர்த்தேக்கத்திற்கு அருகில் வாழும் குடியிருப்பாளர்களுக்கும், பிடோக் கிரீன் உயர்நிலைப் பாடசாலை, யூ நெங் தொடக்கப் பாடசாலை, ஃபெங்ஷான் தொடக்கப் பாடசாலை மற்றும் ரெட் ஸ்வஸ்திகா பாடசாலை மாணவர்களுக்கும் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Bencoolen": {
+        "summary": "பென்கூலன் எம்ஆர்டி நிலையம், சிங்கப்பூரில் டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் பெருந்திரள் போக்குவரத்து நிலையம். பென்கூலன் தெருவின் கீழ் அமைந்துள்ள இந்த நிலையம், முதன்மையாக நன்யாங் நுண்கலைக் கழகம், சிங்கப்பூர் மேலாண்மைப் பல்கலைக்கழகம் மற்றும் சுற்றியுள்ள கட்டமைப்புகளுக்கு சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Bendemeer": {
+        "summary": "பெண்டிமீர் எம்ஆர்டி நிலையம், சிங்கப்பூரின் ரோச்சோரின் கிழக்கில் டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் பெருந்திரள் போக்குவரத்து நிலையம்.",
+        "structure": "நிலத்தடி"
+      },
+      "Bishan": {
+        "summary": "பீஷான் எம்ஆர்டி நிலையம், சிங்கப்பூரின் பீஷானில் வடக்கு–தெற்கு மற்றும் சர்க்கிள் ரயில் பாதைகளில் அமைந்துள்ள ஒரு விரைவு போக்குவரத்து (எம்ஆர்டி) சந்திப்பு நிலையம் ஆகும். இந்த நிலையம் நகர மையத்திற்குள் பீஷான் சாலை ஓரமாக அமைந்துள்ளது; இது ஜங்ஷன் 8 வணிக வளாகம், பீஷான் பஸ் இண்டர்சேஞ்ச் மற்றும் பீஷான் அரங்கம் ஆகியவற்றுக்கு அருகில் உள்ளது."
+      },
+      "Boon Keng": {
+        "summary": "பூன் கெங் எம்ஆர்டி நிலையம், சிங்கப்பூரின் கல்லாங்கில் வடகிழக்கு ரயில் பாதையில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (எம்ஆர்டி) நிலையம் ஆகும். டவ்னர் சாலை மற்றும் பூன் கெங் சாலை ஆகியவற்றுடன் இணைந்த போக்குவரத்து சந்திப்பைத் தொடர்ந்து சிராங்கூன் சாலைக்கு அடியில் அமைந்துள்ள இந்த நிலையம், முதன்மையாக பூன் கெங் பகுதிக்குச் சேவை வழங்குகிறது."
+      },
+      "Boon Lay": {
+        "summary": "பூன் லே எம்ஆர்டி நிலையம், சிங்கப்பூரின் ஜூரோங் மேற்கில் கிழக்கு–மேற்கு ரயில் பாதையில் அமைந்துள்ள ஒரு விரைவு போக்குவரத்து (எம்ஆர்டி) நிலையம் ஆகும். பூன் லே வே ஓரமாக அமைந்துள்ள இந்த நிலையம், பூன் லே பஸ் இண்டர்சேஞ்ச் மற்றும் ஜூரோங் பாயின்ட் வணிக வளாகத்துடன் நேரடியாக இணைக்கப்பட்டு, பூன் லே ஒருங்கிணைந்த போக்குவரத்து மையத்தை உருவாக்குகிறது."
+      },
+      "Botanic Gardens": {
+        "summary": "போட்டானிக் கார்டன்ஸ் எம்ஆர்டி நிலையம், சர்க்கிள் ரயில் பாதை மற்றும் டவுன்டவுன் ரயில் பாதையில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (எம்ஆர்டி) சந்திப்பு நிலையம் ஆகும். சிங்கப்பூரின் தாங்லினில் அமைந்துள்ள இந்த நிலையம், புக்கிட் திமா சாலை மற்றும் க்ளூனி பார்க் சாலை சந்திப்பில், சிங்கப்பூர் தாவரவியல் பூங்காவின் வடமேற்கில் உள்ளது."
+      },
+      "Braddell": {
+        "summary": "ப்ராடல் எம்ஆர்டி நிலையம், சிங்கப்பூரின் தோ பாயோவில் வடக்கு–தெற்கு ரயில் பாதையில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (எம்ஆர்டி) நிலையம் ஆகும். பொறியியல் கட்டுப்பாடுகளால், வடக்கு–தெற்கு ரயில் பாதையில் பக்கவாட்டு நடைமேடைகளைக் கொண்ட நிலையங்கள் இதுவும் கான்பரா நிலையமும் மட்டுமே.",
+        "structure": "நிலத்தடி"
+      },
+      "Bras Basah": {
+        "summary": "ப்ராஸ் பாசா எம்ஆர்டி நிலையம், சிங்கப்பூரின் மியூசியம் திட்ட மண்டலத்தில் சர்க்கிள் ரயில் பாதையில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (எம்ஆர்டி) நிலையம் ஆகும். இது வாட்டர்லூ தெரு மற்றும் குயின் தெருவை ஒட்டி, ப்ராஸ் பாசா சாலைக்கு அடியில் உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Bright Hill": {
+        "summary": "ப்ரைட் ஹில் எம்ஆர்டி நிலையம், தாம்சன்–ஈஸ்ட் கோஸ்ட் ரயில் பாதையில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (எம்ஆர்டி) நிலையம் ஆகும். சிங்கப்பூரின் மேற்கு பீஷானில் சின் மிங் அவென்யூ ஓரமாக அமைந்துள்ள இது, நிலையத்தைச் சுற்றியுள்ள பல குடியிருப்புப் பகுதிகளுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Buangkok": {
+        "summary": "புவாங்கோக் எம்ஆர்டி நிலையம், சிங்கப்பூரில் வடகிழக்கு ரயில் பாதையில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (எம்ஆர்டி) நிலையம் ஆகும். இது செங்காங் சென்ட்ரல் மற்றும் கம்பஸ்வேல் போ சாலைச் சந்திப்புக்கு அருகில் உள்ளது. இந்த நிலையம் புவாங்கோக் குடியிருப்புப் பகுதிக்கும், புவாங்கோக் பஸ் இண்டர்சேஞ்ச், செங்காங் கிராண்ட் ரெசிடென்ஸ் மற்றும் செங்காங் கிராண்ட் மால் உள்ளிட்ட சுற்றியுள்ள வளர்ச்சித் திட்டங்களுக்கும் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி  cite web"
+      },
+      "Bugis": {
+        "summary": "புகிஸ் எம்ஆர்டி நிலையம், சிங்கப்பூரின் புகிஸில் கிழக்கு–மேற்கு மற்றும் டவுன்டவுன் ரயில் பாதைகளில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (எம்ஆர்டி) சந்திப்பு நிலையம் ஆகும். இந்த நிலையம் ரோச்சோர் சாலை மற்றும் விக்டோரியா தெரு சந்திப்புக்கு அடியில் அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Bukit Batok": {
+        "summary": "புக்கிட் பாத்தோக் எம்ஆர்டி நிலையம், சிங்கப்பூரின் புக்கிட் பாத்தோக்கில் வடக்கு–தெற்கு ரயில் பாதையில் அமைந்துள்ள ஒரு தரைக்கு மேலான விரைவு போக்குவரத்து (எம்ஆர்டி) நிலையம் ஆகும். SMRT ட்ரெயின்ஸ் நிறுவனத்தால் இயக்கப்படும் இந்த நிலையம், புக்கிட் பாத்தோக் பஸ் இண்டர்சேஞ்ச், வெஸ்ட் மால் மற்றும் புக்கிட் பாத்தோக் நூலகம் உள்ளிட்ட அருகிலுள்ள முக்கிய இடங்களுக்குச் சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Bukit Gombak": {
+        "summary": "புக்கிட் கோம்பாக் எம்ஆர்டி நிலையம், சிங்கப்பூரின் புக்கிட் கோம்பாக்கில் வடக்கு–தெற்கு ரயில் பாதையில் அமைந்துள்ள ஒரு தரைக்கு மேலான விரைவு போக்குவரத்து (எம்ஆர்டி) நிலையம் ஆகும். SMRT-ஆல் இயக்கப்படும் இந்த நிலையம், புக்கிட் பாத்தோக் டவுன் பார்க், புக்கிட் கோம்பாக் அரங்கம் மற்றும் புக்கிட் கோம்பாக் விளையாட்டு அரங்கம் போன்ற பல முக்கிய இடங்களுக்குச் சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Bukit Panjang": {
+        "summary": "புக்கிட் பாஞ்சாங் எம்ஆர்டி/எல்ஆர்டி நிலையம், சிங்கப்பூரில் டவுன்டவுன் ரயில் பாதை மற்றும் புக்கிட் பாஞ்சாங் எல்ஆர்டி பாதையில் அமைந்துள்ள ஒரு விரைவு போக்குவரத்து (எம்ஆர்டி) மற்றும் இலகு ரயில் போக்குவரத்து (எல்ஆர்டி) சந்திப்பு நிலையம் ஆகும். அதே பெயரைக் கொண்ட புக்கிட் பாஞ்சாங் குடியிருப்புப் பகுதியில் அமைந்துள்ள இந்த நிலையம், அப்பர் புக்கிட் திமா சாலை மற்றும் பேட்டிர் சாலை சந்திப்பில் உள்ளது."
+      },
+      "Buona Vista": {
+        "summary": "புவனா விஸ்டா MRT நிலையம், சிங்கப்பூரின் குவீன்ஸ்டவுனில் அமைந்துள்ள, கிழக்கு–மேற்கு வழித்தடம் மற்றும் வட்ட வழித்தடத்தில் உள்ள ஒரு விரைவு ரயில் போக்குவரத்து (MRT) சந்திப்பு நிலையம். உயிரி மருத்துவ அறிவியல், தகவல் தொடர்பு தொழில்நுட்பம் மற்றும் ஊடகத் தொழில்களுக்கான உயர்-தொழில்நுட்ப வணிகப் பூங்காவான one-north-க்கு இந்த நிலையம் அருகில் உள்ளது."
+      },
+      "Caldecott": {
+        "summary": "கால்டிகாட் MRT நிலையம், சிங்கப்பூரின் தோ பாயோ திட்டமிடல் பகுதியில் அமைந்துள்ள, வட்ட மற்றும் தாம்சன்–கிழக்கு கடற்கரை வழித்தடங்களில் உள்ள ஒரு நிலத்தடி MRT சந்திப்பு நிலையம். இது தோ பாயோ ரைஸ் சந்திப்புக்கு அருகில் தோ பாயோ லிங்க் அடியில், Singapore Association of the Visually Handicapped, கால்டிகாட் ஒலிபரப்பு மையம் மற்றும் மவுண்ட் அல்வெர்னியா மருத்துவமனை ஆகியவற்றுக்கு அருகில் அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Canberra": {
+        "summary": "கான்பரா MRT நிலையம், சிங்கப்பூரின் செம்பவாங்கில் கான்பரா வே சந்திப்பில் கான்பரா லிங்க் வழியே அமைந்துள்ள, வடக்கு–தெற்கு வழித்தடத்தில் உள்ள ஒரு உயர்நிலை MRT நிலையம். இது MRT வலையமைப்பில் இரண்டாவது இடைச்செருகல் நிலையம், மேலும் ஒரே மட்டத்தில் மேம்பாலத்துடன் நேரடியாக இணைக்கப்பட்ட நடைமேடையைக் கொண்ட சிங்கப்பூரின் முதல் நிலையம்.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Cashew": {
+        "summary": "கஷ்யூ MRT நிலையம், சிங்கப்பூரில் அப்பர் புக்கிட் திமா ரோடு மற்றும் கஷ்யூ ரோடு இடையே அமைந்துள்ள, டவுன்டவுன் வழித்தடத்தில் உள்ள ஒரு நிலத்தடி MRT நிலையம். பாதுகாப்பு அமைச்சின் தலைமையகத்திற்கும் CMPB-க்கும் மிக அருகில் உள்ள MRT நிலையம் இதுவே.",
+        "structure": "நிலத்தடி"
+      },
+      "Changi Airport": {
+        "summary": "சாங்கி விமான நிலையம் MRT நிலையம், சிங்கப்பூரின் சாங்கியில் உள்ள ஒரு நிலத்தடி MRT நிலையம். இந்த நிலையம் கிழக்கு–மேற்கு வழித்தடத்தின் சாங்கி விமான நிலைய கிளையின் இறுதி நிலையம்; இது SMRT Trains-ஆல் இயக்கப்படுகிறது, மேலும் கிழக்கு–மேற்கு திசையில் கட்டப்பட்டுள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Chinatown": {
+        "summary": "சைனாடவுன் MRT நிலையம், சிங்கப்பூரின் அவுட்ராமில் வடகிழக்கு மற்றும் டவுன்டவுன் வழித்தடங்களில் உள்ள ஒரு நிலத்தடி MRT சந்திப்பு நிலையம். இது சைனாடவுன் இனக்குழுப் பகுதிக்கு சேவை வழங்குகிறது."
+      },
+      "Chinese Garden": {
+        "summary": "சைனீஸ் கார்டன் MRT நிலையம், சிங்கப்பூரின் ஜூரோங் ஏரி மாவட்டத்தில் கிழக்கு–மேற்கு வழித்தடத்தில் உள்ள ஒரு உயர்நிலை MRT நிலையம். SMRT Trains-ஆல் இயக்கப்படும் இந்த நிலையம் சைனீஸ் கார்டனுக்கு சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Choa Chu Kang": {
+        "summary": "சுவா சூ காங் MRT/LRT நிலையம், சிங்கப்பூரின் சுவா சூ காங்கில் உள்ள ஒரு உயர்நிலை MRT மற்றும் LRT சந்திப்பு நிலையம். வடக்கு–தெற்கு வழித்தடம் மற்றும் புக்கிட் பாஞ்சாங் LRT வழித்தடத்திற்கு சேவை வழங்கும் இந்த நிலையம், சுவா சூ காங் பஸ் இடைநிலையம் மற்றும் Lot One ஷாப்பிங் சென்டர் அருகில் அமைந்துள்ளது."
+      },
+      "City Hall": {
+        "summary": "சிட்டி ஹால் MRT நிலையம், வடக்கு–தெற்கு வழித்தடம் மற்றும் கிழக்கு–மேற்கு வழித்தடத்தில் உள்ள ஒரு நிலத்தடி சிங்கப்பூர் MRT சந்திப்பு நிலையம். டவுன்டவுன் கோர் பகுதியில் அமைந்துள்ள இது, நார்த் பிரிட்ஜ் ரோடு மற்றும் செயின்ட் ஆண்ட்ரூஸ் ரோடு சந்திப்புகளுக்கு அருகில் ஸ்டாம்ஃபோர்ட் ரோடு அடியில் உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Clarke Quay": {
+        "summary": "கிளார்க் கீ MRT நிலையம், சிங்கப்பூரில் வடகிழக்கு வழித்தடத்தில் உள்ள ஒரு நிலத்தடி MRT நிலையம். மெர்ச்சண்ட் ரோடு மற்றும் நார்த் கனால் ரோடு சந்திப்புக்கு அருகில் இயூ தோங் சென் தெருவில் அமைந்துள்ள இது, சிங்கப்பூர் ஆற்றின் தெற்கே The Central-இன் அடியில் உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Clementi": {
+        "summary": "கிளிமெண்டி MRT நிலையம், சிங்கப்பூரின் கிளிமெண்டியில் கிழக்கு–மேற்கு வழித்தடத்தில் உள்ள ஒரு உயர்நிலை MRT நிலையம். கமன்வெல்த் அவென்யூ வெஸ்ட் வழியே அமைந்துள்ள இந்த நிலையம், கிளிமெண்டி மால், கிளிமெண்டி பஸ் இடைநிலையம் மற்றும் கிளிமெண்டி தீயணைப்பு நிலையம் போன்ற அடையாளச் சின்னங்களுக்கு சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம் (EWL) நிலத்தடி (CRL)"
+      },
+      "Commonwealth": {
+        "summary": "கமன்வெல்த் MRT நிலையம், சிங்கப்பூரின் குவீன்ஸ்டவுனில் கிழக்கு–மேற்கு வழித்தடத்தில் உள்ள ஒரு தரைக்கு மேலுள்ள MRT நிலையம். SMRT Corporation-ஆல் இயக்கப்படும் இந்த நிலையம், Faith Methodist Church மற்றும் குவீன்ஸ்வே செகண்டரி பள்ளி போன்ற அருகிலுள்ள அடையாளச் சின்னங்களுக்கு சேவை வழங்குகிறது."
+      },
+      "Compassvale": {
+        "summary": "செங்காங் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், செங்காங்கில் அமைந்துள்ள 10.7 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த வழித்தடம் இரு வளையங்களில் 14 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் செங்காங் நிலையம், மாஸ் ரேபிட் டிரான்சிட் அமைப்பின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Coral Edge": {
+        "summary": "பொங்கோல் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், பொங்கோலில் அமைந்துள்ள 10.3 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த அமைப்பு இரு வளையங்களில் 15 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் பொங்கோல் நிலையம், இந்த வழித்தடத்தை சிங்கப்பூர் எம்ஆர்டியின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Cove": {
+        "summary": "பொங்கோல் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், பொங்கோலில் அமைந்துள்ள 10.3 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த அமைப்பு இரு வளையங்களில் 15 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் பொங்கோல் நிலையம், இந்த வழித்தடத்தை சிங்கப்பூர் எம்ஆர்டியின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Dakota": {
+        "summary": "டகோட்டா எம்ஆர்டி நிலையம், சிங்கப்பூரின் கேலாங்கில் சர்க்கிள் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி துரிதக் கடவு ரயில் (எம்ஆர்டி) நிலையம். எஸ்எம்ஆர்டி ட்ரெயின்ஸால் இயக்கப்படும் இந்நிலையம், டகோட்டா க்ரெசன்ட் குடியிருப்புத் தொகுதி, ப்ராட்ரிக் உயர்நிலைப் பள்ளி, காங் ஹுவா பள்ளி மற்றும் ஓல்ட் ஏர்போர்ட் ஃபுட் கோர்ட் & ஷாப்பிங் மால் போன்ற அருகிலுள்ள முக்கிய இடங்களுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Damai": {
+        "summary": "டமாய் எல்ஆர்டி நிலையம் என்பது பின்வருவனவற்றைக் குறிக்கலாம்: டமாய் எல்ஆர்டி நிலையம் டமாய் எல்ஆர்டி நிலையம்"
+      },
+      "Dhoby Ghaut": {
+        "summary": "தோபி காட் எம்ஆர்டி நிலையம், சிங்கப்பூரில் வடக்கு–தெற்கு, வடகிழக்கு மற்றும் சர்க்கிள் வழித்தடங்களில் அமைந்துள்ள ஒரு நிலத்தடி எம்ஆர்டி இடைமாற்று நிலையம். மியூசியம் திட்டமிடல் பகுதியில் உள்ள தோபி காட்டில், ஆர்ச்சர்ட் சாலை ஷாப்பிங் பட்டையின் கிழக்கு முனையின் அடியில் அமைந்துள்ள இந்நிலையம், The Atrium@Orchard வணிக மேம்பாட்டுடன் ஒருங்கிணைக்கப்பட்டுள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Dover": {
+        "summary": "டோவர் எம்ஆர்டி நிலையம், சிங்கப்பூரில் கிழக்கு–மேற்கு வழித்தடத்தில் அமைந்துள்ள ஓர் உயர்மட்ட எம்ஆர்டி நிலையம். காமன்வெல்த் அவென்யூ வெஸ்ட்டில் அமைந்துள்ள இந்நிலையம், சிங்கப்பூர் பாலிடெக்னிக்குடன் நேரடியாக இணைக்கப்பட்டுள்ளது; அப்பகுதியில் உள்ள பல்வேறு குடியிருப்பு மேம்பாடுகளுக்கும் சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Downtown": {
+        "summary": "டவுன்டவுன் எம்ஆர்டி நிலையம், டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி எம்ஆர்டி நிலையம். சிங்கப்பூரின் டவுன்டவுன் கோர் பகுதியில், சென்ட்ரல் பவுல்வர்டின் அடியில் அமைந்துள்ள இந்நிலையம், மரீனா பே ஃபைனான்ஸியல் சென்டர், ஏசியா ஸ்குவேர் மற்றும் எஸ்ஜிஎக்ஸ் சென்டர் உள்ளிட்ட பல்வேறு வணிக மேம்பாடுகளுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Esplanade": {
+        "summary": "எஸ்பிளனேட் எம்ஆர்டி நிலையம், சிங்கப்பூரில் சர்க்கிள் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி எம்ஆர்டி நிலையம். டவுன்டவுன் கோர் பகுதியில் உள்ள இது, ப்ராஸ் பாசா சாலை, ராஃபிள்ஸ் பவுல்வர்ட் மற்றும் நிக்கோல் நெடுஞ்சாலை ஆகியவற்றின் சந்திப்பில் உள்ளது."
+      },
+      "Eunos": {
+        "summary": "யூனுஸ் எம்ஆர்டி நிலையம், சிங்கப்பூரின் கேலாங்கில் கிழக்கு–மேற்கு வழித்தடத்தில் அமைந்துள்ள ஓர் உயர்மட்ட எம்ஆர்டி நிலையம். எஸ்எம்ஆர்டி ட்ரெயின்ஸால் இயக்கப்படும் இந்நிலையம், யூனுஸ் பஸ் இடைநிலையத்துடன் இணைக்கப்பட்டுள்ளது."
+      },
+      "Expo": {
+        "summary": "எக்ஸ்போ எம்ஆர்டி நிலையம், சிங்கப்பூரின் தெம்பினிஸ் திட்டமிடல் பகுதியில் கிழக்கு–மேற்கு வழித்தடம் மற்றும் டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஓர் எம்ஆர்டி இடைமாற்று நிலையம். சாங்கி சிட்டி பாயின்ட் மற்றும் சிங்கப்பூர் எக்ஸ்போ ஆகியவற்றுக்கு இடையே, எக்ஸ்போ டிரைவ் சந்திப்பில் சாங்கி சவுத் அவென்யூ 1-ல் இந்நிலையம் அமைந்துள்ளது."
+      },
+      "Fajar": {
+        "summary": "பூகிட் பாஞ்சாங் LRT என்பது சிங்கப்பூரின் பூகிட் பாஞ்சாங்கில் உள்ள 8-கிலோமீட்டர் நீளமுள்ள தானியங்கி வழிகாட்டுப் பாதை போக்குவரத்து வழித்தடம். BPLRT தற்போது SMRT Trains-ஆல் இயக்கப்படும் ஒரே லைட் ரெயில் ட்ரான்சிட் வழித்தடமாக உள்ளது."
+      },
+      "Farmway": {
+        "summary": "செங்காங் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், செங்காங்கில் அமைந்துள்ள 10.7 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த வழித்தடம் இரு வளையங்களில் 14 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் செங்காங் நிலையம், மாஸ் ரேபிட் டிரான்சிட் அமைப்பின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Farrer Park": {
+        "summary": "ஃபேரர் பார்க் எம்ஆர்டி நிலையம், சிங்கப்பூரின் காலாங் மற்றும் ரோச்சோர் திட்டமிடல் பகுதிகளின் எல்லையில், வடகிழக்கு வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி எம்ஆர்டி நிலையம். இதன் கட்டுமானத்தை எளிதாக்குவதற்காக, அதன் அருகில் இருந்த சில கட்டிடங்கள் மூடப்பட்டு காலி செய்யப்பட வேண்டியிருந்தது.",
+        "structure": "நிலத்தடி"
+      },
+      "Farrer Road": {
+        "summary": "ஃபேரர் ரோடு எம்ஆர்டி நிலையம், சிங்கப்பூரின் Farrer Court மற்றும் Tyersall திட்டமிடல் பகுதிகளின் எல்லையோரமாக அமைந்துள்ள, சர்க்கிள் லைனில் உள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (Mass Rapid Transit) நிலையம். நிலையத்திற்குப் பெயரைத் தந்த ஃபேரர் ரோடு எனும் பெருஞ்சாலைக்குக் கீழே இது கட்டப்பட்டுள்ளது; Farrer Gardens Estate-க்கு அருகில் அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Fernvale": {
+        "summary": "செங்காங் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், செங்காங்கில் அமைந்துள்ள 10.7 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த வழித்தடம் இரு வளையங்களில் 14 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் செங்காங் நிலையம், மாஸ் ரேபிட் டிரான்சிட் அமைப்பின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Fort Canning": {
+        "summary": "ஃபோர்ட் கானிங் எம்ஆர்டி நிலையம், சிங்கப்பூரின் மியூசியம் மற்றும் சிங்கப்பூர் ரிவர் திட்டமிடல் பகுதிகளின் எல்லையில் அமைந்துள்ள, டவுன்டவுன் லைனில் உள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (Mass Rapid Transit) நிலையம். சிங்கப்பூர் ஆற்றின் வடகரையில் அமைந்துள்ள இந்த நிலையம், ஃபோர்ட் கானிங்கின் அடிவாரத்தில் உள்ளது; அதன் பெயரிலேயே நிலையம் அழைக்கப்படுகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Gardens by the Bay": {
+        "summary": "கார்டன்ஸ் பை த பே எம்ஆர்டி நிலையம், தாம்சன்–ஈஸ்ட் கோஸ்ட் லைனில் உள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (Mass Rapid Transit) நிலையம். சிங்கப்பூரின் மரினா சவுத்தில் அமைந்துள்ள இந்த நிலையம், கார்டன்ஸ் பை த பே மற்றும் மரினா பாரேஜ் பகுதிகளுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Geylang Bahru": {
+        "summary": "கேலாங் பாரு எம்ஆர்டி நிலையம், சிங்கப்பூரின் கல்லாங்கில் உள்ள, டவுன்டவுன் லைனில் அமைந்த ஒரு நிலத்தடி விரைவு போக்குவரத்து (Mass Rapid Transit) நிலையம்.",
+        "structure": "நிலத்தடி"
+      },
+      "Great World": {
+        "summary": "கிரேட் வேர்ல்ட் எம்ஆர்டி நிலையம், தாம்சன்–ஈஸ்ட் கோஸ்ட் லைனில் உள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (Mass Rapid Transit) நிலையம். சிங்கப்பூரின் ரிவர் வேலியில் அமைந்துள்ள இந்த நிலையம், கிரேட் வேர்ல்ட் ஷாப்பிங் மால் மற்றும் அதைச் சுற்றியுள்ள குடியிருப்புப் பகுதிகளுக்கு அருகில் உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Gul Circle": {
+        "summary": "குல் சர்க்கிள் எம்ஆர்டி நிலையம், ஈஸ்ட்–வெஸ்ட் லைனில் உள்ள ஒரு மேலுயர்ந்த விரைவு போக்குவரத்து (Mass Rapid Transit) நிலையம். மேற்கு சிங்கப்பூரின் துவாஸில் அமைந்துள்ள இந்த நிலையம், அதைச் சுற்றியுள்ள JTC Space @ Tuas மற்றும் Mapletree Pioneer Logistic Hub தொழிற்பகுதிகளுக்குச் சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "HarbourFront": {
+        "summary": "ஹார்பர்ஃபிரண்ட் எம்ஆர்டி நிலையம், சிங்கப்பூரில் உள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (Mass Rapid Transit) சந்திப்பு நிலையம். சர்க்கிள் லைனின் ஒரு நிலையமாகவும், நார்த் ஈஸ்ட் லைனின் இறுதி நிலையமாகவும் இருக்கும் இது, ஹார்பர்ஃபிரண்ட் பகுதிக்கும் சென்டோசாவுக்கும் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Havelock": {
+        "summary": "ஹேவ்லாக் நிலையம் என்பது பின்வருவனவற்றைக் குறிக்கலாம்: ஹேவ்லாக் எம்ஆர்டி நிலையம், சிங்கப்பூரில் உள்ள ஒரு விரைவு போக்குவரத்து நிலையம்; Havelock ரயில் நிலையம், கனடாவின் ஒன்டாரியோவில் இருந்த ஒரு முன்னாள் ரயில் நிலையம்."
+      },
+      "Haw Par Villa": {
+        "summary": "ஹா பார் வில்லா எம்ஆர்டி நிலையம், சிங்கப்பூரின் குவீன்ஸ்டவுனில் உள்ள, சர்க்கிள் லைனில் அமைந்த ஒரு நிலத்தடி விரைவு போக்குவரத்து (Mass Rapid Transit) நிலையம். West Coast Highway மற்றும் பாசிர் பாஞ்சாங் ரோடுக்குக் கீழே அமைந்துள்ள இந்த நிலையம், அருகிலுள்ள ஹா பார் வில்லாவுக்கும், Pasir Panjang Wholesale Centre-க்கும் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Hillview": {
+        "summary": "ஹில்வியூ எம்ஆர்டி நிலையம், டவுன்டவுன் லைனில் உள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (Mass Rapid Transit) நிலையம். இது சிங்கப்பூரின் புக்கிட் பாத்தோக் மற்றும் புக்கிட் பாஞ்சாங் பகுதிகளின் Hillview மற்றும் Nature Reserve திட்டமிடல் உட்பகுதிகளின் எல்லைகளில் அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Holland Village": {
+        "summary": "ஹாலண்ட் வில்லேஜ் எம்ஆர்டி நிலையம், சிங்கப்பூரின் புக்கிட் திமா மற்றும் குவீன்ஸ்டவுன் திட்டமிடல் பகுதிகளின் எல்லையோரமாக அமைந்துள்ள, சர்க்கிள் லைனில் உள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (Mass Rapid Transit) நிலையம். Holland Avenue மற்றும் Holland Road சந்திப்புக்கு அருகில் அமைந்துள்ள இது, முதன்மையாக ஹாலண்ட் வில்லேஜ் பகுதிக்குச் சேவை வழங்குகிறது; அந்தப் பெயரிலிருந்தே நிலையத்தின் பெயர் பெறப்பட்டது.",
+        "structure": "நிலத்தடி"
+      },
+      "Hougang": {
+        "summary": "ஹவ்காங் எம்ஆர்டி நிலையம், சிங்கப்பூரின் ஹவ்காங்கில் உள்ள, நார்த் ஈஸ்ட் லைனில் அமைந்த ஒரு நிலத்தடி விரைவு போக்குவரத்து (Mass Rapid Transit) நிலையம். ஹவ்காங் சென்ட்ரல் மற்றும் ஹவ்காங் சென்ட்ரல் பஸ் இண்டர்சேஞ்சுக்குக் கீழே அமைந்துள்ள இந்த நிலையம், ஹவ்காங் மால் மற்றும் ஹவ்காங் விளையாட்டு அரங்கம் உள்ளிட்ட பல அடையாளச் சின்னங்களுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Hume": {
+        "summary": "ஹியூம் MRT நிலையம், சிங்கப்பூரின் புக்கிட் பாத்தோக்கில் டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் (MRT) நிலையம். ஹியூம் அவென்யூ மற்றும் அப்பர் புக்கிட் திமா ரோட் சந்திப்பில் அமைந்துள்ள இந்நிலையம், புக்கிட் திமா மலை, புக்கிட் திமா இயற்கைக் காப்பகம், ரயில் காரிடார், தி ரெயில் மால் மற்றும் முன்னாள் போர்ட் தொழிற்சாலை போன்ற சிறப்பிடங்களுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Jalan Besar": {
+        "summary": "ஜாலான் பேசார் MRT நிலையம், சிங்கப்பூரின் ரோச்சோரில் டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் (MRT) நிலையம். இந்நிலையம் வெல்ட் ரோட் சந்திப்பில், ஜாலான் பேசாருக்குக் கீழே அமைந்துள்ளது; அதனால் இப்பெயர் பெற்றது.",
+        "structure": "நிலத்தடி"
+      },
+      "Jelapang": {
+        "summary": "பூகிட் பாஞ்சாங் LRT என்பது சிங்கப்பூரின் பூகிட் பாஞ்சாங்கில் உள்ள 8-கிலோமீட்டர் நீளமுள்ள தானியங்கி வழிகாட்டுப் பாதை போக்குவரத்து வழித்தடம். BPLRT தற்போது SMRT Trains-ஆல் இயக்கப்படும் ஒரே லைட் ரெயில் ட்ரான்சிட் வழித்தடமாக உள்ளது."
+      },
+      "Joo Koon": {
+        "summary": "ஜூ கூன் MRT நிலையம், சிங்கப்பூரின் பயனீர் திட்டமிடல் பகுதியில் கிழக்கு–மேற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு தரைக்கு மேலுள்ள விரைவு ரயில் (MRT) நிலையம்.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Jurong East": {
+        "summary": "ஜூரோங் ஈஸ்ட் MRT நிலையம், சிங்கப்பூரின் ஜூரோங் ஈஸ்ட்டில் வடக்கு–தெற்கு மற்றும் கிழக்கு–மேற்கு வழித்தடங்களில் அமைந்துள்ள ஒரு உயர்மட்ட விரைவு ரயில் (MRT) இடைமாற்று நிலையம். ஜூரோங் கேட்வே ரோட்டில் அமைந்துள்ள இந்நிலையம், Jem, Westgate, IMM, ங் டெங் ஃபோங் பொது மருத்துவமனை, ஜூரோங் ஈஸ்ட் பேருந்து இடைமாற்று நிலையம் மற்றும் ஜூரோங் டவுன் ஹால் பேருந்து இடைமாற்று நிலையம் ஆகியவற்றின் அருகாமையில் உள்ளது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Kadaloor": {
+        "summary": "பொங்கோல் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், பொங்கோலில் அமைந்துள்ள 10.3 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த அமைப்பு இரு வளையங்களில் 15 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் பொங்கோல் நிலையம், இந்த வழித்தடத்தை சிங்கப்பூர் எம்ஆர்டியின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Kaki Bukit": {
+        "summary": "காக்கி புக்கிட் MRT நிலையம், டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் (MRT) நிலையம். சிங்கப்பூரின் காக்கி புக்கிட்டில் அமைந்துள்ள இது, காக்கி புக்கிட் அவென்யூ 1-இல் உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Kallang": {
+        "summary": "கல்லாங் MRT நிலையம், சிங்கப்பூரின் கல்லாங்கில் கிழக்கு–மேற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு உயர்மட்ட விரைவு ரயில் (MRT) நிலையம். SMRT ட்ரெயின்ஸ் நிறுவனத்தால் இயக்கப்படும் இந்நிலையம், முதன்மையாக கல்லாங் பகுதிக்கும் லோரோங் 1 கேலாங் பேருந்து முனையத்திற்கும் சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Kangkar": {
+        "summary": "செங்காங் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், செங்காங்கில் அமைந்துள்ள 10.7 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த வழித்தடம் இரு வளையங்களில் 14 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் செங்காங் நிலையம், மாஸ் ரேபிட் டிரான்சிட் அமைப்பின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Katong Park": {
+        "summary": "கத்தோங் பார்க் MRT நிலையம், தாம்சன்–ஈஸ்ட் கோஸ்ட் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் (MRT) நிலையம். மேயர் ரோட்டில், கத்தோங் பார்க்கை ஒட்டி அமைந்துள்ள இந்நிலையம், அருகிலுள்ள குடியிருப்பு வளர்ச்சிகளுடன் டன்மன் உயர்நிலைப் பள்ளி மற்றும் சிங்கப்பூர் நீச்சல் பள்ளிக்கும் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Keat Hong": {
+        "summary": "பூகிட் பாஞ்சாங் LRT என்பது சிங்கப்பூரின் பூகிட் பாஞ்சாங்கில் உள்ள 8-கிலோமீட்டர் நீளமுள்ள தானியங்கி வழிகாட்டுப் பாதை போக்குவரத்து வழித்தடம். BPLRT தற்போது SMRT Trains-ஆல் இயக்கப்படும் ஒரே லைட் ரெயில் ட்ரான்சிட் வழித்தடமாக உள்ளது."
+      },
+      "Kembangan": {
+        "summary": "கெம்பாங்கான் MRT நிலையம், சிங்கப்பூரின் பேடோக்கில் கிழக்கு–மேற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு உயர்மட்ட விரைவு ரயில் (MRT) நிலையம். SMRT ட்ரெயின்ஸ் நிறுவனத்தால் இயக்கப்படும் இந்நிலையம், அதே பெயர் கொண்ட பேடோக்கின் கெம்பாங்கான் துணைவட்டத்திற்குச் சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Kent Ridge": {
+        "summary": "கென்ட் ரிட்ஜ் MRT நிலையம், சர்க்கிள் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் (MRT) நிலையம். சிங்கப்பூரின் குயின்ஸ்டவுனில் அதே பெயர் கொண்ட கென்ட் ரிட்ஜில் அமைந்துள்ள இந்நிலையம், சவுத் புவோனா விஸ்தா ரோட் மற்றும் லோயர் கென்ட் ரிட்ஜ் ரோட் சந்திப்புக்கு அருகில் உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Khatib": {
+        "summary": "கத்திப் MRT நிலையம், யீஷூன் திட்டமிடல் பகுதியில் ஒரு துணைவட்டமான, சிங்கப்பூரின் கத்திப்பில் அமைந்துள்ள வடக்கு–தெற்கு வழித்தடத்தின் ஒரு தரைக்கு மேலுள்ள விரைவு ரயில் (MRT) நிலையம்.",
+        "structure": "உயர்மட்டம்"
+      },
+      "King Albert Park": {
+        "summary": "கிங் ஆல்பர்ட் பார்க் MRT நிலையம், சிங்கப்பூரின் புக்கிட் திமாவில் டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் (MRT) நிலையம். புக்கிட் திமா ரோட்டின் மேற்கு முனையில், பிளாக்மோர் டிரைவ் சந்திப்பில் அமைந்துள்ள இந்நிலையம், புக்கிட் திமா வழித்தொடர் நெடுகிலுள்ள தனியார் குடியிருப்புப் பகுதிகளுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Kovan": {
+        "summary": "கோவான் MRT நிலையம், சிங்கப்பூரின் ஹவ்காங்கில் வடகிழக்கு வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் (MRT) நிலையம். அப்பர் சிராங்கூன் ரோட்டுக்குக் கீழே அமைந்துள்ள இந்நிலையம், ஹார்ட்லேண்ட் மால் சில்லறை வணிக வளர்ச்சிக்கும் அதைச் சுற்றியுள்ள பொது மற்றும் தனியார் குடியிருப்புகளுக்கும் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Kranji": {
+        "summary": "கிராஞ்சி எம்ஆர்டி நிலையம், வடக்கு–தெற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு உயர்தள வெகுஜன விரைவு போக்குவரத்து (MRT) நிலையம். சிங்கப்பூரின் சுங்கை காடுட் பகுதியில், வூட்லண்ட்ஸ் சாலையை ஒட்டி அமைந்துள்ள இந்நிலையம், சிங்கப்பூர் டர்ஃப் கிளப் மற்றும் வூட்லண்ட்ஸ் வேஃபர் ஃபேப்ரிகேஷன் பார்க் ஆகியவற்றுக்குச் சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Kupang": {
+        "summary": "செங்காங் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், செங்காங்கில் அமைந்துள்ள 10.7 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த வழித்தடம் இரு வளையங்களில் 14 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் செங்காங் நிலையம், மாஸ் ரேபிட் டிரான்சிட் அமைப்பின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Labrador Park": {
+        "summary": "லாப்ரடோர் பார்க் எம்ஆர்டி நிலையம், வட்ட வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி வெகுஜன விரைவு போக்குவரத்து (MRT) நிலையம்; இது சிங்கப்பூரின் புக்கிட் மேரா திட்டமிடல் பகுதிக்குள் அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Lakeside": {
+        "summary": "லேக்சைட் எம்ஆர்டி நிலையம், சிங்கப்பூரின் ஜூரோங் மேற்கில் கிழக்கு–மேற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு உயர்தள வெகுஜன விரைவு போக்குவரத்து (MRT) நிலையம். எஸ்எம்ஆர்டி ட்ரெயின்ஸ் நிறுவனத்தால் இயக்கப்படும் இந்நிலையம், நிலையத்தின் பெயருக்குக் காரணமான ஜூரோங் ஏரி மற்றும் ஹோங் கா, தாமான் ஜூரோங் குடியிருப்புப் பகுதிகளுக்குச் சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Lavender": {
+        "summary": "லாவெண்டர் எம்ஆர்டி நிலையம், சிங்கப்பூரின் கல்லாங்கில் கிழக்கு–மேற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி வெகுஜன விரைவு போக்குவரத்து (MRT) நிலையம். கல்லாங் சாலைக்குக் கீழே அமைந்துள்ள இந்நிலையம், குடிவரவு மற்றும் சோதனைச் சாவடிகள் ஆணையக் கட்டிடம் மற்றும் ஜாலான் பேசார் அரங்கத்திற்கு அருகில் உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Layar": {
+        "summary": "செங்காங் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், செங்காங்கில் அமைந்துள்ள 10.7 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த வழித்தடம் இரு வளையங்களில் 14 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் செங்காங் நிலையம், மாஸ் ரேபிட் டிரான்சிட் அமைப்பின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Lentor": {
+        "summary": "லெண்டோர் எம்ஆர்டி நிலையம், தாம்சன்–கிழக்குக் கடற்கரை வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி வெகுஜன விரைவு போக்குவரத்து (MRT) நிலையம். இது சிங்கப்பூரின் ஆங் மோ கியோ வடபகுதியில், லெண்டோர் டிரைவுக்குக் கீழே அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Lorong Chuan": {
+        "summary": "லோரோங் சுவான் எம்ஆர்டி நிலையம், சிங்கப்பூரின் சிராங்கூனில் வட்ட வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி வெகுஜன விரைவு போக்குவரத்து (MRT) நிலையம். எஸ்எம்ஆர்டி ட்ரெயின்ஸ் நிறுவனத்தால் இயக்கப்படும் இந்நிலையம், பிராடல் ஹைட்ஸ் சமுதாய மன்றம் போன்ற அருகிலுள்ள பல அடையாள இடங்களுக்கும், பல பள்ளிகளுக்கும் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "MacPherson": {
+        "summary": "மேக்பர்சன் எம்ஆர்டி நிலையம், சிங்கப்பூரின் கேலாங் திட்டமிடல் பகுதியில் டவுன்டவுன் வழித்தடம் மற்றும் வட்ட வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி வெகுஜன விரைவு போக்குவரத்து (MRT) சந்திப்பு நிலையம்; இது சர்க்யூட் லிங்க் மற்றும் உபி அவென்யூ 2 சந்திப்பில் பாயா லேபார் சாலைக்குக் கீழே அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Marina Bay": {
+        "summary": "மரினா பே எம்ஆர்டி நிலையம், சிங்கப்பூரில் வடக்கு–தெற்கு, வட்ட மற்றும் தாம்சன்–கிழக்குக் கடற்கரை வழித்தடங்களில் அமைந்துள்ள ஒரு நிலத்தடி வெகுஜன விரைவு போக்குவரத்து (MRT) சந்திப்பு நிலையம். மரினா பேவுக்கு அருகில் டவுன்டவுன் கோர் மாவட்டத்தில் அமைந்துள்ள இந்நிலையம், மரினா ஒன் ரெசிடென்சஸ், மரினா பே சூட்ஸ் மற்றும் மரினா பே நிதி மையம் ஆகியவற்றுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Marina South Pier": {
+        "summary": "மரினா சவுத் பியர் எம்ஆர்டி நிலையம், சிங்கப்பூரின் ஸ்ட்ரெய்ட்ஸ் வியூவில் அமைந்துள்ள ஒரு நிலத்தடி வெகுஜன விரைவு போக்குவரத்து (MRT) நிலையம். இந்நிலையம் 1 கிலோமீட்டர் நீளமுள்ள வடக்கு–தெற்கு வழித்தட நீட்டிப்பின் ஒரு பகுதியாகக் கட்டப்பட்டது; இது அந்த வழித்தடத்தின் தெற்கு முனை நிலையமாக உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Marine Parade": {
+        "summary": "மரின் பரேட் எம்ஆர்டி நிலையம், சிங்கப்பூரின் மரின் பரேட்டில் தாம்சன்–கிழக்குக் கடற்கரை வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி வெகுஜன விரைவு போக்குவரத்து (MRT) நிலையம். மரின் பரேட் சாலைக்குக் கீழே அமைந்துள்ள இந்நிலையம், பார்க்வே பரேட், ராக்ஸி ஸ்கொயர் மற்றும் I12 கத்தோங் உள்ளிட்ட அருகிலுள்ள குடியிருப்பு மற்றும் வணிக வளர்ச்சிகளுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Marine Terrace": {
+        "summary": "மரின் டெரஸ் எம்ஆர்டி நிலையம், தாம்சன்–கிழக்குக் கடற்கரை வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி வெகுஜன விரைவு போக்குவரத்து (MRT) நிலையம். மரின் பரேட் குடியிருப்புப் பகுதியில் அமைந்துள்ள இந்நிலையம், அந்தப் பகுதியில் உள்ள பல பள்ளிகளுக்கும், மரின் டெரஸ் சந்தை மற்றும் உணவு நிலையத்திற்கும் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Marsiling": {
+        "summary": "மார்சிலிங் எம்ஆர்டி நிலையம், சிங்கப்பூரின் வூட்லண்ட்ஸில் உள்ள மார்சிலிங்கில் வடக்கு–தெற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு தரைக்கு மேலான வெகுஜன விரைவு போக்குவரத்து (MRT) நிலையம். எஸ்எம்ஆர்டி ட்ரெயின்ஸ் நிறுவனத்தால் இயக்கப்படும் இந்நிலையம், மார்சிலிங் தொடக்கப்பள்ளி மற்றும் உயர்நிலைப் பள்ளி, ஃபூச்சுன் தொடக்கப்பள்ளி மற்றும் உயர்நிலைப் பள்ளி போன்ற அருகிலுள்ள பல அடையாள இடங்களுக்குச் சேவை வழங்குகிறது."
+      },
+      "Marymount": {
+        "summary": "மேரிமவுண்ட் எம்ஆர்டி நிலையம், சிங்கப்பூரின் பீஷானில் சர்க்கிள் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் போக்குவரத்து (MRT) நிலையம். எஸ்எம்ஆர்டி நிறுவனத்தால் இயக்கப்படும் இந்த நிலையம், பீஷான் தீயணைப்பு நிலையம், ராஃபிள்ஸ் இன்ஸ்டிட்யூஷன், ராஃபிள்ஸ் ஜூனியர் கல்லூரி போன்ற அருகிலுள்ள சிறப்பிடங்களுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Mattar": {
+        "summary": "மட்டார் எம்ஆர்டி நிலையம், சிங்கப்பூரின் கேலாங்கில் டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் போக்குவரத்து (MRT) நிலையம். இந்த நிலையம், மெர்பாத்தி சாலை சந்திப்புக்கு அருகில் மட்டார் சாலைக்குக் கீழே அமைந்துள்ளது."
+      },
+      "Maxwell": {
+        "summary": "மேக்ஸ்வெல் எம்ஆர்டி நிலையம், சிங்கப்பூரில் தாம்சன்–கிழக்குக் கடற்கரை வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் போக்குவரத்து (MRT) நிலையம். டவுன்டவுன் கோர் மற்றும் ஔட்ராம் பகுதிகளில் நீல் சாலையில் அமைந்துள்ள இந்த நிலையம், புத்தர் பல் நினைவுச்சின்ன கோயில் மற்றும் அருங்காட்சியகம், ஸ்ரீ மாரியம்மன் கோயில், மேக்ஸ்வெல் உணவு மையம் ஆகியவற்றுக்கு அருகில் உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Mayflower": {
+        "summary": "மேஃபுளவர் எம்ஆர்டி நிலையம், சிங்கப்பூரின் அங் மோ கியோவில் தாம்சன்–கிழக்குக் கடற்கரை வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் போக்குவரத்து (MRT) நிலையம். அங் மோ கியோ அவென்யூ 4-க்குக் கீழே அமைந்துள்ள இந்த நிலையம், கெபுன் பாரு ஹைட்ஸ் எஸ்டேட், கெபுன் பாரு சமூக மன்றம், CHIJ செயின்ட் நிக்கோலஸ் பெண்கள் பள்ளி உள்ளிட்ட பல்வேறு சிறப்பிடங்களுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Meridian": {
+        "summary": "பொங்கோல் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், பொங்கோலில் அமைந்துள்ள 10.3 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த அமைப்பு இரு வளையங்களில் 15 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் பொங்கோல் நிலையம், இந்த வழித்தடத்தை சிங்கப்பூர் எம்ஆர்டியின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Mountbatten": {
+        "summary": "மவுண்ட்பேட்டன் எம்ஆர்டி நிலையம், சிங்கப்பூரின் காலாங்கில் சர்க்கிள் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் போக்குவரத்து (MRT) நிலையம். மவுண்ட்பேட்டன் சாலை சந்திப்பில் அமைந்துள்ள இந்த நிலையம், காலாங் ஃபீல்ட், குட்மேன் கலை மையம் போன்ற அருகிலுள்ள சிறப்பிடங்களுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Napier": {
+        "summary": "நேப்பியர் எம்ஆர்டி நிலையம், தாம்சன்–கிழக்குக் கடற்கரை வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் போக்குவரத்து (MRT) நிலையம். சிங்கப்பூரின் டங்லினில் அமைந்துள்ள இந்த நிலையம், நேப்பியர் சாலை, ஹாலண்ட் சாலை மற்றும் க்ளூனி சாலை ஆகியவற்றின் சந்திப்பில் உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Newton": {
+        "summary": "நியூட்டன் எம்ஆர்டி நிலையம், வடக்கு–தெற்கு மற்றும் டவுன்டவுன் வழித்தடங்களில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் போக்குவரத்து (MRT) சந்திப்பு நிலையம். இது சிங்கப்பூரின் நியூட்டனில், நியூட்டன் சர்க்கஸுக்கு அருகில் ஸ்காட்ஸ் சாலை மற்றும் புக்கிட் திமா சாலை சந்திப்பில் அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Nibong": {
+        "summary": "பொங்கோல் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், பொங்கோலில் அமைந்துள்ள 10.3 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த அமைப்பு இரு வளையங்களில் 15 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் பொங்கோல் நிலையம், இந்த வழித்தடத்தை சிங்கப்பூர் எம்ஆர்டியின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Nicoll Highway": {
+        "summary": "நிக்கோல் நெடுஞ்சாலை எம்ஆர்டி நிலையம், சிங்கப்பூரில் சர்க்கிள் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் போக்குவரத்து (MRT) நிலையம். டவுன்டவுன் கோரில், காலாங் ஆற்றுக்கு அருகில் ரிபப்ளிக் அவென்யூவுக்குக் கீழே அமைந்துள்ள இந்த நிலையம், கோல்டன் மைல் காம்ப்ளக்ஸ், தி கான்கோர்ஸ் போன்ற நிக்கோல் நெடுஞ்சாலையை ஒட்டியுள்ள வணிக மற்றும் குடியிருப்புத் திட்டங்களுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Novena": {
+        "summary": "நொவீனா எம்ஆர்டி நிலையம், வடக்கு–தெற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் போக்குவரத்து (MRT) நிலையம். சிங்கப்பூரின் நொவீனாவில் தாம்சன் சாலையில் அமைந்துள்ள இந்த நிலையம், டான் டோக் செங் மருத்துவமனை, மவுண்ட் எலிசபெத் நொவீனா மருத்துவமனை மற்றும் யுனைடெட் ஸ்கொயர் போன்ற சிறப்பிடங்களுக்கு அருகில் உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Oasis": {
+        "summary": "பொங்கோல் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், பொங்கோலில் அமைந்துள்ள 10.3 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த அமைப்பு இரு வளையங்களில் 15 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் பொங்கோல் நிலையம், இந்த வழித்தடத்தை சிங்கப்பூர் எம்ஆர்டியின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Orchard": {
+        "summary": "ஆர்க்கார்ட் எம்ஆர்டி நிலையம், சிங்கப்பூரில் வடக்கு–தெற்கு மற்றும் தாம்சன்–கிழக்குக் கடற்கரை வழித்தடங்களில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் போக்குவரத்து (MRT) சந்திப்பு நிலையம். ஆர்க்கார்ட் பவுலிவார்ட்டில், ION ஆர்க்கார்ட்டுக்குக் கீழே அமைந்துள்ள இந்த நிலையம், லியட் டவர்ஸ், ஙீ ஆன் சிட்டி, வீலாக் பிளேஸ், விஸ்மா அட்ரியா, ஷா ஹவுஸ் உள்ளிட்ட ஆர்க்கார்ட் சாலை கடைவீதிப் பகுதியின் பல்வேறு வணிக மற்றும் சில்லறை வணிகத் திட்டங்களுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Orchard Boulevard": {
+        "summary": "ஆர்க்கார்ட் பவுலிவார்ட் எம்ஆர்டி நிலையம், தாம்சன்–கிழக்குக் கடற்கரை வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் போக்குவரத்து (MRT) நிலையம். சிங்கப்பூரின் ஆர்க்கார்ட் பகுதியில் அமைந்துள்ள இந்த நிலையம், ஆர்க்கார்ட் பவுலிவார்ட் கிரேஞ்ச் சாலையுடன் முடிவடையும் இடத்தில் உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Outram Park": {
+        "summary": "ஔட்ராம் பார்க் எம்ஆர்டி நிலையம், சிங்கப்பூரில் அமைந்துள்ள ஒரு நிலத்தடி விரைவுப் போக்குவரத்து (MRT) சந்திப்பு நிலையம். இந்த நிலையம் கிழக்கு–மேற்கு, வடகிழக்கு மற்றும் தாம்சன்–கிழக்குக் கடற்கரை வழித்தடங்களில் உள்ளது; புக்கிட் மேரா மற்றும் ஔட்ராம் திட்ட வட்டாரங்களின் எல்லையில், ஔட்ராம் சாலை, யூ டோங் சென் தெரு மற்றும் நியூ பிரிட்ஜ் சாலை சந்திப்புக்கு அருகில் அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Pasir Panjang": {
+        "summary": "பாசிர் பாஞ்சாங் MRT நிலையம், வட்ட வழித்தடத்தில் (Circle Line) அமைந்துள்ள ஒரு நிலத்தடி வெகுசன விரைவுப் போக்குவரத்து நிலையம். பெயர் குறிப்பிடுவது போலவே, இது சிங்கப்பூரின் குயின்ஸ்டவுன் திட்டமிடல் பகுதியின் தென்பகுதியில் உள்ள பாசிர் பாஞ்சாங்கில் அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Pasir Ris": {
+        "summary": "பாசிர் ரிஸ் MRT நிலையம், சிங்கப்பூரின் பாசிர் ரிஸ் பகுதியில் கிழக்கு-மேற்கு வழித்தடத்தில் (East–West Line) அமைந்துள்ள ஒரு உயர்நிலை வெகுசன விரைவுப் போக்குவரத்து நிலையம். பாசிர் ரிஸ் பஸ் இடைநிலையம், பாசிர் ரிஸ் மால் மற்றும் வைட் சான்ட்ஸ் ஷாப்பிங் மால் ஆகியவற்றை அடுத்து, பாசிர் ரிஸ் சென்ட்ரல் வழியில் அமைந்துள்ள இது, EWL-இன் கிழக்கு முனை நிலையமாக உள்ளது.",
+        "structure": "உயர்மட்டம் (EWL) நிலத்தடி (CRL)"
+      },
+      "Paya Lebar": {
+        "summary": "பாய லேபார் MRT நிலையம், சிங்கப்பூரின் கிழக்கு-மேற்கு வழித்தடத்திலும் (East–West Line) வட்ட வழித்தடத்திலும் (Circle Line) அமைந்துள்ள ஒரு வெகுசன விரைவுப் போக்குவரத்து இடைமாற்று நிலையம். பெயர் அப்படி இருந்தாலும், இந்த நிலையம் பாய லேபார் திட்டமிடல் பகுதியில் அமைந்திருக்கவில்லை; மாறாக, கேலாங்கில் உள்ள பாய லேபார் சாலையில், சிம்ஸ் அவென்யூ சந்திப்புக்கு அருகில் அமைந்துள்ளது."
+      },
+      "Pending": {
+        "summary": "பூகிட் பாஞ்சாங் LRT என்பது சிங்கப்பூரின் பூகிட் பாஞ்சாங்கில் உள்ள 8-கிலோமீட்டர் நீளமுள்ள தானியங்கி வழிகாட்டுப் பாதை போக்குவரத்து வழித்தடம். BPLRT தற்போது SMRT Trains-ஆல் இயக்கப்படும் ஒரே லைட் ரெயில் ட்ரான்சிட் வழித்தடமாக உள்ளது."
+      },
+      "Petir": {
+        "summary": "பூகிட் பாஞ்சாங் LRT என்பது சிங்கப்பூரின் பூகிட் பாஞ்சாங்கில் உள்ள 8-கிலோமீட்டர் நீளமுள்ள தானியங்கி வழிகாட்டுப் பாதை போக்குவரத்து வழித்தடம். BPLRT தற்போது SMRT Trains-ஆல் இயக்கப்படும் ஒரே லைட் ரெயில் ட்ரான்சிட் வழித்தடமாக உள்ளது."
+      },
+      "Phoenix": {
+        "summary": "பூகிட் பாஞ்சாங் LRT என்பது சிங்கப்பூரின் பூகிட் பாஞ்சாங்கில் உள்ள 8-கிலோமீட்டர் நீளமுள்ள தானியங்கி வழிகாட்டுப் பாதை போக்குவரத்து வழித்தடம். BPLRT தற்போது SMRT Trains-ஆல் இயக்கப்படும் ஒரே லைட் ரெயில் ட்ரான்சிட் வழித்தடமாக உள்ளது."
+      },
+      "Pioneer": {
+        "summary": "பயனியர் MRT நிலையம், சிங்கப்பூரில் உள்ள ஒரு வெகுசன விரைவுப் போக்குவரத்து நிலையம். இது கிழக்கு-மேற்கு வழித்தடத்தின் (East–West Line) ஒரு பகுதியாக இருந்து, பயனியர் குடியிருப்புப் பகுதிக்கு சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Potong Pasir": {
+        "summary": "பொத்தோங் பாசிர் MRT நிலையம், சிங்கப்பூரின் தோ பாயோ திட்டமிடல் பகுதியில் வடகிழக்கு வழித்தடத்தில் (North East Line) அமைந்துள்ள ஒரு நிலத்தடி வெகுசன விரைவுப் போக்குவரத்து நிலையம். இது அப்பர் செராங்கூன் சாலைக்கு அடியில், பொத்தோங் பாசிர் அவென்யூ 1 மற்றும் வான் தோ அவென்யூ சந்திப்பில் அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Promenade": {
+        "summary": "பிரொமனேட் MRT நிலையம், சிங்கப்பூரின் டவுன்டவுன் கோர் பகுதியில் டவுன்டவுன் மற்றும் வட்ட வழித்தடங்களில் அமைந்துள்ள ஒரு நிலத்தடி வெகுசன விரைவுப் போக்குவரத்து இடைமாற்று நிலையம். தெமாசெக் அவென்யூவுக்கு அடியில், மில்லேனியா டவரை அடுத்து அமைந்துள்ள இந்த நிலையம், சன்டெக் சிட்டி மற்றும் நிலையத்திற்குப் பெயர் வழங்கிய மரீனா பிரொமனேட் போன்ற பல முக்கிய இடங்களுக்கும் சுற்றுலா ஈர்ப்புகளுக்கும் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Punggol": {
+        "summary": "பொங்கோல் MRT/LRT நிலையம், சிங்கப்பூரின் பொங்கோலில் அமைந்துள்ள ஒரு வெகுசன விரைவுப் போக்குவரத்து மற்றும் இலகு ரயில் போக்குவரத்து இடைமாற்று நிலையம். இது வடகிழக்கு வழித்தடத்திற்கும் (North East Line) பொங்கோல் LRT-க்கும் இடையேயான இடைமாற்று நிலையம்; மேலும், பொங்கோல் திட்டமிடல் பகுதிக்குள் அமைந்துள்ள இரண்டு MRT நிலையங்களில் ஒன்று."
+      },
+      "Punggol Coast": {
+        "summary": "பொங்கோல் கோஸ்ட் MRT நிலையம், சிங்கப்பூரின் வடக்கு பொங்கோலில் வடகிழக்கு வழித்தடத்தில் (North East Line) அமைந்துள்ள ஒரு நிலத்தடி வெகுசன விரைவுப் போக்குவரத்து நிலையம். இந்த நிலையம் NEL-இன் முனை நிலையமாக இருந்து, சிங்கப்பூர் தொழில்நுட்பக் கழகத்தின் புதிய வளாகத்துடன் பொங்கோல் டிஜிட்டல் மாவட்டத்திற்கும் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Punggol Point": {
+        "summary": "பொங்கோல் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், பொங்கோலில் அமைந்துள்ள 10.3 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த அமைப்பு இரு வளையங்களில் 15 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் பொங்கோல் நிலையம், இந்த வழித்தடத்தை சிங்கப்பூர் எம்ஆர்டியின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Queenstown": {
+        "summary": "குயின்ஸ்டவுன் MRT நிலையம், சிங்கப்பூரின் குயின்ஸ்டவுனில் கிழக்கு-மேற்கு வழித்தடத்தில் (East–West Line) அமைந்துள்ள ஒரு உயர்நிலை வெகுசன விரைவுப் போக்குவரத்து நிலையம். கொமன்வெல்த் அவென்யூவில் அமைந்துள்ள இது, குயின்ஸ்டவுன் தொடக்கப்பள்ளி, பிரின்சஸ் ஹவுஸ் போன்ற சுற்றியுள்ள முக்கிய இடங்களுக்கும், அருகில் உள்ள சில தேவாலயங்களுக்கும் சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Raffles Place": {
+        "summary": "ராஃபிள்ஸ் பிளேஸ் MRT நிலையம், சிங்கப்பூரின் வடக்கு-தெற்கு வழித்தடத்திலும் (North–South Line) கிழக்கு-மேற்கு வழித்தடத்திலும் (East–West Line) அமைந்துள்ள ஒரு நிலத்தடி வெகுசன விரைவுப் போக்குவரத்து இடைமாற்று நிலையம். டவுன்டவுன் கோர் பகுதியில் அமைந்துள்ள இந்த நிலையம், சிங்கப்பூர் ஆற்றின் தெற்கே உள்ள ராஃபிள்ஸ் பிளேஸுக்கு அடியில் உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Ranggung": {
+        "summary": "செங்காங் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், செங்காங்கில் அமைந்துள்ள 10.7 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த வழித்தடம் இரு வளையங்களில் 14 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் செங்காங் நிலையம், மாஸ் ரேபிட் டிரான்சிட் அமைப்பின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Redhill": {
+        "summary": "ரெட்ஹில் MRT நிலையம், சிங்கப்பூரில் கிழக்கு-மேற்கு வழித்தடத்தில் (East–West Line) அமைந்துள்ள, தரைமட்டத்திற்கு மேல் உள்ள ஒரு வெகுசன விரைவுப் போக்குவரத்து நிலையம். SMRT-ஆல் இயக்கப்படும் இந்த நிலையம், டெல்டா நீச்சல் வளாகம் மற்றும் தை ஹோங் சென்டர் போன்ற அருகில் உள்ள முக்கிய இடங்களுக்கு சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Renjong": {
+        "summary": "செங்காங் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், செங்காங்கில் அமைந்துள்ள 10.7 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த வழித்தடம் இரு வளையங்களில் 14 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் செங்காங் நிலையம், மாஸ் ரேபிட் டிரான்சிட் அமைப்பின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Riviera": {
+        "summary": "ரிவியேரா LRT நிலையம், சிங்கப்பூரின் பொங்கோலில் அமைந்துள்ள ஒரு உயர்நிலை இலகு ரயில் போக்குவரத்து நிலையம். பொங்கோல் LRT வழித்தடத்தின் கிழக்கு வளையத்திற்கு சேவை வழங்கும் இந்த நிலையம், பொங்கோல் சென்ட்ரல் மற்றும் பொங்கோல் ஃபீல்ட் சந்திப்புகளுக்கு இடையே பொங்கோல் ஈஸ்ட் வழியில் அமைந்துள்ளது."
+      },
+      "Rochor": {
+        "summary": "ரோச்சர் எம்ஆர்டி நிலையம், சிங்கப்பூரின் ரோச்சரில் டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் போக்குவரத்து (MRT) நிலையம். சுங்கை சாலை மற்றும் ரோச்சர் கனால் சாலை ஆகியவற்றுக்கு இடையே அமைந்துள்ள இந்த நிலையம், சிம் லிம் சதுக்கம், லாசால் கலைக் கல்லூரி மற்றும் தெக்கா மையம் போன்ற முக்கிய இடங்களுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Rumbia": {
+        "summary": "செங்காங் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், செங்காங்கில் அமைந்துள்ள 10.7 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த வழித்தடம் இரு வளையங்களில் 14 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் செங்காங் நிலையம், மாஸ் ரேபிட் டிரான்சிட் அமைப்பின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Sam Kee": {
+        "summary": "பொங்கோல் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், பொங்கோலில் அமைந்துள்ள 10.3 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த அமைப்பு இரு வளையங்களில் 15 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் பொங்கோல் நிலையம், இந்த வழித்தடத்தை சிங்கப்பூர் எம்ஆர்டியின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Sembawang": {
+        "summary": "செம்பவாங் எம்ஆர்டி நிலையம், வடக்கு–தெற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு உயர்நிலை விரைவு ரயில் போக்குவரத்து (MRT) நிலையம். சிங்கப்பூரின் செம்பவாங்கில் செம்பவாங் சாலையை ஒட்டி அமைந்துள்ள இந்த நிலையம், சன் பிளாசா ஷாப்பிங் மையம் மற்றும் செம்பவாங் பஸ் இடைமாற்று நிலையத்திற்கு அருகில் உள்ளது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Sengkang": {
+        "summary": "செங்காங் எம்ஆர்டி/எல்ஆர்டி நிலையம், சிங்கப்பூரின் செங்காங்கில் அமைந்துள்ள ஒரு விரைவு ரயில் போக்குவரத்து (MRT) மற்றும் இலகு ரயில் போக்குவரத்து (LRT) இடைமாற்று நிலையம். இது வடகிழக்கு வழித்தடத்திற்கும் செங்காங் எல்ஆர்டிக்கும் இடையேயான ஓர் இடைமாற்று நிலையம்."
+      },
+      "Senja": {
+        "summary": "பூகிட் பாஞ்சாங் LRT என்பது சிங்கப்பூரின் பூகிட் பாஞ்சாங்கில் உள்ள 8-கிலோமீட்டர் நீளமுள்ள தானியங்கி வழிகாட்டுப் பாதை போக்குவரத்து வழித்தடம். BPLRT தற்போது SMRT Trains-ஆல் இயக்கப்படும் ஒரே லைட் ரெயில் ட்ரான்சிட் வழித்தடமாக உள்ளது."
+      },
+      "Serangoon": {
+        "summary": "செராங்கூன் எம்ஆர்டி நிலையம், வடகிழக்கு மற்றும் வட்ட வழித்தடங்களில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் போக்குவரத்து (MRT) இடைமாற்று நிலையம். சிங்கப்பூரின் செராங்கூனில் அப்பர் செராங்கூன் சாலை மற்றும் செராங்கூன் சென்ட்ரல் ஆகியவற்றை ஒட்டி அமைந்துள்ள இந்த நிலையம், நெக்ஸ் ஷாப்பிங் வளாகம் மற்றும் செராங்கூன் பஸ் இடைமாற்று நிலையத்துடன் இணைக்கப்பட்டுள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Shenton Way": {
+        "summary": "ஷெண்டன் வே எம்ஆர்டி நிலையம், தாம்சன்–கிழக்கு கடற்கரை வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் போக்குவரத்து (MRT) நிலையம். சிங்கப்பூரின் டவுன்டவுன் கோரில் அமைந்துள்ள இந்த நிலையம், ஷெண்டன் வே மற்றும் ஏசியா ஸ்கொயர், மரீனா ஒன் போன்ற வணிக வளர்ச்சிகளுக்கு அருகில் உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Siglap": {
+        "summary": "சிக்லாப் எம்ஆர்டி நிலையம், சிங்கப்பூரின் சிக்லாப்பில் தாம்சன்–கிழக்கு கடற்கரை வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் போக்குவரத்து (MRT) நிலையம். இந்த நிலையம், விக்டோரியா பள்ளி மற்றும் St. போன்ற அருகிலுள்ள முக்கிய இடங்களுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Simei": {
+        "summary": "சிமேய் எம்ஆர்டி நிலையம், சிங்கப்பூரின் தெம்பினிஸில் கிழக்கு–மேற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு உயர்நிலை விரைவு ரயில் போக்குவரத்து (MRT) நிலையம். எஸ்எம்ஆர்டி ட்ரெயின்ஸ் நிறுவனத்தால் இயக்கப்படும் இந்த நிலையம், ஈஸ்ட்பாயின்ட் மால் மற்றும் சங்காட் தொடக்கப் பள்ளி ஹற்றும் உயர்நிலைப் பள்ளி உள்ளிட்ட அருகிலுள்ள முக்கிய இடங்களுக்குச் சேவை வழங்குகிறது."
+      },
+      "Sixth Avenue": {
+        "summary": "14th Street/Sixth Avenue நிலையம், மன்ஹாட்டனின் கிரீன்விச் வில்லேஜ் மற்றும் செல்சியா பகுதிகளில், IRT பிராட்வே–செவன்த் அவென்யூ வழித்தடம், BMT கனார்சி வழித்தடம் மற்றும் IND சிக்ஸ்த் அவென்யூ வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி நியூயார்க் நகர சுரங்கரயில் நிலைய வளாகம். இது சிக்ஸ்த் அவென்யூ மற்றும் செவன்த் அவென்யூ இடையே 14th Street-இல் அமைந்துள்ளது."
+      },
+      "Somerset": {
+        "summary": "சோமர்செட் எம்ஆர்டி நிலையம், சிங்கப்பூரின் ஆர்ச்சர்ட்டில் வடக்கு–தெற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் போக்குவரத்து (MRT) நிலையம். புகழ்பெற்ற ஷாப்பிங் பகுதியான ஆர்ச்சர்ட் சாலையை ஒட்டி அமைந்துள்ள மூன்று நிலையங்களில் இதுவும் ஒன்று.",
+        "structure": "நிலத்தடி"
+      },
+      "Soo Teck": {
+        "summary": "பொங்கோல் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், பொங்கோலில் அமைந்துள்ள 10.3 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த அமைப்பு இரு வளையங்களில் 15 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் பொங்கோல் நிலையம், இந்த வழித்தடத்தை சிங்கப்பூர் எம்ஆர்டியின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "South View": {
+        "summary": "பூகிட் பாஞ்சாங் LRT என்பது சிங்கப்பூரின் பூகிட் பாஞ்சாங்கில் உள்ள 8-கிலோமீட்டர் நீளமுள்ள தானியங்கி வழிகாட்டுப் பாதை போக்குவரத்து வழித்தடம். BPLRT தற்போது SMRT Trains-ஆல் இயக்கப்படும் ஒரே லைட் ரெயில் ட்ரான்சிட் வழித்தடமாக உள்ளது."
+      },
+      "Springleaf": {
+        "summary": "ஸ்பிரிங்லீஃப் எம்ஆர்டி நிலையம், சிங்கப்பூரின் யீஷூனில் தாம்சன்–கிழக்கு கடற்கரை வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் போக்குவரத்து (MRT) நிலையம். அப்பர் தாம்சன் சாலையை ஒட்டி அமைந்துள்ள இது, ஸ்பிரிங்லீஃப் அக்கம்பக்கத்திற்கும் அருகிலுள்ள ஸ்பிரிங்லீஃப் இயற்கைப் பூங்காவிற்கும் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Stadium": {
+        "summary": "ஸ்டேடியம் எம்ஆர்டி நிலையம், வட்ட வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் போக்குவரத்து (MRT) நிலையம். சிங்கப்பூரின் மத்திய பிராந்தியத்தில் கல்லாங் பகுதியில் அமைந்துள்ள இந்த நிலையம், The Kallang மற்றும் அதன் வசதிகளான தேசிய அரங்கம், உள்ளரங்கம், கல்லாங் தியேட்டர் மற்றும் லெஷர் பார்க் கல்லாங் ஆகியவற்றுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Stevens": {
+        "summary": "ஸ்டீவன்ஸ் எம்ஆர்டி நிலையம், டவுன்டவுன் மற்றும் தாம்சன்–கிழக்கு கடற்கரை வழித்தடங்களில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் போக்குவரத்து (MRT) இடைமாற்று நிலையம். ஸ்டீவன்ஸ் சாலை மற்றும் புக்கிட் திமா சாலை சந்திப்பில் அமைந்துள்ள இது, அருகிலுள்ள சிங்கப்பூர் சீனப் பெண்கள் பள்ளி மற்றும் St. ஆகியவற்றுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Sumang": {
+        "summary": "பொங்கோல் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், பொங்கோலில் அமைந்துள்ள 10.3 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த அமைப்பு இரு வளையங்களில் 15 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் பொங்கோல் நிலையம், இந்த வழித்தடத்தை சிங்கப்பூர் எம்ஆர்டியின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Tai Seng": {
+        "summary": "தை செங் எம்ஆர்டி நிலையம், சிங்கப்பூரின் தை செங்கில் வட்ட வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு ரயில் போக்குவரத்து (MRT) நிலையம். எஸ்எம்ஆர்டி கார்ப்பரேஷனால் இயக்கப்படும் இந்த நிலையம், தை செங் பாயின்ட், சாக்கே கட்டிடம் மற்றும் லியோங் ஹுவாட் கட்டிடம் போன்ற அருகிலுள்ள முக்கிய இடங்களுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Tampines": {
+        "summary": "தெம்பினிஸ் MRT நிலையம், சிங்கப்பூரின் தெம்பினிஸில் கிழக்கு–மேற்கு மற்றும் டவுன்டவுன் வழித்தடங்களில் அமைந்துள்ள ஒரு விரைவு போக்குவரத்து (MRT) இணைப்பு நிலையம். தெம்பினிஸ் அவென்யூ 4, தெம்பினிஸ் சென்ட்ரல் 4 மற்றும் தெம்பினிஸ் சென்ட்ரல் 5 அருகே நகர மையத்தில் அமைந்துள்ள இது, தெம்பினிஸ் மற்றும் தெம்பினிஸ் கான்கோர்ஸ் பஸ் இணைப்பு நிலையங்களுக்கு மிக அருகில் உள்ளது."
+      },
+      "Tampines East": {
+        "summary": "தெம்பினிஸ் ஈஸ்ட் MRT நிலையம், சிங்கப்பூரின் தெம்பினிஸில் டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (MRT) நிலையம். இது தெம்பினிஸ் அவென்யூ 2 உடன் இணையும் சந்திப்புக்கு அருகில், தெம்பினிஸ் அவென்யூ 7 வழியே அமைந்துள்ளது."
+      },
+      "Tampines West": {
+        "summary": "தெம்பினிஸ் வெஸ்ட் MRT நிலையம், சிங்கப்பூரின் தெம்பினிஸில் டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (MRT) நிலையம். இது தெம்பினிஸ் அவென்யூ 1 உடன் இணையும் சந்திப்புக்கு அருகில், தெம்பினிஸ் அவென்யூ 4-இல் அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Tan Kah Kee": {
+        "summary": "தான் கா கீ MRT நிலையம், சிங்கப்பூரின் பூகிட் திமாவில் டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (MRT) நிலையம். Hwa Chong Institution வளாகத்தின் நேரடியாகக் கீழே அமைந்துள்ள இந்த நிலையம், அந்நிறுவனத்தை நிறுவிய Tan Kah Kee பெயரால் பெயரிடப்பட்டது.",
+        "structure": "நிலத்தடி"
+      },
+      "Tanah Merah": {
+        "summary": "தானா மேரா MRT நிலையம், கிழக்கு–மேற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு உயர்மட்ட விரைவு போக்குவரத்து (MRT) நிலையம். சிங்கப்பூரின் பெடோக்கில் அமைந்துள்ள இந்த நிலையம், நியூ அப்பர் சாங்கி சாலை வழியே இருந்து பல்வேறு குடியிருப்பு வளர்ச்சிகளுக்குச் சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Tanjong Katong": {
+        "summary": "தஞ்சோங் கத்தோங் MRT நிலையம், சிங்கப்பூரில் தாம்சன்–ஈஸ்ட் கோஸ்ட் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (MRT) நிலையம். தஞ்சோங் கத்தோங் ரோட் சவுத் மற்றும் மேயர் சாலையுடன் இணையும் சந்திப்பில் ஆம்பர் சாலைக்குக் கீழே அமைந்துள்ள இந்த நிலையம், Aalto மற்றும் King's Mansion போன்ற அருகிலுள்ள காண்டோமினியங்களுக்குச் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Tanjong Rhu": {
+        "summary": "தஞ்சோங் ரூ MRT நிலையம், சிங்கப்பூரின் கல்லாங்கில் தாம்சன்–ஈஸ்ட் கோஸ்ட் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (MRT) நிலையம். தஞ்சோங் ரூ சாலை மற்றும் தஞ்சோங் ரூ பிளேஸ் சந்திப்பில் அமைந்துள்ள இந்த நிலையம், Pebble Bay மற்றும் Casuarina Cove போன்ற அருகிலுள்ள காண்டோமினியங்களுக்குச் சேவை வழங்குகிறது."
+      },
+      "Teck Lee": {
+        "summary": "டெக் லீ LRT நிலையம், சிங்கப்பூரின் பொங்கோலில் பொங்கோல் LRT வழித்தடத்தின் மேற்கு வளையத்தில் அமைந்துள்ள ஒரு உயர்மட்ட லைட் ரெயில் ட்ரான்சிட் (LRT) நிலையம். SBS Transit-ஆல் இயக்கப்படும் இந்த நிலையம், Singapore Institute of Technology பொங்கோல் வளாகம், பொங்கோல் கோஸ்ட் பஸ் இணைப்பு நிலையம் மற்றும் Saint Francis Xavier Major Seminary போன்ற அருகிலுள்ள அடையாளச் சின்னங்களுக்குச் சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Teck Whye": {
+        "summary": "பூகிட் பாஞ்சாங் LRT என்பது சிங்கப்பூரின் பூகிட் பாஞ்சாங்கில் உள்ள 8-கிலோமீட்டர் நீளமுள்ள தானியங்கி வழிகாட்டுப் பாதை போக்குவரத்து வழித்தடம். BPLRT தற்போது SMRT Trains-ஆல் இயக்கப்படும் ஒரே லைட் ரெயில் ட்ரான்சிட் வழித்தடமாக உள்ளது."
+      },
+      "Telok Ayer": {
+        "summary": "தெலோக் ஆயர் MRT நிலையம், டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (MRT) நிலையம். சிங்கப்பூரின் ஔட்ராமில் அமைந்துள்ள இந்த நிலையம், கிராஸ் தெரு மற்றும் தெலோக் ஆயர் தெரு சந்திப்பைச் சுற்றியுள்ள பல்வேறு அலுவலகங்களுக்கும் வணிக வளர்ச்சிகளுக்கும் சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      },
+      "Telok Blangah": {
+        "summary": "தெலோக் பிளாங்கா MRT நிலையம், சிங்கப்பூரின் பூகிட் மேரா திட்டமிடல் வட்டாரத்தில் வட்ட வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி விரைவு போக்குவரத்து (MRT) நிலையம். இது ஹெண்டர்சன் சாலை சந்திப்புக்கு அருகில் தெலோக் பிளாங்கா சாலை வழியே அமைந்துள்ளது; முதன்மையாக தெலோக் பிளாங்கா குடியிருப்புப் பகுதிக்குச் சேவை வழங்குகிறது."
+      },
+      "Thanggam": {
+        "summary": "செங்காங் எல்ஆர்டி வழித்தடம் என்பது சிங்கப்பூர், செங்காங்கில் அமைந்துள்ள 10.7 கிலோமீட்டர் நீளமுள்ள, உயர்த்தப்பட்ட தானியங்கி வழிகாட்டுப்பாதை போக்குவரத்து வழித்தடம். ஓட்டுநர் இல்லாத இந்த வழித்தடம் இரு வளையங்களில் 14 நிலையங்களைக் கொண்டுள்ளது; இரு வளையங்களுக்கும் சந்திப்பு நிலையமாகச் செயல்படும் செங்காங் நிலையம், மாஸ் ரேபிட் டிரான்சிட் அமைப்பின் வடகிழக்கு வழித்தடத்துடன் இணைக்கிறது."
+      },
+      "Tiong Bahru": {
+        "summary": "தியோங் பாரு எம்ஆர்டி நிலையம், சிங்கப்பூர், புக்கிட் மேராவில் கிழக்கு–மேற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி மாஸ் ரேபிட் டிரான்சிட் நிலையம். கிழக்கு நோக்கிச் செல்லும் ரயில்களுக்கு இது முதல் நிலத்தடி நிலையமாகவும், மேற்கு நோக்கிச் செல்லும் ரயில்களுக்கு கடைசி நிலத்தடி நிலையமாகவும் உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Toa Payoh": {
+        "summary": "தோ பாயோ எம்ஆர்டி நிலையம், சிங்கப்பூர், தோ பாயோவில் வடக்கு–தெற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி மாஸ் ரேபிட் டிரான்சிட் நிலையம். தோ பாயோ நகர மையத்தில் அமைந்துள்ள இது, தோ பாயோ பஸ் சந்திப்பு நிலையத்துடனும், வீட்டுவசதி வளர்ச்சி வாரியத்தின் தலைமையகமான எச்டிபி ஹப்புடனும் இணைக்கப்பட்டுள்ளது."
+      },
+      "Tuas Crescent": {
+        "summary": "துவாஸ் கிரெசன்ட் எம்ஆர்டி நிலையம், சிங்கப்பூர், துவாஸில் கிழக்கு–மேற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு தரைமேல் மாஸ் ரேபிட் டிரான்சிட் நிலையம். இந்த நிலையத்திற்கு அருகில் உள்ள ஒரு சாலையின் பெயர் வைக்கப்பட்டுள்ளது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Tuas Link": {
+        "summary": "துவாஸ் லிங்க் எம்ஆர்டி நிலையம், மேற்கு சிங்கப்பூரில் அமைந்துள்ள ஒரு உயர்த்தப்பட்ட மாஸ் ரேபிட் டிரான்சிட் நிலையம். துவாஸ் வெஸ்ட் டிரைவ் சாலையில், துவாஸில் அமைந்துள்ள இது, துவாஸ் ரயில் நிலைய வளாகத்திற்கும் துவாஸ் சோதனைச் சாவடிக்கும் அருகில் உள்ளது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Tuas West Road": {
+        "summary": "துவாஸ் வெஸ்ட் ரோட் எம்ஆர்டி நிலையம், சிங்கப்பூர், துவாஸில் கிழக்கு–மேற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு தரைமேல் மாஸ் ரேபிட் டிரான்சிட் நிலையம். பயனீர் ரோட்டில் அமைந்துள்ள இது, துவாஸ் குப்பை எரிப்பு நிலையம், துவாஸ் அமெனிட்டி சென்டர் போன்ற அருகில் உள்ள கட்டிடங்களுக்குச் சேவை வழங்குகிறது."
+      },
+      "Ubi": {
+        "summary": "ஊபி எம்ஆர்டி நிலையம், டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி மாஸ் ரேபிட் டிரான்சிட் நிலையம். சிங்கப்பூர், கேலாங் திட்டப் பகுதியில் அமைந்துள்ள இந்த நிலையம், ஊபி அவென்யூ 1 மற்றும் ஊபி அவென்யூ 2 சந்திப்பிற்கு அருகில் உள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Upper Changi": {
+        "summary": "அப்பர் சாங்கி எம்ஆர்டி நிலையம், சிங்கப்பூர், தெம்பினிஸ் திட்டப் பகுதியில் டவுன்டவுன் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி மாஸ் ரேபிட் டிரான்சிட் நிலையம்; இது அப்பர் சாங்கி ரோட் ஈஸ்ட்டின் அடியில் அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Upper Thomson": {
+        "summary": "அப்பர் தாம்சன் எம்ஆர்டி நிலையம், சிங்கப்பூர், தாம்சனில் தாம்சன்–ஈஸ்ட் கோஸ்ட் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி மாஸ் ரேபிட் டிரான்சிட் நிலையம். பெயர் குறிப்பிடுவது போலவே, இது அப்பர் தாம்சன் ரோட்டில் அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Woodlands": {
+        "summary": "உட்லண்ட்ஸ் MRT நிலையம் சிங்கப்பூரின் வடக்கு–தெற்கு மற்றும் தாம்சன்–ஈஸ்ட் கோஸ்ட் வழித்தடங்களில் அமைந்துள்ள ஒரு வெகுசன விரைவுப் போக்குவரத்து சந்திப்பு நிலையம். உட்லண்ட்ஸ் பகுதியில் அமைந்துள்ள இந்நிலையம், வடக்கு–தெற்கு வழித்தட நிலையத்தின் அடியில் நிலத்தடி பஸ் சந்திப்பு நிலையத்தைக் கொண்ட முதல் MRT நிலையமாகும்."
+      },
+      "Woodlands North": {
+        "summary": "உட்லண்ட்ஸ் வடக்கு MRT நிலையம் சிங்கப்பூரின் உட்லண்ட்ஸ் பகுதியில் அமைந்துள்ள ஒரு நிலத்தடி வெகுசன விரைவுப் போக்குவரத்து நிலையம். இந்நிலையம் தாம்சன்–ஈஸ்ட் கோஸ்ட் வழித்தடத்தின் வடக்கு முனை நிலையமாகும்.",
+        "structure": "நிலத்தடி"
+      },
+      "Woodlands South": {
+        "summary": "உட்லண்ட்ஸ் தெற்கு MRT நிலையம் சிங்கப்பூரின் உட்லண்ட்ஸ் பகுதியில் அமைந்துள்ள ஒரு நிலத்தடி வெகுசன விரைவுப் போக்குவரத்து நிலையம். தாம்சன்–ஈஸ்ட் கோஸ்ட் வழித்தடத்திற்கு சேவை வழங்கும் இந்நிலையம், உட்லண்ட்ஸ் அவென்யூ 1-இன் அடியில் அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Woodleigh": {
+        "summary": "உட்லே MRT நிலையம் சிங்கப்பூரின் பிடாடாரி பகுதியில், வடகிழக்கு வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி வெகுசன விரைவுப் போக்குவரத்து நிலையம். இந்நிலையம் அப்பர் அல்ஜுனிட் சாலை சந்திப்புக்கு அருகில், அப்பர் செராங்கூன் சாலையின் அடியில் அமைந்துள்ளது.",
+        "structure": "நிலத்தடி"
+      },
+      "Yew Tee": {
+        "summary": "யூ டீ MRT நிலையம் சிங்கப்பூரின் யூ டீ பகுதியில், வடக்கு–தெற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு தரைமேல் வெகுசன விரைவுப் போக்குவரத்து நிலையம். SMRT கார்ப்பரேஷனால் இயக்கப்படும் இந்நிலையம், யூனிட்டி உயர்நிலைப் பள்ளி மற்றும் யூ டீ பாயின்ட் போன்ற அருகிலுள்ள பல அடையாள இடங்களுக்கு சேவை வழங்குகிறது.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Yio Chu Kang": {
+        "summary": "யோ சூ காங் MRT நிலையம் சிங்கப்பூரின் ஆங் மோ கியோ பகுதியில், ஆங் மோ கியோ அவென்யூ 6 மற்றும் ஆங் மோ கியோ அவென்யூ 8 சந்திப்புக்கு அருகில், வடக்கு–தெற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு தரைமேல் வெகுசன விரைவுப் போக்குவரத்து நிலையம்.",
+        "structure": "உயர்மட்டம்"
+      },
+      "Yishun": {
+        "summary": "யிஷூன் MRT நிலையம் சிங்கப்பூரின் யிஷூன் பகுதியில், வடக்கு–தெற்கு வழித்தடத்தில் அமைந்துள்ள ஒரு தரைமேல் வெகுசன விரைவுப் போக்குவரத்து நிலையம். இந்நிலையம் யிஷூன் அவென்யூ 2 மற்றும் யிஷூன் அவென்யூ 5 சந்திப்பில் அமைந்துள்ளது; யிஷூன் புதிய நகரத்திற்கு சேவை வழங்கும் இரண்டு MRT நிலையங்களில் இது தற்போது ஒன்று, மற்றொன்று காத்திப் நிலையம்.",
+        "structure": "உயர்மட்டம்"
+      },
+      "one-north": {
+        "summary": "ஒன்-நார்த் MRT நிலையம் சிங்கப்பூரின் குவீன்ஸ்டவுன் பகுதியில், சர்க்கிள் வழித்தடத்தில் அமைந்துள்ள ஒரு நிலத்தடி வெகுசன விரைவுப் போக்குவரத்து நிலையம். ஆயர் ராஜா அவென்யூவில் ஃபியூஷனோபோலிஸ் ஒன் கட்டிடத்தின் அடியில் அமைந்துள்ள இந்நிலையம், ஒன்-நார்த் வணிகப் பூங்காவுக்கு சேவை வழங்குகிறது.",
+        "structure": "நிலத்தடி"
+      }
+    }
+  }
+}

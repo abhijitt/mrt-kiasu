@@ -1,0 +1,1014 @@
+{
+  "_source": {
+    "summaries": "English Wikipedia page summaries (REST API)",
+    "facts": "English Wikipedia infobox fields (depth, platforms, structure)",
+    "note": "Every entry links to the article it came from; nothing is paraphrased by us.",
+    "importedAt": "2026-08-24"
+  },
+  "stations": {
+    "Admiralty": {
+      "summary": "Admiralty MRT station is an elevated Mass Rapid Transit station on the North–South Line in Woodlands, Singapore. Operated by SMRT Corporation, the station serves several nearby schools and landmarks such as Admiralty Place, Kampung Admiralty, and Woodlands Neighbourhood Police Centre.",
+      "url": "https://en.wikipedia.org/wiki/Admiralty_MRT_station",
+      "title": "Admiralty MRT station",
+      "structure": "Elevated"
+    },
+    "Aljunied": {
+      "summary": "Aljunied MRT station is an elevated Mass Rapid Transit station on the East–West Line in Geylang, Singapore. Operated by SMRT Trains, the station serves the eponymous Aljunied subzone of Geylang.",
+      "url": "https://en.wikipedia.org/wiki/Aljunied_MRT_station",
+      "title": "Aljunied MRT station",
+      "structure": "Elevated"
+    },
+    "Ang Mo Kio": {
+      "summary": "Ang Mo Kio MRT station is an above-ground Mass Rapid Transit station on the North–South Line in Ang Mo Kio, Singapore.",
+      "url": "https://en.wikipedia.org/wiki/Ang_Mo_Kio_MRT_station",
+      "title": "Ang Mo Kio MRT station",
+      "structure": "Elevated (NSL) Underground (CRL)"
+    },
+    "Bakau": {
+      "summary": "The Sengkang LRT line is a 10.7-kilometre elevated automated guideway transit line in Sengkang, Singapore. The driverless line consists of 14 stations on two loops, with Sengkang station serving as the interchange for both loops and linking to the North East Line on the Mass Rapid Transit system.",
+      "url": "https://en.wikipedia.org/wiki/Sengkang_LRT_line",
+      "title": "Bakau LRT station"
+    },
+    "Bangkit": {
+      "summary": "The Bukit Panjang LRT is an 8-kilometre automated guideway transit line in Bukit Panjang, Singapore. The BPLRT is currently the only Light Rail Transit line operated by SMRT Trains.",
+      "url": "https://en.wikipedia.org/wiki/Bukit_Panjang_LRT_line",
+      "title": "Bangkit LRT station"
+    },
+    "Bartley": {
+      "summary": "Bartley MRT station is an underground Mass Rapid Transit station on the Circle Line in Serangoon, Singapore. Operated by SMRT, it serves nearby landmarks such as Maris Stella High School, Bartley Secondary School, and Ramakrishna Mission Singapore.",
+      "url": "https://en.wikipedia.org/wiki/Bartley_MRT_station",
+      "title": "Bartley MRT station"
+    },
+    "Bayfront": {
+      "summary": "Bayfront MRT station is an underground Mass Rapid Transit interchange station on the Downtown Line and Circle Line . Located in the Downtown Core of Singapore, the station is underneath Bayfront Avenue and serves the main tourist attractions of Marina Bay Sands and Gardens by the Bay.",
+      "url": "https://en.wikipedia.org/wiki/Bayfront_MRT_station",
+      "title": "Bayfront station"
+    },
+    "Bayshore": {
+      "summary": "Bayshore MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line in Bedok, Singapore. Located along Bayshore Road, the station serves various private residential estates and landmarks such as Calvary Assembly of God Church and Holy Grace Presbyterian Church.",
+      "url": "https://en.wikipedia.org/wiki/Bayshore_MRT_station",
+      "title": "Bayshore MRT station",
+      "structure": "Underground"
+    },
+    "Beauty World": {
+      "summary": "Beauty World MRT station is an underground Mass Rapid Transit station on the Downtown Line in Bukit Timah, Singapore. Located along Upper Bukit Timah Road, this station took its name from the historic Beauty World Market, a former amusement park and market that once stood in the vicinity.",
+      "url": "https://en.wikipedia.org/wiki/Beauty_World_MRT_station",
+      "title": "Beauty World MRT station",
+      "structure": "Underground"
+    },
+    "Bedok": {
+      "summary": "Bedok MRT station is an elevated Mass Rapid Transit station on the East–West Line in Bedok, Singapore. Operated by SMRT Trains, the station serves the Bedok area and its landmarks such as Bedok Bus Interchange and Bedok Mall.",
+      "url": "https://en.wikipedia.org/wiki/Bedok_MRT_station",
+      "title": "Bedok MRT station",
+      "structure": "Elevated"
+    },
+    "Bedok North": {
+      "summary": "Bedok North MRT station is an underground Mass Rapid Transit station on the Downtown Line in the northern part of Bedok, Singapore, located along Bedok North Road, near the Pan Island Expressway flyover and the Bedok Town Park. It serves nearby HDB estates, the nearby Damai Primary School and will serve a future integrated hospital in the area.",
+      "url": "https://en.wikipedia.org/wiki/Bedok_North_MRT_station",
+      "title": "Bedok North MRT station",
+      "structure": "Underground"
+    },
+    "Bedok Reservoir": {
+      "summary": "Bedok Reservoir MRT station is an underground Mass Rapid Transit station on the Downtown Line in Bedok, Singapore. Located at Bedok Reservoir Road beside Bedok North Avenue 3, it serves residents living near Bedok Reservoir and the students of Bedok Green Secondary School, Yu Neng Primary School, Fengshan Primary School and Red Swastika School.",
+      "url": "https://en.wikipedia.org/wiki/Bedok_Reservoir_MRT_station",
+      "title": "Bedok Reservoir MRT station",
+      "structure": "Underground"
+    },
+    "Bencoolen": {
+      "summary": "Bencoolen MRT station is an underground Mass Rapid Transit station on the Downtown Line in Singapore. Located under Bencoolen Street, the station serves primarily the Nanyang Academy of Fine Arts , Singapore Management University and surrounding developments.",
+      "url": "https://en.wikipedia.org/wiki/Bencoolen_MRT_station",
+      "title": "Bencoolen MRT station",
+      "depth": "43 m below ground",
+      "structure": "Underground"
+    },
+    "Bendemeer": {
+      "summary": "Bendemeer MRT station is an underground Mass Rapid Transit station on the Downtown Line in East of Rochor, Singapore.",
+      "url": "https://en.wikipedia.org/wiki/Bendemeer_MRT_station",
+      "title": "Bendemeer MRT station",
+      "structure": "Underground"
+    },
+    "Bishan": {
+      "summary": "Bishan MRT station is a Mass Rapid Transit interchange station on the North–South and Circle lines in Bishan, Singapore. The station is located along Bishan Road within the town centre; it is close to Junction 8 shopping centre, Bishan Bus Interchange and Bishan Stadium.",
+      "url": "https://en.wikipedia.org/wiki/Bishan_MRT_station",
+      "title": "Bishan MRT station"
+    },
+    "Boon Keng": {
+      "summary": "Boon Keng MRT station is an underground Mass Rapid Transit station on the North East Line in Kallang, Singapore. Located underneath Serangoon Road just after the traffic junction with Towner Road and Boon Keng Road, the station primarily serves the Boon Keng area.",
+      "url": "https://en.wikipedia.org/wiki/Boon_Keng_MRT_station",
+      "title": "Boon Keng MRT station"
+    },
+    "Boon Lay": {
+      "summary": "Boon Lay MRT Station is a Mass Rapid Transit station on the East–West Line in Jurong West, Singapore. Located along Boon Lay Way, the station is directly connected to the Boon Lay Bus Interchange and Jurong Point shopping centre, forming the Boon Lay Integrated Transport Hub.",
+      "url": "https://en.wikipedia.org/wiki/Boon_Lay_MRT_station",
+      "title": "Boon Lay station"
+    },
+    "Botanic Gardens": {
+      "summary": "Botanic Gardens MRT station is an underground Mass Rapid Transit interchange station on the Circle Line and the Downtown Line . Situated in Tanglin, Singapore, the station is located northwest of the Singapore Botanic Gardens at the junction of Bukit Timah Road and Cluny Park Road.",
+      "url": "https://en.wikipedia.org/wiki/Botanic_Gardens_MRT_station",
+      "title": "Botanic Gardens station"
+    },
+    "Braddell": {
+      "summary": "Braddell MRT station is an underground Mass Rapid Transit station located on the North–South Line in Toa Payoh, Singapore. Due to engineering constraints, it and Canberra station are the only stations on the NSL to have side platforms.",
+      "url": "https://en.wikipedia.org/wiki/Braddell_MRT_station",
+      "title": "Braddell MRT station",
+      "structure": "Underground"
+    },
+    "Bras Basah": {
+      "summary": "Bras Basah MRT station is an underground Mass Rapid Transit station on the Circle Line located in the Museum planning area, Singapore. It is underneath Bras Basah Road, bordering Waterloo Street and Queen Street.",
+      "url": "https://en.wikipedia.org/wiki/Bras_Basah_MRT_station",
+      "title": "Bras Basah MRT station",
+      "depth": "35 m below ground",
+      "structure": "Underground"
+    },
+    "Bright Hill": {
+      "summary": "Bright Hill MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line . Situated along Sin Ming Avenue in western Bishan, Singapore, it serves various residential estates around the station.",
+      "url": "https://en.wikipedia.org/wiki/Bright_Hill_MRT_station",
+      "title": "Bright Hill MRT station",
+      "depth": "20 m below ground",
+      "structure": "Underground"
+    },
+    "Buangkok": {
+      "summary": "Buangkok MRT station is an underground Mass Rapid Transit station on the North East Line in Singapore, located near the road intersection of Sengkang Central and Compassvale Bow. The station serves the residential neighbourhood of Buangkok and surrounding developments including Buangkok Bus Interchange, Sengkang Grand Residence, and Sengkang Grand Mall.",
+      "url": "https://en.wikipedia.org/wiki/Buangkok_MRT_station",
+      "title": "Buangkok MRT station",
+      "structure": "Underground  cite web"
+    },
+    "Bugis": {
+      "summary": "Bugis MRT station is an underground Mass Rapid Transit interchange station on the East–West and Downtown lines, in Bugis, Singapore. The station is located underneath the junction of Rochor Road and Victoria Street.",
+      "url": "https://en.wikipedia.org/wiki/Bugis_MRT_station",
+      "title": "Bugis MRT station",
+      "structure": "Underground"
+    },
+    "Bukit Batok": {
+      "summary": "Bukit Batok MRT station is an above-ground Mass Rapid Transit station on the North–South Line in Bukit Batok, Singapore. Operated by SMRT Trains, the station serves nearby landmarks including Bukit Batok Bus Interchange, West Mall, and Bukit Batok Library.",
+      "url": "https://en.wikipedia.org/wiki/Bukit_Batok_MRT_station",
+      "title": "Bukit Batok MRT station",
+      "structure": "Elevated"
+    },
+    "Bukit Gombak": {
+      "summary": "Bukit Gombak MRT station is an above-ground Mass Rapid Transit station on the North–South Line in Bukit Gombak, Singapore. Operated by SMRT, the station serves various landmarks such as Bukit Batok Town Park, Bukit Gombak Stadium, and Bukit Gombak Sports Hall.",
+      "url": "https://en.wikipedia.org/wiki/Bukit_Gombak_MRT_station",
+      "title": "Bukit Gombak MRT station",
+      "structure": "Elevated"
+    },
+    "Bukit Panjang": {
+      "summary": "Bukit Panjang MRT/LRT station is a Mass Rapid Transit and Light Rail Transit interchange station on the Downtown Line and the Bukit Panjang LRT line in Singapore. Located in the namesake estate of Bukit Panjang, the station is at the junction of Upper Bukit Timah Road and Petir Road.",
+      "url": "https://en.wikipedia.org/wiki/Bukit_Panjang_MRT%2FLRT_station",
+      "title": "Bukit Panjang MRT/LRT station"
+    },
+    "Buona Vista": {
+      "summary": "Buona Vista MRT station is a Mass Rapid Transit interchange station on the East–West Line and Circle Line in Queenstown, Singapore. This station is close to one-north, a high-technology business park for the biomedical science, infocomm technology and media industries.",
+      "url": "https://en.wikipedia.org/wiki/Buona_Vista_MRT_station",
+      "title": "Buona Vista MRT station"
+    },
+    "Caldecott": {
+      "summary": "Caldecott MRT station is an underground Mass Rapid Transit interchange station on the Circle and Thomson–East Coast lines, located in the Toa Payoh planning area of Singapore. It is situated underneath Toa Payoh Link near the junction of Toa Payoh Rise, located near the Singapore Association of the Visually Handicapped , the Caldecott Broadcast Centre and Mount Alvernia Hospital.",
+      "url": "https://en.wikipedia.org/wiki/Caldecott_MRT_station",
+      "title": "Caldecott MRT station",
+      "depth": "35 m below ground",
+      "structure": "Underground"
+    },
+    "Canberra": {
+      "summary": "Canberra MRT station is an elevated Mass Rapid Transit station on the North–South Line, located along Canberra Link at the junction with Canberra Way in Sembawang, Singapore. It is the second infill station on the MRT network, and the first in Singapore with a platform linked directly to an overhead bridge at the same level.",
+      "url": "https://en.wikipedia.org/wiki/Canberra_MRT_station",
+      "title": "Canberra MRT station",
+      "structure": "Elevated"
+    },
+    "Cashew": {
+      "summary": "Cashew MRT station is an underground Mass Rapid Transit station on the Downtown Line in Singapore, located between Upper Bukit Timah Road and Cashew Road. It is the nearest MRT station to the headquarters of the Ministry of Defence, as well as the CMPB.",
+      "url": "https://en.wikipedia.org/wiki/Cashew_MRT_station",
+      "title": "Cashew MRT station",
+      "structure": "Underground"
+    },
+    "Changi Airport": {
+      "summary": "Changi Airport MRT station is an underground Mass Rapid Transit station in Changi, Singapore. The station is the terminus of the Changi Airport branch of the East–West Line ; it is operated by SMRT Trains and is built in an east–west orientation.",
+      "url": "https://en.wikipedia.org/wiki/Changi_Airport_MRT_station",
+      "title": "Changi Airport MRT station",
+      "structure": "Underground"
+    },
+    "Chinatown": {
+      "summary": "Chinatown MRT station is an underground Mass Rapid Transit interchange station on the North East and Downtown lines in Outram, Singapore. It serves the ethnic enclave of Chinatown.",
+      "url": "https://en.wikipedia.org/wiki/Chinatown_MRT_station",
+      "title": "Chinatown MRT station"
+    },
+    "Chinese Garden": {
+      "summary": "Chinese Garden MRT station is an elevated Mass Rapid Transit station on the East–West Line in the Jurong Lake District, Singapore. Operated by SMRT Trains, the station serves the Chinese Garden.",
+      "url": "https://en.wikipedia.org/wiki/Chinese_Garden_MRT_station",
+      "title": "Chinese Garden MRT station",
+      "structure": "Elevated"
+    },
+    "Choa Chu Kang": {
+      "summary": "Choa Chu Kang MRT/LRT station is an elevated Mass Rapid Transit and Light Rail Transit interchange station in Choa Chu Kang, Singapore. Serving the North–South Line and the Bukit Panjang LRT line , the station is located near the Choa Chu Kang Bus Interchange and Lot One shopping centre.",
+      "url": "https://en.wikipedia.org/wiki/Choa_Chu_Kang_MRT%2FLRT_station",
+      "title": "Choa Chu Kang LRT station"
+    },
+    "City Hall": {
+      "summary": "City Hall MRT station is an underground Singapore Mass Rapid Transit interchange station on the North–South Line and East–West Line . Situated in the Downtown Core district, it is underneath Stamford Road near the road junctions with North Bridge Road and St Andrew's Road.",
+      "url": "https://en.wikipedia.org/wiki/City_Hall_MRT_station",
+      "title": "City Hall MRT station",
+      "depth": "22 m below ground",
+      "structure": "Underground"
+    },
+    "Clarke Quay": {
+      "summary": "Clarke Quay MRT station is an underground Mass Rapid Transit station on the North East Line in Singapore. Situated along Eu Tong Sen Street, near the junction of Merchant Road and North Canal Road, it is at the south of the Singapore River underneath The Central.",
+      "url": "https://en.wikipedia.org/wiki/Clarke_Quay_MRT_station",
+      "title": "Clarke Quay MRT station",
+      "structure": "Underground"
+    },
+    "Clementi": {
+      "summary": "Clementi MRT station is an elevated Mass Rapid Transit station on the East–West Line in Clementi, Singapore. The station is located along Commonwealth Avenue West and serves landmarks such as the Clementi Mall, Clementi Bus Interchange, and Clementi Fire Station.",
+      "url": "https://en.wikipedia.org/wiki/Clementi_MRT_station",
+      "title": "Clementi MRT station",
+      "structure": "Elevated (EWL) Underground (CRL)"
+    },
+    "Commonwealth": {
+      "summary": "Commonwealth MRT station is an above-ground Mass Rapid Transit station on the East–West Line in Queenstown, Singapore. Operated by SMRT Corporation, the station serves nearby landmarks such as the Faith Methodist Church and Queensway Secondary School.",
+      "url": "https://en.wikipedia.org/wiki/Commonwealth_MRT_station",
+      "title": "Commonwealth MRT station"
+    },
+    "Compassvale": {
+      "summary": "The Sengkang LRT line is a 10.7-kilometre elevated automated guideway transit line in Sengkang, Singapore. The driverless line consists of 14 stations on two loops, with Sengkang station serving as the interchange for both loops and linking to the North East Line on the Mass Rapid Transit system.",
+      "url": "https://en.wikipedia.org/wiki/Sengkang_LRT_line",
+      "title": "Compassvale LRT station"
+    },
+    "Coral Edge": {
+      "summary": "The Punggol LRT line is a 10.3-kilometre elevated automated guideway transit line in Punggol, Singapore. The driverless system consists of 15 stations on two loops, with Punggol station serving as the interchange for both loops and linking the line to the North East Line on the Singapore MRT.",
+      "url": "https://en.wikipedia.org/wiki/Punggol_LRT_line",
+      "title": "Coral Edge LRT station"
+    },
+    "Cove": {
+      "summary": "The Punggol LRT line is a 10.3-kilometre elevated automated guideway transit line in Punggol, Singapore. The driverless system consists of 15 stations on two loops, with Punggol station serving as the interchange for both loops and linking the line to the North East Line on the Singapore MRT.",
+      "url": "https://en.wikipedia.org/wiki/Punggol_LRT_line",
+      "title": "Cove LRT station"
+    },
+    "Dakota": {
+      "summary": "Dakota MRT station is an underground Mass Rapid Transit station on the Circle Line in Geylang, Singapore. Operated by SMRT Trains, it serves nearby landmarks such as the Dakota Crescent housing estate, Broadrick Secondary School, Kong Hwa School, and Old Airport Food Court & Shopping Mall.",
+      "url": "https://en.wikipedia.org/wiki/Dakota_MRT_station",
+      "title": "Dakota MRT station",
+      "structure": "Underground"
+    },
+    "Damai": {
+      "summary": "Damai LRT station may refer to:Damai LRT station Damai LRT station",
+      "url": "https://en.wikipedia.org/wiki/Damai_LRT_station",
+      "title": "Damai LRT station"
+    },
+    "Dhoby Ghaut": {
+      "summary": "Dhoby Ghaut MRT station is an underground Mass Rapid Transit interchange station on the North–South , North East and Circle lines in Singapore. Located beneath the eastern end of Orchard Road shopping belt in Dhoby Ghaut, Museum Planning Area, the station is integrated with the commercial development The Atrium@Orchard.",
+      "url": "https://en.wikipedia.org/wiki/Dhoby_Ghaut_MRT_station",
+      "title": "Dhoby Ghaut MRT station",
+      "structure": "Underground"
+    },
+    "Dover": {
+      "summary": "Dover MRT station is an elevated Mass Rapid Transit station on the East–West Line in Singapore. Located along Commonwealth Avenue West, the station is directly linked to Singapore Polytechnic and serves various residential developments in the area.",
+      "url": "https://en.wikipedia.org/wiki/Dover_MRT_station",
+      "title": "Dover MRT station",
+      "structure": "Elevated"
+    },
+    "Downtown": {
+      "summary": "Downtown MRT station is an underground Mass Rapid Transit station on the Downtown Line . Located in Downtown Core, Singapore, underneath Central Boulevard, the station serves various commercial developments including the Marina Bay Financial Centre, Asia Square and SGX Centre.",
+      "url": "https://en.wikipedia.org/wiki/Downtown_MRT_station",
+      "title": "Downtown MRT station",
+      "structure": "Underground"
+    },
+    "Esplanade": {
+      "summary": "Esplanade MRT station is an underground Mass Rapid Transit station on the Circle Line in Singapore. Situated in the Downtown Core, it is at the junction of Bras Basah Road, Raffles Boulevard and Nicoll Highway.",
+      "url": "https://en.wikipedia.org/wiki/Esplanade_MRT_station",
+      "title": "Esplanade MRT station"
+    },
+    "Eunos": {
+      "summary": "Eunos MRT station is an elevated Mass Rapid Transit station on the East–West Line in Geylang, Singapore. Operated by SMRT Trains, the station is connected to the Eunos Bus Interchange.",
+      "url": "https://en.wikipedia.org/wiki/Eunos_MRT_station",
+      "title": "Eunos MRT station"
+    },
+    "Expo": {
+      "summary": "Expo MRT station is a Mass Rapid Transit interchange station on the East–West Line and Downtown Line in the Tampines planning area, Singapore. The station lies between Changi City Point and the Singapore Expo, located along Changi South Avenue 1 at the junction of Expo Drive.",
+      "url": "https://en.wikipedia.org/wiki/Expo_MRT_station",
+      "title": "Expo MRT station",
+      "depth": "25 m below ground"
+    },
+    "Fajar": {
+      "summary": "The Bukit Panjang LRT is an 8-kilometre automated guideway transit line in Bukit Panjang, Singapore. The BPLRT is currently the only Light Rail Transit line operated by SMRT Trains.",
+      "url": "https://en.wikipedia.org/wiki/Bukit_Panjang_LRT_line",
+      "title": "Fajar LRT station"
+    },
+    "Farmway": {
+      "summary": "The Sengkang LRT line is a 10.7-kilometre elevated automated guideway transit line in Sengkang, Singapore. The driverless line consists of 14 stations on two loops, with Sengkang station serving as the interchange for both loops and linking to the North East Line on the Mass Rapid Transit system.",
+      "url": "https://en.wikipedia.org/wiki/Sengkang_LRT_line",
+      "title": "Farmway LRT station"
+    },
+    "Farrer Park": {
+      "summary": "Farrer Park MRT station is an underground Mass Rapid Transit station along the North East Line , located on the boundary of Kallang and Rochor planning areas, Singapore. To facilitate its construction, several buildings in its vicinity had to be shut down and vacated.",
+      "url": "https://en.wikipedia.org/wiki/Farrer_Park_MRT_station",
+      "title": "Farrer Park MRT station",
+      "structure": "Underground"
+    },
+    "Farrer Road": {
+      "summary": "Farrer Road MRT station is an underground Mass Rapid Transit station on the Circle Line, located along the boundary of Farrer Court and Tyersall planning areas, Singapore. It is built underneath Farrer Road, the thoroughfare which gives the station its name, and is located near the Farrer Gardens Estate.",
+      "url": "https://en.wikipedia.org/wiki/Farrer_Road_MRT_station",
+      "title": "Farrer Road MRT station",
+      "structure": "Underground"
+    },
+    "Fernvale": {
+      "summary": "The Sengkang LRT line is a 10.7-kilometre elevated automated guideway transit line in Sengkang, Singapore. The driverless line consists of 14 stations on two loops, with Sengkang station serving as the interchange for both loops and linking to the North East Line on the Mass Rapid Transit system.",
+      "url": "https://en.wikipedia.org/wiki/Sengkang_LRT_line",
+      "title": "Fernvale LRT station"
+    },
+    "Fort Canning": {
+      "summary": "Fort Canning MRT station is an underground Mass Rapid Transit station on the Downtown Line , located on the boundary of Museum and Singapore River planning areas, Singapore. Situated on the northern bank of the Singapore River, the station is at the foot of Fort Canning, which the station is named after.",
+      "url": "https://en.wikipedia.org/wiki/Fort_Canning_MRT_station",
+      "title": "Fort Canning MRT station",
+      "structure": "Underground"
+    },
+    "Gardens by the Bay": {
+      "summary": "Gardens by the Bay MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line . Located in Marina South, Singapore, the station serves Gardens by the Bay and Marina Barrage.",
+      "url": "https://en.wikipedia.org/wiki/Gardens_by_the_Bay_MRT_station",
+      "title": "Gardens by the Bay MRT station",
+      "structure": "Underground"
+    },
+    "Geylang Bahru": {
+      "summary": "Geylang Bahru MRT station is an underground Mass Rapid Transit station on the Downtown Line in Kallang, Singapore.",
+      "url": "https://en.wikipedia.org/wiki/Geylang_Bahru_MRT_station",
+      "title": "Geylang Bahru MRT station",
+      "structure": "Underground"
+    },
+    "Great World": {
+      "summary": "Great World MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line . Located in River Valley, Singapore, the station is near the Great World shopping mall and surrounding residential developments.",
+      "url": "https://en.wikipedia.org/wiki/Great_World_MRT_station",
+      "title": "Great World MRT station",
+      "structure": "Underground"
+    },
+    "Gul Circle": {
+      "summary": "Gul Circle MRT station is an elevated Mass Rapid Transit station on the East–West Line . Located in Tuas, western Singapore, the station serves the surrounding industries of JTC Space @ Tuas and Mapletree Pioneer Logistic Hub.",
+      "url": "https://en.wikipedia.org/wiki/Gul_Circle_MRT_station",
+      "title": "Gul Circle MRT station",
+      "structure": "Elevated"
+    },
+    "HarbourFront": {
+      "summary": "HarbourFront MRT station is an underground Mass Rapid Transit interchange station in Singapore. A station on the Circle Line and terminus of the North East Line, it serves the HarbourFront area and Sentosa.",
+      "url": "https://en.wikipedia.org/wiki/HarbourFront_MRT_station",
+      "title": "HarbourFront MRT station",
+      "structure": "Underground"
+    },
+    "Havelock": {
+      "summary": "Havelock station may refer to:Havelock MRT station, a rapid transit station in Singapore Havelock railway station, a former railway station in Ontario, Canada",
+      "url": "https://en.wikipedia.org/wiki/Havelock_station",
+      "title": "Havelock station"
+    },
+    "Haw Par Villa": {
+      "summary": "Haw Par Villa MRT station is an underground Mass Rapid Transit station on the Circle Line in Queenstown, Singapore. Located underneath West Coast Highway and Pasir Panjang Road, the station serves the nearby Haw Par Villa, alongside the Pasir Panjang Wholesale Centre.",
+      "url": "https://en.wikipedia.org/wiki/Haw_Par_Villa_MRT_station",
+      "title": "Haw Par Villa MRT station",
+      "structure": "Underground"
+    },
+    "Hillview": {
+      "summary": "Hillview MRT station is an underground Mass Rapid Transit station on the Downtown Line, situated on the boundaries of Hillview and Nature Reserve planning subzones of Bukit Batok and Bukit Panjang respectively, Singapore.",
+      "url": "https://en.wikipedia.org/wiki/Hillview_MRT_station",
+      "title": "Hillview MRT station",
+      "structure": "Underground"
+    },
+    "Holland Village": {
+      "summary": "Holland Village MRT station is an underground Mass Rapid Transit station on the Circle Line , located along the boundary of Bukit Timah and Queenstown planning areas in Singapore. Situated close to the junction of Holland Avenue and Holland Road, it primarily serves the area of Holland Village, where its name was derived from.",
+      "url": "https://en.wikipedia.org/wiki/Holland_Village_MRT_station",
+      "title": "Holland Village MRT station",
+      "structure": "Underground"
+    },
+    "Hougang": {
+      "summary": "Hougang MRT station is an underground Mass Rapid Transit station on the North East Line in Hougang, Singapore. Underneath Hougang Central and Hougang Central Bus Interchange, the station serves various landmarks, including Hougang Mall and Hougang Sports Hall.",
+      "url": "https://en.wikipedia.org/wiki/Hougang_MRT_station",
+      "title": "Hougang MRT station",
+      "depth": "45 m below ground",
+      "structure": "Underground"
+    },
+    "Hume": {
+      "summary": "Hume MRT station is an underground Mass Rapid Transit station on the Downtown Line in Bukit Batok, Singapore. Located at the junction of Hume Avenue and Upper Bukit Timah Road, the station serves landmarks such as Bukit Timah Hill, Bukit Timah Nature Reserve, the Rail Corridor, the Rail Mall and the Former Ford Factory.",
+      "url": "https://en.wikipedia.org/wiki/Hume_MRT_station",
+      "title": "Hume MRT station",
+      "structure": "Underground"
+    },
+    "Jalan Besar": {
+      "summary": "Jalan Besar MRT station is an underground Mass Rapid Transit station on the Downtown Line in Rochor, Singapore. The station is located under Jalan Besar, at the junction with Weld Road, hence its name.",
+      "url": "https://en.wikipedia.org/wiki/Jalan_Besar_MRT_station",
+      "title": "Jalan Besar MRT station",
+      "structure": "Underground"
+    },
+    "Jelapang": {
+      "summary": "The Bukit Panjang LRT is an 8-kilometre automated guideway transit line in Bukit Panjang, Singapore. The BPLRT is currently the only Light Rail Transit line operated by SMRT Trains.",
+      "url": "https://en.wikipedia.org/wiki/Bukit_Panjang_LRT_line",
+      "title": "Jelapang LRT station"
+    },
+    "Joo Koon": {
+      "summary": "Joo Koon MRT station is an above-ground Mass Rapid Transit station along the East–West Line in Pioneer planning area, Singapore.",
+      "url": "https://en.wikipedia.org/wiki/Joo_Koon_MRT_station",
+      "title": "Joo Koon MRT station",
+      "structure": "Elevated"
+    },
+    "Jurong East": {
+      "summary": "Jurong East MRT station is an elevated Mass Rapid Transit interchange station on the North–South and East–West lines in Jurong East, Singapore. Situated along Jurong Gateway Road, the station is located within the vicinity of Jem, Westgate, IMM, Ng Teng Fong General Hospital, Jurong East Bus Interchange and Jurong Town Hall Bus Interchange.",
+      "url": "https://en.wikipedia.org/wiki/Jurong_East_MRT_station",
+      "title": "Jurong East MRT station",
+      "structure": "Elevated"
+    },
+    "Kadaloor": {
+      "summary": "The Punggol LRT line is a 10.3-kilometre elevated automated guideway transit line in Punggol, Singapore. The driverless system consists of 15 stations on two loops, with Punggol station serving as the interchange for both loops and linking the line to the North East Line on the Singapore MRT.",
+      "url": "https://en.wikipedia.org/wiki/Punggol_LRT_line",
+      "title": "Kadaloor LRT station"
+    },
+    "Kaki Bukit": {
+      "summary": "Kaki Bukit MRT station is an underground Mass Rapid Transit station on the Downtown Line . Situated in Kaki Bukit, Singapore, it is located along Kaki Bukit Avenue 1.",
+      "url": "https://en.wikipedia.org/wiki/Kaki_Bukit_MRT_station",
+      "title": "Kaki Bukit MRT station",
+      "structure": "Underground"
+    },
+    "Kallang": {
+      "summary": "Kallang MRT station is an elevated Mass Rapid Transit station on the East–West Line in Kallang, Singapore. Operated by SMRT Trains, the station primarily serves the Kallang area as well as Lorong 1 Geylang bus terminal.",
+      "url": "https://en.wikipedia.org/wiki/Kallang_MRT_station",
+      "title": "Kallang MRT station",
+      "structure": "Elevated"
+    },
+    "Kangkar": {
+      "summary": "The Sengkang LRT line is a 10.7-kilometre elevated automated guideway transit line in Sengkang, Singapore. The driverless line consists of 14 stations on two loops, with Sengkang station serving as the interchange for both loops and linking to the North East Line on the Mass Rapid Transit system.",
+      "url": "https://en.wikipedia.org/wiki/Sengkang_LRT_line",
+      "title": "Kangkar LRT station"
+    },
+    "Katong Park": {
+      "summary": "Katong Park MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line . Situated along Meyer Road and adjacent to Katong Park, the station serves Dunman High School and Singapore Swimming School alongside nearby residential developments.",
+      "url": "https://en.wikipedia.org/wiki/Katong_Park_MRT_station",
+      "title": "Katong Park MRT station",
+      "depth": "26.8 m below ground",
+      "structure": "Underground"
+    },
+    "Keat Hong": {
+      "summary": "The Bukit Panjang LRT is an 8-kilometre automated guideway transit line in Bukit Panjang, Singapore. The BPLRT is currently the only Light Rail Transit line operated by SMRT Trains.",
+      "url": "https://en.wikipedia.org/wiki/Bukit_Panjang_LRT_line",
+      "title": "Keat Hong LRT station"
+    },
+    "Kembangan": {
+      "summary": "Kembangan MRT station is an elevated Mass Rapid Transit station on the East–West Line in Bedok, Singapore. Operated by SMRT Trains, the station serves the eponymous Kembangan subzone of Bedok.",
+      "url": "https://en.wikipedia.org/wiki/Kembangan_MRT_station",
+      "title": "Kembangan MRT station",
+      "structure": "Elevated"
+    },
+    "Kent Ridge": {
+      "summary": "Kent Ridge MRT station is an underground Mass Rapid Transit station on the Circle Line . Located in the eponymous Kent Ridge of Queenstown, Singapore, the station is near the junction of South Buona Vista Road and Lower Kent Ridge Road.",
+      "url": "https://en.wikipedia.org/wiki/Kent_Ridge_MRT_station",
+      "title": "Kent Ridge MRT station",
+      "structure": "Underground"
+    },
+    "Khatib": {
+      "summary": "Khatib MRT station is an above-ground Mass Rapid Transit station on the North–South Line located in Khatib, Singapore, a subzone in Yishun planning area.",
+      "url": "https://en.wikipedia.org/wiki/Khatib_MRT_station",
+      "title": "Khatib MRT station",
+      "structure": "Elevated"
+    },
+    "King Albert Park": {
+      "summary": "King Albert Park MRT station is an underground Mass Rapid Transit station on the Downtown Line in Bukit Timah, Singapore. Located at the western end of Bukit Timah Road at the junction of Blackmore Drive, this station serves the private residential estates along the Bukit Timah corridor.",
+      "url": "https://en.wikipedia.org/wiki/King_Albert_Park_MRT_station",
+      "title": "King Albert Park MRT station",
+      "depth": "50 m below ground",
+      "structure": "Underground"
+    },
+    "Kovan": {
+      "summary": "Kovan MRT station is an underground Mass Rapid Transit station on the North East Line in Hougang, Singapore. Located underneath Upper Serangoon Road, the station serves the retail development of Heartland Mall and surrounding public and private residences.",
+      "url": "https://en.wikipedia.org/wiki/Kovan_MRT_station",
+      "title": "Kovan MRT station",
+      "structure": "Underground"
+    },
+    "Kranji": {
+      "summary": "Kranji MRT station is an elevated Mass Rapid Transit station on the North–South Line . Situated in Sungei Kadut, Singapore, along Woodlands Road, it serves the Singapore Turf Club and the Woodlands Wafer Fabrication Park.",
+      "url": "https://en.wikipedia.org/wiki/Kranji_MRT_station",
+      "title": "Kranji MRT station",
+      "structure": "Elevated"
+    },
+    "Kupang": {
+      "summary": "The Sengkang LRT line is a 10.7-kilometre elevated automated guideway transit line in Sengkang, Singapore. The driverless line consists of 14 stations on two loops, with Sengkang station serving as the interchange for both loops and linking to the North East Line on the Mass Rapid Transit system.",
+      "url": "https://en.wikipedia.org/wiki/Sengkang_LRT_line",
+      "title": "Kupang LRT station"
+    },
+    "Labrador Park": {
+      "summary": "Labrador Park MRT station is an underground Mass Rapid Transit station on the Circle Line, located within Bukit Merah planning area, Singapore.",
+      "url": "https://en.wikipedia.org/wiki/Labrador_Park_MRT_station",
+      "title": "Labrador Park MRT station",
+      "structure": "Underground"
+    },
+    "Lakeside": {
+      "summary": "Lakeside MRT station is an elevated Mass Rapid Transit station on the East–West Line in Jurong West, Singapore. Operated by SMRT Trains, the station serves the eponymous Jurong Lake and the Hong Kah and Taman Jurong residential estate.",
+      "url": "https://en.wikipedia.org/wiki/Lakeside_MRT_station",
+      "title": "Lakeside MRT station",
+      "structure": "Elevated"
+    },
+    "Lavender": {
+      "summary": "Lavender MRT station is an underground Mass Rapid Transit station on the East–West Line in Kallang, Singapore. Located under Kallang Road, the station is close to the Immigration and Checkpoints Authority Building and Jalan Besar stadium.",
+      "url": "https://en.wikipedia.org/wiki/Lavender_MRT_station",
+      "title": "Lavender MRT station",
+      "structure": "Underground"
+    },
+    "Layar": {
+      "summary": "The Sengkang LRT line is a 10.7-kilometre elevated automated guideway transit line in Sengkang, Singapore. The driverless line consists of 14 stations on two loops, with Sengkang station serving as the interchange for both loops and linking to the North East Line on the Mass Rapid Transit system.",
+      "url": "https://en.wikipedia.org/wiki/Sengkang_LRT_line",
+      "title": "Layar LRT station"
+    },
+    "Lentor": {
+      "summary": "Lentor MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line . It is situated in northern Ang Mo Kio, Singapore, underneath Lentor Drive.",
+      "url": "https://en.wikipedia.org/wiki/Lentor_MRT_station",
+      "title": "Lentor MRT station",
+      "structure": "Underground"
+    },
+    "Lorong Chuan": {
+      "summary": "Lorong Chuan MRT station is an underground Mass Rapid Transit station on the Circle Line in Serangoon, Singapore. Operated by SMRT Trains, the station serves several nearby landmarks such as the Braddell Heights Community Club, as well as several schools.",
+      "url": "https://en.wikipedia.org/wiki/Lorong_Chuan_MRT_station",
+      "title": "Lorong Chuan MRT station",
+      "structure": "Underground"
+    },
+    "MacPherson": {
+      "summary": "MacPherson MRT station is an underground Mass Rapid Transit interchange station on the Downtown Line and Circle Line in Geylang planning area, Singapore, located underneath Paya Lebar Road at the junction with Circuit Link and Ubi Avenue 2.",
+      "url": "https://en.wikipedia.org/wiki/MacPherson_MRT_station",
+      "title": "MacPherson MRT station",
+      "structure": "Underground"
+    },
+    "Marina Bay": {
+      "summary": "Marina Bay MRT station is an underground Mass Rapid Transit interchange station on the North–South , Circle and Thomson–East Coast lines in Singapore. Located in the Downtown Core district near Marina Bay, the station serves the Marina One Residences, Marina Bay Suites and the Marina Bay Financial Centre.",
+      "url": "https://en.wikipedia.org/wiki/Marina_Bay_MRT_station",
+      "title": "Marina Bay MRT station",
+      "depth": "40 m below ground",
+      "structure": "Underground"
+    },
+    "Marina South Pier": {
+      "summary": "Marina South Pier MRT station is an underground Mass Rapid Transit station in Straits View, Singapore. The station was built as part of the 1-kilometre North–South Line Extension, and is the southern terminus of the line.",
+      "url": "https://en.wikipedia.org/wiki/Marina_South_Pier_MRT_station",
+      "title": "Marina South Pier MRT station",
+      "structure": "Underground"
+    },
+    "Marine Parade": {
+      "summary": "Marine Parade MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line in Marine Parade, Singapore. Located underneath Marine Parade Road, the station serves nearby residential and commercial developments including Parkway Parade, Roxy Square and I12 Katong.",
+      "url": "https://en.wikipedia.org/wiki/Marine_Parade_MRT_station",
+      "title": "Marine Parade MRT station",
+      "depth": "22 m below ground",
+      "structure": "Underground"
+    },
+    "Marine Terrace": {
+      "summary": "Marine Terrace MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line . Located in the Marine Parade estate, it serves many schools in the area as well as the Marine Terrace Market and Food Centre.",
+      "url": "https://en.wikipedia.org/wiki/Marine_Terrace_MRT_station",
+      "title": "Marine Terrace MRT station",
+      "structure": "Underground"
+    },
+    "Marsiling": {
+      "summary": "Marsiling MRT station is an above-ground Mass Rapid Transit station on the North–South Line in Marsiling, Woodlands, Singapore. Operated by SMRT Trains, the station serves various nearby landmarks such as Marsiling Primary and Secondary schools and Fuchun Primary and Secondary Schools.",
+      "url": "https://en.wikipedia.org/wiki/Marsiling_MRT_station",
+      "title": "Marsiling MRT station"
+    },
+    "Marymount": {
+      "summary": "Marymount MRT station is an underground Mass Rapid Transit station on the Circle Line in Bishan, Singapore. Operated by SMRT, it serves nearby landmarks such as Bishan Fire Station, Raffles Institution, and Raffles Junior College.",
+      "url": "https://en.wikipedia.org/wiki/Marymount_MRT_station",
+      "title": "Marymount MRT station",
+      "structure": "Underground"
+    },
+    "Mattar": {
+      "summary": "Mattar MRT station is an underground Mass Rapid Transit station on the Downtown Line in Geylang, Singapore. The station is located underneath Mattar Road near the junction of Merpati Road.",
+      "url": "https://en.wikipedia.org/wiki/Mattar_MRT_station",
+      "title": "Mattar MRT station"
+    },
+    "Maxwell": {
+      "summary": "Maxwell MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line in Singapore. Situated in the Downtown Core and Outram along Neil Road, the station is near the Buddha Tooth Relic Temple and Museum, Sri Mariamman Temple and the Maxwell Food Centre.",
+      "url": "https://en.wikipedia.org/wiki/Maxwell_MRT_station",
+      "title": "Maxwell MRT station",
+      "depth": "31 m below ground",
+      "structure": "Underground"
+    },
+    "Mayflower": {
+      "summary": "Mayflower MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line in Ang Mo Kio, Singapore. Situated underneath Ang Mo Kio Avenue 4, the station serves various landmarks including the Kebun Baru Heights Estate, Kebun Baru Community Centre, and CHIJ Saint Nicholas Girls' School.",
+      "url": "https://en.wikipedia.org/wiki/Mayflower_MRT_station",
+      "title": "Mayflower MRT station",
+      "structure": "Underground"
+    },
+    "Meridian": {
+      "summary": "The Punggol LRT line is a 10.3-kilometre elevated automated guideway transit line in Punggol, Singapore. The driverless system consists of 15 stations on two loops, with Punggol station serving as the interchange for both loops and linking the line to the North East Line on the Singapore MRT.",
+      "url": "https://en.wikipedia.org/wiki/Punggol_LRT_line",
+      "title": "Meridian LRT station"
+    },
+    "Mountbatten": {
+      "summary": "Mountbatten MRT station is an underground Mass Rapid Transit station on the Circle Line in Kallang, Singapore. Located at the junction of Mountbatten Road, the stations serves nearby landmarks such as the Kallang Field and the Goodman Arts Centre.",
+      "url": "https://en.wikipedia.org/wiki/Mountbatten_MRT_station",
+      "title": "Mountbatten MRT station",
+      "structure": "Underground"
+    },
+    "Napier": {
+      "summary": "Napier MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line . Located in Tanglin, Singapore, the station is at the junction of Napier Road, Holland Road and Cluny Road.",
+      "url": "https://en.wikipedia.org/wiki/Napier_MRT_station",
+      "title": "Napier MRT station",
+      "structure": "Underground"
+    },
+    "Newton": {
+      "summary": "Newton MRT station is an underground Mass Rapid Transit interchange station on the North–South and Downtown lines. It is located in Newton, Singapore, at the junction of Scotts Road and Bukit Timah Road near Newton Circus.",
+      "url": "https://en.wikipedia.org/wiki/Newton_MRT_station",
+      "title": "Newton MRT station",
+      "structure": "Underground"
+    },
+    "Nibong": {
+      "summary": "The Punggol LRT line is a 10.3-kilometre elevated automated guideway transit line in Punggol, Singapore. The driverless system consists of 15 stations on two loops, with Punggol station serving as the interchange for both loops and linking the line to the North East Line on the Singapore MRT.",
+      "url": "https://en.wikipedia.org/wiki/Punggol_LRT_line",
+      "title": "Nibong LRT station"
+    },
+    "Nicoll Highway": {
+      "summary": "Nicoll Highway MRT station is an underground Mass Rapid Transit station on the Circle Line in Singapore. Located in the Downtown Core underneath Republic Avenue near the Kallang River, the station serves commercial and residential developments along Nicoll Highway, such as the Golden Mile Complex and The Concourse.",
+      "url": "https://en.wikipedia.org/wiki/Nicoll_Highway_MRT_station",
+      "title": "Nicoll Highway MRT station",
+      "depth": "21.5 m below ground",
+      "structure": "Underground"
+    },
+    "Novena": {
+      "summary": "Novena MRT station is an underground Mass Rapid Transit station on the North–South Line. Located along Thomson Road in Novena, Singapore, the station is located near landmarks such as Tan Tock Seng Hospital, Mount Elizabeth Novena Hospital and United Square.",
+      "url": "https://en.wikipedia.org/wiki/Novena_MRT_station",
+      "title": "Novena MRT station",
+      "structure": "Underground"
+    },
+    "Oasis": {
+      "summary": "The Punggol LRT line is a 10.3-kilometre elevated automated guideway transit line in Punggol, Singapore. The driverless system consists of 15 stations on two loops, with Punggol station serving as the interchange for both loops and linking the line to the North East Line on the Singapore MRT.",
+      "url": "https://en.wikipedia.org/wiki/Punggol_LRT_line",
+      "title": "Oasis LRT station"
+    },
+    "Orchard": {
+      "summary": "Orchard MRT station is an underground Mass Rapid Transit interchange station in Singapore, on the North–South and Thomson–East Coast lines. Situated along Orchard Boulevard and underneath ION Orchard, the station serves various commercial and retail developments of the Orchard Road shopping district, including Liat Towers, Ngee Ann City, Wheelock Place, Wisma Atria and Shaw House, among others.",
+      "url": "https://en.wikipedia.org/wiki/Orchard_MRT_station",
+      "title": "Orchard MRT station",
+      "structure": "Underground"
+    },
+    "Orchard Boulevard": {
+      "summary": "Orchard Boulevard MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line . Situated in Orchard, Singapore, the station is at the end of Orchard Boulevard with Grange Road.",
+      "url": "https://en.wikipedia.org/wiki/Orchard_Boulevard_MRT_station",
+      "title": "Orchard Boulevard MRT station",
+      "structure": "Underground"
+    },
+    "Outram Park": {
+      "summary": "Outram Park MRT station is an underground Mass Rapid Transit interchange station in Singapore. The station is on the East–West, North East and Thomson–East Coast lines, and is located near the junction of Outram Road, Eu Tong Sen Street and New Bridge Road on the boundary of Bukit Merah and Outram planning areas.",
+      "url": "https://en.wikipedia.org/wiki/Outram_Park_MRT_station",
+      "title": "Outram Park MRT station",
+      "structure": "Underground"
+    },
+    "Pasir Panjang": {
+      "summary": "Pasir Panjang MRT station is an underground Mass Rapid Transit station on the Circle Line. As the name suggests, it is located in Pasir Panjang at the southern part of Queenstown planning area, Singapore.",
+      "url": "https://en.wikipedia.org/wiki/Pasir_Panjang_MRT_station",
+      "title": "Pasir Panjang MRT station",
+      "structure": "Underground"
+    },
+    "Pasir Ris": {
+      "summary": "Pasir Ris MRT station is an elevated Mass Rapid Transit station on the East–West Line in Pasir Ris, Singapore. Situated along Pasir Ris Central adjacent to Pasir Ris Bus Interchange, Pasir Ris Mall and the White Sands Shopping Mall, it is the eastern terminus of the EWL.",
+      "url": "https://en.wikipedia.org/wiki/Pasir_Ris_MRT_station",
+      "title": "Pasir Ris MRT station",
+      "depth": "47 m below ground",
+      "structure": "Elevated (EWL) Underground (CRL)"
+    },
+    "Paya Lebar": {
+      "summary": "Paya Lebar MRT station is a Mass Rapid Transit interchange station on the East–West Line and Circle Line in Singapore. Despite the name, this station is not located in the Paya Lebar planning area but rather along Paya Lebar Road, which is in Geylang, near the junction with Sims Avenue.",
+      "url": "https://en.wikipedia.org/wiki/Paya_Lebar_MRT_station",
+      "title": "Paya Lebar MRT station"
+    },
+    "Pending": {
+      "summary": "The Bukit Panjang LRT is an 8-kilometre automated guideway transit line in Bukit Panjang, Singapore. The BPLRT is currently the only Light Rail Transit line operated by SMRT Trains.",
+      "url": "https://en.wikipedia.org/wiki/Bukit_Panjang_LRT_line",
+      "title": "Pending LRT station"
+    },
+    "Petir": {
+      "summary": "The Bukit Panjang LRT is an 8-kilometre automated guideway transit line in Bukit Panjang, Singapore. The BPLRT is currently the only Light Rail Transit line operated by SMRT Trains.",
+      "url": "https://en.wikipedia.org/wiki/Bukit_Panjang_LRT_line",
+      "title": "Petir LRT station"
+    },
+    "Phoenix": {
+      "summary": "The Bukit Panjang LRT is an 8-kilometre automated guideway transit line in Bukit Panjang, Singapore. The BPLRT is currently the only Light Rail Transit line operated by SMRT Trains.",
+      "url": "https://en.wikipedia.org/wiki/Bukit_Panjang_LRT_line",
+      "title": "Phoenix LRT station"
+    },
+    "Pioneer": {
+      "summary": "Pioneer MRT station is a Mass Rapid Transit station in Singapore. It is part of the East–West Line and serves the residential estate of Pioneer.",
+      "url": "https://en.wikipedia.org/wiki/Pioneer_MRT_station",
+      "title": "Pioneer MRT station",
+      "structure": "Elevated"
+    },
+    "Potong Pasir": {
+      "summary": "Potong Pasir MRT station is an underground Mass Rapid Transit station on the North East Line in Toa Payoh planning area, Singapore. It is situated underneath Upper Serangoon Road at the junction with Potong Pasir Avenue 1 and Wan Tho Avenue.",
+      "url": "https://en.wikipedia.org/wiki/Potong_Pasir_MRT_station",
+      "title": "Potong Pasir MRT station",
+      "structure": "Underground"
+    },
+    "Promenade": {
+      "summary": "Promenade MRT station is an underground Mass Rapid Transit interchange station on the Downtown and Circle lines in Downtown Core, Singapore. Located underneath Temasek Avenue and adjacent to Millenia Tower, the station serves several key attractions and locations such as Suntec City and the Marina Promenade, which the station is named after.",
+      "url": "https://en.wikipedia.org/wiki/Promenade_MRT_station",
+      "title": "Promenade MRT station",
+      "depth": "42 m below ground",
+      "structure": "Underground"
+    },
+    "Punggol": {
+      "summary": "Punggol MRT/LRT station is a Mass Rapid Transit and Light Rail Transit interchange station in Punggol, Singapore. It is an interchange station between the North East Line and Punggol LRT , and one of the two MRT stations located within Punggol planning area.",
+      "url": "https://en.wikipedia.org/wiki/Punggol_MRT%2FLRT_station",
+      "title": "Punggol MRT station"
+    },
+    "Punggol Coast": {
+      "summary": "Punggol Coast MRT station is an underground Mass Rapid Transit station on the North East Line in northern Punggol, Singapore. The station is the terminus of the NEL and serves the Punggol Digital District alongside the new campus of the Singapore Institute of Technology.",
+      "url": "https://en.wikipedia.org/wiki/Punggol_Coast_MRT_station",
+      "title": "Punggol Coast MRT station",
+      "structure": "Underground"
+    },
+    "Punggol Point": {
+      "summary": "The Punggol LRT line is a 10.3-kilometre elevated automated guideway transit line in Punggol, Singapore. The driverless system consists of 15 stations on two loops, with Punggol station serving as the interchange for both loops and linking the line to the North East Line on the Singapore MRT.",
+      "url": "https://en.wikipedia.org/wiki/Punggol_LRT_line",
+      "title": "Punggol Point LRT station"
+    },
+    "Queenstown": {
+      "summary": "Queenstown MRT station is an elevated Mass Rapid Transit station on the East–West Line in Queenstown, Singapore. Located on Commonwealth Avenue, it serves surrounding landmarks such as Queenstown Primary School and the Princess House along with a few nearby churches.",
+      "url": "https://en.wikipedia.org/wiki/Queenstown_MRT_station",
+      "title": "Queenstown MRT station",
+      "structure": "Elevated"
+    },
+    "Raffles Place": {
+      "summary": "Raffles Place MRT station is an underground Mass Rapid Transit interchange station on the North–South Line and East–West Line in Singapore. Located in the Downtown Core, the station is underneath Raffles Place south of the Singapore River.",
+      "url": "https://en.wikipedia.org/wiki/Raffles_Place_MRT_station",
+      "title": "Raffles Place MRT station",
+      "structure": "Underground"
+    },
+    "Ranggung": {
+      "summary": "The Sengkang LRT line is a 10.7-kilometre elevated automated guideway transit line in Sengkang, Singapore. The driverless line consists of 14 stations on two loops, with Sengkang station serving as the interchange for both loops and linking to the North East Line on the Mass Rapid Transit system.",
+      "url": "https://en.wikipedia.org/wiki/Sengkang_LRT_line",
+      "title": "Ranggung LRT station"
+    },
+    "Redhill": {
+      "summary": "Redhill MRT station is an above-ground Mass Rapid Transit station in Singapore on the East–West Line . Operated by SMRT, the station serves nearby landmarks such as the Delta Swimming Complex and Thye Hong Centre.",
+      "url": "https://en.wikipedia.org/wiki/Redhill_MRT_station",
+      "title": "Redhill MRT station",
+      "structure": "Elevated"
+    },
+    "Renjong": {
+      "summary": "The Sengkang LRT line is a 10.7-kilometre elevated automated guideway transit line in Sengkang, Singapore. The driverless line consists of 14 stations on two loops, with Sengkang station serving as the interchange for both loops and linking to the North East Line on the Mass Rapid Transit system.",
+      "url": "https://en.wikipedia.org/wiki/Sengkang_LRT_line",
+      "title": "Renjong LRT station"
+    },
+    "Riviera": {
+      "summary": "Riviera LRT station is an elevated Light Rail Transit station in Punggol, Singapore. Serving the east loop of the Punggol LRT line , the station is along Punggol East between the junctions of Punggol Central and Punggol Field.",
+      "url": "https://en.wikipedia.org/wiki/Riviera_MRT%2FLRT_station",
+      "title": "Riviera LRT station"
+    },
+    "Rochor": {
+      "summary": "Rochor MRT station is an underground Mass Rapid Transit station on the Downtown Line in Rochor, Singapore. Located between Sungei Road and Rochor Canal Road, the station serves landmarks such as Sim Lim Square, the Lasalle College of the Arts and Tekka Centre.",
+      "url": "https://en.wikipedia.org/wiki/Rochor_MRT_station",
+      "title": "Rochor MRT station",
+      "structure": "Underground"
+    },
+    "Rumbia": {
+      "summary": "The Sengkang LRT line is a 10.7-kilometre elevated automated guideway transit line in Sengkang, Singapore. The driverless line consists of 14 stations on two loops, with Sengkang station serving as the interchange for both loops and linking to the North East Line on the Mass Rapid Transit system.",
+      "url": "https://en.wikipedia.org/wiki/Sengkang_LRT_line",
+      "title": "Rumbia LRT station"
+    },
+    "Sam Kee": {
+      "summary": "The Punggol LRT line is a 10.3-kilometre elevated automated guideway transit line in Punggol, Singapore. The driverless system consists of 15 stations on two loops, with Punggol station serving as the interchange for both loops and linking the line to the North East Line on the Singapore MRT.",
+      "url": "https://en.wikipedia.org/wiki/Punggol_LRT_line",
+      "title": "Sam Kee LRT station"
+    },
+    "Sembawang": {
+      "summary": "Sembawang MRT station is an elevated Mass Rapid Transit station on the North–South Line . Located in Sembawang, Singapore along Sembawang Road, the station is close to the Sun Plaza shopping centre and Sembawang Bus Interchange.",
+      "url": "https://en.wikipedia.org/wiki/Sembawang_MRT_station",
+      "title": "Sembawang MRT station",
+      "structure": "Elevated"
+    },
+    "Sengkang": {
+      "summary": "Sengkang MRT/LRT station is a Mass Rapid Transit and Light Rail Transit interchange station in Sengkang, Singapore. It is an interchange between the North East Line and Sengkang LRT .",
+      "url": "https://en.wikipedia.org/wiki/Sengkang_MRT%2FLRT_station",
+      "title": "Sengkang MRT/LRT station"
+    },
+    "Senja": {
+      "summary": "The Bukit Panjang LRT is an 8-kilometre automated guideway transit line in Bukit Panjang, Singapore. The BPLRT is currently the only Light Rail Transit line operated by SMRT Trains.",
+      "url": "https://en.wikipedia.org/wiki/Bukit_Panjang_LRT_line",
+      "title": "Senja LRT station"
+    },
+    "Serangoon": {
+      "summary": "Serangoon MRT station is an underground Mass Rapid Transit interchange station on the North East and Circle lines. Situated in Serangoon, Singapore along Upper Serangoon Road and Serangoon Central, the station is integrated with the Nex shopping complex and the Serangoon Bus Interchange.",
+      "url": "https://en.wikipedia.org/wiki/Serangoon_MRT_station",
+      "title": "Serangoon MRT station",
+      "structure": "Underground"
+    },
+    "Shenton Way": {
+      "summary": "Shenton Way MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line . Situated in Downtown Core, Singapore, the station is near Shenton Way and commercial developments such as Asia Square and Marina One.",
+      "url": "https://en.wikipedia.org/wiki/Shenton_Way_MRT_station",
+      "title": "Shenton Way MRT station",
+      "depth": "38 m below ground",
+      "structure": "Underground"
+    },
+    "Siglap": {
+      "summary": "Siglap MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line in Siglap, Singapore. The station serves nearby landmarks such as Victoria School and St.",
+      "url": "https://en.wikipedia.org/wiki/Siglap_MRT_station",
+      "title": "Siglap MRT station",
+      "structure": "Underground"
+    },
+    "Simei": {
+      "summary": "Simei MRT station is an elevated Mass Rapid Transit station on the East–West Line in Tampines, Singapore. Operated by SMRT Trains, the station serves nearby landmarks include Eastpoint Mall and Changkat Primary and Secondary School.",
+      "url": "https://en.wikipedia.org/wiki/Simei_MRT_station",
+      "title": "Simei station"
+    },
+    "Sixth Avenue": {
+      "summary": "The 14th Street/Sixth Avenue station is an underground New York City Subway station complex in the Greenwich Village and Chelsea neighborhoods of Manhattan, on the IRT Broadway–Seventh Avenue Line, the BMT Canarsie Line and the IND Sixth Avenue Line. It is located on 14th Street between Sixth Avenue and Seventh Avenue.",
+      "url": "https://en.wikipedia.org/wiki/14th_Street%2FSixth_Avenue_station",
+      "title": "Sixth Avenue station"
+    },
+    "Somerset": {
+      "summary": "Somerset MRT station is an underground Mass Rapid Transit station on the North–South Line in Orchard, Singapore. It is one of the three stations located along the popular shopping belt, Orchard Road.",
+      "url": "https://en.wikipedia.org/wiki/Somerset_MRT_station",
+      "title": "Somerset MRT station",
+      "structure": "Underground"
+    },
+    "Soo Teck": {
+      "summary": "The Punggol LRT line is a 10.3-kilometre elevated automated guideway transit line in Punggol, Singapore. The driverless system consists of 15 stations on two loops, with Punggol station serving as the interchange for both loops and linking the line to the North East Line on the Singapore MRT.",
+      "url": "https://en.wikipedia.org/wiki/Punggol_LRT_line",
+      "title": "Soo Teck LRT station"
+    },
+    "South View": {
+      "summary": "The Bukit Panjang LRT is an 8-kilometre automated guideway transit line in Bukit Panjang, Singapore. The BPLRT is currently the only Light Rail Transit line operated by SMRT Trains.",
+      "url": "https://en.wikipedia.org/wiki/Bukit_Panjang_LRT_line",
+      "title": "South View LRT station"
+    },
+    "Springleaf": {
+      "summary": "Springleaf MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line in Yishun, Singapore. Situated along Upper Thomson Road, it serves the neighbourhood of Springleaf and the nearby Springleaf Nature Park.",
+      "url": "https://en.wikipedia.org/wiki/Springleaf_MRT_station",
+      "title": "Springleaf MRT station",
+      "structure": "Underground"
+    },
+    "Stadium": {
+      "summary": "Stadium MRT station is an underground Mass Rapid Transit station on the Circle Line . Located in the area of Kallang, Central Region, Singapore, the station serves The Kallang and its facilities including the National Stadium, Indoor Stadium, Kallang Theatre and Leisure Park Kallang.",
+      "url": "https://en.wikipedia.org/wiki/Stadium_MRT_station",
+      "title": "Stadium MRT station",
+      "structure": "Underground"
+    },
+    "Stevens": {
+      "summary": "Stevens MRT station is an underground Mass Rapid Transit interchange station on the Downtown and Thomson–East Coast lines. Situated at the junction of Stevens Road and Bukit Timah Road, it serves the nearby Singapore Chinese Girls' School and St.",
+      "url": "https://en.wikipedia.org/wiki/Stevens_MRT_station",
+      "title": "Stevens MRT station",
+      "structure": "Underground"
+    },
+    "Sumang": {
+      "summary": "The Punggol LRT line is a 10.3-kilometre elevated automated guideway transit line in Punggol, Singapore. The driverless system consists of 15 stations on two loops, with Punggol station serving as the interchange for both loops and linking the line to the North East Line on the Singapore MRT.",
+      "url": "https://en.wikipedia.org/wiki/Punggol_LRT_line",
+      "title": "Sumang LRT station"
+    },
+    "Tai Seng": {
+      "summary": "Tai Seng MRT station is an underground Mass Rapid Transit station on the Circle Line in Tai Seng, Singapore. Operated by SMRT Corporation, the station serves nearby landmarks such as Tai Seng Point, Sakae Building, and Leong Huat Building.",
+      "url": "https://en.wikipedia.org/wiki/Tai_Seng_MRT_station",
+      "title": "Tai Seng MRT station",
+      "structure": "Underground"
+    },
+    "Tampines": {
+      "summary": "Tampines MRT station is a Mass Rapid Transit interchange station on the East–West and Downtown lines in Tampines, Singapore. Located in the town centre next to Tampines Avenue 4, Tampines Central 4 and Tampines Central 5, it is in close proximity to the Tampines and Tampines Concourse bus interchanges.",
+      "url": "https://en.wikipedia.org/wiki/Tampines_MRT_station",
+      "title": "Tampines MRT station"
+    },
+    "Tampines East": {
+      "summary": "Tampines East MRT station is an underground Mass Rapid Transit station on the Downtown Line in Tampines, Singapore. It is located along Tampines Avenue 7, near the junction with Tampines Avenue 2.",
+      "url": "https://en.wikipedia.org/wiki/Tampines_East_MRT_station",
+      "title": "Tampines East station"
+    },
+    "Tampines West": {
+      "summary": "Tampines West MRT station is an underground Mass Rapid Transit station on the Downtown Line in Tampines, Singapore. It is located at Tampines Avenue 4, near the junction with Tampines Avenue 1.",
+      "url": "https://en.wikipedia.org/wiki/Tampines_West_MRT_station",
+      "title": "Tampines West MRT station",
+      "structure": "Underground"
+    },
+    "Tan Kah Kee": {
+      "summary": "Tan Kah Kee MRT station is an underground Mass Rapid Transit station on the Downtown Line in Bukit Timah, Singapore. Located directly underneath the campus of Hwa Chong Institution , this station was named after the founder of the institution Tan Kah Kee.",
+      "url": "https://en.wikipedia.org/wiki/Tan_Kah_Kee_MRT_station",
+      "title": "Tan Kah Kee MRT station",
+      "structure": "Underground"
+    },
+    "Tanah Merah": {
+      "summary": "Tanah Merah MRT station is an elevated Mass Rapid Transit station on the East–West Line . Located in Bedok, Singapore, the station is along New Upper Changi Road and serves various residential developments.",
+      "url": "https://en.wikipedia.org/wiki/Tanah_Merah_MRT_station",
+      "title": "Tanah Merah MRT station",
+      "structure": "Elevated"
+    },
+    "Tanjong Katong": {
+      "summary": "Tanjong Katong MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line in Singapore. Located underneath Amber Road at the intersection with Tanjong Katong Road South and Meyer Road, the station serves nearby condominiums such as Aalto and King's Mansion.",
+      "url": "https://en.wikipedia.org/wiki/Tanjong_Katong_MRT_station",
+      "title": "Tanjong Katong MRT station",
+      "structure": "Underground"
+    },
+    "Tanjong Rhu": {
+      "summary": "Tanjong Rhu MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line in Kallang, Singapore. Situated at the junction of Tanjong Rhu Road and Tanjong Rhu Place, the station serves nearby condominiums such as Pebble Bay and Casuarina Cove.",
+      "url": "https://en.wikipedia.org/wiki/Tanjong_Rhu_MRT_station",
+      "title": "Tanjong Rhu MRT station"
+    },
+    "Teck Lee": {
+      "summary": "Teck Lee LRT station is an elevated Light Rail Transit station on the Punggol LRT line West Loop in Punggol, Singapore. Operated by SBS Transit, the station serves nearby landmarks such as the Singapore Institute of Technology Punggol campus, Punggol Coast Bus Interchange, and Saint Francis Xavier Major Seminary.",
+      "url": "https://en.wikipedia.org/wiki/Teck_Lee_LRT_station",
+      "title": "Teck Lee LRT station",
+      "structure": "Elevated"
+    },
+    "Teck Whye": {
+      "summary": "The Bukit Panjang LRT is an 8-kilometre automated guideway transit line in Bukit Panjang, Singapore. The BPLRT is currently the only Light Rail Transit line operated by SMRT Trains.",
+      "url": "https://en.wikipedia.org/wiki/Bukit_Panjang_LRT_line",
+      "title": "Teck Whye LRT station"
+    },
+    "Telok Ayer": {
+      "summary": "Telok Ayer MRT station is an underground Mass Rapid Transit station on the Downtown Line . Situated in Outram, Singapore, the station serves various offices and commercial developments around the junction of Cross Street and Telok Ayer Street.",
+      "url": "https://en.wikipedia.org/wiki/Telok_Ayer_MRT_station",
+      "title": "Telok Ayer MRT station",
+      "structure": "Underground"
+    },
+    "Telok Blangah": {
+      "summary": "Telok Blangah MRT station is an underground Mass Rapid Transit station on the Circle Line, situated in Bukit Merah planning area, Singapore. It is located along Telok Blangah Road near the junction of Henderson Road, and primarily serves the residential neighbourhood of Telok Blangah.",
+      "url": "https://en.wikipedia.org/wiki/Telok_Blangah_MRT_station",
+      "title": "Telok Blangah MRT station"
+    },
+    "Thanggam": {
+      "summary": "The Sengkang LRT line is a 10.7-kilometre elevated automated guideway transit line in Sengkang, Singapore. The driverless line consists of 14 stations on two loops, with Sengkang station serving as the interchange for both loops and linking to the North East Line on the Mass Rapid Transit system.",
+      "url": "https://en.wikipedia.org/wiki/Sengkang_LRT_line",
+      "title": "Thanggam LRT station"
+    },
+    "Tiong Bahru": {
+      "summary": "Tiong Bahru MRT station is an underground Mass Rapid Transit station on the East–West Line in Bukit Merah, Singapore. This is the first and last underground station for eastbound and westbound trains respectively.",
+      "url": "https://en.wikipedia.org/wiki/Tiong_Bahru_MRT_station",
+      "title": "Tiong Bahru MRT station",
+      "structure": "Underground"
+    },
+    "Toa Payoh": {
+      "summary": "Toa Payoh MRT station is an underground Mass Rapid Transit station on the North–South Line in Toa Payoh, Singapore. Located in the town centre of Toa Payoh, it is integrated with the Toa Payoh Bus Interchange and the HDB Hub, headquarters of the Housing and Development Board.",
+      "url": "https://en.wikipedia.org/wiki/Toa_Payoh_MRT_station",
+      "title": "Toa Payoh MRT station"
+    },
+    "Tuas Crescent": {
+      "summary": "Tuas Crescent MRT station is an above-ground Mass Rapid Transit station along the East–West Line in Tuas, Singapore. This station is named after a road in the vicinity.",
+      "url": "https://en.wikipedia.org/wiki/Tuas_Crescent_MRT_station",
+      "title": "Tuas Crescent MRT station",
+      "structure": "Elevated"
+    },
+    "Tuas Link": {
+      "summary": "Tuas Link MRT station is an elevated Mass Rapid Transit station in western Singapore. Located in Tuas along Tuas West Drive, it is located close to Tuas Depot and Tuas Checkpoint.",
+      "url": "https://en.wikipedia.org/wiki/Tuas_Link_MRT_station",
+      "title": "Tuas Link MRT station",
+      "structure": "Elevated"
+    },
+    "Tuas West Road": {
+      "summary": "Tuas West Road MRT station is an above-ground Mass Rapid Transit station along the East–West Line in Tuas, Singapore. Located along Pioneer Road, it serves nearby buildings such as Tuas Incineration Plant and Tuas Amenity Centre.",
+      "url": "https://en.wikipedia.org/wiki/Tuas_West_Road_MRT_station",
+      "title": "Tuas West Road station"
+    },
+    "Ubi": {
+      "summary": "Ubi MRT station is an underground Mass Rapid Transit station on the Downtown Line . Located in Geylang planning area, Singapore, the station is near the junction of Ubi Avenue 1 and Ubi Avenue 2.",
+      "url": "https://en.wikipedia.org/wiki/Ubi_MRT_station",
+      "title": "Ubi MRT station",
+      "structure": "Underground"
+    },
+    "Upper Changi": {
+      "summary": "Upper Changi MRT station is an underground Mass Rapid Transit station on the Downtown Line in Tampines planning area, Singapore, located under Upper Changi Road East.",
+      "url": "https://en.wikipedia.org/wiki/Upper_Changi_MRT_station",
+      "title": "Upper Changi MRT station",
+      "structure": "Underground"
+    },
+    "Upper Thomson": {
+      "summary": "Upper Thomson MRT station is an underground Mass Rapid Transit station on the Thomson–East Coast Line in Thomson, Singapore. As the name suggests, it is located along Upper Thomson Road.",
+      "url": "https://en.wikipedia.org/wiki/Upper_Thomson_MRT_station",
+      "title": "Upper Thomson MRT station",
+      "structure": "Underground"
+    },
+    "Woodlands": {
+      "summary": "Woodlands MRT station is a Mass Rapid Transit interchange station on the North–South and Thomson–East Coast lines in Singapore. Located in Woodlands, the MRT station was the first to feature an underground bus interchange underneath the NSL station.",
+      "url": "https://en.wikipedia.org/wiki/Woodlands_MRT_station",
+      "title": "Woodlands MRT station"
+    },
+    "Woodlands North": {
+      "summary": "Woodlands North MRT station is an underground Mass Rapid Transit station in Woodlands, Singapore. The station is the northern terminus of the Thomson–East Coast Line .",
+      "url": "https://en.wikipedia.org/wiki/Woodlands_North_MRT_station",
+      "title": "Woodlands North MRT station",
+      "structure": "Underground"
+    },
+    "Woodlands South": {
+      "summary": "Woodlands South MRT station is an underground Mass Rapid Transit station in Woodlands, Singapore. Serving the Thomson–East Coast Line , it is underneath Woodlands Avenue 1.",
+      "url": "https://en.wikipedia.org/wiki/Woodlands_South_MRT_station",
+      "title": "Woodlands South MRT station",
+      "structure": "Underground"
+    },
+    "Woodleigh": {
+      "summary": "Woodleigh MRT station is an underground Mass Rapid Transit station on the North East Line , in Bidadari, Singapore. The station is underneath Upper Serangoon Road, near the junction with Upper Aljunied Road.",
+      "url": "https://en.wikipedia.org/wiki/Woodleigh_MRT_station",
+      "title": "Woodleigh MRT station",
+      "structure": "Underground"
+    },
+    "Yew Tee": {
+      "summary": "Yew Tee MRT station is an above-ground Mass Rapid Transit station on the North–South Line in Yew Tee, Singapore. Operated by SMRT Corporation, the station serves various nearby landmarks such as Unity Secondary School and Yew Tee Point.",
+      "url": "https://en.wikipedia.org/wiki/Yew_Tee_MRT_station",
+      "title": "Yew Tee MRT station",
+      "structure": "Elevated"
+    },
+    "Yio Chu Kang": {
+      "summary": "Yio Chu Kang MRT station is an above-ground Mass Rapid Transit station on the North–South Line in Ang Mo Kio, Singapore, near the junction of Ang Mo Kio Avenue 6 and Ang Mo Kio Avenue 8.",
+      "url": "https://en.wikipedia.org/wiki/Yio_Chu_Kang_MRT_station",
+      "title": "Yio Chu Kang MRT station",
+      "structure": "Elevated"
+    },
+    "Yishun": {
+      "summary": "Yishun MRT station is an above-ground Mass Rapid Transit station on the North–South Line in Yishun, Singapore. The station is located at the junction of Yishun Avenue 2 and Yishun Avenue 5, and is currently one of the two MRT stations that serve Yishun New Town; the other being Khatib station.",
+      "url": "https://en.wikipedia.org/wiki/Yishun_MRT_station",
+      "title": "Yishun MRT station",
+      "structure": "Elevated"
+    },
+    "one-north": {
+      "summary": "one-north MRT station is an underground Mass Rapid Transit station on the Circle Line in Queenstown, Singapore. Located along Ayer Rajah Avenue underneath Fusionpolis One, the station serves the business park of one-north.",
+      "url": "https://en.wikipedia.org/wiki/One-north_MRT_station",
+      "title": "one-north MRT station",
+      "structure": "Underground"
+    }
+  }
+}
