@@ -15,7 +15,18 @@
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 
-const CHUNKS = ".next/static/chunks";
+/**
+ * Where client JavaScript can end up, in the order we prefer to report it.
+ *
+ * Vercel's Next 16 adapter ("Applying modifyConfig from Vercel") emits into
+ * .vercel/output rather than leaving everything under .next, so hardcoding the
+ * local path made this guard fail the deploy with "no client chunks" — it was
+ * looking in a directory that only exists on a developer's machine.
+ *
+ * Whole `static` trees rather than just `static/chunks`: a dataset inlined into
+ * any client-served JavaScript is the bug we care about, wherever it lands.
+ */
+const ROOTS = [".next/static", ".vercel/output/static"];
 
 const NEEDLES = [
   { name: "trivia.json", needle: "Mass Rapid Transit interchange station" },
@@ -43,11 +54,23 @@ async function jsFiles(dir) {
   return out;
 }
 
-const files = await jsFiles(CHUNKS);
-if (files.length === 0) {
-  console.error(`No client chunks under ${CHUNKS} — run "next build" first.`);
+const found = [];
+for (const root of ROOTS) {
+  const files = await jsFiles(root);
+  if (files.length > 0) found.push({ root, files });
+}
+
+if (found.length === 0) {
+  console.error(
+    `No client JavaScript found under any of: ${ROOTS.join(", ")}\n` +
+      'Run "next build" first. If the build did run, the output location has\n' +
+      "moved again and ROOTS in this script needs updating — do not treat this\n" +
+      "as passing, because it means nothing was actually checked.",
+  );
   process.exit(1);
 }
+
+const files = found.flatMap((f) => f.files);
 
 const contents = await Promise.all(
   files.map(async (f) => [f, await readFile(f, "utf8")]),
@@ -65,7 +88,10 @@ for (const { name, needle } of NEEDLES) {
   }
 }
 
-console.log(`\ncheck-bundle: scanned ${files.length} chunks`);
+console.log(
+  `\ncheck-bundle: scanned ${files.length} files in ` +
+    found.map((f) => `${f.root} (${f.files.length})`).join(", "),
+);
 if (failed) {
   console.error(
     "\nA client component is importing a module that imports one of these\n" +
