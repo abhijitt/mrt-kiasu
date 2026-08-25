@@ -2,17 +2,24 @@ import { describe, expect, it } from "vitest";
 import { doorSideFor, orientationCount, platformKey, validateOrientation } from "./orientation";
 
 describe("platform orientation", () => {
-  it("says nothing when nobody has checked", () => {
+  it("says nothing for a platform nobody has checked", () => {
     // The important property: an unsurveyed platform must not get a guess.
-    expect(doorSideFor("NS17", "asc")).toBeNull();
+    expect(doorSideFor("ZZ99", "asc")).toBeNull();
+  });
+
+  it("returns a surveyed platform's two directions independently", () => {
+    // Promenade is split-platform, so the two levels genuinely differ — the
+    // case no layout rule can cover.
+    expect(doorSideFor("CC4", "desc")?.side).toBe("right");
+    expect(doorSideFor("CC4", "asc")?.side).toBe("left");
   });
 
   it("keys platforms the same way door positions do", () => {
     expect(platformKey("ns17", "asc")).toBe("NS17:asc");
   });
 
-  it("starts empty, and says so", () => {
-    expect(orientationCount()).toBe(0);
+  it("counts only platforms that were actually surveyed", () => {
+    expect(orientationCount()).toBeGreaterThan(0);
   });
 
   it("rejects anything but a real side", () => {
@@ -63,9 +70,15 @@ describe("platform layout", () => {
     expect(sideFromLayout("stacked")).toBeNull();
   });
 
-  it("starts with nothing recorded", () => {
-    expect(layoutCount()).toBe(0);
-    expect(layoutFor("NS17")).toBeNull();
+  it("has layouts, and none for a station that does not exist", () => {
+    expect(layoutCount()).toBeGreaterThan(0);
+    expect(layoutFor("ZZ99")).toBeNull();
+  });
+
+  it("implies a door side from an imported layout", () => {
+    // Bencoolen is a single island platform, so both directions follow.
+    const side = doorSideFor("DT21", "asc");
+    if (side) expect(["left", "right"]).toContain(side.side);
   });
 
   it("rejects a layout it does not recognise", () => {

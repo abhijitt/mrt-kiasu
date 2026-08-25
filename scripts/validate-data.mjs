@@ -218,3 +218,40 @@ main().catch((err) => {
   console.error(err);
   process.exit(1);
 });
+
+// --------------------------------------------------------------- orientation
+//
+// Layouts and door sides decide which way a reader turns when the doors open,
+// so they get the same treatment as every other claim: a source, a confidence,
+// and no derived tier.
+{
+  const positions = JSON.parse(
+    await readFile(new URL("../src/data/positions.json", import.meta.url), "utf8"),
+  );
+  const LAYOUTS = ["island", "side", "stacked"];
+
+  for (const [code, entry] of Object.entries(positions.layouts ?? {})) {
+    if (!LAYOUTS.includes(entry.layout)) {
+      fail(`layout ${code}: "${entry.layout}" is not one of ${LAYOUTS.join(", ")}`);
+    }
+    if (!entry.source) fail(`layout ${code}: missing source`);
+    if (entry.confidence !== "verified") {
+      fail(`layout ${code}: confidence must be "verified" — a layout cannot be derived`);
+    }
+  }
+
+  for (const [key, entry] of Object.entries(positions.orientation ?? {})) {
+    if (entry.side !== "left" && entry.side !== "right") {
+      fail(`orientation ${key}: side must be "left" or "right"`);
+    }
+    if (!entry.source) fail(`orientation ${key}: missing source`);
+    if (entry.confidence !== "verified") {
+      fail(`orientation ${key}: confidence must be "verified"`);
+    }
+  }
+
+  console.log(
+    `  ${Object.keys(positions.layouts ?? {}).length} platform layout(s), ` +
+      `${Object.keys(positions.orientation ?? {}).length} surveyed door side(s)`,
+  );
+}

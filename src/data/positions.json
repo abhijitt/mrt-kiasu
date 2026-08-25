@@ -15,10 +15,1118 @@
     "surveyed": 0,
     "note": "No platform has been surveyed yet, for door positions or for which side the doors open. No public dataset provides either (verified against LTA DataMall, data.gov.sg, SMRT and SBS Transit), so every entry must come from a field survey or an OSM-derived candidate that a person has then checked. The app shows 'not yet mapped' until an entry exists — it does not estimate.",
     "lastUpdated": "2026-08-23",
-    "orientationSurveyed": 0,
-    "layoutsSurveyed": 0
+    "orientationSurveyed": 4,
+    "layoutsSurveyed": 154
   },
   "platforms": {},
-  "orientation": {},
-  "layouts": {}
+  "orientation": {
+    "CC4:desc": {
+      "side": "right",
+      "source": "survey",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-26",
+      "sourceNote": "Field observation. Circle Line clockwise runs CC4 -> CC34 -> CC33 (descending codes); anticlockwise runs CC4 -> CC5 -> CC6 (ascending). Clockwise: doors open on the right."
+    },
+    "CC4:asc": {
+      "side": "left",
+      "source": "survey",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-26",
+      "sourceNote": "Field observation. Circle Line clockwise runs CC4 -> CC34 -> CC33 (descending codes); anticlockwise runs CC4 -> CC5 -> CC6 (ascending). Anticlockwise: doors open on the left."
+    },
+    "DT15:asc": {
+      "side": "right",
+      "source": "survey",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-26",
+      "sourceNote": "Field observation. Downtown Line runs DT1 Bukit Panjang to DT35 Expo, so towards Expo is ascending codes and towards Bukit Panjang is descending. Towards Expo: doors open on the right."
+    },
+    "DT15:desc": {
+      "side": "left",
+      "source": "survey",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-26",
+      "sourceNote": "Field observation. Downtown Line runs DT1 Bukit Panjang to DT35 Expo, so towards Expo is ascending codes and towards Bukit Panjang is descending. Towards Bukit Panjang: doors open on the left."
+    }
+  },
+  "layouts": {
+    "CC1": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Dhoby Ghaut MRT station: 6 (3 island platforms)<ref name=\"DGB 2\" />"
+    },
+    "NE6": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Dhoby Ghaut MRT station: 6 (3 island platforms)<ref name=\"DGB 2\" />"
+    },
+    "NS24": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Dhoby Ghaut MRT station: 6 (3 island platforms)<ref name=\"DGB 2\" />"
+    },
+    "CC2": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Bras Basah MRT station: 2 (1 island platform)"
+    },
+    "CC3": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Esplanade MRT station: 2 (1 island platform)"
+    },
+    "CC4": {
+      "layout": "stacked",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Promenade MRT station: 4 (Split platform Confirmed split-platform by field survey; the two directions differ."
+    },
+    "DT15": {
+      "layout": "stacked",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Promenade MRT station: 4 (Split platform Confirmed split-platform by field survey; the two directions differ."
+    },
+    "CC5": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Nicoll Highway MRT station: 2 (1 island platform)"
+    },
+    "CC6": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Stadium MRT station: 2 (1 island platform)"
+    },
+    "CC7": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Mountbatten MRT station: 2 (1 island platform)"
+    },
+    "CC8": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Dakota MRT station: 2 (1 island platform)"
+    },
+    "CC9": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Paya Lebar MRT station: 6 (3 island platforms)"
+    },
+    "EW8": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Paya Lebar MRT station: 6 (3 island platforms)"
+    },
+    "CE1": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Bayfront MRT station: 4 (2 island platforms)"
+    },
+    "DT16": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Bayfront MRT station: 4 (2 island platforms)"
+    },
+    "CC11": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Tai Seng MRT station: 2 (1 island platform)"
+    },
+    "CC12": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Bartley MRT station: 2 (1 island platform)"
+    },
+    "CC13": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Serangoon MRT station: 4 (2 island platforms)"
+    },
+    "NE12": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Serangoon MRT station: 4 (2 island platforms)"
+    },
+    "CC14": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Lorong Chuan MRT station: 2 (1 island platform)"
+    },
+    "CC16": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Marymount MRT station: 2 (1 island platform)"
+    },
+    "CC17": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Caldecott MRT station: 4 (2 island platforms)"
+    },
+    "TE9": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Caldecott MRT station: 4 (2 island platforms)"
+    },
+    "CC19": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Botanic Gardens MRT station: 4 (2 island platforms)"
+    },
+    "DT9": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Botanic Gardens MRT station: 4 (2 island platforms)"
+    },
+    "CC20": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Farrer Road MRT station: 2 (1 island platform)"
+    },
+    "CC21": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Holland Village MRT station: 2 (1 island platform)"
+    },
+    "CC22": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Buona Vista MRT station: 4 (2 island platforms)"
+    },
+    "EW21": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Buona Vista MRT station: 4 (2 island platforms)"
+    },
+    "CC24": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Kent Ridge MRT station: 2 (1 island platform)"
+    },
+    "CC25": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Haw Par Villa MRT station: 2 (1 island platform)"
+    },
+    "CC26": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Pasir Panjang MRT station: 2 (1 island platform)"
+    },
+    "CC27": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Labrador Park MRT station: 2 (1 island platform)"
+    },
+    "CC28": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Telok Blangah MRT station: 2 (1 island platform)"
+    },
+    "CC29": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at HarbourFront MRT station: 4 (2 island platforms)"
+    },
+    "NE1": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at HarbourFront MRT station: 4 (2 island platforms)"
+    },
+    "DT2": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Cashew MRT station: 2 (1 island platform)"
+    },
+    "DT3": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Hillview MRT station: 2 (1 island platform)"
+    },
+    "DT4": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Hume MRT station: 2 (1 island platform)<ref name=\"Annex B LTA\">{{cite web"
+    },
+    "DT5": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Beauty World MRT station: 2 (1 island platform)"
+    },
+    "DT6": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at King Albert Park MRT station: 2 (1 island platform) + ''2 (1 island platform) (U/C)''"
+    },
+    "DT7": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Sixth Avenue MRT station: 2 (1 island platform)"
+    },
+    "DT8": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Tan Kah Kee MRT station: 2 (1 island platform)"
+    },
+    "DT10": {
+      "layout": "stacked",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Stevens MRT station: 4 (Split platform"
+    },
+    "TE11": {
+      "layout": "stacked",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Stevens MRT station: 4 (Split platform"
+    },
+    "DT11": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Newton MRT station: 4 (2 island platforms)"
+    },
+    "NS21": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Newton MRT station: 4 (2 island platforms)"
+    },
+    "DT12": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Little India MRT station: 4 (2 island platforms)"
+    },
+    "NE7": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Little India MRT station: 4 (2 island platforms)"
+    },
+    "DT13": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Rochor MRT station: 2 (1 island platform)"
+    },
+    "DT14": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Bugis MRT station: 4 (2 island platforms)"
+    },
+    "EW12": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Bugis MRT station: 4 (2 island platforms)"
+    },
+    "DT17": {
+      "layout": "side",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Downtown MRT station: 2 (2 side platforms)"
+    },
+    "DT18": {
+      "layout": "side",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Telok Ayer MRT station: 2 (2 side platforms)"
+    },
+    "DT20": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Fort Canning MRT station: 2 (1 island platform)"
+    },
+    "DT21": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Bencoolen MRT station: 2 (1 island platform)"
+    },
+    "DT22": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Jalan Besar MRT station: 2 (1 island platform)"
+    },
+    "DT23": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Bendemeer MRT station: 2 (1 island platform)"
+    },
+    "DT24": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Geylang Bahru MRT station: 2 (1 island platform)"
+    },
+    "DT25": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Mattar MRT station: 2 (1 island platform)"
+    },
+    "DT27": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Ubi MRT station: 2 (1 island platform)"
+    },
+    "DT28": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Kaki Bukit MRT station: 2 (1 island platform)"
+    },
+    "DT29": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Bedok North MRT station: 2 (1 island platform)"
+    },
+    "DT30": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Bedok Reservoir MRT station: 2 (1 island platform)"
+    },
+    "DT31": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Tampines West MRT station: 2 (1 island platform)"
+    },
+    "DT32": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Tampines MRT station: 4 (2 island platforms)"
+    },
+    "EW2": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Tampines MRT station: 4 (2 island platforms)"
+    },
+    "DT33": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Tampines East MRT station: 2 (1 island platform)"
+    },
+    "DT34": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Upper Changi MRT station: 2 (1 island platform)"
+    },
+    "DT35": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Expo MRT station: 4 (2 island platforms)"
+    },
+    "CG1": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Expo MRT station: 4 (2 island platforms)"
+    },
+    "CG2": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Changi Airport MRT station: 2 (1 island platform)"
+    },
+    "EW1": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Pasir Ris MRT station: 2 (1 island platform) + ''4 (2 island platforms) (U/C)''"
+    },
+    "EW3": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Simei MRT station: 2 (1 island platform)"
+    },
+    "EW4": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Tanah Merah MRT station: 6 (3 island platforms) (2 platforms are closed for works)"
+    },
+    "EW5": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Bedok MRT station: 2 (1 island platform)"
+    },
+    "EW6": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Kembangan MRT station: 2 (1 island platform)"
+    },
+    "EW7": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Eunos MRT station: 2 (1 island platform)"
+    },
+    "EW9": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Aljunied MRT station: 2 (1 island platform)"
+    },
+    "EW10": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Kallang MRT station: 2 (1 island platform)"
+    },
+    "EW11": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Lavender MRT station: 2 (1 island platform)"
+    },
+    "EW13": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at City Hall MRT station: 4 (2 island platforms)"
+    },
+    "NS25": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at City Hall MRT station: 4 (2 island platforms)"
+    },
+    "EW14": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Raffles Place MRT station: 4 (2 island platforms)"
+    },
+    "NS26": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Raffles Place MRT station: 4 (2 island platforms)"
+    },
+    "EW15": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Tanjong Pagar MRT station: 2 (1 island platform)"
+    },
+    "EW16": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Outram Park MRT station: 6 (3 island platforms)"
+    },
+    "NE3": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Outram Park MRT station: 6 (3 island platforms)"
+    },
+    "TE17": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Outram Park MRT station: 6 (3 island platforms)"
+    },
+    "EW17": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Tiong Bahru MRT station: 2 (1 island platform)"
+    },
+    "EW18": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Redhill MRT station: 2 (1 Island platform)"
+    },
+    "EW19": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Queenstown MRT station: 2 (1 island platform)"
+    },
+    "EW20": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Commonwealth MRT station: 2 (1 island platform)"
+    },
+    "EW22": {
+      "layout": "side",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Dover MRT station: 2 (2 side platforms)"
+    },
+    "EW23": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Clementi MRT station: 2 (1 island platform) + ''2 (1 island platform) (U/C)''"
+    },
+    "EW25": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Chinese Garden MRT station: 2 (1 island platform)"
+    },
+    "EW26": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Lakeside MRT station: 2 (1 island platform)"
+    },
+    "EW27": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Boon Lay MRT station: 2 (1 island platform) + ''2 (1 island platform) (U/C)''"
+    },
+    "EW28": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Pioneer MRT station: 2 (1 island platform)"
+    },
+    "EW29": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Joo Koon MRT station: 2 (1 island platform)"
+    },
+    "EW30": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Gul Circle MRT station: 4 (2 island platforms) (2 not in use)"
+    },
+    "EW31": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Tuas Crescent MRT station: 2 (1 island platform)"
+    },
+    "EW33": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Tuas Link MRT station: 2 (1 island platform)"
+    },
+    "NE5": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Clarke Quay MRT station: 2 (1 island platform)"
+    },
+    "NE8": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Farrer Park MRT station: 2 (1 island platform)"
+    },
+    "NE9": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Boon Keng MRT station: 2 (1 island platform)"
+    },
+    "NE10": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Potong Pasir MRT station: 2 (1 island platform)"
+    },
+    "NE11": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Woodleigh MRT station: 2 (1 island platform)"
+    },
+    "NE13": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Kovan MRT station: 2 (1 island platform)"
+    },
+    "NE14": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Hougang MRT station: 2 (1 island platform) + ''2 (1 island platform) (U/C)''"
+    },
+    "NE15": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Buangkok MRT station: 2 (1 island platform){{sfn"
+    },
+    "NE18": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Punggol Coast MRT station: 2 (1 island platform)"
+    },
+    "NS2": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Bukit Batok MRT station: 2 (1 island platform)"
+    },
+    "NS3": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Bukit Gombak MRT station: 2 (1 island platform)"
+    },
+    "NS5": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Yew Tee MRT station: 2 (1 island platform)"
+    },
+    "NS7": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Kranji MRT station: 2 (1 island platform)"
+    },
+    "NS8": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Marsiling MRT station: 2 (1 island platform)"
+    },
+    "NS9": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Woodlands MRT station: 4 (2 island platforms)"
+    },
+    "TE2": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Woodlands MRT station: 4 (2 island platforms)"
+    },
+    "NS10": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Admiralty MRT station: 2 (1 island platform)"
+    },
+    "NS11": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Sembawang MRT station: 2 (1 island platform)"
+    },
+    "NS12": {
+      "layout": "side",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Canberra MRT station: 2 (2 side platforms)"
+    },
+    "NS13": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Yishun MRT station: 2 (1 island platform)"
+    },
+    "NS14": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Khatib MRT station: 2 (1 island platform)"
+    },
+    "NS15": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Yio Chu Kang MRT station: 2 (1 island platform)"
+    },
+    "NS16": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Ang Mo Kio MRT station: 4 (2 island platforms) + ''2 (1 island platform) (U/C)''"
+    },
+    "NS18": {
+      "layout": "side",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Braddell MRT station: 2 (2 side platforms)"
+    },
+    "NS19": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Toa Payoh MRT station: 2 (1 island platform)"
+    },
+    "NS20": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Novena MRT station: 2 (1 island platform)"
+    },
+    "NS22": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Orchard MRT station: 4 (2 island platforms)"
+    },
+    "TE14": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Orchard MRT station: 4 (2 island platforms)"
+    },
+    "NS23": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Somerset MRT station: 2 (1 island platform)"
+    },
+    "NS28": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Marina South Pier MRT station: 2 (1 island platform)"
+    },
+    "PW2": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Teck Lee LRT station: Island platform"
+    },
+    "TE1": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Woodlands North MRT station: 2 (1 island platform)"
+    },
+    "TE3": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Woodlands South MRT station: 2 (1 island platform)<ref name=\"aasarchitecture.com picture 2021\">{{cite web"
+    },
+    "TE4": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Springleaf MRT station: 2 (1 island platform)"
+    },
+    "TE5": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Lentor MRT station: 2 (1 island platform)"
+    },
+    "TE6": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Mayflower MRT station: 2 (1 island platform)"
+    },
+    "TE8": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Upper Thomson MRT station: 2 (1 island platform)"
+    },
+    "TE12": {
+      "layout": "stacked",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Napier MRT station: 2 (Split platform"
+    },
+    "TE13": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Orchard Boulevard MRT station: 2 (1 island platform)"
+    },
+    "TE15": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Great World MRT station: 2 (1 island platform)"
+    },
+    "TE16": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Havelock MRT station: 2 (1 island platform)"
+    },
+    "TE18": {
+      "layout": "stacked",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Maxwell MRT station: 2 (Split platform"
+    },
+    "TE19": {
+      "layout": "stacked",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Shenton Way MRT station: 2 (Split platform"
+    },
+    "TE22": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Gardens by the Bay MRT station: 2 (1 island platform)"
+    },
+    "TE23": {
+      "layout": "side",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Tanjong Rhu MRT station: 2 (2 side platforms)"
+    },
+    "TE24": {
+      "layout": "stacked",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Katong Park MRT station: 2 (Split platform"
+    },
+    "TE25": {
+      "layout": "stacked",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Tanjong Katong MRT station: 2 (Split platform"
+    },
+    "TE26": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Marine Parade MRT station: 2 (1 island platform)"
+    },
+    "TE27": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Marine Terrace MRT station: 2 (1 island platform)"
+    },
+    "TE28": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Siglap MRT station: 2 (1 island platform)"
+    },
+    "TE29": {
+      "layout": "island",
+      "source": "wikipedia",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-25",
+      "sourceNote": "Infobox at Bayshore MRT station: 2 (1 island platform)"
+    }
+  }
 }

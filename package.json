@@ -20,7 +20,8 @@
     "migrate:db": "node scripts/migrate-db.mjs",
     "build:map": "node scripts/build-map-data.mjs",
     "build:schematic": "node scripts/build-schematic.mjs",
-    "import:times": "node scripts/import-train-times.mjs"
+    "import:times": "node scripts/import-train-times.mjs",
+    "import:layouts": "node scripts/import-platform-layouts.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "1.1.0",

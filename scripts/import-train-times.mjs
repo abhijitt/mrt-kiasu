@@ -315,7 +315,24 @@ try {
       .map((c) => Number(String(c).replace(/^[A-Z]+/, "")))
       .filter((n) => Number.isFinite(n));
     if (nums.length < 2) continue;
-    const rising = nums[nums.length - 1] > nums[0];
+
+    /**
+     * Voted step by step rather than by comparing the ends.
+     *
+     * The Circle Line is a loop: clockwise from Promenade runs CC4, CC34,
+     * CC33, CC32 … so it ENDS on a higher number than it started despite
+     * descending nearly the whole way. Comparing endpoints called both
+     * directions ascending, and the two collapsed into a single key — the
+     * planner would have put someone on a train going the opposite way round.
+     */
+    let up = 0;
+    let down = 0;
+    for (let i = 1; i < nums.length; i++) {
+      if (nums[i] > nums[i - 1]) up++;
+      else if (nums[i] < nums[i - 1]) down++;
+    }
+    if (up === down) continue;
+    const rising = up > down;
     const line = String(codeOf.get(rows[0].stop_id)).replace(/\d+$/, "");
     const key = `${line}|${info.dirId}`;
     const v = dirVotes.get(key) ?? { asc: 0, desc: 0 };
