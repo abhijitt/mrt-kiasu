@@ -329,5 +329,21 @@
   "map.zoomIn": "Zoom in",
   "map.zoomOut": "Zoom out",
   "map.reset": "Fit the whole network",
-  "map.unplaceable": "Not on the map yet, because LTA has not published their exits: {stations}. Search for them by name instead."
+  "map.unplaceable": "Not on the map yet, because LTA has not published their exits: {stations}. Search for them by name instead.",
+  "kiasu.title": "Kiasu level",
+  "kiasu.lead": "How much detail you want. Like ordering kopi.",
+  "kiasu.kopi": "Kopi",
+  "kiasu.kopiHint": "The usual. Everything you need, nothing extra.",
+  "kiasu.gao": "Kopi Gao",
+  "kiasu.gaoHint": "Thicker. Exact door, the working behind every figure, the backup door, and where each number came from.",
+  "kiasu.on": "Gao mode on",
+  "gao.doorIndex": "Door {index} of {total}, counted from the {end} end",
+  "gao.endFront": "front",
+  "gao.endBack": "back",
+  "gao.workingTitle": "The working",
+  "gao.workingBody": "{length}m train ÷ 2 = {half}m from centre to either end. You stand {offset}m from centre, so you skip up to {saved}m at {speed}m/s.",
+  "gao.backupTitle": "If your door is mobbed",
+  "gao.backupBody": "Car {car}, {ordinal} door is the next best — {loss}s worse.",
+  "gao.sourceTitle": "Where this came from",
+  "gao.clamped": "The estimate actually placed it {raw}m from centre — past the end of the train, so it is capped at {half}m."
 }

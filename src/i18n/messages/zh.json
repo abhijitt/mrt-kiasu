@@ -329,5 +329,21 @@
   "map.zoomIn": "放大",
   "map.zoomOut": "缩小",
   "map.reset": "显示整个网络",
-  "map.unplaceable": "以下车站尚未上图，因为陆路交通管理局还未公布其出口：{stations}。请改用名称搜索。"
+  "map.unplaceable": "以下车站尚未上图，因为陆路交通管理局还未公布其出口：{stations}。请改用名称搜索。",
+  "kiasu.title": "Kiasu 程度",
+  "kiasu.lead": "你想看多少细节。就像点咖啡一样。",
+  "kiasu.kopi": "Kopi",
+  "kiasu.kopiHint": "普通的。该有的都有，不多不少。",
+  "kiasu.gao": "Kopi Gao",
+  "kiasu.gaoHint": "更浓。精确车门、每个数字的推算过程、备用车门，以及数据来源。",
+  "kiasu.on": "已开启 Gao 模式",
+  "gao.doorIndex": "第 {index} 道门（共 {total} 道），从{end}端数起",
+  "gao.endFront": "车头",
+  "gao.endBack": "车尾",
+  "gao.workingTitle": "推算过程",
+  "gao.workingBody": "{length} 米车身 ÷ 2 = 从中心到任一端 {half} 米。你站在距中心 {offset} 米处，因此以 {speed} 米/秒计算，最多可少走 {saved} 米。",
+  "gao.backupTitle": "如果你的车门太挤",
+  "gao.backupBody": "第 {car} 节车厢的第 {ordinal} 道门是次佳选择——慢 {loss} 秒。",
+  "gao.sourceTitle": "数据来源",
+  "gao.clamped": "该估算实际得出距中心 {raw} 米——已超出车身末端，因此上限取 {half} 米。"
 }

@@ -12,7 +12,7 @@ import {
 import { useKonami } from "@/lib/useKonami";
 import { Hud } from "@/components/Hud";
 import { LegalFooter } from "@/components/LegalPage";
-import { useSettings, type ThemeChoice } from "@/lib/settings";
+import { KIASU_LEVELS, useSettings, type ThemeChoice } from "@/lib/settings";
 import type { FeatureType } from "@/lib/feature-types";
 import { useI18n } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
@@ -131,6 +131,37 @@ export function SettingsScreen({ stats }: Props) {
                   outlineOffset: active ? "2px" : undefined,
                 }}
               />
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="pixel-box anim-enter p-4">
+        <h2 className="font-pixel text-xs uppercase text-fg-muted">
+          {t("kiasu.title")}
+        </h2>
+        <p className="mt-2 text-sm text-fg-muted">{t("kiasu.lead")}</p>
+        <div className="mt-3 flex flex-col gap-2">
+          {KIASU_LEVELS.map((level) => {
+            const active = loaded && settings.kiasuLevel === level;
+            return (
+              <button
+                key={level}
+                type="button"
+                onClick={() => update({ kiasuLevel: level })}
+                aria-pressed={active}
+                className="pixel-btn flex flex-col items-start gap-0.5 px-3 py-3 text-left"
+                style={
+                  active ? { background: "var(--accent)", color: "var(--accent-fg)" } : undefined
+                }
+              >
+                <span className="font-pixel text-xs uppercase">
+                  {t(`kiasu.${level}` as MessageKey)}
+                </span>
+                <span className="text-sm opacity-80">
+                  {t(`kiasu.${level}Hint` as MessageKey)}
+                </span>
+              </button>
             );
           })}
         </div>

@@ -8,6 +8,7 @@ import { LiftStatus } from "@/components/LiftStatus";
 import { PlatformDiagram } from "@/components/PlatformDiagram";
 import { toCarPosition, type Direction } from "@/lib/doors";
 import { secondsSaved } from "@/lib/walking";
+import { backupDoor, doorBreakdown, fleetSource, savedWorking } from "@/lib/gao";
 import { LINES, lineNameKey, type LineCode } from "@/lib/lines";
 import { useT } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
@@ -82,6 +83,14 @@ function Guidance({
   const preferenceHonoured = feature.type === preference;
   const modeLabel = t(`mode.${preference}` as MessageKey);
 
+  // Gao only ever adds. Everything above this line renders identically at
+  // either level, so turning the setting on cannot change an existing answer.
+  const gao = settings.kiasuLevel === "gao";
+  const breakdown = gao ? doorBreakdown(feature.doorIndex, line, direction) : null;
+  const working = gao && feature.offsetM !== undefined ? savedWorking(feature.offsetM, line) : null;
+  const backup = gao && !isEstimate ? backupDoor(feature.doorIndex, line) : null;
+  const backupPosition = backup ? toCarPosition(backup.doorIndex, line, direction) : null;
+
   return (
     <div className="mt-4">
       {/* The answer, given the weight it deserves: this is the one thing the
@@ -105,6 +114,19 @@ function Guidance({
             </span>
           )}
         </div>
+
+        {breakdown && !isEstimate && (
+          <p className="mt-1 text-xs text-fg-faint">
+            {t("gao.doorIndex", {
+              index: breakdown.fromFront,
+              total: breakdown.total,
+              // Always the front: doorBreakdown has already applied direction,
+              // so fromFront is measured from the nose of the moving train
+              // whichever way it happens to be pointing.
+              end: t("gao.endFront"),
+            })}
+          </p>
+        )}
 
         <div className="mt-2">
           <PlatformDiagram
@@ -150,6 +172,57 @@ function Guidance({
             {t("saved.body", { seconds: saved })}
           </p>
           <p className="mt-1 text-xs text-fg-faint">{t("saved.caveat")}</p>
+        </div>
+      )}
+
+      {working && (
+        <div className="pixel-box-sm mt-3 p-3">
+          <p className="font-pixel text-[10px] uppercase text-fg-muted">
+            {t("gao.workingTitle")}
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-fg">
+            {t("gao.workingBody", {
+              length: working.lengthM,
+              half: working.halfM,
+              offset: Math.abs(working.offsetM),
+              saved: working.savedM,
+              speed: working.speedMs,
+            })}
+          </p>
+          {working.rawOffsetM !== undefined && (
+            <p className="mt-1 text-xs leading-relaxed text-fg-faint">
+              {t("gao.clamped", { raw: Math.abs(working.rawOffsetM), half: working.halfM })}
+            </p>
+          )}
+        </div>
+      )}
+
+      {backup && backupPosition && (
+        <div className="pixel-box-sm mt-3 p-3">
+          <p className="font-pixel text-[10px] uppercase text-fg-muted">
+            {t("gao.backupTitle")}
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-fg">
+            {t("gao.backupBody", {
+              car: backupPosition.car,
+              ordinal: ORDINALS[backupPosition.doorInCar - 1] ?? backupPosition.doorInCar,
+              loss: backup.extraSeconds,
+            })}
+          </p>
+        </div>
+      )}
+
+      {gao && fleetSource(line) && (
+        <div className="pixel-box-sm mt-3 p-3">
+          <p className="font-pixel text-[10px] uppercase text-fg-muted">
+            {t("gao.sourceTitle")}
+          </p>
+          <p className="mt-2 text-xs leading-relaxed text-fg-faint">
+            {fleetSource(line)}
+          </p>
+          <p className="mt-1 text-xs leading-relaxed text-fg-faint">
+            {feature.sourceNote}
+          </p>
         </div>
       )}
 

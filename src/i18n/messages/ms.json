@@ -329,5 +329,21 @@
   "map.zoomIn": "Zum masuk",
   "map.zoomOut": "Zum keluar",
   "map.reset": "Muatkan seluruh rangkaian",
-  "map.unplaceable": "Belum ada pada peta kerana LTA belum menerbitkan pintu keluarnya: {stations}. Cari mengikut nama sebaliknya."
+  "map.unplaceable": "Belum ada pada peta kerana LTA belum menerbitkan pintu keluarnya: {stations}. Cari mengikut nama sebaliknya.",
+  "kiasu.title": "Tahap kiasu",
+  "kiasu.lead": "Berapa banyak butiran yang anda mahu. Seperti memesan kopi.",
+  "kiasu.kopi": "Kopi",
+  "kiasu.kopiHint": "Yang biasa. Semua yang anda perlukan, tiada tambahan.",
+  "kiasu.gao": "Kopi Gao",
+  "kiasu.gaoHint": "Lebih pekat. Pintu tepat, pengiraan di sebalik setiap angka, pintu simpanan, dan dari mana setiap nombor datang.",
+  "kiasu.on": "Mod Gao dihidupkan",
+  "gao.doorIndex": "Pintu {index} daripada {total}, dikira dari hujung {end}",
+  "gao.endFront": "hadapan",
+  "gao.endBack": "belakang",
+  "gao.workingTitle": "Pengiraannya",
+  "gao.workingBody": "Tren {length}m ÷ 2 = {half}m dari tengah ke mana-mana hujung. Anda berdiri {offset}m dari tengah, jadi anda melangkau sehingga {saved}m pada {speed}m/s.",
+  "gao.backupTitle": "Jika pintu anda sesak",
+  "gao.backupBody": "Gerabak {car}, pintu ke-{ordinal} ialah pilihan seterusnya — {loss}s lebih perlahan.",
+  "gao.sourceTitle": "Dari mana ini datang",
+  "gao.clamped": "Anggaran itu sebenarnya meletakkannya {raw}m dari tengah — melepasi hujung tren, jadi ia dihadkan pada {half}m."
 }
