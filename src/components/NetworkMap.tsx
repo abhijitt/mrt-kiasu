@@ -186,6 +186,7 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
   }
 
   function onPointerDown(e: React.PointerEvent<SVGSVGElement>) {
+    onPointerDownReset();
     pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
     dragged.current = false;
     svgRef.current?.setPointerCapture(e.pointerId);
@@ -222,6 +223,19 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
     if (pointers.current.size < 2) pinchStart.current = null;
   }
 
+  /**
+   * Belt and braces against a stuck pointer.
+   *
+   * A pointerup that never arrives — capture lost to a system gesture, a
+   * finger leaving the surface mid-drag — would otherwise leave a phantom
+   * touch registered, and every later single-finger drag would be mistaken
+   * for a pinch. A fresh gesture starting with one finger cannot have a
+   * second one already down, so this is the moment to be sure.
+   */
+  function onPointerDownReset() {
+    if (pointers.current.size === 0) pinchStart.current = null;
+  }
+
   // Non-passive, because zooming the map must not also scroll the page. React's
   // onWheel is passive, so this is attached by hand.
   useEffect(() => {
@@ -255,6 +269,7 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
         onPointerMove={onPointerMove}
         onPointerUp={endPointer}
         onPointerCancel={endPointer}
+        onLostPointerCapture={endPointer}
       >
         <g strokeLinecap="square">
           {paths.map((p) => (
@@ -299,8 +314,13 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
                 cx={n.x} cy={n.y} r={Math.max(r * 3, 14 / zoom)}
                 fill="transparent"
                 className="cursor-pointer"
-                onPointerUp={(e) => {
-                  e.stopPropagation();
+                // onClick, not onPointerUp. A pointer handler here has to
+                // stop propagation to avoid double-firing, and stopping it
+                // also stopped the map's own pointerup cleanup — so the
+                // pointer stayed registered forever and the next touch was
+                // read as the second finger of a pinch. After choosing a
+                // station the map would only zoom, never pan.
+                onClick={() => {
                   // A drag that ends over a station is panning, not choosing.
                   if (!dragged.current) onSelect(n.name);
                 }}

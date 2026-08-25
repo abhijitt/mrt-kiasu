@@ -70,6 +70,19 @@ describe("map projection", () => {
     expect(top).toBeCloseTo(400 - bottom, 5);
   });
 
+  it("emits coordinates short enough to survive SSR", () => {
+    // Node and the browser can disagree on the last digits of Math.log and
+    // Math.tan. Full-precision output made the server and client HTML differ,
+    // which broke hydration and left the map inert. Anything at or under two
+    // decimals is identical on both sides.
+    const project = createProjector(ALL, 1000, 560, 28);
+    for (const p of ALL) {
+      const { x, y } = project(p);
+      expect(x).toBe(Math.round(x * 100) / 100);
+      expect(y).toBe(Math.round(y * 100) / 100);
+    }
+  });
+
   it("is deterministic", () => {
     const a = createProjector(ALL, 400, 300);
     const b = createProjector(ALL, 400, 300);

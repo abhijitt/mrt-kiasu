@@ -89,8 +89,23 @@ export function createProjector(
   const offsetX = padding + (usableW - spanX * scale) / 2;
   const offsetY = padding + (usableH - spanY * scale) / 2;
 
+  /**
+   * Rounded, and that is not cosmetic.
+   *
+   * Math.log and Math.tan are not required to be correctly rounded, so Node
+   * and the browser can disagree in the last couple of digits. Emitting full
+   * precision put y2="227.9590045303124" in the server HTML against
+   * 227.95900453031186 on the client — React cannot patch up an attribute
+   * mismatch, so the whole tree hydrated broken and nothing on the map
+   * responded to a tap.
+   *
+   * Two decimals in a 1000-unit space is well under a pixel at any zoom, and
+   * it shortens the served HTML considerably.
+   */
+  const round = (n: number) => Math.round(n * 100) / 100;
+
   return (p: LatLng): Point => ({
-    x: offsetX + (mercatorX(p.lng) - e.minX) * scale,
-    y: offsetY + (e.maxY - mercatorY(p.lat)) * scale,
+    x: round(offsetX + (mercatorX(p.lng) - e.minX) * scale),
+    y: round(offsetY + (e.maxY - mercatorY(p.lat)) * scale),
   });
 }
