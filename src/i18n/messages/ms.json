@@ -375,5 +375,15 @@
   "status.approx": "Berdasarkan jadual waktu yang diterbitkan dan anggaran kasar aplikasi ini, jadi anggaplah ia panduan, bukan jaminan.",
   "transfer.title": "Bertukar di sini",
   "transfer.body": "Peruntukkan kira-kira {minutes} min untuk bertukar platform.",
-  "transfer.assumed": "Anggaran menyeluruh — tiada sesiapa menerbitkan masa antara platform, dan kami belum mengukur yang ini."
+  "transfer.assumed": "Anggaran menyeluruh — tiada sesiapa menerbitkan masa antara platform, dan kami belum mengukur yang ini.",
+  "journey.title": "Berapa lama",
+  "journey.total": "Kira-kira {minutes} min — tiba sekitar {arrive}.",
+  "journey.firstTrain": "Kereta api seterusnya dalam {wait} min, pada {at}.",
+  "journey.ride": "Dalam kereta api: {minutes} min",
+  "journey.wait": "Menunggu di platform: {minutes} min",
+  "journey.walk": "Bertukar platform: {minutes} min",
+  "journey.leaveAt": "Bertolak pada",
+  "journey.now": "Kembali ke sekarang",
+  "journey.source": "Dikira mengikut jadual waktu LTA, kereta demi kereta — termasuk menunggu jika anda terlepas satu.",
+  "journey.approximated": "Sebahagian laluan ini tiada jadual waktu yang diterbitkan, jadi sebahagiannya dipuratakan."
 }

@@ -3,6 +3,7 @@ import { findBestFeature, getFeatures } from "@/lib/positions";
 import { planRouteBetweenStations } from "@/lib/routing";
 import { getGroup, getStation } from "@/lib/stations";
 import { landmarksForCodes } from "@/lib/landmarks";
+import { journeyPayload } from "@/lib/journey-data";
 import { RouteScreen, type LegView } from "./RouteScreen";
 
 export default async function RoutePage({
@@ -60,6 +61,7 @@ export default async function RoutePage({
       stopCount={route.stopCount}
       interchangeCount={route.interchangeCount}
       approxMinutes={route.approxMinutes}
+      journey={journeyPayload(route.legs)}
       legs={legs}
     />
   );

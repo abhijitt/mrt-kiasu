@@ -10,6 +10,8 @@ import { toCarPosition, type Direction } from "@/lib/doors";
 import { secondsSaved } from "@/lib/walking";
 import { backupDoor, doorBreakdown, fleetSource, savedWorking } from "@/lib/gao";
 import { useKiasuScore } from "@/lib/useKiasuScore";
+import { JourneyEstimate } from "@/components/JourneyEstimate";
+import type { JourneyPayload } from "@/lib/journey-data";
 import { LINES, lineNameKey, type LineCode } from "@/lib/lines";
 import { useT } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
@@ -36,6 +38,8 @@ export interface LegView {
 }
 
 interface Props {
+  /** Everything needed to time this journey against the real timetable. */
+  journey: JourneyPayload;
   originName: string;
   destinationName: string;
   destinationCode: string;
@@ -293,9 +297,6 @@ export function RouteScreen(p: Props) {
               count: p.interchangeCount,
             })}
           </span>
-          <span className="pixel-box-sm font-pixel px-3 py-1.5 text-xs text-fg-muted">
-            {t("route.approxMinutes", { count: p.approxMinutes })}
-          </span>
           {selectedExit && (
             <span
               className="pixel-box-sm font-pixel px-3 py-1.5 text-xs"
@@ -305,7 +306,16 @@ export function RouteScreen(p: Props) {
             </span>
           )}
         </div>
-        <p className="mt-2 text-xs text-fg-faint">{t("route.timesApprox")}</p>
+        <div className="mt-3">
+          <JourneyEstimate
+            legs={p.journey.legs}
+            hops={p.journey.hops}
+            departures={p.journey.departures}
+            day={p.journey.day}
+            transferWalkMinutes={p.journey.transferWalkMinutes}
+            transferMeasured={p.journey.transferMeasured}
+          />
+        </div>
       </header>
 
       {p.legs.map((leg, i) => {

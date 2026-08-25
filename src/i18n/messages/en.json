@@ -375,5 +375,15 @@
   "status.approx": "Based on the published timetable and the app's rough travel estimate, so treat it as a nudge, not a guarantee.",
   "transfer.title": "Changing here",
   "transfer.body": "Allow about {minutes} min to change platforms.",
-  "transfer.assumed": "A blanket estimate — nobody publishes platform-to-platform times, and we have not measured this one."
+  "transfer.assumed": "A blanket estimate — nobody publishes platform-to-platform times, and we have not measured this one.",
+  "journey.title": "How long it takes",
+  "journey.total": "About {minutes} min — arriving around {arrive}.",
+  "journey.firstTrain": "Next train in {wait} min, at {at}.",
+  "journey.ride": "On the train: {minutes} min",
+  "journey.wait": "Waiting on platforms: {minutes} min",
+  "journey.walk": "Changing platforms: {minutes} min",
+  "journey.leaveAt": "Leaving at",
+  "journey.now": "Back to now",
+  "journey.source": "Walked against LTA's published timetable, train by train — including the wait if you just miss one.",
+  "journey.approximated": "Part of this route has no published timetable, so some of it is averaged."
 }
