@@ -367,5 +367,13 @@
   "times.first": "First",
   "times.last": "Last",
   "times.source": "From LTA's published train timetable. Times past midnight belong to the night before.",
-  "times.none": "LTA's timetable does not cover this station yet."
+  "times.none": "LTA's timetable does not cover this station yet.",
+  "status.afterLast": "The last train towards {towards} left at {last}. Check for night buses.",
+  "status.beforeFirst": "Trains towards {towards} start at {first} — that's in {minutes} min.",
+  "status.lastSoon": "Last train towards {towards} is at {last}, in {minutes} min.",
+  "status.connectionRisk": "You may not reach {station} before its last train at {last}.",
+  "status.approx": "Based on the published timetable and the app's rough travel estimate, so treat it as a nudge, not a guarantee.",
+  "transfer.title": "Changing here",
+  "transfer.body": "Allow about {minutes} min to change platforms.",
+  "transfer.assumed": "A blanket estimate — nobody publishes platform-to-platform times, and we have not measured this one."
 }

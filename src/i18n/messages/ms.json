@@ -367,5 +367,13 @@
   "times.first": "Pertama",
   "times.last": "Terakhir",
   "times.source": "Daripada jadual waktu kereta api yang diterbitkan LTA. Waktu selepas tengah malam milik malam sebelumnya.",
-  "times.none": "Jadual waktu LTA belum meliputi stesen ini."
+  "times.none": "Jadual waktu LTA belum meliputi stesen ini.",
+  "status.afterLast": "Kereta api terakhir ke arah {towards} bertolak pada {last}. Periksa bas malam.",
+  "status.beforeFirst": "Kereta api ke arah {towards} bermula pada {first} — iaitu {minutes} min lagi.",
+  "status.lastSoon": "Kereta api terakhir ke arah {towards} pada {last}, {minutes} min lagi.",
+  "status.connectionRisk": "Anda mungkin tidak sampai ke {station} sebelum kereta api terakhirnya pada {last}.",
+  "status.approx": "Berdasarkan jadual waktu yang diterbitkan dan anggaran kasar aplikasi ini, jadi anggaplah ia panduan, bukan jaminan.",
+  "transfer.title": "Bertukar di sini",
+  "transfer.body": "Peruntukkan kira-kira {minutes} min untuk bertukar platform.",
+  "transfer.assumed": "Anggaran menyeluruh — tiada sesiapa menerbitkan masa antara platform, dan kami belum mengukur yang ini."
 }

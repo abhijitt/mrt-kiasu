@@ -1,0 +1,14 @@
+{
+  "_source": {
+    "status": "No published source. LTA's GTFS feed omits the standard transfers.txt (which would carry min_transfer_time), and neither DataMall nor data.gov.sg publishes platform-to-platform walking times.",
+    "default": "Every interchange therefore uses one assumed figure until someone measures it. The figure is deliberately a single number rather than 40 invented ones: a per-station guess would look like data without being any.",
+    "howToImprove": "Time the walk between platforms, then add an entry to `overrides` with source and confidence. Surveyed values replace the default for that pair only.",
+    "lastUpdated": "2026-08-26"
+  },
+  "default": {
+    "minutes": 5,
+    "confidence": "assumed",
+    "note": "A round figure covering a typical cross-platform or one-level change. Long interchanges such as Dhoby Ghaut or Outram Park take considerably more; short ones such as Tanah Merah take less."
+  },
+  "overrides": {}
+}

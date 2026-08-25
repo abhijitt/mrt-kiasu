@@ -7,6 +7,7 @@ import { CrowdForecast } from "@/components/CrowdForecast";
 import { LiftStatus } from "@/components/LiftStatus";
 import { CheckIcon } from "@/components/icons";
 import { TrainTimes, type ServiceDay, type TrainTime } from "@/components/TrainTimes";
+import { ServiceWarning } from "@/components/ServiceWarning";
 import { useI18n } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { groupByExit, type Landmark } from "@/lib/landmark-types";
@@ -126,6 +127,10 @@ export function StationScreen(p: Props) {
         </h2>
         <CrowdForecast stationCode={p.code} line={p.lineCode} />
       </section>
+
+      {/* Ahead of everything else on the page: if the network is shut, no
+          amount of door guidance is any use. */}
+      <ServiceWarning times={p.trainTimes} />
 
       {/* Above lift status and below crowding: "have I missed the last train"
           is a more urgent question than either. */}
