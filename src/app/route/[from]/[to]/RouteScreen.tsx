@@ -67,6 +67,7 @@ function Guidance({
   showPreferenceNote,
   legKey,
   doorSide,
+  arrivalDoor,
 }: {
   feature: PlatformFeature | null;
   line: LineCode;
@@ -76,8 +77,10 @@ function Guidance({
   showPreferenceNote: boolean;
   /** Identifies this leg, so revisiting a route does not count it twice. */
   legKey: string;
-  /** Which side the doors open, where known — it orients the diagram. */
+  /** Which side the doors open where you board — it orients the diagram. */
   doorSide?: "left" | "right";
+  /** The arrival note, rendered under the diagram it refers to. */
+  arrivalDoor?: React.ReactNode;
 }) {
   const t = useT();
   const { settings } = useSettings();
@@ -172,6 +175,10 @@ function Guidance({
             doorSide={doorSide}
           />
         </div>
+
+        {/* Under the picture it describes: it is a caption on the diagram, not
+            a separate announcement competing with the car number above it. */}
+        {arrivalDoor}
       </div>
 
       {showPreferenceNote && (
@@ -379,26 +386,6 @@ export function RouteScreen(p: Props) {
                   })}
             </p>
 
-            {settings.kiasuLevel === "gao" && leg.doorSide && (
-              <p
-                className="mt-2 text-xs leading-relaxed text-fg-muted"
-                title={
-                  leg.doorSide.surveyed
-                    ? t("doors.surveyed")
-                    : leg.doorSide.layout
-                      ? t("doors.implied", {
-                          layout: t(`layout.${leg.doorSide.layout}` as MessageKey),
-                        })
-                      : undefined
-                }
-              >
-                <span style={{ color: "var(--verified)" }}>
-                  {t(leg.doorSide.side === "left" ? "doors.left" : "doors.right")}
-                </span>{" "}
-                {t("doors.onArrival", { station: leg.toName })}
-              </p>
-            )}
-
             <Guidance
               feature={feature}
               line={leg.line}
@@ -408,6 +395,27 @@ export function RouteScreen(p: Props) {
               showPreferenceNote={isFinalLeg && loaded}
               legKey={`${p.originName}|${p.destinationName}|${i}`}
               doorSide={leg.boardingSide ?? undefined}
+              arrivalDoor={
+                settings.kiasuLevel === "gao" && leg.doorSide ? (
+                  <p
+                    className="mt-2 px-1 text-xs leading-relaxed text-fg-muted"
+                    title={
+                      leg.doorSide.surveyed
+                        ? t("doors.surveyed")
+                        : leg.doorSide.layout
+                          ? t("doors.implied", {
+                              layout: t(`layout.${leg.doorSide.layout}` as MessageKey),
+                            })
+                          : undefined
+                    }
+                  >
+                    <span style={{ color: "var(--verified)" }}>
+                      {t(leg.doorSide.side === "left" ? "doors.left" : "doors.right")}
+                    </span>{" "}
+                    {t("doors.onArrival", { station: leg.toName })}
+                  </p>
+                ) : null
+              }
             />
           </section>
         );
