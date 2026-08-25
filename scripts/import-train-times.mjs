@@ -62,6 +62,16 @@ function toMinutes(hhmmss) {
   return h * 60 + m;
 }
 
+/**
+ * Seconds, because the timetable is written to the second and the useful
+ * quantities are smaller than a minute: a scheduled dwell is 30 or 40 seconds,
+ * and rounding it away turns an exact schedule into an approximation.
+ */
+function toSeconds(hhmmss) {
+  const [h, m, sec] = hhmmss.split(":").map(Number);
+  return h * 3600 + m * 60 + (sec || 0);
+}
+
 function toDisplay(minutes) {
   const h = Math.floor(minutes / 60) % 24;
   const m = minutes % 60;
@@ -203,6 +213,44 @@ try {
   for (const [key, samples] of hopSamples) hops[key] = median(samples);
 
   /**
+   * Run times and dwells in seconds, which together reproduce any leg exactly.
+   *
+   * Measured rather than assumed: the scheduled time between two stations is
+   * identical on every trip — spread 0.0 across hundreds of trips on every
+   * pair checked — so one number per pair is exact, not an average, and
+   * carrying trip identity through the journey would buy nothing.
+   *
+   * Dwell is likewise a flat 30 or 40 seconds per station. It was previously
+   * discarded entirely, since hop times were measured departure-to-arrival,
+   * so every intermediate stop silently cost nothing.
+   */
+  const hopSecondsSamples = new Map();
+  const dwellSamples = new Map();
+  for (const rows of tripRows.values()) {
+    rows.sort((a, b) => Number(a.stop_sequence) - Number(b.stop_sequence));
+    for (let i = 0; i < rows.length; i++) {
+      const c = codeOf.get(rows[i].stop_id);
+      if (!c) continue;
+      const d = toSeconds(rows[i].departure_time) - toSeconds(rows[i].arrival_time);
+      if (d >= 0 && d <= 300) {
+        (dwellSamples.get(c) ?? dwellSamples.set(c, []).get(c)).push(d);
+      }
+      if (i > 0) {
+        const prev = codeOf.get(rows[i - 1].stop_id);
+        if (!prev || prev === c) continue;
+        const t = toSeconds(rows[i].arrival_time) - toSeconds(rows[i - 1].departure_time);
+        if (t < 0 || t > 1800) continue;
+        const key = prev < c ? `${prev}|${c}` : `${c}|${prev}`;
+        (hopSecondsSamples.get(key) ?? hopSecondsSamples.set(key, []).get(key)).push(t);
+      }
+    }
+  }
+  const hopSeconds = {};
+  for (const [k, v] of hopSecondsSamples) hopSeconds[k] = median(v);
+  const dwellSeconds = {};
+  for (const [k, v] of dwellSamples) dwellSeconds[k] = median(v);
+
+  /**
    * Headway per LINE, per service day, per hour.
    *
    * Measured across stations and found to be a line-level property: every
@@ -330,6 +378,8 @@ try {
         },
         stations: out,
         hops,
+        hopSeconds,
+        dwellSeconds,
         headway,
         departures,
       },
@@ -343,6 +393,7 @@ try {
   console.log(`  feed timestamp: ${timestamp}`);
   console.log(`  stop_times rows skipped (no headsign or unknown stop): ${skipped}`);
   console.log(`  inter-station run times: ${Object.keys(hops).length} station pairs`);
+  console.log(`  run times in seconds: ${Object.keys(hopSeconds).length} pairs, dwell for ${Object.keys(dwellSeconds).length} stations`);
   console.log(`  headway: ${Object.keys(headway).length} lines x service day x hour`);
   console.log(`  departures: ${Object.keys(departures).length} station+direction lists`);
 } finally {

@@ -310,6 +310,8 @@ export function RouteScreen(p: Props) {
           <JourneyEstimate
             legs={p.journey.legs}
             hops={p.journey.hops}
+            hopSeconds={p.journey.hopSeconds}
+            dwellSeconds={p.journey.dwellSeconds}
             departures={p.journey.departures}
             day={p.journey.day}
             transferWalkMinutes={p.journey.transferWalkMinutes}

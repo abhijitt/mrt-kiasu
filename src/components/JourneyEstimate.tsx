@@ -8,6 +8,8 @@ import { estimateJourneyExact, type DepartureTable, type Leg } from "@/lib/journ
 interface Props {
   legs: Leg[];
   hops: Record<string, number>;
+  hopSeconds: Record<string, number>;
+  dwellSeconds: Record<string, number>;
   departures: DepartureTable;
   day: "weekday" | "saturday" | "sunday";
   transferWalkMinutes: number;
@@ -44,6 +46,8 @@ export function JourneyEstimate(props: Props) {
       estimateJourneyExact({
         legs: props.legs,
         hops: props.hops,
+        hopSeconds: props.hopSeconds,
+        dwellSeconds: props.dwellSeconds,
         departures: props.departures,
         day: props.day,
         arriveAt: start,

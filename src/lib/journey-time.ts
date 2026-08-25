@@ -129,6 +129,10 @@ export interface ExactInputs {
   legs: readonly Leg[];
   hops: Record<string, number>;
   departures: DepartureTable;
+  /** Exact run times in seconds, where the timetable provides them. */
+  hopSeconds?: Record<string, number>;
+  /** Scheduled dwell per station, in seconds. */
+  dwellSeconds?: Record<string, number>;
   day: "weekday" | "saturday" | "sunday";
   /** When you reach the first platform, in minutes since midnight. */
   arriveAt: number;
@@ -161,18 +165,43 @@ function nextDeparture(times: number[], from: number): number | null {
   return times.length > 0 ? times[0] + DAY_MINUTES : null;
 }
 
-function rideMinutesFor(path: readonly string[], hops: Record<string, number>) {
-  let total = 0;
+/**
+ * Time on the train for one leg, in minutes.
+ *
+ * Run times come from the timetable in seconds, and every intermediate stop
+ * adds its scheduled dwell. Dwell was previously invisible: hop times were
+ * measured departure-to-arrival, so standing at a platform with the doors open
+ * cost nothing. It is 30 or 40 seconds a stop, which is several minutes across
+ * a long ride.
+ *
+ * Falls back to whole-minute hops where the seconds table has no entry.
+ */
+function rideMinutesFor(
+  path: readonly string[],
+  hops: Record<string, number>,
+  hopSeconds?: Record<string, number>,
+  dwellSeconds?: Record<string, number>,
+) {
+  let seconds = 0;
   let unknown = 0;
+
   for (let i = 1; i < path.length; i++) {
     const a = path[i - 1];
     const b = path[i];
     const key = a < b ? `${a}|${b}` : `${b}|${a}`;
-    const hop = hops[key];
-    if (hop === undefined) unknown++;
-    total += hop ?? FALLBACK_HOP_MINUTES;
+    const exact = hopSeconds?.[key];
+    if (exact !== undefined) {
+      seconds += exact;
+    } else {
+      const hop = hops[key];
+      if (hop === undefined) unknown++;
+      seconds += (hop ?? FALLBACK_HOP_MINUTES) * 60;
+    }
+    // Every stop except the last is one the train stands at.
+    if (i < path.length - 1) seconds += dwellSeconds?.[b] ?? 0;
   }
-  return { total, unknown };
+
+  return { total: seconds / 60, unknown };
 }
 
 /**
@@ -221,7 +250,7 @@ export function estimateJourneyExact(input: ExactInputs): ExactBreakdown {
       clock = board;
     }
 
-    const ride = rideMinutesFor(leg.path, hops);
+    const ride = rideMinutesFor(leg.path, hops, input.hopSeconds, input.dwellSeconds);
     rideMinutes += ride.total;
     unknownHops += ride.unknown;
     clock += ride.total;

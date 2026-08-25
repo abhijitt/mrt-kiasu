@@ -162,3 +162,45 @@ describe("exact connections", () => {
     expect(j.arriveMinutes).toBe(601 + j.total);
   });
 });
+
+describe("dwell", () => {
+  const path = ["NS1", "NS2", "NS3", "NS4"];
+  const hopSeconds = { "NS1|NS2": 120, "NS2|NS3": 180, "NS3|NS4": 120 };
+  const dwellSeconds = { NS2: 40, NS3: 40, NS4: 40 };
+  const legs = [{ boardAt: "NS1", direction: "asc" as const, path }];
+  const deps: DepartureTable = { "NS1|asc": { weekday: [600] } };
+
+  it("charges for standing at intermediate stops", () => {
+    // 7 min of running, plus 40s at each of the two stops passed through.
+    const withDwell = estimateJourneyExact({
+      legs, hops: {}, departures: deps, day: "weekday",
+      arriveAt: 600, transferWalkMinutes: 0, hopSeconds, dwellSeconds,
+    });
+    const without = estimateJourneyExact({
+      legs, hops: {}, departures: deps, day: "weekday",
+      arriveAt: 600, transferWalkMinutes: 0, hopSeconds,
+    });
+    expect(withDwell.rideMinutes).toBeGreaterThan(without.rideMinutes);
+    expect(withDwell.rideMinutes).toBe(8); // 7 min + 80s, rounded
+  });
+
+  it("does not charge dwell at the destination, where you get off", () => {
+    const j = estimateJourneyExact({
+      legs: [{ boardAt: "NS1", direction: "asc", path: ["NS1", "NS2"] }],
+      hops: {}, departures: deps, day: "weekday",
+      arriveAt: 600, transferWalkMinutes: 0,
+      hopSeconds: { "NS1|NS2": 120 }, dwellSeconds: { NS2: 40 },
+    });
+    expect(j.rideMinutes).toBe(2); // just the 2-minute run
+  });
+
+  it("prefers exact seconds over whole-minute hops", () => {
+    const j = estimateJourneyExact({
+      legs: [{ boardAt: "NS1", direction: "asc", path: ["NS1", "NS2"] }],
+      hops: { "NS1|NS2": 9 }, departures: deps, day: "weekday",
+      arriveAt: 600, transferWalkMinutes: 0,
+      hopSeconds: { "NS1|NS2": 120 },
+    });
+    expect(j.rideMinutes).toBe(2); // the seconds table wins over the 9
+  });
+});

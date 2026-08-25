@@ -14,6 +14,8 @@ import { serviceDayOf } from "./service-status";
  */
 
 const HOPS = data.hops as Record<string, number>;
+const HOP_SECONDS = data.hopSeconds as Record<string, number>;
+const DWELL_SECONDS = data.dwellSeconds as Record<string, number>;
 const DEPARTURES = data.departures as DepartureTable;
 
 export interface RouteLegShape {
@@ -35,6 +37,9 @@ export interface JourneyPayload {
   legs: Leg[];
   /** Only the hops and departures this route needs. */
   hops: Record<string, number>;
+  /** Exact run times and dwells, for just the stations this route touches. */
+  hopSeconds: Record<string, number>;
+  dwellSeconds: Record<string, number>;
   departures: DepartureTable;
   day: "weekday" | "saturday" | "sunday";
   /** Minutes to change platforms, and whether that figure was measured. */
@@ -51,12 +56,16 @@ export function journeyPayload(
   const day = serviceDayOf(now);
 
   const hops: Record<string, number> = {};
+  const hopSeconds: Record<string, number> = {};
+  const dwellSeconds: Record<string, number> = {};
   for (const leg of legs) {
     for (let i = 1; i < leg.path.length; i++) {
       const a = leg.path[i - 1];
       const b = leg.path[i];
       const key = a < b ? `${a}|${b}` : `${b}|${a}`;
       if (HOPS[key] !== undefined) hops[key] = HOPS[key];
+      if (HOP_SECONDS[key] !== undefined) hopSeconds[key] = HOP_SECONDS[key];
+      if (DWELL_SECONDS[b] !== undefined) dwellSeconds[b] = DWELL_SECONDS[b];
     }
   }
 
@@ -77,6 +86,8 @@ export function journeyPayload(
   return {
     legs,
     hops,
+    hopSeconds,
+    dwellSeconds,
     departures,
     day,
     transferWalkMinutes: firstTransfer.minutes,
