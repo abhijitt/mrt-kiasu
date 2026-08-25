@@ -345,5 +345,11 @@
   "gao.backupTitle": "Jika pintu anda sesak",
   "gao.backupBody": "Gerabak {car}, pintu ke-{ordinal} ialah pilihan seterusnya — {loss}s lebih perlahan.",
   "gao.sourceTitle": "Dari mana ini datang",
-  "gao.clamped": "Anggaran itu sebenarnya meletakkannya {raw}m dari tengah — melepasi hujung tren, jadi ia dihadkan pada {half}m."
+  "gao.clamped": "Anggaran itu sebenarnya meletakkannya {raw}m dari tengah — melepasi hujung tren, jadi ia dihadkan pada {half}m.",
+  "score.title": "Skor kiasu anda",
+  "score.body": "{minutes} minit berjalan dijimatkan merentasi {journeys} perjalanan yang dirancang.",
+  "score.bodySeconds": "{seconds} saat berjalan dijimatkan merentasi {journeys} perjalanan yang dirancang.",
+  "score.since": "Sejak {date}. Mengira perjalanan yang anda rancang di sini, bukan perjalanan yang kami tahu anda tempuhi. Pada peranti ini sahaja — kami tidak pernah melihatnya.",
+  "score.empty": "Rancang satu perjalanan dan ini mula mengira.",
+  "score.reset": "Set semula"
 }

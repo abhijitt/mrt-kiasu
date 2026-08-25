@@ -345,5 +345,11 @@
   "gao.backupTitle": "If your door is mobbed",
   "gao.backupBody": "Car {car}, {ordinal} door is the next best — {loss}s worse.",
   "gao.sourceTitle": "Where this came from",
-  "gao.clamped": "The estimate actually placed it {raw}m from centre — past the end of the train, so it is capped at {half}m."
+  "gao.clamped": "The estimate actually placed it {raw}m from centre — past the end of the train, so it is capped at {half}m.",
+  "score.title": "Your kiasu score",
+  "score.body": "{minutes} minutes of walking skipped across {journeys} trips planned.",
+  "score.bodySeconds": "{seconds} seconds of walking skipped across {journeys} trips planned.",
+  "score.since": "Since {date}. Counts trips you planned here, not trips we know you took. On this device only — we never see it.",
+  "score.empty": "Plan a trip and this starts counting.",
+  "score.reset": "Reset"
 }

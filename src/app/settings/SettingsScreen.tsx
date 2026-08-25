@@ -13,6 +13,8 @@ import { useKonami } from "@/lib/useKonami";
 import { Hud } from "@/components/Hud";
 import { LegalFooter } from "@/components/LegalPage";
 import { KIASU_LEVELS, useSettings, type ThemeChoice } from "@/lib/settings";
+import { useKiasuScore } from "@/lib/useKiasuScore";
+import { minutes } from "@/lib/kiasu-score";
 import type { FeatureType } from "@/lib/feature-types";
 import { useI18n } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
@@ -38,6 +40,7 @@ interface Props {
 
 export function SettingsScreen({ stats }: Props) {
   const { settings, update, loaded } = useSettings();
+  const { score, reset: resetScore } = useKiasuScore();
   const [justUnlocked, setJustUnlocked] = useState(false);
 
   useKonami(() => {
@@ -134,6 +137,36 @@ export function SettingsScreen({ stats }: Props) {
             );
           })}
         </div>
+      </section>
+
+      <section className="pixel-box anim-enter p-4">
+        <h2 className="font-pixel text-xs uppercase text-fg-muted">
+          {t("score.title")}
+        </h2>
+        {score.journeys === 0 ? (
+          <p className="mt-2 text-sm text-fg-muted">{t("score.empty")}</p>
+        ) : (
+          <>
+            <p className="mt-2 text-base leading-relaxed text-fg">
+              {minutes(score) >= 1
+                ? t("score.body", { minutes: minutes(score), journeys: score.journeys })
+                : t("score.bodySeconds", {
+                    seconds: score.seconds,
+                    journeys: score.journeys,
+                  })}
+            </p>
+            <p className="mt-1 text-xs text-fg-faint">
+              {t("score.since", { date: score.since })}
+            </p>
+            <button
+              type="button"
+              onClick={resetScore}
+              className="pixel-btn font-pixel mt-3 min-h-11 px-3 py-3 text-[11px] uppercase"
+            >
+              {t("score.reset")}
+            </button>
+          </>
+        )}
       </section>
 
       <section className="pixel-box anim-enter p-4">

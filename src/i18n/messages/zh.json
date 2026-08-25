@@ -345,5 +345,11 @@
   "gao.backupTitle": "如果你的车门太挤",
   "gao.backupBody": "第 {car} 节车厢的第 {ordinal} 道门是次佳选择——慢 {loss} 秒。",
   "gao.sourceTitle": "数据来源",
-  "gao.clamped": "该估算实际得出距中心 {raw} 米——已超出车身末端，因此上限取 {half} 米。"
+  "gao.clamped": "该估算实际得出距中心 {raw} 米——已超出车身末端，因此上限取 {half} 米。",
+  "score.title": "你的 kiasu 分数",
+  "score.body": "在规划的 {journeys} 趟行程中少走了 {minutes} 分钟。",
+  "score.bodySeconds": "在规划的 {journeys} 趟行程中少走了 {seconds} 秒。",
+  "score.since": "自 {date} 起。统计的是你在此规划的行程，而非我们确知你搭乘的行程。仅记录在本设备上——我们看不到。",
+  "score.empty": "规划一趟行程，就会开始计算。",
+  "score.reset": "重置"
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Hud } from "@/components/Hud";
 import { ExitPicker } from "@/components/ExitPicker";
 import { LiftStatus } from "@/components/LiftStatus";
@@ -9,6 +9,7 @@ import { PlatformDiagram } from "@/components/PlatformDiagram";
 import { toCarPosition, type Direction } from "@/lib/doors";
 import { secondsSaved } from "@/lib/walking";
 import { backupDoor, doorBreakdown, fleetSource, savedWorking } from "@/lib/gao";
+import { useKiasuScore } from "@/lib/useKiasuScore";
 import { LINES, lineNameKey, type LineCode } from "@/lib/lines";
 import { useT } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
@@ -56,6 +57,7 @@ function Guidance({
   towards,
   preference,
   showPreferenceNote,
+  legKey,
 }: {
   feature: PlatformFeature | null;
   line: LineCode;
@@ -63,9 +65,25 @@ function Guidance({
   towards: string;
   preference: FeatureType;
   showPreferenceNote: boolean;
+  /** Identifies this leg, so revisiting a route does not count it twice. */
+  legKey: string;
 }) {
   const t = useT();
   const { settings } = useSettings();
+  const { record } = useKiasuScore();
+
+  // Above the early return, because hooks must run in the same order on every
+  // render. The figure is recomputed here rather than reused below so this
+  // does not depend on where the render happens to bail out.
+  const savedForScore =
+    feature?.offsetM !== undefined ? secondsSaved(feature.offsetM, line) : null;
+
+  useEffect(() => {
+    if (savedForScore !== null && savedForScore > 0) record(savedForScore);
+    // Keyed on the leg alone: a re-render from a settings tweak or a language
+    // switch must not count the same walk again.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [legKey]);
 
   if (!feature) {
     return (
@@ -80,6 +98,7 @@ function Guidance({
   // Only estimates carry a metre offset, which is what the figure needs.
   const saved =
     feature.offsetM !== undefined ? secondsSaved(feature.offsetM, line) : null;
+
   const preferenceHonoured = feature.type === preference;
   const modeLabel = t(`mode.${preference}` as MessageKey);
 
@@ -347,6 +366,7 @@ export function RouteScreen(p: Props) {
               towards={isFinalLeg ? leg.toName : leg.towards}
               preference={preference}
               showPreferenceNote={isFinalLeg && loaded}
+              legKey={`${p.originName}|${p.destinationName}|${i}`}
             />
           </section>
         );
