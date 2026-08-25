@@ -354,5 +354,9 @@
   "score.reset": "重置",
   "map.showGeographic": "显示真实位置",
   "map.showSchematic": "显示简化图",
-  "map.geographicNote": "这是真实地理位置，因此市中心非常密集。"
+  "map.geographicNote": "这是真实地理位置，因此市中心非常密集。",
+  "map.panUp": "向上移动",
+  "map.panDown": "向下移动",
+  "map.panLeft": "向左移动",
+  "map.panRight": "向右移动"
 }

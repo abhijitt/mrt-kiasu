@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useT } from "@/i18n/I18nProvider";
+import { GearIcon } from "./icons";
 
 /** Language and settings, side by side, on every top-level screen. */
 export function AppHeader() {
@@ -14,9 +15,9 @@ export function AppHeader() {
         href="/settings"
         aria-label={t("common.settings")}
         // The icon fills the button rather than floating in a large box.
-        className="hud-btn flex h-12 w-12 items-center justify-center text-2xl leading-none"
+        className="hud-btn flex h-12 w-12 items-center justify-center"
       >
-        <span aria-hidden>⚙</span>
+        <GearIcon />
       </Link>
     </div>
   );

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useT } from "@/i18n/I18nProvider";
+import { CheckIcon } from "./icons";
 import { useSettings } from "@/lib/settings";
 
 interface Outage {
@@ -71,7 +72,7 @@ export function LiftStatus({
     return (
       <p className="mt-3 flex items-center gap-2 text-sm text-fg-muted">
         <span aria-hidden style={{ color: "var(--verified)" }}>
-          ✔
+          <CheckIcon />
         </span>
         {t("lift.allWorking")}
       </p>

@@ -77,6 +77,10 @@ interface Props {
     zoomOut: string;
     reset: string;
     station: string;
+    panUp: string;
+    panDown: string;
+    panLeft: string;
+    panRight: string;
   };
 }
 
@@ -98,6 +102,46 @@ interface Node {
  * sat visibly off centre and undersized, while "+" was a shade high on the
  * font's own metrics. Geometry does not have that problem.
  */
+/** Rotation per direction, so one drawn arrow serves all four. */
+const ARROW_ROTATION = { up: 0, right: 90, down: 180, left: 270 } as const;
+
+function PanButton({
+  label,
+  onPress,
+  dir,
+  className,
+}: {
+  label: string;
+  onPress: () => void;
+  dir: keyof typeof ARROW_ROTATION;
+  className?: string;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onPress}
+      aria-label={label}
+      className={`pixel-btn flex h-11 w-11 items-center justify-center text-fg ${className ?? ""}`}
+    >
+      <svg
+        viewBox="0 0 12 12"
+        width={16}
+        height={16}
+        aria-hidden
+        focusable="false"
+        shapeRendering="crispEdges"
+        style={{ transform: `rotate(${ARROW_ROTATION[dir]}deg)` }}
+      >
+        {/* Drawn, not typeset: the pixel font has no arrow glyphs, which is
+            what left the zoom controls off centre and undersized. */}
+        <rect x={5} y={2} width={2} height={2} fill="currentColor" />
+        <rect x={3} y={4} width={6} height={2} fill="currentColor" />
+        <rect x={1} y={6} width={10} height={2} fill="currentColor" />
+      </svg>
+    </button>
+  );
+}
+
 function IconPlus() {
   return (
     <svg viewBox="0 0 12 12" width={18} height={18} aria-hidden focusable="false" shapeRendering="crispEdges">
@@ -213,6 +257,21 @@ export function NetworkMap({
       };
     },
     [VW, VH],
+  );
+
+  /** How far one press of the D-pad moves, as a share of what you can see. */
+  const PAN_STEP = 0.35;
+
+  const pan = useCallback(
+    (dirX: number, dirY: number) => {
+      setCentre((c) =>
+        clamp(
+          { x: c.x + dirX * halfW * 2 * PAN_STEP, y: c.y + dirY * halfH * 2 * PAN_STEP },
+          zoom,
+        ),
+      );
+    },
+    [clamp, halfW, halfH, zoom],
   );
 
   const zoomTo = useCallback(
@@ -431,6 +490,18 @@ export function NetworkMap({
           );
         })}
       </svg>
+
+      {/* Only while zoomed in. At fit-to-screen the whole network is already
+          visible, so a D-pad would be four buttons that do nothing — and it
+          would cover a quarter of a map that is only ~230px tall on a phone. */}
+      {zoom > MIN_ZOOM && (
+        <div className="absolute bottom-3 left-3 grid grid-cols-3 grid-rows-3 gap-1">
+          <PanButton className="col-start-2 row-start-1" label={labels.panUp} onPress={() => pan(0, -1)} dir="up" />
+          <PanButton className="col-start-1 row-start-2" label={labels.panLeft} onPress={() => pan(-1, 0)} dir="left" />
+          <PanButton className="col-start-3 row-start-2" label={labels.panRight} onPress={() => pan(1, 0)} dir="right" />
+          <PanButton className="col-start-2 row-start-3" label={labels.panDown} onPress={() => pan(0, 1)} dir="down" />
+        </div>
+      )}
 
       <div className="absolute bottom-3 right-3 flex flex-col gap-2">
         <button

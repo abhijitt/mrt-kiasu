@@ -354,5 +354,9 @@
   "score.reset": "Reset",
   "map.showGeographic": "Show true positions",
   "map.showSchematic": "Show tidy map",
-  "map.geographicNote": "This is the real geography, so the city centre is tightly packed."
+  "map.geographicNote": "This is the real geography, so the city centre is tightly packed.",
+  "map.panUp": "Pan up",
+  "map.panDown": "Pan down",
+  "map.panLeft": "Pan left",
+  "map.panRight": "Pan right"
 }

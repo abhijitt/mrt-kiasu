@@ -5,6 +5,7 @@ import { Hud } from "@/components/Hud";
 import { CrowdLevel } from "@/components/CrowdLevel";
 import { CrowdForecast } from "@/components/CrowdForecast";
 import { LiftStatus } from "@/components/LiftStatus";
+import { CheckIcon } from "@/components/icons";
 import { useI18n } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { groupByExit, type Landmark } from "@/lib/landmark-types";
@@ -278,7 +279,7 @@ export function StationScreen(p: Props) {
           {p.derived.map((f) => (
             <div key={f.labelKey}>
               <dt className="text-xs text-fg-muted">{t(f.labelKey as MessageKey)}</dt>
-              <dd className="text-base text-fg">✔</dd>
+              <dd className="text-base text-fg"><CheckIcon /></dd>
             </div>
           ))}
         </dl>

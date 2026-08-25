@@ -89,6 +89,10 @@ export function MapScreen({ stations, edges, schematic, schematicExtent, unplace
               zoomOut: t("map.zoomOut"),
               reset: t("map.reset"),
               station: t("map.title"),
+              panUp: t("map.panUp"),
+              panDown: t("map.panDown"),
+              panLeft: t("map.panLeft"),
+              panRight: t("map.panRight"),
             }}
           />
         </div>

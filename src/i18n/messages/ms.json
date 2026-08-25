@@ -354,5 +354,9 @@
   "score.reset": "Set semula",
   "map.showGeographic": "Tunjuk kedudukan sebenar",
   "map.showSchematic": "Tunjuk peta kemas",
-  "map.geographicNote": "Ini geografi sebenar, jadi pusat bandar padat."
+  "map.geographicNote": "Ini geografi sebenar, jadi pusat bandar padat.",
+  "map.panUp": "Alih ke atas",
+  "map.panDown": "Alih ke bawah",
+  "map.panLeft": "Alih ke kiri",
+  "map.panRight": "Alih ke kanan"
 }
