@@ -56,6 +56,47 @@ interface Node {
   interchange: boolean;
 }
 
+/**
+ * Map controls, drawn rather than typeset.
+ *
+ * They were "+", "−" and "⤢" in the pixel font. Press Start 2P has no glyph
+ * for U+2212 or U+2922, so those two silently fell back to a system font and
+ * sat visibly off centre and undersized, while "+" was a shade high on the
+ * font's own metrics. Geometry does not have that problem.
+ */
+function IconPlus() {
+  return (
+    <svg viewBox="0 0 12 12" width={18} height={18} aria-hidden focusable="false" shapeRendering="crispEdges">
+      <rect x={1} y={5} width={10} height={2} fill="currentColor" />
+      <rect x={5} y={1} width={2} height={10} fill="currentColor" />
+    </svg>
+  );
+}
+
+function IconMinus() {
+  return (
+    <svg viewBox="0 0 12 12" width={18} height={18} aria-hidden focusable="false" shapeRendering="crispEdges">
+      <rect x={1} y={5} width={10} height={2} fill="currentColor" />
+    </svg>
+  );
+}
+
+/** Four corner brackets — the usual "fit to view" mark, and legible at 18px. */
+function IconFit() {
+  return (
+    <svg viewBox="0 0 12 12" width={18} height={18} aria-hidden focusable="false" shapeRendering="crispEdges">
+      <rect x={0} y={0} width={5} height={2} fill="currentColor" />
+      <rect x={0} y={0} width={2} height={5} fill="currentColor" />
+      <rect x={7} y={0} width={5} height={2} fill="currentColor" />
+      <rect x={10} y={0} width={2} height={5} fill="currentColor" />
+      <rect x={0} y={10} width={5} height={2} fill="currentColor" />
+      <rect x={0} y={7} width={2} height={5} fill="currentColor" />
+      <rect x={7} y={10} width={5} height={2} fill="currentColor" />
+      <rect x={10} y={7} width={2} height={5} fill="currentColor" />
+    </svg>
+  );
+}
+
 export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
   const [zoom, setZoom] = useState(MIN_ZOOM);
@@ -276,25 +317,25 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
           type="button"
           onClick={() => zoomTo(zoom * 1.6)}
           aria-label={labels.zoomIn}
-          className="pixel-btn font-pixel flex h-11 w-11 items-center justify-center text-base"
+          className="pixel-btn flex h-11 w-11 items-center justify-center text-fg"
         >
-          +
+          <IconPlus />
         </button>
         <button
           type="button"
           onClick={() => zoomTo(zoom / 1.6)}
           aria-label={labels.zoomOut}
-          className="pixel-btn font-pixel flex h-11 w-11 items-center justify-center text-base"
+          className="pixel-btn flex h-11 w-11 items-center justify-center text-fg"
         >
-          −
+          <IconMinus />
         </button>
         <button
           type="button"
           onClick={() => { setZoom(MIN_ZOOM); setCentre({ x: W / 2, y: H / 2 }); }}
           aria-label={labels.reset}
-          className="pixel-btn font-pixel flex h-11 w-11 items-center justify-center text-[10px]"
+          className="pixel-btn flex h-11 w-11 items-center justify-center text-fg"
         >
-          ⤢
+          <IconFit />
         </button>
       </div>
     </div>
