@@ -16,7 +16,7 @@
     "note": "No platform has been surveyed yet, for door positions or for which side the doors open. No public dataset provides either (verified against LTA DataMall, data.gov.sg, SMRT and SBS Transit), so every entry must come from a field survey or an OSM-derived candidate that a person has then checked. The app shows 'not yet mapped' until an entry exists — it does not estimate.",
     "lastUpdated": "2026-08-23",
     "orientationSurveyed": 4,
-    "layoutsSurveyed": 154
+    "layoutsSurveyed": 156
   },
   "platforms": {},
   "orientation": {
@@ -1127,6 +1127,20 @@
       "confidence": "verified",
       "verifiedAt": "2026-08-25",
       "sourceNote": "Infobox at Bayshore MRT station: 2 (1 island platform)"
+    },
+    "DT19": {
+      "layout": "side",
+      "source": "survey",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-26",
+      "sourceNote": "Field survey. Doors open on the same side in both directions, matching Telok Ayer and Downtown — the Downtown Line's side-platform arrangement. Wikipedia lists Chinatown as one island plus two side platforms without saying which line has which, so the Downtown Line half is settled by observation. The North East Line half is not recorded."
+    },
+    "NE4": {
+      "layout": "island",
+      "source": "survey",
+      "confidence": "verified",
+      "verifiedAt": "2026-08-26",
+      "sourceNote": "Field survey. Independently agrees with the infobox: Wikipedia lists Chinatown as one island plus two side platforms, and the Downtown Line half was confirmed as side, which leaves the North East Line as the island."
     }
   }
 }

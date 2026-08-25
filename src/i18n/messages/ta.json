@@ -388,5 +388,13 @@
   "journey.approximated": "இந்தப் பாதையின் ஒரு பகுதிக்கு வெளியிடப்பட்ட கால அட்டவணை இல்லை, எனவே சில பகுதிகள் சராசரியாகக் கணக்கிடப்பட்டுள்ளன.",
   "dur.minutes": "{minutes} நிமிடம்",
   "dur.hours": "{hours} மணி நேரம்",
-  "dur.hoursAndMinutes": "{hours} மணி {minutes} நிமிடம்"
+  "dur.hoursAndMinutes": "{hours} மணி {minutes} நிமிடம்",
+  "doors.left": "இடதுபுறம் கதவுகள் திறக்கும்",
+  "doors.right": "வலதுபுறம் கதவுகள் திறக்கும்",
+  "doors.hint": "ரயில் செல்லும் திசையை நோக்கியபடி.",
+  "doors.surveyed": "நடைமேடையில் சரிபார்க்கப்பட்டது.",
+  "doors.implied": "{layout} நடைமேடை அமைப்பிலிருந்து பெறப்பட்டது.",
+  "layout.island": "தீவு",
+  "layout.side": "பக்க",
+  "layout.stacked": "அடுக்கு"
 }

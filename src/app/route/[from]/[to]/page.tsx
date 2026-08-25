@@ -4,6 +4,7 @@ import { planRouteBetweenStations } from "@/lib/routing";
 import { getGroup, getStation } from "@/lib/stations";
 import { landmarksForCodes } from "@/lib/landmarks";
 import { journeyPayload } from "@/lib/journey-data";
+import { doorSideFor, layoutFor } from "@/lib/orientation";
 import { RouteScreen, type LegView } from "./RouteScreen";
 
 export default async function RoutePage({
@@ -36,6 +37,17 @@ export default async function RoutePage({
       direction: leg.direction,
       towards: leg.towards,
       features: getFeatures(leg.to.code, leg.direction),
+      // Resolved here so positions.json never crosses to the browser, and so
+      // an unsurveyed platform arrives as null rather than as a guess.
+      doorSide: (() => {
+        const o = doorSideFor(leg.to.code, leg.direction);
+        if (!o) return null;
+        return {
+          side: o.side,
+          surveyed: o.source === "survey",
+          layout: layoutFor(leg.to.code)?.layout ?? null,
+        };
+      })(),
       transferFeature: nextLeg
         ? findBestFeature(leg.to.code, leg.direction, "transfer", nextLeg.line)
         : null,

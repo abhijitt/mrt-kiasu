@@ -388,5 +388,13 @@
   "journey.approximated": "Part of this route has no published timetable, so some of it is averaged.",
   "dur.minutes": "{minutes} min",
   "dur.hours": "{hours} hr",
-  "dur.hoursAndMinutes": "{hours} hr {minutes} min"
+  "dur.hoursAndMinutes": "{hours} hr {minutes} min",
+  "doors.left": "Doors open on the left",
+  "doors.right": "Doors open on the right",
+  "doors.hint": "Facing the way the train is going.",
+  "doors.surveyed": "Checked on the platform.",
+  "doors.implied": "Follows from the {layout} platform layout.",
+  "layout.island": "island",
+  "layout.side": "side",
+  "layout.stacked": "stacked"
 }

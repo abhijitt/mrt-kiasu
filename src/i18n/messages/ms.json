@@ -388,5 +388,13 @@
   "journey.approximated": "Sebahagian laluan ini tiada jadual waktu yang diterbitkan, jadi sebahagiannya dipuratakan.",
   "dur.minutes": "{minutes} min",
   "dur.hours": "{hours} jam",
-  "dur.hoursAndMinutes": "{hours} jam {minutes} min"
+  "dur.hoursAndMinutes": "{hours} jam {minutes} min",
+  "doors.left": "Pintu dibuka di sebelah kiri",
+  "doors.right": "Pintu dibuka di sebelah kanan",
+  "doors.hint": "Menghadap arah pergerakan kereta api.",
+  "doors.surveyed": "Disemak di platform.",
+  "doors.implied": "Berikutan susun atur platform {layout}.",
+  "layout.island": "pulau",
+  "layout.side": "sisi",
+  "layout.stacked": "bertingkat"
 }

@@ -388,5 +388,13 @@
   "journey.approximated": "此路线部分路段没有公布的时刻表，因此部分时间为平均值。",
   "dur.minutes": "{minutes} 分钟",
   "dur.hours": "{hours} 小时",
-  "dur.hoursAndMinutes": "{hours} 小时 {minutes} 分钟"
+  "dur.hoursAndMinutes": "{hours} 小时 {minutes} 分钟",
+  "doors.left": "左侧车门开启",
+  "doors.right": "右侧车门开启",
+  "doors.hint": "以列车行进方向为准。",
+  "doors.surveyed": "已在站台实地核实。",
+  "doors.implied": "依据{layout}月台布局推得。",
+  "layout.island": "岛式",
+  "layout.side": "侧式",
+  "layout.stacked": "上下叠层"
 }
