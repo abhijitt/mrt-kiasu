@@ -396,5 +396,6 @@
   "doors.implied": "Berikutan susun atur platform {layout}.",
   "layout.island": "pulau",
   "layout.side": "sisi",
-  "layout.stacked": "bertingkat"
+  "layout.stacked": "bertingkat",
+  "doors.onArrival": "semasa anda turun di {station}."
 }

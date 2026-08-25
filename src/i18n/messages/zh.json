@@ -396,5 +396,6 @@
   "doors.implied": "依据{layout}月台布局推得。",
   "layout.island": "岛式",
   "layout.side": "侧式",
-  "layout.stacked": "上下叠层"
+  "layout.stacked": "上下叠层",
+  "doors.onArrival": "（在{station}下车时）。"
 }

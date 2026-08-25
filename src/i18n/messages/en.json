@@ -396,5 +396,6 @@
   "doors.implied": "Follows from the {layout} platform layout.",
   "layout.island": "island",
   "layout.side": "side",
-  "layout.stacked": "stacked"
+  "layout.stacked": "stacked",
+  "doors.onArrival": "when you get off at {station}."
 }

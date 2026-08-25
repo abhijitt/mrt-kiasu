@@ -35,6 +35,8 @@ export interface LegView {
   features: PlatformFeature[];
   /** Which side the doors open where this leg ends. Null when unverified. */
   doorSide: { side: "left" | "right"; surveyed: boolean; layout: string | null } | null;
+  /** Which side they open where it begins — this orients the diagram. */
+  boardingSide: "left" | "right" | null;
   /** Feature to use for the transfer, on non-final legs. */
   transferFeature: PlatformFeature | null;
 }
@@ -379,22 +381,21 @@ export function RouteScreen(p: Props) {
 
             {settings.kiasuLevel === "gao" && leg.doorSide && (
               <p
-                className="pixel-box-sm mt-3 p-3 text-sm leading-relaxed"
-                style={{ borderColor: "var(--verified)" }}
-              >
-                <span className="font-pixel text-xs uppercase" style={{ color: "var(--verified)" }}>
-                  {t(leg.doorSide.side === "left" ? "doors.left" : "doors.right")}
-                </span>
-                <span className="mt-1 block text-xs text-fg-faint">
-                  {t("doors.hint")}{" "}
-                  {leg.doorSide.surveyed
+                className="mt-2 text-xs leading-relaxed text-fg-muted"
+                title={
+                  leg.doorSide.surveyed
                     ? t("doors.surveyed")
                     : leg.doorSide.layout
                       ? t("doors.implied", {
                           layout: t(`layout.${leg.doorSide.layout}` as MessageKey),
                         })
-                      : ""}
-                </span>
+                      : undefined
+                }
+              >
+                <span style={{ color: "var(--verified)" }}>
+                  {t(leg.doorSide.side === "left" ? "doors.left" : "doors.right")}
+                </span>{" "}
+                {t("doors.onArrival", { station: leg.toName })}
               </p>
             )}
 
@@ -406,7 +407,7 @@ export function RouteScreen(p: Props) {
               preference={preference}
               showPreferenceNote={isFinalLeg && loaded}
               legKey={`${p.originName}|${p.destinationName}|${i}`}
-              doorSide={leg.doorSide?.side}
+              doorSide={leg.boardingSide ?? undefined}
             />
           </section>
         );

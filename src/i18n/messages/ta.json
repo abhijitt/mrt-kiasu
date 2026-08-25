@@ -396,5 +396,6 @@
   "doors.implied": "{layout} நடைமேடை அமைப்பிலிருந்து பெறப்பட்டது.",
   "layout.island": "தீவு",
   "layout.side": "பக்க",
-  "layout.stacked": "அடுக்கு"
+  "layout.stacked": "அடுக்கு",
+  "doors.onArrival": "{station} இல் இறங்கும்போது."
 }
