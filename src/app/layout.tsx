@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Press_Start_2P } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "@/i18n/I18nProvider";
-import { siteUrl } from "@/lib/site";
+import { isProductionDeployment, siteUrl } from "@/lib/site";
 
 // The pixel face is used for headings, numbers and chrome only — it is
 // genuinely hard to read at body sizes on a phone.
@@ -31,6 +31,10 @@ export const metadata: Metadata = {
   appleWebApp: { capable: true, statusBarStyle: "default", title: "MRT Kiasu" },
   formatDetection: { telephone: false },
   manifest: "/manifest.webmanifest",
+  // Belt and braces with robots.txt: that file asks crawlers not to fetch,
+  // this tells them not to list. A page linked from somewhere else can still
+  // be indexed on the strength of the link alone despite a Disallow.
+  ...(isProductionDeployment() ? {} : { robots: { index: false, follow: false } }),
   icons: { icon: "/icon.svg", apple: "/icon.svg" },
   openGraph: {
     title: "MRT Kiasu",
