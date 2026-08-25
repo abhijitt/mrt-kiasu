@@ -87,3 +87,78 @@ describe("journey time", () => {
     expect(j.total).toBe(j.rideMinutes + j.waitMinutes + j.walkMinutes);
   });
 });
+
+import { estimateJourneyExact, type DepartureTable } from "./journey-time";
+
+/** Trains every 7 minutes, which is the case the user asked about. */
+const departures: DepartureTable = {
+  "NS1|asc": { weekday: [600, 607, 614, 621, 628] },   // 10:00, 10:07, ...
+  "CC15|asc": { weekday: [610, 617, 624, 631, 638] },  // 10:10, 10:17, ...
+};
+
+const legs = [
+  { boardAt: "NS1", direction: "asc" as const, path: ["NS1", "NS2"] },
+  { boardAt: "CC15", direction: "asc" as const, path: ["CC15", "CC16"] },
+];
+
+const exactBase = {
+  legs,
+  hops: { "NS1|NS2": 2, "CC15|CC16": 2 },
+  departures,
+  day: "weekday" as const,
+  transferWalkMinutes: 5,
+};
+
+describe("exact connections", () => {
+  it("charges the full gap when you just miss a train", () => {
+    // Reach NS1 at 10:01, one minute after the 10:00. The next is 10:07, so
+    // the wait is six minutes — not the three and a half an average would
+    // report. This is the whole point of modelling it exactly.
+    const j = estimateJourneyExact({ ...exactBase, arriveAt: 601 });
+    expect(j.waitsPerLeg[0]).toBe(6);
+    expect(j.boardTimes[0]).toBe(607);
+  });
+
+  it("charges almost nothing when you catch one immediately", () => {
+    const j = estimateJourneyExact({ ...exactBase, arriveAt: 600 });
+    expect(j.waitsPerLeg[0]).toBe(0);
+  });
+
+  it("misses a connection by a minute and waits the whole gap", () => {
+    // Board 10:07, ride 2 min to 10:09, walk 5 to 10:14. The CC15 train left
+    // at 10:10, so the wait is until 10:17 — seven minutes, not an average.
+    const j = estimateJourneyExact({ ...exactBase, arriveAt: 601 });
+    expect(j.boardTimes[1]).toBe(617);
+    expect(j.waitsPerLeg[1]).toBe(3);
+  });
+
+  it("a faster walker can catch the earlier connection", () => {
+    // Same train, but a two-minute change reaches the platform at 10:11...
+    const slow = estimateJourneyExact({ ...exactBase, arriveAt: 601, transferWalkMinutes: 5 });
+    const fast = estimateJourneyExact({ ...exactBase, arriveAt: 595, transferWalkMinutes: 1 });
+    // ...and an earlier boarding means an earlier arrival.
+    expect(fast.arriveMinutes).toBeLessThan(slow.arriveMinutes);
+  });
+
+  it("rolls to the next day rather than claiming no service", () => {
+    // 23:50, long after the last train in this fixture.
+    const j = estimateJourneyExact({ ...exactBase, arriveAt: 1430 });
+    expect(j.boardTimes[0]).toBe(600); // tomorrow's first, wrapped for display
+    expect(j.waitsPerLeg[0]).toBeGreaterThan(0);
+  });
+
+  it("says so when it had to approximate", () => {
+    const j = estimateJourneyExact({
+      ...exactBase,
+      legs: [{ boardAt: "ZZ9", direction: "asc", path: ["ZZ9", "ZZ8"] }],
+      arriveAt: 600,
+    });
+    expect(j.approximated).toBe(true);
+  });
+
+  it("adds up, and arrives after it departs", () => {
+    const j = estimateJourneyExact({ ...exactBase, arriveAt: 601 });
+    expect(j.total).toBe(j.rideMinutes + j.waitMinutes + j.walkMinutes);
+    expect(j.arriveMinutes).toBe(601 + j.total);
+  });
+});

@@ -124,6 +124,7 @@ try {
       // direction into half a dozen fragments, each reporting its own
       // fragment's earliest departure as though it were the first train.
       dir: `${lineOf.get(t.route_id) ?? t.route_id}|${t.direction_id}`,
+      dirId: t.direction_id,
     });
   }
 
@@ -243,6 +244,62 @@ try {
     ((headway[line] ??= {})[kind] ??= {})[hour] = median(gaps);
   }
 
+  // ------------------------------------------------------------- departures
+  //
+  // Every scheduled departure, so a connection can be modelled exactly rather
+  // than as "half the headway". Missing a train by one minute costs the whole
+  // gap, and averaging hides precisely the case a kiasu commuter cares about.
+
+  /**
+   * GTFS direction_id means nothing on its own, so the mapping onto the app's
+   * own asc/desc is DERIVED: walk each trip and see whether station numbers
+   * rise or fall along it. Assuming 1 == ascending would silently reverse
+   * whichever lines happen not to follow that convention.
+   */
+  const dirVotes = new Map();
+  for (const rows of tripRows.values()) {
+    rows.sort((a, b) => Number(a.stop_sequence) - Number(b.stop_sequence));
+    const info = tripInfo.get(rows[0]?.trip_id);
+    if (!info) continue;
+    const nums = rows
+      .map((r) => codeOf.get(r.stop_id))
+      .filter(Boolean)
+      .map((c) => Number(String(c).replace(/^[A-Z]+/, "")))
+      .filter((n) => Number.isFinite(n));
+    if (nums.length < 2) continue;
+    const rising = nums[nums.length - 1] > nums[0];
+    const line = String(codeOf.get(rows[0].stop_id)).replace(/\d+$/, "");
+    const key = `${line}|${info.dirId}`;
+    const v = dirVotes.get(key) ?? { asc: 0, desc: 0 };
+    v[rising ? "asc" : "desc"]++;
+    dirVotes.set(key, v);
+  }
+  const ourDirection = new Map();
+  for (const [key, v] of dirVotes) ourDirection.set(key, v.asc >= v.desc ? "asc" : "desc");
+
+  const departures = {};
+  for (const rows of tripRows.values()) {
+    for (const st of rows) {
+      // A train finishing its run is not one you can board, so its final stop
+      // must not appear as a departure — otherwise the planner would happily
+      // put someone on a terminating service going the wrong way.
+      if (Number(st.stop_sequence) === lastSeq.get(st.trip_id)) continue;
+      const code = codeOf.get(st.stop_id);
+      const info = tripInfo.get(st.trip_id);
+      if (!code || !info) continue;
+      const line = code.replace(/\d+$/, "");
+      const dir = ourDirection.get(`${line}|${info.dirId}`);
+      if (!dir) continue;
+      const key = `${code}|${dir}`;
+      ((departures[key] ??= {})[info.kind] ??= []).push(toMinutes(st.departure_time));
+    }
+  }
+  for (const byDay of Object.values(departures)) {
+    for (const day of Object.keys(byDay)) {
+      byDay[day] = [...new Set(byDay[day])].sort((a, b) => a - b);
+    }
+  }
+
   // Render for display, and drop any station that ended up with nothing.
   const out = {};
   for (const [code, kinds] of Object.entries(table)) {
@@ -274,6 +331,7 @@ try {
         stations: out,
         hops,
         headway,
+        departures,
       },
       null,
       2,
@@ -286,6 +344,7 @@ try {
   console.log(`  stop_times rows skipped (no headsign or unknown stop): ${skipped}`);
   console.log(`  inter-station run times: ${Object.keys(hops).length} station pairs`);
   console.log(`  headway: ${Object.keys(headway).length} lines x service day x hour`);
+  console.log(`  departures: ${Object.keys(departures).length} station+direction lists`);
 } finally {
   await rm(dir, { recursive: true, force: true });
 }
