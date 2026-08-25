@@ -377,13 +377,16 @@
   "transfer.body": "Allow about {minutes} min to change platforms.",
   "transfer.assumed": "A blanket estimate — nobody publishes platform-to-platform times, and we have not measured this one.",
   "journey.title": "How long it takes",
-  "journey.total": "About {minutes} min — arriving around {arrive}.",
-  "journey.firstTrain": "Next train in {wait} min, at {at}.",
-  "journey.ride": "On the train: {minutes} min",
-  "journey.wait": "Waiting on platforms: {minutes} min",
-  "journey.walk": "Changing platforms: {minutes} min",
+  "journey.total": "About {duration} — arriving around {arrive}.",
+  "journey.firstTrain": "Next train in {duration}, at {at}.",
+  "journey.ride": "On the train: {duration}",
+  "journey.wait": "Waiting on platforms: {duration}",
+  "journey.walk": "Changing platforms: {duration}",
   "journey.leaveAt": "Leaving at",
   "journey.now": "Back to now",
   "journey.source": "Walked against LTA's published timetable, train by train — including the wait if you just miss one.",
-  "journey.approximated": "Part of this route has no published timetable, so some of it is averaged."
+  "journey.approximated": "Part of this route has no published timetable, so some of it is averaged.",
+  "dur.minutes": "{minutes} min",
+  "dur.hours": "{hours} hr",
+  "dur.hoursAndMinutes": "{hours} hr {minutes} min"
 }

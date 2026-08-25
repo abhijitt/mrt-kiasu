@@ -4,6 +4,8 @@ import { useMemo, useState } from "react";
 import { useT } from "@/i18n/I18nProvider";
 import { useSettings } from "@/lib/settings";
 import { estimateJourneyExact, type DepartureTable, type Leg } from "@/lib/journey-time";
+import { durationShape, splitDuration } from "@/lib/duration";
+import type { MessageKey } from "@/i18n/I18nProvider";
 
 interface Props {
   legs: Leg[];
@@ -35,6 +37,12 @@ function nowMinutes(): number {
  */
 export function JourneyEstimate(props: Props) {
   const t = useT();
+
+  /** "4 hr 46 min" rather than "286 min", which nobody converts in their head. */
+  function duration(totalMinutes: number): string {
+    const { hours, minutes } = splitDuration(totalMinutes);
+    return t(`dur.${durationShape(totalMinutes)}` as MessageKey, { hours, minutes });
+  }
   const { settings } = useSettings();
   const gao = settings.kiasuLevel === "gao";
 
@@ -63,13 +71,13 @@ export function JourneyEstimate(props: Props) {
       </p>
 
       <p className="mt-2 text-base leading-relaxed text-fg">
-        {t("journey.total", { minutes: journey.total, arrive: hhmm(journey.arriveMinutes) })}
+        {t("journey.total", { duration: duration(journey.total), arrive: hhmm(journey.arriveMinutes) })}
       </p>
 
       {journey.waitsPerLeg[0] !== undefined && (
         <p className="mt-1 text-sm text-fg-muted">
           {t("journey.firstTrain", {
-            wait: journey.waitsPerLeg[0],
+            duration: duration(journey.waitsPerLeg[0]),
             at: hhmm(journey.boardTimes[0]),
           })}
         </p>
@@ -78,11 +86,11 @@ export function JourneyEstimate(props: Props) {
       {gao && (
         <>
           <div className="mt-3 flex flex-col gap-1 text-sm text-fg-muted">
-            <span>{t("journey.ride", { minutes: journey.rideMinutes })}</span>
-            <span>{t("journey.wait", { minutes: journey.waitMinutes })}</span>
+            <span>{t("journey.ride", { duration: duration(journey.rideMinutes) })}</span>
+            <span>{t("journey.wait", { duration: duration(journey.waitMinutes) })}</span>
             {journey.walkMinutes > 0 && (
               <span>
-                {t("journey.walk", { minutes: journey.walkMinutes })}
+                {t("journey.walk", { duration: duration(journey.walkMinutes) })}
                 {!props.transferMeasured && ` — ${t("transfer.assumed")}`}
               </span>
             )}

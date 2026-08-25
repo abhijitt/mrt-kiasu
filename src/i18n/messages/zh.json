@@ -377,13 +377,16 @@
   "transfer.body": "换乘月台约需 {minutes} 分钟。",
   "transfer.assumed": "这是统一估算值——无人公布月台间的步行时间，我们也尚未实测此站。",
   "journey.title": "需时多久",
-  "journey.total": "约 {minutes} 分钟——大约 {arrive} 抵达。",
-  "journey.firstTrain": "下一班车还有 {wait} 分钟，{at} 开出。",
-  "journey.ride": "乘车时间：{minutes} 分钟",
-  "journey.wait": "月台等候：{minutes} 分钟",
-  "journey.walk": "换乘月台：{minutes} 分钟",
+  "journey.total": "约 {duration}——大约 {arrive} 抵达。",
+  "journey.firstTrain": "下一班车还有 {duration}，{at} 开出。",
+  "journey.ride": "乘车时间：{duration}",
+  "journey.wait": "月台等候：{duration}",
+  "journey.walk": "换乘月台：{duration}",
   "journey.leaveAt": "出发时间",
   "journey.now": "回到现在",
   "journey.source": "依据陆交局公布的时刻表逐班推算——包括刚好错过一班时的等候时间。",
-  "journey.approximated": "此路线部分路段没有公布的时刻表，因此部分时间为平均值。"
+  "journey.approximated": "此路线部分路段没有公布的时刻表，因此部分时间为平均值。",
+  "dur.minutes": "{minutes} 分钟",
+  "dur.hours": "{hours} 小时",
+  "dur.hoursAndMinutes": "{hours} 小时 {minutes} 分钟"
 }
