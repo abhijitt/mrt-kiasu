@@ -5,7 +5,13 @@ import { createProjector, type LatLng } from "@/lib/map-projection";
 import { lineFromStationCode, LINES } from "@/lib/lines";
 import { exceedsTapSlop } from "@/lib/gesture";
 
-/** The coordinate space the network is drawn in. Arbitrary, but fixed. */
+/**
+ * The coordinate space the geographic layout is drawn in. Arbitrary, but fixed.
+ *
+ * The schematic brings its own extent instead: relaxation decides how much
+ * room the network needs to keep nothing crowded, and forcing that back into
+ * a preset box would undo the spacing exactly where it was needed.
+ */
 const W = 1000;
 const H = 560;
 const PAD = 28;
@@ -47,9 +53,21 @@ export interface MapStation {
   lng: number;
 }
 
+export type MapLayout = "schematic" | "geographic";
+
 interface Props {
   stations: MapStation[];
   edges: [string, string][];
+  /**
+   * Precomputed octilinear positions by station name.
+   *
+   * Present for the schematic layout, absent for geographic. Built at build
+   * time by scripts/build-schematic.mjs rather than solved in the browser.
+   */
+  schematic?: Record<string, { x: number; y: number }>;
+  /** Natural size of the schematic layout, used as its viewBox. */
+  schematicExtent?: { w: number; h: number };
+  layout: MapLayout;
   /** Station names already chosen, highlighted on the map. */
   from?: string;
   to?: string;
@@ -113,16 +131,37 @@ function IconFit() {
   );
 }
 
-export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Props) {
+export function NetworkMap({
+  stations,
+  edges,
+  schematic,
+  schematicExtent,
+  layout,
+  from,
+  to,
+  onSelect,
+  labels,
+}: Props) {
+  // Whichever layout is showing decides the coordinate space.
+  const useSchematic = layout === "schematic" && schematicExtent !== undefined;
+  const VW = useSchematic ? schematicExtent.w : W;
+  const VH = useSchematic ? schematicExtent.h : H;
   const svgRef = useRef<SVGSVGElement>(null);
   const [zoom, setZoom] = useState(MIN_ZOOM);
   /** Rendered width in CSS pixels, so hit targets can be sized in screen terms. */
   const [renderedW, setRenderedW] = useState(0);
   // Centre of the viewport in map coordinates.
-  const [centre, setCentre] = useState({ x: W / 2, y: H / 2 });
+  // Initialised from the active layout. Switching layouts remounts this
+  // component — see the key in MapScreen — because the two have different
+  // coordinate spaces and a centre carried across lands somewhere arbitrary.
+  const [centre, setCentre] = useState({ x: VW / 2, y: VH / 2 });
 
   const { nodes, paths } = useMemo(() => {
-    const project = createProjector(stations as LatLng[], W, H, PAD);
+    const geo = createProjector(stations as LatLng[], VW, VH, PAD);
+    // Schematic positions are looked up, not computed. A station the layout
+    // could not place falls back to geography rather than vanishing.
+    const project = (s: MapStation) =>
+      layout === "schematic" ? (schematic?.[s.name] ?? geo(s)) : geo(s);
 
     // Interchanges appear once per line in the dataset (Bishan is NS17 and
     // CC15). On a map they are one place, so they are merged into one marker.
@@ -158,22 +197,22 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
       .filter((p): p is NonNullable<typeof p> => p !== null);
 
     return { nodes: [...byName.values()], paths };
-  }, [stations, edges]);
+  }, [stations, edges, schematic, layout, VW, VH]);
 
   // Half-extents of the visible window, in map units.
-  const halfW = W / (2 * zoom);
-  const halfH = H / (2 * zoom);
+  const halfW = VW / (2 * zoom);
+  const halfH = VH / (2 * zoom);
 
   const clamp = useCallback(
     (c: { x: number; y: number }, z: number) => {
-      const hw = W / (2 * z);
-      const hh = H / (2 * z);
+      const hw = VW / (2 * z);
+      const hh = VH / (2 * z);
       return {
-        x: Math.min(W - hw, Math.max(hw, c.x)),
-        y: Math.min(H - hh, Math.max(hh, c.y)),
+        x: Math.min(VW - hw, Math.max(hw, c.x)),
+        y: Math.min(VH - hh, Math.max(hh, c.y)),
       };
     },
-    [],
+    [VW, VH],
   );
 
   const zoomTo = useCallback(
@@ -314,7 +353,7 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
   // Map units per CSS pixel at the current zoom. Falls back to a generous
   // constant before the first measurement, so the map is never briefly
   // untappable on the first paint.
-  const unitsPerPx = renderedW > 0 ? W / zoom / renderedW : 2.4;
+  const unitsPerPx = renderedW > 0 ? VW / zoom / renderedW : 2.4;
   const hitRadius = (HIT_TARGET_PX / 2) * unitsPerPx;
 
   return (
@@ -323,7 +362,7 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
         ref={svgRef}
         viewBox={`${centre.x - halfW} ${centre.y - halfH} ${halfW * 2} ${halfH * 2}`}
         className="pixel-box block w-full touch-none select-none bg-bg-sunken"
-        style={{ aspectRatio: `${W} / ${H}` }}
+        style={{ aspectRatio: `${VW} / ${VH}` }}
         role="application"
         aria-label={labels.station}
         onPointerDown={onPointerDown}
@@ -412,7 +451,7 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
         </button>
         <button
           type="button"
-          onClick={() => { setZoom(MIN_ZOOM); setCentre({ x: W / 2, y: H / 2 }); }}
+          onClick={() => { setZoom(MIN_ZOOM); setCentre({ x: VW / 2, y: VH / 2 }); }}
           aria-label={labels.reset}
           className="pixel-btn flex h-11 w-11 items-center justify-center text-fg"
         >

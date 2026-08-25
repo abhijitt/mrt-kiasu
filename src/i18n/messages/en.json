@@ -351,5 +351,8 @@
   "score.bodySeconds": "{seconds} seconds of walking skipped across {journeys} trips planned.",
   "score.since": "Since {date}. Counts trips you planned here, not trips we know you took. On this device only — we never see it.",
   "score.empty": "Plan a trip and this starts counting.",
-  "score.reset": "Reset"
+  "score.reset": "Reset",
+  "map.showGeographic": "Show true positions",
+  "map.showSchematic": "Show tidy map",
+  "map.geographicNote": "This is the real geography, so the city centre is tightly packed."
 }

@@ -351,5 +351,8 @@
   "score.bodySeconds": "在规划的 {journeys} 趟行程中少走了 {seconds} 秒。",
   "score.since": "自 {date} 起。统计的是你在此规划的行程，而非我们确知你搭乘的行程。仅记录在本设备上——我们看不到。",
   "score.empty": "规划一趟行程，就会开始计算。",
-  "score.reset": "重置"
+  "score.reset": "重置",
+  "map.showGeographic": "显示真实位置",
+  "map.showSchematic": "显示简化图",
+  "map.geographicNote": "这是真实地理位置，因此市中心非常密集。"
 }

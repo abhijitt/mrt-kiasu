@@ -351,5 +351,8 @@
   "score.bodySeconds": "{seconds} saat berjalan dijimatkan merentasi {journeys} perjalanan yang dirancang.",
   "score.since": "Sejak {date}. Mengira perjalanan yang anda rancang di sini, bukan perjalanan yang kami tahu anda tempuhi. Pada peranti ini sahaja — kami tidak pernah melihatnya.",
   "score.empty": "Rancang satu perjalanan dan ini mula mengira.",
-  "score.reset": "Set semula"
+  "score.reset": "Set semula",
+  "map.showGeographic": "Tunjuk kedudukan sebenar",
+  "map.showSchematic": "Tunjuk peta kemas",
+  "map.geographicNote": "Ini geografi sebenar, jadi pusat bandar padat."
 }

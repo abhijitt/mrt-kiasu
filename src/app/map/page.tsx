@@ -17,6 +17,8 @@ export default function MapPage() {
     <MapScreen
       stations={mapData.stations as MapStation[]}
       edges={mapData.edges as [string, string][]}
+      schematic={mapData.schematic}
+      schematicExtent={mapData.schematicExtent}
       unplaceable={mapData.unplaceable}
     />
   );
