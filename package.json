@@ -19,7 +19,8 @@
     "check:bundle": "node scripts/check-bundle.mjs",
     "migrate:db": "node scripts/migrate-db.mjs",
     "build:map": "node scripts/build-map-data.mjs",
-    "build:schematic": "node scripts/build-schematic.mjs"
+    "build:schematic": "node scripts/build-schematic.mjs",
+    "import:times": "node scripts/import-train-times.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "1.1.0",

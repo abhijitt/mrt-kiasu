@@ -358,5 +358,14 @@
   "map.panUp": "Alih ke atas",
   "map.panDown": "Alih ke bawah",
   "map.panLeft": "Alih ke kiri",
-  "map.panRight": "Alih ke kanan"
+  "map.panRight": "Alih ke kanan",
+  "times.title": "Kereta api pertama dan terakhir",
+  "times.weekday": "Isn–Jum",
+  "times.saturday": "Sabtu",
+  "times.sunday": "Ahad & CU",
+  "times.towards": "Ke arah {station}",
+  "times.first": "Pertama",
+  "times.last": "Terakhir",
+  "times.source": "Daripada jadual waktu kereta api yang diterbitkan LTA. Waktu selepas tengah malam milik malam sebelumnya.",
+  "times.none": "Jadual waktu LTA belum meliputi stesen ini."
 }

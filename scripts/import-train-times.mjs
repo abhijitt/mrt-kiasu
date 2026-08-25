@@ -1,0 +1,209 @@
+/**
+ * First and last train times, from LTA's GTFS Schedule (Train) feed.
+ *
+ * Until this feed existed the only source was scraping operator websites —
+ * SBST publishes plain HTML but SMRT's is a JavaScript app, so half the
+ * network needed a headless browser. This is the official timetable instead,
+ * which is why the app can finally answer "have I missed the last train".
+ *
+ * Derivation, stated plainly because the app shows these as facts:
+ *   first train = the earliest departure from that platform
+ *   last train  = the latest departure from that platform
+ * grouped by station, by service day, and by where the train is headed —
+ * which is how the times are posted at the stations themselves.
+ *
+ *   LTA_ACCOUNT_KEY=... npm run import:times
+ */
+
+import { writeFile, mkdtemp, rm } from "node:fs/promises";
+import { readFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { execFileSync } from "node:child_process";
+
+const KEY = process.env.LTA_ACCOUNT_KEY;
+if (!KEY) {
+  console.error("LTA_ACCOUNT_KEY is not set.");
+  process.exit(1);
+}
+
+const ENDPOINT = "https://datamall2.mytransport.sg/ltaodataservice/GTFSScheduleTrain";
+
+/** Minimal CSV reader. GTFS quotes any field containing a comma. */
+function parseCsv(text) {
+  const rows = [];
+  let row = [], field = "", quoted = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (quoted) {
+      if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
+      else if (c === '"') quoted = false;
+      else field += c;
+    } else if (c === '"') quoted = true;
+    else if (c === ",") { row.push(field); field = ""; }
+    else if (c === "\n") { row.push(field); rows.push(row); row = []; field = ""; }
+    else if (c !== "\r") field += c;
+  }
+  if (field || row.length) { row.push(field); rows.push(row); }
+  const header = rows.shift();
+  return rows
+    .filter((r) => r.length === header.length)
+    .map((r) => Object.fromEntries(header.map((h, i) => [h, r[i]])));
+}
+
+/**
+ * GTFS expresses times past midnight as 24:xx, 25:xx and so on, so a service
+ * that ends at 00:42 belongs to the previous operating day rather than to the
+ * following morning. Kept as minutes-since-service-start for comparison, and
+ * only wrapped for display.
+ */
+function toMinutes(hhmmss) {
+  const [h, m] = hhmmss.split(":").map(Number);
+  return h * 60 + m;
+}
+
+function toDisplay(minutes) {
+  const h = Math.floor(minutes / 60) % 24;
+  const m = minutes % 60;
+  return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
+}
+
+/** SERVICE_WD_TEL_20260705_20261231 and SERVICE_WD both mean "weekday". */
+function serviceKind(serviceId) {
+  if (/^SERVICE_WD/.test(serviceId)) return "weekday";
+  if (/^SERVICE_WE/.test(serviceId)) return "saturday";
+  if (/^SERVICE_PH/.test(serviceId)) return "sunday";
+  return null;
+}
+
+const res = await fetch(ENDPOINT, {
+  headers: { AccountKey: KEY, accept: "application/json" },
+});
+if (!res.ok) {
+  console.error(`DataMall responded ${res.status}`);
+  process.exit(1);
+}
+const { value } = await res.json();
+const { link, timestamp } = value[0];
+
+const dir = await mkdtemp(join(tmpdir(), "gtfs-"));
+try {
+  const zipPath = join(dir, "gtfs.zip");
+  const zip = Buffer.from(await (await fetch(link)).arrayBuffer());
+  await writeFile(zipPath, zip);
+  execFileSync("unzip", ["-q", "-o", zipPath, "-d", dir]);
+
+  const routes = parseCsv(readFileSync(join(dir, "routes.txt"), "utf8"));
+  const stops = parseCsv(readFileSync(join(dir, "stops.txt"), "utf8"));
+  const trips = parseCsv(readFileSync(join(dir, "trips.txt"), "utf8"));
+  const stopTimes = parseCsv(readFileSync(join(dir, "stop_times.txt"), "utf8"));
+
+  // stop_id carries a platform suffix (NS1_A); stop_code is the station code
+  // printed on the signage, which is what the rest of the app keys on.
+  const codeOf = new Map();
+  for (const s of stops) if (s.stop_code) codeOf.set(s.stop_id, s.stop_code);
+
+  const lineOf = new Map();
+  for (const r of routes) lineOf.set(r.route_id, r.route_short_name);
+
+  const tripInfo = new Map();
+  for (const t of trips) {
+    const kind = serviceKind(t.service_id);
+    if (!kind) continue;
+    tripInfo.set(t.trip_id, {
+      kind,
+      headsign: t.trip_headsign?.trim() || null,
+      // Grouping by direction rather than by headsign, because the feed also
+      // contains short workings and peak-only services with their own
+      // destinations. Taking the earliest departure per headsign produced
+      // "first train towards Dhoby Ghaut: 08:31" — true of that service, and
+      // nothing like what a commuter means by the first train.
+      // Keyed on the LINE, not the route_id. A line has several route_ids —
+      // the Circle Line alone has CCL_LOOP plus variants named
+      // CCL_MBT_PMN_1ST_TRAIN and the like — and keying on route_id split one
+      // direction into half a dozen fragments, each reporting its own
+      // fragment's earliest departure as though it were the first train.
+      dir: `${lineOf.get(t.route_id) ?? t.route_id}|${t.direction_id}`,
+    });
+  }
+
+  /** station -> service kind -> route+direction -> { first, last, headsigns }. */
+  const table = {};
+  let skipped = 0;
+
+  /**
+   * The last stop of each trip, which is an arrival rather than a departure.
+   *
+   * GTFS still gives a departure_time there. Counting it made Jurong East —
+   * the North South Line's own terminus — report a "first train towards
+   * Jurong East" of 07:34, which is a train finishing its run, not one you
+   * could board.
+   */
+  const lastSeq = new Map();
+  for (const st of stopTimes) {
+    const seq = Number(st.stop_sequence);
+    if (!Number.isFinite(seq)) continue;
+    if (seq > (lastSeq.get(st.trip_id) ?? -1)) lastSeq.set(st.trip_id, seq);
+  }
+
+  for (const st of stopTimes) {
+    if (Number(st.stop_sequence) === lastSeq.get(st.trip_id)) { skipped++; continue; }
+    const info = tripInfo.get(st.trip_id);
+    const code = codeOf.get(st.stop_id);
+    if (!info || !code || !info.headsign || !st.departure_time) { skipped++; continue; }
+
+    const mins = toMinutes(st.departure_time);
+    if (!Number.isFinite(mins)) { skipped++; continue; }
+
+    const byKind = (table[code] ??= {});
+    const byDir = (byKind[info.kind] ??= {});
+    const cur = (byDir[info.dir] ??= { first: mins, last: mins, headsigns: new Map() });
+    if (mins < cur.first) cur.first = mins;
+    if (mins > cur.last) cur.last = mins;
+    // The label is whichever destination most trips in this direction show,
+    // so a handful of short workings cannot rename the whole direction.
+    cur.headsigns.set(info.headsign, (cur.headsigns.get(info.headsign) ?? 0) + 1);
+  }
+
+  // Render for display, and drop any station that ended up with nothing.
+  const out = {};
+  for (const [code, kinds] of Object.entries(table)) {
+    const rendered = {};
+    for (const [kind, heads] of Object.entries(kinds)) {
+      const entries = Object.values(heads)
+        .map((v) => {
+          const [towards] = [...v.headsigns.entries()].sort((a, b) => b[1] - a[1])[0];
+          return { towards, first: toDisplay(v.first), last: toDisplay(v.last) };
+        })
+        .sort((a, b) => a.towards.localeCompare(b.towards));
+      if (entries.length) rendered[kind] = entries;
+    }
+    if (Object.keys(rendered).length) out[code] = rendered;
+  }
+
+  await writeFile(
+    new URL("../src/data/train-times.json", import.meta.url),
+    JSON.stringify(
+      {
+        _source: {
+          dataset: "GTFS Schedule (Train), LTA DataMall",
+          endpoint: ENDPOINT,
+          feedTimestamp: timestamp,
+          importedAt: new Date().toISOString().slice(0, 10),
+          derivation:
+            "First and last are the earliest and latest departure_time in stop_times.txt for that station, grouped by service day (calendar.txt) and by trip_headsign. Times past midnight are expressed by GTFS as 24:xx and later; they are wrapped for display but belong to the previous operating day.",
+        },
+        stations: out,
+      },
+      null,
+      2,
+    ) + "\n",
+  );
+
+  const stationCount = Object.keys(out).length;
+  console.log(`train-times.json: ${stationCount} stations`);
+  console.log(`  feed timestamp: ${timestamp}`);
+  console.log(`  stop_times rows skipped (no headsign or unknown stop): ${skipped}`);
+} finally {
+  await rm(dir, { recursive: true, force: true });
+}

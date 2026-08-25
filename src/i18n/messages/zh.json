@@ -358,5 +358,14 @@
   "map.panUp": "向上移动",
   "map.panDown": "向下移动",
   "map.panLeft": "向左移动",
-  "map.panRight": "向右移动"
+  "map.panRight": "向右移动",
+  "times.title": "首班车与末班车",
+  "times.weekday": "周一至周五",
+  "times.saturday": "周六",
+  "times.sunday": "周日及公共假期",
+  "times.towards": "开往{station}",
+  "times.first": "首班",
+  "times.last": "末班",
+  "times.source": "来自陆路交通管理局公布的列车时刻表。午夜之后的时间属于前一晚。",
+  "times.none": "陆交局的时刻表尚未涵盖此站。"
 }

@@ -358,5 +358,14 @@
   "map.panUp": "Pan up",
   "map.panDown": "Pan down",
   "map.panLeft": "Pan left",
-  "map.panRight": "Pan right"
+  "map.panRight": "Pan right",
+  "times.title": "First and last train",
+  "times.weekday": "Mon–Fri",
+  "times.saturday": "Saturday",
+  "times.sunday": "Sun & PH",
+  "times.towards": "Towards {station}",
+  "times.first": "First",
+  "times.last": "Last",
+  "times.source": "From LTA's published train timetable. Times past midnight belong to the night before.",
+  "times.none": "LTA's timetable does not cover this station yet."
 }

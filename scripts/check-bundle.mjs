@@ -36,6 +36,9 @@ const NEEDLES = [
   { name: "stations.json", needle: "武吉巴督" },
   // Translated prose exists only in trivia.translated.json.
   { name: "trivia.translated.json", needle: "地铁转换站" },
+  // The whole network's timetable is ~200 KB; only the rendered station's rows
+  // should ever cross to the browser.
+  { name: "train-times.json", needle: "GTFS Schedule (Train), LTA DataMall" },
 ];
 
 async function jsFiles(dir) {

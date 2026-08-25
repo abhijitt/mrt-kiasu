@@ -1,0 +1,8062 @@
+{
+  "_source": {
+    "dataset": "GTFS Schedule (Train), LTA DataMall",
+    "endpoint": "https://datamall2.mytransport.sg/ltaodataservice/GTFSScheduleTrain",
+    "feedTimestamp": "2026-08-26T00:58:11+08:00",
+    "importedAt": "2026-08-25",
+    "derivation": "First and last are the earliest and latest departure_time in stop_times.txt for that station, grouped by service day (calendar.txt) and by trip_headsign. Times past midnight are expressed by GTFS as 24:xx and later; they are wrapped for display but belong to the previous operating day."
+  },
+  "stations": {
+    "DT35": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:54",
+          "last": "23:41"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:36",
+          "last": "23:44"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:36",
+          "last": "23:39"
+        }
+      ]
+    },
+    "DT34": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:57",
+          "last": "23:43"
+        },
+        {
+          "towards": "Expo",
+          "first": "07:19",
+          "last": "02:02"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:39",
+          "last": "23:46"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:54",
+          "last": "00:58"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:39",
+          "last": "23:42"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:59",
+          "last": "02:02"
+        }
+      ]
+    },
+    "DT33": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:01",
+          "last": "23:47"
+        },
+        {
+          "towards": "Expo",
+          "first": "07:16",
+          "last": "01:58"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:42",
+          "last": "23:50"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:50",
+          "last": "00:55"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:43",
+          "last": "23:45"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:56",
+          "last": "01:58"
+        }
+      ]
+    },
+    "DT32": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:04",
+          "last": "23:51"
+        },
+        {
+          "towards": "Expo",
+          "first": "07:12",
+          "last": "01:54"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:46",
+          "last": "23:53"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:47",
+          "last": "00:51"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:46",
+          "last": "23:49"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:52",
+          "last": "01:55"
+        }
+      ]
+    },
+    "DT31": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:07",
+          "last": "23:53"
+        },
+        {
+          "towards": "Expo",
+          "first": "07:09",
+          "last": "01:52"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:48",
+          "last": "23:56"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:44",
+          "last": "00:49"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:49",
+          "last": "23:52"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:49",
+          "last": "01:52"
+        }
+      ]
+    },
+    "DT30": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:10",
+          "last": "23:56"
+        },
+        {
+          "towards": "Expo",
+          "first": "07:07",
+          "last": "01:49"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:51",
+          "last": "23:58"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:42",
+          "last": "00:46"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:52",
+          "last": "23:54"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:47",
+          "last": "01:49"
+        }
+      ]
+    },
+    "DT29": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:12",
+          "last": "23:59"
+        },
+        {
+          "towards": "Expo",
+          "first": "07:04",
+          "last": "01:46"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:53",
+          "last": "00:01"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:39",
+          "last": "00:44"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:54",
+          "last": "23:57"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:44",
+          "last": "01:47"
+        }
+      ]
+    },
+    "DT28": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:15",
+          "last": "00:01"
+        },
+        {
+          "towards": "Expo",
+          "first": "07:01",
+          "last": "01:44"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:56",
+          "last": "00:03"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:37",
+          "last": "00:41"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:57",
+          "last": "00:00"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:41",
+          "last": "01:44"
+        }
+      ]
+    },
+    "DT27": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:18",
+          "last": "00:04"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:59",
+          "last": "01:41"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "05:58",
+          "last": "00:06"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:34",
+          "last": "00:39"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:00",
+          "last": "00:02"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:39",
+          "last": "01:41"
+        }
+      ]
+    },
+    "DT26": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:21",
+          "last": "00:08"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:55",
+          "last": "01:37"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:02",
+          "last": "00:09"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:31",
+          "last": "00:35"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:03",
+          "last": "00:06"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:35",
+          "last": "01:38"
+        }
+      ]
+    },
+    "DT25": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:23",
+          "last": "00:09"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:53",
+          "last": "01:36"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:03",
+          "last": "00:11"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:29",
+          "last": "00:34"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:05",
+          "last": "00:08"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:33",
+          "last": "01:36"
+        }
+      ]
+    },
+    "DT24": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:26",
+          "last": "00:12"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:51",
+          "last": "01:33"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:06",
+          "last": "00:13"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:27",
+          "last": "00:31"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:08",
+          "last": "00:10"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:31",
+          "last": "01:33"
+        }
+      ]
+    },
+    "DT23": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:28",
+          "last": "00:15"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:48",
+          "last": "01:30"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:08",
+          "last": "00:16"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:24",
+          "last": "00:29"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:10",
+          "last": "00:13"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:28",
+          "last": "01:31"
+        }
+      ]
+    },
+    "DT22": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:31",
+          "last": "00:17"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:45",
+          "last": "01:28"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:11",
+          "last": "00:18"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:22",
+          "last": "00:26"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:13",
+          "last": "00:16"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:25",
+          "last": "01:28"
+        }
+      ]
+    },
+    "DT21": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:34",
+          "last": "00:20"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:43",
+          "last": "01:25"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:13",
+          "last": "00:21"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:19",
+          "last": "00:24"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:16",
+          "last": "00:18"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:23",
+          "last": "01:25"
+        }
+      ]
+    },
+    "DT20": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:36",
+          "last": "00:23"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:40",
+          "last": "01:22"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:16",
+          "last": "00:23"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:17",
+          "last": "00:21"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:18",
+          "last": "00:21"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:20",
+          "last": "01:23"
+        }
+      ]
+    },
+    "DT19": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:39",
+          "last": "00:25"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:37",
+          "last": "01:20"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:18",
+          "last": "00:26"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:14",
+          "last": "00:19"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:21",
+          "last": "00:24"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:17",
+          "last": "01:20"
+        }
+      ]
+    },
+    "DT18": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:41",
+          "last": "00:27"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:36",
+          "last": "01:18"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:20",
+          "last": "00:27"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:13",
+          "last": "00:17"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:23",
+          "last": "00:25"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:16",
+          "last": "01:18"
+        }
+      ]
+    },
+    "DT17": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:43",
+          "last": "00:30"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:33",
+          "last": "01:15"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:22",
+          "last": "00:30"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:10",
+          "last": "00:15"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:25",
+          "last": "00:28"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:13",
+          "last": "01:16"
+        }
+      ]
+    },
+    "DT16": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:46",
+          "last": "00:32"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:30",
+          "last": "01:13"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:25",
+          "last": "00:32"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:08",
+          "last": "00:12"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:28",
+          "last": "00:31"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:10",
+          "last": "01:13"
+        }
+      ]
+    },
+    "DT15": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:49",
+          "last": "00:35"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:28",
+          "last": "01:10"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:27",
+          "last": "00:35"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:05",
+          "last": "00:10"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:31",
+          "last": "00:33"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:08",
+          "last": "01:10"
+        }
+      ]
+    },
+    "DT14": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:51",
+          "last": "00:38"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:25",
+          "last": "01:07"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:30",
+          "last": "00:37"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:03",
+          "last": "00:07"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:33",
+          "last": "00:36"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:05",
+          "last": "01:08"
+        }
+      ]
+    },
+    "DT13": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:53",
+          "last": "00:39"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:23",
+          "last": "01:06"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:31",
+          "last": "00:39"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:01",
+          "last": "00:06"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:35",
+          "last": "00:38"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:03",
+          "last": "01:06"
+        }
+      ]
+    },
+    "DT12": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:56",
+          "last": "00:42"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:21",
+          "last": "01:03"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:34",
+          "last": "00:41"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:59",
+          "last": "00:03"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:38",
+          "last": "00:40"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:01",
+          "last": "01:03"
+        }
+      ]
+    },
+    "DT11": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:59",
+          "last": "00:46"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:17",
+          "last": "00:59"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:37",
+          "last": "00:45"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:55",
+          "last": "00:00"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:41",
+          "last": "00:44"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:57",
+          "last": "01:00"
+        }
+      ]
+    },
+    "DT10": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "07:02",
+          "last": "00:48"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:14",
+          "last": "00:57"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:40",
+          "last": "00:47"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:53",
+          "last": "23:57"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:44",
+          "last": "00:47"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:54",
+          "last": "00:57"
+        }
+      ]
+    },
+    "DT9": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "07:05",
+          "last": "00:51"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:12",
+          "last": "00:54"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:42",
+          "last": "00:50"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:50",
+          "last": "23:55"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:47",
+          "last": "00:49"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:52",
+          "last": "00:54"
+        }
+      ]
+    },
+    "DT8": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "07:07",
+          "last": "00:54"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:09",
+          "last": "00:51"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:45",
+          "last": "00:52"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:48",
+          "last": "23:52"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:49",
+          "last": "00:52"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:49",
+          "last": "00:52"
+        }
+      ]
+    },
+    "DT7": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "07:10",
+          "last": "00:56"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:06",
+          "last": "00:49"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:47",
+          "last": "00:55"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:45",
+          "last": "23:50"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:52",
+          "last": "00:55"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:46",
+          "last": "00:49"
+        }
+      ]
+    },
+    "DT6": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "07:13",
+          "last": "00:59"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:04",
+          "last": "00:46"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:50",
+          "last": "00:57"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:43",
+          "last": "23:47"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:55",
+          "last": "00:57"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:44",
+          "last": "00:46"
+        }
+      ]
+    },
+    "DT5": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "07:15",
+          "last": "01:02"
+        },
+        {
+          "towards": "Expo",
+          "first": "06:01",
+          "last": "00:43"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:52",
+          "last": "01:00"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:40",
+          "last": "23:45"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:57",
+          "last": "01:00"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:41",
+          "last": "00:44"
+        }
+      ]
+    },
+    "DT4": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "07:19",
+          "last": "01:05"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:57",
+          "last": "00:40"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:56",
+          "last": "01:03"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:37",
+          "last": "23:41"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "07:01",
+          "last": "01:04"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:37",
+          "last": "00:40"
+        }
+      ]
+    },
+    "DT3": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "07:22",
+          "last": "01:08"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:55",
+          "last": "00:37"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "06:58",
+          "last": "01:06"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:34",
+          "last": "23:39"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "07:04",
+          "last": "01:06"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:35",
+          "last": "00:37"
+        }
+      ]
+    },
+    "DT2": {
+      "sunday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "07:23",
+          "last": "01:10"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:53",
+          "last": "00:35"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "07:00",
+          "last": "01:07"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:33",
+          "last": "23:37"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bukit Panjang",
+          "first": "07:05",
+          "last": "01:08"
+        },
+        {
+          "towards": "Expo",
+          "first": "05:33",
+          "last": "00:36"
+        }
+      ]
+    },
+    "DT1": {
+      "sunday": [
+        {
+          "towards": "Expo",
+          "first": "05:50",
+          "last": "00:33"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Expo",
+          "first": "05:30",
+          "last": "23:35"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Expo",
+          "first": "05:30",
+          "last": "00:33"
+        }
+      ]
+    },
+    "CG": {
+      "sunday": [
+        {
+          "towards": "Changi Airport",
+          "first": "05:47",
+          "last": "23:54"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Changi Airport",
+          "first": "05:20",
+          "last": "23:55"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Changi Airport",
+          "first": "05:20",
+          "last": "23:57"
+        }
+      ]
+    },
+    "CG1": {
+      "sunday": [
+        {
+          "towards": "Changi Airport",
+          "first": "05:51",
+          "last": "23:58"
+        },
+        {
+          "towards": "Tanah Merah",
+          "first": "06:05",
+          "last": "23:30"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Changi Airport",
+          "first": "05:24",
+          "last": "23:59"
+        },
+        {
+          "towards": "Tanah Merah",
+          "first": "05:37",
+          "last": "23:32"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Changi Airport",
+          "first": "05:24",
+          "last": "00:01"
+        },
+        {
+          "towards": "Tanah Merah",
+          "first": "05:37",
+          "last": "23:33"
+        }
+      ]
+    },
+    "CG2": {
+      "sunday": [
+        {
+          "towards": "Tanah Merah",
+          "first": "05:59",
+          "last": "23:25"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Tanah Merah",
+          "first": "05:31",
+          "last": "23:26"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Tanah Merah",
+          "first": "05:31",
+          "last": "23:27"
+        }
+      ]
+    },
+    "EW33": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:49",
+          "last": "23:21"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:19",
+          "last": "23:19"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:19",
+          "last": "23:22"
+        }
+      ]
+    },
+    "EW32": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:53",
+          "last": "23:24"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:34",
+          "last": "01:04"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:23",
+          "last": "23:23"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:08",
+          "last": "01:05"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:23",
+          "last": "23:26"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:08",
+          "last": "01:04"
+        }
+      ]
+    },
+    "EW31": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:56",
+          "last": "23:27"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:31",
+          "last": "01:01"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:26",
+          "last": "23:26"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:05",
+          "last": "01:03"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:26",
+          "last": "23:29"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:05",
+          "last": "01:01"
+        }
+      ]
+    },
+    "EW30": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:59",
+          "last": "23:31"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:28",
+          "last": "00:58"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:29",
+          "last": "23:29"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:02",
+          "last": "00:59"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:29",
+          "last": "23:32"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:02",
+          "last": "00:58"
+        }
+      ]
+    },
+    "EW29": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:04",
+          "last": "23:35"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:23",
+          "last": "00:53"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:34",
+          "last": "23:34"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:57",
+          "last": "00:54"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:34",
+          "last": "23:37"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:57",
+          "last": "00:53"
+        }
+      ]
+    },
+    "EW28": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:08",
+          "last": "23:39"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:19",
+          "last": "00:49"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:38",
+          "last": "23:38"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:53",
+          "last": "00:51"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:38",
+          "last": "23:41"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:53",
+          "last": "00:49"
+        }
+      ]
+    },
+    "EW27": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:10",
+          "last": "23:42"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:17",
+          "last": "00:47"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:40",
+          "last": "23:40"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:51",
+          "last": "00:48"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:40",
+          "last": "23:43"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:51",
+          "last": "00:47"
+        }
+      ]
+    },
+    "EW26": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:14",
+          "last": "23:45"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:13",
+          "last": "00:43"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:44",
+          "last": "23:44"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:47",
+          "last": "00:44"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:44",
+          "last": "23:47"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:47",
+          "last": "00:43"
+        }
+      ]
+    },
+    "EW25": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:17",
+          "last": "23:48"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:10",
+          "last": "00:40"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:47",
+          "last": "23:47"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:44",
+          "last": "00:42"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:47",
+          "last": "23:50"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:44",
+          "last": "00:40"
+        }
+      ]
+    },
+    "EW24": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:20",
+          "last": "23:52"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:07",
+          "last": "00:37"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:50",
+          "last": "23:50"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:41",
+          "last": "00:38"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:50",
+          "last": "23:53"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:41",
+          "last": "00:37"
+        }
+      ]
+    },
+    "EW23": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:25",
+          "last": "23:56"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "07:02",
+          "last": "00:32"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:55",
+          "last": "23:55"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:36",
+          "last": "00:33"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:55",
+          "last": "23:58"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:36",
+          "last": "00:32"
+        }
+      ]
+    },
+    "EW22": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:29",
+          "last": "00:00"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:58",
+          "last": "00:28"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:59",
+          "last": "23:59"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:32",
+          "last": "00:30"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "05:59",
+          "last": "00:02"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:32",
+          "last": "00:28"
+        }
+      ]
+    },
+    "EW21": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:31",
+          "last": "00:03"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:56",
+          "last": "00:26"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:01",
+          "last": "00:01"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:30",
+          "last": "00:27"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:01",
+          "last": "00:04"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:30",
+          "last": "00:26"
+        }
+      ]
+    },
+    "EW20": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:34",
+          "last": "00:05"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:53",
+          "last": "00:23"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:04",
+          "last": "00:04"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:27",
+          "last": "00:24"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:04",
+          "last": "00:07"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:27",
+          "last": "00:23"
+        }
+      ]
+    },
+    "EW19": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:37",
+          "last": "00:08"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:50",
+          "last": "00:20"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:07",
+          "last": "00:07"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:24",
+          "last": "00:22"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:07",
+          "last": "00:10"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:24",
+          "last": "00:20"
+        }
+      ]
+    },
+    "EW18": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:40",
+          "last": "00:12"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:47",
+          "last": "00:17"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:10",
+          "last": "00:10"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:21",
+          "last": "00:18"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:10",
+          "last": "00:13"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:21",
+          "last": "00:17"
+        }
+      ]
+    },
+    "EW17": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:43",
+          "last": "00:14"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:44",
+          "last": "00:14"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:13",
+          "last": "00:13"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:18",
+          "last": "00:15"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:13",
+          "last": "00:16"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:18",
+          "last": "00:14"
+        }
+      ]
+    },
+    "EW16": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:47",
+          "last": "00:18"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:40",
+          "last": "00:10"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:17",
+          "last": "00:17"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:14",
+          "last": "00:12"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:17",
+          "last": "00:20"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:14",
+          "last": "00:10"
+        }
+      ]
+    },
+    "EW15": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:49",
+          "last": "00:21"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:38",
+          "last": "00:08"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:19",
+          "last": "00:19"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:12",
+          "last": "00:09"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:19",
+          "last": "00:22"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:12",
+          "last": "00:08"
+        }
+      ]
+    },
+    "EW14": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:52",
+          "last": "00:23"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:35",
+          "last": "00:05"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:22",
+          "last": "00:22"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:09",
+          "last": "00:06"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:22",
+          "last": "00:25"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:09",
+          "last": "00:05"
+        }
+      ]
+    },
+    "EW13": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:55",
+          "last": "00:26"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:32",
+          "last": "00:02"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:25",
+          "last": "00:25"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:06",
+          "last": "00:04"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:25",
+          "last": "00:28"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:06",
+          "last": "00:02"
+        }
+      ]
+    },
+    "EW12": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:57",
+          "last": "00:29"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:30",
+          "last": "00:00"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:27",
+          "last": "00:27"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:04",
+          "last": "00:01"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:27",
+          "last": "00:30"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:04",
+          "last": "00:00"
+        }
+      ]
+    },
+    "EW11": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "07:00",
+          "last": "00:31"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:27",
+          "last": "23:57"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:30",
+          "last": "00:30"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:01",
+          "last": "23:58"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:30",
+          "last": "00:33"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:01",
+          "last": "23:57"
+        }
+      ]
+    },
+    "EW10": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "07:03",
+          "last": "00:34"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:24",
+          "last": "23:54"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:33",
+          "last": "00:33"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:58",
+          "last": "23:56"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:33",
+          "last": "00:36"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:58",
+          "last": "23:54"
+        }
+      ]
+    },
+    "EW9": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "07:06",
+          "last": "00:38"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:21",
+          "last": "23:51"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:36",
+          "last": "00:36"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:55",
+          "last": "23:52"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:36",
+          "last": "00:39"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:55",
+          "last": "23:51"
+        }
+      ]
+    },
+    "EW8": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "07:09",
+          "last": "00:40"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:18",
+          "last": "23:48"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:39",
+          "last": "00:39"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:52",
+          "last": "23:49"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:39",
+          "last": "00:42"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:52",
+          "last": "23:48"
+        }
+      ]
+    },
+    "EW7": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "07:12",
+          "last": "00:43"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:15",
+          "last": "23:45"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:42",
+          "last": "00:42"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:49",
+          "last": "23:47"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:42",
+          "last": "00:45"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:49",
+          "last": "23:45"
+        }
+      ]
+    },
+    "EW6": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "07:14",
+          "last": "00:46"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:13",
+          "last": "23:43"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:44",
+          "last": "00:44"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:47",
+          "last": "23:44"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:44",
+          "last": "00:47"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:47",
+          "last": "23:43"
+        }
+      ]
+    },
+    "EW5": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "07:18",
+          "last": "00:49"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:09",
+          "last": "23:39"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:48",
+          "last": "00:48"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:43",
+          "last": "23:40"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:48",
+          "last": "00:51"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:43",
+          "last": "23:39"
+        }
+      ]
+    },
+    "EW4": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "07:22",
+          "last": "00:53"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:05",
+          "last": "23:35"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:52",
+          "last": "00:52"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:39",
+          "last": "23:37"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:52",
+          "last": "00:55"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:39",
+          "last": "23:35"
+        }
+      ]
+    },
+    "EW3": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "07:25",
+          "last": "00:57"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "06:02",
+          "last": "23:32"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:55",
+          "last": "00:55"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:36",
+          "last": "23:33"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:55",
+          "last": "00:58"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:36",
+          "last": "23:32"
+        }
+      ]
+    },
+    "EW2": {
+      "sunday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "07:29",
+          "last": "01:00"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:58",
+          "last": "23:28"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:59",
+          "last": "00:59"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:32",
+          "last": "23:29"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Pasir Ris",
+          "first": "06:59",
+          "last": "01:02"
+        },
+        {
+          "towards": "Tuas Link",
+          "first": "05:32",
+          "last": "23:28"
+        }
+      ]
+    },
+    "EW1": {
+      "sunday": [
+        {
+          "towards": "Tuas Link",
+          "first": "05:54",
+          "last": "23:24"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Tuas Link",
+          "first": "05:28",
+          "last": "23:26"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Tuas Link",
+          "first": "05:28",
+          "last": "23:24"
+        }
+      ]
+    },
+    "NE1": {
+      "sunday": [
+        {
+          "towards": "Punggol Coast",
+          "first": "06:07",
+          "last": "23:53"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol Coast",
+          "first": "05:47",
+          "last": "23:56"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol Coast",
+          "first": "05:47",
+          "last": "23:55"
+        }
+      ]
+    },
+    "NE3": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:40",
+          "last": "00:05"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:12",
+          "last": "23:57"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:20",
+          "last": "00:06"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "05:52",
+          "last": "00:01"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:20",
+          "last": "00:33"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "05:52",
+          "last": "23:59"
+        }
+      ]
+    },
+    "NE4": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:39",
+          "last": "00:03"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:14",
+          "last": "23:59"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:19",
+          "last": "00:04"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "05:54",
+          "last": "00:02"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:19",
+          "last": "00:32"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "05:54",
+          "last": "00:01"
+        }
+      ]
+    },
+    "NE5": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:36",
+          "last": "00:00"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:16",
+          "last": "00:02"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:16",
+          "last": "00:01"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "05:56",
+          "last": "00:05"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:16",
+          "last": "00:29"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "05:56",
+          "last": "00:04"
+        }
+      ]
+    },
+    "NE6": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:32",
+          "last": "23:57"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:20",
+          "last": "00:05"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:12",
+          "last": "23:58"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:00",
+          "last": "00:09"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:12",
+          "last": "00:25"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:00",
+          "last": "00:07"
+        }
+      ]
+    },
+    "NE7": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:31",
+          "last": "23:55"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:22",
+          "last": "00:07"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:11",
+          "last": "23:56"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:02",
+          "last": "00:10"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:11",
+          "last": "00:24"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:02",
+          "last": "00:09"
+        }
+      ]
+    },
+    "NE8": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:29",
+          "last": "23:53"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:23",
+          "last": "00:09"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:09",
+          "last": "23:54"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:03",
+          "last": "00:12"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:09",
+          "last": "00:22"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:03",
+          "last": "00:11"
+        }
+      ]
+    },
+    "NE9": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:26",
+          "last": "23:51"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:26",
+          "last": "00:11"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:06",
+          "last": "23:52"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:06",
+          "last": "00:15"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:06",
+          "last": "00:19"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:06",
+          "last": "00:13"
+        }
+      ]
+    },
+    "NE10": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:23",
+          "last": "23:47"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:30",
+          "last": "00:15"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:03",
+          "last": "23:48"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:10",
+          "last": "00:18"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:03",
+          "last": "00:16"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:10",
+          "last": "00:17"
+        }
+      ]
+    },
+    "NE11": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:21",
+          "last": "23:45"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:31",
+          "last": "00:17"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:01",
+          "last": "23:46"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:11",
+          "last": "00:20"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:01",
+          "last": "00:14"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:11",
+          "last": "00:19"
+        }
+      ]
+    },
+    "NE12": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:18",
+          "last": "23:43"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:34",
+          "last": "00:19"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "05:58",
+          "last": "23:44"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:14",
+          "last": "00:23"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "05:58",
+          "last": "00:11"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:14",
+          "last": "00:21"
+        }
+      ]
+    },
+    "NE13": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:15",
+          "last": "23:39"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:38",
+          "last": "00:23"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "05:55",
+          "last": "23:40"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:18",
+          "last": "00:26"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "05:55",
+          "last": "00:08"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:18",
+          "last": "00:25"
+        }
+      ]
+    },
+    "NE14": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:12",
+          "last": "23:36"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:40",
+          "last": "00:26"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "05:52",
+          "last": "23:37"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:20",
+          "last": "00:29"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "05:52",
+          "last": "00:05"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:20",
+          "last": "00:28"
+        }
+      ]
+    },
+    "NE15": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:09",
+          "last": "23:34"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:43",
+          "last": "00:28"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "05:49",
+          "last": "23:35"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:23",
+          "last": "00:32"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "05:49",
+          "last": "00:02"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:23",
+          "last": "00:30"
+        }
+      ]
+    },
+    "NE16": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:07",
+          "last": "23:31"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:46",
+          "last": "00:31"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "05:47",
+          "last": "23:32"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:26",
+          "last": "00:34"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "05:47",
+          "last": "00:00"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:26",
+          "last": "00:33"
+        }
+      ]
+    },
+    "NE17": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "06:03",
+          "last": "23:27"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:49",
+          "last": "00:35"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "05:43",
+          "last": "23:28"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:29",
+          "last": "00:38"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "05:43",
+          "last": "23:56"
+        },
+        {
+          "towards": "Punggol Coast",
+          "first": "06:29",
+          "last": "00:37"
+        }
+      ]
+    },
+    "NE18": {
+      "sunday": [
+        {
+          "towards": "HarbourFront",
+          "first": "05:59",
+          "last": "23:24"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "HarbourFront",
+          "first": "05:39",
+          "last": "23:25"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "HarbourFront",
+          "first": "05:39",
+          "last": "23:52"
+        }
+      ]
+    },
+    "NS28": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:38",
+          "last": "23:51"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:10",
+          "last": "23:50"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:10",
+          "last": "23:51"
+        }
+      ]
+    },
+    "NS27": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:42",
+          "last": "23:55"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:55",
+          "last": "00:10"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:14",
+          "last": "23:54"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:36",
+          "last": "00:07"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:14",
+          "last": "23:54"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:36",
+          "last": "00:08"
+        }
+      ]
+    },
+    "NS26": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:45",
+          "last": "23:58"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:52",
+          "last": "00:07"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:17",
+          "last": "23:57"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:33",
+          "last": "00:04"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:17",
+          "last": "23:57"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:33",
+          "last": "00:06"
+        }
+      ]
+    },
+    "NS25": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:47",
+          "last": "00:00"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:50",
+          "last": "00:05"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:19",
+          "last": "23:59"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:31",
+          "last": "00:02"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:19",
+          "last": "00:00"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:31",
+          "last": "00:03"
+        }
+      ]
+    },
+    "NS24": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:50",
+          "last": "00:03"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:47",
+          "last": "00:02"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:22",
+          "last": "00:02"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:28",
+          "last": "23:59"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:22",
+          "last": "00:02"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:28",
+          "last": "00:00"
+        }
+      ]
+    },
+    "NS23": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:53",
+          "last": "00:06"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:44",
+          "last": "23:59"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:25",
+          "last": "00:05"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:25",
+          "last": "23:56"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:25",
+          "last": "00:05"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:25",
+          "last": "23:58"
+        }
+      ]
+    },
+    "NS22": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:55",
+          "last": "00:08"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:42",
+          "last": "23:57"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:27",
+          "last": "00:07"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:23",
+          "last": "23:54"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:27",
+          "last": "00:08"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:23",
+          "last": "23:55"
+        }
+      ]
+    },
+    "NS21": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:58",
+          "last": "00:11"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:39",
+          "last": "23:54"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:30",
+          "last": "00:10"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:20",
+          "last": "23:51"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:30",
+          "last": "00:10"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:20",
+          "last": "23:52"
+        }
+      ]
+    },
+    "NS20": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:01",
+          "last": "00:14"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:36",
+          "last": "23:51"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:33",
+          "last": "00:13"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:17",
+          "last": "23:48"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:33",
+          "last": "00:13"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:17",
+          "last": "23:50"
+        }
+      ]
+    },
+    "NS19": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:03",
+          "last": "00:16"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:34",
+          "last": "23:49"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:35",
+          "last": "00:15"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:15",
+          "last": "23:46"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:35",
+          "last": "00:16"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:15",
+          "last": "23:47"
+        }
+      ]
+    },
+    "NS18": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:06",
+          "last": "00:19"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:31",
+          "last": "23:46"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:38",
+          "last": "00:18"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:12",
+          "last": "23:43"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:38",
+          "last": "00:18"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:12",
+          "last": "23:44"
+        }
+      ]
+    },
+    "NS17": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:09",
+          "last": "00:22"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:28",
+          "last": "23:43"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:41",
+          "last": "00:21"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:09",
+          "last": "23:40"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:41",
+          "last": "00:21"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:09",
+          "last": "23:42"
+        }
+      ]
+    },
+    "NS16": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:12",
+          "last": "00:25"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:25",
+          "last": "23:40"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:44",
+          "last": "00:24"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:06",
+          "last": "23:37"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:44",
+          "last": "00:25"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:06",
+          "last": "23:38"
+        }
+      ]
+    },
+    "NS15": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:15",
+          "last": "00:28"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:22",
+          "last": "23:37"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:47",
+          "last": "00:27"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:03",
+          "last": "23:34"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:47",
+          "last": "00:27"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:03",
+          "last": "23:35"
+        }
+      ]
+    },
+    "NS14": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:22",
+          "last": "00:35"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:15",
+          "last": "23:30"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:54",
+          "last": "00:34"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:56",
+          "last": "23:27"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:54",
+          "last": "00:34"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:56",
+          "last": "23:29"
+        }
+      ]
+    },
+    "NS13": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:24",
+          "last": "00:37"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:13",
+          "last": "23:28"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:56",
+          "last": "00:36"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:54",
+          "last": "23:25"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:56",
+          "last": "00:37"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:54",
+          "last": "23:26"
+        }
+      ]
+    },
+    "NS12": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:27",
+          "last": "00:40"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:10",
+          "last": "23:25"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:59",
+          "last": "00:39"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:51",
+          "last": "23:22"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "06:59",
+          "last": "00:39"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:51",
+          "last": "23:23"
+        }
+      ]
+    },
+    "NS11": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:30",
+          "last": "00:43"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:07",
+          "last": "23:22"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:02",
+          "last": "00:42"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:48",
+          "last": "23:19"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:02",
+          "last": "00:42"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:48",
+          "last": "23:21"
+        }
+      ]
+    },
+    "NS10": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:33",
+          "last": "00:46"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:04",
+          "last": "23:19"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:05",
+          "last": "00:45"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:45",
+          "last": "23:16"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:05",
+          "last": "00:46"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:45",
+          "last": "23:17"
+        }
+      ]
+    },
+    "NS9": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:37",
+          "last": "00:50"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "06:00",
+          "last": "23:15"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:09",
+          "last": "00:49"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:41",
+          "last": "23:12"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:09",
+          "last": "00:49"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:41",
+          "last": "23:13"
+        }
+      ]
+    },
+    "NS8": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:40",
+          "last": "00:53"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:57",
+          "last": "23:12"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:12",
+          "last": "00:52"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:38",
+          "last": "23:09"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:12",
+          "last": "00:52"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:38",
+          "last": "23:11"
+        }
+      ]
+    },
+    "NS7": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:43",
+          "last": "00:56"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:54",
+          "last": "23:09"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:15",
+          "last": "00:55"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:35",
+          "last": "23:06"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:15",
+          "last": "00:56"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:35",
+          "last": "23:07"
+        }
+      ]
+    },
+    "NS5": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:49",
+          "last": "01:02"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:48",
+          "last": "23:03"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:21",
+          "last": "01:01"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:29",
+          "last": "23:00"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:21",
+          "last": "01:01"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:29",
+          "last": "23:01"
+        }
+      ]
+    },
+    "NS4": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:52",
+          "last": "01:05"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:45",
+          "last": "23:00"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:24",
+          "last": "01:04"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:26",
+          "last": "22:57"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:24",
+          "last": "01:04"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:26",
+          "last": "22:59"
+        }
+      ]
+    },
+    "NS3": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:55",
+          "last": "01:08"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:42",
+          "last": "22:57"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:27",
+          "last": "01:07"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:23",
+          "last": "22:54"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:27",
+          "last": "01:08"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:23",
+          "last": "22:55"
+        }
+      ]
+    },
+    "NS2": {
+      "sunday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:58",
+          "last": "01:11"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:39",
+          "last": "22:54"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:30",
+          "last": "01:10"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:20",
+          "last": "22:51"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Jurong East",
+          "first": "07:30",
+          "last": "01:10"
+        },
+        {
+          "towards": "Marina South Pier",
+          "first": "05:20",
+          "last": "22:52"
+        }
+      ]
+    },
+    "NS1": {
+      "sunday": [
+        {
+          "towards": "Marina South Pier",
+          "first": "05:35",
+          "last": "22:50"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Marina South Pier",
+          "first": "05:16",
+          "last": "22:47"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Marina South Pier",
+          "first": "05:16",
+          "last": "22:49"
+        }
+      ]
+    },
+    "PTC": {
+      "sunday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:38",
+          "last": "00:28"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:38",
+          "last": "00:28"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:18",
+          "last": "00:29"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:18",
+          "last": "00:27"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:18",
+          "last": "00:31"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:18",
+          "last": "00:30"
+        }
+      ]
+    },
+    "PE1": {
+      "sunday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:43",
+          "last": "00:30"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:53",
+          "last": "00:40"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:24",
+          "last": "00:42"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:33",
+          "last": "17:09"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:24",
+          "last": "00:29"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:33",
+          "last": "18:13"
+        }
+      ]
+    },
+    "PE2": {
+      "sunday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:45",
+          "last": "00:32"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:51",
+          "last": "00:39"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:26",
+          "last": "00:40"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:31",
+          "last": "17:07"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:26",
+          "last": "00:31"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:31",
+          "last": "18:12"
+        }
+      ]
+    },
+    "PE3": {
+      "sunday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:46",
+          "last": "00:34"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:50",
+          "last": "00:37"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:27",
+          "last": "00:39"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:30",
+          "last": "17:06"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:27",
+          "last": "00:33"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:30",
+          "last": "18:10"
+        }
+      ]
+    },
+    "PE4": {
+      "sunday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:48",
+          "last": "00:35"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:48",
+          "last": "00:35"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:29",
+          "last": "00:38"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:28",
+          "last": "17:04"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:29",
+          "last": "00:34"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:28",
+          "last": "18:08"
+        }
+      ]
+    },
+    "PE5": {
+      "sunday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:50",
+          "last": "00:37"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:46",
+          "last": "00:34"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:31",
+          "last": "00:40"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:26",
+          "last": "17:02"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:31",
+          "last": "00:36"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:26",
+          "last": "18:07"
+        }
+      ]
+    },
+    "PE6": {
+      "sunday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:51",
+          "last": "00:39"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:45",
+          "last": "00:32"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:32",
+          "last": "00:41"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:25",
+          "last": "17:01"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:32",
+          "last": "00:38"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:25",
+          "last": "18:05"
+        }
+      ]
+    },
+    "PE7": {
+      "sunday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:53",
+          "last": "00:40"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:43",
+          "last": "00:30"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:34",
+          "last": "00:43"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:23",
+          "last": "16:59"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol East Loop (Inner)",
+          "first": "05:34",
+          "last": "00:39"
+        },
+        {
+          "towards": "Punggol East Loop (Outer)",
+          "first": "05:23",
+          "last": "18:03"
+        }
+      ]
+    },
+    "PW1": {
+      "sunday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:41",
+          "last": "00:30"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:52",
+          "last": "00:41"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:21",
+          "last": "00:30"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:32",
+          "last": "00:41"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:21",
+          "last": "00:33"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:32",
+          "last": "00:43"
+        }
+      ]
+    },
+    "PW2": {
+      "sunday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:43",
+          "last": "00:32"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:50",
+          "last": "00:40"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:23",
+          "last": "00:32"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:30",
+          "last": "00:39"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:23",
+          "last": "00:35"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:30",
+          "last": "00:42"
+        }
+      ]
+    },
+    "PW3": {
+      "sunday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:44",
+          "last": "00:33"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:49",
+          "last": "00:38"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:24",
+          "last": "00:33"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:29",
+          "last": "00:38"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:24",
+          "last": "00:37"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:29",
+          "last": "00:40"
+        }
+      ]
+    },
+    "PW4": {
+      "sunday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:46",
+          "last": "00:35"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:47",
+          "last": "00:36"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:26",
+          "last": "00:35"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:27",
+          "last": "00:36"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:26",
+          "last": "00:38"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:27",
+          "last": "00:38"
+        }
+      ]
+    },
+    "PW5": {
+      "sunday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:48",
+          "last": "00:37"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:45",
+          "last": "00:35"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:28",
+          "last": "00:37"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:25",
+          "last": "00:34"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:28",
+          "last": "00:40"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:25",
+          "last": "00:37"
+        }
+      ]
+    },
+    "PW6": {
+      "sunday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:49",
+          "last": "00:38"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:44",
+          "last": "00:33"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:29",
+          "last": "00:38"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:24",
+          "last": "00:33"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:29",
+          "last": "00:42"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:24",
+          "last": "00:35"
+        }
+      ]
+    },
+    "PW7": {
+      "sunday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:51",
+          "last": "00:40"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:42",
+          "last": "00:31"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:31",
+          "last": "00:40"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:22",
+          "last": "00:31"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Punggol West Loop (Inner)",
+          "first": "05:31",
+          "last": "00:43"
+        },
+        {
+          "towards": "Punggol West Loop (Outer)",
+          "first": "05:22",
+          "last": "00:33"
+        }
+      ]
+    },
+    "STC": {
+      "sunday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:38",
+          "last": "00:33"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:38",
+          "last": "00:33"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:18",
+          "last": "00:33"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:18",
+          "last": "00:31"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:18",
+          "last": "00:32"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:18",
+          "last": "00:32"
+        }
+      ]
+    },
+    "SE5": {
+      "sunday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:49",
+          "last": "00:36"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:56",
+          "last": "00:43"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:29",
+          "last": "00:36"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:36",
+          "last": "00:41"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:29",
+          "last": "00:35"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:36",
+          "last": "00:42"
+        }
+      ]
+    },
+    "SE4": {
+      "sunday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:52",
+          "last": "00:39"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:53",
+          "last": "00:40"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:32",
+          "last": "00:39"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:33",
+          "last": "00:38"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:32",
+          "last": "00:38"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:33",
+          "last": "00:39"
+        }
+      ]
+    },
+    "SE3": {
+      "sunday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:53",
+          "last": "00:41"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:51",
+          "last": "00:39"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:33",
+          "last": "00:41"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:31",
+          "last": "00:36"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:33",
+          "last": "00:40"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:31",
+          "last": "00:38"
+        }
+      ]
+    },
+    "SE2": {
+      "sunday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:55",
+          "last": "00:42"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:50",
+          "last": "00:37"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:35",
+          "last": "00:42"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:30",
+          "last": "00:35"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:35",
+          "last": "00:41"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:30",
+          "last": "00:36"
+        }
+      ]
+    },
+    "SE1": {
+      "sunday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:57",
+          "last": "00:44"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:48",
+          "last": "00:35"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:37",
+          "last": "00:44"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:28",
+          "last": "00:33"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "SengKang East Loop (Inner)",
+          "first": "05:37",
+          "last": "00:43"
+        },
+        {
+          "towards": "SengKang East Loop (Outer)",
+          "first": "05:28",
+          "last": "00:34"
+        }
+      ]
+    },
+    "SW1": {
+      "sunday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:42",
+          "last": "00:28"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:54",
+          "last": "00:40"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:21",
+          "last": "00:32"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:34",
+          "last": "00:47"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:21",
+          "last": "00:31"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:34",
+          "last": "00:44"
+        }
+      ]
+    },
+    "SW2": {
+      "sunday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:44",
+          "last": "00:30"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:52",
+          "last": "00:38"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:23",
+          "last": "00:34"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:32",
+          "last": "00:45"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:23",
+          "last": "00:33"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:32",
+          "last": "00:42"
+        }
+      ]
+    },
+    "SW3": {
+      "sunday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:45",
+          "last": "00:32"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:50",
+          "last": "00:37"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:24",
+          "last": "00:35"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:30",
+          "last": "00:43"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:24",
+          "last": "00:34"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:30",
+          "last": "00:40"
+        }
+      ]
+    },
+    "SW4": {
+      "sunday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:47",
+          "last": "00:33"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:49",
+          "last": "00:35"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:26",
+          "last": "00:37"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:29",
+          "last": "00:42"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:26",
+          "last": "00:36"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:29",
+          "last": "00:39"
+        }
+      ]
+    },
+    "SW5": {
+      "sunday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:49",
+          "last": "00:35"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:47",
+          "last": "00:33"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:28",
+          "last": "00:39"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:27",
+          "last": "00:40"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:28",
+          "last": "00:38"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:27",
+          "last": "00:37"
+        }
+      ]
+    },
+    "SW6": {
+      "sunday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:50",
+          "last": "00:37"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:45",
+          "last": "00:32"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:29",
+          "last": "00:40"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:25",
+          "last": "00:38"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:29",
+          "last": "00:39"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:25",
+          "last": "00:35"
+        }
+      ]
+    },
+    "SW7": {
+      "sunday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:52",
+          "last": "00:38"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:44",
+          "last": "00:30"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:31",
+          "last": "00:42"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:24",
+          "last": "00:37"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:31",
+          "last": "00:41"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:24",
+          "last": "00:34"
+        }
+      ]
+    },
+    "SW8": {
+      "sunday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:54",
+          "last": "00:40"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:42",
+          "last": "00:28"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:33",
+          "last": "00:44"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:22",
+          "last": "00:35"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "SengKang West Loop (Inner)",
+          "first": "05:33",
+          "last": "00:43"
+        },
+        {
+          "towards": "SengKang West Loop (Outer)",
+          "first": "05:22",
+          "last": "00:32"
+        }
+      ]
+    },
+    "TE1": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:56",
+          "last": "23:29"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:36",
+          "last": "23:30"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:36",
+          "last": "23:30"
+        }
+      ]
+    },
+    "TE2": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:59",
+          "last": "23:31"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "07:17",
+          "last": "00:50"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:39",
+          "last": "23:33"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "07:06",
+          "last": "00:51"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:39",
+          "last": "23:33"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "07:06",
+          "last": "00:51"
+        }
+      ]
+    },
+    "TE3": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:02",
+          "last": "23:33"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "07:14",
+          "last": "00:47"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:42",
+          "last": "23:36"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "07:03",
+          "last": "00:49"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:42",
+          "last": "23:36"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "07:03",
+          "last": "00:48"
+        }
+      ]
+    },
+    "TE4": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:09",
+          "last": "23:40"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "07:07",
+          "last": "00:40"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:49",
+          "last": "23:43"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:56",
+          "last": "00:41"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:49",
+          "last": "23:43"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:56",
+          "last": "00:41"
+        }
+      ]
+    },
+    "TE5": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:14",
+          "last": "23:44"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "07:02",
+          "last": "00:35"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:54",
+          "last": "23:48"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:51",
+          "last": "00:36"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:54",
+          "last": "23:48"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:51",
+          "last": "00:36"
+        }
+      ]
+    },
+    "TE6": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:17",
+          "last": "23:46"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:59",
+          "last": "00:32"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:57",
+          "last": "23:51"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:48",
+          "last": "00:34"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:57",
+          "last": "23:51"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:48",
+          "last": "00:33"
+        }
+      ]
+    },
+    "TE7": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:18",
+          "last": "23:47"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:58",
+          "last": "00:31"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:58",
+          "last": "23:52"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:47",
+          "last": "00:32"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "05:58",
+          "last": "23:52"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:47",
+          "last": "00:32"
+        }
+      ]
+    },
+    "TE8": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:21",
+          "last": "23:49"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:55",
+          "last": "00:28"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:01",
+          "last": "23:55"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:44",
+          "last": "00:29"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:01",
+          "last": "23:55"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:44",
+          "last": "00:29"
+        }
+      ]
+    },
+    "TE9": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:25",
+          "last": "23:52"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:51",
+          "last": "00:24"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:05",
+          "last": "23:59"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:40",
+          "last": "00:26"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:05",
+          "last": "23:59"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:40",
+          "last": "00:25"
+        }
+      ]
+    },
+    "TE11": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:30",
+          "last": "23:57"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:46",
+          "last": "00:19"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:10",
+          "last": "00:04"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:35",
+          "last": "00:20"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:10",
+          "last": "00:04"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:35",
+          "last": "00:20"
+        }
+      ]
+    },
+    "TE12": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:33",
+          "last": "23:59"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:43",
+          "last": "00:16"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:13",
+          "last": "00:07"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:32",
+          "last": "00:17"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:13",
+          "last": "00:07"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:32",
+          "last": "00:17"
+        }
+      ]
+    },
+    "TE13": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:35",
+          "last": "00:00"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:41",
+          "last": "00:14"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:15",
+          "last": "00:09"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:30",
+          "last": "00:16"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:15",
+          "last": "00:09"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:30",
+          "last": "00:15"
+        }
+      ]
+    },
+    "TE14": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:36",
+          "last": "00:01"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:40",
+          "last": "00:13"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:16",
+          "last": "00:10"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:29",
+          "last": "00:14"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:16",
+          "last": "00:10"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:29",
+          "last": "00:14"
+        }
+      ]
+    },
+    "TE15": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:38",
+          "last": "00:02"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:38",
+          "last": "00:11"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:18",
+          "last": "00:12"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:27",
+          "last": "00:12"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:18",
+          "last": "00:12"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:27",
+          "last": "00:12"
+        }
+      ]
+    },
+    "TE16": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:40",
+          "last": "00:03"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:36",
+          "last": "00:09"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:20",
+          "last": "00:14"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:25",
+          "last": "00:11"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:20",
+          "last": "00:14"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:25",
+          "last": "00:10"
+        }
+      ]
+    },
+    "TE17": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:41",
+          "last": "00:04"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:35",
+          "last": "00:08"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:21",
+          "last": "00:15"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:24",
+          "last": "00:09"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:21",
+          "last": "00:15"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:24",
+          "last": "00:09"
+        }
+      ]
+    },
+    "TE18": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:43",
+          "last": "00:05"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:33",
+          "last": "00:06"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:23",
+          "last": "00:17"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:22",
+          "last": "00:07"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:23",
+          "last": "00:17"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:22",
+          "last": "00:07"
+        }
+      ]
+    },
+    "TE19": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:45",
+          "last": "00:06"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:31",
+          "last": "00:04"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:25",
+          "last": "00:19"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:20",
+          "last": "00:06"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:25",
+          "last": "00:19"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:20",
+          "last": "00:05"
+        }
+      ]
+    },
+    "TE20": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:46",
+          "last": "00:07"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:30",
+          "last": "00:03"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:26",
+          "last": "00:20"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:19",
+          "last": "00:04"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:26",
+          "last": "00:20"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:19",
+          "last": "00:04"
+        }
+      ]
+    },
+    "TE22": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:49",
+          "last": "00:09"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:27",
+          "last": "00:00"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:29",
+          "last": "00:23"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:16",
+          "last": "00:01"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:29",
+          "last": "00:23"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:16",
+          "last": "00:01"
+        }
+      ]
+    },
+    "TE23": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:54",
+          "last": "00:13"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:22",
+          "last": "23:55"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:34",
+          "last": "00:28"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:11",
+          "last": "23:57"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:34",
+          "last": "00:28"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:11",
+          "last": "23:56"
+        }
+      ]
+    },
+    "TE24": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:56",
+          "last": "00:15"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:20",
+          "last": "23:53"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:36",
+          "last": "00:30"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:09",
+          "last": "23:54"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:36",
+          "last": "00:30"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:09",
+          "last": "23:54"
+        }
+      ]
+    },
+    "TE25": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:59",
+          "last": "00:17"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:17",
+          "last": "23:50"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:39",
+          "last": "00:33"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:06",
+          "last": "23:51"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:39",
+          "last": "00:33"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:06",
+          "last": "23:51"
+        }
+      ]
+    },
+    "TE26": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "07:01",
+          "last": "00:18"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:15",
+          "last": "23:48"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:41",
+          "last": "00:35"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:04",
+          "last": "23:50"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:41",
+          "last": "00:35"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:04",
+          "last": "23:49"
+        }
+      ]
+    },
+    "TE27": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "07:03",
+          "last": "00:20"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:13",
+          "last": "23:46"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:43",
+          "last": "00:37"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:02",
+          "last": "23:47"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:43",
+          "last": "00:37"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:02",
+          "last": "23:47"
+        }
+      ]
+    },
+    "TE28": {
+      "sunday": [
+        {
+          "towards": "Bayshore",
+          "first": "07:06",
+          "last": "00:22"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "06:10",
+          "last": "23:43"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:46",
+          "last": "00:40"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "05:59",
+          "last": "23:44"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Bayshore",
+          "first": "06:46",
+          "last": "00:40"
+        },
+        {
+          "towards": "Woodlands North",
+          "first": "05:59",
+          "last": "23:44"
+        }
+      ]
+    },
+    "TE29": {
+      "sunday": [
+        {
+          "towards": "Woodlands North",
+          "first": "06:07",
+          "last": "23:40"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Woodlands North",
+          "first": "05:56",
+          "last": "23:42"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Woodlands North",
+          "first": "05:56",
+          "last": "23:41"
+        }
+      ]
+    },
+    "BP1": {
+      "sunday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:32",
+          "last": "23:30"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:32",
+          "last": "23:30"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:13",
+          "last": "23:33"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:13",
+          "last": "23:35"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:13",
+          "last": "23:33"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:13",
+          "last": "23:33"
+        }
+      ]
+    },
+    "BP2": {
+      "sunday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:34",
+          "last": "23:59"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:34",
+          "last": "23:59"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:15",
+          "last": "00:01"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:15",
+          "last": "00:03"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:15",
+          "last": "00:02"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:15",
+          "last": "00:02"
+        }
+      ]
+    },
+    "BP3": {
+      "sunday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:36",
+          "last": "23:57"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:36",
+          "last": "23:57"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:17",
+          "last": "23:59"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:17",
+          "last": "00:01"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:17",
+          "last": "00:00"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:17",
+          "last": "00:00"
+        }
+      ]
+    },
+    "BP4": {
+      "sunday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:37",
+          "last": "23:55"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:37",
+          "last": "23:55"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:18",
+          "last": "23:58"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:18",
+          "last": "00:00"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:18",
+          "last": "23:58"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:18",
+          "last": "23:58"
+        }
+      ]
+    },
+    "BP5": {
+      "sunday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:39",
+          "last": "23:54"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:39",
+          "last": "23:54"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:20",
+          "last": "23:56"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:20",
+          "last": "23:58"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:20",
+          "last": "23:57"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:20",
+          "last": "23:57"
+        }
+      ]
+    },
+    "BP6": {
+      "sunday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:41",
+          "last": "23:52"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:41",
+          "last": "23:52"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:22",
+          "last": "23:54"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:22",
+          "last": "23:56"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:22",
+          "last": "23:55"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:22",
+          "last": "23:55"
+        }
+      ]
+    },
+    "BP13": {
+      "sunday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:42",
+          "last": "23:40"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:52",
+          "last": "23:50"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:23",
+          "last": "23:43"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:33",
+          "last": "23:55"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:23",
+          "last": "23:43"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:33",
+          "last": "23:53"
+        }
+      ]
+    },
+    "BP12": {
+      "sunday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:44",
+          "last": "23:42"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:51",
+          "last": "23:49"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:25",
+          "last": "23:44"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:32",
+          "last": "23:53"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:25",
+          "last": "23:45"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:32",
+          "last": "23:52"
+        }
+      ]
+    },
+    "BP11": {
+      "sunday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:46",
+          "last": "23:44"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:49",
+          "last": "23:47"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:27",
+          "last": "23:46"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:30",
+          "last": "23:51"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:27",
+          "last": "23:47"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:30",
+          "last": "23:50"
+        }
+      ]
+    },
+    "BP10": {
+      "sunday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:47",
+          "last": "23:45"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:47",
+          "last": "23:45"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:28",
+          "last": "23:48"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:28",
+          "last": "23:50"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:28",
+          "last": "23:48"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:28",
+          "last": "23:48"
+        }
+      ]
+    },
+    "BP9": {
+      "sunday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:49",
+          "last": "23:47"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:46",
+          "last": "23:44"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:30",
+          "last": "23:49"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:27",
+          "last": "23:48"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:30",
+          "last": "23:50"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:27",
+          "last": "23:47"
+        }
+      ]
+    },
+    "BP8": {
+      "sunday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:51",
+          "last": "23:49"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:44",
+          "last": "23:42"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:32",
+          "last": "23:51"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:25",
+          "last": "23:46"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:32",
+          "last": "23:52"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:25",
+          "last": "23:45"
+        }
+      ]
+    },
+    "BP7": {
+      "sunday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:52",
+          "last": "23:50"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:42",
+          "last": "23:40"
+        }
+      ],
+      "weekday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:33",
+          "last": "23:53"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:23",
+          "last": "23:45"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Choa Chu Kang Service A",
+          "first": "05:33",
+          "last": "23:53"
+        },
+        {
+          "towards": "Choa Chu Kang Service B",
+          "first": "05:23",
+          "last": "23:43"
+        }
+      ]
+    },
+    "CC1": {
+      "weekday": [
+        {
+          "towards": "Stadium",
+          "first": "05:37",
+          "last": "23:45"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Stadium",
+          "first": "05:37",
+          "last": "22:45"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Stadium",
+          "first": "06:05",
+          "last": "22:45"
+        }
+      ]
+    },
+    "CC2": {
+      "weekday": [
+        {
+          "towards": "Dhoby Ghaut",
+          "first": "06:01",
+          "last": "23:56"
+        },
+        {
+          "towards": "Stadium",
+          "first": "05:40",
+          "last": "23:48"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Dhoby Ghaut",
+          "first": "06:01",
+          "last": "23:57"
+        },
+        {
+          "towards": "Stadium",
+          "first": "05:40",
+          "last": "22:48"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Dhoby Ghaut",
+          "first": "06:20",
+          "last": "23:57"
+        },
+        {
+          "towards": "Stadium",
+          "first": "06:08",
+          "last": "22:48"
+        }
+      ]
+    },
+    "CC3": {
+      "weekday": [
+        {
+          "towards": "Dhoby Ghaut",
+          "first": "05:58",
+          "last": "23:53"
+        },
+        {
+          "towards": "Stadium",
+          "first": "05:42",
+          "last": "23:50"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Dhoby Ghaut",
+          "first": "05:58",
+          "last": "23:55"
+        },
+        {
+          "towards": "Stadium",
+          "first": "05:42",
+          "last": "22:49"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Dhoby Ghaut",
+          "first": "06:17",
+          "last": "23:55"
+        },
+        {
+          "towards": "Stadium",
+          "first": "06:10",
+          "last": "22:49"
+        }
+      ]
+    },
+    "CC4": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:45",
+          "last": "23:53"
+        },
+        {
+          "towards": "Dhoby Ghaut",
+          "first": "05:51",
+          "last": "23:50"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:45",
+          "last": "22:52"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:51",
+          "last": "23:52"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:13",
+          "last": "22:52"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:51",
+          "last": "23:52"
+        }
+      ]
+    },
+    "CC5": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:48",
+          "last": "23:56"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:52",
+          "last": "01:07"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:48",
+          "last": "22:54"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:52",
+          "last": "00:53"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:16",
+          "last": "22:54"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:12",
+          "last": "00:33"
+        }
+      ]
+    },
+    "CC6": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:08",
+          "last": "22:56"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:50",
+          "last": "01:04"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:08",
+          "last": "22:57"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:50",
+          "last": "00:50"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:34",
+          "last": "22:57"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:09",
+          "last": "00:30"
+        }
+      ]
+    },
+    "CC7": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:29",
+          "last": "22:58"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:47",
+          "last": "01:01"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:29",
+          "last": "22:59"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:47",
+          "last": "00:48"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:03",
+          "last": "22:59"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:14",
+          "last": "00:28"
+        }
+      ]
+    },
+    "CC8": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:32",
+          "last": "23:01"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:44",
+          "last": "00:59"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:32",
+          "last": "23:01"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:44",
+          "last": "00:45"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:06",
+          "last": "23:01"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:11",
+          "last": "00:25"
+        }
+      ]
+    },
+    "CC9": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:36",
+          "last": "23:05"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:41",
+          "last": "00:55"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:36",
+          "last": "23:04"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:41",
+          "last": "00:41"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:10",
+          "last": "23:04"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:08",
+          "last": "00:21"
+        }
+      ]
+    },
+    "CC10": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:38",
+          "last": "23:07"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:38",
+          "last": "00:52"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:38",
+          "last": "23:06"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:38",
+          "last": "00:39"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:12",
+          "last": "23:06"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:05",
+          "last": "00:19"
+        }
+      ]
+    },
+    "CC11": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:42",
+          "last": "23:11"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:35",
+          "last": "00:50"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:42",
+          "last": "23:09"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:35",
+          "last": "00:36"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:16",
+          "last": "23:09"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:02",
+          "last": "00:16"
+        }
+      ]
+    },
+    "CC12": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:16",
+          "last": "23:14"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:52",
+          "last": "00:47"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:16",
+          "last": "23:11"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:52",
+          "last": "00:33"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:38",
+          "last": "23:11"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:20",
+          "last": "00:13"
+        }
+      ]
+    },
+    "CC13": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:19",
+          "last": "23:16"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:48",
+          "last": "00:43"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:19",
+          "last": "23:13"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:48",
+          "last": "00:30"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:41",
+          "last": "23:13"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:16",
+          "last": "00:10"
+        }
+      ]
+    },
+    "CC14": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:23",
+          "last": "23:20"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:45",
+          "last": "00:41"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:23",
+          "last": "23:16"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:45",
+          "last": "00:27"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:45",
+          "last": "23:16"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:13",
+          "last": "00:07"
+        }
+      ]
+    },
+    "CC15": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:25",
+          "last": "23:23"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:42",
+          "last": "00:37"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:25",
+          "last": "23:18"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:42",
+          "last": "00:23"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:47",
+          "last": "23:18"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:10",
+          "last": "00:03"
+        }
+      ]
+    },
+    "CC16": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:29",
+          "last": "23:26"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:38",
+          "last": "00:33"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:29",
+          "last": "23:21"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:38",
+          "last": "00:20"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:51",
+          "last": "23:21"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:06",
+          "last": "00:00"
+        }
+      ]
+    },
+    "CC17": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:33",
+          "last": "23:30"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:34",
+          "last": "00:30"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:33",
+          "last": "23:24"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:34",
+          "last": "00:16"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:55",
+          "last": "23:24"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:02",
+          "last": "23:56"
+        }
+      ]
+    },
+    "CC19": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:38",
+          "last": "23:36"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:51",
+          "last": "00:24"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:38",
+          "last": "23:29"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:51",
+          "last": "00:10"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:00",
+          "last": "23:29"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:13",
+          "last": "23:50"
+        }
+      ]
+    },
+    "CC20": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:42",
+          "last": "23:39"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:48",
+          "last": "00:21"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:42",
+          "last": "23:32"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:48",
+          "last": "00:08"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:04",
+          "last": "23:32"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:10",
+          "last": "23:48"
+        }
+      ]
+    },
+    "CC21": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:45",
+          "last": "23:42"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:45",
+          "last": "00:18"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:45",
+          "last": "23:34"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:45",
+          "last": "00:04"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:07",
+          "last": "23:34"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:07",
+          "last": "23:44"
+        }
+      ]
+    },
+    "CC22": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:47",
+          "last": "23:45"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:42",
+          "last": "00:15"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:47",
+          "last": "23:36"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:42",
+          "last": "00:01"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:09",
+          "last": "23:36"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:04",
+          "last": "23:41"
+        }
+      ]
+    },
+    "CC23": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:50",
+          "last": "23:47"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:39",
+          "last": "00:12"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:50",
+          "last": "23:38"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:39",
+          "last": "23:59"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:12",
+          "last": "23:38"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:01",
+          "last": "23:39"
+        }
+      ]
+    },
+    "CC24": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:35",
+          "last": "23:50"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:37",
+          "last": "00:10"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:35",
+          "last": "23:40"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:37",
+          "last": "23:56"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:00",
+          "last": "23:40"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:59",
+          "last": "23:36"
+        }
+      ]
+    },
+    "CC25": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:39",
+          "last": "23:54"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:33",
+          "last": "00:06"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:39",
+          "last": "23:43"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:33",
+          "last": "23:52"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:04",
+          "last": "23:43"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:55",
+          "last": "23:32"
+        }
+      ]
+    },
+    "CC26": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:42",
+          "last": "23:56"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:30",
+          "last": "00:03"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:42",
+          "last": "23:45"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:30",
+          "last": "23:50"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:07",
+          "last": "23:45"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:52",
+          "last": "23:30"
+        }
+      ]
+    },
+    "CC27": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:45",
+          "last": "00:00"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:36",
+          "last": "00:00"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:45",
+          "last": "23:48"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:36",
+          "last": "23:46"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:10",
+          "last": "23:48"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:57",
+          "last": "23:26"
+        }
+      ]
+    },
+    "CC28": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:48",
+          "last": "00:03"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:34",
+          "last": "23:58"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:48",
+          "last": "23:50"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:34",
+          "last": "23:44"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:13",
+          "last": "23:50"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:55",
+          "last": "23:24"
+        }
+      ]
+    },
+    "CC29": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:51",
+          "last": "00:05"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:30",
+          "last": "23:54"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:51",
+          "last": "23:52"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:30",
+          "last": "23:41"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:16",
+          "last": "23:52"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:51",
+          "last": "23:21"
+        }
+      ]
+    },
+    "CC30": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:54",
+          "last": "00:09"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:07",
+          "last": "23:51"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:54",
+          "last": "23:55"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:07",
+          "last": "23:37"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:19",
+          "last": "23:55"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:07",
+          "last": "23:17"
+        }
+      ]
+    },
+    "CC31": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:57",
+          "last": "00:12"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:03",
+          "last": "23:48"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "05:57",
+          "last": "23:57"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:04",
+          "last": "23:34"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:22",
+          "last": "23:57"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:04",
+          "last": "23:14"
+        }
+      ]
+    },
+    "CC32": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:00",
+          "last": "00:14"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:00",
+          "last": "23:45"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:00",
+          "last": "23:58"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:01",
+          "last": "23:32"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:25",
+          "last": "23:56"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "06:01",
+          "last": "23:12"
+        }
+      ]
+    },
+    "CC33": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:03",
+          "last": "00:18"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:57",
+          "last": "23:42"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:03",
+          "last": "00:01"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:58",
+          "last": "23:28"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:28",
+          "last": "23:59"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:58",
+          "last": "23:08"
+        }
+      ]
+    },
+    "CC34": {
+      "weekday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:07",
+          "last": "00:22"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:55",
+          "last": "23:38"
+        }
+      ],
+      "saturday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:07",
+          "last": "00:04"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:54",
+          "last": "23:24"
+        }
+      ],
+      "sunday": [
+        {
+          "towards": "Anticlockwise",
+          "first": "06:32",
+          "last": "00:02"
+        },
+        {
+          "towards": "Clockwise",
+          "first": "05:54",
+          "last": "23:04"
+        }
+      ]
+    }
+  }
+}

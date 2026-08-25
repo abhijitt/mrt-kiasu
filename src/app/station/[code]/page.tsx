@@ -4,6 +4,7 @@ import { LINES, hasTrainGeometry } from "@/lib/lines";
 import { STATIONS, getStation } from "@/lib/stations";
 import { getFeatures, hasVerifiedData } from "@/lib/positions";
 import { landmarksForCodes } from "@/lib/landmarks";
+import { timesForCodes } from "@/lib/train-times";
 import { anniversaryYears, derivedFacts, getTriviaAllLocales } from "@/lib/trivia";
 import { StationScreen } from "./StationScreen";
 
@@ -63,6 +64,7 @@ export default async function StationPage({
       trainSource={line.trainSource}
       derived={derivedFacts(station.code)}
       triviaByLocale={getTriviaAllLocales(station.code)}
+      trainTimes={timesForCodes([station.code, ...station.interchanges.map((i) => i.code)])}
       anniversaryYears={anniversaryYears(station.code)}
       landmarks={landmarksForCodes([station.code, ...station.interchanges.map((i) => i.code)])}
       dataGaps={station.dataGaps}
