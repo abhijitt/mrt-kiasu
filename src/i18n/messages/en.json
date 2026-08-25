@@ -320,5 +320,14 @@
   "env.dev": "Dev",
   "env.betaHint": "A pre-release build. Data and behaviour may differ from the live site.",
   "privacy.retentionTitle": "Where reports are kept",
-  "privacy.retentionBody": "Reports are stored in a database run by Neon, our database provider, and the app itself is hosted by Vercel. Nobody else has access. We keep a report until the problem it describes is fixed, then delete it; ask us sooner and we will delete it sooner."
+  "privacy.retentionBody": "Reports are stored in a database run by Neon, our database provider, and the app itself is hosted by Vercel. Nobody else has access. We keep a report until the problem it describes is fixed, then delete it; ask us sooner and we will delete it sooner.",
+  "map.title": "Network map",
+  "map.open": "Pick on map",
+  "map.pickFrom": "Tap the station you're starting from.",
+  "map.pickTo": "From {station}. Now tap where you're going.",
+  "map.hint": "Pinch or use + to zoom in. Only interchanges are shown until you zoom.",
+  "map.zoomIn": "Zoom in",
+  "map.zoomOut": "Zoom out",
+  "map.reset": "Fit the whole network",
+  "map.unplaceable": "Not on the map yet, because LTA has not published their exits: {stations}. Search for them by name instead."
 }

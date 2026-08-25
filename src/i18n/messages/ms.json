@@ -320,5 +320,14 @@
   "env.dev": "Dev",
   "env.betaHint": "Binaan pra-keluaran. Data dan kelakuannya mungkin berbeza daripada laman sebenar.",
   "privacy.retentionTitle": "Di mana laporan disimpan",
-  "privacy.retentionBody": "Laporan disimpan dalam pangkalan data yang dikendalikan oleh Neon, penyedia pangkalan data kami, dan aplikasi ini dihoskan oleh Vercel. Tiada sesiapa lain mempunyai akses. Kami menyimpan laporan sehingga masalah yang dinyatakan diperbaiki, kemudian memadamkannya; beritahu kami lebih awal dan kami akan memadamkannya lebih awal."
+  "privacy.retentionBody": "Laporan disimpan dalam pangkalan data yang dikendalikan oleh Neon, penyedia pangkalan data kami, dan aplikasi ini dihoskan oleh Vercel. Tiada sesiapa lain mempunyai akses. Kami menyimpan laporan sehingga masalah yang dinyatakan diperbaiki, kemudian memadamkannya; beritahu kami lebih awal dan kami akan memadamkannya lebih awal.",
+  "map.title": "Peta rangkaian",
+  "map.open": "Pilih pada peta",
+  "map.pickFrom": "Ketik stesen tempat anda bermula.",
+  "map.pickTo": "Dari {station}. Kini ketik destinasi anda.",
+  "map.hint": "Cubit atau guna + untuk zum masuk. Hanya stesen pertukaran ditunjukkan sebelum anda zum.",
+  "map.zoomIn": "Zum masuk",
+  "map.zoomOut": "Zum keluar",
+  "map.reset": "Muatkan seluruh rangkaian",
+  "map.unplaceable": "Belum ada pada peta kerana LTA belum menerbitkan pintu keluarnya: {stations}. Cari mengikut nama sebaliknya."
 }

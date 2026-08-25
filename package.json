@@ -17,7 +17,8 @@
     "estimate:positions": "python3 scripts/estimate_positions.py",
     "translate": "python3 scripts/translate_content.py",
     "check:bundle": "node scripts/check-bundle.mjs",
-    "migrate:db": "node scripts/migrate-db.mjs"
+    "migrate:db": "node scripts/migrate-db.mjs",
+    "build:map": "node scripts/build-map-data.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "1.1.0",

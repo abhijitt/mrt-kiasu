@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { StationPicker, type StationOption } from "@/components/StationPicker";
@@ -85,6 +86,16 @@ export function JourneyForm({ stations }: { stations: StationOption[] }) {
       >
         {t("form.submit")}
       </button>
+
+      {/* Secondary to the search box, not a rival to it. Typing is faster for
+          anyone who knows the station name, and it is the path that works
+          with a screen reader. */}
+      <Link
+        href="/map"
+        className="pixel-btn font-pixel flex min-h-11 items-center justify-center px-4 py-3 text-[11px] uppercase text-fg-muted"
+      >
+        {t("map.open")}
+      </Link>
     </form>
   );
 }

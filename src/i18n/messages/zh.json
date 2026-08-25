@@ -320,5 +320,14 @@
   "env.dev": "开发版",
   "env.betaHint": "这是预发布版本，数据和功能可能与正式站点不同。",
   "privacy.retentionTitle": "报告存放于何处",
-  "privacy.retentionBody": "报告存放在数据库服务商 Neon 运行的数据库中，应用本身由 Vercel 托管。除此之外无人可以访问。我们会保留报告直到其中描述的问题得到修复，然后予以删除；若您提出要求，我们会更早删除。"
+  "privacy.retentionBody": "报告存放在数据库服务商 Neon 运行的数据库中，应用本身由 Vercel 托管。除此之外无人可以访问。我们会保留报告直到其中描述的问题得到修复，然后予以删除；若您提出要求，我们会更早删除。",
+  "map.title": "路线图",
+  "map.open": "在地图上选择",
+  "map.pickFrom": "点选您出发的车站。",
+  "map.pickTo": "从 {station} 出发。现在点选目的地。",
+  "map.hint": "双指缩放或点 + 放大。放大前仅显示换乘站。",
+  "map.zoomIn": "放大",
+  "map.zoomOut": "缩小",
+  "map.reset": "显示整个网络",
+  "map.unplaceable": "以下车站尚未上图，因为陆路交通管理局还未公布其出口：{stations}。请改用名称搜索。"
 }
