@@ -315,5 +315,8 @@
   "nav.source": "Kod sumber",
   "about.sourceTitle": "Sumber terbuka",
   "about.sourceBody": "Kod dan datanya terbuka kepada umum, jadi sesiapa sahaja boleh menyemak dakwaan aplikasi ini dan dari mana asalnya. Kedudukan pintu ialah bahagian yang paling sukar: hampir kesemuanya masih anggaran, dan setiap platform yang disahkan seseorang akan membantu setiap penumpang yang menggunakannya selepas itu. Pembetulan, tinjauan lapangan dan terjemahan yang lebih baik semuanya dialu-alukan.",
-  "about.sourceCta": "Lihat di GitHub"
+  "about.sourceCta": "Lihat di GitHub",
+  "env.beta": "Beta",
+  "env.dev": "Dev",
+  "env.betaHint": "Binaan pra-keluaran. Data dan kelakuannya mungkin berbeza daripada laman sebenar."
 }

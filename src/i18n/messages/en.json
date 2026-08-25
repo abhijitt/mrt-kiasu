@@ -315,5 +315,8 @@
   "nav.source": "Source",
   "about.sourceTitle": "Open source",
   "about.sourceBody": "The code and the data are public, so anyone can check what the app claims and where it got it. Door positions are the hard part: almost all of them are still estimates, and each platform someone verifies helps every commuter who uses it afterwards. Corrections, surveys and better translations are all welcome.",
-  "about.sourceCta": "View on GitHub"
+  "about.sourceCta": "View on GitHub",
+  "env.beta": "Beta",
+  "env.dev": "Dev",
+  "env.betaHint": "A pre-release build. Data and behaviour may differ from the live site."
 }

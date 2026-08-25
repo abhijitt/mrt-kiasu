@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { AppHeader } from "./AppHeader";
+import { EnvBadge } from "./EnvBadge";
 import { useT } from "@/i18n/I18nProvider";
 
 interface Props {
@@ -39,10 +40,14 @@ export function Hud({ title, backHref, accentVar, children }: Props) {
           )}
           <div className="min-w-0">
             {title ? (
-              <p className="font-pixel text-xs leading-relaxed">{title}</p>
+              <p className="font-pixel text-xs leading-relaxed">
+                {title}
+                <EnvBadge />
+              </p>
             ) : (
               <p className="font-pixel text-lg leading-none">
                 MRT<span className="text-accent">Kiasu</span>
+                <EnvBadge />
               </p>
             )}
             {children}

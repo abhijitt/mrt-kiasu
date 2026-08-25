@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import {
   MESSAGE_MAX,
   sanitiseReport,
@@ -68,5 +68,30 @@ describe("sanitiseReport", () => {
   it("caps oversized input", () => {
     const clean = sanitiseReport({ ...base, message: "x".repeat(MESSAGE_MAX + 500) });
     expect(clean.message.length).toBe(MESSAGE_MAX);
+  });
+});
+
+describe("environment stamping", () => {
+  const original = process.env.VERCEL_ENV;
+  afterEach(() => {
+    if (original === undefined) delete process.env.VERCEL_ENV;
+    else process.env.VERCEL_ENV = original;
+  });
+
+  const body = {
+    type: "data" as const,
+    message: "wrong door",
+    context: { path: "/station/NS17", locale: "en", reportedAt: "", env: "production" },
+  };
+
+  it("stamps the environment from the server, ignoring the body", () => {
+    process.env.VERCEL_ENV = "preview";
+    // The body claims production; the server knows better.
+    expect(sanitiseReport(body).context.env).toBe("preview");
+  });
+
+  it("omits the environment entirely when not on Vercel", () => {
+    delete process.env.VERCEL_ENV;
+    expect(sanitiseReport(body).context.env).toBeUndefined();
   });
 });

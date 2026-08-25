@@ -2,7 +2,10 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    # beta is where the work happens and main is what the public gets, so both
+    # need guarding. Watching only main would have left every real change
+    # unchecked until the moment it went live.
+    branches: [main, beta]
   pull_request:
 
 jobs:

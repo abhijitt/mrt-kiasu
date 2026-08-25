@@ -42,6 +42,13 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  env: {
+    // Mapped explicitly rather than relying on Vercel's "expose system
+    // environment variables" toggle: the badge that tells a tester they are
+    // NOT on the live site must not depend on a dashboard setting anyone can
+    // switch off. Empty string off Vercel, which the badge treats as dev.
+    NEXT_PUBLIC_VERCEL_ENV: process.env.VERCEL_ENV ?? "",
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

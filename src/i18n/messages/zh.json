@@ -315,5 +315,8 @@
   "nav.source": "源代码",
   "about.sourceTitle": "开源",
   "about.sourceBody": "代码与数据均已公开，任何人都可以核对本应用的说法及其来源。车门位置是最难的部分：目前几乎全是估算值，每有一个站台被实地核实，之后使用它的每位通勤者都会受益。欢迎提交更正、实地勘察和更好的翻译。",
-  "about.sourceCta": "在 GitHub 上查看"
+  "about.sourceCta": "在 GitHub 上查看",
+  "env.beta": "测试版",
+  "env.dev": "开发版",
+  "env.betaHint": "这是预发布版本，数据和功能可能与正式站点不同。"
 }

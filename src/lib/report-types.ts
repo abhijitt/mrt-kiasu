@@ -35,6 +35,14 @@ export interface ErrorReport {
     reportedAt: string;
     /** Coarse client hint for reproducing rendering bugs. */
     viewport?: string;
+    /**
+     * Which deployment this came from — "production", "preview" or absent.
+     *
+     * Without it a bug already fixed on beta looks identical to one live on
+     * mrtkiasu.com, and beta's own test submissions are indistinguishable from
+     * real reports.
+     */
+    env?: string;
   };
 }
 
@@ -97,6 +105,9 @@ export function sanitiseReport(input: Partial<ErrorReport>): ErrorReport {
       ...(input.context?.viewport
         ? { viewport: String(input.context.viewport).slice(0, 20) }
         : {}),
+      // Stamped by the server, not trusted from the body: a client could
+      // otherwise label its report as coming from anywhere.
+      ...(process.env.VERCEL_ENV ? { env: process.env.VERCEL_ENV } : {}),
     },
   };
 }
