@@ -165,6 +165,84 @@ try {
     cur.headsigns.set(info.headsign, (cur.headsigns.get(info.headsign) ?? 0) + 1);
   }
 
+  // ------------------------------------------------------ run times and headway
+  //
+  // The plan recorded that "LTA does not publish inter-station run times".
+  // That is no longer true: stop_times gives the real thing for every trip, so
+  // the app can stop assuming a flat 2.2 minutes per stop.
+
+  const tripRows = new Map();
+  for (const st of stopTimes) {
+    if (!tripInfo.has(st.trip_id)) continue;
+    (tripRows.get(st.trip_id) ?? tripRows.set(st.trip_id, []).get(st.trip_id)).push(st);
+  }
+
+  /** "NS1|NS2" -> every observed run time, so the median can be taken. */
+  const hopSamples = new Map();
+  for (const rows of tripRows.values()) {
+    rows.sort((a, b) => Number(a.stop_sequence) - Number(b.stop_sequence));
+    for (let i = 1; i < rows.length; i++) {
+      const from = codeOf.get(rows[i - 1].stop_id);
+      const to = codeOf.get(rows[i].stop_id);
+      if (!from || !to || from === to) continue;
+      const d = toMinutes(rows[i].arrival_time) - toMinutes(rows[i - 1].departure_time);
+      // A negative or absurd gap means a malformed row, not a slow train.
+      if (!Number.isFinite(d) || d < 0 || d > 20) continue;
+      const key = from < to ? `${from}|${to}` : `${to}|${from}`;
+      (hopSamples.get(key) ?? hopSamples.set(key, []).get(key)).push(d);
+    }
+  }
+
+  const median = (xs) => {
+    const s = [...xs].sort((a, b) => a - b);
+    return s[Math.floor(s.length / 2)];
+  };
+
+  const hops = {};
+  for (const [key, samples] of hopSamples) hops[key] = median(samples);
+
+  /**
+   * Headway per LINE, per service day, per hour.
+   *
+   * Measured across stations and found to be a line-level property: every
+   * North South Line station shows the same 3 minutes at 09:00 and the same
+   * 5 at 14:00. Keying on the line rather than the station turns 15,000
+   * numbers into 800, small enough to hand to the browser so Gao's planner
+   * can recompute without a round trip.
+   */
+  const headwaySamples = new Map();
+  for (const rows of tripRows.values()) {
+    for (const st of rows) {
+      const code = codeOf.get(st.stop_id);
+      const info = tripInfo.get(st.trip_id);
+      if (!code || !info) continue;
+      const line = code.replace(/\d+$/, "");
+      const key = `${line}|${info.kind}|${st.stop_id}|${info.dir}`;
+      (headwaySamples.get(key) ?? headwaySamples.set(key, []).get(key)).push(
+        toMinutes(st.departure_time),
+      );
+    }
+  }
+
+  const gapsByLine = new Map();
+  for (const [key, times] of headwaySamples) {
+    const [line, kind] = key.split("|");
+    times.sort((a, b) => a - b);
+    for (let i = 1; i < times.length; i++) {
+      const gap = times[i] - times[i - 1];
+      if (gap <= 0 || gap > 40) continue;
+      const hour = Math.floor(times[i] / 60) % 24;
+      const k = `${line}|${kind}|${hour}`;
+      (gapsByLine.get(k) ?? gapsByLine.set(k, []).get(k)).push(gap);
+    }
+  }
+
+  const headway = {};
+  for (const [k, gaps] of gapsByLine) {
+    const [line, kind, hour] = k.split("|");
+    ((headway[line] ??= {})[kind] ??= {})[hour] = median(gaps);
+  }
+
   // Render for display, and drop any station that ended up with nothing.
   const out = {};
   for (const [code, kinds] of Object.entries(table)) {
@@ -194,6 +272,8 @@ try {
             "First and last are the earliest and latest departure_time in stop_times.txt for that station, grouped by service day (calendar.txt) and by trip_headsign. Times past midnight are expressed by GTFS as 24:xx and later; they are wrapped for display but belong to the previous operating day.",
         },
         stations: out,
+        hops,
+        headway,
       },
       null,
       2,
@@ -204,6 +284,8 @@ try {
   console.log(`train-times.json: ${stationCount} stations`);
   console.log(`  feed timestamp: ${timestamp}`);
   console.log(`  stop_times rows skipped (no headsign or unknown stop): ${skipped}`);
+  console.log(`  inter-station run times: ${Object.keys(hops).length} station pairs`);
+  console.log(`  headway: ${Object.keys(headway).length} lines x service day x hour`);
 } finally {
   await rm(dir, { recursive: true, force: true });
 }
