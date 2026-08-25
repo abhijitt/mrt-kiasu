@@ -31,8 +31,16 @@ type Status =
   | { kind: "idle" }
   | { kind: "sending" }
   | { kind: "sent" }
-  | { kind: "failed"; reason: string }
-  | { kind: "nowhere"; payload: string };
+  /**
+   * Not stored — for any reason.
+   *
+   * There used to be a separate "failed" state that showed an error and threw
+   * the message away, which is the worst outcome available: someone stands on
+   * a platform, types out what is wrong with a door position, and loses it to
+   * a transient server fault. Every non-success path now carries the payload
+   * so it can be handed back.
+   */
+  | { kind: "undelivered"; payload: string; reason?: string };
 
 /**
  * Error report form.
@@ -109,18 +117,19 @@ export function ReportForm({ subject }: { subject?: string }) {
         return;
       }
       const body = await res.json().catch(() => ({}));
-      // 501 means nobody has configured an inbox — that's our problem, not the
-      // reporter's, so hand them the text rather than losing what they wrote.
-      if (res.status === 501) {
-        setStatus({ kind: "nowhere", payload: json });
-      } else {
-        setStatus({
-          kind: "failed",
-          reason: body.details?.join("; ") ?? body.error ?? String(res.status),
-        });
-      }
+      // A 400 is the reporter's to fix (too long, malformed email), so it
+      // shows the reason and leaves the form intact to edit. Anything else is
+      // our fault — no inbox configured, a database down — and the text goes
+      // back to them rather than being lost.
+      const reason = body.details?.join("; ") ?? body.error ?? String(res.status);
+      setStatus(
+        res.status === 400
+          ? { kind: "undelivered", payload: json, reason }
+          : { kind: "undelivered", payload: json },
+      );
     } catch {
-      setStatus({ kind: "nowhere", payload: json });
+      // Offline, or the request never arrived. Same rule: keep the text.
+      setStatus({ kind: "undelivered", payload: json });
     }
   }
 
@@ -248,19 +257,13 @@ export function ReportForm({ subject }: { subject?: string }) {
             : t("report.needMessage")}
       </button>
 
-      {status.kind === "failed" && (
-        <p
-          className="pixel-box-sm p-3 text-sm leading-relaxed"
-          style={{ borderColor: "var(--danger)" }}
-          role="alert"
-        >
-          {t("report.failed", { reason: status.reason })}
-        </p>
-      )}
-
-      {status.kind === "nowhere" && (
-        <div className="pixel-box-sm p-3" style={{ borderColor: "var(--candidate)" }}>
-          <p className="text-sm leading-relaxed">{t("report.noDestination")}</p>
+      {status.kind === "undelivered" && (
+        <div className="pixel-box-sm p-3" style={{ borderColor: "var(--candidate)" }} role="alert">
+          <p className="text-sm leading-relaxed">
+            {status.reason
+              ? t("report.failed", { reason: status.reason })
+              : t("report.noDestination")}
+          </p>
           <pre className="mt-2 max-h-48 overflow-auto text-[11px] leading-relaxed">
             {status.payload}
           </pre>

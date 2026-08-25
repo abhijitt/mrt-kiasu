@@ -260,9 +260,9 @@
   "privacy.cookiesTitle": "Cookie",
   "privacy.cookiesBody": "完全没有。本应用不设置任何 Cookie，所以也不会请你同意什么。本地存储仅用于上述偏好设置，属于功能性用途，并非追踪。",
   "privacy.thirdPartyTitle": "第三方",
-  "privacy.thirdPartyBody": "没有分析、广告或追踪脚本。字体由我们自己的域名提供，你的浏览器不会向 Google 发出请求。实时列车数据由我们的服务器向陆交局 DataMall 获取——你的浏览器不会接触陆交局，也不会传送任何关于你的资料。",
+  "privacy.thirdPartyBody": "没有分析、广告或追踪脚本。字体由我们自己的域名提供，您的浏览器不会向 Google 发出请求。列车实时数据由我们的服务器向 LTA DataMall 获取——您的浏览器从不直接联系 LTA，也不会向其发送任何与您有关的信息。处理您数据的公司仅有上文列出的托管与数据库服务商。",
   "privacy.rightsTitle": "你的资料",
-  "privacy.rightsBody": "若你曾提交回报并希望删除，或想知道我们持有什么，请透过回报表单告诉我们。由于回报是我们唯一持有的个人资料，而且仅在你主动填写姓名或电邮时才有，通常并无资料可查。",
+  "privacy.rightsBody": "如果您提交过报告并希望删除，或想了解我们保存了哪些内容，请通过报告表单告知我们。报告是我们保存的唯一个人数据，且仅在您选择填写姓名或电子邮箱时才会有。",
   "terms.title": "使用条款",
   "terms.updated": "最后更新于 {date}",
   "terms.englishNote": "本条款以英文撰写。应用其他部分的翻译仅供参考，一切以英文版本为准。",
@@ -318,5 +318,7 @@
   "about.sourceCta": "在 GitHub 上查看",
   "env.beta": "测试版",
   "env.dev": "开发版",
-  "env.betaHint": "这是预发布版本，数据和功能可能与正式站点不同。"
+  "env.betaHint": "这是预发布版本，数据和功能可能与正式站点不同。",
+  "privacy.retentionTitle": "报告存放于何处",
+  "privacy.retentionBody": "报告存放在数据库服务商 Neon 运行的数据库中，应用本身由 Vercel 托管。除此之外无人可以访问。我们会保留报告直到其中描述的问题得到修复，然后予以删除；若您提出要求，我们会更早删除。"
 }

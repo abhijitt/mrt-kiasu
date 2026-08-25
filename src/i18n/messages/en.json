@@ -260,9 +260,9 @@
   "privacy.cookiesTitle": "Cookies",
   "privacy.cookiesBody": "None. The app sets no cookies at all, which is why you are not being asked to accept any. Local storage is used only for the preferences above — it is functional, not tracking.",
   "privacy.thirdPartyTitle": "Third parties",
-  "privacy.thirdPartyBody": "No analytics, advertising or tracking scripts. Fonts are served from our own domain, so your browser makes no request to Google. Live train data is fetched by our server from LTA DataMall — your browser never contacts LTA, and nothing about you is sent there.",
+  "privacy.thirdPartyBody": "No analytics, advertising or tracking scripts. Fonts are served from our own domain, so your browser makes no request to Google. Live train data is fetched by our server from LTA DataMall — your browser never contacts LTA, and nothing about you is sent there. The only companies handling your data are our hosting and database providers, named above.",
   "privacy.rightsTitle": "Your data",
-  "privacy.rightsBody": "If you sent a report and want it deleted, or want to know what we hold, use the report form and say so. Since reports are the only personal data we hold, and only if you chose to add your name or email, there is usually nothing to find.",
+  "privacy.rightsBody": "If you sent a report and want it deleted, or want to know what we hold, use the report form and say so. Reports are the only personal data we hold, and only if you chose to add your name or email.",
   "terms.title": "Terms of use",
   "terms.updated": "Last updated {date}",
   "terms.englishNote": "These terms are written in English. Translations elsewhere in the app are provided for convenience; the English text governs.",
@@ -318,5 +318,7 @@
   "about.sourceCta": "View on GitHub",
   "env.beta": "Beta",
   "env.dev": "Dev",
-  "env.betaHint": "A pre-release build. Data and behaviour may differ from the live site."
+  "env.betaHint": "A pre-release build. Data and behaviour may differ from the live site.",
+  "privacy.retentionTitle": "Where reports are kept",
+  "privacy.retentionBody": "Reports are stored in a database run by Neon, our database provider, and the app itself is hosted by Vercel. Nobody else has access. We keep a report until the problem it describes is fixed, then delete it; ask us sooner and we will delete it sooner."
 }
