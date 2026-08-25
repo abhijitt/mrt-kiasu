@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createProjector, type LatLng } from "@/lib/map-projection";
 import { lineFromStationCode, LINES } from "@/lib/lines";
+import { exceedsTapSlop } from "@/lib/gesture";
 
 /** The coordinate space the network is drawn in. Arbitrary, but fixed. */
 const W = 1000;
@@ -20,6 +21,21 @@ const MAX_ZOOM = 14;
  * pairs of stations sit closer together than a finger — drawing them all would
  * be an unreadable smear of overlapping targets rather than a map.
  */
+/**
+ * How big a station's tap target should be on screen, in CSS pixels.
+ *
+ * Held constant in SCREEN space rather than map space. The first version used
+ * map units, which rendered a 12px target — fine for a finger, because
+ * browsers fuzz touch input by roughly 8px, and impossible with a mouse, which
+ * demands pixel accuracy. That is why the map selected stations on a phone and
+ * not at all on a laptop.
+ *
+ * Targets do overlap downtown at low zoom, where stations are a few pixels
+ * apart. Overlapping means the topmost wins, which beats a target nobody can
+ * hit; zoom is what buys precision there.
+ */
+const HIT_TARGET_PX = 40;
+
 const DETAIL_ZOOM = 2.2;
 const LABEL_ZOOM = 3.2;
 
@@ -100,6 +116,8 @@ function IconFit() {
 export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
   const [zoom, setZoom] = useState(MIN_ZOOM);
+  /** Rendered width in CSS pixels, so hit targets can be sized in screen terms. */
+  const [renderedW, setRenderedW] = useState(0);
   // Centre of the viewport in map coordinates.
   const [centre, setCentre] = useState({ x: W / 2, y: H / 2 });
 
@@ -173,6 +191,9 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
   const pointers = useRef(new Map<number, { x: number; y: number }>());
   const pinchStart = useRef<{ dist: number; zoom: number } | null>(null);
   const dragged = useRef(false);
+  /** Where this gesture began, so drag is measured from the origin, not
+   *  accumulated from frame to frame. */
+  const downAt = useRef<{ x: number; y: number } | null>(null);
 
   function toMap(clientX: number, clientY: number) {
     const rect = svgRef.current?.getBoundingClientRect();
@@ -188,8 +209,14 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
   function onPointerDown(e: React.PointerEvent<SVGSVGElement>) {
     onPointerDownReset();
     pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    downAt.current = { x: e.clientX, y: e.clientY };
     dragged.current = false;
-    svgRef.current?.setPointerCapture(e.pointerId);
+    // Capture is claimed in onPointerMove, once this is actually a drag.
+    // Capturing here retargets every later event — including the click — to
+    // this <svg>, so a station's own handler never ran. Touch was unaffected
+    // because its compatibility click arrives after capture is released,
+    // which is why the map selected fine on a phone and not at all on a
+    // laptop.
   }
 
   function onPointerMove(e: React.PointerEvent<SVGSVGElement>) {
@@ -205,6 +232,11 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
         pinchStart.current = { dist, zoom };
       } else if (pinchStart.current.dist > 0) {
         dragged.current = true;
+        try {
+          svgRef.current?.setPointerCapture(e.pointerId);
+        } catch {
+          // Non-fatal: pinch still tracks through the pointers map.
+        }
         zoomTo((pinchStart.current.zoom * dist) / pinchStart.current.dist);
       }
       return;
@@ -214,7 +246,21 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
     if (!rect) return;
     const dx = ((e.clientX - prev.x) / rect.width) * halfW * 2;
     const dy = ((e.clientY - prev.y) / rect.height) * halfH * 2;
-    if (Math.abs(dx) > 0.01 || Math.abs(dy) > 0.01) dragged.current = true;
+    // Measured in screen pixels from where the gesture started. The map-unit
+    // test this replaced flagged a single pixel of mouse jitter as a drag,
+    // which made every station unselectable with a trackpad.
+    if (downAt.current && exceedsTapSlop(downAt.current, { x: e.clientX, y: e.clientY })) {
+      if (!dragged.current) {
+        dragged.current = true;
+        // Now that it is a drag, keep receiving moves even if the pointer
+        // leaves the map. A tap never reaches here, so its click is safe.
+        try {
+          svgRef.current?.setPointerCapture(e.pointerId);
+        } catch {
+          // The pointer can already be gone; panning still works without it.
+        }
+      }
+    }
     setCentre((c) => clamp({ x: c.x - dx, y: c.y - dy }, zoom));
   }
 
@@ -236,6 +282,16 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
     if (pointers.current.size === 0) pinchStart.current = null;
   }
 
+  useEffect(() => {
+    const el = svgRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver(([entry]) => {
+      setRenderedW(entry.contentRect.width);
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   // Non-passive, because zooming the map must not also scroll the page. React's
   // onWheel is passive, so this is attached by hand.
   useEffect(() => {
@@ -255,6 +311,11 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
   // Markers shrink as you zoom so they stay a consistent size on screen
   // rather than growing into blobs.
   const r = 5 / Math.sqrt(zoom);
+  // Map units per CSS pixel at the current zoom. Falls back to a generous
+  // constant before the first measurement, so the map is never briefly
+  // untappable on the first paint.
+  const unitsPerPx = renderedW > 0 ? W / zoom / renderedW : 2.4;
+  const hitRadius = (HIT_TARGET_PX / 2) * unitsPerPx;
 
   return (
     <div className="relative">
@@ -311,7 +372,7 @@ export function NetworkMap({ stations, edges, from, to, onSelect, labels }: Prop
                   bigger than the dot it aims at. Without it the markers are
                   correct but effectively untappable on a phone. */}
               <circle
-                cx={n.x} cy={n.y} r={Math.max(r * 3, 14 / zoom)}
+                cx={n.x} cy={n.y} r={Math.max(r * 2, hitRadius)}
                 fill="transparent"
                 className="cursor-pointer"
                 // onClick, not onPointerUp. A pointer handler here has to
