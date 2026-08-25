@@ -41,3 +41,49 @@ describe("platform orientation", () => {
     ).toEqual([]);
   });
 });
+
+import { layoutCount, layoutFor, sideFromLayout, validateLayout } from "./orientation";
+
+describe("platform layout", () => {
+  it("puts an island platform on the train's right, both ways", () => {
+    // Left-hand running: each train keeps to the outer track and the island
+    // sits inboard, so it is on the right whichever way you are going.
+    expect(sideFromLayout("island")).toBe("right");
+  });
+
+  it("puts side platforms on the train's left, both ways", () => {
+    // Tracks in the middle, platforms outboard — which is what Downtown Line
+    // stations look like.
+    expect(sideFromLayout("side")).toBe("left");
+  });
+
+  it("refuses to imply a side for stacked platforms", () => {
+    // One direction per level, and the two can differ, so there is nothing
+    // to infer and it must be surveyed per direction.
+    expect(sideFromLayout("stacked")).toBeNull();
+  });
+
+  it("starts with nothing recorded", () => {
+    expect(layoutCount()).toBe(0);
+    expect(layoutFor("NS17")).toBeNull();
+  });
+
+  it("rejects a layout it does not recognise", () => {
+    expect(validateLayout({ layout: "bay" as never, source: "survey", confidence: "verified" }))
+      .toContain('layout must be "island", "side" or "stacked"');
+  });
+
+  it("refuses a layout that was not actually observed", () => {
+    const errors = validateLayout({
+      layout: "island",
+      source: "guess",
+      confidence: "estimate" as never,
+    });
+    expect(errors.some((e) => e.includes("cannot be derived"))).toBe(true);
+  });
+
+  it("accepts a properly sourced layout", () => {
+    expect(validateLayout({ layout: "island", source: "survey", confidence: "verified" }))
+      .toEqual([]);
+  });
+});
