@@ -15,6 +15,7 @@ export default function PrivacyPage() {
         { titleKey: "privacy.storedTitle", bodyKey: "privacy.storedBody" },
         { titleKey: "privacy.collectTitle", bodyKey: "privacy.collectBody" },
         { titleKey: "privacy.cookiesTitle", bodyKey: "privacy.cookiesBody" },
+        { titleKey: "privacy.retentionTitle", bodyKey: "privacy.retentionBody" },
         { titleKey: "privacy.thirdPartyTitle", bodyKey: "privacy.thirdPartyBody" },
         { titleKey: "privacy.rightsTitle", bodyKey: "privacy.rightsBody" },
       ]}

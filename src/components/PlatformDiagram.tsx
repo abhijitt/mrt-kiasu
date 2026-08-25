@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LINES, type LineCode } from "@/lib/lines";
 import { avatarSprite, type AvatarId, type SkinToneId } from "./Avatar";
 import { toCarPosition, type Direction } from "@/lib/doors";
@@ -61,6 +61,19 @@ interface Props {
  * door indices are mapped through the same maths as the text instruction, so
  * the picture cannot disagree with the words.
  */
+/** Fixed drawing geometry, shared by the render and the scroll effect. */
+const GEO = { DOOR_W: 14, DOOR_GAP: 4, CAR_PAD: 6, CAR_GAP: 4, NOSE_W: 16 } as const;
+
+function geometryFor(cars: number, doorsPerCar: number) {
+  const carW =
+    doorsPerCar * GEO.DOOR_W + (doorsPerCar - 1) * GEO.DOOR_GAP + GEO.CAR_PAD * 2;
+  return {
+    carW,
+    width: cars * carW + (cars - 1) * GEO.CAR_GAP + GEO.NOSE_W + 4,
+    carLeft: (carFromFront: number) => (cars - carFromFront) * (carW + GEO.CAR_GAP),
+  };
+}
+
 export function PlatformDiagram({
   line,
   direction,
@@ -78,6 +91,60 @@ export function PlatformDiagram({
 }: Props) {
   const [departing, setDeparting] = useState(false);
   const train = LINES[line].train;
+
+  /**
+   * Bring the recommended car into view.
+   *
+   * Car 1 sits at the far end of a six-car train, past the right edge of a
+   * phone screen, and the scroll box starts at the left — so the single thing
+   * the whole app exists to show could be the one thing not on screen.
+   *
+   * Above the early return, because hooks must run in the same order every
+   * render; everything it needs is guarded inside.
+   */
+  const scroller = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = scroller.current;
+    if (!el || fitWidth || !train || highlightDoorIndex == null) return;
+
+    const geo = geometryFor(train.cars, train.doorsPerCar);
+    const { doorFromFront } = toCarPosition(highlightDoorIndex, line, direction);
+    const withinCar = ((doorFromFront - 1) % train.doorsPerCar) + 1;
+    const carFromFront = Math.ceil(doorFromFront / train.doorsPerCar);
+    const x =
+      geo.carLeft(carFromFront) +
+      GEO.CAR_PAD +
+      (withinCar - 1) * (GEO.DOOR_W + GEO.DOOR_GAP);
+
+    /**
+     * Retried until the diagram has actually been laid out.
+     *
+     * On the first pass the SVG has no measured size, so scrollWidth and
+     * clientWidth are both zero and there is nothing to scroll — the effect
+     * would give up before the element it cares about existed. Observing the
+     * element catches the moment it becomes scrollable.
+     */
+    let scrolled = false;
+    function bringIntoView() {
+      if (scrolled || !el || el.scrollWidth <= el.clientWidth) return;
+      scrolled = true;
+      const centre = (x / geo.width) * el.scrollWidth - el.clientWidth / 2;
+      const left = Math.max(0, Math.min(el.scrollWidth - el.clientWidth, centre));
+      // Instant, not smooth. A smooth scroll begun while the page is still
+      // settling gets cancelled by the browser, which is why the first
+      // attempt at this silently did nothing — and an animation the reader
+      // may never see is worth nothing here anyway.
+      el.scrollLeft = left;
+    }
+
+    bringIntoView();
+    const observer = new ResizeObserver(bringIntoView);
+    observer.observe(el);
+    const svg = el.firstElementChild;
+    if (svg) observer.observe(svg);
+    return () => observer.disconnect();
+  }, [highlightDoorIndex, fitWidth, train, line, direction]);
+
   if (!train) {
     return <p className="text-sm text-fg-muted">{noDataLabel}</p>;
   }
@@ -128,7 +195,7 @@ export function PlatformDiagram({
     // the same WIDTH would render the 6-car train at half the size, so instead
     // the height is pinned and the width follows the train's real length,
     // scrolling when it does not fit. Every line then draws at one scale.
-    <div className={fitWidth ? "" : "overflow-x-auto"}>
+    <div ref={scroller} className={fitWidth ? "" : "overflow-x-auto"}>
       <svg
         viewBox={`0 0 ${width} ${height}`}
         {...(fitWidth

@@ -5,6 +5,9 @@ import { Hud } from "@/components/Hud";
 import { CrowdLevel } from "@/components/CrowdLevel";
 import { CrowdForecast } from "@/components/CrowdForecast";
 import { LiftStatus } from "@/components/LiftStatus";
+import { CheckIcon } from "@/components/icons";
+import { TrainTimes, type ServiceDay, type TrainTime } from "@/components/TrainTimes";
+import { ServiceWarning } from "@/components/ServiceWarning";
 import { useI18n } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { groupByExit, type Landmark } from "@/lib/landmark-types";
@@ -33,6 +36,8 @@ interface Props {
   /** Set only when today is this station's opening anniversary. */
   anniversaryYears: number | null;
   landmarks: Landmark[];
+  /** Only this station's rows — the full timetable stays on the server. */
+  trainTimes: Partial<Record<ServiceDay, TrainTime[]>> | null;
   dataGaps: string[];
   hasVerified: boolean;
   /** False for lines with no sourced fleet data — no door guidance is possible. */
@@ -121,6 +126,17 @@ export function StationScreen(p: Props) {
           {t("forecast.title")}
         </h2>
         <CrowdForecast stationCode={p.code} line={p.lineCode} />
+      </section>
+
+      {/* Ahead of everything else on the page: if the network is shut, no
+          amount of door guidance is any use. */}
+      <ServiceWarning times={p.trainTimes} />
+
+      {/* Above lift status and below crowding: "have I missed the last train"
+          is a more urgent question than either. */}
+      <section className="pixel-box anim-enter p-4">
+        <h2 className="font-pixel text-xs uppercase text-fg-muted">{t("times.title")}</h2>
+        <TrainTimes times={p.trainTimes} />
       </section>
 
       <section className="pixel-box anim-enter p-4">
@@ -278,7 +294,7 @@ export function StationScreen(p: Props) {
           {p.derived.map((f) => (
             <div key={f.labelKey}>
               <dt className="text-xs text-fg-muted">{t(f.labelKey as MessageKey)}</dt>
-              <dd className="text-base text-fg">✔</dd>
+              <dd className="text-base text-fg"><CheckIcon /></dd>
             </div>
           ))}
         </dl>

@@ -1,6 +1,7 @@
 import { appendFile, mkdir } from "node:fs/promises";
 import { join } from "node:path";
 import { NextResponse } from "next/server";
+import { isConfigured, saveReport } from "@/lib/reports-db";
 import {
   sanitiseReport,
   validateReport,
@@ -12,15 +13,20 @@ const LOCAL_FILE = join(process.cwd(), ".reports", "reports.jsonl");
 /**
  * Receives an error report.
  *
- * Two destinations, because the app has no backend of its own:
- *   - REPORT_WEBHOOK_URL set: forwarded there (Slack, Discord, Formspree, a
- *     Google Apps Script — anything that accepts a JSON POST).
+ * Destinations, in order of preference:
+ *   - DATABASE_URL set: stored in Postgres. Production and beta point at
+ *     different database branches, so test submissions never mix with real
+ *     ones.
+ *   - REPORT_WEBHOOK_URL set: forwarded as JSON. Note that Slack and Discord
+ *     webhooks will NOT work unmodified — they require their own payload
+ *     shapes ({"text": ...} and {"content": ...}) and reject anything else,
+ *     so point this at something that accepts arbitrary JSON, or put an
+ *     adapter in front.
  *   - Otherwise, in development only: appended to .reports/reports.jsonl.
  *
- * With neither, this returns 501 and the form falls back to copy-to-clipboard,
- * so a report is never silently swallowed. Unlike the survey endpoint this is
- * safe to leave open: a report is a message to us, not data the app serves
- * back to anyone.
+ * With none of those this returns 501. Either way, a failure to store must
+ * leave the reporter holding their text — see the status codes below, which
+ * the form uses to decide whether to offer it back for copying.
  */
 export async function POST(request: Request) {
   let body: Partial<ErrorReport>;
@@ -36,8 +42,23 @@ export async function POST(request: Request) {
   }
 
   const report = sanitiseReport(body);
-  const webhook = process.env.REPORT_WEBHOOK_URL;
 
+  if (isConfigured()) {
+    try {
+      await saveReport(report);
+      return NextResponse.json({ ok: true, delivered: "database" });
+    } catch (err) {
+      // Logged rather than returned: the reason may name the host or the
+      // credential, and this response goes to the public internet.
+      console.error("[api/report] database write failed", err);
+      return NextResponse.json(
+        { error: "Could not store the report.", retain: true },
+        { status: 503 },
+      );
+    }
+  }
+
+  const webhook = process.env.REPORT_WEBHOOK_URL;
   if (webhook) {
     try {
       const res = await fetch(webhook, {
@@ -51,8 +72,8 @@ export async function POST(request: Request) {
     } catch (err) {
       console.error("[api/report] webhook failed", err);
       return NextResponse.json(
-        { error: "Could not deliver the report." },
-        { status: 502 },
+        { error: "Could not deliver the report.", retain: true },
+        { status: 503 },
       );
     }
   }
@@ -64,7 +85,7 @@ export async function POST(request: Request) {
   }
 
   return NextResponse.json(
-    { error: "No report destination is configured." },
+    { error: "No report destination is configured.", retain: true },
     { status: 501 },
   );
 }

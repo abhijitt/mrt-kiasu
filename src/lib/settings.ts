@@ -6,6 +6,21 @@ import type { FeatureType } from "@/lib/positions";
 
 export type ThemeChoice = "system" | "light" | "dark";
 
+/**
+ * How much detail to serve, named the way you order coffee.
+ *
+ * "kopi" is the ordinary order and the default — everything the app has always
+ * shown. "gao" is thicker: it only ever ADDS. Nothing moves out of the default,
+ * so someone who never finds this setting loses nothing, and turning it on
+ * cannot break a screen that already worked.
+ *
+ * Confidence and provenance are deliberately not on this dial. An app whose
+ * premise is that it does not invent data cannot file the caveat under
+ * "extra detail".
+ */
+export const KIASU_LEVELS = ["kopi", "gao"] as const;
+export type KiasuLevel = (typeof KIASU_LEVELS)[number];
+
 export interface Settings {
   avatar: AvatarId;
   /** Avatars found rather than given. */
@@ -13,6 +28,8 @@ export interface Settings {
   skinTone: SkinToneId;
   /** What the commuter usually wants to be nearest when they get off. */
   preferredExitMode: FeatureType;
+  /** How thick you like it. See KiasuLevel. */
+  kiasuLevel: KiasuLevel;
   theme: ThemeChoice;
 }
 
@@ -21,6 +38,7 @@ export const DEFAULT_SETTINGS: Settings = {
   unlocked: [],
   skinTone: DEFAULT_SKIN_TONE,
   preferredExitMode: "escalator",
+  kiasuLevel: "kopi",
   theme: "system",
 };
 

@@ -54,7 +54,7 @@ export function siteUrl(): string {
  * Anything else — the beta subdomain, a pull-request preview, a laptop — says
  * so in the UI, so nobody reports a bug from a build that was never live.
  */
-export function isProduction(): boolean {
+export function isProductionDeployment(): boolean {
   return process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
 }
 

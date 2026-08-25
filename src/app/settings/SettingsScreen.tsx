@@ -12,7 +12,9 @@ import {
 import { useKonami } from "@/lib/useKonami";
 import { Hud } from "@/components/Hud";
 import { LegalFooter } from "@/components/LegalPage";
-import { useSettings, type ThemeChoice } from "@/lib/settings";
+import { KIASU_LEVELS, useSettings, type ThemeChoice } from "@/lib/settings";
+import { useKiasuScore } from "@/lib/useKiasuScore";
+import { minutes } from "@/lib/kiasu-score";
 import type { FeatureType } from "@/lib/feature-types";
 import { useI18n } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
@@ -38,6 +40,7 @@ interface Props {
 
 export function SettingsScreen({ stats }: Props) {
   const { settings, update, loaded } = useSettings();
+  const { score, reset: resetScore } = useKiasuScore();
   const [justUnlocked, setJustUnlocked] = useState(false);
 
   useKonami(() => {
@@ -131,6 +134,67 @@ export function SettingsScreen({ stats }: Props) {
                   outlineOffset: active ? "2px" : undefined,
                 }}
               />
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="pixel-box anim-enter p-4">
+        <h2 className="font-pixel text-xs uppercase text-fg-muted">
+          {t("score.title")}
+        </h2>
+        {score.journeys === 0 ? (
+          <p className="mt-2 text-sm text-fg-muted">{t("score.empty")}</p>
+        ) : (
+          <>
+            <p className="mt-2 text-base leading-relaxed text-fg">
+              {minutes(score) >= 1
+                ? t("score.body", { minutes: minutes(score), journeys: score.journeys })
+                : t("score.bodySeconds", {
+                    seconds: score.seconds,
+                    journeys: score.journeys,
+                  })}
+            </p>
+            <p className="mt-1 text-xs text-fg-faint">
+              {t("score.since", { date: score.since })}
+            </p>
+            <button
+              type="button"
+              onClick={resetScore}
+              className="pixel-btn font-pixel mt-3 min-h-11 px-3 py-3 text-[11px] uppercase"
+            >
+              {t("score.reset")}
+            </button>
+          </>
+        )}
+      </section>
+
+      <section className="pixel-box anim-enter p-4">
+        <h2 className="font-pixel text-xs uppercase text-fg-muted">
+          {t("kiasu.title")}
+        </h2>
+        <p className="mt-2 text-sm text-fg-muted">{t("kiasu.lead")}</p>
+        <div className="mt-3 flex flex-col gap-2">
+          {KIASU_LEVELS.map((level) => {
+            const active = loaded && settings.kiasuLevel === level;
+            return (
+              <button
+                key={level}
+                type="button"
+                onClick={() => update({ kiasuLevel: level })}
+                aria-pressed={active}
+                className="pixel-btn flex flex-col items-start gap-0.5 px-3 py-3 text-left"
+                style={
+                  active ? { background: "var(--accent)", color: "var(--accent-fg)" } : undefined
+                }
+              >
+                <span className="font-pixel text-xs uppercase">
+                  {t(`kiasu.${level}` as MessageKey)}
+                </span>
+                <span className="text-sm opacity-80">
+                  {t(`kiasu.${level}Hint` as MessageKey)}
+                </span>
+              </button>
             );
           })}
         </div>
