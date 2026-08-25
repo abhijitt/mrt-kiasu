@@ -64,6 +64,7 @@ function Guidance({
   preference,
   showPreferenceNote,
   legKey,
+  doorSide,
 }: {
   feature: PlatformFeature | null;
   line: LineCode;
@@ -73,6 +74,8 @@ function Guidance({
   showPreferenceNote: boolean;
   /** Identifies this leg, so revisiting a route does not count it twice. */
   legKey: string;
+  /** Which side the doors open, where known — it orients the diagram. */
+  doorSide?: "left" | "right";
 }) {
   const t = useT();
   const { settings } = useSettings();
@@ -164,6 +167,7 @@ function Guidance({
             skinTone={settings.skinTone}
             label={t("route.car", { car: position.car, total: position.totalCars })}
             noDataLabel={t("line.noFleetData")}
+            doorSide={doorSide}
           />
         </div>
       </div>
@@ -402,6 +406,7 @@ export function RouteScreen(p: Props) {
               preference={preference}
               showPreferenceNote={isFinalLeg && loaded}
               legKey={`${p.originName}|${p.destinationName}|${i}`}
+              doorSide={leg.doorSide?.side}
             />
           </section>
         );

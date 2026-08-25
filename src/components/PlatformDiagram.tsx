@@ -52,6 +52,19 @@ interface Props {
   fitWidth?: boolean;
   /** Shown when the line has no sourced fleet data; translated by the caller. */
   noDataLabel?: string;
+  /**
+   * Which side the doors open, where it is known.
+   *
+   * It decides which way the train faces on screen. The platform is on the
+   * side the doors open, so a reader standing there is looking at that side of
+   * the train — and a train whose left flank faces you is travelling to your
+   * LEFT. Drawing every train nose-right was therefore correct only for island
+   * platforms, and backwards at every side-platform station.
+   *
+   * Undefined means nobody has established it, and the diagram keeps its
+   * previous orientation rather than inventing one.
+   */
+  doorSide?: "left" | "right";
 }
 
 /**
@@ -64,13 +77,16 @@ interface Props {
 /** Fixed drawing geometry, shared by the render and the scroll effect. */
 const GEO = { DOOR_W: 14, DOOR_GAP: 4, CAR_PAD: 6, CAR_GAP: 4, NOSE_W: 16 } as const;
 
-function geometryFor(cars: number, doorsPerCar: number) {
+function geometryFor(cars: number, doorsPerCar: number, noseLeft = false) {
   const carW =
     doorsPerCar * GEO.DOOR_W + (doorsPerCar - 1) * GEO.DOOR_GAP + GEO.CAR_PAD * 2;
+  const noseOffset = noseLeft ? GEO.NOSE_W : 0;
   return {
     carW,
     width: cars * carW + (cars - 1) * GEO.CAR_GAP + GEO.NOSE_W + 4,
-    carLeft: (carFromFront: number) => (cars - carFromFront) * (carW + GEO.CAR_GAP),
+    // Mirrors the render, so the scroll lands on the car actually drawn there.
+    carLeft: (carFromFront: number) =>
+      noseOffset + (noseLeft ? carFromFront - 1 : cars - carFromFront) * (carW + GEO.CAR_GAP),
   };
 }
 
@@ -85,6 +101,7 @@ export function PlatformDiagram({
   skinTone,
   label,
   noDataLabel,
+  doorSide,
   onSelectDoor,
   doorLabel,
   fitWidth = false,
@@ -107,7 +124,7 @@ export function PlatformDiagram({
     const el = scroller.current;
     if (!el || fitWidth || !train || highlightDoorIndex == null) return;
 
-    const geo = geometryFor(train.cars, train.doorsPerCar);
+    const geo = geometryFor(train.cars, train.doorsPerCar, doorSide === "left");
     const { doorFromFront } = toCarPosition(highlightDoorIndex, line, direction);
     const withinCar = ((doorFromFront - 1) % train.doorsPerCar) + 1;
     const carFromFront = Math.ceil(doorFromFront / train.doorsPerCar);
@@ -143,7 +160,7 @@ export function PlatformDiagram({
     const svg = el.firstElementChild;
     if (svg) observer.observe(svg);
     return () => observer.disconnect();
-  }, [highlightDoorIndex, fitWidth, train, line, direction]);
+  }, [highlightDoorIndex, fitWidth, train, line, direction, doorSide]);
 
   if (!train) {
     return <p className="text-sm text-fg-muted">{noDataLabel}</p>;
@@ -158,7 +175,11 @@ export function PlatformDiagram({
   const CAR_W = doorsPerCar * DOOR_W + (doorsPerCar - 1) * DOOR_GAP + CAR_PAD * 2;
   const CAR_GAP = 4;
   const NOSE_W = 12;
+  /** Nose to the left when the reader is looking at the train's left flank. */
+  const noseLeft = doorSide === "left";
   const width = cars * CAR_W + (cars - 1) * CAR_GAP + NOSE_W + 4;
+  /** The nose eats space at whichever end it is drawn. */
+  const NOSE_OFFSET = noseLeft ? NOSE_W : 0;
   const TRAIN_Y = 38;
   const TRAIN_H = 30;
   const height = 132;
@@ -166,7 +187,10 @@ export function PlatformDiagram({
   const lineColor = `var(${LINES[line].colorVar})`;
 
   function carLeft(carFromFront: number): number {
-    return (cars - carFromFront) * (CAR_W + CAR_GAP);
+    // Car 1 is at the nose, so which end that is depends on which way the
+    // train faces from where the reader stands.
+    const fromEnd = noseLeft ? carFromFront - 1 : cars - carFromFront;
+    return NOSE_OFFSET + fromEnd * (CAR_W + CAR_GAP);
   }
 
   function doorX(doorFromFront: number): number {
@@ -252,7 +276,11 @@ export function PlatformDiagram({
         })}
 
         <polygon
-          points={`${width - NOSE_W},${TRAIN_Y} ${width},${TRAIN_Y + TRAIN_H / 2} ${width - NOSE_W},${TRAIN_Y + TRAIN_H}`}
+          points={
+            noseLeft
+              ? `${NOSE_W},${TRAIN_Y} 0,${TRAIN_Y + TRAIN_H / 2} ${NOSE_W},${TRAIN_Y + TRAIN_H}`
+              : `${width - NOSE_W},${TRAIN_Y} ${width},${TRAIN_Y + TRAIN_H / 2} ${width - NOSE_W},${TRAIN_Y + TRAIN_H}`
+          }
           fill={lineColor}
           stroke="var(--border)"
           strokeWidth={2}
@@ -411,7 +439,7 @@ export function PlatformDiagram({
             fill="var(--fg-muted)"
             fontFamily="var(--font-pixel)"
           >
-            → {towards}
+            {noseLeft ? `← ${towards}` : `${towards} →`}
           </text>
         )}
       </svg>
