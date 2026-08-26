@@ -220,13 +220,15 @@ function Guidance({
           platform serving different places; if none is recorded as serving the
           one you asked for, picking the first is a guess and is labelled one. */}
       {targetMissed && (
-        <p className="mt-3">
-          <span
-            className="pixel-box-sm px-2 py-1.5 text-xs leading-snug"
-            style={{ borderColor: "var(--candidate)" }}
-          >
-            {t("route.targetUnknown", { target: targetMissed })}
-          </span>
+        // The paragraph IS the box. A bordered <span> is inline, so its border
+        // splits down the middle when the text wraps — which this text always
+        // does on a phone. Every other box in here escapes that by sitting in
+        // a flex parent; this one has no siblings to justify one.
+        <p
+          className="pixel-box-sm mt-3 px-2 py-1.5 text-xs leading-snug"
+          style={{ borderColor: "var(--candidate)" }}
+        >
+          {t("route.targetUnknown", { target: targetMissed })}
         </p>
       )}
 
