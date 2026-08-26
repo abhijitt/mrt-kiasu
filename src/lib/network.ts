@@ -115,3 +115,60 @@ export function lineOf(code: string): LineCode | null {
 }
 
 export { splitCode };
+
+/**
+ * The platforms a surveyor can actually stand on at one station code.
+ *
+ * Labelled by the next stop rather than the terminus. The terminus looks like
+ * the friendlier label and is what platform signage uses, but we cannot derive
+ * it correctly: sorting a line's stations puts branch prefixes last, so the
+ * Circle Line's ascending end came out as Marina Bay (CE2) instead of
+ * HarbourFront, and the East West Line's as Changi Airport (CG2) instead of
+ * Tuas Link. LTA publishes real headsigns, but not for every platform — CE1
+ * and CE2 have none at all — and on the Circle Line they read "Clockwise",
+ * which no derivation can produce. The next stop is always known, always
+ * right, and just as easy to check against the strip map on the wall.
+ *
+ * A terminus platform has one direction, not two, so it yields a single entry.
+ */
+export interface PlatformDirection {
+  direction: "asc" | "desc";
+  /** The next station this platform's trains call at. */
+  nextStop: Station;
+}
+
+export function platformDirections(code: string): PlatformDirection[] {
+  const station = STATIONS.find((s) => s.code === code.toUpperCase());
+  if (!station) return [];
+
+  const prefixes = LINES[station.line].prefixes;
+  // Branch prefixes sort after the main line, so position is the prefix's
+  // place in that list first and the number within it second.
+  const positionOf = (c: string): [number, number] => {
+    const { prefix, num } = splitCode(c);
+    return [prefixes.indexOf(prefix), num ?? 0];
+  };
+  const here = positionOf(station.code);
+  const isAfter = (p: [number, number]) =>
+    p[0] !== here[0] ? p[0] > here[0] : p[1] > here[1];
+
+  const samePrefix = splitCode(station.code).prefix;
+  const out: PlatformDirection[] = [];
+
+  for (const direction of ["desc", "asc"] as const) {
+    const candidates = (GRAPH.get(station.code) ?? [])
+      .filter((e) => e.kind === "ride")
+      .map((e) => STATIONS.find((s) => s.code === e.to))
+      .filter((s): s is Station => Boolean(s) && s!.line === station.line)
+      .filter((s) => (direction === "asc" ? isAfter(positionOf(s.code)) : !isAfter(positionOf(s.code))));
+
+    if (candidates.length === 0) continue;
+    // A junction can offer two ways onward — Tanah Merah has both EW5 and the
+    // Changi branch. The main line is the one that shares this code's prefix.
+    const best =
+      candidates.find((s) => splitCode(s.code).prefix === samePrefix) ?? candidates[0];
+    out.push({ direction, nextStop: best });
+  }
+
+  return out;
+}

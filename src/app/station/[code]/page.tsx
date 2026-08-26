@@ -4,6 +4,7 @@ import { LINES, hasTrainGeometry } from "@/lib/lines";
 import { STATIONS, getStation } from "@/lib/stations";
 import { getFeatures, hasVerifiedData } from "@/lib/positions";
 import { landmarksForCodes } from "@/lib/landmarks";
+import { platformDirections } from "@/lib/network";
 import { timesForCodes } from "@/lib/train-times";
 import { anniversaryYears, derivedFacts, getTriviaAllLocales } from "@/lib/trivia";
 import { StationScreen } from "./StationScreen";
@@ -72,6 +73,12 @@ export default async function StationPage({
         hasVerifiedData(station.code, "asc") || hasVerifiedData(station.code, "desc")
       }
       canGiveDoorGuidance={hasTrainGeometry(station.line)}
+      // Both platforms, not just one. The survey link used to hardcode "desc",
+      // so half of every station was unreachable from the UI.
+      platforms={platformDirections(station.code).map((p) => ({
+        direction: p.direction,
+        nextStop: p.nextStop.name,
+      }))}
       hasEstimates={getFeatures(station.code, "desc").length > 0}
     />
   );

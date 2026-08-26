@@ -42,6 +42,8 @@ interface Props {
   hasVerified: boolean;
   /** False for lines with no sourced fleet data — no door guidance is possible. */
   canGiveDoorGuidance: boolean;
+  /** Every platform here, so both directions can be surveyed. */
+  platforms: { direction: "asc" | "desc"; nextStop: string }[];
   /** Whether any estimated position exists for this station. */
   hasEstimates: boolean;
 }
@@ -181,13 +183,22 @@ export function StationScreen(p: Props) {
                 ? t("station.notMapped")
                 : t("station.noEstimateBasis")}
         </p>
-        {p.canGiveDoorGuidance && (
-          <Link
-            href={`/survey/${p.code}/desc`}
-            className="pixel-btn font-pixel mt-3 block px-4 py-3 text-center text-xs uppercase"
-          >
-            {t("station.surveyThis")}
-          </Link>
+        {p.canGiveDoorGuidance && p.platforms.length > 0 && (
+          <div className="mt-3 flex flex-col gap-2">
+            <p className="text-sm text-fg-muted">{t("station.surveyPick")}</p>
+            {/* One button per platform. Named by the next stop rather than the
+                terminus, because that is what a surveyor can check against the
+                strip map without trusting us to have guessed the line's end. */}
+            {p.platforms.map((platform) => (
+              <Link
+                key={platform.direction}
+                href={`/survey/${p.code}/${platform.direction}`}
+                className="pixel-btn font-pixel block px-4 py-3 text-center text-xs uppercase"
+              >
+                {t("station.surveyTowards", { station: platform.nextStop })}
+              </Link>
+            ))}
+          </div>
         )}
       </section>
 
