@@ -7,12 +7,22 @@
  * "may" rather than "will".
  */
 
+import type { LineCode } from "./lines";
+
 export type ServiceDay = "weekday" | "saturday" | "sunday";
 
 export interface TrainTime {
   towards: string;
   first: string;
   last: string;
+  /**
+   * Which line the row came from, where the caller knows.
+   *
+   * A published adjustment applies to a line, and an interchange merges rows
+   * from several — without this, a Downtown Line adjustment at Promenade would
+   * be applied to the Circle Line rows beside it.
+   */
+  line?: LineCode;
 }
 
 export type Status =

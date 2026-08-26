@@ -9,6 +9,11 @@ import {
   type Status,
   type TrainTime,
 } from "@/lib/service-status";
+import {
+  applyAdjustment,
+  type AdjustedTime,
+  type ServiceAdjustment,
+} from "@/lib/service-adjustments";
 
 /**
  * Warns when trains are not running, or nearly aren't.
@@ -23,7 +28,12 @@ export function ServiceWarning({
   times: Partial<Record<"weekday" | "saturday" | "sunday", TrainTime[]>> | null;
 }) {
   const t = useT();
-  const [status, setStatus] = useState<{ status: Status; towards: string } | null>(null);
+  const [status, setStatus] = useState<{
+    status: Status;
+    towards: string;
+    /** Set when a published adjustment supplied the time being warned about. */
+    adjustedBy: ServiceAdjustment | null;
+  } | null>(null);
 
   useEffect(() => {
     if (!times) return;
@@ -34,10 +44,22 @@ export function ServiceWarning({
       if (rows.length === 0) return;
 
       const minutes = now.getHours() * 60 + now.getMinutes();
-      const each = rows.map((row) => ({ row, status: statusFor(row, minutes) }));
+      // A published adjustment beats the timetable. Applied here, against the
+      // reader's own clock, because this page can be cached and an adjustment
+      // that starts on Friday must not be baked in on Wednesday.
+      const each = rows.map((row) => {
+        const applied: AdjustedTime = row.line
+          ? applyAdjustment(row, row.line, now)
+          : row;
+        return { row: applied, status: statusFor(applied, minutes) };
+      });
       const worst = worstStatus(each.map((e) => e.status));
       const match = each.find((e) => e.status.kind === worst.kind) ?? each[0];
-      setStatus({ status: worst, towards: match.row.towards });
+      setStatus({
+        status: worst,
+        towards: match.row.towards,
+        adjustedBy: match.row.adjustedBy ?? null,
+      });
     }
 
     evaluate();
@@ -78,6 +100,22 @@ export function ServiceWarning({
       >
         {message}
       </p>
+      {/* Where the figure came from, when it did not come from the timetable.
+          The alert text is quoted rather than summarised: it is the citation,
+          and paraphrasing it would put words in LTA's mouth. */}
+      {status.adjustedBy && (
+        <details className="mt-2">
+          <summary
+            className="cursor-pointer text-xs leading-relaxed"
+            style={{ color: "var(--candidate)" }}
+          >
+            {t("status.adjusted")}
+          </summary>
+          <p className="mt-2 text-xs leading-relaxed text-fg-faint">
+            {status.adjustedBy.sourceNote}
+          </p>
+        </details>
+      )}
       <p className="mt-2 text-xs leading-relaxed text-fg-faint">{t("status.approx")}</p>
     </div>
   );

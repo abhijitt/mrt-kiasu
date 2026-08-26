@@ -1,0 +1,40 @@
+{
+  "_schema": {
+    "description": "Published service adjustments that supersede the GTFS timetable. Hand-transcribed from LTA service alerts, because the alert feed says WHICH line is adjusted and WHEN, but puts the new times only in prose. Nothing here may be inferred: every figure must appear verbatim in sourceNote.",
+    "id": "Stable kebab-case identifier. Used by scripts/check-adjustments.mjs to report drift, so do not renumber an existing entry.",
+    "lines": "Line codes from src/lib/lines.ts that this applies to.",
+    "activeFrom": "First date the adjustment applies, inclusive, as YYYY-MM-DD in Singapore time.",
+    "activeTo": "Last date it applies, inclusive. Past this date the entry is ignored at runtime and reported as expired by the validator, so a stale entry can never change an answer.",
+    "effect": "\"modified-schedule\" changes first/last times; \"closed\" means part of the line is not running. A closed entry is shown to the reader but does not alter routing — see notes.",
+    "overrides": "Optional, modified-schedule only. Each entry names the days it applies to and the first and/or last time that replaces the timetable's. Days are named rather than numbered because this file is maintained by hand and Friday-only rules are easy to misread as a weekday rule.",
+    "sourceNote": "The LTA alert text, verbatim and unedited. This is the citation: every time in `overrides` must be readable in this string.",
+    "citedOn": "The date the text above was read from the live feed."
+  },
+  "_notes": "The SKLRT closure is recorded as effect \"closed\" and is surfaced to the reader, but routing still plans through the inner loop. Removing those edges is a routing change and is deliberately not bundled here.",
+  "adjustments": [
+    {
+      "id": "dtl-friday-night-2026",
+      "lines": ["DTL"],
+      "activeFrom": "2026-07-10",
+      "activeTo": "2026-09-05",
+      "effect": "modified-schedule",
+      "overrides": [
+        { "days": ["friday"], "last": "23:30" },
+        { "days": ["saturday"], "first": "08:30" }
+      ],
+      "source": "lta-alert",
+      "sourceNote": "23:30-DTL-Planned Service Adjustments. From 10 Jul to 5 Sep 2026, Downtown Line services will end at 11.30pm on Friday nights and commence at 8.30am on Saturday mornings. Please use alternative MRT lines and bus services.",
+      "citedOn": "2026-08-26"
+    },
+    {
+      "id": "sklrt-inner-loop-2026",
+      "lines": ["SKLRT"],
+      "activeFrom": "2026-04-19",
+      "activeTo": "2026-10-18",
+      "effect": "closed",
+      "source": "lta-alert",
+      "sourceNote": "05:00-SK-Planned Service Adjustment. From 19 Apr to 18 Oct 2026, the Sengkang West LRT Inner Loop (i.e. direction of STC Sengkang towards SW1 Cheng Lim) will be closed. Commuters can continue to use the Sengkang West LRT Outer Loop (i.e. direction of STC Sengkang towards SW8 Renjong), peak-hours shuttle bus services, or regular bus services.",
+      "citedOn": "2026-08-26"
+    }
+  ]
+}

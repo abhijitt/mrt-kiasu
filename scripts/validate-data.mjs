@@ -46,12 +46,13 @@ function lineOf(stationCode) {
 }
 
 async function main() {
-  const [positions, stations, exits, estimates, landmarks] = await Promise.all([
+  const [positions, stations, exits, estimates, landmarks, adjustments] = await Promise.all([
     read("src/data/positions.json"),
     read("src/data/stations.json"),
     read("src/data/exits.json"),
     read("src/data/estimates.json"),
     read("src/data/landmarks.json"),
+    read("src/data/service-adjustments.json"),
   ]);
 
   const knownStations = new Set(stations.stations.map((s) => s.code.toUpperCase()));
@@ -223,6 +224,95 @@ async function main() {
       errors.push(`${s.code}: no line for this station code`);
     }
   }
+
+  // ---- Service adjustments -------------------------------------------------
+  //
+  // These are transcribed by hand out of LTA alert prose, which is the only
+  // place the replacement times exist. The gate that keeps that honest is
+  // simple: every time we state must be readable in the alert text we stored
+  // as its citation. A figure that cannot be found there was invented.
+  const VALID_EFFECTS = ["modified-schedule", "closed"];
+  const VALID_DAYS = [
+    "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday",
+  ];
+  const KNOWN_LINES = new Set(Object.values(PREFIX_TO_LINE));
+  const isDate = (v) => typeof v === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v);
+  const isTime = (v) => typeof v === "string" && /^([01]\d|2[0-3]):[0-5]\d$/.test(v);
+  const today = new Date().toISOString().slice(0, 10);
+  const seenIds = new Set();
+
+  for (const a of adjustments.adjustments ?? []) {
+    const at = `service-adjustments "${a.id ?? "(no id)"}"`;
+
+    if (!a.id) errors.push(`${at}: id is required`);
+    else if (seenIds.has(a.id)) errors.push(`${at}: duplicate id`);
+    else seenIds.add(a.id);
+
+    if (!Array.isArray(a.lines) || a.lines.length === 0) {
+      errors.push(`${at}: lines must be a non-empty array`);
+    } else {
+      for (const line of a.lines) {
+        if (!KNOWN_LINES.has(line)) errors.push(`${at}: unknown line "${line}"`);
+      }
+    }
+
+    if (!isDate(a.activeFrom)) errors.push(`${at}: activeFrom must be YYYY-MM-DD`);
+    if (!isDate(a.activeTo)) errors.push(`${at}: activeTo must be YYYY-MM-DD`);
+    if (isDate(a.activeFrom) && isDate(a.activeTo) && a.activeTo < a.activeFrom) {
+      errors.push(`${at}: activeTo ${a.activeTo} is before activeFrom ${a.activeFrom}`);
+    }
+    if (!VALID_EFFECTS.includes(a.effect)) {
+      errors.push(`${at}: effect must be one of ${VALID_EFFECTS.join(", ")}`);
+    }
+    if (typeof a.sourceNote !== "string" || a.sourceNote.trim().length === 0) {
+      errors.push(`${at}: sourceNote is required — it is the citation`);
+    }
+    if (!isDate(a.citedOn)) errors.push(`${at}: citedOn must be YYYY-MM-DD`);
+
+    if (a.effect === "closed" && a.overrides) {
+      errors.push(`${at}: a closure must not carry schedule overrides`);
+    }
+
+    for (const o of a.overrides ?? []) {
+      if (!Array.isArray(o.days) || o.days.length === 0) {
+        errors.push(`${at}: an override needs at least one day`);
+      }
+      for (const d of o.days ?? []) {
+        if (!VALID_DAYS.includes(d)) errors.push(`${at}: unknown day "${d}"`);
+      }
+      if (o.first === undefined && o.last === undefined) {
+        errors.push(`${at}: an override must set first, last, or both`);
+      }
+      for (const [field, value] of [["first", o.first], ["last", o.last]]) {
+        if (value === undefined) continue;
+        if (!isTime(value)) {
+          errors.push(`${at}: ${field} "${value}" must be HH:MM`);
+          continue;
+        }
+        // The citation check. "23:30" must appear in the alert text either as
+        // written or as LTA words it ("11.30pm").
+        const [h, m] = value.split(":").map(Number);
+        const spoken = `${((h + 11) % 12) + 1}.${String(m).padStart(2, "0")}${h < 12 ? "am" : "pm"}`;
+        const note = String(a.sourceNote ?? "").toLowerCase();
+        if (!note.includes(value) && !note.includes(spoken)) {
+          errors.push(
+            `${at}: ${field} "${value}" does not appear in sourceNote (looked for "${value}" and "${spoken}") — every stated time must be citable`,
+          );
+        }
+      }
+    }
+
+    // Expired entries are already ignored at runtime, so this is a cleanup
+    // notice rather than a failure: a build must not start failing on a date.
+    if (isDate(a.activeTo) && a.activeTo < today) {
+      warnings.push(`${at}: ended ${a.activeTo} and can be removed`);
+    }
+  }
+
+  console.log(
+    `  ${(adjustments.adjustments ?? []).length} service adjustment(s), ` +
+      `${(adjustments.adjustments ?? []).filter((a) => a.activeFrom <= today && a.activeTo >= today).length} in force today`,
+  );
 
   const exitTotal = stations.stations.reduce((n, s) => n + (s.exits?.length ?? 0), 0);
   console.log(

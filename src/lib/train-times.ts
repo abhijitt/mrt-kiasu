@@ -1,5 +1,7 @@
 import "server-only";
 import data from "@/data/train-times.json";
+import { lineFromStationCode } from "./lines";
+import type { TrainTime } from "./service-status";
 
 /**
  * First and last train times, from LTA's GTFS Schedule (Train) feed.
@@ -11,12 +13,9 @@ import data from "@/data/train-times.json";
 
 export type ServiceDay = "weekday" | "saturday" | "sunday";
 
-export interface TrainTime {
-  /** Where trains in this direction are headed, as posted at the station. */
-  towards: string;
-  first: string;
-  last: string;
-}
+// One definition, in the pure module. This one is about the data file; the
+// shape of a timetable row belongs with the code that reasons about it.
+export type { TrainTime } from "./service-status";
 
 export type StationTimes = Partial<Record<ServiceDay, TrainTime[]>>;
 
@@ -24,7 +23,17 @@ const stations = data.stations as Record<string, StationTimes>;
 
 /** Times for one station, or null when the feed does not cover it. */
 export function timesForStation(code: string): StationTimes | null {
-  return stations[code.toUpperCase()] ?? null;
+  const found = stations[code.toUpperCase()];
+  if (!found) return null;
+
+  const line = lineFromStationCode(code);
+  if (!line) return found;
+
+  const tagged: StationTimes = {};
+  for (const [day, rows] of Object.entries(found) as [ServiceDay, TrainTime[]][]) {
+    tagged[day] = rows.map((row) => ({ ...row, line }));
+  }
+  return tagged;
 }
 
 /**
