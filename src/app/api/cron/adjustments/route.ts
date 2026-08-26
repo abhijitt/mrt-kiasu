@@ -16,6 +16,13 @@ import type { ServiceAdjustment } from "@/lib/service-adjustments";
  * the invented-data failure the file exists to prevent.
  *
  * Not cached — a monitor that answers from cache is not a monitor.
+ *
+ * Scheduled at 23:00 UTC, which is 07:00 the next morning in Singapore.
+ * Vercel reads cron schedules in UTC, and the obvious-looking 05:00 SGT lands
+ * exactly on the close of LTA's maintenance window: their notices put
+ * DataMall maintenance between 00:00 and 05:00 SGT, so a run on that boundary
+ * meets a half-woken API whenever one overruns. Two hours of margin, and
+ * still early enough in the Singapore morning to be worth reading.
  */
 export const dynamic = "force-dynamic";
 
