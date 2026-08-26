@@ -9,7 +9,7 @@
  */
 
 import { readFile } from "node:fs/promises";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join } from "node:path";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -32,6 +32,61 @@ const PREFIX_TO_LINE = {
   BP: "BPLRT", STC: "SKLRT", SE: "SKLRT", SW: "SKLRT",
   PTC: "PGLRT", PE: "PGLRT", PW: "PGLRT",
 };
+
+/**
+ * Aliases LTA might use for a line, mirroring name/shortName in src/lib/lines.ts.
+ *
+ * Their alerts are inconsistent: the Downtown Line one says "DTL" and
+ * "Downtown Line", the Sengkang one says "SK" and "Sengkang West LRT". All the
+ * forms have to be accepted or the citation check would fail on real text.
+ */
+const LINE_ALIASES = {
+  NSL: ["NSL", "North South Line", "NS"],
+  EWL: ["EWL", "East West Line", "EW"],
+  NEL: ["NEL", "North East Line", "NE"],
+  CCL: ["CCL", "Circle Line", "CC"],
+  DTL: ["DTL", "Downtown Line", "DT"],
+  TEL: ["TEL", "Thomson-East Coast Line", "TE"],
+  BPLRT: ["BPLRT", "Bukit Panjang LRT", "Bukit Panjang", "BP"],
+  SKLRT: ["SKLRT", "Sengkang LRT", "Sengkang", "SK"],
+  PGLRT: ["PGLRT", "Punggol LRT", "Punggol", "PG", "PTC"],
+};
+
+/**
+ * What an alert may say instead of naming a day outright.
+ *
+ * "weekday" legitimately covers Monday to Friday and "weekend" covers both
+ * ends of it, so an entry for Friday backed by text that says "weekdays" is
+ * properly cited even though the word "Friday" never appears.
+ */
+const DAY_SYNONYMS = {
+  monday: ["monday", "weekday", "weekdays"],
+  tuesday: ["tuesday", "weekday", "weekdays"],
+  wednesday: ["wednesday", "weekday", "weekdays"],
+  thursday: ["thursday", "weekday", "weekdays"],
+  friday: ["friday", "weekday", "weekdays"],
+  saturday: ["saturday", "weekend", "weekends"],
+  sunday: ["sunday", "weekend", "weekends"],
+};
+
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+/** Whole-word, case-insensitive: "NE" must not match inside "Renjong". */
+function mentions(text, phrase) {
+  const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`\\b${escaped}\\b`, "i").test(text);
+}
+
+/** The ways LTA might write one date: "10 Jul", "10 July", "2026-07-10". */
+function dateAliases(iso) {
+  const [, m, d] = iso.split("-").map(Number);
+  const full = MONTHS[m - 1];
+  const abbr = full.slice(0, 3);
+  return [iso, `${d} ${abbr}`, `${d} ${full}`, `${abbr} ${d}`, `${full} ${d}`];
+}
 
 const VALID_TYPES = ["escalator", "lift", "stairs", "exit"];
 const VALID_SOURCES = ["survey", "osm", "official-map", "user", "estimate"];
@@ -252,7 +307,18 @@ async function main() {
       errors.push(`${at}: lines must be a non-empty array`);
     } else {
       for (const line of a.lines) {
-        if (!KNOWN_LINES.has(line)) errors.push(`${at}: unknown line "${line}"`);
+        if (!KNOWN_LINES.has(line)) {
+          errors.push(`${at}: unknown line "${line}"`);
+          continue;
+        }
+        // Which line an adjustment applies to is always stated in the alert,
+        // and getting it wrong silently moves another line's timetable.
+        const aliases = LINE_ALIASES[line] ?? [line];
+        if (!aliases.some((alias) => mentions(a.sourceNote ?? "", alias))) {
+          errors.push(
+            `${at}: sourceNote never mentions ${line} (looked for ${aliases.map((x) => `"${x}"`).join(", ")}) — the line must be citable, not assumed`,
+          );
+        }
       }
     }
 
@@ -269,6 +335,20 @@ async function main() {
     }
     if (!isDate(a.citedOn)) errors.push(`${at}: citedOn must be YYYY-MM-DD`);
 
+    // A warning rather than an error: unlike a day or a line, a date range is
+    // not always stated — "until further notice" is a real thing LTA writes —
+    // and a wrong end date fails toward the published timetable rather than
+    // toward a wrong time.
+    for (const [field, value] of [["activeFrom", a.activeFrom], ["activeTo", a.activeTo]]) {
+      if (!isDate(value)) continue;
+      const forms = dateAliases(value);
+      if (!forms.some((f) => mentions(a.sourceNote ?? "", f))) {
+        warnings.push(
+          `${at}: ${field} ${value} does not appear in sourceNote (looked for ${forms.map((x) => `"${x}"`).join(", ")}) — check it was not assumed`,
+        );
+      }
+    }
+
     if (a.effect === "closed" && a.overrides) {
       errors.push(`${at}: a closure must not carry schedule overrides`);
     }
@@ -278,7 +358,19 @@ async function main() {
         errors.push(`${at}: an override needs at least one day`);
       }
       for (const d of o.days ?? []) {
-        if (!VALID_DAYS.includes(d)) errors.push(`${at}: unknown day "${d}"`);
+        if (!VALID_DAYS.includes(d)) {
+          errors.push(`${at}: unknown day "${d}"`);
+          continue;
+        }
+        // The failure this catches is a correct time attached to the wrong
+        // day — the mistake a careless reading of dense prose actually makes,
+        // and one the time check alone cannot see.
+        const words = DAY_SYNONYMS[d];
+        if (!words.some((w) => mentions(a.sourceNote ?? "", w))) {
+          errors.push(
+            `${at}: sourceNote never mentions ${d} (looked for ${words.map((x) => `"${x}"`).join(", ")}) — the day must be citable, not assumed`,
+          );
+        }
       }
       if (o.first === undefined && o.last === undefined) {
         errors.push(`${at}: an override must set first, last, or both`);
@@ -314,6 +406,43 @@ async function main() {
       `${(adjustments.adjustments ?? []).filter((a) => a.activeFrom <= today && a.activeTo >= today).length} in force today`,
   );
 
+  // ------------------------------------------------------------- orientation
+  //
+  // Layouts and door sides decide which way a reader turns when the doors
+  // open, so they get the same treatment as every other claim: a source, a
+  // confidence, and no derived tier.
+  //
+  // These checks used to sit in a bare top-level block calling a `fail()` that
+  // was never defined, so the first bad layout raised a ReferenceError instead
+  // of reporting itself — and aborted before any other error was printed.
+  // Folded in here so they share the error list, the summary and the exit code.
+  const LAYOUTS = ["island", "side", "stacked"];
+
+  for (const [code, entry] of Object.entries(positions.layouts ?? {})) {
+    if (!LAYOUTS.includes(entry.layout)) {
+      errors.push(`layout ${code}: "${entry.layout}" is not one of ${LAYOUTS.join(", ")}`);
+    }
+    if (!entry.source) errors.push(`layout ${code}: missing source`);
+    if (entry.confidence !== "verified") {
+      errors.push(`layout ${code}: confidence must be "verified" — a layout cannot be derived`);
+    }
+  }
+
+  for (const [key, entry] of Object.entries(positions.orientation ?? {})) {
+    if (entry.side !== "left" && entry.side !== "right") {
+      errors.push(`orientation ${key}: side must be "left" or "right"`);
+    }
+    if (!entry.source) errors.push(`orientation ${key}: missing source`);
+    if (entry.confidence !== "verified") {
+      errors.push(`orientation ${key}: confidence must be "verified"`);
+    }
+  }
+
+  console.log(
+    `  ${Object.keys(positions.layouts ?? {}).length} platform layout(s), ` +
+      `${Object.keys(positions.orientation ?? {}).length} surveyed door side(s)`,
+  );
+
   const exitTotal = stations.stations.reduce((n, s) => n + (s.exits?.length ?? 0), 0);
   console.log(
     `  ${stations.stations.length} stations, ${exitTotal} exits, ` +
@@ -333,44 +462,20 @@ async function main() {
   if (errors.length > 0) process.exit(1);
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+/**
+ * Exported so the citation rules can be unit-tested.
+ *
+ * These are what stop a stated time, day or line from being something nobody
+ * published, which matters more now that the entries they guard may be drafted
+ * by something other than a person reading the alert carefully.
+ */
+export { mentions, dateAliases, DAY_SYNONYMS, LINE_ALIASES };
 
-// --------------------------------------------------------------- orientation
-//
-// Layouts and door sides decide which way a reader turns when the doors open,
-// so they get the same treatment as every other claim: a source, a confidence,
-// and no derived tier.
-{
-  const positions = JSON.parse(
-    await readFile(new URL("../src/data/positions.json", import.meta.url), "utf8"),
-  );
-  const LAYOUTS = ["island", "side", "stacked"];
-
-  for (const [code, entry] of Object.entries(positions.layouts ?? {})) {
-    if (!LAYOUTS.includes(entry.layout)) {
-      fail(`layout ${code}: "${entry.layout}" is not one of ${LAYOUTS.join(", ")}`);
-    }
-    if (!entry.source) fail(`layout ${code}: missing source`);
-    if (entry.confidence !== "verified") {
-      fail(`layout ${code}: confidence must be "verified" — a layout cannot be derived`);
-    }
-  }
-
-  for (const [key, entry] of Object.entries(positions.orientation ?? {})) {
-    if (entry.side !== "left" && entry.side !== "right") {
-      fail(`orientation ${key}: side must be "left" or "right"`);
-    }
-    if (!entry.source) fail(`orientation ${key}: missing source`);
-    if (entry.confidence !== "verified") {
-      fail(`orientation ${key}: confidence must be "verified"`);
-    }
-  }
-
-  console.log(
-    `  ${Object.keys(positions.layouts ?? {}).length} platform layout(s), ` +
-      `${Object.keys(positions.orientation ?? {}).length} surveyed door side(s)`,
-  );
+// Only run when invoked as a script, so importing the helpers does not
+// validate the whole repository as a side effect.
+if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
 }
