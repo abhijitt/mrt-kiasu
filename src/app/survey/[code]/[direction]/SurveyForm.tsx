@@ -7,9 +7,11 @@ import { useT } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { useSettings } from "@/lib/settings";
 import type { LineCode } from "@/lib/lines";
-import type { FeatureType, PlatformFeature, Travel } from "@/lib/feature-types";
+import { DEVICE_TYPES, type FeatureType, type PlatformFeature, type Travel } from "@/lib/feature-types";
 
-const TYPES: FeatureType[] = ["escalator", "lift", "stairs", "transfer"];
+// Devices only. Where a feature leads is step 3's job, and one escalator can
+// serve an exit and a transfer corridor at once.
+const TYPES: readonly FeatureType[] = DEVICE_TYPES;
 const TRAVELS: Travel[] = ["up", "reversible", "down"];
 const ORDINALS = ["1st", "2nd", "3rd", "4th", "5th"];
 
@@ -93,8 +95,16 @@ export function SurveyForm({
   const [status, setStatus] = useState<string | null>(null);
   const [payload, setPayload] = useState<string | null>(null);
 
-  const targets = type === "transfer" ? interchanges : exitCodes;
   const position = doorIndex != null ? toCarPosition(doorIndex, line, direction) : null;
+
+  // Where it leads is only optional while it is unambiguous. Once a second
+  // escalator goes in, an untagged pair is worse than one good row: the app
+  // would have to pick between them, and picking is guessing.
+  const sameTypeExists = existing.some((f) => f.type === type);
+  const targetRequired = sameTypeExists;
+  const needsTarget = targetRequired && leadsTo.length === 0;
+  const typeLabel = t(`mode.${type}.target` as MessageKey);
+  const ready = doorIndex != null && !needsTarget;
 
   function toggleTarget(target: string) {
     setLeadsTo((prev) =>
@@ -117,7 +127,7 @@ export function SurveyForm({
   }
 
   async function save() {
-    if (doorIndex == null) return;
+    if (doorIndex == null || needsTarget) return;
 
     const feature: PlatformFeature = {
       type,
@@ -237,36 +247,62 @@ export function SurveyForm({
 
       <Step
         n={type === "escalator" ? 4 : 3}
-        title={`${t("survey.step3")}${type !== "transfer" ? ` ${t("survey.optional")}` : ""}`}
+        title={`${t("survey.step3")}${targetRequired ? "" : ` ${t("survey.optional")}`}`}
+        hint={needsTarget ? t("survey.targetRequired", { type: typeLabel }) : undefined}
       >
-        {targets.length > 0 ? (
-          <div className="flex flex-wrap gap-2">
-            {targets.map((target) => (
-              <Choice
-                key={target}
-                active={leadsTo.includes(target)}
-                onClick={() => toggleTarget(target)}
-              >
-                {type === "transfer" ? target : t("route.exitLabel", { code: target })}
-              </Choice>
-            ))}
-          </div>
-        ) : (
-          <p className="text-sm text-fg-muted">
-            {type === "transfer" ? t("survey.noInterchanges") : t("survey.noExits")}
-          </p>
+        {/* Exits and interchange lines are offered together because they are
+            the same question. The escalator into the Circle Line corridor may
+            also be the one to Exit C, and it should be recordable as both. */}
+        {exitCodes.length > 0 && (
+          <>
+            <p className="font-pixel text-[10px] uppercase text-fg-faint">
+              {t("survey.leadsToExits")}
+            </p>
+            <div className="mb-3 mt-2 flex flex-wrap gap-2">
+              {exitCodes.map((code) => (
+                <Choice
+                  key={`exit-${code}`}
+                  active={leadsTo.includes(code)}
+                  onClick={() => toggleTarget(code)}
+                >
+                  {t("route.exitLabel", { code })}
+                </Choice>
+              ))}
+            </div>
+          </>
+        )}
+
+        {interchanges.length > 0 && (
+          <>
+            <p className="font-pixel text-[10px] uppercase text-fg-faint">
+              {t("survey.leadsToLines")}
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {interchanges.map((code) => (
+                <Choice
+                  key={`line-${code}`}
+                  active={leadsTo.includes(code)}
+                  onClick={() => toggleTarget(code)}
+                >
+                  {code}
+                </Choice>
+              ))}
+            </div>
+          </>
+        )}
+
+        {exitCodes.length === 0 && interchanges.length === 0 && (
+          <p className="text-sm text-fg-muted">{t("survey.noExits")}</p>
         )}
       </Step>
 
       <button
         type="button"
         onClick={save}
-        disabled={doorIndex == null}
+        disabled={!ready}
         className="pixel-btn font-pixel px-4 py-4 text-xs uppercase"
         style={
-          doorIndex != null
-            ? { background: "var(--accent)", color: "var(--accent-fg)" }
-            : undefined
+          ready ? { background: "var(--accent)", color: "var(--accent-fg)" } : undefined
         }
       >
         {t("survey.save")}

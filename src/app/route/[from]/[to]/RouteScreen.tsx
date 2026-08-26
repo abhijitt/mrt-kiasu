@@ -18,7 +18,8 @@ import type { MessageKey } from "@/i18n/I18nProvider";
 import { useSettings } from "@/lib/settings";
 import type { Landmark } from "@/lib/landmark-types";
 import {
-  chooseExitFeature,
+  chooseFeature,
+  DEVICE_TYPES,
   type FeatureType,
   type PlatformFeature,
 } from "@/lib/feature-types";
@@ -37,8 +38,6 @@ export interface LegView {
   doorSide: { side: "left" | "right"; surveyed: boolean; layout: string | null } | null;
   /** Which side they open where it begins — this orients the diagram. */
   boardingSide: "left" | "right" | null;
-  /** Feature to use for the transfer, on non-final legs. */
-  transferFeature: PlatformFeature | null;
 }
 
 interface Props {
@@ -65,6 +64,7 @@ function Guidance({
   towards,
   preference,
   showPreferenceNote,
+  targetMissed,
   legKey,
   doorSide,
   arrivalDoor,
@@ -75,6 +75,11 @@ function Guidance({
   towards: string;
   preference: FeatureType;
   showPreferenceNote: boolean;
+  /**
+   * The exit or line we were asked for but found nothing recorded for, already
+   * labelled for display. Null when we matched it, or when none was asked for.
+   */
+  targetMissed: string | null;
   /** Identifies this leg, so revisiting a route does not count it twice. */
   legKey: string;
   /** Which side the doors open where you board — it orients the diagram. */
@@ -115,6 +120,12 @@ function Guidance({
 
   const preferenceHonoured = feature.type === preference;
   const modeLabel = t(`mode.${preference}` as MessageKey);
+  // What we are actually sending them to, when it is a device at all. An
+  // estimate is a position rather than a thing, so it has no name here and
+  // falls through to the wording about unsurveyed platforms.
+  const actualDevice = (DEVICE_TYPES as readonly FeatureType[]).includes(feature.type)
+    ? t(`mode.${feature.type}.target` as MessageKey)
+    : null;
 
   // Gao only ever adds. Everything above this line renders identically at
   // either level, so turning the setting on cannot change an existing answer.
@@ -193,11 +204,29 @@ function Guidance({
           >
             {preferenceHonoured
               ? t("route.preferenceApplied", { mode: modeLabel })
-              : t("route.preferenceUnavailable", { mode: modeLabel })}
+              : actualDevice
+                ? // The platform IS surveyed — it just has something else on
+                  // it. Saying "needs a surveyed platform" here would be false.
+                  t("route.preferenceOther", { mode: modeLabel, actual: actualDevice })
+                : t("route.preferenceUnavailable", { mode: modeLabel })}
           </span>
           <Link href="/settings" className="text-xs text-fg-muted underline">
             {t("route.changePreference")}
           </Link>
+        </p>
+      )}
+
+      {/* Refusing to imply a targeted answer. Several escalators can sit on one
+          platform serving different places; if none is recorded as serving the
+          one you asked for, picking the first is a guess and is labelled one. */}
+      {targetMissed && (
+        <p className="mt-3">
+          <span
+            className="pixel-box-sm px-2 py-1.5 text-xs leading-snug"
+            style={{ borderColor: "var(--candidate)" }}
+          >
+            {t("route.targetUnknown", { target: targetMissed })}
+          </span>
         </p>
       )}
 
@@ -340,9 +369,19 @@ export function RouteScreen(p: Props) {
         const nextLeg = p.legs[i + 1];
         const line = LINES[leg.line];
 
-        const feature = isFinalLeg
-          ? chooseExitFeature(leg.features, preference, selectedExit)
-          : (leg.transferFeature ?? chooseExitFeature(leg.features, preference, null));
+        // One axis. On the last leg you are heading for an exit; at an
+        // interchange you are heading for the next line. The data no longer
+        // distinguishes the two, so neither does the lookup — an escalator
+        // recorded as serving both is found by either question.
+        const target = isFinalLeg ? selectedExit : (nextLeg?.line ?? null);
+        const targeted = target ? chooseFeature(leg.features, preference, target) : null;
+        const feature = targeted ?? chooseFeature(leg.features, preference, null);
+        const targetMissed =
+          target && !targeted && feature
+            ? isFinalLeg
+              ? t("route.exitLabel", { code: target })
+              : t(lineNameKey(target as LineCode) as MessageKey)
+            : null;
 
         return (
           <section key={`${leg.fromName}-${leg.toName}-${i}`} className="pixel-box anim-enter p-4">
@@ -392,7 +431,8 @@ export function RouteScreen(p: Props) {
               direction={leg.direction}
               towards={isFinalLeg ? leg.toName : leg.towards}
               preference={preference}
-              showPreferenceNote={isFinalLeg && loaded}
+              showPreferenceNote={loaded}
+              targetMissed={targetMissed}
               legKey={`${p.originName}|${p.destinationName}|${i}`}
               doorSide={leg.boardingSide ?? undefined}
               arrivalDoor={

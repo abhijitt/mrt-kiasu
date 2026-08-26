@@ -33,7 +33,7 @@ const PREFIX_TO_LINE = {
   PTC: "PGLRT", PE: "PGLRT", PW: "PGLRT",
 };
 
-const VALID_TYPES = ["escalator", "lift", "stairs", "transfer", "exit"];
+const VALID_TYPES = ["escalator", "lift", "stairs", "exit"];
 const VALID_SOURCES = ["survey", "osm", "official-map", "user", "estimate"];
 const VALID_CONFIDENCE = ["verified", "candidate", "estimate"];
 
@@ -60,6 +60,15 @@ async function main() {
     stations.stations.map((s) => [
       s.code.toUpperCase(),
       new Set((s.exits ?? []).map((e) => e.code)),
+    ]),
+  );
+
+  // Where a feature leads is one axis: exit codes and interchange line codes
+  // live in the same list, so both have to be checkable.
+  const interchangeLinesByCode = new Map(
+    stations.stations.map((s) => [
+      s.code.toUpperCase(),
+      new Set((s.interchanges ?? []).map((i) => String(i.line).toUpperCase())),
     ]),
   );
 
@@ -132,19 +141,39 @@ async function main() {
       }
       if (!Array.isArray(f.leadsTo)) {
         errors.push(`${at}: leadsTo must be an array`);
-      } else if (f.type !== "transfer") {
-        // Exit codes must match what LTA's dataset says the station has,
-        // otherwise we would send someone to an exit that does not exist.
-        const known = exitCodesByCode.get(stationCode.toUpperCase());
-        if (known && known.size > 0) {
-          for (const target of f.leadsTo) {
-            if (!known.has(String(target).toUpperCase())) {
-              errors.push(
-                `${at}: leadsTo "${target}" is not a known exit at ${stationCode} (known: ${[...known].join(", ")})`,
-              );
-            }
+      } else {
+        // A target is either an exit code as printed on station signage or the
+        // code of a line you can change to here. Anything else would send
+        // someone to a place that does not exist.
+        const known = exitCodesByCode.get(stationCode.toUpperCase()) ?? new Set();
+        const lines = interchangeLinesByCode.get(stationCode.toUpperCase()) ?? new Set();
+        for (const target of f.leadsTo) {
+          const t = String(target).toUpperCase();
+          if (lines.has(t) || known.has(t)) continue;
+          if (known.size === 0) {
+            // No exit data for this station, so an unrecognised target may be
+            // a real exit we simply do not have. A line code would have
+            // matched above, so this cannot hide a bad transfer.
+            warnings.push(`${at}: leadsTo "${target}" is unverifiable — no exit data for ${stationCode}`);
+            continue;
           }
+          errors.push(
+            `${at}: leadsTo "${target}" is neither a known exit at ${stationCode} (${[...known].join(", ")}) nor a line you can change to here (${[...lines].join(", ") || "none"})`,
+          );
         }
+      }
+
+      // Two features of the same type on one platform must each say where they
+      // lead, or the app cannot tell them apart and would have to guess.
+      if (
+        Array.isArray(f.leadsTo) &&
+        f.leadsTo.length === 0 &&
+        f.confidence !== "estimate" &&
+        features.some((o) => o !== f && o.type === f.type)
+      ) {
+        errors.push(
+          `${at}: another ${f.type} is recorded on this platform, so leadsTo is required to tell them apart`,
+        );
       }
 
       // Estimates legitimately pile up on the end doors: any exit projecting

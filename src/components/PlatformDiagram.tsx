@@ -13,7 +13,6 @@ const FEATURE_GLYPH: Record<FeatureType, string> = {
   escalator: "▟",
   lift: "▤",
   stairs: "▚",
-  transfer: "⇄",
   exit: "↑",
 };
 

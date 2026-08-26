@@ -18,7 +18,7 @@ import positionsData from "@/data/positions.json";
 import { doorsPerTrain, type LineCode } from "./lines";
 import type { Direction } from "./doors";
 import {
-  chooseExitFeature,
+  chooseFeature,
   type Confidence,
   type FeatureType,
   type PlatformFeature,
@@ -32,7 +32,7 @@ export type {
   SourceKind,
   Travel,
 } from "./feature-types";
-export { chooseExitFeature, servesAlighting } from "./feature-types";
+export { chooseFeature, leadsToTarget, servesAlighting, DEVICE_TYPES } from "./feature-types";
 
 const surveyed = positionsData.platforms as Record<string, PlatformFeature[]>;
 const estimated = estimatesData.platforms as unknown as Record<string, PlatformFeature[]>;
@@ -78,35 +78,19 @@ export function hasVerifiedData(stationCode: string, direction: Direction): bool
   return (surveyed[platformKey(stationCode, direction)] ?? []).length > 0;
 }
 
-export function findBestFeature(
-  stationCode: string,
-  direction: Direction,
-  type: FeatureType,
-  leadsTo?: string,
-): PlatformFeature | null {
-  const matches = getFeatures(stationCode, direction).filter((f) => {
-    if (f.type !== type) return false;
-    if (!leadsTo) return true;
-    return f.leadsTo.some((t) => t.toUpperCase() === leadsTo.toUpperCase());
-  });
-  return matches[0] ?? null;
-}
-
 /**
- * Picks what to show for "get me to the way out".
+ * Picks what to show for "get me to the thing I am heading for".
  *
- * Honours the commuter's escalator/lift/stairs preference when a survey has
- * recorded it, and otherwise falls back to the exit-position estimate. The
- * caller can tell which happened from the returned feature's `type`, and the
- * UI says so rather than implying the preference was applied.
+ * `target` is an exit code when alighting and the next line's code at an
+ * interchange. See chooseFeature for the fallback order.
  */
 export function findExitGuidance(
   stationCode: string,
   direction: Direction,
   preference: FeatureType,
-  exitCode?: string,
+  target?: string,
 ): PlatformFeature | null {
-  return chooseExitFeature(getFeatures(stationCode, direction), preference, exitCode);
+  return chooseFeature(getFeatures(stationCode, direction), preference, target);
 }
 
 /** All exits with an estimated position on this platform. */
@@ -144,7 +128,7 @@ export function validateFeature(
     return [`No sourced train geometry for ${line} — cannot validate door positions`];
   }
 
-  const validTypes: FeatureType[] = ["escalator", "lift", "stairs", "transfer", "exit"];
+  const validTypes: FeatureType[] = ["escalator", "lift", "stairs", "exit"];
   const validSources: SourceKind[] = ["survey", "osm", "official-map", "user", "estimate"];
   const validConfidence: Confidence[] = ["verified", "candidate", "estimate"];
   const validTravel = ["up", "down", "reversible"];

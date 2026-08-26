@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { findBestFeature, getFeatures } from "@/lib/positions";
+import { getFeatures } from "@/lib/positions";
 import { planRouteBetweenStations } from "@/lib/routing";
 import { getGroup, getStation } from "@/lib/stations";
 import { landmarksForCodes } from "@/lib/landmarks";
@@ -26,8 +26,7 @@ export default async function RoutePage({
 
   // Ship every recorded feature per leg; the client picks among them using the
   // commuter's preference, which lives in their browser and not on the server.
-  const legs: LegView[] = route.legs.map((leg, i) => {
-    const nextLeg = route.legs[i + 1];
+  const legs: LegView[] = route.legs.map((leg) => {
     return {
       line: leg.line,
       fromName: leg.from.name,
@@ -58,9 +57,6 @@ export default async function RoutePage({
           layout: layoutFor(leg.to.code)?.layout ?? null,
         };
       })(),
-      transferFeature: nextLeg
-        ? findBestFeature(leg.to.code, leg.direction, "transfer", nextLeg.line)
-        : null,
     };
   });
 

@@ -59,6 +59,25 @@ export async function POST(request: Request) {
   const key = `${stationCode.toUpperCase()}:${direction}`;
   raw.platforms[key] ??= [];
 
+  // Two escalators on one platform can serve different places — one to the
+  // exit, one to the transfer corridor. If neither says where it leads, the
+  // app has to pick between them, and picking is guessing. Enforced here as
+  // well as in the form because this route accepts raw JSON.
+  const siblings = (raw.platforms[key] as PlatformFeature[]).filter(
+    (f) => f.type === feature!.type && f.doorIndex !== feature!.doorIndex,
+  );
+  if (siblings.length > 0 && (feature!.leadsTo ?? []).length === 0) {
+    return NextResponse.json(
+      {
+        error: "Invalid feature",
+        details: [
+          `${key} already has another ${feature!.type}; leadsTo is required so they can be told apart`,
+        ],
+      },
+      { status: 400 },
+    );
+  }
+
   // Re-surveying the same feature at the same door updates it rather than
   // stacking duplicates.
   const existing = raw.platforms[key].findIndex(
