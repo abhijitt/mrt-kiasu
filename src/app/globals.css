@@ -10,6 +10,9 @@
    --------------------------------------------------------------- */
 
 :root {
+  /* Native control glyphs (the time picker's clock) are drawn dark, so
+     they need inverting on a dark ground. See input[type="time"] below. */
+  --icon-invert: 0;
   /* Surfaces — warm off-white, like a well-lit platform */
   --bg: #f2eee1;
   --bg-raised: #ffffff;
@@ -79,6 +82,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    --icon-invert: 1;
     --bg: #12121d;
     --bg-raised: #21213a;
     --bg-sunken: #0a0a12;
@@ -127,6 +131,7 @@
 }
 
 :root[data-theme="dark"] {
+  --icon-invert: 1;
   --bg: #12121d;
   --bg-raised: #21213a;
   --bg-sunken: #0a0a12;
@@ -474,4 +479,30 @@ svg {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/*
+ * Time inputs.
+ *
+ * The inner value of a time input is a shadow-DOM element with its own
+ * padding and alignment, which Safari and iOS size independently of the box
+ * around it. Left unstyled it sits off-centre inside our square border and
+ * makes the 2px frame look broken. Neutralising it here rather than per-use,
+ * since any future time field would hit the same thing.
+ */
+input[type="time"] {
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+input[type="time"]::-webkit-date-and-time-value {
+  text-align: left;
+  margin: 0;
+}
+
+/* The picker glyph is dark-on-dark in the dark palette without this. */
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(var(--icon-invert, 0));
+  cursor: pointer;
 }

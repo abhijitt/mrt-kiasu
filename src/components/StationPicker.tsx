@@ -25,6 +25,12 @@ interface Props {
  *
  * A plain <select> with 180 stations is unusable on a phone, so this filters as
  * you type while still working without JavaScript-heavy combobox machinery.
+ *
+ * Every station is listed, not a first few. The list used to cap at eight,
+ * which quietly meant that opening it showed only the first eight
+ * alphabetically — so anyone who did not already know a station's name had no
+ * way to browse to it. The list scrolls, and a couple of hundred rows of two
+ * spans each costs nothing to render.
  */
 /**
  * The clear cross, drawn rather than typeset.
@@ -78,14 +84,12 @@ export function StationPicker({ label, value, onChange, stations, exclude }: Pro
   const matches = useMemo(() => {
     const q = query.trim().toLowerCase();
     const pool = stations.filter((s) => s.name !== exclude);
-    if (!q) return pool.slice(0, 8);
-    return pool
-      .filter(
-        (s) =>
-          s.name.toLowerCase().includes(q) ||
-          s.codes.some((c) => c.toLowerCase().startsWith(q)),
-      )
-      .slice(0, 8);
+    if (!q) return pool;
+    return pool.filter(
+      (s) =>
+        s.name.toLowerCase().includes(q) ||
+        s.codes.some((c) => c.toLowerCase().startsWith(q)),
+    );
   }, [query, stations, exclude]);
 
   const showList = focused && matches.length > 0;

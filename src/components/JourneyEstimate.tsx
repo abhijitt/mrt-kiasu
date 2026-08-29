@@ -107,7 +107,12 @@ export function JourneyEstimate(props: Props) {
                 const [h, m] = e.target.value.split(":").map(Number);
                 if (Number.isFinite(h) && Number.isFinite(m)) setDepartAt(h * 60 + m);
               }}
-              className="pixel-box-sm mt-2 w-full bg-bg-raised px-3 py-3 text-base text-fg"
+              // appearance-none and rounded-none because a time input carries
+              // heavy user-agent styling: Safari and iOS draw their own rounded
+              // control inside our square 2px box, so the border reads as
+              // broken where the two disagree. min-h keeps the box the same
+              // height as the buttons around it once the UA chrome is gone.
+              className="pixel-box-sm mt-2 block min-h-12 w-full appearance-none rounded-none bg-bg-raised px-3 py-3 text-base text-fg"
             />
           </label>
           {departAt !== null && (
