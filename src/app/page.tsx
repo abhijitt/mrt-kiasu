@@ -5,6 +5,9 @@ import { LINES, LINE_ORDER } from "@/lib/lines";
 export default function Home() {
   const stations = STATION_GROUPS.map((g) => ({
     name: g.name,
+    // Carried so the picker can be searched in Chinese. The English name stays
+    // the value: it is what the route URL is built from.
+    nameZh: g.nameZh,
     codes: g.codes,
     lines: g.lines,
   }));

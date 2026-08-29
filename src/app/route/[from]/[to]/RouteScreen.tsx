@@ -12,8 +12,9 @@ import { backupDoor, doorBreakdown, fleetSource, savedWorking } from "@/lib/gao"
 import { useKiasuScore } from "@/lib/useKiasuScore";
 import { JourneyEstimate } from "@/components/JourneyEstimate";
 import type { JourneyPayload } from "@/lib/journey-data";
-import { LINES, lineNameKey, type LineCode } from "@/lib/lines";
+import { LINES, type LineCode } from "@/lib/lines";
 import { useT } from "@/i18n/I18nProvider";
+import { useLineName } from "@/i18n/useLineName";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { useSettings } from "@/lib/settings";
 import type { Landmark } from "@/lib/landmark-types";
@@ -319,6 +320,7 @@ function Guidance({
 
 export function RouteScreen(p: Props) {
   const t = useT();
+  const lineName = useLineName();
   const { settings, loaded } = useSettings();
   const [selectedExit, setSelectedExit] = useState<string | null>(null);
 
@@ -382,7 +384,7 @@ export function RouteScreen(p: Props) {
           target && !targeted && feature
             ? isFinalLeg
               ? t("route.exitLabel", { code: target })
-              : t(lineNameKey(target as LineCode) as MessageKey)
+              : lineName(target as LineCode)
             : null;
 
         return (
@@ -399,7 +401,7 @@ export function RouteScreen(p: Props) {
                   {isFinalLeg ? t("route.finalLeg") : t("route.leg", { n: i + 1 })}
                 </p>
                 <p className="text-base leading-snug text-fg">
-                  {t(lineNameKey(leg.line) as MessageKey)}
+                  {lineName(leg.line)}
                 </p>
               </div>
             </div>
@@ -423,7 +425,7 @@ export function RouteScreen(p: Props) {
                     target: t(`mode.${preference}.target` as MessageKey),
                   })
                 : t("route.standHereChange", {
-                    line: nextLeg ? t(lineNameKey(nextLeg.line) as MessageKey) : "",
+                    line: nextLeg ? lineName(nextLeg.line) : "",
                   })}
             </p>
 

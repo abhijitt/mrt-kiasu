@@ -2,11 +2,13 @@
 
 import { useId, useMemo, useState } from "react";
 import { LINES, type LineCode } from "@/lib/lines";
-import { useT } from "@/i18n/I18nProvider";
+import { useI18n } from "@/i18n/I18nProvider";
 import { EGG_TRIGGERS, EasterEgg, type EggId } from "./EasterEgg";
 
 export interface StationOption {
   name: string;
+  /** Chinese name, where the dataset has one. Searchable, never the value. */
+  nameZh?: string;
   codes: string[];
   lines: LineCode[];
 }
@@ -62,8 +64,15 @@ function ClearIcon() {
   );
 }
 
+/** True when the query found this station by its Chinese name rather than its English one. */
+function matchedZh(s: StationOption, query: string): boolean {
+  const q = query.trim().toLowerCase();
+  if (!q || !s.nameZh) return false;
+  return s.nameZh.toLowerCase().includes(q) && !s.name.toLowerCase().includes(q);
+}
+
 export function StationPicker({ label, value, onChange, stations, exclude }: Props) {
-  const t = useT();
+  const { t, locale } = useI18n();
   const id = useId();
   const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
@@ -88,6 +97,10 @@ export function StationPicker({ label, value, onChange, stations, exclude }: Pro
     return pool.filter(
       (s) =>
         s.name.toLowerCase().includes(q) ||
+        // Someone who knows a station as 海军部 and not as "Admiralty" could
+        // not find it at all before this. Chinese has no case to fold, but
+        // lowercasing is harmless and keeps the comparison uniform.
+        (s.nameZh ?? "").toLowerCase().includes(q) ||
         s.codes.some((c) => c.toLowerCase().startsWith(q)),
     );
   }, [query, stations, exclude]);
@@ -160,7 +173,16 @@ export function StationPicker({ label, value, onChange, stations, exclude }: Pro
                         </span>
                       ))}
                     </span>
-                    <span className="text-base text-fg">{s.name}</span>
+                    {/* English always leads: it is what is printed on the
+                        station wall, and a reader of any language will have
+                        seen it there. The local name sits under it for anyone
+                        who knows the station only by that. */}
+                    <span className="min-w-0 flex-1 text-left">
+                      <span className="block text-base text-fg">{s.name}</span>
+                      {s.nameZh && (locale === "zh" || matchedZh(s, query)) && (
+                        <span className="block text-sm text-fg-muted">{s.nameZh}</span>
+                      )}
+                    </span>
                   </button>
                 </li>
               ))}

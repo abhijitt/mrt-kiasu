@@ -9,12 +9,13 @@ import { CheckIcon } from "@/components/icons";
 import { TrainTimes, type ServiceDay, type TrainTime } from "@/components/TrainTimes";
 import { ServiceWarning } from "@/components/ServiceWarning";
 import { useI18n } from "@/i18n/I18nProvider";
+import { useLineName } from "@/i18n/useLineName";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { groupByExit, type Landmark } from "@/lib/landmark-types";
 import { ExitLandmarks } from "@/components/ExitLandmarks";
 import type { LocalisedTrivia } from "@/lib/trivia";
 import type { Locale } from "@/i18n/config";
-import { lineNameKey, type LineCode } from "@/lib/lines";
+import { type LineCode } from "@/lib/lines";
 
 interface Props {
   code: string;
@@ -50,6 +51,7 @@ interface Props {
 
 export function StationScreen(p: Props) {
   const { t, locale } = useI18n();
+  const lineName = useLineName();
   // Chosen here rather than on the server because the locale is a client-side
   // preference; only this one station's variants were shipped.
   const trivia = p.triviaByLocale[locale] ?? p.triviaByLocale.en ?? null;
@@ -87,7 +89,7 @@ export function StationScreen(p: Props) {
           <h1 className="font-pixel text-sm leading-relaxed">{p.name}</h1>
           <p className="mt-1.5 text-xs opacity-80">
             {locale === "zh" && p.nameZh ? `${p.nameZh} · ` : ""}
-            {t(lineNameKey(p.lineCode) as MessageKey)} · {p.operator}
+            {lineName(p.lineCode)} · {p.operator}
           </p>
         </div>
       </header>

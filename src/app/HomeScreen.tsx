@@ -7,10 +7,11 @@ import { LegalFooter } from "@/components/LegalPage";
 import { Avatar, avatarLabelKey } from "@/components/Avatar";
 import { JourneyForm } from "./JourneyForm";
 import { useT } from "@/i18n/I18nProvider";
+import { useLineName } from "@/i18n/useLineName";
 import { useSettings } from "@/lib/settings";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import type { StationOption } from "@/components/StationPicker";
-import { lineNameKey, type LineCode } from "@/lib/lines";
+import { type LineCode } from "@/lib/lines";
 
 interface LineSummary {
   code: LineCode;
@@ -39,6 +40,7 @@ function Stat({ value, label }: { value: number; label: string }) {
 
 export function HomeScreen({ stations, lines, exitCount }: Props) {
   const t = useT();
+  const lineName = useLineName();
   const { settings } = useSettings();
 
   return (
@@ -107,7 +109,7 @@ export function HomeScreen({ stations, lines, exitCount }: Props) {
                   </span>
                   <span className="flex flex-1 items-center justify-between gap-2 px-3 py-3.5">
                     <span className="text-base leading-tight text-fg">
-                      {t(lineNameKey(line.code) as MessageKey)}
+                      {lineName(line.code)}
                     </span>
                     <span className="font-pixel shrink-0 text-[10px] text-fg-faint">
                       {line.stationCount}

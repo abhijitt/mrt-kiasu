@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { Hud } from "@/components/Hud";
 import { useT } from "@/i18n/I18nProvider";
-import type { MessageKey } from "@/i18n/I18nProvider";
-import { lineNameKey, type LineCode } from "@/lib/lines";
+import { useLineName } from "@/i18n/useLineName";
+import { type LineCode } from "@/lib/lines";
 
 interface Props {
   code: LineCode;
@@ -19,11 +19,12 @@ interface Props {
 
 export function LineScreen(p: Props) {
   const t = useT();
+  const lineName = useLineName();
 
   return (
     <div className="min-h-dvh">
       <Hud
-        title={t(lineNameKey(p.code) as MessageKey)}
+        title={lineName(p.code)}
         backHref="/"
         accentVar={p.colorVar}
       />
@@ -38,7 +39,7 @@ export function LineScreen(p: Props) {
         </span>
         <div className="min-w-0">
           <h1 className="font-pixel text-base leading-relaxed text-fg">
-            {t(lineNameKey(p.code) as MessageKey)}
+            {lineName(p.code)}
           </h1>
           <p className="mt-1 text-sm text-fg-muted">
             {t("line.stationsAndOperator", {
