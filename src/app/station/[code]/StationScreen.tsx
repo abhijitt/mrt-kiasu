@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Hud } from "@/components/Hud";
 import { CrowdLevel } from "@/components/CrowdLevel";
 import { CrowdForecast } from "@/components/CrowdForecast";
-import { LiftStatus } from "@/components/LiftStatus";
+import { LiftStatus, usePrefersLift } from "@/components/LiftStatus";
 import { CheckIcon } from "@/components/icons";
 import { TrainTimes, type ServiceDay, type TrainTime } from "@/components/TrainTimes";
 import { ServiceWarning } from "@/components/ServiceWarning";
@@ -51,6 +51,7 @@ interface Props {
 
 export function StationScreen(p: Props) {
   const { t, locale } = useI18n();
+  const prefersLift = usePrefersLift();
   const lineName = useLineName();
   // Chosen here rather than on the server because the locale is a client-side
   // preference; only this one station's variants were shipped.
@@ -143,13 +144,18 @@ export function StationScreen(p: Props) {
         <TrainTimes times={p.trainTimes} />
       </section>
 
-      <section className="pixel-box anim-enter p-4">
-        <h2 className="font-pixel text-xs uppercase text-fg-muted">{t("lift.title")}</h2>
-        <LiftStatus
-          stationCodes={[p.code, ...p.interchanges.map((i) => i.code)]}
-          stationName={p.name}
-        />
-      </section>
+      {/* Heading and all: LiftStatus renders nothing unless the lift is your
+          preference, and an empty "Lift status" box reads as broken rather
+          than as not applicable. */}
+      {prefersLift && (
+        <section className="pixel-box anim-enter p-4">
+          <h2 className="font-pixel text-xs uppercase text-fg-muted">{t("lift.title")}</h2>
+          <LiftStatus
+            stationCodes={[p.code, ...p.interchanges.map((i) => i.code)]}
+            stationName={p.name}
+          />
+        </section>
+      )}
 
       {trivia && (
         <section className="pixel-box p-4">

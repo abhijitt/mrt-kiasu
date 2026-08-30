@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Hud } from "@/components/Hud";
 import { ExitPicker } from "@/components/ExitPicker";
-import { LiftStatus } from "@/components/LiftStatus";
+import { LiftStatus, usePrefersLift } from "@/components/LiftStatus";
 import { PlatformDiagram } from "@/components/PlatformDiagram";
 import { toCarPosition, type Direction } from "@/lib/doors";
 import { secondsSaved } from "@/lib/walking";
@@ -325,6 +325,7 @@ export function RouteScreen(p: Props) {
   const [selectedExit, setSelectedExit] = useState<string | null>(null);
 
   const preference = settings.preferredExitMode;
+  const prefersLift = usePrefersLift();
 
   return (
     <div className="min-h-dvh">
@@ -465,14 +466,19 @@ export function RouteScreen(p: Props) {
         );
       })}
 
-      <section className="pixel-box p-4">
-        <h2 className="font-pixel text-xs uppercase text-fg-muted">{t("lift.title")}</h2>
-        <LiftStatus
-          stationCodes={p.destinationCodes}
-          stationName={p.destinationName}
-          emphasise
-        />
-      </section>
+      {/* The heading goes with it. LiftStatus renders nothing unless the lift
+          is your preference, and a bare "Lift status" box with no status under
+          it reads as broken rather than as not applicable. */}
+      {prefersLift && (
+        <section className="pixel-box p-4">
+          <h2 className="font-pixel text-xs uppercase text-fg-muted">{t("lift.title")}</h2>
+          <LiftStatus
+            stationCodes={p.destinationCodes}
+            stationName={p.destinationName}
+            emphasise
+          />
+        </section>
+      )}
 
       <section className="pixel-box p-4">
         <h2 className="font-pixel text-xs uppercase text-fg-muted">

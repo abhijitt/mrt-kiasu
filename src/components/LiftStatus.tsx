@@ -20,7 +20,18 @@ interface Outage {
  * caching it — but nothing displayed it, which meant somebody who had set
  * their exit preference to Lift could be routed to one that is out of service.
  * That is the one case where being wrong strands a person.
+ *
+ * Only commuters who prefer the lift see it. To everyone else a lift outage is
+ * someone else's problem, and the section was spending a fetch and a box on it.
+ * The pages that use this drop the heading around it on the same rule, so the
+ * two cannot disagree and leave an empty box behind — hence the shared hook
+ * rather than the comparison written out in three places.
  */
+export function usePrefersLift(): boolean {
+  const { settings } = useSettings();
+  return settings.preferredExitMode === "lift";
+}
+
 export function LiftStatus({
   stationCodes,
   stationName,
@@ -32,11 +43,13 @@ export function LiftStatus({
   emphasise?: boolean;
 }) {
   const t = useT();
-  const { settings } = useSettings();
+  const prefersLift = usePrefersLift();
   const [outages, setOutages] = useState<Outage[] | null>(null);
   const [state, setState] = useState<"loading" | "ready" | "unavailable">("loading");
 
   useEffect(() => {
+    // Nothing to render, so nothing worth asking LTA for.
+    if (!prefersLift) return;
     let cancelled = false;
     fetch("/api/lta/lifts")
       .then((r) => (r.ok ? r.json() : null))
@@ -60,7 +73,9 @@ export function LiftStatus({
     return () => {
       cancelled = true;
     };
-  }, [stationCodes]);
+  }, [stationCodes, prefersLift]);
+
+  if (!prefersLift) return null;
 
   if (state === "loading") {
     return <p className="mt-3 text-sm text-fg-faint">{t("lift.checking")}</p>;
@@ -78,8 +93,6 @@ export function LiftStatus({
       </p>
     );
   }
-
-  const prefersLift = settings.preferredExitMode === "lift";
 
   return (
     <div
@@ -101,7 +114,7 @@ export function LiftStatus({
           </li>
         ))}
       </ul>
-      {emphasise && prefersLift && (
+      {emphasise && (
         <p className="mt-2 text-sm font-semibold" style={{ color: "var(--danger)" }}>
           {t("lift.outageForYou")}
         </p>
