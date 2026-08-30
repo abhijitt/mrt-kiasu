@@ -407,5 +407,10 @@
   "doors.onArrival": "semasa anda turun di {station}.",
   "fare.title": "Berapa tambangnya",
   "fare.amount": "{amount} dengan kad, tambang dewasa.",
-  "fare.basis": "Dikenakan bagi {distance} antara dua stesen, walau apa pun laluan anda."
+  "fare.basis": "Dikenakan bagi {distance} antara dua stesen, walau apa pun laluan anda.",
+  "fare.gaoBody": "{distance} termasuk dalam julat {band}, yang dikenakan {amount} dalam jadual tambang.",
+  "fare.gaoSource": "Jarak daripada kalkulator tambang LTA; harga daripada jadual PTC berkuat kuasa {effective}.",
+  "fare.bandUpTo": "sehingga {to} km",
+  "fare.bandRange": "{from}–{to} km",
+  "fare.bandOver": "melebihi {from} km"
 }

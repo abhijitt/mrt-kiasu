@@ -407,5 +407,10 @@
   "doors.onArrival": "when you get off at {station}.",
   "fare.title": "How much it costs",
   "fare.amount": "{amount} by card, adult fare.",
-  "fare.basis": "Charged on {distance} between the two stations, whichever way you ride."
+  "fare.basis": "Charged on {distance} between the two stations, whichever way you ride.",
+  "fare.gaoBody": "{distance} falls in the {band} band, which the fare table prices at {amount}.",
+  "fare.gaoSource": "Distance from LTA's fare calculator; price from the PTC table effective {effective}.",
+  "fare.bandUpTo": "up to {to} km",
+  "fare.bandRange": "{from}–{to} km",
+  "fare.bandOver": "over {from} km"
 }

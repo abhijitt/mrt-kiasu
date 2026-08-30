@@ -26,6 +26,7 @@ import distanceData from "@/data/fare-distances.json";
 import bandData from "@/data/fare-bands.json";
 import { STATIONS } from "./stations";
 import {
+  bandFromBands,
   priceFromBands,
   DEFAULT_FARE_TYPE,
   type Band,
@@ -44,7 +45,11 @@ export {
   formatFare,
   formatDistance,
   priceFromBands,
+  bandFromBands,
 } from "./fare-types";
+
+/** When the loaded fare table took effect. Shown as provenance, not decoration. */
+export const FARE_TABLE_EFFECTIVE = bandData._source.effective;
 
 const BANDS = bandData.bands as Record<FareType, Band[]>;
 const PAIRS = distanceData.pairs as Record<string, number>;
@@ -136,6 +141,7 @@ export function fareBetween(
 ): Fare | null {
   const units = distanceBetween(fromCode, toCode);
   if (units === null) return null;
-  return { cents: fareForDistance(units, type), units };
+  const [fromKm, toKm, cents] = bandFromBands(units, BANDS[type]);
+  return { cents, units, band: { fromKm, toKm }, effective: FARE_TABLE_EFFECTIVE };
 }
 

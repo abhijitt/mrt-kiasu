@@ -407,5 +407,10 @@
   "doors.onArrival": "（在{station}下车时）。",
   "fare.title": "车费多少",
   "fare.amount": "刷卡 {amount}，成人票价。",
-  "fare.basis": "按两站之间的 {distance} 计费，无论走哪条路线。"
+  "fare.basis": "按两站之间的 {distance} 计费，无论走哪条路线。",
+  "fare.gaoBody": "{distance} 属于 {band} 区间，车费表定为 {amount}。",
+  "fare.gaoSource": "距离取自陆路交通管理局车费计算器；车费取自公共交通理事会自 {effective} 起生效的车费表。",
+  "fare.bandUpTo": "{to} 公里以内",
+  "fare.bandRange": "{from}–{to} 公里",
+  "fare.bandOver": "{from} 公里以上"
 }

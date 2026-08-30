@@ -76,8 +76,24 @@ describe("pricing a distance", () => {
   });
 
   it("reproduces the fare LTA charged for a real journey", () => {
-    // The whole model in one line: our distance, their price.
-    expect(fareBetween("NS10", "NS16", "adult")).toEqual({ cents: 202, units: 1330 });
+    // The whole model in one line: our distance, their price. The band comes
+    // along so the route screen can show its working without importing the
+    // table, and it is worth pinning — a fare is only checkable if you can see
+    // which row of the table produced it.
+    expect(fareBetween("NS10", "NS16", "adult")).toEqual({
+      cents: 202,
+      units: 1330,
+      band: { fromKm: 13.3, toKm: 14.2 },
+      effective: "2025-12-27",
+    });
+  });
+
+  it("names the open-ended top band without an upper bound", () => {
+    // Tuas Link to Changi Airport, the longest journey on the network.
+    const fare = fareBetween("EW33", "CG2", "adult")!;
+    expect(fare.units).toBe(4770);
+    expect(fare.band.toKm).toBeNull();
+    expect(fare.cents).toBe(257);
   });
 
   it("puts the gap between bands in the higher band", () => {

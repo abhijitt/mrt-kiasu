@@ -31,6 +31,14 @@ export interface Fare {
   cents: number;
   /** The distance it was priced on, in units of 10 m. */
   units: number;
+  /**
+   * The band the distance landed in. Carried rather than recomputed because
+   * the band table lives beside the 350 KB pair file, and a client component
+   * showing the working must not import either.
+   */
+  band: { fromKm: number; toKm: number | null };
+  /** When the fare table took effect — the provenance half of the working. */
+  effective: string;
 }
 
 /**
@@ -45,15 +53,17 @@ export interface Fare {
  * Takes the table as an argument rather than importing it, so this stays free
  * of data and usable from either side of the network boundary.
  */
-export function priceFromBands(
-  units: number,
-  bands: Band[],
-): number {
-  for (const [, toKm, cents] of bands) {
-    if (toKm === null) return cents;
-    if (units <= Math.round(toKm * UNITS_PER_KM)) return cents;
+export function bandFromBands(units: number, bands: Band[]): Band {
+  for (const band of bands) {
+    const toKm = band[1];
+    if (toKm === null) return band;
+    if (units <= Math.round(toKm * UNITS_PER_KM)) return band;
   }
-  return bands[bands.length - 1][2];
+  return bands[bands.length - 1];
+}
+
+export function priceFromBands(units: number, bands: Band[]): number {
+  return bandFromBands(units, bands)[2];
 }
 
 /** "$1.79". Cents in, never a float. */
