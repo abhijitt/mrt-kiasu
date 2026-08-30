@@ -21,6 +21,7 @@
     "build:map": "node scripts/build-map-data.mjs",
     "build:schematic": "node scripts/build-schematic.mjs",
     "import:times": "node scripts/import-train-times.mjs",
+    "import:fares": "node scripts/import-fare-distances.mjs",
     "import:layouts": "node scripts/import-platform-layouts.mjs"
   },
   "dependencies": {

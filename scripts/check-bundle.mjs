@@ -39,6 +39,9 @@ const NEEDLES = [
   // The whole network's timetable is ~200 KB; only the rendered station's rows
   // should ever cross to the browser.
   { name: "train-times.json", needle: "GTFS Schedule (Train), LTA DataMall" },
+  // Every station pair is ~300 KB. The route page needs one number out of it,
+  // worked out on the server.
+  { name: "fare-distances.json", needle: "LTA Fare Calculator (MRT/LRT trip distance)" },
 ];
 
 async function jsFiles(dir) {

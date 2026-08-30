@@ -4,6 +4,7 @@ import { planRouteBetweenStations } from "@/lib/routing";
 import { getGroup, getStation } from "@/lib/stations";
 import { landmarksForCodes } from "@/lib/landmarks";
 import { journeyPayload } from "@/lib/journey-data";
+import { fareBetween } from "@/lib/fare";
 import { doorSideFor, layoutFor } from "@/lib/orientation";
 import { RouteScreen, type LegView } from "./RouteScreen";
 
@@ -68,8 +69,14 @@ export default async function RoutePage({
     ),
   ].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 
+  // Worked out here rather than in the browser: the pair table is ~300 KB and
+  // the page needs one number out of it. Null when we have no figure for the
+  // pair, which the screen renders as no fare rather than a guess.
+  const fare = fareBetween(origin.primaryCode, destination.primaryCode);
+
   return (
     <RouteScreen
+      fare={fare}
       originName={origin.name}
       destinationName={destination.name}
       destinationCode={destination.primaryCode}

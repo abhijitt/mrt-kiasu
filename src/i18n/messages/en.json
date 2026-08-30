@@ -280,7 +280,9 @@
   "attribution.title": "Data & credits",
   "attribution.lead": "This app is built almost entirely on public data. Every source and its licence is listed here.",
   "attribution.ltaTitle": "Land Transport Authority",
-  "attribution.ltaBody": "Station codes and names, station exits, real-time platform crowding, service alerts and lift maintenance. Contains information from LTA accessed via data.gov.sg and LTA DataMall, made available under the Singapore Open Data Licence.",
+  "attribution.ltaBody": "Station codes and names, station exits, real-time platform crowding, service alerts and lift maintenance. Journey distances come from LTA's fare calculator. Contains information from LTA accessed via data.gov.sg and LTA DataMall, made available under the Singapore Open Data Licence.",
+  "attribution.ptcTitle": "Public Transport Council",
+  "attribution.ptcBody": "Fares are worked out from the PTC's published distance-based fare table for MRT and LRT, effective 27 December 2025. The PTC sets fares; we only look them up, and a fare shown here is our reading of the published table rather than a quotation from the fare system.",
   "attribution.osmTitle": "OpenStreetMap",
   "attribution.osmBody": "Landmarks near each exit are derived from OpenStreetMap data, © OpenStreetMap contributors, available under the Open Database Licence (ODbL). Our derived landmark dataset is likewise available under ODbL.",
   "attribution.wikiTitle": "Wikipedia and Wikidata",
@@ -402,5 +404,8 @@
   "layout.island": "island",
   "layout.side": "side",
   "layout.stacked": "stacked",
-  "doors.onArrival": "when you get off at {station}."
+  "doors.onArrival": "when you get off at {station}.",
+  "fare.title": "How much it costs",
+  "fare.amount": "{amount} by card, adult fare.",
+  "fare.basis": "Charged on {distance} between the two stations, whichever way you ride."
 }

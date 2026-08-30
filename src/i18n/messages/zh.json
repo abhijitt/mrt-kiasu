@@ -280,7 +280,9 @@
   "attribution.title": "数据与来源",
   "attribution.lead": "本应用几乎完全建立在公开数据之上。所有来源及其授权条款列于下方。",
   "attribution.ltaTitle": "陆路交通管理局",
-  "attribution.ltaBody": "车站代码与名称、车站出口、实时月台拥挤度、服务通知及电梯维修资讯。内含取自陆交局的资料，经由 data.gov.sg 与 LTA DataMall 取得，依据新加坡开放数据许可发布。",
+  "attribution.ltaBody": "车站代号与名称、车站出口、实时站台拥挤程度、服务通知与电梯维修。行程距离取自陆路交通管理局的车费计算器。内含经由 data.gov.sg 与 LTA DataMall 取得的陆路交通管理局资料，依新加坡开放数据许可提供。",
+  "attribution.ptcTitle": "公共交通理事会",
+  "attribution.ptcBody": "车费依据公共交通理事会公布的地铁与轻轨里程车费表计算，自 2025 年 12 月 27 日起生效。车费由该理事会订定；我们仅作查询，此处显示的车费是我们对公布表格的解读，并非车费系统的报价。",
   "attribution.osmTitle": "OpenStreetMap",
   "attribution.osmBody": "各出口附近的地标源自 OpenStreetMap 数据，© OpenStreetMap 贡献者，依据开放数据库许可（ODbL）发布。我们衍生的地标数据同样以 ODbL 提供。",
   "attribution.wikiTitle": "维基百科与维基数据",
@@ -402,5 +404,8 @@
   "layout.island": "岛式",
   "layout.side": "侧式",
   "layout.stacked": "上下叠层",
-  "doors.onArrival": "（在{station}下车时）。"
+  "doors.onArrival": "（在{station}下车时）。",
+  "fare.title": "车费多少",
+  "fare.amount": "刷卡 {amount}，成人票价。",
+  "fare.basis": "按两站之间的 {distance} 计费，无论走哪条路线。"
 }

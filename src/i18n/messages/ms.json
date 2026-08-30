@@ -280,7 +280,9 @@
   "attribution.title": "Data & kredit",
   "attribution.lead": "Aplikasi ini dibina hampir sepenuhnya atas data awam. Setiap sumber dan lesennya disenaraikan di sini.",
   "attribution.ltaTitle": "Lembaga Pengangkutan Darat",
-  "attribution.ltaBody": "Kod dan nama stesen, pintu keluar stesen, kesesakan platform masa nyata, notis perkhidmatan dan penyelenggaraan lif. Mengandungi maklumat dari LTA yang diakses melalui data.gov.sg dan LTA DataMall, disediakan di bawah Lesen Data Terbuka Singapura.",
+  "attribution.ltaBody": "Kod dan nama stesen, pintu keluar stesen, kesesakan platform masa nyata, notis perkhidmatan dan penyelenggaraan lif. Jarak perjalanan diambil daripada kalkulator tambang LTA. Mengandungi maklumat daripada LTA melalui data.gov.sg dan LTA DataMall, disediakan di bawah Lesen Data Terbuka Singapura.",
+  "attribution.ptcTitle": "Majlis Pengangkutan Awam",
+  "attribution.ptcBody": "Tambang dikira daripada jadual tambang mengikut jarak yang diterbitkan oleh PTC untuk MRT dan LRT, berkuat kuasa 27 Disember 2025. PTC menetapkan tambang; kami hanya merujuknya, dan tambang di sini ialah bacaan kami terhadap jadual yang diterbitkan, bukan sebut harga daripada sistem tambang.",
   "attribution.osmTitle": "OpenStreetMap",
   "attribution.osmBody": "Mercu tanda berhampiran setiap pintu keluar diterbitkan daripada data OpenStreetMap, © penyumbang OpenStreetMap, tersedia di bawah Lesen Pangkalan Data Terbuka (ODbL). Set data mercu tanda terbitan kami turut tersedia di bawah ODbL.",
   "attribution.wikiTitle": "Wikipedia dan Wikidata",
@@ -402,5 +404,8 @@
   "layout.island": "pulau",
   "layout.side": "sisi",
   "layout.stacked": "bertingkat",
-  "doors.onArrival": "semasa anda turun di {station}."
+  "doors.onArrival": "semasa anda turun di {station}.",
+  "fare.title": "Berapa tambangnya",
+  "fare.amount": "{amount} dengan kad, tambang dewasa.",
+  "fare.basis": "Dikenakan bagi {distance} antara dua stesen, walau apa pun laluan anda."
 }

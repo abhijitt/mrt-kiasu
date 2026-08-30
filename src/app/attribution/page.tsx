@@ -9,6 +9,7 @@ export default function AttributionPage() {
       leadKey="attribution.lead"
       sections={[
         { titleKey: "attribution.ltaTitle", bodyKey: "attribution.ltaBody" },
+        { titleKey: "attribution.ptcTitle", bodyKey: "attribution.ptcBody" },
         { titleKey: "attribution.osmTitle", bodyKey: "attribution.osmBody" },
         { titleKey: "attribution.wikiTitle", bodyKey: "attribution.wikiBody" },
         { titleKey: "attribution.translationTitle", bodyKey: "attribution.translationBody" },

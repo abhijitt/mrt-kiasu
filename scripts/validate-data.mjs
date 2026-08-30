@@ -101,14 +101,17 @@ function lineOf(stationCode) {
 }
 
 async function main() {
-  const [positions, stations, exits, estimates, landmarks, adjustments] = await Promise.all([
-    read("src/data/positions.json"),
-    read("src/data/stations.json"),
-    read("src/data/exits.json"),
-    read("src/data/estimates.json"),
-    read("src/data/landmarks.json"),
-    read("src/data/service-adjustments.json"),
-  ]);
+  const [positions, stations, exits, estimates, landmarks, adjustments, fareDistances, fareBands] =
+    await Promise.all([
+      read("src/data/positions.json"),
+      read("src/data/stations.json"),
+      read("src/data/exits.json"),
+      read("src/data/estimates.json"),
+      read("src/data/landmarks.json"),
+      read("src/data/service-adjustments.json"),
+      read("src/data/fare-distances.json"),
+      read("src/data/fare-bands.json"),
+    ]);
 
   const knownStations = new Set(stations.stations.map((s) => s.code.toUpperCase()));
   // Exit codes now live on the station records themselves.
@@ -449,6 +452,85 @@ async function main() {
       `${Object.keys(landmarks.stations ?? {}).length} stations with landmarks`,
   );
 
+  // ---- Fares -------------------------------------------------------------
+  //
+  // Money is the one figure a commuter can check against the card reader, so
+  // it gets the same treatment as a door position: sourced, complete, and
+  // never quietly wrong. A missing pair shows on the page as no fare at all
+  // rather than a crash, which is exactly the kind of silence a gate is for.
+
+  if (!fareDistances._source?.distances) errors.push("fare-distances: missing _source.distances");
+  if (!fareBands._source?.bands) errors.push("fare-bands: missing _source.bands");
+  if (!fareBands._source?.effective) errors.push("fare-bands: missing _source.effective date");
+
+  const farePairs = fareDistances.pairs ?? {};
+  // Stations collapsed the way fare.ts collapses them: Marina Bay is one
+  // station whether you call it NS27, CE2 or TE20, and you pay for one.
+  const fareStations = new Set();
+  for (const key of Object.keys(farePairs)) for (const c of key.split("|")) fareStations.add(c);
+
+  for (const code of fareStations) {
+    if (!knownStations.has(code.toUpperCase())) {
+      errors.push(`fare-distances: "${code}" is not a station we know`);
+    }
+  }
+
+  const expectedPairs = (fareStations.size * (fareStations.size - 1)) / 2;
+  if (Object.keys(farePairs).length !== expectedPairs) {
+    errors.push(
+      `fare-distances: ${Object.keys(farePairs).length} pairs for ${fareStations.size} ` +
+        `stations, expected ${expectedPairs} — the import is incomplete`,
+    );
+  }
+
+  for (const [key, units] of Object.entries(farePairs)) {
+    if (!Number.isInteger(units) || units <= 0) {
+      errors.push(`fare-distances: ${key} has distance ${units}, expected a positive integer`);
+    }
+    const [a, b] = key.split("|");
+    if (!b) errors.push(`fare-distances: key "${key}" is not a station pair`);
+    else if ([a, b].sort().join("|") !== key) {
+      // Keys must be sorted, or the same journey stores twice and a lookup
+      // finds one of them at random.
+      errors.push(`fare-distances: key "${key}" is not in sorted order`);
+    }
+  }
+
+  for (const [type, bands] of Object.entries(fareBands.bands ?? {})) {
+    if (!Array.isArray(bands) || bands.length === 0) {
+      errors.push(`fare-bands: ${type} has no bands`);
+      continue;
+    }
+    if (bands[0][0] !== 0) errors.push(`fare-bands: ${type} does not start at 0 km`);
+    if (bands[bands.length - 1][1] !== null) {
+      errors.push(`fare-bands: ${type} has no open-ended top band, so a long journey has no price`);
+    }
+    let previousFare = -1;
+    for (const [from, to, cents] of bands) {
+      if (!Number.isInteger(cents) || cents <= 0) {
+        errors.push(`fare-bands: ${type} band ${from}-${to} has fare ${cents}`);
+      }
+      // A longer journey must never cost less, or the app would price a
+      // detour cheaper than the direct trip.
+      if (cents < previousFare) {
+        errors.push(`fare-bands: ${type} fare falls from ${previousFare} to ${cents} at ${from} km`);
+      }
+      previousFare = cents;
+    }
+  }
+
+  // LTA's own calculator disagrees with the PTC table on a handful of pairs,
+  // recorded by the importer rather than smoothed over. A jump in the count
+  // means something changed at their end and wants looking at, not ignoring.
+  const KNOWN_FARE_MISMATCHES = 8;
+  const mismatches = fareDistances._fareMismatches ?? [];
+  if (mismatches.length > KNOWN_FARE_MISMATCHES) {
+    warnings.push(
+      `fare-distances: ${mismatches.length} pairs where LTA's fare differs from the PTC table ` +
+        `(was ${KNOWN_FARE_MISMATCHES}) — re-check before trusting the band table`,
+    );
+  }
+
   for (const w of warnings) console.warn(`  warn  ${w}`);
   for (const e of errors) console.error(`  ERROR ${e}`);
 
@@ -456,6 +538,7 @@ async function main() {
   const estimated = Object.values(estimates.platforms ?? {}).flat().length;
   console.log(
     `\nvalidate-data: ${surveyed} surveyed and ${estimated} estimated position(s), ` +
+      `${Object.keys(farePairs).length} fare pair(s), ` +
       `${errors.length} error(s), ${warnings.length} warning(s)`,
   );
 

@@ -11,6 +11,9 @@ import { secondsSaved } from "@/lib/walking";
 import { backupDoor, doorBreakdown, fleetSource, savedWorking } from "@/lib/gao";
 import { useKiasuScore } from "@/lib/useKiasuScore";
 import { JourneyEstimate } from "@/components/JourneyEstimate";
+// fare-types, not fare: this is a client component, and fare.ts imports the
+// 350 KB pair table. The server has already worked the fare out.
+import { formatDistance, formatFare, type Fare } from "@/lib/fare-types";
 import type { JourneyPayload } from "@/lib/journey-data";
 import { LINES, type LineCode } from "@/lib/lines";
 import { useT } from "@/i18n/I18nProvider";
@@ -44,6 +47,12 @@ export interface LegView {
 interface Props {
   /** Everything needed to time this journey against the real timetable. */
   journey: JourneyPayload;
+  /**
+   * Adult card fare, priced on the server. Null when we hold no distance for
+   * the pair, in which case the cost is simply not shown — the app does not
+   * guess at money.
+   */
+  fare: Fare | null;
   originName: string;
   destinationName: string;
   destinationCode: string;
@@ -355,6 +364,22 @@ export function RouteScreen(p: Props) {
             </span>
           )}
         </div>
+        {p.fare && (
+          <div className="pixel-box anim-enter mt-3 p-4">
+            <p className="font-pixel text-[10px] uppercase text-fg-muted">
+              {t("fare.title")}
+            </p>
+            <p className="mt-2 text-base leading-relaxed text-fg">
+              {t("fare.amount", { amount: formatFare(p.fare.cents) })}
+            </p>
+            {/* The distance is the whole basis of the price, and it is the part
+                a commuter can sanity-check against the map on the wall. */}
+            <p className="mt-1 text-sm text-fg-muted">
+              {t("fare.basis", { distance: formatDistance(p.fare.units) })}
+            </p>
+          </div>
+        )}
+
         <div className="mt-3">
           <JourneyEstimate
             legs={p.journey.legs}

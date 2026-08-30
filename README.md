@@ -87,8 +87,29 @@ reviewed by native speakers — worth a pass before launch.
 | Opening dates | Wikidata P1619, keyed by official station code P296 | Wikipedia infoboxes fill the stations Wikidata lacks |
 | Station descriptions, depth | Wikipedia page summaries and infoboxes | 175 stations. Each links to its article |
 | Train car/door geometry | Wikipedia rolling-stock articles + LTA press releases | Cited in `src/lib/lines.ts` |
+| Journey distances | [LTA Fare Calculator](https://www.lta.gov.sg/content/ltagov/en/map/fare-calculator.html) | All 16,290 station pairs. No fare API exists on DataMall |
+| Fare table | [PTC published fares](https://www.ptc.gov.sg/fares/public-transport-fares-and-passes/) | Card fares for MRT/LRT, five fare types, effective 27 Dec 2025 |
 | Door positions (verified) | Field survey | No public source exists — see above |
 | Door positions (estimated) | Computed from LTA exit coordinates + line bearing | Car length 23.65 m / 22.8 m, from rolling-stock infoboxes |
+
+### Fares
+
+Distance-based, so a fare needs two things and neither ships as a dataset.
+Distances come from LTA's fare calculator, asked for **pair by pair** rather
+than summed from adjacent hops: LTA rounds each hop to 0.1 km, and over a
+sample of 100 journeys those roundings drifted up to 700 m and priced 7 of them
+into the wrong band. Prices come from the PTC's published table.
+
+The two are kept in separate files on purpose. Distance is track geometry and
+never moves; the PTC revises fares roughly yearly, so a revision replaces
+`fare-bands.json` and touches no code.
+
+`npm run import:fares` refetches, resumes from whatever is already stored, and
+prices every pair as it arrives to check the band table against LTA's own
+figure. Eight pairs disagree — LTA returns a fare 4-6 cents below the published
+table, and in every case a longer journey than one costing more. Reported to
+LTA; the app follows the published table, and `_fareMismatches` in the data
+file records the discrepancy rather than hiding it.
 
 ### Known data gaps
 
