@@ -87,6 +87,60 @@ export function JourneyEstimate(props: Props) {
     [props, start],
   );
 
+  // Hoisted so the button can sit on the fare line — where there is a fare —
+  // and on its own row where there is not. A journey we cannot price still
+  // has timings worth explaining.
+  const detailsToggle = gao ? (
+    <button
+      type="button"
+      onClick={() => setShowDetails((open) => !open)}
+      aria-expanded={showDetails}
+      aria-controls={detailsId}
+      aria-label={t("trip.detailsLabel")}
+      className="pixel-btn font-pixel min-h-11 w-11 shrink-0 text-[13px]"
+    >
+      ?
+    </button>
+  ) : null;
+
+  const detailsPanel =
+    gao && showDetails ? (
+      <div id={detailsId} className="pixel-box-sm mt-2 flex flex-col gap-3 p-3">
+        <div className="flex flex-col gap-1 text-sm text-fg-muted">
+          <span>{t("journey.ride", { duration: duration(journey.rideMinutes) })}</span>
+          <span>{t("journey.wait", { duration: duration(journey.waitMinutes) })}</span>
+          {journey.walkMinutes > 0 && (
+            <span>
+              {t("journey.walk", { duration: duration(journey.walkMinutes) })}
+              {!props.transferMeasured && ` — ${t("transfer.assumed")}`}
+            </span>
+          )}
+        </div>
+
+        <p className="text-xs leading-relaxed text-fg-faint">
+          {journey.approximated ? t("journey.approximated") : t("journey.source")}
+        </p>
+
+        {props.fare && price && (
+          <div className="flex flex-col gap-1">
+            <p className="text-sm leading-relaxed text-fg-muted">
+              {t("fare.basis", { distance: formatDistance(props.fare.units) })}
+            </p>
+            <p className="text-sm leading-relaxed text-fg-muted">
+              {t("fare.gaoBody", {
+                distance: formatDistance(props.fare.units),
+                band: bandLabel(price.band, t),
+                amount: formatFare(price.cents),
+              })}
+            </p>
+            <p className="text-xs leading-relaxed text-fg-faint">
+              {t("fare.gaoSource", { effective: props.fare.effective })}
+            </p>
+          </div>
+        )}
+      </div>
+    ) : null;
+
   return (
     <div className="pixel-box anim-enter p-4">
       <p className="font-pixel text-[10px] uppercase text-fg-muted">{t("trip.title")}</p>
@@ -104,13 +158,26 @@ export function JourneyEstimate(props: Props) {
         </p>
       )}
 
-      {price && (
-        <p className="mt-2 text-base leading-relaxed text-fg">
-          {t("fare.amount", {
-            amount: formatFare(price.cents),
-            type: t(`fareType.${settings.fareType}.inline` as MessageKey),
-          })}
-        </p>
+      {price ? (
+        <>
+          <div className="mt-2 flex items-center justify-between gap-3">
+            <p className="text-base leading-relaxed text-fg">
+              {t("fare.amount", {
+                amount: formatFare(price.cents),
+                type: t(`fareType.${settings.fareType}.inline` as MessageKey),
+              })}
+            </p>
+            {detailsToggle}
+          </div>
+          {detailsPanel}
+        </>
+      ) : (
+        gao && (
+          <div className="mt-3">
+            {detailsToggle}
+            {detailsPanel}
+          </div>
+        )
       )}
 
       {gao && (
@@ -144,57 +211,6 @@ export function JourneyEstimate(props: Props) {
             </button>
           )}
 
-          {/* The working sits behind a question mark rather than on the page:
-              in gao it is wanted, but not before the answer it explains. */}
-          <div className="mt-3">
-            <button
-              type="button"
-              onClick={() => setShowDetails((open) => !open)}
-              aria-expanded={showDetails}
-              aria-controls={detailsId}
-              aria-label={t("trip.detailsLabel")}
-              className="pixel-btn font-pixel min-h-11 w-11 text-[13px]"
-            >
-              ?
-            </button>
-
-            {showDetails && (
-              <div id={detailsId} className="pixel-box-sm mt-2 flex flex-col gap-3 p-3">
-                <div className="flex flex-col gap-1 text-sm text-fg-muted">
-                  <span>{t("journey.ride", { duration: duration(journey.rideMinutes) })}</span>
-                  <span>{t("journey.wait", { duration: duration(journey.waitMinutes) })}</span>
-                  {journey.walkMinutes > 0 && (
-                    <span>
-                      {t("journey.walk", { duration: duration(journey.walkMinutes) })}
-                      {!props.transferMeasured && ` — ${t("transfer.assumed")}`}
-                    </span>
-                  )}
-                </div>
-
-                <p className="text-xs leading-relaxed text-fg-faint">
-                  {journey.approximated ? t("journey.approximated") : t("journey.source")}
-                </p>
-
-                {props.fare && price && (
-                  <div className="flex flex-col gap-1">
-                    <p className="text-sm leading-relaxed text-fg-muted">
-                      {t("fare.basis", { distance: formatDistance(props.fare.units) })}
-                    </p>
-                    <p className="text-sm leading-relaxed text-fg-muted">
-                      {t("fare.gaoBody", {
-                        distance: formatDistance(props.fare.units),
-                        band: bandLabel(price.band, t),
-                        amount: formatFare(price.cents),
-                      })}
-                    </p>
-                    <p className="text-xs leading-relaxed text-fg-faint">
-                      {t("fare.gaoSource", { effective: props.fare.effective })}
-                    </p>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
         </>
       )}
     </div>
