@@ -3,6 +3,7 @@
 import { useCallback, useSyncExternalStore } from "react";
 import { DEFAULT_SKIN_TONE, type AvatarId, type SkinToneId } from "@/components/Avatar";
 import type { FeatureType } from "@/lib/positions";
+import { DEFAULT_FARE_TYPE, type FareType } from "@/lib/fare-types";
 
 export type ThemeChoice = "system" | "light" | "dark";
 
@@ -28,6 +29,12 @@ export interface Settings {
   skinTone: SkinToneId;
   /** What the commuter usually wants to be nearest when they get off. */
   preferredExitMode: FeatureType;
+  /**
+   * Which card they tap. Fares differ by a lot — a student pays less than half
+   * the adult fare — so showing everyone the adult figure is wrong for anyone
+   * holding a concession card.
+   */
+  fareType: FareType;
   /** How thick you like it. See KiasuLevel. */
   kiasuLevel: KiasuLevel;
   theme: ThemeChoice;
@@ -38,6 +45,7 @@ export const DEFAULT_SETTINGS: Settings = {
   unlocked: [],
   skinTone: DEFAULT_SKIN_TONE,
   preferredExitMode: "escalator",
+  fareType: DEFAULT_FARE_TYPE,
   kiasuLevel: "kopi",
   theme: "system",
 };

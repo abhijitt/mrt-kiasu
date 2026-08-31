@@ -6,7 +6,7 @@ import { useSettings } from "@/lib/settings";
 import { estimateJourneyExact, type DepartureTable, type Leg } from "@/lib/journey-time";
 import { durationShape, splitDuration } from "@/lib/duration";
 import type { MessageKey, Translate } from "@/i18n/I18nProvider";
-import { formatDistance, formatFare, type Fare } from "@/lib/fare-types";
+import { formatDistance, formatFare, type Fare, type FarePrice } from "@/lib/fare-types";
 
 interface Props {
   legs: Leg[];
@@ -26,7 +26,7 @@ interface Props {
  * "over 40.2 km". Three shapes rather than one string, because a translator
  * needs to move the words around the numbers.
  */
-function bandLabel(band: Fare["band"], t: Translate): string {
+function bandLabel(band: FarePrice["band"], t: Translate): string {
   if (band.toKm === null) return t("fare.bandOver", { from: band.fromKm });
   if (band.fromKm === 0) return t("fare.bandUpTo", { to: band.toKm });
   return t("fare.bandRange", { from: band.fromKm, to: band.toKm });
@@ -66,6 +66,9 @@ export function JourneyEstimate(props: Props) {
 
   const [departAt, setDepartAt] = useState<number | null>(null);
   const [showDetails, setShowDetails] = useState(false);
+  // Which card they tap. Every type was priced on the server, so switching is
+  // a lookup rather than a round trip.
+  const price = props.fare?.byType[settings.fareType] ?? null;
   const detailsId = useId();
   const start = departAt ?? nowMinutes();
 
@@ -101,9 +104,12 @@ export function JourneyEstimate(props: Props) {
         </p>
       )}
 
-      {props.fare && (
+      {price && (
         <p className="mt-2 text-base leading-relaxed text-fg">
-          {t("fare.amount", { amount: formatFare(props.fare.cents) })}
+          {t("fare.amount", {
+            amount: formatFare(price.cents),
+            type: t(`fareType.${settings.fareType}.inline` as MessageKey),
+          })}
         </p>
       )}
 
@@ -169,7 +175,7 @@ export function JourneyEstimate(props: Props) {
                   {journey.approximated ? t("journey.approximated") : t("journey.source")}
                 </p>
 
-                {props.fare && (
+                {props.fare && price && (
                   <div className="flex flex-col gap-1">
                     <p className="text-sm leading-relaxed text-fg-muted">
                       {t("fare.basis", { distance: formatDistance(props.fare.units) })}
@@ -177,8 +183,8 @@ export function JourneyEstimate(props: Props) {
                     <p className="text-sm leading-relaxed text-fg-muted">
                       {t("fare.gaoBody", {
                         distance: formatDistance(props.fare.units),
-                        band: bandLabel(props.fare.band, t),
-                        amount: formatFare(props.fare.cents),
+                        band: bandLabel(price.band, t),
+                        amount: formatFare(price.cents),
                       })}
                     </p>
                     <p className="text-xs leading-relaxed text-fg-faint">

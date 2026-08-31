@@ -26,19 +26,30 @@ export const UNITS_PER_KM = 100;
 /** [fromKm, toKm, cents]; toKm is null on the open-ended top band. */
 export type Band = [number, number | null, number];
 
-export interface Fare {
+export interface FarePrice {
   /** Cents, so no float ever touches money. */
   cents: number;
-  /** The distance it was priced on, in units of 10 m. */
-  units: number;
   /**
    * The band the distance landed in. Carried rather than recomputed because
    * the band table lives beside the 350 KB pair file, and a client component
    * showing the working must not import either.
    */
   band: { fromKm: number; toKm: number | null };
+}
+
+export interface Fare {
+  /** The distance it was priced on, in units of 10 m. Shared by every type. */
+  units: number;
   /** When the fare table took effect — the provenance half of the working. */
   effective: string;
+  /**
+   * Every fare type priced, not just the chosen one.
+   *
+   * Which card a commuter holds is a browser setting, and this is worked out
+   * on the server, which cannot see it. Five band lookups on a distance we
+   * already have is cheaper than shipping the band table to pick one.
+   */
+  byType: Record<FareType, FarePrice>;
 }
 
 /**

@@ -29,15 +29,17 @@ import {
   bandFromBands,
   priceFromBands,
   DEFAULT_FARE_TYPE,
+  FARE_TYPES,
   type Band,
   type Fare,
+  type FarePrice,
   type FareType,
 } from "./fare-types";
 
 // Re-exported so callers that already hold the data can take everything from
 // one module; anything in a client component must import from fare-types
 // directly, or the datasets below follow it into the browser bundle.
-export type { Band, Fare, FareType } from "./fare-types";
+export type { Band, Fare, FarePrice, FareType } from "./fare-types";
 export {
   FARE_TYPES,
   DEFAULT_FARE_TYPE,
@@ -133,15 +135,21 @@ export function fareForDistance(units: number, type: FareType = DEFAULT_FARE_TYP
   return priceFromBands(units, BANDS[type]);
 }
 
-/** The fare between two stations, or null when we cannot measure the journey. */
-export function fareBetween(
-  fromCode: string,
-  toCode: string,
-  type: FareType = DEFAULT_FARE_TYPE,
-): Fare | null {
+/**
+ * The journey priced for every fare type, or null when we cannot measure it.
+ *
+ * All five rather than one, because the type is a browser setting and this
+ * runs on the server. The caller picks; nobody ships a table to do it.
+ */
+export function fareBetween(fromCode: string, toCode: string): Fare | null {
   const units = distanceBetween(fromCode, toCode);
   if (units === null) return null;
-  const [fromKm, toKm, cents] = bandFromBands(units, BANDS[type]);
-  return { cents, units, band: { fromKm, toKm }, effective: FARE_TABLE_EFFECTIVE };
+
+  const byType = {} as Record<FareType, FarePrice>;
+  for (const type of FARE_TYPES) {
+    const [fromKm, toKm, cents] = bandFromBands(units, BANDS[type]);
+    byType[type] = { cents, band: { fromKm, toKm } };
+  }
+  return { units, effective: FARE_TABLE_EFFECTIVE, byType };
 }
 

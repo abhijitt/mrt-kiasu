@@ -18,9 +18,14 @@ import { minutes } from "@/lib/kiasu-score";
 import type { FeatureType } from "@/lib/feature-types";
 import { useI18n } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
+import { FARE_TYPES } from "@/lib/fare-types";
 import { LOCALE_NAMES } from "@/i18n/config";
 
 const EXIT_MODES: FeatureType[] = ["escalator", "lift", "stairs"];
+// The five the PTC publishes a table for, and the five LTA's own calculator
+// offers. There is no child fare: under 0.9 m rides free, and school children
+// hold a student card.
+const FARE_OPTIONS = FARE_TYPES;
 const THEMES: ThemeChoice[] = ["system", "light", "dark"];
 const THEME_KEY: Record<ThemeChoice, MessageKey> = {
   system: "theme.auto",
@@ -224,6 +229,37 @@ export function SettingsScreen({ stats }: Props) {
                 </span>
                 <span className="text-sm opacity-80">
                   {t(`mode.${mode}.hint` as MessageKey)}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="pixel-box anim-enter p-4">
+        <h2 className="font-pixel text-xs uppercase text-fg-muted">
+          {t("settings.fareType")}
+        </h2>
+        <p className="mt-2 text-sm text-fg-muted">{t("settings.fareTypeHint")}</p>
+        <div className="mt-3 flex flex-col gap-2">
+          {FARE_OPTIONS.map((type) => {
+            const active = loaded && settings.fareType === type;
+            return (
+              <button
+                key={type}
+                type="button"
+                onClick={() => update({ fareType: type })}
+                aria-pressed={active}
+                className="pixel-btn flex flex-col items-start gap-0.5 px-3 py-3 text-left"
+                style={
+                  active ? { background: "var(--accent)", color: "var(--accent-fg)" } : undefined
+                }
+              >
+                <span className="font-pixel text-xs uppercase">
+                  {t(`fareType.${type}` as MessageKey)}
+                </span>
+                <span className="text-sm opacity-80">
+                  {t(`fareType.${type}.hint` as MessageKey)}
                 </span>
               </button>
             );

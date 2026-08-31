@@ -80,20 +80,28 @@ describe("pricing a distance", () => {
     // along so the route screen can show its working without importing the
     // table, and it is worth pinning — a fare is only checkable if you can see
     // which row of the table produced it.
-    expect(fareBetween("NS10", "NS16", "adult")).toEqual({
-      cents: 202,
-      units: 1330,
-      band: { fromKm: 13.3, toKm: 14.2 },
-      effective: "2025-12-27",
-    });
+    const fare = fareBetween("NS10", "NS16")!;
+    expect(fare.units).toBe(1330);
+    expect(fare.effective).toBe("2025-12-27");
+    expect(fare.byType.adult).toEqual({ cents: 202, band: { fromKm: 13.3, toKm: 14.2 } });
+  });
+
+  it("prices every fare type, since the server cannot see which card you hold", () => {
+    const fare = fareBetween("NS10", "NS16")!;
+    expect(Object.keys(fare.byType).sort()).toEqual([...FARE_TYPES].sort());
+    // Concessions flatten above 7.2 km, so a 13.3 km journey sits on their
+    // top band while the adult fare is still climbing.
+    expect(fare.byType.student.cents).toBe(78);
+    expect(fare.byType.senior.cents).toBe(107);
+    expect(fare.byType.adult.cents).toBeGreaterThan(fare.byType.workfare.cents);
   });
 
   it("names the open-ended top band without an upper bound", () => {
     // Tuas Link to Changi Airport, the longest journey on the network.
-    const fare = fareBetween("EW33", "CG2", "adult")!;
+    const fare = fareBetween("EW33", "CG2")!;
     expect(fare.units).toBe(4770);
-    expect(fare.band.toKm).toBeNull();
-    expect(fare.cents).toBe(257);
+    expect(fare.byType.adult.band.toKm).toBeNull();
+    expect(fare.byType.adult.cents).toBe(257);
   });
 
   it("puts the gap between bands in the higher band", () => {
