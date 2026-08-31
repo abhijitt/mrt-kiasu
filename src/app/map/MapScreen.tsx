@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { stationSlug } from "@/lib/station-slug";
 import { Hud } from "@/components/Hud";
 import { NetworkMap, type MapLayout, type MapStation } from "@/components/NetworkMap";
 import { useSettings } from "@/lib/settings";
@@ -48,7 +49,7 @@ export function MapScreen({ stations, edges, schematic, schematicExtent, unplace
       return;
     }
     setTo(name);
-    router.push(`/route/${encodeURIComponent(from)}/${encodeURIComponent(name)}`);
+    router.push(`/route/${stationSlug(from)}/${stationSlug(name)}`);
   }
 
   const prompt = from ? t("map.pickTo", { station: from }) : t("map.pickFrom");

@@ -8,6 +8,7 @@
 
 import stationsData from "@/data/stations.json";
 import { LINES, lineFromStationCode, type LineCode } from "./lines";
+import { stationSlug } from "./station-slug";
 
 export interface Exit {
   code: string;
@@ -122,6 +123,20 @@ export const STATION_GROUPS: StationGroup[] = (() => {
   return [...groups.values()].sort((a, b) => a.name.localeCompare(b.name));
 })();
 
+/**
+ * Finds a station by name or by URL slug.
+ *
+ * Both, because route URLs used to carry the raw name ("Paya%20Lebar") and
+ * those links are in people's history and in chat threads. A slug is the
+ * canonical form now; the name still resolves so nothing that already works
+ * stops working.
+ */
 export function getGroup(name: string): StationGroup | null {
-  return STATION_GROUPS.find((g) => g.name.toLowerCase() === name.toLowerCase()) ?? null;
+  const wanted = name.toLowerCase();
+  const bySlug = stationSlug(name);
+  return (
+    STATION_GROUPS.find((g) => g.name.toLowerCase() === wanted) ??
+    STATION_GROUPS.find((g) => stationSlug(g.name) === bySlug) ??
+    null
+  );
 }

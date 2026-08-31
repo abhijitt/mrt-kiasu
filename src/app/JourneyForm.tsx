@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { stationSlug } from "@/lib/station-slug";
 import { useState } from "react";
 import { StationPicker, type StationOption } from "@/components/StationPicker";
 import { useT } from "@/i18n/I18nProvider";
@@ -27,7 +28,7 @@ export function JourneyForm({ stations }: { stations: StationOption[] }) {
   function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!ready) return;
-    router.push(`/route/${encodeURIComponent(from)}/${encodeURIComponent(to)}`);
+    router.push(`/route/${stationSlug(from)}/${stationSlug(to)}`);
   }
 
   return (

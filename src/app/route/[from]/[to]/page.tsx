@@ -1,4 +1,5 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { isCanonicalSlug, stationSlug } from "@/lib/station-slug";
 import { getFeatures } from "@/lib/positions";
 import { planRouteBetweenStations } from "@/lib/routing";
 import { getGroup, getStation } from "@/lib/stations";
@@ -21,6 +22,13 @@ export default async function RoutePage({
   const origin = getGroup(fromName);
   const destination = getGroup(toName);
   if (!origin || !destination) notFound();
+
+  // One address per journey. Links written before slugs existed carry the raw
+  // name ("Paya%20Lebar") and still resolve above; this moves them to the
+  // canonical form rather than leaving the same page reachable several ways.
+  if (!isCanonicalSlug(from, origin.name) || !isCanonicalSlug(to, destination.name)) {
+    redirect(`/route/${stationSlug(origin.name)}/${stationSlug(destination.name)}`);
+  }
 
   const route = planRouteBetweenStations(fromName, toName);
   if (!route) notFound();
