@@ -384,6 +384,8 @@
   "transfer.body": "换乘月台约需 {minutes} 分钟。",
   "transfer.assumed": "这是统一估算值——无人公布月台间的步行时间，我们也尚未实测此站。",
   "journey.title": "需时多久",
+  "trip.title": "你的行程",
+  "trip.detailsLabel": "显示计算过程",
   "journey.total": "约 {duration}——大约 {arrive} 抵达。",
   "journey.firstTrain": "下一班车还有 {duration}，{at} 开出。",
   "journey.ride": "乘车时间：{duration}",

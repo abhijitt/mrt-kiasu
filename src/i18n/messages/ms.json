@@ -384,6 +384,8 @@
   "transfer.body": "Peruntukkan kira-kira {minutes} min untuk bertukar platform.",
   "transfer.assumed": "Anggaran menyeluruh — tiada sesiapa menerbitkan masa antara platform, dan kami belum mengukur yang ini.",
   "journey.title": "Berapa lama",
+  "trip.title": "Perjalanan anda",
+  "trip.detailsLabel": "Tunjukkan pengiraan",
   "journey.total": "Kira-kira {duration} — tiba sekitar {arrive}.",
   "journey.firstTrain": "Kereta api seterusnya dalam {duration}, pada {at}.",
   "journey.ride": "Dalam kereta api: {duration}",

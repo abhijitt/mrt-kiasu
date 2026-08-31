@@ -384,6 +384,8 @@
   "transfer.body": "Allow about {minutes} min to change platforms.",
   "transfer.assumed": "A blanket estimate — nobody publishes platform-to-platform times, and we have not measured this one.",
   "journey.title": "How long it takes",
+  "trip.title": "Your trip",
+  "trip.detailsLabel": "Show the working",
   "journey.total": "About {duration} — arriving around {arrive}.",
   "journey.firstTrain": "Next train in {duration}, at {at}.",
   "journey.ride": "On the train: {duration}",

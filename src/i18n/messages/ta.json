@@ -384,6 +384,8 @@
   "transfer.body": "நடைமேடை மாற சுமார் {minutes} நிமிடம் ஒதுக்குங்கள்.",
   "transfer.assumed": "இது ஒரு பொதுவான மதிப்பீடு — நடைமேடைகளுக்கு இடையிலான நேரத்தை யாரும் வெளியிடுவதில்லை, இதை நாங்கள் அளக்கவும் இல்லை.",
   "journey.title": "எவ்வளவு நேரம்",
+  "trip.title": "உங்கள் பயணம்",
+  "trip.detailsLabel": "விவரங்களைக் காட்டு",
   "journey.total": "சுமார் {duration} — தோராயமாக {arrive} மணிக்கு வந்தடைவீர்கள்.",
   "journey.firstTrain": "அடுத்த ரயில் {duration} இல், {at} மணிக்கு.",
   "journey.ride": "ரயிலில்: {duration}",

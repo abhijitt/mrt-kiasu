@@ -13,10 +13,10 @@ import { useKiasuScore } from "@/lib/useKiasuScore";
 import { JourneyEstimate } from "@/components/JourneyEstimate";
 // fare-types, not fare: this is a client component, and fare.ts imports the
 // 350 KB pair table. The server has already worked the fare out.
-import { formatDistance, formatFare, type Fare } from "@/lib/fare-types";
+import type { Fare } from "@/lib/fare-types";
 import type { JourneyPayload } from "@/lib/journey-data";
 import { LINES, type LineCode } from "@/lib/lines";
-import { useT, type Translate } from "@/i18n/I18nProvider";
+import { useT } from "@/i18n/I18nProvider";
 import { useLineName } from "@/i18n/useLineName";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { useSettings } from "@/lib/settings";
@@ -67,16 +67,6 @@ interface Props {
 
 const ORDINALS = ["1st", "2nd", "3rd", "4th", "5th"];
 
-/**
- * Names a fare band the way the PTC table does: "up to 3.2 km", "3.3-4.2 km",
- * "over 40.2 km". Three shapes rather than one string, because a translator
- * needs to move the words around the numbers.
- */
-function bandLabel(band: Fare["band"], t: Translate): string {
-  if (band.toKm === null) return t("fare.bandOver", { from: band.fromKm });
-  if (band.fromKm === 0) return t("fare.bandUpTo", { to: band.toKm });
-  return t("fare.bandRange", { from: band.fromKm, to: band.toKm });
-}
 
 function Guidance({
   feature,
@@ -148,9 +138,9 @@ function Guidance({
     ? t(`mode.${feature.type}.target` as MessageKey)
     : null;
 
+  const gao = settings.kiasuLevel === "gao";
   // Gao only ever adds. Everything above this line renders identically at
   // either level, so turning the setting on cannot change an existing answer.
-  const gao = settings.kiasuLevel === "gao";
   const breakdown = gao ? doorBreakdown(feature.doorIndex, line, direction) : null;
   const working = gao && feature.offsetM !== undefined ? savedWorking(feature.offsetM, line) : null;
   const backup = gao && !isEstimate ? backupDoor(feature.doorIndex, line) : null;
@@ -346,7 +336,6 @@ export function RouteScreen(p: Props) {
 
   const preference = settings.preferredExitMode;
   const prefersLift = usePrefersLift();
-  const gao = settings.kiasuLevel === "gao";
 
   return (
     <div className="min-h-dvh">
@@ -376,42 +365,6 @@ export function RouteScreen(p: Props) {
             </span>
           )}
         </div>
-        {p.fare && (
-          <div className="pixel-box anim-enter mt-3 p-4">
-            <p className="font-pixel text-[10px] uppercase text-fg-muted">
-              {t("fare.title")}
-            </p>
-            <p className="mt-2 text-base leading-relaxed text-fg">
-              {t("fare.amount", { amount: formatFare(p.fare.cents) })}
-            </p>
-            {/* The distance is the whole basis of the price, and it is the part
-                a commuter can sanity-check against the map on the wall. */}
-            <p className="mt-1 text-sm text-fg-muted">
-              {t("fare.basis", { distance: formatDistance(p.fare.units) })}
-            </p>
-            {/* Gao shows the band the distance landed in and where each half of
-                the sum came from. It asserts nothing new — the fare above is
-                already this arithmetic, just not shown. */}
-            {gao && (
-              <div className="pixel-box-sm mt-3 p-3">
-                <p className="font-pixel text-[10px] uppercase text-fg-muted">
-                  {t("gao.workingTitle")}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-fg">
-                  {t("fare.gaoBody", {
-                    distance: formatDistance(p.fare.units),
-                    band: bandLabel(p.fare.band, t),
-                    amount: formatFare(p.fare.cents),
-                  })}
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-fg-faint">
-                  {t("fare.gaoSource", { effective: p.fare.effective })}
-                </p>
-              </div>
-            )}
-          </div>
-        )}
-
         <div className="mt-3">
           <JourneyEstimate
             legs={p.journey.legs}
@@ -422,6 +375,7 @@ export function RouteScreen(p: Props) {
             day={p.journey.day}
             transferWalkMinutes={p.journey.transferWalkMinutes}
             transferMeasured={p.journey.transferMeasured}
+            fare={p.fare}
           />
         </div>
       </header>

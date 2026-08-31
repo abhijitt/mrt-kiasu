@@ -1,11 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { useT } from "@/i18n/I18nProvider";
 import { useSettings } from "@/lib/settings";
 import { estimateJourneyExact, type DepartureTable, type Leg } from "@/lib/journey-time";
 import { durationShape, splitDuration } from "@/lib/duration";
-import type { MessageKey } from "@/i18n/I18nProvider";
+import type { MessageKey, Translate } from "@/i18n/I18nProvider";
+import { formatDistance, formatFare, type Fare } from "@/lib/fare-types";
 
 interface Props {
   legs: Leg[];
@@ -16,6 +17,19 @@ interface Props {
   day: "weekday" | "saturday" | "sunday";
   transferWalkMinutes: number;
   transferMeasured: boolean;
+  /** Priced on the server. Null when we hold no distance for the pair. */
+  fare: Fare | null;
+}
+
+/**
+ * Names a fare band the way the PTC table does: "up to 3.2 km", "3.3-4.2 km",
+ * "over 40.2 km". Three shapes rather than one string, because a translator
+ * needs to move the words around the numbers.
+ */
+function bandLabel(band: Fare["band"], t: Translate): string {
+  if (band.toKm === null) return t("fare.bandOver", { from: band.fromKm });
+  if (band.fromKm === 0) return t("fare.bandUpTo", { to: band.toKm });
+  return t("fare.bandRange", { from: band.fromKm, to: band.toKm });
 }
 
 function hhmm(minutes: number): string {
@@ -29,11 +43,15 @@ function nowMinutes(): number {
 }
 
 /**
- * How long the journey takes, walked against the real timetable.
+ * The trip in one card: how long it takes and what it costs.
  *
- * Kopi answers one question — leaving now — because that is what someone
- * standing on a platform is asking. Gao adds a departure time and the
- * breakdown, since choosing when to leave is planning rather than commuting.
+ * One card rather than two, because they answer the same question — "what am
+ * I in for" — and a commuter reads them together.
+ *
+ * Kopi is the two figures and nothing else; someone standing on a platform
+ * wants the answer, not the derivation. Gao adds a departure time, and a "?"
+ * that opens the working: the breakdown, what the fare was charged on, and
+ * where each number came from.
  */
 export function JourneyEstimate(props: Props) {
   const t = useT();
@@ -47,6 +65,8 @@ export function JourneyEstimate(props: Props) {
   const gao = settings.kiasuLevel === "gao";
 
   const [departAt, setDepartAt] = useState<number | null>(null);
+  const [showDetails, setShowDetails] = useState(false);
+  const detailsId = useId();
   const start = departAt ?? nowMinutes();
 
   const journey = useMemo(
@@ -66,9 +86,7 @@ export function JourneyEstimate(props: Props) {
 
   return (
     <div className="pixel-box anim-enter p-4">
-      <p className="font-pixel text-[10px] uppercase text-fg-muted">
-        {t("journey.title")}
-      </p>
+      <p className="font-pixel text-[10px] uppercase text-fg-muted">{t("trip.title")}</p>
 
       <p className="mt-2 text-base leading-relaxed text-fg">
         {t("journey.total", { duration: duration(journey.total), arrive: hhmm(journey.arriveMinutes) })}
@@ -83,19 +101,14 @@ export function JourneyEstimate(props: Props) {
         </p>
       )}
 
+      {props.fare && (
+        <p className="mt-2 text-base leading-relaxed text-fg">
+          {t("fare.amount", { amount: formatFare(props.fare.cents) })}
+        </p>
+      )}
+
       {gao && (
         <>
-          <div className="mt-3 flex flex-col gap-1 text-sm text-fg-muted">
-            <span>{t("journey.ride", { duration: duration(journey.rideMinutes) })}</span>
-            <span>{t("journey.wait", { duration: duration(journey.waitMinutes) })}</span>
-            {journey.walkMinutes > 0 && (
-              <span>
-                {t("journey.walk", { duration: duration(journey.walkMinutes) })}
-                {!props.transferMeasured && ` — ${t("transfer.assumed")}`}
-              </span>
-            )}
-          </div>
-
           <label className="mt-4 block">
             <span className="font-pixel text-[10px] uppercase text-fg-muted">
               {t("journey.leaveAt")}
@@ -124,12 +137,60 @@ export function JourneyEstimate(props: Props) {
               {t("journey.now")}
             </button>
           )}
+
+          {/* The working sits behind a question mark rather than on the page:
+              in gao it is wanted, but not before the answer it explains. */}
+          <div className="mt-3">
+            <button
+              type="button"
+              onClick={() => setShowDetails((open) => !open)}
+              aria-expanded={showDetails}
+              aria-controls={detailsId}
+              aria-label={t("trip.detailsLabel")}
+              className="pixel-btn font-pixel min-h-11 w-11 text-[13px]"
+            >
+              ?
+            </button>
+
+            {showDetails && (
+              <div id={detailsId} className="pixel-box-sm mt-2 flex flex-col gap-3 p-3">
+                <div className="flex flex-col gap-1 text-sm text-fg-muted">
+                  <span>{t("journey.ride", { duration: duration(journey.rideMinutes) })}</span>
+                  <span>{t("journey.wait", { duration: duration(journey.waitMinutes) })}</span>
+                  {journey.walkMinutes > 0 && (
+                    <span>
+                      {t("journey.walk", { duration: duration(journey.walkMinutes) })}
+                      {!props.transferMeasured && ` — ${t("transfer.assumed")}`}
+                    </span>
+                  )}
+                </div>
+
+                <p className="text-xs leading-relaxed text-fg-faint">
+                  {journey.approximated ? t("journey.approximated") : t("journey.source")}
+                </p>
+
+                {props.fare && (
+                  <div className="flex flex-col gap-1">
+                    <p className="text-sm leading-relaxed text-fg-muted">
+                      {t("fare.basis", { distance: formatDistance(props.fare.units) })}
+                    </p>
+                    <p className="text-sm leading-relaxed text-fg-muted">
+                      {t("fare.gaoBody", {
+                        distance: formatDistance(props.fare.units),
+                        band: bandLabel(props.fare.band, t),
+                        amount: formatFare(props.fare.cents),
+                      })}
+                    </p>
+                    <p className="text-xs leading-relaxed text-fg-faint">
+                      {t("fare.gaoSource", { effective: props.fare.effective })}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
         </>
       )}
-
-      <p className="mt-2 text-xs leading-relaxed text-fg-faint">
-        {journey.approximated ? t("journey.approximated") : t("journey.source")}
-      </p>
     </div>
   );
 }
