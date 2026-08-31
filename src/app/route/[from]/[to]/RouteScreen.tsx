@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { Hud } from "@/components/Hud";
 import { ExitPicker } from "@/components/ExitPicker";
 import { LiftStatus, usePrefersLift } from "@/components/LiftStatus";
@@ -101,6 +101,9 @@ function Guidance({
   const t = useT();
   const { settings } = useSettings();
   const { record } = useKiasuScore();
+  // Per leg, because each card explains its own door.
+  const [showDetails, setShowDetails] = useState(false);
+  const detailsId = useId();
 
   // Above the early return, because hooks must run in the same order on every
   // render. The figure is recomputed here rather than reused below so this
@@ -243,36 +246,69 @@ function Guidance({
         </p>
       )}
 
-      {saved !== null && saved > 5 && (
-        <div className="pixel-box-sm mt-3 p-3">
-          <p className="font-pixel text-[10px] uppercase text-fg-muted">
-            {t("saved.title")}
-          </p>
-          <p className="mt-2 text-sm leading-relaxed text-fg">
-            {t("saved.body", { seconds: saved })}
-          </p>
-          <p className="mt-1 text-xs text-fg-faint">{t("saved.caveat")}</p>
+      {/* Why this door is worth walking to, how the figure was arrived at, and
+          where it came from — all explanation, all behind the question mark.
+          The backup door stays outside it: that is an alternative to act on,
+          not a derivation to read. */}
+      {gao && (
+        <div className="mt-3 flex justify-end">
+          <button
+            type="button"
+            onClick={() => setShowDetails((open) => !open)}
+            aria-expanded={showDetails}
+            aria-controls={detailsId}
+            aria-label={t("trip.detailsLabel")}
+            className="pixel-btn font-pixel min-h-11 w-11 shrink-0 text-[13px]"
+          >
+            ?
+          </button>
         </div>
       )}
 
-      {working && (
-        <div className="pixel-box-sm mt-3 p-3">
-          <p className="font-pixel text-[10px] uppercase text-fg-muted">
-            {t("gao.workingTitle")}
-          </p>
-          <p className="mt-2 text-sm leading-relaxed text-fg">
-            {t("gao.workingBody", {
-              length: working.lengthM,
-              half: working.halfM,
-              offset: Math.abs(working.offsetM),
-              saved: working.savedM,
-              speed: working.speedMs,
-            })}
-          </p>
-          {working.rawOffsetM !== undefined && (
-            <p className="mt-1 text-xs leading-relaxed text-fg-faint">
-              {t("gao.clamped", { raw: Math.abs(working.rawOffsetM), half: working.halfM })}
-            </p>
+      {gao && showDetails && (
+        <div id={detailsId} className="mt-2 flex flex-col gap-3">
+          {saved !== null && saved > 5 && (
+            <div className="pixel-box-sm p-3">
+              <p className="font-pixel text-[10px] uppercase text-fg-muted">
+                {t("saved.title")}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-fg">
+                {t("saved.body", { seconds: saved })}
+              </p>
+              <p className="mt-1 text-xs text-fg-faint">{t("saved.caveat")}</p>
+            </div>
+          )}
+
+          {working && (
+            <div className="pixel-box-sm p-3">
+              <p className="font-pixel text-[10px] uppercase text-fg-muted">
+                {t("gao.workingTitle")}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-fg">
+                {t("gao.workingBody", {
+                  length: working.lengthM,
+                  half: working.halfM,
+                  offset: Math.abs(working.offsetM),
+                  saved: working.savedM,
+                  speed: working.speedMs,
+                })}
+              </p>
+              {working.rawOffsetM !== undefined && (
+                <p className="mt-1 text-xs leading-relaxed text-fg-faint">
+                  {t("gao.clamped", { raw: Math.abs(working.rawOffsetM), half: working.halfM })}
+                </p>
+              )}
+            </div>
+          )}
+
+          {fleetSource(line) && (
+            <div className="pixel-box-sm p-3">
+              <p className="font-pixel text-[10px] uppercase text-fg-muted">
+                {t("gao.sourceTitle")}
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-fg-faint">{fleetSource(line)}</p>
+              <p className="mt-1 text-xs leading-relaxed text-fg-faint">{feature.sourceNote}</p>
+            </div>
           )}
         </div>
       )}
@@ -288,20 +324,6 @@ function Guidance({
               ordinal: ORDINALS[backupPosition.doorInCar - 1] ?? backupPosition.doorInCar,
               loss: backup.extraSeconds,
             })}
-          </p>
-        </div>
-      )}
-
-      {gao && fleetSource(line) && (
-        <div className="pixel-box-sm mt-3 p-3">
-          <p className="font-pixel text-[10px] uppercase text-fg-muted">
-            {t("gao.sourceTitle")}
-          </p>
-          <p className="mt-2 text-xs leading-relaxed text-fg-faint">
-            {fleetSource(line)}
-          </p>
-          <p className="mt-1 text-xs leading-relaxed text-fg-faint">
-            {feature.sourceNote}
           </p>
         </div>
       )}
