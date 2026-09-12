@@ -206,7 +206,12 @@ function Guidance({
         {arrivalDoor}
       </div>
 
-      {showPreferenceNote && (
+      {/* Gao only, by request. Both notes below say the answer above is not the
+          one that was asked for — the preference could not be honoured, or
+          nothing on this platform is recorded as serving the target. With no
+          platform surveyed yet the first fires on every leg, so in kopi every
+          answer is now an unlabelled estimate. */}
+      {gao && showPreferenceNote && (
         <p className="mt-3 flex flex-wrap items-center gap-2">
           <span
             className="pixel-box-sm px-2 py-1.5 text-xs leading-snug"
@@ -233,7 +238,7 @@ function Guidance({
       {/* Refusing to imply a targeted answer. Several escalators can sit on one
           platform serving different places; if none is recorded as serving the
           one you asked for, picking the first is a guess and is labelled one. */}
-      {targetMissed && (
+      {gao && targetMissed && (
         // The paragraph IS the box. A bordered <span> is inline, so its border
         // splits down the middle when the text wraps — which this text always
         // does on a phone. Every other box in here escapes that by sitting in
@@ -328,7 +333,10 @@ function Guidance({
         </div>
       )}
 
-      {isEstimate ? (
+      {/* Gao only, by request: kopi carries the answer and nothing around it.
+          The whole-car highlight on the diagram is now the only thing marking
+          an estimate as an estimate at that level. */}
+      {!gao ? null : isEstimate ? (
         <p className="mt-2 text-xs leading-relaxed text-fg-faint">
           <span className="font-pixel uppercase" style={{ color: "var(--candidate)" }}>
             {t("route.estimateTitle")}
