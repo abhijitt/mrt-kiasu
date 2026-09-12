@@ -390,6 +390,7 @@
   "trip.statFare": "Fare",
   "journey.total": "About {duration} — arriving around {arrive}.",
   "journey.firstTrain": "Next train in {duration}, at {at}.",
+  "journey.firstTrainNow": "Next train is departing now.",
   "journey.ride": "On the train: {duration}",
   "journey.wait": "Waiting on platforms: {duration}",
   "journey.walk": "Changing platforms: {duration}",

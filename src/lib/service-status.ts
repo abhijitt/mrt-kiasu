@@ -8,6 +8,7 @@
  */
 
 import type { LineCode } from "./lines";
+import { sgDayOfWeek } from "./sg-time";
 
 export type ServiceDay = "weekday" | "saturday" | "sunday";
 
@@ -40,7 +41,7 @@ export const LAST_TRAIN_WARNING_MINUTES = 45;
 
 /** Which timetable applies. Public holidays follow the Sunday timetable. */
 export function serviceDayOf(date: Date): ServiceDay {
-  const day = date.getDay();
+  const day = sgDayOfWeek(date);
   if (day === 0) return "sunday";
   if (day === 6) return "saturday";
   return "weekday";

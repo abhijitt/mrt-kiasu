@@ -12,6 +12,7 @@
  */
 
 import data from "@/data/service-adjustments.json";
+import { sgDayOfWeek, sgIsoDate } from "./sg-time";
 import type { LineCode } from "./lines";
 import type { TrainTime } from "./service-status";
 
@@ -47,15 +48,12 @@ const ADJUSTMENTS = data.adjustments as ServiceAdjustment[];
 
 /** The day name in Singapore time, which is the only timezone this app serves. */
 export function dayNameOf(date: Date): DayName {
-  return DAY_NAMES[date.getDay()]!;
+  return DAY_NAMES[sgDayOfWeek(date)]!;
 }
 
-/** Local calendar date as YYYY-MM-DD, so comparison never crosses a timezone. */
+/** Singapore calendar date as YYYY-MM-DD, so comparison never crosses a timezone. */
 export function isoDateOf(date: Date): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, "0");
-  const d = String(date.getDate()).padStart(2, "0");
-  return `${y}-${m}-${d}`;
+  return sgIsoDate(date);
 }
 
 /**

@@ -390,6 +390,7 @@
   "trip.statFare": "车费",
   "journey.total": "约 {duration}——大约 {arrive} 抵达。",
   "journey.firstTrain": "下一班车还有 {duration}，{at} 开出。",
+  "journey.firstTrainNow": "下一班列车正在发车。",
   "journey.ride": "乘车时间：{duration}",
   "journey.wait": "月台等候：{duration}",
   "journey.walk": "换乘月台：{duration}",

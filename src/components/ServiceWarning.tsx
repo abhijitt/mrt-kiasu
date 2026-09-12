@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useT } from "@/i18n/I18nProvider";
+import { sgMinutesOfDay } from "@/lib/sg-time";
 import {
   serviceDayOf,
   statusFor,
@@ -43,7 +44,7 @@ export function ServiceWarning({
       const rows = times![serviceDayOf(now)] ?? [];
       if (rows.length === 0) return;
 
-      const minutes = now.getHours() * 60 + now.getMinutes();
+      const minutes = sgMinutesOfDay(now);
       // A published adjustment beats the timetable. Applied here, against the
       // reader's own clock, because this page can be cached and an adjustment
       // that starts on Friday must not be baked in on Wednesday.

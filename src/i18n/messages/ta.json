@@ -390,6 +390,7 @@
   "trip.statFare": "கட்டணம்",
   "journey.total": "சுமார் {duration} — தோராயமாக {arrive} மணிக்கு வந்தடைவீர்கள்.",
   "journey.firstTrain": "அடுத்த ரயில் {duration} இல், {at} மணிக்கு.",
+  "journey.firstTrainNow": "அடுத்த ரயில் இப்போது புறப்படுகிறது.",
   "journey.ride": "ரயிலில்: {duration}",
   "journey.wait": "நடைமேடையில் காத்திருப்பு: {duration}",
   "journey.walk": "நடைமேடை மாற்றம்: {duration}",

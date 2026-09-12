@@ -1,8 +1,9 @@
 "use client";
 
-import { useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import { useT } from "@/i18n/I18nProvider";
 import { useSettings } from "@/lib/settings";
+import { sgMinutesOfDay } from "@/lib/sg-time";
 import { estimateJourneyExact, type DepartureTable, type Leg } from "@/lib/journey-time";
 import { durationShape, splitDuration } from "@/lib/duration";
 import type { MessageKey, Translate } from "@/i18n/I18nProvider";
@@ -51,10 +52,7 @@ function hhmm(minutes: number): string {
   return `${String(h).padStart(2, "0")}:${String(minutes % 60).padStart(2, "0")}`;
 }
 
-function nowMinutes(): number {
-  const d = new Date();
-  return d.getHours() * 60 + d.getMinutes();
-}
+
 
 /**
  * The trip in one card: how long it takes and what it costs.
@@ -92,12 +90,24 @@ export function JourneyEstimate(props: Props) {
   const gao = settings.kiasuLevel === "gao";
 
   const [departAt, setDepartAt] = useState<number | null>(null);
+  /**
+   * Re-read once a minute, following ServiceWarning's pattern.
+   *
+   * Without it the card froze at whatever moment it last rendered: leave the
+   * page open for ten minutes and it still claimed the train was three minutes
+   * away, long after it had gone.
+   */
+  const [now, setNow] = useState(() => sgMinutesOfDay());
+  useEffect(() => {
+    const timer = setInterval(() => setNow(sgMinutesOfDay()), 60_000);
+    return () => clearInterval(timer);
+  }, []);
   const [showDetails, setShowDetails] = useState(false);
   // Which card they tap. Every type was priced on the server, so switching is
   // a lookup rather than a round trip.
   const price = props.fare?.byType[settings.fareType] ?? null;
   const detailsId = useId();
-  const start = departAt ?? nowMinutes();
+  const start = departAt ?? now;
 
   const journey = useMemo(
     () =>
@@ -196,10 +206,16 @@ export function JourneyEstimate(props: Props) {
 
       {journey.waitsPerLeg[0] !== undefined && (
         <p className="mt-3 text-sm text-fg-muted">
-          {t("journey.firstTrain", {
-            duration: duration(journey.waitsPerLeg[0]),
-            at: hhmm(journey.boardTimes[0]),
-          })}
+          {/* Zero is reachable the minute a train leaves, and the clock now
+              advances while the page is open, so it shows up on screen rather
+              than only in theory. "In 0 min" reads as broken; anything below
+              zero would be worse, so both take the same branch. */}
+          {journey.waitsPerLeg[0] <= 0
+            ? t("journey.firstTrainNow")
+            : t("journey.firstTrain", {
+                duration: duration(journey.waitsPerLeg[0]),
+                at: hhmm(journey.boardTimes[0]),
+              })}
         </p>
       )}
 

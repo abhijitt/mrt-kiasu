@@ -381,11 +381,15 @@ export function RouteScreen(p: Props) {
           <span className="pixel-box-sm font-pixel px-3 py-1.5 text-xs">
             {t(p.stopCount === 1 ? "route.stop" : "route.stops", { count: p.stopCount })}
           </span>
-          <span className="pixel-box-sm font-pixel px-3 py-1.5 text-xs">
-            {t(p.interchangeCount === 1 ? "route.change" : "route.changes", {
-              count: p.interchangeCount,
-            })}
-          </span>
+          {/* A direct ride says nothing about changes: "0 changes" is a chip
+              spent telling you that nothing happened. */}
+          {p.interchangeCount > 0 && (
+            <span className="pixel-box-sm font-pixel px-3 py-1.5 text-xs">
+              {t(p.interchangeCount === 1 ? "route.change" : "route.changes", {
+                count: p.interchangeCount,
+              })}
+            </span>
+          )}
           {selectedExit && (
             <span
               className="pixel-box-sm font-pixel px-3 py-1.5 text-xs"

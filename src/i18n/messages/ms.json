@@ -390,6 +390,7 @@
   "trip.statFare": "Tambang",
   "journey.total": "Kira-kira {duration} — tiba sekitar {arrive}.",
   "journey.firstTrain": "Kereta api seterusnya dalam {duration}, pada {at}.",
+  "journey.firstTrainNow": "Kereta seterusnya sedang berlepas.",
   "journey.ride": "Dalam kereta api: {duration}",
   "journey.wait": "Menunggu di platform: {duration}",
   "journey.walk": "Bertukar platform: {duration}",
