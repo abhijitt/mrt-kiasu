@@ -22,6 +22,20 @@ interface Props {
 }
 
 /**
+ * One figure with its label under it — the same shape the home screen uses for
+ * its network totals, so the trip card reads as part of the same app rather
+ * than a fourth text style.
+ */
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="flex flex-col">
+      <span className="font-pixel text-sm leading-none text-accent">{value}</span>
+      <span className="mt-1.5 text-[10px] uppercase tracking-wide text-fg-faint">{label}</span>
+    </div>
+  );
+}
+
+/**
  * Names a fare band the way the PTC table does: "up to 3.2 km", "3.3-4.2 km",
  * "over 40.2 km". Three shapes rather than one string, because a translator
  * needs to move the words around the numbers.
@@ -60,6 +74,19 @@ export function JourneyEstimate(props: Props) {
   function duration(totalMinutes: number): string {
     const { hours, minutes } = splitDuration(totalMinutes);
     return t(`dur.${durationShape(totalMinutes)}` as MessageKey, { hours, minutes });
+  }
+
+  /**
+   * "5h 57m" for the stat slot.
+   *
+   * The long form is right in a sentence and wrong in a column: at nearly
+   * twice the width it pushed the fare onto a second row on a phone whenever
+   * a journey ran into hours, which is exactly when someone has missed the
+   * last train and is reading carefully.
+   */
+  function durationShort(totalMinutes: number): string {
+    const { hours, minutes } = splitDuration(totalMinutes);
+    return t(`durShort.${durationShape(totalMinutes)}` as MessageKey, { hours, minutes });
   }
   const { settings } = useSettings();
   const gao = settings.kiasuLevel === "gao";
@@ -143,14 +170,32 @@ export function JourneyEstimate(props: Props) {
 
   return (
     <div className="pixel-box anim-enter p-4">
-      <p className="font-pixel text-[10px] uppercase text-fg-muted">{t("trip.title")}</p>
-
-      <p className="mt-2 text-base leading-relaxed text-fg">
-        {t("journey.total", { duration: duration(journey.total), arrive: hhmm(journey.arriveMinutes) })}
-      </p>
+      {/* Three numbers in fixed positions, learned once and then scanned.
+          No heading: the labels say what each figure is, which is what the
+          sentences used to spend a line each doing. */}
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex flex-wrap gap-x-6 gap-y-3">
+          <Stat value={durationShort(journey.total)} label={t("trip.statJourney")} />
+          <Stat value={hhmm(journey.arriveMinutes)} label={t("trip.statArrive")} />
+          {price && (
+            <Stat
+              value={formatFare(price.cents)}
+              // The label slot carries the fare type, so a concession says so
+              // without spending a clause on it, and adult — the default and
+              // the common case — says nothing at all.
+              label={
+                settings.fareType === "adult"
+                  ? t("trip.statFare")
+                  : t(`fareType.${settings.fareType}` as MessageKey)
+              }
+            />
+          )}
+        </div>
+        {detailsToggle}
+      </div>
 
       {journey.waitsPerLeg[0] !== undefined && (
-        <p className="mt-1 text-sm text-fg-muted">
+        <p className="mt-3 text-sm text-fg-muted">
           {t("journey.firstTrain", {
             duration: duration(journey.waitsPerLeg[0]),
             at: hhmm(journey.boardTimes[0]),
@@ -158,27 +203,7 @@ export function JourneyEstimate(props: Props) {
         </p>
       )}
 
-      {price ? (
-        <>
-          <div className="mt-2 flex items-center justify-between gap-3">
-            <p className="text-base leading-relaxed text-fg">
-              {t("fare.amount", {
-                amount: formatFare(price.cents),
-                type: t(`fareType.${settings.fareType}.inline` as MessageKey),
-              })}
-            </p>
-            {detailsToggle}
-          </div>
-          {detailsPanel}
-        </>
-      ) : (
-        gao && (
-          <div className="mt-3">
-            {detailsToggle}
-            {detailsPanel}
-          </div>
-        )
-      )}
+      {detailsPanel}
 
       {gao && (
         <>
