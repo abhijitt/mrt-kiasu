@@ -7,7 +7,7 @@
  * across an interchange.
  */
 
-import { GRAPH, RIDE_MINUTES, TRANSFER_MINUTES, splitCode } from "./network";
+import { GRAPH, RIDE_MINUTES, TRANSFER_MINUTES, directionBetween } from "./network";
 import { getGroup, getStation, type Station } from "./stations";
 import { lineFromStationCode, LINES, type LineCode } from "./lines";
 import type { Direction } from "./doors";
@@ -140,14 +140,16 @@ function toLegs(path: string[]): RouteLeg[] {
         const from = getStation(codes[0])!;
         const to = getStation(codes[codes.length - 1])!;
         const line = lineFromStationCode(codes[0])!;
-        const firstNum = splitCode(codes[0]).num ?? 0;
-        const lastNum = splitCode(codes[codes.length - 1]).num ?? 0;
+
         legs.push({
           line,
           from,
           to,
           stops: codes.slice(1, -1).map((c) => getStation(c)!),
-          direction: lastNum >= firstNum ? "asc" : "desc",
+          // Position along the line, not the bare number: a line with a branch
+          // has two prefixes, and CG1 to EW4 reads as ascending on the numbers
+          // alone while actually running back toward Tanah Merah.
+          direction: directionBetween(codes[0], codes[codes.length - 1]),
           towards: to.name,
         });
       }

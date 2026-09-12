@@ -32,6 +32,7 @@
   "route.leg": "Bahagian {n}",
   "route.finalLeg": "Bahagian akhir",
   "route.towards": "ke arah {station}",
+  "route.headsign": "kereta {headsign}",
   "route.via": "melalui {stations}",
   "route.standHereFor": "Berdiri di sini untuk {target}",
   "route.standHereChange": "Berdiri di sini untuk bertukar ke {line}",

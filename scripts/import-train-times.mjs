@@ -370,10 +370,16 @@ try {
   for (const [code, kinds] of Object.entries(table)) {
     const rendered = {};
     for (const [kind, heads] of Object.entries(kinds)) {
-      const entries = Object.values(heads)
-        .map((v) => {
+      const entries = Object.entries(heads)
+        .map(([dirKey, v]) => {
           const [towards] = [...v.headsigns.entries()].sort((a, b) => b[1] - a[1])[0];
-          return { towards, first: toDisplay(v.first), last: toDisplay(v.last) };
+          // The app's own asc/desc, so a leg can find the headsign its train
+          // will actually be showing. The mapping is derived above and was
+          // being thrown away here, which left the headsigns readable but
+          // impossible to match to a direction of travel.
+          const dirId = dirKey.split("|").pop();
+          const direction = ourDirection.get(`${code.replace(/\d+$/, "")}|${dirId}`) ?? null;
+          return { towards, direction, first: toDisplay(v.first), last: toDisplay(v.last) };
         })
         .sort((a, b) => a.towards.localeCompare(b.towards));
       if (entries.length) rendered[kind] = entries;
@@ -391,7 +397,7 @@ try {
           feedTimestamp: timestamp,
           importedAt: new Date().toISOString().slice(0, 10),
           derivation:
-            "First and last are the earliest and latest departure_time in stop_times.txt for that station, grouped by service day (calendar.txt) and by trip_headsign. Times past midnight are expressed by GTFS as 24:xx and later; they are wrapped for display but belong to the previous operating day.",
+            "First and last are the earliest and latest departure_time in stop_times.txt for that station, grouped by service day (calendar.txt) and by trip_headsign. `towards` is the headsign the train actually displays, which is why the Circle Line reads Clockwise and the LRT loops read Inner and Outer — no derivation from station codes could produce those. `direction` maps that onto the app's asc/desc. Times past midnight are expressed by GTFS as 24:xx and later; they are wrapped for display but belong to the previous operating day.",
         },
         stations: out,
         hops,

@@ -32,6 +32,7 @@
   "route.leg": "பகுதி {n}",
   "route.finalLeg": "இறுதிப் பகுதி",
   "route.towards": "{station} நோக்கி",
+  "route.headsign": "{headsign} ரயில்",
   "route.via": "{stations} வழியாக",
   "route.standHereFor": "{target} அருகே இறங்க இங்கே நில்லுங்கள்",
   "route.standHereChange": "{line} க்கு மாற இங்கே நில்லுங்கள்",

@@ -117,6 +117,30 @@ export function lineOf(code: string): LineCode | null {
 export { splitCode };
 
 /**
+ * Where a code sits along its own line, as [prefix index, number].
+ *
+ * Comparing bare numbers is wrong wherever a line has more than one prefix.
+ * CG1 to EW4 reads "1 to 4" and looks like it ascends, when it is actually
+ * running back down the Changi branch toward Tanah Merah — and direction
+ * decides which platform's timetable, features and door side get used, so
+ * getting it backwards shows the commuter a train going the other way.
+ */
+export function positionOnLine(code: string): [number, number] {
+  const { prefix, num } = splitCode(code);
+  const station = STATIONS.find((s) => s.code === code.toUpperCase());
+  const prefixes = station ? LINES[station.line].prefixes : [];
+  return [prefixes.indexOf(prefix), num ?? 0];
+}
+
+/** Travel direction from one code to another along their shared line. */
+export function directionBetween(from: string, to: string): "asc" | "desc" {
+  const a = positionOnLine(from);
+  const b = positionOnLine(to);
+  if (a[0] !== b[0]) return b[0] > a[0] ? "asc" : "desc";
+  return b[1] >= a[1] ? "asc" : "desc";
+}
+
+/**
  * The platforms a surveyor can actually stand on at one station code.
  *
  * Labelled by the next stop rather than the terminus. The terminus looks like
@@ -141,13 +165,9 @@ export function platformDirections(code: string): PlatformDirection[] {
   const station = STATIONS.find((s) => s.code === code.toUpperCase());
   if (!station) return [];
 
-  const prefixes = LINES[station.line].prefixes;
   // Branch prefixes sort after the main line, so position is the prefix's
   // place in that list first and the number within it second.
-  const positionOf = (c: string): [number, number] => {
-    const { prefix, num } = splitCode(c);
-    return [prefixes.indexOf(prefix), num ?? 0];
-  };
+  const positionOf = positionOnLine;
   const here = positionOf(station.code);
   const isAfter = (p: [number, number]) =>
     p[0] !== here[0] ? p[0] > here[0] : p[1] > here[1];

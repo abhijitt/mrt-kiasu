@@ -19,6 +19,28 @@ export type { TrainTime } from "./service-status";
 
 export type StationTimes = Partial<Record<ServiceDay, TrainTime[]>>;
 
+/**
+ * The destination a train boarded here will actually be displaying.
+ *
+ * A leg is described by where the commuter gets off, which is not what is
+ * written on the front of the train: Admiralty to Ang Mo Kio is boarded on a
+ * train that says Marina South Pier. This returns the operator's own word for
+ * it, which is the only thing that matches the platform sign — and on the
+ * Circle Line and the LRT loops it is a direction rather than a place
+ * ("Clockwise", "Service B"), because that is genuinely what they display.
+ *
+ * Null where the feed has no headsign for that station and direction, which
+ * includes the Punggol loops; callers fall back rather than guess.
+ */
+export function headsignFor(
+  code: string,
+  direction: "asc" | "desc",
+  day: ServiceDay,
+): string | null {
+  const rows = stations[code.toUpperCase()]?.[day];
+  return rows?.find((row) => row.direction === direction)?.towards ?? null;
+}
+
 const stations = data.stations as Record<string, StationTimes>;
 
 /** Times for one station, or null when the feed does not cover it. */

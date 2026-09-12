@@ -5,6 +5,8 @@ import { planRouteBetweenStations } from "@/lib/routing";
 import { getGroup, getStation } from "@/lib/stations";
 import { landmarksForCodes } from "@/lib/landmarks";
 import { journeyPayload } from "@/lib/journey-data";
+import { headsignFor } from "@/lib/train-times";
+import { serviceDayOf } from "@/lib/service-status";
 import { fareBetween } from "@/lib/fare";
 import { doorSideFor, layoutFor } from "@/lib/orientation";
 import { RouteScreen, type LegView } from "./RouteScreen";
@@ -35,7 +37,26 @@ export default async function RoutePage({
 
   // Ship every recorded feature per leg; the client picks among them using the
   // commuter's preference, which lives in their browser and not on the server.
+  // Which timetable is running decides the headsign: a Sunday train can carry
+  // a different destination from the same platform on a Tuesday.
+  const serviceDay = serviceDayOf(new Date());
+
   const legs: LegView[] = route.legs.map((leg) => {
+    // What the front of the train will say. The leg's own `towards` is where
+    // the commuter gets off, which is a different fact and not the one printed
+    // on the platform sign.
+    //
+    // Not across a branch. A junction has three services, not two, and asc/desc
+    // cannot say which: at Tanah Merah the feed lists only Pasir Ris and Tuas
+    // Link, so asking it for the Changi shuttle's headsign confidently returns
+    // a train going the other way. Better to keep the old wording there than to
+    // print the wrong destination on the one line a commuter checks against the
+    // platform sign.
+    const crossesBranch =
+      leg.from.code.replace(/\d+$/, "") !== leg.to.code.replace(/\d+$/, "");
+    const headsign = crossesBranch
+      ? null
+      : headsignFor(leg.from.code, leg.direction, serviceDay);
     return {
       line: leg.line,
       fromName: leg.from.name,
@@ -44,6 +65,11 @@ export default async function RoutePage({
       stopNames: leg.stops.map((s) => s.name),
       direction: leg.direction,
       towards: leg.towards,
+      headsign,
+      // "Clockwise" and "Service B" are destinations in the feed's sense but
+      // not places, so the copy cannot wrap them in "towards". Decided here,
+      // where the station list is, rather than shipping it to the browser.
+      headsignIsPlace: headsign !== null && getGroup(headsign) !== null,
       features: getFeatures(leg.to.code, leg.direction),
       // Two different platforms, and they are not interchangeable.
       //

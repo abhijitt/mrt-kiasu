@@ -36,6 +36,10 @@ export interface LegView {
   stopNames: string[];
   direction: Direction;
   towards: string;
+  /** What the front of the train says, where the feed knows. */
+  headsign: string | null;
+  /** False for "Clockwise" and the LRT loop services, which are not places. */
+  headsignIsPlace: boolean;
   /** Every recorded feature on the platform this leg ends at. */
   features: PlatformFeature[];
   /** Which side the doors open where this leg ends. Null when unverified. */
@@ -459,7 +463,16 @@ export function RouteScreen(p: Props) {
               {t(leg.stopNames.length === 0 ? "route.stop" : "route.stops", {
                 count: leg.stopNames.length + 1,
               })}{" "}
-              · {t("route.towards", { station: leg.towards })}
+              {/* The headsign, not the alighting station: this is the line a
+                  commuter checks against the platform sign, and the station
+                  they get off at is already on the line above. Falls back
+                  where the feed has no headsign for this platform. */}
+              ·{" "}
+              {leg.headsign === null
+                ? t("route.towards", { station: leg.towards })
+                : leg.headsignIsPlace
+                  ? t("route.towards", { station: leg.headsign })
+                  : t("route.headsign", { headsign: leg.headsign })}
               {leg.stopNames.length > 0 && (
                 <> · {t("route.via", { stations: leg.stopNames.join(", ") })}</>
               )}

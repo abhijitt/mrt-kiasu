@@ -13,7 +13,10 @@ import { sgDayOfWeek } from "./sg-time";
 export type ServiceDay = "weekday" | "saturday" | "sunday";
 
 export interface TrainTime {
+  /** The headsign the train displays — a place, or a direction on a loop. */
   towards: string;
+  /** Which way along the line's numbering, where the feed let us derive it. */
+  direction?: "asc" | "desc" | null;
   first: string;
   last: string;
   /**
