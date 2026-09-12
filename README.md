@@ -113,6 +113,16 @@ file records the discrepancy rather than hiding it.
 
 ### Known data gaps
 
+- **Legs are labelled by where you get off, not by what the train says.**
+  `routing.ts` sets a leg's `towards` to the alighting station, so Admiralty to
+  Ang Mo Kio reads "towards Ang Mo Kio" while the train itself says **Marina
+  South Pier**. The real headsigns are already imported — `train-times.json`
+  carries GTFS `trip_headsign` per station and service day, including the cases
+  no derivation can produce ("Clockwise" and "Anticlockwise" on the Circle Line,
+  "Service A" and "Service B" on the Bukit Panjang LRT). They are not yet usable
+  for this, because the importer derives the asc/desc mapping and then drops it
+  when writing each entry.
+
 - **Punggol Coast (NE18)** and **Hume (DT4)** are absent from LTA's exit dataset despite having opened. Surfaced in the UI rather than hidden.
 - **LRT fleets** have no sourced car/door geometry, so those lines are routable and browsable but get no door guidance at all — `doorsPerTrain` returns `null` and the door maths throws rather than guessing.
 - **First/last train times** are not yet integrated. SBS Transit publishes scrapable HTML for its lines; SMRT's equivalent is a JS-rendered SPA with no API.
@@ -160,8 +170,27 @@ Door positions come in three tiers, and the UI never blurs them:
 Estimates are typed `exit`, not `escalator`. The projection locates where an
 exit *surfaces*; it cannot tell an escalator from a lift or stairs. That is why
 a commuter's escalator/lift/stairs preference only changes the answer where a
-survey exists — and the route page says so explicitly rather than implying the
-preference was applied.
+survey exists.
+
+### What each detail level shows
+
+The kiasu level now decides how much of that reaches the reader, and the split
+is worth stating plainly because it cuts against the rule at the top of this
+file.
+
+**Kopi shows the answer and nothing around it**: the car, the diagram, the
+journey figures. **Gao adds the rest behind a "?"** on each card — why the
+position is worth walking to, the arithmetic behind it, where the figure came
+from, what the fare was charged on, and the caveats: that a preference could
+not be honoured, that nothing on the platform is recorded as serving the
+target, that a position is an estimate good to a car rather than a door.
+
+The consequence, stated rather than left to be discovered: with no platform
+surveyed yet, every position is an exit estimate, so **a kopi reader is shown
+a car number with nothing marking it as derived**. The whole-car highlight on
+the diagram is the only remaining signal and it carries no label. This is a
+deliberate product decision, not an oversight, and it is the one place where
+the app presents something with more apparent certainty than it has.
 
 ### Escalator direction
 
@@ -195,10 +224,12 @@ Run the app, open a station, and tap "Survey this platform". Stand on the platfo
 settings footers and from each other.
 
 **No cookie banner is needed, and adding one would be theatre.** The app sets no
-cookies at all. The only browser storage is three `localStorage` keys holding
-your language, theme and avatar preferences — functional, not tracking, so it
-falls outside consent requirements under both the PDPA and GDPR. The privacy
-page says so explicitly rather than leaving people to wonder.
+cookies at all. The only browser storage is four `localStorage` keys —
+`mrt-kiasu:settings`, `:theme`, `:locale` and `:score` — holding your language,
+theme, avatar, detail level, exit preference, fare type and the walking this
+device has saved. All functional, none of it leaving the browser, so it falls
+outside consent requirements under both the PDPA and GDPR. The privacy page
+says so explicitly rather than leaving people to wonder.
 
 Personal data is limited to the optional name and email on the report form, which
 is why the privacy notice exists: Singapore's PDPA requires notifying purpose
