@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { PlatformDiagram } from "@/components/PlatformDiagram";
 import { toCarPosition, type Direction } from "@/lib/doors";
-import { useT } from "@/i18n/I18nProvider";
+import { useI18n } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { useSettings } from "@/lib/settings";
 import type { LineCode } from "@/lib/lines";
@@ -86,13 +86,16 @@ export function SurveyForm({
   existing,
   towards,
 }: Props) {
-  const t = useT();
+  const { t, locale } = useI18n();
   const { settings } = useSettings();
   const [doorIndex, setDoorIndex] = useState<number | null>(null);
   const [type, setType] = useState<FeatureType>("escalator");
   const [travel, setTravel] = useState<Travel>("up");
   const [leadsTo, setLeadsTo] = useState<string[]>([]);
   const [status, setStatus] = useState<string | null>(null);
+  const [sent, setSent] = useState(false);
+  const [note, setNote] = useState("");
+  const [name, setName] = useState("");
   const [payload, setPayload] = useState<string | null>(null);
 
   const position = doorIndex != null ? toCarPosition(doorIndex, line, direction) : null;
@@ -141,7 +144,25 @@ export function SurveyForm({
       ...(type === "escalator" ? { travel } : {}),
     };
 
-    const json = JSON.stringify({ stationCode, direction, feature }, null, 2);
+    const json = JSON.stringify(
+      {
+        stationCode,
+        direction,
+        feature,
+        // Context for whoever reviews this. Which deployment it came from is
+        // NOT sent from here: the server knows, and a value the browser can
+        // set is a value a spammer can set to look like anything.
+        note: note.trim() || undefined,
+        name: name.trim() || undefined,
+        locale,
+        viewport:
+          typeof window === "undefined"
+            ? undefined
+            : `${window.innerWidth}x${window.innerHeight}`,
+      },
+      null,
+      2,
+    );
 
     setStatus(t("survey.saving"));
     try {
@@ -151,12 +172,20 @@ export function SurveyForm({
         body: json,
       });
       const body = await res.json();
-      if (res.ok) {
+      if (res.ok && body.pending) {
+        // Stored for review. Saying so plainly matters: the surveyor has just
+        // stood on a platform for this and should know it arrived, and also
+        // that it is not live yet.
+        setStatus(t("survey.submitted"));
+        setPayload(null);
+        setSent(true);
+      } else if (res.ok) {
         setStatus(t("survey.saved", { count: body.count }));
         setPayload(null);
-      } else if (res.status === 403) {
-        // Production: hand the surveyor the JSON to submit for review.
-        setStatus(t("survey.disabled"));
+        setSent(true);
+      } else if (body.retain) {
+        // Nowhere to store it. Hand back the work rather than lose it.
+        setStatus(t("survey.offline"));
         setPayload(json);
       } else {
         setStatus(t("survey.rejected", { reason: body.details?.join("; ") ?? body.error }));
@@ -296,10 +325,38 @@ export function SurveyForm({
         )}
       </Step>
 
+      {/* Both optional, and asked for after the survey itself so nothing here
+          stands between a commuter on a platform and the thing they came to
+          record. A note is often the whole review — "the escalator was out,
+          this is the stairs beside it" settles a submission that the numbers
+          alone would leave ambiguous. */}
+      <Step n={4} title={t("survey.step4")} hint={t("survey.step4Hint")}>
+        <label className="block">
+          <span className="text-sm text-fg-muted">{t("survey.noteLabel")}</span>
+          <textarea
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+            maxLength={500}
+            rows={3}
+            className="pixel-box-sm mt-2 block w-full resize-y bg-bg-raised px-3 py-2 text-base text-fg"
+          />
+        </label>
+        <label className="mt-3 block">
+          <span className="text-sm text-fg-muted">{t("survey.nameLabel")}</span>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            maxLength={80}
+            className="pixel-box-sm mt-2 block min-h-12 w-full appearance-none rounded-none bg-bg-raised px-3 py-3 text-base text-fg"
+          />
+        </label>
+      </Step>
+
       <button
         type="button"
         onClick={save}
-        disabled={!ready}
+        disabled={!ready || sent}
         className="pixel-btn font-pixel px-4 py-4 text-xs uppercase"
         style={
           ready ? { background: "var(--accent)", color: "var(--accent-fg)" } : undefined

@@ -4,29 +4,49 @@ import { NextResponse } from "next/server";
 import { lineFromStationCode } from "@/lib/lines";
 import { validateFeature, type PlatformFeature } from "@/lib/positions";
 import { getStation } from "@/lib/stations";
+import { isConfigured, saveSubmission } from "@/lib/surveys-db";
+
+/** Enough for a sentence of context, not enough to be a payload. */
+const NOTE_MAX = 500;
+const NAME_MAX = 80;
+const EMAIL_MAX = 254;
 
 const FILE = join(process.cwd(), "src", "data", "positions.json");
 
+/** Trims and caps a free-text field, or drops it when it is empty. */
+function trim(value: unknown, max: number): string | undefined {
+  if (typeof value !== "string") return undefined;
+  const clean = value.trim().slice(0, max);
+  return clean.length > 0 ? clean : undefined;
+}
+
 /**
- * Writes a surveyed position into the dataset.
+ * Receives a survey of a platform.
  *
- * Deliberately development-only. The app needs no login, and an open write
- * endpoint on a public deployment would let anyone poison the one thing this
- * app promises is trustworthy. In production the survey UI shows the JSON for
- * the surveyor to submit through review instead.
+ * In development it writes straight into src/data/positions.json, because the
+ * person running it is the person maintaining the dataset.
+ *
+ * In production it stores the survey as PENDING and nothing more. The app
+ * needs no login, so an endpoint that wrote to the dataset would let anyone
+ * poison the one thing this app promises is trustworthy. A submission is a
+ * claim, not data: it reaches positions.json only once a person has read it,
+ * approved it with scripts/review-surveys.mjs and committed the result, where
+ * the data gate checks it like everything else.
+ *
+ * It used to refuse outright and hand back JSON to copy, which meant every
+ * survey from a real commuter ended at a wall of braces.
  */
 export async function POST(request: Request) {
-  if (process.env.NODE_ENV === "production") {
-    return NextResponse.json(
-      {
-        error:
-          "Survey writes are disabled in production. Copy the JSON and submit it for review.",
-      },
-      { status: 403 },
-    );
-  }
-
-  let body: { stationCode?: string; direction?: string; feature?: Partial<PlatformFeature> };
+  let body: {
+    stationCode?: string;
+    direction?: string;
+    feature?: Partial<PlatformFeature>;
+    note?: string;
+    name?: string;
+    email?: string;
+    locale?: string;
+    viewport?: string;
+  };
   try {
     body = await request.json();
   } catch {
@@ -53,6 +73,43 @@ export async function POST(request: Request) {
   const errors = validateFeature(feature ?? {}, line);
   if (errors.length > 0) {
     return NextResponse.json({ error: "Invalid feature", details: errors }, { status: 400 });
+  }
+
+  // Production: store the claim, do not touch the dataset.
+  if (process.env.NODE_ENV === "production") {
+    if (!isConfigured()) {
+      // Nowhere to put it, so say so rather than swallow the work. `retain`
+      // tells the form to keep what the surveyor entered.
+      return NextResponse.json(
+        { error: "Surveys cannot be accepted right now.", retain: true },
+        { status: 501 },
+      );
+    }
+    try {
+      await saveSubmission({
+        stationCode,
+        direction,
+        feature: feature as PlatformFeature,
+        note: trim(body.note, NOTE_MAX),
+        name: trim(body.name, NAME_MAX),
+        email: trim(body.email, EMAIL_MAX),
+        locale: trim(body.locale, 16),
+        viewport: trim(body.viewport, 24),
+        // From the server, not the submitter. Beta's test surveys and real
+        // ones are only distinguishable if the label cannot be forged.
+        env: process.env.VERCEL_ENV ?? "development",
+        submittedAt: new Date().toISOString(),
+      });
+      return NextResponse.json({ ok: true, pending: true });
+    } catch (err) {
+      // Logged rather than returned: the reason may name the host or the
+      // credential, and this response goes to the public internet.
+      console.error("[api/survey] submission write failed", err);
+      return NextResponse.json(
+        { error: "Could not store the survey.", retain: true },
+        { status: 503 },
+      );
+    }
   }
 
   const raw = JSON.parse(await readFile(FILE, "utf8"));

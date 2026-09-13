@@ -216,7 +216,57 @@ picking one re-targets the door guidance above to that exit.
 
 ## Contributing a survey
 
-Run the app, open a station, and tap "Survey this platform". Stand on the platform, find the escalator, tap the door it lines up with. In development this writes straight to `src/data/positions.json`; in production it hands you the JSON to submit for review — an open write endpoint would let anyone poison the one thing this app promises is trustworthy.
+Run the app, open a station, and tap "Survey this platform". Stand on the
+platform, find the escalator, tap the door it lines up with.
+
+**In development** this writes straight to `src/data/positions.json`, because
+the person running it is the person maintaining the dataset.
+
+**In production nothing reaches the dataset.** The app has no login, so an
+endpoint that wrote to `positions.json` would let anyone poison the one thing
+this app promises is trustworthy. A submission is a *claim*: it is validated,
+stored as `pending` in the `survey_submissions` table, and goes no further.
+Nothing in the app ever reads that table, and `positions.json` is a committed
+file baked in at build time — a database row cannot become data without an
+edit, a commit and a deploy.
+
+Review the queue yourself:
+
+```bash
+DATABASE_URL='postgresql://...' npm run surveys:review               # list, change nothing
+DATABASE_URL='postgresql://...' npm run surveys:review -- --approve 12
+DATABASE_URL='postgresql://...' npm run surveys:review -- --reject 13
+```
+
+Approving writes the feature into `positions.json` and leaves it **uncommitted**,
+so the change still goes through `npm run validate-data`, through a diff you
+read, and through git. Rejected rows are kept rather than deleted: a claim that
+disagrees with the dataset is worth being able to look back at.
+
+### Wiring up the database
+
+Reports and survey submissions both need `DATABASE_URL` — a Neon Postgres
+connection string. Without it the app still runs; the survey form tells a
+surveyor it cannot accept their work rather than silently dropping it.
+
+1. Create a Neon project, and a second **branch** for preview/beta so test
+   submissions never land in the real queue.
+2. Copy the **pooled** connection string (the host contains `-pooler`). This
+   app talks to Postgres over HTTP from serverless functions, where one direct
+   connection per instance exhausts the database.
+3. Create the tables, once per branch — the script is idempotent:
+   ```bash
+   DATABASE_URL='postgresql://...' npm run migrate:db
+   ```
+4. Set `DATABASE_URL` in Vercel for **Production** and **Preview** separately,
+   pointing at the matching Neon branch, and redeploy so the variable is picked
+   up.
+5. Put it in `.env.local` too if you want the endpoint exercised locally.
+
+The scripts read `.env.local` themselves, so once it is in there you can drop
+the prefix and just run `npm run migrate:db` or `npm run surveys:review`. A
+variable set on the command line still wins, which is how you point one run at
+a different branch.
 
 ## Legal and informational pages
 

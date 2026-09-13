@@ -18,6 +18,7 @@
     "translate": "python3 scripts/translate_content.py",
     "check:bundle": "node scripts/check-bundle.mjs",
     "migrate:db": "node scripts/migrate-db.mjs",
+    "surveys:review": "node scripts/review-surveys.mjs",
     "build:map": "node scripts/build-map-data.mjs",
     "build:schematic": "node scripts/build-schematic.mjs",
     "import:times": "node scripts/import-train-times.mjs",

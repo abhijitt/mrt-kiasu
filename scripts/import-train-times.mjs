@@ -16,10 +16,13 @@
  */
 
 import { writeFile, mkdtemp, rm } from "node:fs/promises";
+import { loadEnvLocal } from "./load-env.mjs";
 import { readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { execFileSync } from "node:child_process";
+
+loadEnvLocal();
 
 const KEY = process.env.LTA_ACCOUNT_KEY;
 if (!KEY) {
