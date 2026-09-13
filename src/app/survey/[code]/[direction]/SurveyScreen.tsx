@@ -19,6 +19,8 @@ interface Props {
   exitCodes: string[];
   interchanges: string[];
   existing: PlatformFeature[];
+  /** Which side the doors open here, where we know — it orients the diagram. */
+  doorSide?: "left" | "right";
   /** Every surveyable platform at this station, its own code included. */
   platforms: { code: string; line: LineCode; direction: Direction; nextStop: string }[];
 }

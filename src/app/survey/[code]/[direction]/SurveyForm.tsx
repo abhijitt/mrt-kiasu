@@ -25,6 +25,8 @@ interface Props {
   interchanges: string[];
   existing: PlatformFeature[];
   towards: string;
+  /** Which side the doors open here, where we know — it orients the diagram. */
+  doorSide?: "left" | "right";
 }
 
 /** One numbered step of the survey, so the flow reads as a sequence. */
@@ -85,6 +87,7 @@ export function SurveyForm({
   interchanges,
   existing,
   towards,
+  doorSide,
 }: Props) {
   const { t, locale } = useI18n();
   const { settings } = useSettings();
@@ -215,6 +218,7 @@ export function SurveyForm({
             avatar={doorIndex != null ? settings.avatar : undefined}
             skinTone={settings.skinTone}
             fitWidth
+            doorSide={doorSide}
             onSelectDoor={setDoorIndex}
             doorLabel={describeDoor}
             label={t("survey.step1")}

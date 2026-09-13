@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getStation } from "@/lib/stations";
 import { platformDirections, stationPlatforms } from "@/lib/network";
 import { getFeatures } from "@/lib/positions";
+import { doorSideFor } from "@/lib/orientation";
 import { doorsPerTrain, hasTrainGeometry } from "@/lib/lines";
 import { SurveyScreen } from "./SurveyScreen";
 
@@ -39,6 +40,11 @@ export default async function SurveyPage({
       exitCodes={station.exits.map((e) => e.code)}
       interchanges={station.interchanges.map((i) => i.line)}
       existing={getFeatures(station.code, direction)}
+      // Face the train the way it actually faces here. The diagram was drawn
+      // nose-right on every platform, so on a left-door platform a surveyor
+      // was matching a mirror image of the train in front of them against the
+      // doors they can see.
+      doorSide={doorSideFor(station.code, direction)?.side}
       // Every platform under this surveyor's feet, including the ones that
       // belong to the station's other codes: standing in Bayfront is standing
       // in CE1 and DT16 at once. LRT platforms are dropped, not hidden as
