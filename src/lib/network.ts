@@ -141,6 +141,25 @@ export function directionBetween(from: string, to: string): "asc" | "desc" {
 }
 
 /**
+ * Whether a train finishing at `terminus` gets you as far as `stop`.
+ *
+ * Short workings are real trains at real times that simply cannot take you:
+ * the Circle Line runs a lot of partial services to Dhoby Ghaut, Prince Edward
+ * Road and Stadium, and timing a journey against one hands a commuter a
+ * departure they would have to get off early.
+ */
+export function reachesAlong(
+  terminus: string,
+  stop: string,
+  direction: "asc" | "desc",
+): boolean {
+  const end = positionOnLine(terminus);
+  const want = positionOnLine(stop);
+  const delta = end[0] !== want[0] ? end[0] - want[0] : end[1] - want[1];
+  return direction === "asc" ? delta >= 0 : delta <= 0;
+}
+
+/**
  * The platforms a surveyor can actually stand on at one station code.
  *
  * Labelled by the next stop rather than the terminus. The terminus looks like

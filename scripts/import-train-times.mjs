@@ -363,6 +363,19 @@ try {
   let shortWorkings = 0;
   const alternates = new Map();
 
+  /**
+   * Where each trip actually finishes, taken from its last stop rather than
+   * from the headsign. The headsign is wording — on the Circle Line it reads
+   * "Clockwise", which names no station — but the final stop is always a code
+   * we can compare positions against.
+   */
+  const terminusOf = new Map();
+  for (const [tripId, rows] of tripRows.entries()) {
+    const sorted = [...rows].sort((a, b) => Number(a.stop_sequence) - Number(b.stop_sequence));
+    const code = codeOf.get(sorted[sorted.length - 1]?.stop_id);
+    if (code) terminusOf.set(tripId, code);
+  }
+
   const departures = {};
   for (const rows of tripRows.values()) {
     for (const st of rows) {
@@ -377,7 +390,10 @@ try {
       const dir = ourDirection.get(`${line}|${info.dirId}`);
       if (!dir) continue;
       const key = `${code}|${dir}`;
-      ((departures[key] ??= {})[info.kind] ??= []).push(toMinutes(st.departure_time));
+      ((departures[key] ??= {})[info.kind] ??= []).push({
+        at: toMinutes(st.departure_time),
+        end: terminusOf.get(st.trip_id) ?? null,
+      });
 
       departureCount++;
       const usual = dominant.get(`${code}|${info.kind}|${info.dir}`);
@@ -387,9 +403,32 @@ try {
       }
     }
   }
+  /**
+   * Collapse to times plus the exceptions.
+   *
+   * Most trains from a platform run to the same place, so storing a terminus
+   * against all 274,742 departures would be repeating one string a quarter of
+   * a million times. `to` is where they usually finish and `ex` lists only the
+   * departures that stop short — 6.5% of them, and nearly all on the North
+   * East and Circle lines.
+   */
   for (const byDay of Object.values(departures)) {
     for (const day of Object.keys(byDay)) {
-      byDay[day] = [...new Set(byDay[day])].sort((a, b) => a - b);
+      const seen = new Map();
+      for (const d of byDay[day]) if (!seen.has(d.at)) seen.set(d.at, d.end);
+      const times = [...seen.keys()].sort((a, b) => a - b);
+
+      const counts = new Map();
+      for (const end of seen.values()) if (end) counts.set(end, (counts.get(end) ?? 0) + 1);
+      const usual = [...counts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
+
+      const ex = [];
+      times.forEach((at, i) => {
+        const end = seen.get(at);
+        if (end && end !== usual) ex.push([i, end]);
+      });
+
+      byDay[day] = ex.length ? { t: times, to: usual, ex } : { t: times, to: usual };
     }
   }
 
@@ -434,8 +473,9 @@ try {
         headway,
         departures,
       },
-      null,
-      2,
+      // Compact, not pretty. Indenting a quarter of a million departures spent
+      // three megabytes on whitespace, and this file is generated — nothing
+      // reads it by hand and a line diff of it was never meaningful.
     ) + "\n",
   );
 

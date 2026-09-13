@@ -3,6 +3,7 @@ import data from "@/data/train-times.json";
 import { estimateJourneyExact, type DepartureTable, type Leg } from "./journey-time";
 import { transferTime } from "./transfers";
 import { serviceDayOf } from "./service-status";
+import { reachesAlong } from "./network";
 
 /**
  * Server-side access to the timetable.
@@ -16,7 +17,45 @@ import { serviceDayOf } from "./service-status";
 const HOPS = data.hops as Record<string, number>;
 const HOP_SECONDS = data.hopSeconds as Record<string, number>;
 const DWELL_SECONDS = data.dwellSeconds as Record<string, number>;
-const DEPARTURES = data.departures as DepartureTable;
+/**
+ * As stored: the departure minutes, where those trains usually finish, and the
+ * ones that stop short of it.
+ *
+ * Most trains from a platform run to the same place, so the terminus is stored
+ * once and only the exceptions are listed — 5% of departures, almost all of
+ * them on the Circle Line, which runs a lot of partial services to Dhoby
+ * Ghaut, Prince Edward Road and Stadium.
+ */
+interface StoredDepartures {
+  t: number[];
+  to: string | null;
+  ex?: [number, string][];
+}
+
+// Through unknown: TypeScript widens the tuples in `ex` to (string | number)[]
+// when it infers the JSON, which no amount of narrowing here will reconcile.
+const DEPARTURES = data.departures as unknown as Record<
+  string,
+  Partial<Record<string, StoredDepartures>>
+>;
+
+/**
+ * The departures that actually serve this leg.
+ *
+ * A short working is a real train at a real time that simply cannot take you:
+ * timing a Circle Line journey against a service terminating at Dhoby Ghaut
+ * gave a commuter a departure they would have had to get off early. Falls back
+ * to the unfiltered list rather than claiming no trains run, which would be a
+ * worse answer than a rough one.
+ */
+function servingTimes(entry: StoredDepartures, alightAt: string, direction: "asc" | "desc") {
+  const exceptions = new Map(entry.ex ?? []);
+  const kept = entry.t.filter((_, i) => {
+    const end = exceptions.get(i) ?? entry.to;
+    return end === null || end === undefined ? true : reachesAlong(end, alightAt, direction);
+  });
+  return kept.length > 0 ? kept : entry.t;
+}
 
 export interface RouteLegShape {
   from: { code: string };
@@ -69,12 +108,17 @@ export function journeyPayload(
     }
   }
 
-  // Only the boarding platforms, and only for today's timetable.
+  // Only the boarding platforms, only today's timetable, and only the trains
+  // that run far enough to be any use on this leg. Filtering here rather than
+  // in the browser keeps the payload small and keeps journey-time.ts free of
+  // the station data that working out reachability needs.
   const departures: DepartureTable = {};
   for (const leg of legs) {
     const key = `${leg.boardAt}|${leg.direction}`;
-    const times = DEPARTURES[key]?.[day];
-    if (times) departures[key] = { [day]: times };
+    const entry = DEPARTURES[key]?.[day];
+    if (!entry) continue;
+    const alightAt = leg.path[leg.path.length - 1];
+    departures[key] = { [day]: servingTimes(entry, alightAt, leg.direction) };
   }
 
   // One transfer figure for the route: the walk at each interchange.
