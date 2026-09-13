@@ -13,22 +13,10 @@
   "_notes": "The SKLRT closure is recorded as effect \"closed\" and is surfaced to the reader, but routing still plans through the inner loop. Removing those edges is a routing change and is deliberately not bundled here.",
   "adjustments": [
     {
-      "id": "dtl-friday-night-2026",
-      "lines": ["DTL"],
-      "activeFrom": "2026-07-10",
-      "activeTo": "2026-09-05",
-      "effect": "modified-schedule",
-      "overrides": [
-        { "days": ["friday"], "last": "23:30" },
-        { "days": ["saturday"], "first": "08:30" }
-      ],
-      "source": "lta-alert",
-      "sourceNote": "23:30-DTL-Planned Service Adjustments. From 10 Jul to 5 Sep 2026, Downtown Line services will end at 11.30pm on Friday nights and commence at 8.30am on Saturday mornings. Please use alternative MRT lines and bus services.",
-      "citedOn": "2026-08-26"
-    },
-    {
       "id": "sklrt-inner-loop-2026",
-      "lines": ["SKLRT"],
+      "lines": [
+        "SKLRT"
+      ],
       "activeFrom": "2026-04-19",
       "activeTo": "2026-10-18",
       "effect": "closed",

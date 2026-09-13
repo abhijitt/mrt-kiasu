@@ -46,6 +46,15 @@ export interface ServiceAdjustment {
 
 const ADJUSTMENTS = data.adjustments as ServiceAdjustment[];
 
+/**
+ * Every reader takes an optional list, defaulting to the real one.
+ *
+ * These used to read the live file only, so the tests asserted against
+ * whichever adjustment happened to be in it — and removing one the day after
+ * it expired broke three of them. An adjustment is transient by definition;
+ * a test pinned to one is a test with a built-in expiry date.
+ */
+
 /** The day name in Singapore time, which is the only timezone this app serves. */
 export function dayNameOf(date: Date): DayName {
   return DAY_NAMES[sgDayOfWeek(date)]!;
@@ -69,13 +78,20 @@ export function isInForce(adjustment: ServiceAdjustment, date: Date): boolean {
 }
 
 /** Adjustments in force on this date for this line. */
-export function adjustmentsFor(line: LineCode, date: Date): ServiceAdjustment[] {
-  return ADJUSTMENTS.filter((a) => a.lines.includes(line) && isInForce(a, date));
+export function adjustmentsFor(
+  line: LineCode,
+  date: Date,
+  from: readonly ServiceAdjustment[] = ADJUSTMENTS,
+): ServiceAdjustment[] {
+  return from.filter((a) => a.lines.includes(line) && isInForce(a, date));
 }
 
 /** Every adjustment in force, regardless of line. */
-export function activeAdjustments(date: Date): ServiceAdjustment[] {
-  return ADJUSTMENTS.filter((a) => isInForce(a, date));
+export function activeAdjustments(
+  date: Date,
+  from: readonly ServiceAdjustment[] = ADJUSTMENTS,
+): ServiceAdjustment[] {
+  return from.filter((a) => isInForce(a, date));
 }
 
 export interface AdjustedTime extends TrainTime {
@@ -96,10 +112,11 @@ export function applyAdjustment(
   row: TrainTime,
   line: LineCode,
   date: Date,
+  from: readonly ServiceAdjustment[] = ADJUSTMENTS,
 ): AdjustedTime {
   const day = dayNameOf(date);
 
-  for (const adjustment of adjustmentsFor(line, date)) {
+  for (const adjustment of adjustmentsFor(line, date, from)) {
     if (adjustment.effect !== "modified-schedule") continue;
     for (const override of adjustment.overrides ?? []) {
       if (!override.days.includes(day)) continue;
@@ -116,6 +133,10 @@ export function applyAdjustment(
 }
 
 /** Part of this line is not running today. */
-export function closuresFor(line: LineCode, date: Date): ServiceAdjustment[] {
-  return adjustmentsFor(line, date).filter((a) => a.effect === "closed");
+export function closuresFor(
+  line: LineCode,
+  date: Date,
+  from: readonly ServiceAdjustment[] = ADJUSTMENTS,
+): ServiceAdjustment[] {
+  return adjustmentsFor(line, date, from).filter((a) => a.effect === "closed");
 }
