@@ -85,3 +85,28 @@ describe("whether a train gets far enough", () => {
     expect(reachesAlong("CG2", "CG1", "asc")).toBe(true);
   });
 });
+
+describe("a code can be real without being in our list", () => {
+  it("places a station the code file has not caught up with", () => {
+    // LTA's GTFS runs trains to CC32 (Prince Edward Road). Their station-code
+    // file still stops at CC29 plus CE1/CE2, so looking CC32 up finds nothing.
+    // Reading the prefix from the line instead of the station keeps it on the
+    // Circle Line where it belongs.
+    expect(positionOnLine("CC32")).toEqual([0, 32]);
+  });
+
+  it("does not strand a train terminating at one", () => {
+    // The regression: an unknown code scored prefix index -1, which sorts
+    // before every station on its own line, so a service to CC32 was judged
+    // unable to reach stops it runs straight through — and those departures
+    // were dropped from the timetable the planner reads.
+    expect(reachesAlong("CC32", "CC21", "asc")).toBe(true);
+    expect(reachesAlong("CC32", "CC29", "asc")).toBe(true);
+    // Still false where it genuinely is short: Stadium is CC6.
+    expect(reachesAlong("CC6", "CC21", "asc")).toBe(false);
+  });
+
+  it("refuses a prefix belonging to no line at all", () => {
+    expect(positionOnLine("ZZ9")).toEqual([-1, 9]);
+  });
+});

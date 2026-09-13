@@ -127,9 +127,14 @@ export { splitCode };
  */
 export function positionOnLine(code: string): [number, number] {
   const { prefix, num } = splitCode(code);
-  const station = STATIONS.find((s) => s.code === code.toUpperCase());
-  const prefixes = station ? LINES[station.line].prefixes : [];
-  return [prefixes.indexOf(prefix), num ?? 0];
+  // Found by prefix rather than by looking the station up, because a code can
+  // be real without being in our list. LTA's GTFS already runs trains to CC32,
+  // which their station-code file has yet to mention — and looking that up
+  // returned an index of -1, sorting it before every station on its own line.
+  // reachesAlong then judged a train terminating there unable to reach stops
+  // it passes through, and quietly dropped those departures.
+  const line = Object.values(LINES).find((l) => l.prefixes.includes(prefix));
+  return [line ? line.prefixes.indexOf(prefix) : -1, num ?? 0];
 }
 
 /** Travel direction from one code to another along their shared line. */
