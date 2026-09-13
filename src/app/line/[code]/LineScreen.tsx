@@ -83,9 +83,17 @@ export function LineScreen(p: Props) {
                 {s.code}
               </span>
               <span className="text-base text-fg">{s.name}</span>
+              {/* Not font-pixel: Press Start 2P has no arrows, so that class only
+                  picked a fallback face at a size chosen for pixel glyphs, and
+                  the mark came out thin and tiny. Not aria-hidden either — it
+                  is the only thing saying this station is an interchange, and
+                  hiding it left that fact sighted-only. */}
               {s.isInterchange && (
-                <span className="font-pixel ml-auto text-xs text-fg-faint" aria-hidden>
-                  ⇄
+                <span className="ml-auto flex shrink-0 items-center text-fg-muted">
+                  <span className="sr-only">{t("station.interchange")}</span>
+                  <span aria-hidden className="text-xl leading-none">
+                    ⇄
+                  </span>
                 </span>
               )}
             </Link>
