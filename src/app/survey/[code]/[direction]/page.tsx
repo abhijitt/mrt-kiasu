@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getStation } from "@/lib/stations";
-import { platformDirections } from "@/lib/network";
+import { platformDirections, stationPlatforms } from "@/lib/network";
 import { getFeatures } from "@/lib/positions";
 import { doorsPerTrain, hasTrainGeometry } from "@/lib/lines";
 import { SurveyScreen } from "./SurveyScreen";
@@ -39,6 +39,19 @@ export default async function SurveyPage({
       exitCodes={station.exits.map((e) => e.code)}
       interchanges={station.interchanges.map((i) => i.line)}
       existing={getFeatures(station.code, direction)}
+      // Every platform under this surveyor's feet, including the ones that
+      // belong to the station's other codes: standing in Bayfront is standing
+      // in CE1 and DT16 at once. LRT platforms are dropped, not hidden as
+      // broken links — without sourced door geometry there is no grid to
+      // survey against, which is the same reason this page 404s for them.
+      platforms={stationPlatforms(station.code)
+        .filter((pl) => hasTrainGeometry(pl.line))
+        .map((pl) => ({
+          code: pl.code,
+          line: pl.line,
+          direction: pl.direction,
+          nextStop: pl.nextStop.name,
+        }))}
     />
   );
 }

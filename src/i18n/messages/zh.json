@@ -112,6 +112,7 @@
   "avatar.meinu": "喝珍珠奶茶的美女",
   "survey.title": "勘查 {station}",
   "survey.intro": "下一站为{direction}的月台。站在该月台，找到扶梯，点按与它对齐的车门。",
+  "survey.switchPlatform": "本站其他月台",
   "survey.step1": "哪道门？",
   "survey.step2": "那里有什么？",
   "survey.step3": "通往哪里？",

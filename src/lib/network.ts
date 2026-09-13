@@ -211,3 +211,39 @@ export function platformDirections(code: string): PlatformDirection[] {
 
   return out;
 }
+
+export interface StationPlatform {
+  /** The station code this platform belongs to — CC34 and DT16 are one station. */
+  code: string;
+  line: LineCode;
+  direction: "asc" | "desc";
+  /** Named by the next stop, for the same reason platformDirections is. */
+  nextStop: Station;
+}
+
+/**
+ * Every platform at one physical station, across all of its codes.
+ *
+ * platformDirections answers for a single code, which is what a station page
+ * needs. A surveyor standing in Bayfront is standing in CE1 and DT16 at once,
+ * and the four platforms under their feet are all worth recording while they
+ * are there — so this walks the interchange links too.
+ *
+ * Ordered by code so the list does not reshuffle depending on which platform
+ * you happen to be looking at.
+ */
+export function stationPlatforms(code: string): StationPlatform[] {
+  const station = STATIONS.find((s) => s.code === code.toUpperCase());
+  if (!station) return [];
+
+  const codes = [station.code, ...station.interchanges.map((i) => i.code)].sort();
+  const out: StationPlatform[] = [];
+  for (const c of codes) {
+    const at = STATIONS.find((s) => s.code === c);
+    if (!at) continue;
+    for (const p of platformDirections(c)) {
+      out.push({ code: c, line: at.line, direction: p.direction, nextStop: p.nextStop });
+    }
+  }
+  return out;
+}

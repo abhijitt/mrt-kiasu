@@ -112,6 +112,7 @@
   "avatar.meinu": "Meinu dengan teh boba",
   "survey.title": "Tinjau {station}",
   "survey.intro": "Platform yang hentian seterusnya ialah {direction}. Berdiri di situ, cari eskalator, dan ketik pintu yang sejajar dengannya.",
+  "survey.switchPlatform": "Platform lain di sini",
   "survey.step1": "Pintu yang mana?",
   "survey.step2": "Apa yang ada di situ?",
   "survey.step3": "Ke mana ia menuju?",

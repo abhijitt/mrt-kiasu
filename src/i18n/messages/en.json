@@ -112,6 +112,7 @@
   "avatar.meinu": "Meinu with bubble tea",
   "survey.title": "Survey {station}",
   "survey.intro": "The platform whose next stop is {direction}. Stand on it, find the escalator, and tap the door it lines up with.",
+  "survey.switchPlatform": "Another platform here",
   "survey.step1": "Which door?",
   "survey.step2": "What is there?",
   "survey.step3": "Where does it lead?",
