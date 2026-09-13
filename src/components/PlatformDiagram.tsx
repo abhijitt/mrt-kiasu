@@ -74,18 +74,28 @@ interface Props {
  * the picture cannot disagree with the words.
  */
 /** Fixed drawing geometry, shared by the render and the scroll effect. */
-const GEO = { DOOR_W: 14, DOOR_GAP: 4, CAR_PAD: 6, CAR_GAP: 4, NOSE_W: 16 } as const;
+const GEO = {
+  DOOR_W: 14,
+  DOOR_GAP: 4,
+  CAR_PAD: 6,
+  CAR_GAP: 4,
+  NOSE_W: 16,
+} as const;
 
 function geometryFor(cars: number, doorsPerCar: number, noseLeft = false) {
   const carW =
-    doorsPerCar * GEO.DOOR_W + (doorsPerCar - 1) * GEO.DOOR_GAP + GEO.CAR_PAD * 2;
+    doorsPerCar * GEO.DOOR_W +
+    (doorsPerCar - 1) * GEO.DOOR_GAP +
+    GEO.CAR_PAD * 2;
   const noseOffset = noseLeft ? GEO.NOSE_W : 0;
   return {
     carW,
     width: cars * carW + (cars - 1) * GEO.CAR_GAP + GEO.NOSE_W + 4,
     // Mirrors the render, so the scroll lands on the car actually drawn there.
     carLeft: (carFromFront: number) =>
-      noseOffset + (noseLeft ? carFromFront - 1 : cars - carFromFront) * (carW + GEO.CAR_GAP),
+      noseOffset +
+      (noseLeft ? carFromFront - 1 : cars - carFromFront) *
+        (carW + GEO.CAR_GAP),
   };
 }
 
@@ -124,7 +134,11 @@ export function PlatformDiagram({
     if (!el || fitWidth || !train || highlightDoorIndex == null) return;
 
     const geo = geometryFor(train.cars, train.doorsPerCar, doorSide === "left");
-    const { doorFromFront } = toCarPosition(highlightDoorIndex, line, direction);
+    const { doorFromFront } = toCarPosition(
+      highlightDoorIndex,
+      line,
+      direction,
+    );
     const withinCar = ((doorFromFront - 1) % train.doorsPerCar) + 1;
     const carFromFront = Math.ceil(doorFromFront / train.doorsPerCar);
     const x =
@@ -145,7 +159,10 @@ export function PlatformDiagram({
       if (scrolled || !el || el.scrollWidth <= el.clientWidth) return;
       scrolled = true;
       const centre = (x / geo.width) * el.scrollWidth - el.clientWidth / 2;
-      const left = Math.max(0, Math.min(el.scrollWidth - el.clientWidth, centre));
+      const left = Math.max(
+        0,
+        Math.min(el.scrollWidth - el.clientWidth, centre),
+      );
       // Instant, not smooth. A smooth scroll begun while the page is still
       // settling gets cancelled by the browser, which is why the first
       // attempt at this silently did nothing — and an animation the reader
@@ -171,7 +188,8 @@ export function PlatformDiagram({
   const DOOR_W = 14;
   const DOOR_GAP = 4;
   const CAR_PAD = 6;
-  const CAR_W = doorsPerCar * DOOR_W + (doorsPerCar - 1) * DOOR_GAP + CAR_PAD * 2;
+  const CAR_W =
+    doorsPerCar * DOOR_W + (doorsPerCar - 1) * DOOR_GAP + CAR_PAD * 2;
   const CAR_GAP = 4;
   const NOSE_W = 12;
   /** Nose to the left when the reader is looking at the train's left flank. */
@@ -195,7 +213,9 @@ export function PlatformDiagram({
   function doorX(doorFromFront: number): number {
     const carFromFront = Math.ceil(doorFromFront / doorsPerCar);
     const withinCar = ((doorFromFront - 1) % doorsPerCar) + 1;
-    return carLeft(carFromFront) + CAR_PAD + (withinCar - 1) * (DOOR_W + DOOR_GAP);
+    return (
+      carLeft(carFromFront) + CAR_PAD + (withinCar - 1) * (DOOR_W + DOOR_GAP)
+    );
   }
 
   const doors = Array.from({ length: total }, (_, i) => {
@@ -218,230 +238,240 @@ export function PlatformDiagram({
     // the same WIDTH would render the 6-car train at half the size, so instead
     // the height is pinned and the width follows the train's real length,
     // scrolling when it does not fit. Every line then draws at one scale.
-    <div ref={scroller} className={fitWidth ? "" : "overflow-x-auto"}>
-      <svg
-        viewBox={`0 0 ${width} ${height}`}
-        {...(fitWidth
-          ? { width: "100%", preserveAspectRatio: "xMidYMid meet" }
-          : {
-              height: DIAGRAM_HEIGHT,
-              width: (width / height) * DIAGRAM_HEIGHT,
-              preserveAspectRatio: "xMinYMid meet",
+    <div>
+      <div ref={scroller} className={fitWidth ? "" : "overflow-x-auto"}>
+        <svg
+          viewBox={`0 0 ${width} ${height}`}
+          {...(fitWidth
+            ? { width: "100%", preserveAspectRatio: "xMidYMid meet" }
+            : {
+                height: DIAGRAM_HEIGHT,
+                width: (width / height) * DIAGRAM_HEIGHT,
+                preserveAspectRatio: "xMinYMid meet",
+              })}
+          className={`anim-train ${fitWidth ? "h-auto w-full" : "max-w-none"}`}
+          role="img"
+          aria-label={label}
+        >
+          <rect
+            x={0}
+            y={TRAIN_Y + TRAIN_H + 6}
+            width={width}
+            height={6}
+            fill="var(--border-soft)"
+          />
+
+          <g className={departing ? "anim-depart" : undefined}>
+            {Array.from({ length: cars }, (_, i) => {
+              const carFromFront = i + 1;
+              const x = carLeft(carFromFront);
+              const isTargetCar = targetCar === carFromFront;
+              return (
+                <g key={carFromFront}>
+                  <rect
+                    x={x}
+                    y={TRAIN_Y}
+                    width={CAR_W}
+                    height={TRAIN_H}
+                    fill={
+                      isTargetCar && highlightWholeCar
+                        ? "color-mix(in srgb, var(--accent) 30%, var(--bg-raised))"
+                        : "var(--bg-raised)"
+                    }
+                    stroke={isTargetCar ? "var(--accent)" : "var(--border)"}
+                    strokeWidth={isTargetCar ? 3 : 2}
+                  />
+                  <text
+                    x={x + CAR_W / 2}
+                    y={TRAIN_Y + 14}
+                    textAnchor="middle"
+                    fontSize={11}
+                    fill={isTargetCar ? "var(--accent)" : "var(--fg-muted)"}
+                    fontFamily="var(--font-pixel)"
+                  >
+                    {carFromFront}
+                  </text>
+                </g>
+              );
             })}
-        className={`anim-train ${fitWidth ? "h-auto w-full" : "max-w-none"}`}
-        role="img"
-        aria-label={label}
-      >
-        <rect
-          x={0}
-          y={TRAIN_Y + TRAIN_H + 6}
-          width={width}
-          height={6}
-          fill="var(--border-soft)"
-        />
 
-        <g className={departing ? "anim-depart" : undefined}>
-        {Array.from({ length: cars }, (_, i) => {
-          const carFromFront = i + 1;
-          const x = carLeft(carFromFront);
-          const isTargetCar = targetCar === carFromFront;
-          return (
-            <g key={carFromFront}>
-              <rect
-                x={x}
-                y={TRAIN_Y}
-                width={CAR_W}
-                height={TRAIN_H}
-                fill={
-                  isTargetCar && highlightWholeCar
-                    ? "color-mix(in srgb, var(--accent) 30%, var(--bg-raised))"
-                    : "var(--bg-raised)"
-                }
-                stroke={isTargetCar ? "var(--accent)" : "var(--border)"}
-                strokeWidth={isTargetCar ? 3 : 2}
-              />
-              <text
-                x={x + CAR_W / 2}
-                y={TRAIN_Y + 14}
-                textAnchor="middle"
-                fontSize={11}
-                fill={isTargetCar ? "var(--accent)" : "var(--fg-muted)"}
-                fontFamily="var(--font-pixel)"
-              >
-                {carFromFront}
-              </text>
-            </g>
-          );
-        })}
-
-        <polygon
-          points={
-            noseLeft
-              ? `${NOSE_W},${TRAIN_Y} 0,${TRAIN_Y + TRAIN_H / 2} ${NOSE_W},${TRAIN_Y + TRAIN_H}`
-              : `${width - NOSE_W},${TRAIN_Y} ${width},${TRAIN_Y + TRAIN_H / 2} ${width - NOSE_W},${TRAIN_Y + TRAIN_H}`
-          }
-          fill={lineColor}
-          stroke="var(--border)"
-          strokeWidth={2}
-          className="cursor-pointer"
-          onClick={() => {
-            if (departing) return;
-            setDeparting(true);
-            window.setTimeout(() => setDeparting(false), 1500);
-          }}
-        />
-
-        {doors.map((d) => {
-          const isTarget = !highlightWholeCar && d.doorIndex === highlightDoorIndex;
-          return (
-            <rect
-              key={d.doorIndex}
-              x={d.x}
-              y={TRAIN_Y + TRAIN_H - 8}
-              width={DOOR_W}
-              height={8}
-              fill={isTarget ? "var(--accent)" : lineColor}
+            <polygon
+              points={
+                noseLeft
+                  ? `${NOSE_W},${TRAIN_Y} 0,${TRAIN_Y + TRAIN_H / 2} ${NOSE_W},${TRAIN_Y + TRAIN_H}`
+                  : `${width - NOSE_W},${TRAIN_Y} ${width},${TRAIN_Y + TRAIN_H / 2} ${width - NOSE_W},${TRAIN_Y + TRAIN_H}`
+              }
+              fill={lineColor}
               stroke="var(--border)"
-              strokeWidth={isTarget ? 2 : 1}
+              strokeWidth={2}
+              className="cursor-pointer"
+              onClick={() => {
+                if (departing) return;
+                setDeparting(true);
+                window.setTimeout(() => setDeparting(false), 1500);
+              }}
             />
-          );
-        })}
 
-        </g>
+            {doors.map((d) => {
+              const isTarget =
+                !highlightWholeCar && d.doorIndex === highlightDoorIndex;
+              return (
+                <rect
+                  key={d.doorIndex}
+                  x={d.x}
+                  y={TRAIN_Y + TRAIN_H - 8}
+                  width={DOOR_W}
+                  height={8}
+                  fill={isTarget ? "var(--accent)" : lineColor}
+                  stroke="var(--border)"
+                  strokeWidth={isTarget ? 2 : 1}
+                />
+              );
+            })}
+          </g>
 
-        {onSelectDoor &&
-          doors.map((d) => (
-            <g key={`hit-${d.doorIndex}`} className="cursor-pointer">
-              <rect
-                x={d.x - DOOR_GAP / 2}
-                y={TRAIN_Y - 4}
-                width={DOOR_W + DOOR_GAP}
-                height={TRAIN_H + 20}
-                fill="transparent"
-                role="button"
-                tabIndex={0}
-                aria-label={doorLabel?.(d.doorIndex)}
-                aria-pressed={d.doorIndex === highlightDoorIndex}
-                onClick={() => onSelectDoor(d.doorIndex)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    onSelectDoor(d.doorIndex);
-                  }
-                }}
-              />
-            </g>
-          ))}
+          {onSelectDoor &&
+            doors.map((d) => (
+              <g key={`hit-${d.doorIndex}`} className="cursor-pointer">
+                <rect
+                  x={d.x - DOOR_GAP / 2}
+                  y={TRAIN_Y - 4}
+                  width={DOOR_W + DOOR_GAP}
+                  height={TRAIN_H + 20}
+                  fill="transparent"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={doorLabel?.(d.doorIndex)}
+                  aria-pressed={d.doorIndex === highlightDoorIndex}
+                  onClick={() => onSelectDoor(d.doorIndex)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      onSelectDoor(d.doorIndex);
+                    }
+                  }}
+                />
+              </g>
+            ))}
 
-        {features.map((f, i) => {
-          const d = doors.find((x) => x.doorIndex === f.doorIndex);
-          if (!d) return null;
-          const soft = f.confidence !== "verified";
-          return (
-            <g key={`${f.type}-${f.doorIndex}-${i}`}>
-              <text
-                x={d.x + DOOR_W / 2}
-                y={TRAIN_Y - 12}
-                textAnchor="middle"
-                fontSize={15}
-                fill={soft ? "var(--candidate)" : "var(--fg)"}
-                opacity={soft ? 0.8 : 1}
-              >
-                {FEATURE_GLYPH[f.type]}
-              </text>
-              {f.leadsTo.length > 0 && (
+          {features.map((f, i) => {
+            const d = doors.find((x) => x.doorIndex === f.doorIndex);
+            if (!d) return null;
+            const soft = f.confidence !== "verified";
+            return (
+              <g key={`${f.type}-${f.doorIndex}-${i}`}>
                 <text
                   x={d.x + DOOR_W / 2}
-                  y={TRAIN_Y - 25}
+                  y={TRAIN_Y - 12}
                   textAnchor="middle"
-                  fontSize={9}
-                  fill="var(--fg-muted)"
-                  fontFamily="var(--font-pixel)"
+                  fontSize={15}
+                  fill={soft ? "var(--candidate)" : "var(--fg)"}
+                  opacity={soft ? 0.8 : 1}
                 >
-                  {f.leadsTo.join("/")}
+                  {FEATURE_GLYPH[f.type]}
                 </text>
-              )}
-            </g>
-          );
-        })}
+                {f.leadsTo.length > 0 && (
+                  <text
+                    x={d.x + DOOR_W / 2}
+                    y={TRAIN_Y - 25}
+                    textAnchor="middle"
+                    fontSize={9}
+                    fill="var(--fg-muted)"
+                    fontFamily="var(--font-pixel)"
+                  >
+                    {f.leadsTo.join("/")}
+                  </text>
+                )}
+              </g>
+            );
+          })}
 
-        {target && avatar && (() => {
-          const sprite = avatarSprite(avatar, skinTone);
-          // Scale to a fixed drawn height rather than a fixed per-pixel factor,
-          // so raising the sprite's grid resolution adds detail without
-          // growing the commuter and crowding the neighbouring doors.
-          const SPRITE_H = 36;
-          const SCALE = SPRITE_H / sprite.rows.length;
-          const w = sprite.cols * SCALE;
-          const h = SPRITE_H;
-          // For an estimate we only claim the car, so the commuter stands at
-          // the middle of it. Placing the sprite at one door would imply a
-          // precision the estimate explicitly disclaims.
-          const anchorX = highlightWholeCar && targetCar
-            ? carLeft(targetCar) + CAR_W / 2
-            : target.x + DOOR_W / 2;
-          const ox = anchorX - w / 2;
-          const oy = TRAIN_Y + TRAIN_H + 11;
-          return (
-            <g className="anim-pop">
-              {sprite.rows.flatMap((row, y) => {
-                const cells = [];
-                let x = 0;
-                while (x < row.length) {
-                  const ch = row[x];
-                  let run = 1;
-                  while (x + run < row.length && row[x + run] === ch) run++;
-                  if (ch !== ".") {
-                    cells.push(
-                      <rect
-                        key={`av-${x}-${y}`}
-                        x={ox + x * SCALE}
-                        y={oy + y * SCALE}
-                        width={run * SCALE}
-                        height={SCALE}
-                        fill={sprite.fill(ch)}
-                      />,
-                    );
-                  }
-                  x += run;
-                }
-                return cells;
-              })}
-              {/* Feet line, so the sprite reads as standing rather than floating. */}
-              <rect
-                x={ox - 1}
-                y={oy + h}
-                width={w + 2}
-                height={1.5}
-                fill="var(--accent)"
-              />
-            </g>
-          );
-        })()}
+          {target &&
+            avatar &&
+            (() => {
+              const sprite = avatarSprite(avatar, skinTone);
+              // Scale to a fixed drawn height rather than a fixed per-pixel factor,
+              // so raising the sprite's grid resolution adds detail without
+              // growing the commuter and crowding the neighbouring doors.
+              const SPRITE_H = 36;
+              const SCALE = SPRITE_H / sprite.rows.length;
+              const w = sprite.cols * SCALE;
+              const h = SPRITE_H;
+              // For an estimate we only claim the car, so the commuter stands at
+              // the middle of it. Placing the sprite at one door would imply a
+              // precision the estimate explicitly disclaims.
+              const anchorX =
+                highlightWholeCar && targetCar
+                  ? carLeft(targetCar) + CAR_W / 2
+                  : target.x + DOOR_W / 2;
+              const ox = anchorX - w / 2;
+              const oy = TRAIN_Y + TRAIN_H + 11;
+              return (
+                <g className="anim-pop">
+                  {sprite.rows.flatMap((row, y) => {
+                    const cells = [];
+                    let x = 0;
+                    while (x < row.length) {
+                      const ch = row[x];
+                      let run = 1;
+                      while (x + run < row.length && row[x + run] === ch) run++;
+                      if (ch !== ".") {
+                        cells.push(
+                          <rect
+                            key={`av-${x}-${y}`}
+                            x={ox + x * SCALE}
+                            y={oy + y * SCALE}
+                            width={run * SCALE}
+                            height={SCALE}
+                            fill={sprite.fill(ch)}
+                          />,
+                        );
+                      }
+                      x += run;
+                    }
+                    return cells;
+                  })}
+                  {/* Feet line, so the sprite reads as standing rather than floating. */}
+                  <rect
+                    x={ox - 1}
+                    y={oy + h}
+                    width={w + 2}
+                    height={1.5}
+                    fill="var(--accent)"
+                  />
+                </g>
+              );
+            })()}
 
-        {target && !highlightWholeCar && (
-          <polygon
-            points={`${target.x + DOOR_W / 2},${TRAIN_Y + TRAIN_H + 4} ${target.x + DOOR_W / 2 - 6},${TRAIN_Y + TRAIN_H + 14} ${target.x + DOOR_W / 2 + 6},${TRAIN_Y + TRAIN_H + 14}`}
-            fill="var(--accent)"
-            stroke="var(--border)"
-            strokeWidth={1.5}
-            className="anim-blink"
-          />
-        )}
+          {target && !highlightWholeCar && (
+            <polygon
+              points={`${target.x + DOOR_W / 2},${TRAIN_Y + TRAIN_H + 4} ${target.x + DOOR_W / 2 - 6},${TRAIN_Y + TRAIN_H + 14} ${target.x + DOOR_W / 2 + 6},${TRAIN_Y + TRAIN_H + 14}`}
+              fill="var(--accent)"
+              stroke="var(--border)"
+              strokeWidth={1.5}
+              className="anim-blink"
+            />
+          )}
+        </svg>
+      </div>
 
-        {towards && (
-          <text
-            x={width - 2}
-            y={height - 4}
-            textAnchor="end"
-            fontSize={9}
-            fill="var(--fg-muted)"
-            fontFamily="var(--font-pixel)"
-          >
-            {noseLeft ? `← ${towards}` : `${towards} →`}
-          </text>
-        )}
-      </svg>
+      {/* Outside the scroller on purpose.
+          Anchored to the drawn train's nose, this sat at the far edge of an SVG
+          wider than the phone: on a six-car train "Marina South Pier" ran from
+          412px to 594px inside a 340px window, so all anyone saw was the M
+          unless they thought to drag the picture sideways. It is the one line
+          meant to be matched against the platform sign, so it cannot be the one
+          line off screen. Still aligned to the nose side, which is what carries
+          the sense of which way the train is pointing. */}
+      {towards && (
+        <p
+          className={`font-pixel mt-1 text-[10px] leading-none text-fg-muted ${
+            noseLeft ? "text-left" : "text-right"
+          }`}
+        >
+          {noseLeft ? `← ${towards}` : `${towards} →`}
+        </p>
+      )}
     </div>
   );
 }
