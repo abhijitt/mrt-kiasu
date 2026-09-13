@@ -493,7 +493,13 @@ export function RouteScreen(p: Props) {
               feature={feature}
               line={leg.line}
               direction={leg.direction}
-              towards={isFinalLeg ? leg.toName : leg.towards}
+              // The label sits at the nose of the drawn train with a direction
+              // arrow, which is a headsign by construction — so it should say
+              // what the real one says. It also has to agree with the line
+              // above it: showing "towards Marina South Pier" in the text and
+              // "Ang Mo Kio →" on the picture of the same train is worse than
+              // either alone. Falls back where the feed has no headsign.
+              towards={leg.headsign ?? (isFinalLeg ? leg.toName : leg.towards)}
               preference={preference}
               showPreferenceNote={loaded}
               targetMissed={targetMissed}
