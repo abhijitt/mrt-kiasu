@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 import { lineFromStationCode } from "@/lib/lines";
 import { validateFeature, type PlatformFeature } from "@/lib/positions";
 import { getStation } from "@/lib/stations";
+import { looksLikeEmail } from "@/lib/report-types";
 import { isConfigured, saveSubmission } from "@/lib/surveys-db";
 
 /** Enough for a sentence of context, not enough to be a payload. */
@@ -75,6 +76,17 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid feature", details: errors }, { status: 400 });
   }
 
+  // Optional, but if given it has to be usable — the only reason to hold an
+  // address is to ask the surveyor a question, and one with a typo in it is
+  // personal data we are keeping for nothing.
+  const email = trim(body.email, EMAIL_MAX);
+  if (email !== undefined && !looksLikeEmail(email)) {
+    return NextResponse.json(
+      { error: "Invalid feature", details: ["email does not look like an address"] },
+      { status: 400 },
+    );
+  }
+
   // Production: store the claim, do not touch the dataset.
   if (process.env.NODE_ENV === "production") {
     if (!isConfigured()) {
@@ -92,7 +104,7 @@ export async function POST(request: Request) {
         feature: feature as PlatformFeature,
         note: trim(body.note, NOTE_MAX),
         name: trim(body.name, NAME_MAX),
-        email: trim(body.email, EMAIL_MAX),
+        email,
         locale: trim(body.locale, 16),
         viewport: trim(body.viewport, 24),
         // From the server, not the submitter. Beta's test surveys and real

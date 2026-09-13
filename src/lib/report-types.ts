@@ -51,7 +51,7 @@ export const NAME_MAX = 80;
 export const EMAIL_MAX = 254;
 
 /** Deliberately permissive: rejecting valid addresses is worse than accepting junk. */
-function looksLikeEmail(value: string): boolean {
+export function looksLikeEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 

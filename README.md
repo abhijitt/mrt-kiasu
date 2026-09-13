@@ -281,9 +281,9 @@ device has saved. All functional, none of it leaving the browser, so it falls
 outside consent requirements under both the PDPA and GDPR. The privacy page
 says so explicitly rather than leaving people to wonder.
 
-Personal data is limited to the optional name and email on the report form, which
-is why the privacy notice exists: Singapore's PDPA requires notifying purpose
-before collecting it.
+Personal data is limited to the optional name and email on the report form and
+on a platform survey, which is why the privacy notice exists: Singapore's PDPA
+requires notifying purpose before collecting it.
 
 `/terms` is authoritative in English. Machine translation is fine for a station
 description and not for a liability disclaimer, and the page says which governs.

@@ -96,6 +96,7 @@ export function SurveyForm({
   const [sent, setSent] = useState(false);
   const [note, setNote] = useState("");
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [payload, setPayload] = useState<string | null>(null);
 
   const position = doorIndex != null ? toCarPosition(doorIndex, line, direction) : null;
@@ -154,6 +155,7 @@ export function SurveyForm({
         // set is a value a spammer can set to look like anything.
         note: note.trim() || undefined,
         name: name.trim() || undefined,
+        email: email.trim() || undefined,
         locale,
         viewport:
           typeof window === "undefined"
@@ -348,6 +350,20 @@ export function SurveyForm({
             value={name}
             onChange={(e) => setName(e.target.value)}
             maxLength={80}
+            className="pixel-box-sm mt-2 block min-h-12 w-full appearance-none rounded-none bg-bg-raised px-3 py-3 text-base text-fg"
+          />
+        </label>
+        {/* The only reason to hold an address is to ask a question back, so the
+            label says that rather than leaving someone to guess what it is for. */}
+        <label className="mt-3 block">
+          <span className="text-sm text-fg-muted">{t("survey.emailLabel")}</span>
+          <input
+            type="email"
+            inputMode="email"
+            autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            maxLength={254}
             className="pixel-box-sm mt-2 block min-h-12 w-full appearance-none rounded-none bg-bg-raised px-3 py-3 text-base text-fg"
           />
         </label>
