@@ -111,6 +111,10 @@ export function SurveyForm({
   const targetRequired = sameTypeExists;
   const needsTarget = targetRequired && leadsTo.length === 0;
   const typeLabel = t(`mode.${type}.target` as MessageKey);
+  // "Which way does it run?" only applies to escalators, so every step after
+  // it shifts up by one. Derived once: numbering it twice by hand is how the
+  // last two steps both came to be labelled 4.
+  const hasTravelStep = type === "escalator";
   const ready = doorIndex != null && !needsTarget;
 
   function toggleTarget(target: string) {
@@ -176,20 +180,32 @@ export function SurveyForm({
         headers: { "content-type": "application/json" },
         body: json,
       });
-      const body = await res.json();
-      if (res.ok && body.pending) {
+      // Not every refusal comes from us. A rate limit is enforced at the edge
+      // and answers with an HTML block page, so parsing it as JSON throws —
+      // which used to land in the catch below and tell someone standing on a
+      // platform with full signal that they were offline.
+      const body = await res.json().catch(() => null);
+
+      if (res.ok && body?.pending) {
         // Stored for review. Saying so plainly matters: the surveyor has just
         // stood on a platform for this and should know it arrived, and also
         // that it is not live yet.
         setStatus(t("survey.submitted"));
         setPayload(null);
         setSent(true);
-      } else if (res.ok) {
+      } else if (res.ok && body) {
         setStatus(t("survey.saved", { count: body.count }));
         setPayload(null);
         setSent(true);
-      } else if (body.retain) {
-        // Nowhere to store it. Hand back the work rather than lose it.
+      } else if (res.status === 429) {
+        // Too many submissions from this address. Say so, and keep the work:
+        // one carrier can put a whole platform behind a single IP, so this
+        // reaches people who have done nothing wrong.
+        setStatus(t("survey.tooMany"));
+        setPayload(json);
+      } else if (!body || body.retain) {
+        // Nowhere to store it, or an answer we cannot read. Hand back the
+        // work rather than lose it.
         setStatus(t("survey.offline"));
         setPayload(json);
       } else {
@@ -281,7 +297,7 @@ export function SurveyForm({
       )}
 
       <Step
-        n={type === "escalator" ? 4 : 3}
+        n={hasTravelStep ? 4 : 3}
         title={`${t("survey.step3")}${targetRequired ? "" : ` ${t("survey.optional")}`}`}
         hint={needsTarget ? t("survey.targetRequired", { type: typeLabel }) : undefined}
       >
@@ -331,12 +347,12 @@ export function SurveyForm({
         )}
       </Step>
 
-      {/* Both optional, and asked for after the survey itself so nothing here
+      {/* All optional, and asked for after the survey itself so nothing here
           stands between a commuter on a platform and the thing they came to
           record. A note is often the whole review — "the escalator was out,
           this is the stairs beside it" settles a submission that the numbers
           alone would leave ambiguous. */}
-      <Step n={4} title={t("survey.step4")} hint={t("survey.step4Hint")}>
+      <Step n={hasTravelStep ? 5 : 4} title={t("survey.step4")} hint={t("survey.step4Hint")}>
         <label className="block">
           <span className="text-sm text-fg-muted">{t("survey.noteLabel")}</span>
           <textarea

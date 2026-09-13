@@ -40,7 +40,7 @@ type Status =
    * a transient server fault. Every non-success path now carries the payload
    * so it can be handed back.
    */
-  | { kind: "undelivered"; payload: string; reason?: string };
+  | { kind: "undelivered"; payload: string; reason?: string; throttled?: boolean };
 
 /**
  * Error report form.
@@ -118,15 +118,21 @@ export function ReportForm({ subject }: { subject?: string }) {
       }
       const body = await res.json().catch(() => ({}));
       // A 400 is the reporter's to fix (too long, malformed email), so it
-      // shows the reason and leaves the form intact to edit. Anything else is
-      // our fault — no inbox configured, a database down — and the text goes
-      // back to them rather than being lost.
+      // shows the reason and leaves the form intact to edit. A 429 is neither
+      // theirs nor ours — it is enforced at the edge, and its body is an HTML
+      // block page rather than our JSON, so "Couldn't send: 429" was all we
+      // could say. Anything else is our fault — no inbox configured, a
+      // database down. The text goes back to them in every case.
       const reason = body.details?.join("; ") ?? body.error ?? String(res.status);
-      setStatus(
-        res.status === 400
-          ? { kind: "undelivered", payload: json, reason }
-          : { kind: "undelivered", payload: json },
-      );
+      if (res.status === 429) {
+        setStatus({ kind: "undelivered", payload: json, throttled: true });
+      } else {
+        setStatus(
+          res.status === 400
+            ? { kind: "undelivered", payload: json, reason }
+            : { kind: "undelivered", payload: json },
+        );
+      }
     } catch {
       // Offline, or the request never arrived. Same rule: keep the text.
       setStatus({ kind: "undelivered", payload: json });
@@ -260,9 +266,11 @@ export function ReportForm({ subject }: { subject?: string }) {
       {status.kind === "undelivered" && (
         <div className="pixel-box-sm p-3" style={{ borderColor: "var(--candidate)" }} role="alert">
           <p className="text-sm leading-relaxed">
-            {status.reason
-              ? t("report.failed", { reason: status.reason })
-              : t("report.noDestination")}
+            {status.throttled
+              ? t("report.tooMany")
+              : status.reason
+                ? t("report.failed", { reason: status.reason })
+                : t("report.noDestination")}
           </p>
           <pre className="mt-2 max-h-48 overflow-auto text-[11px] leading-relaxed">
             {status.payload}
