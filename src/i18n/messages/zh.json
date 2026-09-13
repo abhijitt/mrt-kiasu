@@ -33,7 +33,6 @@
   "route.finalLeg": "最后一段",
   "route.towards": "往 {station} 方向",
   "route.headsign": "{headsign}列车",
-  "route.via": "经 {stations}",
   "route.standHereFor": "在此处等车，靠近{target}",
   "route.standHereChange": "在此处等车，方便换乘 {line}",
   "route.car": "第 {car} 节车厢，共 {total} 节",

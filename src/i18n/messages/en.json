@@ -33,7 +33,6 @@
   "route.finalLeg": "Final leg",
   "route.towards": "towards {station}",
   "route.headsign": "{headsign} train",
-  "route.via": "via {stations}",
   "route.standHereFor": "Stand here for the {target}",
   "route.standHereChange": "Stand here to change to {line}",
   "route.car": "Car {car} of {total}",

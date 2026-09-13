@@ -342,6 +342,27 @@ try {
   const ourDirection = new Map();
   for (const [key, v] of dirVotes) ourDirection.set(key, v.asc >= v.desc ? "asc" : "desc");
 
+  /**
+   * How often a train stops short of its direction's usual destination.
+   *
+   * Each stored departure carries only the direction's dominant headsign, so a
+   * short working is currently labelled with the line's usual terminus. This
+   * counts how many departures that misdescribes, which is what decides
+   * whether per-departure headsigns are worth their weight.
+   */
+  const dominant = new Map();
+  for (const [code, kinds] of Object.entries(table)) {
+    for (const [kind, heads] of Object.entries(kinds)) {
+      for (const [dirKey, v] of Object.entries(heads)) {
+        const [top] = [...v.headsigns.entries()].sort((a, b) => b[1] - a[1])[0];
+        dominant.set(`${code}|${kind}|${dirKey}`, top);
+      }
+    }
+  }
+  let departureCount = 0;
+  let shortWorkings = 0;
+  const alternates = new Map();
+
   const departures = {};
   for (const rows of tripRows.values()) {
     for (const st of rows) {
@@ -357,6 +378,13 @@ try {
       if (!dir) continue;
       const key = `${code}|${dir}`;
       ((departures[key] ??= {})[info.kind] ??= []).push(toMinutes(st.departure_time));
+
+      departureCount++;
+      const usual = dominant.get(`${code}|${info.kind}|${info.dir}`);
+      if (usual && info.headsign && info.headsign !== usual) {
+        shortWorkings++;
+        alternates.set(info.headsign, (alternates.get(info.headsign) ?? 0) + 1);
+      }
     }
   }
   for (const byDay of Object.values(departures)) {
@@ -415,6 +443,13 @@ try {
   console.log(`train-times.json: ${stationCount} stations`);
   console.log(`  feed timestamp: ${timestamp}`);
   console.log(`  stop_times rows skipped (no headsign or unknown stop): ${skipped}`);
+  const pct = departureCount ? ((shortWorkings / departureCount) * 100).toFixed(1) : "0";
+  console.log(
+    `  departures whose train stops short of the usual destination: ` +
+      `${shortWorkings}/${departureCount} (${pct}%)`,
+  );
+  const top = [...alternates.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8);
+  for (const [name, n] of top) console.log(`    ${name}: ${n}`);
   console.log(`  inter-station run times: ${Object.keys(hops).length} station pairs`);
   console.log(`  run times in seconds: ${Object.keys(hopSeconds).length} pairs, dwell for ${Object.keys(dwellSeconds).length} stations`);
   console.log(`  headway: ${Object.keys(headway).length} lines x service day x hour`);

@@ -473,9 +473,10 @@ export function RouteScreen(p: Props) {
                 : leg.headsignIsPlace
                   ? t("route.towards", { station: leg.headsign })
                   : t("route.headsign", { headsign: leg.headsign })}
-              {leg.stopNames.length > 0 && (
-                <> · {t("route.via", { stations: leg.stopNames.join(", ") })}</>
-              )}
+              {/* No "via" list. On a long leg it ran to several lines of station
+                  names for something a commuter does not read: they want the
+                  stop count and the train to board, and the strip map above the
+                  door has the full list if they want it. */}
             </p>
 
             <p className="font-pixel mt-4 text-xs uppercase text-fg-muted">

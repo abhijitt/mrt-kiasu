@@ -2,8 +2,8 @@
   "_source": {
     "dataset": "GTFS Schedule (Train), LTA DataMall",
     "endpoint": "https://datamall2.mytransport.sg/ltaodataservice/GTFSScheduleTrain",
-    "feedTimestamp": "2026-09-13T00:13:54+08:00",
-    "importedAt": "2026-09-12",
+    "feedTimestamp": "2026-09-13T08:50:53+08:00",
+    "importedAt": "2026-09-13",
     "derivation": "First and last are the earliest and latest departure_time in stop_times.txt for that station, grouped by service day (calendar.txt) and by trip_headsign. `towards` is the headsign the train actually displays, which is why the Circle Line reads Clockwise and the LRT loops read Inner and Outer — no derivation from station codes could produce those. `direction` maps that onto the app's asc/desc. Times past midnight are expressed by GTFS as 24:xx and later; they are wrapped for display but belong to the previous operating day."
   },
   "stations": {
