@@ -3,7 +3,7 @@
 import { LegalPage } from "@/components/LegalPage";
 
 /** Date the wording last changed. Update it whenever the substance does. */
-const LAST_UPDATED = "2026-08-24";
+const LAST_UPDATED = "2026-09-13";
 
 export default function PrivacyPage() {
   return (

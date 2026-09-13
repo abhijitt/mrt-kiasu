@@ -76,6 +76,7 @@ function Guidance({
   feature,
   line,
   direction,
+  platformCode,
   towards,
   preference,
   showPreferenceNote,
@@ -87,6 +88,8 @@ function Guidance({
   feature: PlatformFeature | null;
   line: LineCode;
   direction: Direction;
+  /** The platform this guidance is about — where the leg ends. */
+  platformCode: string;
   towards: string;
   preference: FeatureType;
   showPreferenceNote: boolean;
@@ -233,6 +236,19 @@ function Guidance({
                   t("route.preferenceOther", { mode: modeLabel, actual: actualDevice })
                 : t("route.preferenceUnavailable", { mode: modeLabel })}
           </span>
+          {/* Telling someone their preference could not be honoured, and
+              leaving it there, asks them to accept a worse answer. The reason
+              is that nobody has surveyed this platform — and the person
+              reading this is about to stand on it. */}
+          {!preferenceHonoured && !actualDevice && (
+            <Link
+              href={`/survey/${platformCode}/${direction}`}
+              className="text-xs underline"
+              style={{ color: "var(--accent)" }}
+            >
+              {t("route.surveyThisPlatform")}
+            </Link>
+          )}
           <Link href="/settings" className="text-xs text-fg-muted underline">
             {t("route.changePreference")}
           </Link>
@@ -501,6 +517,7 @@ export function RouteScreen(p: Props) {
               // either alone. Falls back where the feed has no headsign.
               towards={leg.headsign ?? (isFinalLeg ? leg.toName : leg.towards)}
               preference={preference}
+              platformCode={leg.toCode}
               showPreferenceNote={loaded}
               targetMissed={targetMissed}
               legKey={`${p.originName}|${p.destinationName}|${i}`}
