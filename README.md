@@ -78,7 +78,7 @@ reviewed by native speakers — worth a pass before launch.
 
 | Data | Source | Notes |
 |---|---|---|
-| Station codes, names (EN/ZH), lines | [LTA Train Station Codes and Chinese Names](https://datamall.lta.gov.sg/content/datamall/en/static-data.html) | Official. 213 stations |
+| Station codes, names (EN/ZH), lines | [LTA Train Station Codes and Chinese Names](https://datamall.lta.gov.sg/content/datamall/en/static-data.html) | Official. 213 stations; the Circle Line Stage 6 three are not in it yet |
 | Station exits | [LTA MRT Station Exit](https://data.gov.sg/datasets/d_b39d3a0871985372d7e1637193335da5/view) via data.gov.sg | Singapore Open Data Licence. 760 exits. No API key needed |
 | Exit landmarks | OpenStreetMap via Overpass, ODbL | Computed: nearest named places within 350 m of each exit. 3,727 pairs |
 | Live crowd density | LTA DataMall `PCDRealTime` | Refreshes every 10 min |
@@ -152,12 +152,18 @@ Route handlers add `s-maxage` so the CDN absorbs repeat traffic too. `src/lib/lt
 
 ## Coverage
 
-All **213 operational MRT and LRT stations**, imported from LTA's official
-station code file. Every station has an opening date, and 211 of 213 have exit
-data (Punggol Coast and Hume are not yet in LTA's exit dataset).
+All **216 operational MRT and LRT stations**, imported from LTA's official
+station code file. Every station has an opening date, and 211 of 216 have exit
+data — Punggol Coast, Hume and the three Circle Line Stage 6 stations are not
+yet in LTA's exit dataset.
 
-Journey planning covers the whole network, including the Changi Airport and
-Circle Line Extension branches and the LRT loops.
+Stage 6 closed the Circle Line into a loop in July 2026, which retired the
+CE codes: Bayfront is CC34 and Marina Bay is CC33, matching the signs. LTA's
+station code file has not caught up, so Keppel, Cantonment and Prince Edward
+Road come from their GTFS feed, which has. Old `/station/CE1` links redirect.
+
+Journey planning covers the whole network, including the Changi Airport branch,
+the closed Circle Line loop and the LRT loops.
 
 Door positions come in three tiers, and the UI never blurs them:
 

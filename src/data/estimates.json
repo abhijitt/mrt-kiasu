@@ -773,7 +773,7 @@
         "offsetM": -138.1
       }
     ],
-    "CE1:asc": [
+    "CC34:asc": [
       {
         "type": "exit",
         "doorIndex": 12,
@@ -830,7 +830,7 @@
         "offsetM": 137.7
       }
     ],
-    "CE1:desc": [
+    "CC34:desc": [
       {
         "type": "exit",
         "doorIndex": 12,
@@ -887,7 +887,7 @@
         "offsetM": 137.7
       }
     ],
-    "CE2:asc": [
+    "CC33:asc": [
       {
         "type": "exit",
         "doorIndex": 1,
@@ -944,7 +944,7 @@
         "offsetM": 119.0
       }
     ],
-    "CE2:desc": [
+    "CC33:desc": [
       {
         "type": "exit",
         "doorIndex": 1,

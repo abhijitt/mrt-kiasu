@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { LINE_ORDER } from "@/lib/lines";
+import { STATIONS } from "@/lib/stations";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -50,7 +52,7 @@ export default function OpengraphImage() {
             Stand at the right door.
           </div>
           <div style={{ display: "flex", fontSize: 28, marginTop: 40, color: "#6e6a80" }}>
-            213 stations · 9 lines · Singapore MRT &amp; LRT
+            {STATIONS.length} stations · {LINE_ORDER.length} lines · Singapore MRT &amp; LRT
           </div>
         </div>
       </div>

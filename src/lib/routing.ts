@@ -146,10 +146,11 @@ function toLegs(path: string[]): RouteLeg[] {
           from,
           to,
           stops: codes.slice(1, -1).map((c) => getStation(c)!),
-          // Position along the line, not the bare number: a line with a branch
-          // has two prefixes, and CG1 to EW4 reads as ascending on the numbers
-          // alone while actually running back toward Tanah Merah.
-          direction: directionBetween(codes[0], codes[codes.length - 1]),
+          // From the first hop, not the two ends of the leg: on the Circle
+          // Line loop the ends say nothing useful — CC4 to CC29 descends by
+          // number whichever way round you ride. The hop you board for is what
+          // decides the platform.
+          direction: directionBetween(codes[0], codes[1]),
           towards: to.name,
         });
       }

@@ -28,9 +28,9 @@ describe("distance between stations", () => {
   });
 
   it("does not charge for crossing an interchange", () => {
-    // Marina Bay is NS27, CE2 and TE20 — one station, three codes. Walking
+    // Marina Bay is NS27, CC33 and TE20 — one station, three codes. Walking
     // between its platforms is not travel.
-    expect(distanceBetween("NS27", "CE2")).toBe(0);
+    expect(distanceBetween("NS27", "CC33")).toBe(0);
     expect(distanceBetween("NS27", "TE20")).toBe(0);
   });
 
@@ -40,10 +40,10 @@ describe("distance between stations", () => {
   });
 
   it("does not depend on which code names the station", () => {
-    // Marina Bay answers to NS27, CE2 and TE20, and the fare from Admiralty
+    // Marina Bay answers to NS27, CC33 and TE20, and the fare from Admiralty
     // is one journey however the caller spells the destination.
     const viaNs = distanceBetween("NS10", "NS27");
-    expect(distanceBetween("NS10", "CE2")).toBe(viaNs);
+    expect(distanceBetween("NS10", "CC33")).toBe(viaNs);
     expect(distanceBetween("NS10", "TE20")).toBe(viaNs);
   });
 
@@ -54,6 +54,9 @@ describe("distance between stations", () => {
   it("knows a distance for every station from every other", () => {
     // A missing pair shows on the page as a blank fare rather than a crash, so
     // nothing else would catch it. This is the check that the import finished.
+    //
+    // The total is pinned deliberately: when a station opens this test fails,
+    // which is the reminder to re-run `npm run import:fares` for its pairs.
     const stations = [...new Set(STATIONS.map((s) => stationOf(s.code)!))];
     const missing: string[] = [];
     for (let i = 0; i < stations.length; i++) {
@@ -64,7 +67,7 @@ describe("distance between stations", () => {
       }
     }
     expect({ missing: missing.length, of: (stations.length * (stations.length - 1)) / 2 })
-      .toEqual({ missing: 0, of: 16290 });
+      .toEqual({ missing: 0, of: 16836 });
   });
 });
 

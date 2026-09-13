@@ -52,6 +52,29 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  /**
+   * Codes retired when Stage 6 closed the Circle Line loop.
+   *
+   * The page itself also resolves them, but a statically generated route can
+   * only express that as a one-second meta refresh. Here it is a real 308
+   * before any rendering happens, which is what a shared link deserves.
+   */
+  async redirects() {
+    return [
+      { source: "/station/:code(CE1|ce1)", destination: "/station/CC34", permanent: true },
+      { source: "/station/:code(CE2|ce2)", destination: "/station/CC33", permanent: true },
+      {
+        source: "/survey/:code(CE1|ce1)/:direction",
+        destination: "/survey/CC34/:direction",
+        permanent: true,
+      },
+      {
+        source: "/survey/:code(CE2|ce2)/:direction",
+        destination: "/survey/CC33/:direction",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

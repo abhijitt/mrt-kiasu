@@ -6,7 +6,7 @@ import { siteUrl } from "@/lib/site";
 /**
  * Every page worth indexing.
  *
- * The 213 station pages are the app's long tail — someone searching
+ * The station pages are the app's long tail — someone searching
  * "Bishan MRT exits" should be able to land straight on one — so they matter
  * more here than the handful of top-level routes.
  */

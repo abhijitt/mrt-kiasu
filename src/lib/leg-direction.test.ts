@@ -23,10 +23,16 @@ describe("direction along a line with a branch", () => {
     expect(directionBetween("EW4", "CG1")).toBe("asc");
   });
 
-  it("handles the Circle Line extension the same way", () => {
-    // CCL is ["CC", "CE"]; CE1 is beyond CC29 despite the number.
-    expect(directionBetween("CC4", "CE1")).toBe("asc");
-    expect(directionBetween("CE1", "CC4")).toBe("desc");
+  it("keeps going the same way round where the loop numbers wrap", () => {
+    // Stage 6 closed the loop: a train leaving CC34 Bayfront arrives at CC4
+    // Promenade still travelling anticlockwise, so that hop ascends even
+    // though the number drops by thirty. Reading the numbers alone would put
+    // the commuter on the opposite platform.
+    expect(directionBetween("CC34", "CC4")).toBe("asc");
+    expect(directionBetween("CC4", "CC34")).toBe("desc");
+    // The rest of the loop is ordinary.
+    expect(directionBetween("CC29", "CC33")).toBe("asc");
+    expect(directionBetween("CC33", "CC29")).toBe("desc");
   });
 
   it("still works within a single prefix", () => {
@@ -89,7 +95,8 @@ describe("whether a train gets far enough", () => {
 describe("a code can be real without being in our list", () => {
   it("places a station the code file has not caught up with", () => {
     // LTA's GTFS runs trains to CC32 (Prince Edward Road). Their station-code
-    // file still stops at CC29 plus CE1/CE2, so looking CC32 up finds nothing.
+    // file still stops at CC29 plus the retired CE1/CE2, so looking CC32 up
+    // finds nothing there.
     // Reading the prefix from the line instead of the station keeps it on the
     // Circle Line where it belongs.
     expect(positionOnLine("CC32")).toEqual([0, 32]);

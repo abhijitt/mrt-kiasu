@@ -16,7 +16,7 @@ import { LINES, type LineCode } from "./lines";
  * Track connections between different code sequences.
  *
  * - Tanah Merah is where the Changi Airport branch leaves the East West Line.
- * - Promenade is where the Circle Line Extension leaves the Circle Line.
+ * - Promenade is where the Circle Line loop closes, CC34 running back into CC4.
  * - The LRT loops run out from and back to their interchange hub, so each loop's
  *   first and last station both touch the hub.
  * - The Bukit Panjang LRT is a stem (BP1-BP6) plus a loop around Bukit Panjang
@@ -25,13 +25,38 @@ import { LINES, type LineCode } from "./lines";
  */
 const EXPLICIT_LINKS: [string, string][] = [
   ["EW4", "CG1"],
-  ["CC4", "CE1"],
+  // The Circle Line loop closes here: CC34 Bayfront runs into CC4 Promenade,
+  // which consecutive numbering cannot express.
+  ["CC4", "CC34"],
   ["STC", "SE1"], ["STC", "SE5"],
   ["STC", "SW1"], ["STC", "SW8"],
   ["PTC", "PE1"], ["PTC", "PE7"],
   ["PTC", "PW1"], ["PTC", "PW7"],
   ["BP6", "BP13"],
 ];
+
+/**
+ * The one edge where the numbers wrap.
+ *
+ * Stage 6 closed the Circle Line into a loop, so a train leaving CC34 Bayfront
+ * arrives at CC4 Promenade and carries on — anticlockwise, the same way it was
+ * already going. Comparing numbers says that hop descends, which would put the
+ * commuter on the platform opposite the one they want. Listed from the end
+ * where travel is still ascending.
+ *
+ * LTA's own first/last train data agrees: CC34's anticlockwise platform is the
+ * one it calls ascending.
+ */
+const WRAP_EDGES: [string, string][] = [["CC34", "CC4"]];
+
+/** "asc" or "desc" if this hop crosses the seam, null if it does not. */
+function wrapDirection(from: string, to: string): "asc" | "desc" | null {
+  for (const [a, b] of WRAP_EDGES) {
+    if (from === a && to === b) return "asc";
+    if (from === b && to === a) return "desc";
+  }
+  return null;
+}
 
 export type EdgeKind = "ride" | "transfer";
 
@@ -139,6 +164,8 @@ export function positionOnLine(code: string): [number, number] {
 
 /** Travel direction from one code to another along their shared line. */
 export function directionBetween(from: string, to: string): "asc" | "desc" {
+  const wrapped = wrapDirection(from.toUpperCase(), to.toUpperCase());
+  if (wrapped) return wrapped;
   const a = positionOnLine(from);
   const b = positionOnLine(to);
   if (a[0] !== b[0]) return b[0] > a[0] ? "asc" : "desc";
@@ -170,10 +197,10 @@ export function reachesAlong(
  * Labelled by the next stop rather than the terminus. The terminus looks like
  * the friendlier label and is what platform signage uses, but we cannot derive
  * it correctly: sorting a line's stations puts branch prefixes last, so the
- * Circle Line's ascending end came out as Marina Bay (CE2) instead of
+ * Circle Line's ascending end came out as Marina Bay instead of
  * HarbourFront, and the East West Line's as Changi Airport (CG2) instead of
- * Tuas Link. LTA publishes real headsigns, but not for every platform — CE1
- * and CE2 have none at all — and on the Circle Line they read "Clockwise",
+ * Tuas Link. LTA publishes real headsigns, and on the Circle Line they read
+ * "Clockwise",
  * which no derivation can produce. The next stop is always known, always
  * right, and just as easy to check against the strip map on the wall.
  *
@@ -199,18 +226,30 @@ export function platformDirections(code: string): PlatformDirection[] {
   const samePrefix = splitCode(station.code).prefix;
   const out: PlatformDirection[] = [];
 
+  // Which way you are travelling when you step onto the train to this
+  // neighbour. The seam wins where there is one, because at Bayfront the next
+  // stop anticlockwise is CC4, whose number is lower.
+  const towardNeighbour = (next: string) =>
+    wrapDirection(station.code, next) ?? (isAfter(positionOf(next)) ? "asc" : "desc");
+
   for (const direction of ["desc", "asc"] as const) {
     const candidates = (GRAPH.get(station.code) ?? [])
       .filter((e) => e.kind === "ride")
       .map((e) => STATIONS.find((s) => s.code === e.to))
       .filter((s): s is Station => Boolean(s) && s!.line === station.line)
-      .filter((s) => (direction === "asc" ? isAfter(positionOf(s.code)) : !isAfter(positionOf(s.code))));
+      .filter((s) => towardNeighbour(s.code) === direction);
 
     if (candidates.length === 0) continue;
     // A junction can offer two ways onward — Tanah Merah has both EW5 and the
-    // Changi branch. The main line is the one that shares this code's prefix.
+    // Changi branch, and Promenade has Dhoby Ghaut behind it as well as the
+    // far side of the loop. Prefer the next number along, then the one sharing
+    // this code's prefix: at CC4 that is CC3, which is what LTA calls the
+    // descending platform there.
+    const mine = splitCode(station.code).num;
     const best =
-      candidates.find((s) => splitCode(s.code).prefix === samePrefix) ?? candidates[0];
+      candidates.find((s) => Math.abs((splitCode(s.code).num ?? 0) - (mine ?? 0)) === 1) ??
+      candidates.find((s) => splitCode(s.code).prefix === samePrefix) ??
+      candidates[0];
     out.push({ direction, nextStop: best });
   }
 
@@ -230,7 +269,7 @@ export interface StationPlatform {
  * Every platform at one physical station, across all of its codes.
  *
  * platformDirections answers for a single code, which is what a station page
- * needs. A surveyor standing in Bayfront is standing in CE1 and DT16 at once,
+ * needs. A surveyor standing in Bayfront is standing in CC34 and DT16 at once,
  * and the four platforms under their feet are all worth recording while they
  * are there — so this walks the interchange links too.
  *

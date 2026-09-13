@@ -6,8 +6,10 @@
     "openingDatesNote": "These are station opening dates, not per-platform. At an interchange the later line's platforms carry the station's original date.",
     "coordinates": "Derived from exits.json (LTA MRT Station Exit, data.gov.sg)",
     "interchanges": "Derived: a station name with more than one official code.",
-    "note": "Codes follow LTA signage. Wikipedia numbers the Circle Line Extension CC33/CC34 where LTA uses CE1/CE2, so opening dates are matched by station name rather than code.",
-    "importedAt": "2026-08-23"
+    "note": "Codes follow LTA signage. The Circle Line Extension was renumbered into the closed loop when Stage 6 opened: CE1 and CE2 are now CC34 and CC33. LTA's own station code file still lists the old codes and omits CC30-CC32 entirely, so those three come from LTA's GTFS Schedule (Train) feed, which carries the current numbering, with opening dates and Chinese names from Wikidata.",
+    "importedAt": "2026-08-23",
+    "stage6": "CC30 Keppel, CC31 Cantonment and CC32 Prince Edward Road: names and codes from LTA GTFS stops.txt; opened 2026-07-12 per Wikidata (P1619). Not in LTA's station exit dataset, so they carry no exits, like Punggol Coast and Hume.",
+    "coord": "Only present where LTA's station exit dataset has no entry yet, so the map has somewhere to draw the station: the stop coordinate from LTA GTFS Schedule (Train). Everywhere else the map uses the mean of the real exits."
   },
   "stations": [
     {
@@ -564,94 +566,6 @@
           "code": "D",
           "lng": 103.8920777,
           "lat": 1.3165877
-        }
-      ],
-      "dataGaps": []
-    },
-    {
-      "code": "CE1",
-      "name": "Bayfront",
-      "nameZh": "海湾舫",
-      "line": "CCL",
-      "lineName": "Circle Line Extension",
-      "opened": "2012-01-14",
-      "interchanges": [
-        {
-          "code": "DT16",
-          "line": "DTL"
-        }
-      ],
-      "exits": [
-        {
-          "code": "A",
-          "lng": 103.8587319,
-          "lat": 1.2809674
-        },
-        {
-          "code": "B",
-          "lng": 103.8597592,
-          "lat": 1.2827052
-        },
-        {
-          "code": "C",
-          "lng": 103.8595969,
-          "lat": 1.2828349
-        },
-        {
-          "code": "D",
-          "lng": 103.8594938,
-          "lat": 1.2828344
-        },
-        {
-          "code": "E",
-          "lng": 103.858441,
-          "lat": 1.2811046
-        }
-      ],
-      "dataGaps": []
-    },
-    {
-      "code": "CE2",
-      "name": "Marina Bay",
-      "nameZh": "滨海湾",
-      "line": "CCL",
-      "lineName": "Circle Line Extension",
-      "opened": "1989-11-04",
-      "interchanges": [
-        {
-          "code": "NS27",
-          "line": "NSL"
-        },
-        {
-          "code": "TE20",
-          "line": "TEL"
-        }
-      ],
-      "exits": [
-        {
-          "code": "1",
-          "lng": 103.85447,
-          "lat": 1.277353
-        },
-        {
-          "code": "2",
-          "lng": 103.8550033,
-          "lat": 1.2761589
-        },
-        {
-          "code": "3",
-          "lng": 103.8553717,
-          "lat": 1.2754164
-        },
-        {
-          "code": "4",
-          "lng": 103.8564888,
-          "lat": 1.2736342
-        },
-        {
-          "code": "5",
-          "lng": 103.8543195,
-          "lat": 1.2746933
         }
       ],
       "dataGaps": []
@@ -1215,6 +1129,145 @@
       "dataGaps": []
     },
     {
+      "code": "CC30",
+      "name": "Keppel",
+      "nameZh": "吉宝",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2026-07-12",
+      "coord": {
+        "lat": 1.27009,
+        "lng": 103.8304
+      },
+      "interchanges": [],
+      "exits": [],
+      "dataGaps": [
+        "gap.noExitData"
+      ]
+    },
+    {
+      "code": "CC31",
+      "name": "Cantonment",
+      "nameZh": "广东民",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2026-07-12",
+      "coord": {
+        "lat": 1.27294,
+        "lng": 103.83663
+      },
+      "interchanges": [],
+      "exits": [],
+      "dataGaps": [
+        "gap.noExitData"
+      ]
+    },
+    {
+      "code": "CC32",
+      "name": "Prince Edward Road",
+      "nameZh": "爱德华太子路",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2026-07-12",
+      "coord": {
+        "lat": 1.27327,
+        "lng": 103.84749
+      },
+      "interchanges": [],
+      "exits": [],
+      "dataGaps": [
+        "gap.noExitData"
+      ]
+    },
+    {
+      "code": "CC33",
+      "name": "Marina Bay",
+      "nameZh": "滨海湾",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "1989-11-04",
+      "interchanges": [
+        {
+          "code": "NS27",
+          "line": "NSL"
+        },
+        {
+          "code": "TE20",
+          "line": "TEL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "1",
+          "lng": 103.85447,
+          "lat": 1.277353
+        },
+        {
+          "code": "2",
+          "lng": 103.8550033,
+          "lat": 1.2761589
+        },
+        {
+          "code": "3",
+          "lng": 103.8553717,
+          "lat": 1.2754164
+        },
+        {
+          "code": "4",
+          "lng": 103.8564888,
+          "lat": 1.2736342
+        },
+        {
+          "code": "5",
+          "lng": 103.8543195,
+          "lat": 1.2746933
+        }
+      ],
+      "dataGaps": []
+    },
+    {
+      "code": "CC34",
+      "name": "Bayfront",
+      "nameZh": "海湾舫",
+      "line": "CCL",
+      "lineName": "Circle Line",
+      "opened": "2012-01-14",
+      "interchanges": [
+        {
+          "code": "DT16",
+          "line": "DTL"
+        }
+      ],
+      "exits": [
+        {
+          "code": "A",
+          "lng": 103.8587319,
+          "lat": 1.2809674
+        },
+        {
+          "code": "B",
+          "lng": 103.8597592,
+          "lat": 1.2827052
+        },
+        {
+          "code": "C",
+          "lng": 103.8595969,
+          "lat": 1.2828349
+        },
+        {
+          "code": "D",
+          "lng": 103.8594938,
+          "lat": 1.2828344
+        },
+        {
+          "code": "E",
+          "lng": 103.858441,
+          "lat": 1.2811046
+        }
+      ],
+      "dataGaps": []
+    },
+    {
       "code": "DT1",
       "name": "Bukit Panjang",
       "nameZh": "武吉班让",
@@ -1664,7 +1717,7 @@
       "opened": "2012-01-14",
       "interchanges": [
         {
-          "code": "CE1",
+          "code": "CC34",
           "line": "CCL"
         }
       ],
@@ -4985,7 +5038,7 @@
       "opened": "1989-11-04",
       "interchanges": [
         {
-          "code": "CE2",
+          "code": "CC33",
           "line": "CCL"
         },
         {
@@ -6425,7 +6478,7 @@
           "line": "NSL"
         },
         {
-          "code": "CE2",
+          "code": "CC33",
           "line": "CCL"
         }
       ],

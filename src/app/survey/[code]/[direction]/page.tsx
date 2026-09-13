@@ -22,7 +22,7 @@ export default async function SurveyPage({
   //
   // This used to name the line's terminus, taken as the first or last station
   // once the line was sorted. Branch prefixes sort last, so it told a surveyor
-  // on any Circle Line platform that they were facing Marina Bay (CE2) rather
+  // on any Circle Line platform that they were facing Marina Bay (CC33) rather
   // than HarbourFront, and any East West platform that it faced Changi Airport
   // rather than Tuas Link — sending them to the wrong physical platform, which
   // would have quietly poisoned the survey.
@@ -47,7 +47,7 @@ export default async function SurveyPage({
       doorSide={doorSideFor(station.code, direction)?.side}
       // Every platform under this surveyor's feet, including the ones that
       // belong to the station's other codes: standing in Bayfront is standing
-      // in CE1 and DT16 at once. LRT platforms are dropped, not hidden as
+      // in CC34 and DT16 at once. LRT platforms are dropped, not hidden as
       // broken links — without sourced door geometry there is no grid to
       // survey against, which is the same reason this page 404s for them.
       platforms={stationPlatforms(station.code)

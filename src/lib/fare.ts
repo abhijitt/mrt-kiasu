@@ -59,7 +59,7 @@ const PAIRS = distanceData.pairs as Record<string, number>;
 /**
  * Codes that name the same physical station, collapsed to one.
  *
- * Marina Bay is NS27, CE2 and TE20; you are charged for one station, not
+ * Marina Bay is NS27, CC33 and TE20; you are charged for one station, not
  * three, so the fare table is keyed by station rather than by code. Grouping
  * follows the interchange links already in stations.json and names each group
  * by its first code alphabetically, matching what the importer wrote.

@@ -45,6 +45,8 @@ interface RawStation {
   interchanges: Interchange[];
   exits: Exit[];
   dataGaps: string[];
+  /** Only where LTA's exit dataset has no entry yet — see stations.json. */
+  coord?: { lat: number; lng: number };
 }
 
 function build(raw: RawStation): Station {
@@ -53,13 +55,15 @@ function build(raw: RawStation): Station {
     throw new Error(`Station ${raw.code} has no known line — refusing to guess.`);
   }
 
+  // A station that opened after LTA last published its exit dataset has no
+  // exits to average, and carries the GTFS stop coordinate instead.
   const center =
     raw.exits.length > 0
       ? {
           lat: raw.exits.reduce((sum, e) => sum + e.lat, 0) / raw.exits.length,
           lng: raw.exits.reduce((sum, e) => sum + e.lng, 0) / raw.exits.length,
         }
-      : null;
+      : (raw.coord ?? null);
 
   return { ...raw, line, center };
 }
@@ -68,8 +72,22 @@ export const STATIONS: Station[] = (stationsData.stations as RawStation[]).map(b
 
 const byCode = new Map(STATIONS.map((s) => [s.code.toUpperCase(), s]));
 
+/**
+ * Codes that have been retired, pointing at what replaced them.
+ *
+ * Stage 6 closed the Circle Line loop and renumbered its extension, so links
+ * shared before then — and anything anyone bookmarked — still name CE1 and
+ * CE2. They describe real platforms that still exist, so they resolve rather
+ * than 404. The station page redirects to the current code.
+ */
+export const RETIRED_CODES: Record<string, string> = {
+  CE1: "CC34",
+  CE2: "CC33",
+};
+
 export function getStation(code: string): Station | null {
-  return byCode.get(code.toUpperCase()) ?? null;
+  const upper = code.toUpperCase();
+  return byCode.get(upper) ?? byCode.get(RETIRED_CODES[upper] ?? "") ?? null;
 }
 
 /** Numeric part of a station code; 0 for hub codes like STC. */

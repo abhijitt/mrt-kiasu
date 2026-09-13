@@ -465,7 +465,7 @@ async function main() {
 
   const farePairs = fareDistances.pairs ?? {};
   // Stations collapsed the way fare.ts collapses them: Marina Bay is one
-  // station whether you call it NS27, CE2 or TE20, and you pay for one.
+  // station whether you call it NS27, CC33 or TE20, and you pay for one.
   const fareStations = new Set();
   for (const key of Object.keys(farePairs)) for (const c of key.split("|")) fareStations.add(c);
 

@@ -16,7 +16,8 @@ Interchanges are DERIVED, not asserted: a station name carrying more than one
 official code is by definition an interchange between those codes' lines.
 
 Codes come from LTA rather than Wikipedia because the two disagree on the
-Circle Line Extension (LTA signage says CE1/CE2, Wikipedia says CC33/CC34), so
+Circle Line Extension, retired when Stage 6 closed the loop (LTA's code file
+still says CE1/CE2 where signage and GTFS now say CC34/CC33), so
 dates fall back to a name match for those.
 
 Usage: python3 scripts/import_stations.py
@@ -52,6 +53,7 @@ LINE_CODES = {
     "Changi Airport Branch Line": "EWL",
     "North East Line": "NEL",
     "Circle Line": "CCL",
+    # Retired when Stage 6 closed the loop; LTA's code file still uses it.
     "Circle Line Extension": "CCL",
     "Downtown Line": "DTL",
     "Thomson-East Coast Line": "TEL",
@@ -288,7 +290,8 @@ def main() -> None:
         ]
         station_exits = exits_by_name.get(name_key, [])
         # Match on the official code first; fall back to the station name for
-        # codes where Wikidata and LTA disagree (LTA's CE1/CE2 vs CC33/CC34).
+        # codes where Wikidata and LTA's code file disagree (its CE1/CE2 vs
+        # the CC33/CC34 now on the signs).
         opened = dates_by_code.get(s["code"].upper()) or dates_by_name.get(name_key)
         if not opened:
             kind = "LRT" if s["line"].endswith("LRT") else "MRT"
@@ -338,7 +341,7 @@ def main() -> None:
             "interchanges": "Derived: a station name with more than one official code.",
             "note": (
                 "Codes follow LTA signage. Wikipedia numbers the Circle Line Extension "
-                "CC33/CC34 where LTA uses CE1/CE2, so opening dates are matched by "
+                "CC33/CC34 where LTA's code file still says CE1/CE2, so opening dates are matched by "
                 "station name rather than code."
             ),
             "importedAt": __import__("datetime").date.today().isoformat(),

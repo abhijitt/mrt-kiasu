@@ -44,9 +44,6 @@ const FARE_TYPE_ADULT = "30";
  * The calculator's own station ids, read from the station <select> it builds
  * on load. They are not in the served HTML and there is no endpoint that
  * lists them, so they are pinned here; `--verify` fails loudly if one drifts.
- *
- * CE1 and CE2 are our codes for Bayfront and Marina Bay, which LTA lists under
- * their other codes (CC34 / DT16 and NS27 / TE20 / CC33).
  */
 const LTA_STATION_ID = {
   BP1: "49",
@@ -95,8 +92,6 @@ const LTA_STATION_ID = {
   CC32: "233",
   CC33: "228",
   CC34: "229",
-  CE1: "229",
-  CE2: "228",
   CG1: "333",
   CG2: "65",
   DT1: "306",
@@ -343,7 +338,7 @@ async function fetchTrip(fromCode, toCode) {
 /**
  * Codes that name the same physical station, collapsed to one.
  *
- * Marina Bay is NS27, CE2 and TE20; you are charged for one station, not
+ * Marina Bay is NS27, CC33 and TE20; you are charged for one station, not
  * three. Grouping follows the interchange links already in stations.json and
  * takes the first code alphabetically as the name, so the key is stable
  * whichever code a caller happens to hold.

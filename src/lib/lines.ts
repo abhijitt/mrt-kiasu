@@ -72,7 +72,9 @@ export const LINES: Record<LineCode, LineInfo> = {
     colorVar: "--line-ccl", inkVar: "--ink-ccl", operator: "SMRT",
     train: { cars: 3, doorsPerCar: 4 },
     trainSource: "Alstom Metropolis C830 / C830C / C851E",
-    prefixes: ["CC", "CE"],
+    // CE is gone: Stage 6 closed the loop and renumbered the extension into
+    // the main sequence, CE1 and CE2 becoming CC34 and CC33.
+    prefixes: ["CC"],
   },
   DTL: {
     code: "DTL", name: "Downtown Line", shortName: "DT",

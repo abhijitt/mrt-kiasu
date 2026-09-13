@@ -33,13 +33,18 @@ describe("branches, which sorting alone gets wrong", () => {
   it("keeps the main line as the default at a junction", () => {
     // Tanah Merah can send you to EW5 or onto the branch; the main line wins.
     expect(label("EW4")).toEqual({ desc: "EW3", asc: "EW5" });
-    // Promenade likewise: CC5, not the CE branch.
+    // Promenade likewise: CC5 onward and CC3 back, not the far side of the
+    // loop — which is what LTA's own first/last train data calls its platforms.
     expect(label("CC4")).toEqual({ desc: "CC3", asc: "CC5" });
   });
 
-  it("connects the Circle Line extension back to Promenade", () => {
-    expect(label("CE1")).toEqual({ desc: "CC4", asc: "CE2" });
-    expect(label("CE2")).toEqual({ desc: "CE1" });
+  it("closes the Circle Line loop at Bayfront", () => {
+    // Past CC34 the numbers wrap back to CC4, but the train keeps going the
+    // same way round, so that is still the ascending platform.
+    expect(label("CC34")).toEqual({ desc: "CC33", asc: "CC4" });
+    expect(label("CC33")).toEqual({ desc: "CC32", asc: "CC34" });
+    // And the loop is joined up rather than stopping dead at HarbourFront.
+    expect(label("CC29")).toEqual({ desc: "CC28", asc: "CC30" });
   });
 });
 
@@ -67,7 +72,7 @@ describe("every surveyable platform is reachable", () => {
   });
 
   it("never lists the same direction twice", () => {
-    for (const code of ["NS17", "EW4", "CC4", "CG1", "CE1"]) {
+    for (const code of ["NS17", "EW4", "CC4", "CG1", "CC34"]) {
       const dirs = platformDirections(code).map((p) => p.direction);
       expect(new Set(dirs).size).toBe(dirs.length);
     }

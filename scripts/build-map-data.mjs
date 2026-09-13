@@ -37,12 +37,22 @@ function centroid(exits) {
   };
 }
 
+/**
+ * Where a station opened after LTA last published its exit dataset, the
+ * station carries the GTFS stop coordinate instead. Less precise than the
+ * centroid of real exits, and used only so a newly opened station is drawn
+ * rather than silently missing from its own line.
+ */
+function point(station) {
+  return centroid(station.exits) ?? station.coord ?? null;
+}
+
 const placed = [];
 const unplaceable = [];
 
 for (const s of stations) {
-  const point = centroid(s.exits);
-  if (!point) {
+  const at = point(s);
+  if (!at) {
     // Kept and reported rather than dropped: the map says these exist and
     // cannot be shown, instead of quietly pretending the network is smaller.
     unplaceable.push({ code: s.code, name: s.name, line: s.line });
@@ -52,8 +62,8 @@ for (const s of stations) {
     code: s.code,
     name: s.name,
     line: s.line,
-    lat: Number(point.lat.toFixed(5)),
-    lng: Number(point.lng.toFixed(5)),
+    lat: Number(at.lat.toFixed(5)),
+    lng: Number(at.lng.toFixed(5)),
   });
 }
 
@@ -67,7 +77,7 @@ for (const s of stations) {
  */
 const EXPLICIT_LINKS = [
   ["EW4", "CG1"],
-  ["CC4", "CE1"],
+  ["CC4", "CC34"],
   ["STC", "SE1"], ["STC", "SE5"],
   ["STC", "SW1"], ["STC", "SW8"],
   ["PTC", "PE1"], ["PTC", "PE7"],
@@ -108,7 +118,8 @@ for (const [a, b] of EXPLICIT_LINKS) addEdge(a, b);
 const out = {
   _source: {
     coordinates:
-      "Mean of station exit coordinates from exits.json (LTA MRT Station Exit, data.gov.sg)",
+      "Mean of station exit coordinates from exits.json (LTA MRT Station Exit, data.gov.sg), " +
+      "falling back to the GTFS stop coordinate for stations LTA has not yet added to that dataset",
     edges:
       "Derived from official station codes, mirroring src/lib/network.ts. Consecutive numbers within a prefix are consecutive stations; reserved gaps are skipped.",
     generatedBy: "scripts/build-map-data.mjs",

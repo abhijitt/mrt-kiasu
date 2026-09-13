@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { LINES, hasTrainGeometry } from "@/lib/lines";
-import { STATIONS, getStation } from "@/lib/stations";
+import { RETIRED_CODES, STATIONS, getStation } from "@/lib/stations";
 import { getFeatures, hasVerifiedData } from "@/lib/positions";
 import { landmarksForCodes } from "@/lib/landmarks";
 import { platformDirections } from "@/lib/network";
@@ -45,6 +45,11 @@ export default async function StationPage({
   const { code } = await params;
   const station = getStation(code);
   if (!station) notFound();
+
+  // A link written before Stage 6 renumbered the Circle Line still names CE1
+  // or CE2. Send it on to the code that is on the signs now, rather than
+  // serving the same platform under two addresses.
+  if (RETIRED_CODES[code.toUpperCase()]) redirect(`/station/${station.code}`);
 
   const line = LINES[station.line];
 
