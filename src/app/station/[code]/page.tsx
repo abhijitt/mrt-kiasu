@@ -87,18 +87,20 @@ export default async function StationPage({
         nextStop: p.nextStop.name,
       }))}
       hasEstimates={getFeatures(station.code, "desc").length > 0}
-      // Every line at this station, not just this code's: a commuter standing
-      // at Paya Lebar is at one station, whichever page they opened.
       coverage={stationCoverage(station.code)}
-      layoutBlocks={stationLayout(station.code).map((b) => ({
-        code: b.code,
-        line: b.line,
-        colorVar: b.colorVar,
-        layout: b.layout,
-        totalDoors: b.totalDoors,
-        platforms: b.platforms,
-        ends: b.ends,
-      }))}
+      // This line's platforms only. The other lines here are a tap away from
+      // the interchange list, which is where a reader looking for them goes.
+      layoutBlocks={[stationLayout(station.code)]
+        .filter((b) => b !== null)
+        .map((b) => ({
+          code: b.code,
+          line: b.line,
+          colorVar: b.colorVar,
+          layout: b.layout,
+          totalDoors: b.totalDoors,
+          platforms: b.platforms,
+          ends: b.ends,
+        }))}
     />
   );
 }

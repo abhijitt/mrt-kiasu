@@ -59,15 +59,16 @@ export interface LayoutBlock {
   surveyedPlatforms: number;
 }
 
-/** Every line at this station, this one first, so an interchange reads as one place. */
-export function stationLayout(code: string): LayoutBlock[] {
+/**
+ * The plan for this code's platforms, and only this code's.
+ *
+ * An interchange page used to draw every line at the station at once, which
+ * read as one enormous station rather than as the line you are standing on.
+ * The other lines are one tap away from the interchange list instead.
+ */
+export function stationLayout(code: string): LayoutBlock | null {
   const here = getStation(code);
-  if (!here) return [];
-
-  const codes = [here.code, ...here.interchanges.map((i) => i.code)];
-  return codes
-    .map((c) => block(c))
-    .filter((b): b is LayoutBlock => b !== null);
+  return here ? block(here.code) : null;
 }
 
 function block(code: string): LayoutBlock | null {

@@ -125,10 +125,26 @@ export function StationScreen(p: Props) {
           <h2 className="font-pixel text-xs uppercase text-fg-muted">
             {t("station.interchange")}
           </h2>
-          <ul className="mt-3 flex flex-wrap gap-2">
+          {/* The other line at this station is a different page, and a reader
+              who wants its platforms has to be able to get there. Shown as a
+              code alone it read as a label rather than a way through. */}
+          <ul className="mt-3 flex flex-col gap-2">
             {p.interchanges.map((i) => (
-              <li key={i.code} className="pixel-box-sm font-pixel px-3 py-1.5 text-xs">
-                {i.code}
+              <li key={i.code}>
+                <Link
+                  href={`/station/${i.code}`}
+                  className="pixel-btn flex min-h-12 items-center justify-between gap-3 px-3 py-2"
+                >
+                  <span className="flex items-center gap-3">
+                    <span className="font-pixel text-xs">{i.code}</span>
+                    <span className="text-sm text-fg-muted">
+                      {lineName(i.line as LineCode)}
+                    </span>
+                  </span>
+                  <span aria-hidden className="text-fg-faint">
+                    →
+                  </span>
+                </Link>
               </li>
             ))}
           </ul>
