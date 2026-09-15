@@ -14,6 +14,8 @@ export interface Exit {
   code: string;
   lat: number;
   lng: number;
+  /** Set only where the exit came from outside LTA's dataset — see exits.json. */
+  source?: string;
 }
 
 export interface Interchange {

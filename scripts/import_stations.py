@@ -63,6 +63,50 @@ LINE_CODES = {
 }
 
 
+# LTA's station-code file has not caught up with Circle Line Stage 6.
+#
+# It still numbers the extension CE1/CE2 and has no row at all for the three
+# stations that opened on 2026-07-12, while station signage, LTA's own GTFS
+# feed and Wikidata all use the closed-loop numbering. Left alone, re-running
+# this script silently reverts the Circle Line to its pre-Stage-6 shape — the
+# codes, the loop, and the three stations all disappear.
+#
+# Applied to LTA's rows before anything downstream reads them, so opening
+# dates, exits and interchanges all resolve against the codes on the walls.
+# Drop each entry once LTA publishes it.
+STAGE6_RENAMES = {"CE1": "CC34", "CE2": "CC33"}
+
+# Codes, names and coordinates from LTA GTFS Schedule (Train) stops.txt;
+# opening date from Wikidata P1619. Not in LTA's exit dataset, so they carry
+# no exits and the loop below marks them gap.noExitData accordingly.
+STAGE6_ADDITIONS = [
+    {"code": "CC30", "name": "Keppel", "nameZh": "吉宝",
+     "coord": {"lat": 1.27009, "lng": 103.8304}},
+    {"code": "CC31", "name": "Cantonment", "nameZh": "广东民",
+     "coord": {"lat": 1.27294, "lng": 103.83663}},
+    {"code": "CC32", "name": "Prince Edward Road", "nameZh": "爱德华太子路",
+     "coord": {"lat": 1.27327, "lng": 103.84749}},
+]
+
+
+def apply_stage6(stations: list[dict]) -> list[dict]:
+    """Brings LTA's rows up to the numbering now in service. See above."""
+    for s in stations:
+        new = STAGE6_RENAMES.get(s["code"].upper())
+        if new:
+            print(f"  stage 6: {s['code']} -> {new} ({s['name']})")
+            s["code"] = new
+            s["lineName"] = "Circle Line"
+    have = {s["code"].upper() for s in stations}
+    for extra in STAGE6_ADDITIONS:
+        if extra["code"] in have:
+            print(f"  stage 6: LTA now publishes {extra['code']} — dropping ours")
+            continue
+        stations.append({**extra, "line": "CCL", "lineName": "Circle Line"})
+        print(f"  stage 6: added {extra['code']} {extra['name']}")
+    return stations
+
+
 def fetch(url: str) -> bytes:
     return urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=180).read()
 
@@ -265,7 +309,7 @@ def opening_date_from_wikipedia(name: str, kind: str) -> str | None:
 
 
 def main() -> None:
-    lta = load_lta_codes()
+    lta = apply_stage6(load_lta_codes())
     dates_by_code, dates_by_name = load_wikidata()
 
     exits_payload = json.loads(EXITS.read_text())
@@ -308,20 +352,24 @@ def main() -> None:
             # A code, not a sentence: the UI translates it.
             gaps.append("gap.noExitData")
 
-        out.append({
+        record = {
             "code": s["code"],
             "name": s["name"],
             "nameZh": s["nameZh"],
             "line": s["line"],
             "lineName": s["lineName"],
             "opened": opened,
+            # A station with no exits to average has no centre; the GTFS stop
+            # coordinate is what puts it on the map at all.
+            **({"coord": s["coord"]} if s.get("coord") and not station_exits else {}),
             "interchanges": interchanges,
             "exits": sorted(
                 {e["code"]: e for e in station_exits}.values(),
                 key=lambda e: (len(e["code"]), e["code"]),
             ),
             "dataGaps": gaps,
-        })
+        }
+        out.append(record)
 
     out.sort(key=lambda s: (s["line"], len(s["code"]), s["code"]))
 
@@ -340,9 +388,27 @@ def main() -> None:
             "coordinates": "Derived from exits.json (LTA MRT Station Exit, data.gov.sg)",
             "interchanges": "Derived: a station name with more than one official code.",
             "note": (
-                "Codes follow LTA signage. Wikipedia numbers the Circle Line Extension "
-                "CC33/CC34 where LTA's code file still says CE1/CE2, so opening dates are matched by "
-                "station name rather than code."
+                "Codes follow LTA signage. The Circle Line Extension was renumbered into "
+                "the closed loop when Stage 6 opened: CE1 and CE2 are now CC34 and CC33. "
+                "LTA's own station code file still lists the old codes and omits CC30-CC32 "
+                "entirely, so those three come from LTA's GTFS Schedule (Train) feed, which "
+                "carries the current numbering, with opening dates and Chinese names from "
+                "Wikidata."
+            ),
+            "stage6": (
+                "CC30 Keppel, CC31 Cantonment and CC32 Prince Edward Road: names and codes "
+                "from LTA GTFS stops.txt; opened 2026-07-12 per Wikidata (P1619). Not in "
+                "LTA's station exit dataset, so they carry no exits, like Punggol Coast and "
+                "Hume. Applied by apply_stage6() in scripts/import_stations.py."
+            ),
+            "coord": (
+                "Only present where LTA's station exit dataset has no entry yet, so the map "
+                "has somewhere to draw the station: the stop coordinate from LTA GTFS "
+                "Schedule (Train). Everywhere else the map uses the mean of the real exits."
+            ),
+            "exitSupplement": (
+                "An exit carrying a \"source\" field is not in LTA's exit dataset and was "
+                "added from the sources recorded under _source.supplement in exits.json."
             ),
             "importedAt": __import__("datetime").date.today().isoformat(),
         },

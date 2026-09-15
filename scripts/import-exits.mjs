@@ -5,6 +5,9 @@
  *   https://data.gov.sg/datasets/d_b39d3a0871985372d7e1637193335da5/view
  *   Singapore Open Data Licence. No API key required.
  *
+ * That file is authoritative but not complete, so a small sourced SUPPLEMENT
+ * below fills exits it has not published yet. See the comment on it.
+ *
  * Usage: node scripts/import-exits.mjs
  */
 
@@ -43,6 +46,45 @@ function toTitleCase(s) {
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(" ");
 }
+
+/**
+ * Exits LTA's dataset does not carry yet.
+ *
+ * LTA's file is the primary source and stays authoritative wherever it has an
+ * entry: nothing here overrides a code LTA already publishes. But the file goes
+ * stale — the same way their station-code list did for Circle Line Stage 6 — and
+ * a missing exit is not a harmless gap. It silently truncates `leadsTo` on every
+ * surveyed platform feature, because the survey form can only offer codes this
+ * dataset knows about.
+ *
+ * Each entry needs two independent sources before it goes in, and says so.
+ */
+const SUPPLEMENT = [
+  {
+    station: "Paya Lebar",
+    kind: "MRT",
+    code: "E",
+    lng: 103.8928784,
+    lat: 1.3178497,
+    source: "osm+survey",
+    evidence:
+      "OSM node 13122104274 (railway=subway_entrance, ref=E, v1 2025-09-06), " +
+      "corroborated by field survey 2026-09-15 naming Exit E from the EW8 platform.",
+  },
+  {
+    station: "Paya Lebar",
+    kind: "MRT",
+    code: "F",
+    lng: 103.8922981,
+    lat: 1.3178521,
+    source: "osm+survey",
+    evidence:
+      "OSM node 3986226733 (railway=subway_entrance, ref=F, v4 2025-09-06), " +
+      "whose mapper noted 'no official letter i think'. The field survey of " +
+      "2026-09-15 read it as F from the platform, which is the signage evidence " +
+      "that note was missing.",
+  },
+];
 
 async function main() {
   console.log("Requesting download URL from data.gov.sg…");
@@ -85,6 +127,28 @@ async function main() {
     });
   }
 
+  // Merged after LTA's own features so a code LTA publishes always wins.
+  const supplemented = [];
+  for (const extra of SUPPLEMENT) {
+    const key = `${extra.station}|${extra.kind}`;
+    const entry = stations.get(key);
+    if (!entry) {
+      console.warn(`  supplement: no LTA station "${key}", skipping exit ${extra.code}`);
+      continue;
+    }
+    if (entry.exits.some((e) => e.code === extra.code)) {
+      console.log(`  supplement: LTA now publishes ${key} exit ${extra.code} — dropping ours`);
+      continue;
+    }
+    entry.exits.push({
+      code: extra.code,
+      lng: extra.lng,
+      lat: extra.lat,
+      source: extra.source,
+    });
+    supplemented.push(`${key}:${extra.code}`);
+  }
+
   // Stable ordering so re-imports produce clean diffs.
   const out = [...stations.values()].sort((a, b) =>
     a.station.localeCompare(b.station) || a.kind.localeCompare(b.kind),
@@ -100,12 +164,23 @@ async function main() {
       licence: "Singapore Open Data Licence",
       importedAt: new Date().toISOString().slice(0, 10),
       featureCount: features.length,
+      supplement: SUPPLEMENT.map(({ station, kind, code, source, evidence }) => ({
+        station,
+        kind,
+        code,
+        source,
+        evidence,
+      })),
     },
     stations: out,
   };
 
   await writeFile(OUT, JSON.stringify(payload, null, 2) + "\n");
-  console.log(`Wrote ${out.length} stations (${features.length - skipped.length} exits) to src/data/exits.json`);
+  console.log(
+    `Wrote ${out.length} stations (${features.length - skipped.length} from LTA, ` +
+      `${supplemented.length} supplemented) to src/data/exits.json`,
+  );
+  if (supplemented.length) console.log(`  supplemented: ${supplemented.join(", ")}`);
   if (skipped.length) console.warn(`  skipped ${skipped.length} malformed features`);
 }
 
