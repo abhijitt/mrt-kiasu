@@ -5,12 +5,17 @@ import { lineFromStationCode } from "@/lib/lines";
 import { validateFeature, type PlatformFeature } from "@/lib/positions";
 import { getStation } from "@/lib/stations";
 import { looksLikeEmail } from "@/lib/report-types";
-import { isConfigured, saveSubmission } from "@/lib/surveys-db";
+import { isConfigured, saveSubmissions } from "@/lib/surveys-db";
+import { DEVICE_TYPES } from "@/lib/feature-types";
 
 /** Enough for a sentence of context, not enough to be a payload. */
 const NOTE_MAX = 500;
 const NAME_MAX = 80;
 const EMAIL_MAX = 254;
+
+// One survey describes one landing, and a landing holds at most one of each
+// kind of device. Anything longer is not a surveyor.
+const FEATURES_MAX = DEVICE_TYPES.length;
 
 const FILE = join(process.cwd(), "src", "data", "positions.json");
 
@@ -36,12 +41,18 @@ function trim(value: unknown, max: number): string | undefined {
  *
  * It used to refuse outright and hand back JSON to copy, which meant every
  * survey from a real commuter ended at a wall of braces.
+ *
+ * Accepts either one `feature` or a list of `features` describing the same
+ * door: the escalator and the stairs beside it are one landing and one walk,
+ * and making that two submissions cost a real surveyor half a platform to the
+ * rate limiter. The list is all-or-nothing.
  */
 export async function POST(request: Request) {
   let body: {
     stationCode?: string;
     direction?: string;
     feature?: Partial<PlatformFeature>;
+    features?: Partial<PlatformFeature>[];
     note?: string;
     name?: string;
     email?: string;
@@ -54,7 +65,22 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Body must be JSON" }, { status: 400 });
   }
 
-  const { stationCode, direction, feature } = body;
+  const { stationCode, direction } = body;
+
+  // `feature` is the older shape and still the one the dev endpoint writes.
+  if (body.features !== undefined && !Array.isArray(body.features)) {
+    return NextResponse.json({ error: "features must be an array" }, { status: 400 });
+  }
+  const features = body.features ?? (body.feature ? [body.feature] : []);
+  if (features.length === 0) {
+    return NextResponse.json({ error: "No feature given" }, { status: 400 });
+  }
+  if (features.length > FEATURES_MAX) {
+    return NextResponse.json(
+      { error: `At most ${FEATURES_MAX} features per survey` },
+      { status: 400 },
+    );
+  }
 
   if (!stationCode || !getStation(stationCode)) {
     return NextResponse.json({ error: `Unknown station "${stationCode}"` }, { status: 400 });
@@ -71,7 +97,19 @@ export async function POST(request: Request) {
     );
   }
 
-  const errors = validateFeature(feature ?? {}, line);
+  // Every one of them, and the batch fails as a unit: a landing stored with
+  // its stairs missing because that row alone was malformed is a worse record
+  // than no landing at all, because it looks complete.
+  const errors = features.flatMap((f, i) => {
+    const prefix = features.length > 1 ? `feature ${i + 1}: ` : "";
+    return validateFeature(f ?? {}, line).map((e) => `${prefix}${e}`);
+  });
+  // Two rows of the same type at one door would be indistinguishable, and the
+  // second would silently overwrite the first at approval time.
+  const types = features.map((f) => f?.type);
+  if (new Set(types).size !== types.length) {
+    errors.push("features must not repeat a type");
+  }
   if (errors.length > 0) {
     return NextResponse.json({ error: "Invalid feature", details: errors }, { status: 400 });
   }
@@ -98,21 +136,24 @@ export async function POST(request: Request) {
       );
     }
     try {
-      await saveSubmission({
-        stationCode,
-        direction,
-        feature: feature as PlatformFeature,
-        note: trim(body.note, NOTE_MAX),
-        name: trim(body.name, NAME_MAX),
-        email,
-        locale: trim(body.locale, 16),
-        viewport: trim(body.viewport, 24),
-        // From the server, not the submitter. Beta's test surveys and real
-        // ones are only distinguishable if the label cannot be forged.
-        env: process.env.VERCEL_ENV ?? "development",
-        submittedAt: new Date().toISOString(),
-      });
-      return NextResponse.json({ ok: true, pending: true });
+      const submittedAt = new Date().toISOString();
+      await saveSubmissions(
+        features.map((f) => ({
+          stationCode,
+          direction,
+          feature: f as PlatformFeature,
+          note: trim(body.note, NOTE_MAX),
+          name: trim(body.name, NAME_MAX),
+          email,
+          locale: trim(body.locale, 16),
+          viewport: trim(body.viewport, 24),
+          // From the server, not the submitter. Beta's test surveys and real
+          // ones are only distinguishable if the label cannot be forged.
+          env: process.env.VERCEL_ENV ?? "development",
+          submittedAt,
+        })),
+      );
+      return NextResponse.json({ ok: true, pending: true, stored: features.length });
     } catch (err) {
       // Logged rather than returned: the reason may name the host or the
       // credential, and this response goes to the public internet.
@@ -132,29 +173,32 @@ export async function POST(request: Request) {
   // exit, one to the transfer corridor. If neither says where it leads, the
   // app has to pick between them, and picking is guessing. Enforced here as
   // well as in the form because this route accepts raw JSON.
-  const siblings = (raw.platforms[key] as PlatformFeature[]).filter(
-    (f) => f.type === feature!.type && f.doorIndex !== feature!.doorIndex,
-  );
-  if (siblings.length > 0 && (feature!.leadsTo ?? []).length === 0) {
-    return NextResponse.json(
-      {
-        error: "Invalid feature",
-        details: [
-          `${key} already has another ${feature!.type}; leadsTo is required so they can be told apart`,
-        ],
-      },
-      { status: 400 },
+  for (const f of features) {
+    const siblings = (raw.platforms[key] as PlatformFeature[]).filter(
+      (other) => other.type === f!.type && other.doorIndex !== f!.doorIndex,
     );
+    if (siblings.length > 0 && (f!.leadsTo ?? []).length === 0) {
+      return NextResponse.json(
+        {
+          error: "Invalid feature",
+          details: [
+            `${key} already has another ${f!.type}; leadsTo is required so they can be told apart`,
+          ],
+        },
+        { status: 400 },
+      );
+    }
   }
 
   // Re-surveying the same feature at the same door updates it rather than
   // stacking duplicates.
-  const existing = raw.platforms[key].findIndex(
-    (f: PlatformFeature) =>
-      f.type === feature!.type && f.doorIndex === feature!.doorIndex,
-  );
-  if (existing >= 0) raw.platforms[key][existing] = feature;
-  else raw.platforms[key].push(feature);
+  for (const f of features) {
+    const existing = raw.platforms[key].findIndex(
+      (other: PlatformFeature) => other.type === f!.type && other.doorIndex === f!.doorIndex,
+    );
+    if (existing >= 0) raw.platforms[key][existing] = f;
+    else raw.platforms[key].push(f);
+  }
 
   raw.platforms[key].sort(
     (a: PlatformFeature, b: PlatformFeature) => a.doorIndex - b.doorIndex,

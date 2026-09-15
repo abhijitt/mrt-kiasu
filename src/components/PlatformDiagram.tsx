@@ -9,7 +9,8 @@ import type { FeatureType, PlatformFeature } from "@/lib/feature-types";
 /** Rendered height in CSS pixels, identical for every line. */
 const DIAGRAM_HEIGHT = 132;
 
-const FEATURE_GLYPH: Record<FeatureType, string> = {
+/** Shared with the station plan, so one device reads the same in both. */
+export const FEATURE_GLYPH: Record<FeatureType, string> = {
   escalator: "▟",
   lift: "▤",
   stairs: "▚",

@@ -49,7 +49,29 @@ export type Travel = "up" | "down" | "reversible";
 
 export interface PlatformFeature {
   type: FeatureType;
+  /**
+   * The best door for THIS platform, which is not always the same as the other
+   * platform's, even for one physical object.
+   *
+   * A lift on an island platform has a facing. At Paya Lebar its door opens
+   * toward the Eunos-bound side, so someone alighting there steps almost into
+   * it, while someone on the Aljunied-bound side has to walk around the shaft
+   * and is better off a few doors along. One lift, two answers.
+   */
   doorIndex: number;
+  /**
+   * Stable identity of the physical thing, where two platform records describe
+   * the same one.
+   *
+   * Without it, "same feature" has to be guessed from type and doorIndex — and
+   * that guess breaks on exactly the case it is needed for, because a staggered
+   * lift has a different doorIndex on each side and reads as two lifts. A
+   * commuter who is told a station has two lifts when it has one has been given
+   * a worse answer than no answer.
+   *
+   * Optional: most features sit at the same door both ways and need no id.
+   */
+  id?: string;
   /**
    * Where this leads: exit codes as printed on station signage ("C"), line
    * codes for a transfer corridor ("CCL"), or both. One axis, so an escalator
@@ -62,6 +84,31 @@ export interface PlatformFeature {
   sourceNote: string;
   /** Escalators only: which way it runs. */
   travel?: Travel;
+  /**
+   * True when this reaches its targets but something else on the same
+   * platform reaches them better.
+   *
+   * A platform is not a set of equally good choices. The stairs at the far end
+   * of Paya Lebar genuinely lead to Exits A and E — a surveyor who left them
+   * off would be hiding a real way out — but anyone sent to them has been sent
+   * the long way round. Without this the dataset had only two options, both
+   * wrong: record them and mislead, or omit them and lie by omission.
+   *
+   * Relative to the other features on THIS platform, not an absolute judgement,
+   * and never a reason to hide anything: a secondary feature is still shown
+   * when it is the only one that fits.
+   */
+  secondary?: boolean;
+  /**
+   * Set when nobody surveyed this platform: the record was inferred from the
+   * other direction because the station is an island platform, where one
+   * escalator stands between the two tracks and serves both faces.
+   *
+   * The inference is sound, but it is still an inference, and a record that
+   * claimed to be a field survey when no one stood there would corrupt the one
+   * thing this dataset promises. A real survey of this face always replaces it.
+   */
+  impliedFrom?: "asc" | "desc";
   /** Metres along the platform from its centre; estimates only. */
   offsetM?: number;
 }
@@ -72,6 +119,20 @@ export function servesAlighting(f: PlatformFeature): boolean {
   // Unrecorded direction is treated as usable but is worth re-surveying;
   // only a known down-only escalator is excluded.
   return f.travel !== "down";
+}
+
+/**
+ * Whether two records describe the same physical thing.
+ *
+ * Identity first, because a staggered lift deliberately has a different
+ * doorIndex on each platform and would otherwise read as two lifts. Falling
+ * back to type and door is right for everything else: nothing else on a
+ * platform is two of the same kind of device at one door.
+ */
+export function sameFeature(a: PlatformFeature, b: PlatformFeature): boolean {
+  if (a.id && b.id) return a.id === b.id;
+  if (a.id || b.id) return false;
+  return a.type === b.type && a.doorIndex === b.doorIndex;
 }
 
 /** Case-insensitive: `target` is an exit code or a line code, indifferently. */
@@ -90,6 +151,11 @@ export function leadsToTarget(f: PlatformFeature, target: string): boolean {
  * then any surveyed device, then the exit-position estimate. Callers can tell
  * which happened from the returned feature's `type` and `confidence`, and the
  * UI says so rather than implying the preference was applied.
+ *
+ * Within each of those tiers a feature the surveyor marked `secondary` loses
+ * to one they did not. It loses within its tier and no further: someone who
+ * asked for a lift and can only reach a roundabout one still gets the lift,
+ * because the preference is usually a need.
  */
 export function chooseFeature(
   features: PlatformFeature[],
@@ -97,10 +163,13 @@ export function chooseFeature(
   target?: string | null,
 ): PlatformFeature | null {
   const matches = (f: PlatformFeature) => !target || leadsToTarget(f, target);
+  const usable = (f: PlatformFeature) => matches(f) && servesAlighting(f);
+  const best = (fits: (f: PlatformFeature) => boolean) =>
+    features.find((f) => fits(f) && !f.secondary) ?? features.find(fits);
 
   return (
-    features.find((f) => f.type === preference && matches(f) && servesAlighting(f)) ??
-    features.find((f) => f.confidence !== "estimate" && matches(f) && servesAlighting(f)) ??
+    best((f) => f.type === preference && usable(f)) ??
+    best((f) => f.confidence !== "estimate" && usable(f)) ??
     features.find((f) => f.type === "exit" && matches(f)) ??
     null
   );

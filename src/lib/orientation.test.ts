@@ -49,7 +49,14 @@ describe("platform orientation", () => {
   });
 });
 
-import { layoutCount, layoutFor, sideFromLayout, validateLayout } from "./orientation";
+import {
+  layoutCount,
+  layoutFor,
+  servesBothDirections,
+  sideFromLayout,
+  validateLayout,
+} from "./orientation";
+import { mirrorDoorIndex, toCarPosition } from "./doors";
 
 describe("platform layout", () => {
   it("puts an island platform on the train's right, both ways", () => {
@@ -83,7 +90,7 @@ describe("platform layout", () => {
 
   it("rejects a layout it does not recognise", () => {
     expect(validateLayout({ layout: "bay" as never, source: "survey", confidence: "verified" }))
-      .toContain('layout must be "island", "side" or "stacked"');
+      .toContain('layout must be "island", "split-island", "side" or "stacked"');
   });
 
   it("refuses a layout that was not actually observed", () => {
@@ -100,3 +107,59 @@ describe("platform layout", () => {
       .toEqual([]);
   });
 });
+
+describe("one platform, both directions", () => {
+  it("shares a feature across directions only on an island platform", () => {
+    // The escalator stands between the two tracks, so a commuter going either
+    // way walks to the same one.
+    expect(servesBothDirections("island")).toBe(true);
+    // Two separate platforms with the tracks between them: what is on one says
+    // nothing about the other.
+    expect(servesBothDirections("side")).toBe(false);
+    // One direction per level — as separate as two stations.
+    expect(servesBothDirections("stacked")).toBe(false);
+  });
+
+  it("shares nothing when nobody has checked the layout", () => {
+    expect(servesBothDirections(null)).toBe(false);
+  });
+
+  it("does not mirror the door index of a shared feature", () => {
+    // The trap this whole rule exists to avoid. doorIndex is stored from the
+    // low-code end, so the shared feature keeps its index; only the car and
+    // door a commuter reads off it differ per direction.
+    const shared = 19;
+    expect(toCarPosition(shared, "EWL", "asc")).toMatchObject({ doorFromFront: 6 });
+    expect(toCarPosition(shared, "EWL", "desc")).toMatchObject({ doorFromFront: 19 });
+    // Mirroring as well would land it at the far end of the platform.
+    expect(mirrorDoorIndex(shared, "EWL")).toBe(6);
+  });
+});
+
+/**
+ * Paya Lebar's Circle Line platforms are islands by shape, and the station
+ * infobox counts them as such — but a third track runs between them for
+ * trains terminating there, so the two directions stand on two different
+ * platforms. Reading the shape as "one platform, both directions" wrote four
+ * features onto platforms that never had them, each looking like a survey.
+ */
+describe("an island with a track through the middle", () => {
+  it("does not share features between directions", () => {
+    expect(servesBothDirections("split-island")).toBe(false);
+    // The plain island it is easily mistaken for still does.
+    expect(servesBothDirections("island")).toBe(true);
+  });
+
+  it("still puts the doors on the same side as an ordinary island", () => {
+    // The revenue tracks are the outer pair with the platforms inboard, so a
+    // train sees its platform exactly where it would at a plain island; only
+    // the centre track differs, and nothing revenue-carrying stops there.
+    expect(sideFromLayout("split-island")).toBe("right");
+  });
+
+  it("accepts it as a surveyable layout", () => {
+    expect(
+      validateLayout({ layout: "split-island", source: "survey", confidence: "verified" }),
+    ).toEqual([]);
+  });
+})

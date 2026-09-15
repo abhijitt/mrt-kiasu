@@ -165,6 +165,7 @@ async function main() {
     }
 
     const seen = new Set();
+    const idsHere = new Map();
 
     features.forEach((f, i) => {
       const at = `${key}[${i}]`;
@@ -185,6 +186,18 @@ async function main() {
       }
       if (typeof f.sourceNote !== "string" || f.sourceNote.trim() === "") {
         errors.push(`${at}: sourceNote is required — every position must say where it came from`);
+      }
+      if (f.id !== undefined && (typeof f.id !== "string" || f.id.trim() === "")) {
+        errors.push(`${at}: id must be a non-empty string when present`);
+      }
+      if (f.impliedFrom !== undefined && !["asc", "desc"].includes(f.impliedFrom)) {
+        errors.push(`${at}: impliedFrom must be "asc" or "desc"`);
+      }
+      if (f.secondary !== undefined && typeof f.secondary !== "boolean") {
+        errors.push(`${at}: secondary must be true or false`);
+      }
+      if (f.secondary && (f.leadsTo ?? []).length === 0) {
+        errors.push(`${at}: secondary needs leadsTo to be demoted against`);
       }
       const VALID_TRAVEL = ["up", "down", "reversible"];
       if (f.travel !== undefined && !VALID_TRAVEL.includes(f.travel)) {
@@ -238,6 +251,15 @@ async function main() {
       // Estimates legitimately pile up on the end doors: any exit projecting
       // beyond the train's length clamps there. Only surveyed data should be
       // unique per door, so only warn about that.
+      // One physical thing cannot be in two places on one platform. This is
+      // what stops a staggered lift's two surveys from being written to the
+      // same side and reading as two lifts.
+      if (f.id) {
+        if (idsHere.has(f.id)) {
+          errors.push(`${at}: id "${f.id}" is already used on this platform`);
+        }
+        idsHere.set(f.id, f.type);
+      }
       const dupKey = `${f.type}:${f.doorIndex}`;
       if (f.confidence !== "estimate") {
         if (seen.has(dupKey)) {
@@ -419,7 +441,9 @@ async function main() {
   // was never defined, so the first bad layout raised a ReferenceError instead
   // of reporting itself — and aborted before any other error was printed.
   // Folded in here so they share the error list, the summary and the exit code.
-  const LAYOUTS = ["island", "side", "stacked"];
+  // "split-island" is an island by shape with a third track through the middle,
+  // so each direction has its own platform. See src/lib/orientation.ts.
+  const LAYOUTS = ["island", "split-island", "side", "stacked"];
 
   for (const [code, entry] of Object.entries(positions.layouts ?? {})) {
     if (!LAYOUTS.includes(entry.layout)) {
@@ -534,10 +558,15 @@ async function main() {
   for (const w of warnings) console.warn(`  warn  ${w}`);
   for (const e of errors) console.error(`  ERROR ${e}`);
 
-  const surveyed = Object.values(positions.platforms ?? {}).flat().length;
+  // Inferred records are not observations: counting them would inflate the one
+  // number that says how much of the network a person has actually stood on.
+  const placed = Object.values(positions.platforms ?? {}).flat();
+  const surveyed = placed.filter((f) => !f.impliedFrom).length;
+  const implied = placed.length - surveyed;
   const estimated = Object.values(estimates.platforms ?? {}).flat().length;
   console.log(
-    `\nvalidate-data: ${surveyed} surveyed and ${estimated} estimated position(s), ` +
+    `\nvalidate-data: ${surveyed} surveyed${implied ? ` (+${implied} inferred)` : ""} ` +
+    `and ${estimated} estimated position(s), ` +
       `${Object.keys(farePairs).length} fare pair(s), ` +
       `${errors.length} error(s), ${warnings.length} warning(s)`,
   );

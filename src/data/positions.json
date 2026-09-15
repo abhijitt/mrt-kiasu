@@ -12,13 +12,326 @@
     "layouts": "Keyed by station code without direction, since a layout describes the station. Requires source and confidence exactly as everything else does."
   },
   "_status": {
-    "surveyed": 0,
+    "surveyed": 22,
     "note": "No platform has been surveyed yet, for door positions or for which side the doors open. No public dataset provides either (verified against LTA DataMall, data.gov.sg, SMRT and SBS Transit), so every entry must come from a field survey or an OSM-derived candidate that a person has then checked. The app shows 'not yet mapped' until an entry exists — it does not estimate.",
-    "lastUpdated": "2026-08-23",
+    "lastUpdated": "2026-09-16",
     "orientationSurveyed": 4,
     "layoutsSurveyed": 156
   },
-  "platforms": {},
+  "platforms": {
+    "CC9:asc": [
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "D",
+          "F"
+        ],
+        "doorIndex": 2,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "D",
+          "F"
+        ],
+        "doorIndex": 2,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [],
+        "doorIndex": 8,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "EWL",
+          "A",
+          "B",
+          "C",
+          "E"
+        ],
+        "doorIndex": 12,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "EWL",
+          "E"
+        ],
+        "doorIndex": 12,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      }
+    ],
+    "CC9:desc": [
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "D",
+          "F"
+        ],
+        "doorIndex": 2,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "D",
+          "F"
+        ],
+        "doorIndex": 2,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [],
+        "doorIndex": 8,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "EWL",
+          "E"
+        ],
+        "doorIndex": 11,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "E",
+          "EWL"
+        ],
+        "doorIndex": 11,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      }
+    ],
+    "EW8:asc": [
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "E"
+        ],
+        "doorIndex": 6,
+        "secondary": true,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "E"
+        ],
+        "doorIndex": 10,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar (platform is elevated, so this escalator descends to the concourse; travel says up because up is what reaches the exit)",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "E"
+        ],
+        "doorIndex": 10,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "id": "EW8-lift-1",
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "CCL"
+        ],
+        "doorIndex": 17,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "B",
+          "C",
+          "D",
+          "CCL",
+          "F"
+        ],
+        "doorIndex": 21,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar (platform is elevated, so this escalator descends to the concourse; travel says up because up is what reaches the exit)",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "B",
+          "C",
+          "D",
+          "CCL",
+          "F"
+        ],
+        "doorIndex": 21,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      }
+    ],
+    "EW8:desc": [
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "E"
+        ],
+        "doorIndex": 6,
+        "secondary": true,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "E"
+        ],
+        "doorIndex": 10,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar (platform is elevated, so this escalator descends to the concourse; travel says up because up is what reaches the exit)",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "E"
+        ],
+        "doorIndex": 10,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "B",
+          "C",
+          "D",
+          "CCL",
+          "F"
+        ],
+        "doorIndex": 21,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar (platform is elevated, so this escalator descends to the concourse; travel says up because up is what reaches the exit)",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "B",
+          "C",
+          "D",
+          "CCL",
+          "F"
+        ],
+        "doorIndex": 21,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      },
+      {
+        "id": "EW8-lift-1",
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "CCL"
+        ],
+        "doorIndex": 24,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Paya Lebar",
+        "verifiedAt": "2026-09-15"
+      }
+    ]
+  },
   "orientation": {
     "CC4:desc": {
       "side": "right",
@@ -128,11 +441,11 @@
       "sourceNote": "Infobox at Dakota MRT station: 2 (1 island platform)"
     },
     "CC9": {
-      "layout": "island",
-      "source": "wikipedia",
+      "layout": "split-island",
+      "source": "survey",
       "confidence": "verified",
-      "verifiedAt": "2026-08-25",
-      "sourceNote": "Infobox at Paya Lebar MRT station: 6 (3 island platforms)"
+      "verifiedAt": "2026-09-16",
+      "sourceNote": "Field observation: three tracks, the centre one used by trains terminating at Paya Lebar. Corroborated by OSM, which maps four platform faces at layer -1 (ways 1387497356/57/58/59) against two at layer 1, and by the Wikipedia infobox count of 6 platforms / 3 island platforms across both lines."
     },
     "EW8": {
       "layout": "island",
@@ -569,11 +882,11 @@
       "sourceNote": "Infobox at Simei MRT station: 2 (1 island platform)"
     },
     "EW4": {
-      "layout": "island",
-      "source": "wikipedia",
+      "layout": "split-island",
+      "source": "survey",
       "confidence": "verified",
-      "verifiedAt": "2026-08-25",
-      "sourceNote": "Infobox at Tanah Merah MRT station: 6 (3 island platforms) (2 platforms are closed for works)"
+      "verifiedAt": "2026-09-16",
+      "sourceNote": "Field observation: trains from Changi always use the centre track, so the two through directions are on separate platforms. Corroborated by OSM, which maps six platform faces here (ways 463076543-46, 1456477064-65, refs A-F) and a track tagged usage=branch, and by the Wikipedia infobox count of 6 platforms / 3 island platforms with 2 closed for works."
     },
     "EW5": {
       "layout": "island",

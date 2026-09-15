@@ -92,9 +92,14 @@ export function SurveyForm({
   const { t, locale } = useI18n();
   const { settings } = useSettings();
   const [doorIndex, setDoorIndex] = useState<number | null>(null);
-  const [type, setType] = useState<FeatureType>("escalator");
+  // Several, because one landing usually holds several: the escalator and the
+  // stairs beside it are one walk from the train, and asking for two round
+  // trips through this form is how a surveyor gives up half way down a
+  // platform — or gets rate-limited off it.
+  const [types, setTypes] = useState<FeatureType[]>(["escalator"]);
   const [travel, setTravel] = useState<Travel>("up");
   const [leadsTo, setLeadsTo] = useState<string[]>([]);
+  const [secondary, setSecondary] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
   const [note, setNote] = useState("");
@@ -106,16 +111,30 @@ export function SurveyForm({
 
   // Where it leads is only optional while it is unambiguous. Once a second
   // escalator goes in, an untagged pair is worse than one good row: the app
-  // would have to pick between them, and picking is guessing.
-  const sameTypeExists = existing.some((f) => f.type === type);
-  const targetRequired = sameTypeExists;
+  // would have to pick between them, and picking is guessing. With several
+  // kinds selected the strictest one wins, since they share the one answer.
+  const clashing = types.filter((id) => existing.some((f) => f.type === id));
+  const targetRequired = clashing.length > 0;
   const needsTarget = targetRequired && leadsTo.length === 0;
-  const typeLabel = t(`mode.${type}.target` as MessageKey);
+  const typeLabel = clashing
+    .map((id) => t(`mode.${id}.target` as MessageKey))
+    .join(t("survey.andJoin"));
   // "Which way does it run?" only applies to escalators, so every step after
   // it shifts up by one. Derived once: numbering it twice by hand is how the
   // last two steps both came to be labelled 4.
-  const hasTravelStep = type === "escalator";
-  const ready = doorIndex != null && !needsTarget;
+  const hasTravelStep = types.includes("escalator");
+  const ready = doorIndex != null && types.length > 0 && !needsTarget;
+
+  // Deselecting the last one would leave the survey describing nothing, so the
+  // final selection holds until another is picked.
+  function toggleType(id: FeatureType) {
+    setTypes((prev) => {
+      if (!prev.includes(id)) return [...TYPES].filter((x) => prev.includes(x) || x === id);
+      return prev.length === 1 ? prev : prev.filter((x) => x !== id);
+    });
+    setLeadsTo([]);
+    setSecondary(false);
+  }
 
   function toggleTarget(target: string) {
     setLeadsTo((prev) =>
@@ -140,23 +159,27 @@ export function SurveyForm({
   async function save() {
     if (doorIndex == null || needsTarget) return;
 
-    const feature: PlatformFeature = {
-      type,
+    const verifiedAt = new Date().toISOString().slice(0, 10);
+    const features: PlatformFeature[] = types.map((id) => ({
+      type: id,
       doorIndex,
       leadsTo,
       source: "survey",
       confidence: "verified",
-      verifiedAt: new Date().toISOString().slice(0, 10),
+      verifiedAt,
       sourceNote: `Field survey at ${stationName}`,
       // Only escalators have a meaningful direction; stairs and lifts serve both.
-      ...(type === "escalator" ? { travel } : {}),
-    };
+      ...(id === "escalator" ? { travel } : {}),
+      // Meaningless without targets to be second-best for, and the control
+      // that sets it is only shown once there are some.
+      ...(secondary && leadsTo.length > 0 ? { secondary: true } : {}),
+    }));
 
     const json = JSON.stringify(
       {
         stationCode,
         direction,
-        feature,
+        features,
         // Context for whoever reviews this. Which deployment it came from is
         // NOT sent from here: the server knows, and a value the browser can
         // set is a value a spammer can set to look like anything.
@@ -190,7 +213,11 @@ export function SurveyForm({
         // Stored for review. Saying so plainly matters: the surveyor has just
         // stood on a platform for this and should know it arrived, and also
         // that it is not live yet.
-        setStatus(t("survey.submitted"));
+        setStatus(
+          features.length > 1
+            ? t("survey.submittedMany", { count: features.length })
+            : t("survey.submitted"),
+        );
         setPayload(null);
         setSent(true);
       } else if (res.ok && body) {
@@ -267,24 +294,17 @@ export function SurveyForm({
         </div>
       </Step>
 
-      <Step n={2} title={t("survey.step2")}>
+      <Step n={2} title={t("survey.step2")} hint={t("survey.step2Hint")}>
         <div className="grid grid-cols-2 gap-2">
           {TYPES.map((id) => (
-            <Choice
-              key={id}
-              active={type === id}
-              onClick={() => {
-                setType(id);
-                setLeadsTo([]);
-              }}
-            >
+            <Choice key={id} active={types.includes(id)} onClick={() => toggleType(id)}>
               {t(`mode.${id}` as MessageKey)}
             </Choice>
           ))}
         </div>
       </Step>
 
-      {type === "escalator" && (
+      {hasTravelStep && (
         <Step n={3} title={t("survey.travelHeading")} hint={t("survey.travelHint")}>
           <div className="grid grid-cols-3 gap-2">
             {TRAVELS.map((dir) => (
@@ -344,6 +364,30 @@ export function SurveyForm({
 
         {exitCodes.length === 0 && interchanges.length === 0 && (
           <p className="text-sm text-fg-muted">{t("survey.noExits")}</p>
+        )}
+
+        {/* A platform is not a set of equally good choices. The stairs at the
+            far end do reach Exit A — leaving them out would hide a real way
+            out — but anyone sent there has gone the long way round. Only
+            offered once something is selected, because "there is a better one"
+            says nothing until this one says where it goes. */}
+        {leadsTo.length > 0 && (
+          <label className="mt-4 flex items-start gap-3 border-t-2 border-[var(--border)] pt-4">
+            <input
+              type="checkbox"
+              checked={secondary}
+              onChange={(e) => setSecondary(e.target.checked)}
+              className="mt-1 h-5 w-5 shrink-0 accent-[var(--accent)]"
+            />
+            <span>
+              <span className="font-pixel text-[10px] uppercase text-fg">
+                {t("survey.secondaryLabel")}
+              </span>
+              <span className="mt-1 block text-sm leading-relaxed text-fg-muted">
+                {t("survey.secondaryHint")}
+              </span>
+            </span>
+          </label>
         )}
       </Step>
 

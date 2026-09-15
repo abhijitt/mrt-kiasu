@@ -74,36 +74,90 @@ function describe(row) {
   );
 }
 
+const OPPOSITE = { asc: "desc", desc: "asc" };
+
+/**
+ * Mirrors servesBothDirections() and sameFeature() in src/lib/feature-types.ts
+ * and src/lib/orientation.ts, which carry the full reasoning. Kept in step by
+ * hand, the way build-map-data.mjs keeps its copy of EXPLICIT_LINKS in step
+ * with network.ts.
+ */
+function servesBothDirections(layout) {
+  return layout?.layout === "island";
+}
+
+function sameFeature(a, b) {
+  if (a.id && b.id) return a.id === b.id;
+  if (a.id || b.id) return false;
+  return a.type === b.type && a.doorIndex === b.doorIndex;
+}
+
+/** Replaces the record describing this same thing, or adds it. */
+function put(raw, key, feature) {
+  raw.platforms[key] ??= [];
+  const at = raw.platforms[key].findIndex((f) => sameFeature(f, feature));
+  if (at >= 0) raw.platforms[key][at] = feature;
+  else raw.platforms[key].push(feature);
+  raw.platforms[key].sort((a, b) => a.doorIndex - b.doorIndex);
+}
+
 /**
  * Writes an approved feature into the dataset.
  *
  * Mirrors the development endpoint deliberately: re-surveying the same feature
- * at the same door updates it rather than stacking duplicates, and the list
- * stays ordered by door so a diff reads like the platform.
+ * updates it rather than stacking duplicates, and the list stays ordered by
+ * door so a diff reads like the platform.
+ *
+ * On an island platform the same physical escalator serves both faces, so the
+ * other direction gets a copy — but marked `impliedFrom`, because nobody stood
+ * there. A real survey of that face always wins over the inference, whichever
+ * order the two are approved in, and the copy never overwrites one.
+ *
+ * The copy keeps the SAME doorIndex. It is stored from the low-code end and is
+ * already direction-independent; mirroring it would move the feature to the
+ * far end of the platform. Where the best door genuinely differs by direction —
+ * a lift whose door faces one side — that is not a mirror but a second survey,
+ * and it arrives with the same `id` and replaces the inference.
  */
 async function applyToDataset(row) {
   const raw = JSON.parse(await readFile(POSITIONS, "utf8"));
-  const key = `${row.station_code.toUpperCase()}:${row.direction}`;
-  raw.platforms[key] ??= [];
-
+  const station = row.station_code.toUpperCase();
   const feature = row.feature;
-  const at = raw.platforms[key].findIndex(
-    (f) => f.type === feature.type && f.doorIndex === feature.doorIndex,
-  );
-  if (at >= 0) raw.platforms[key][at] = feature;
-  else raw.platforms[key].push(feature);
 
-  raw.platforms[key].sort((a, b) => a.doorIndex - b.doorIndex);
+  put(raw, `${station}:${row.direction}`, feature);
+  const keys = [`${station}:${row.direction}`];
+
+  if (servesBothDirections(raw.layouts?.[station])) {
+    const otherKey = `${station}:${OPPOSITE[row.direction]}`;
+    const there = (raw.platforms[otherKey] ?? []).find((f) => sameFeature(f, feature));
+    // Only fill a gap, or refresh an earlier inference. Never overwrite a
+    // record someone actually surveyed from that platform.
+    if (!there || there.impliedFrom) {
+      put(raw, otherKey, {
+        ...feature,
+        impliedFrom: row.direction,
+        sourceNote:
+          `${feature.sourceNote} — not surveyed from this platform; inferred from the ` +
+          `${row.direction} survey because ${station} is an island platform`,
+      });
+      keys.push(otherKey);
+    }
+  }
 
   const all = Object.values(raw.platforms).flat();
   raw._status = {
     ...raw._status,
-    surveyed: all.filter((f) => f.confidence === "verified").length,
+    surveyed: all.filter((f) => f.confidence === "verified" && !f.impliedFrom).length,
     lastUpdated: new Date().toISOString().slice(0, 10),
   };
 
   await writeFile(POSITIONS, JSON.stringify(raw, null, 2) + "\n");
-  return { key, count: raw.platforms[key].length, surveyed: raw._status.surveyed };
+  return {
+    key: keys.join(" + "),
+    count: raw.platforms[keys[0]].length,
+    surveyed: raw._status.surveyed,
+    bothWays: keys.length > 1,
+  };
 }
 
 async function fetchOne(id) {
@@ -134,7 +188,8 @@ for (const id of approve) {
   changed = true;
   console.log(
     `approved #${id} into ${result.key} (${result.count} on that platform, ` +
-      `${result.surveyed} surveyed overall)`,
+      `${result.surveyed} surveyed overall)` +
+      (result.bothWays ? " — island platform, so the other side gets it as inferred" : ""),
   );
 }
 

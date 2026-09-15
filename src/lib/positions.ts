@@ -169,6 +169,14 @@ export function validateFeature(
   if (!Array.isArray(feature.leadsTo)) {
     errors.push("leadsTo must be an array (use [] if it leads nowhere specific)");
   }
+  if (feature.secondary !== undefined && typeof feature.secondary !== "boolean") {
+    errors.push("secondary must be true or false");
+  }
+  // "There is a better one" is meaningless when nothing says where this goes:
+  // it would demote the feature against nothing and hide it for no reason.
+  if (feature.secondary && (feature.leadsTo ?? []).length === 0) {
+    errors.push("secondary needs leadsTo — say what it reaches before saying it reaches it badly");
+  }
 
   return errors;
 }

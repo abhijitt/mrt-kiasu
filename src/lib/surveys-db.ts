@@ -49,33 +49,49 @@ function client() {
 }
 
 /**
- * Stores one submission as pending.
+ * Stores submissions as pending, all of them or none.
+ *
+ * One survey can describe several things at once, because one landing often
+ * holds several: the escalator and the stairs beside it are one walk from the
+ * train, and asking someone to fill the form twice for them is how a platform
+ * ends up half recorded. They are still stored as separate rows — a reviewer
+ * may well believe the escalator and doubt the stairs — but they arrive
+ * together, so a half-written landing is never what the reviewer sees.
  *
  * Throws if the write fails, so the caller can keep the surveyor's work rather
  * than pretending it was delivered — someone standing on a platform has spent
  * real effort by this point.
  */
-export async function saveSubmission(submission: SurveySubmission): Promise<void> {
+export async function saveSubmissions(submissions: SurveySubmission[]): Promise<void> {
+  if (submissions.length === 0) return;
   const sql = client();
-  // Tagged template, so every value is a bound parameter. A submission is
+  // Tagged templates, so every value is a bound parameter. A submission is
   // untrusted input from the public internet and must never reach the database
   // as concatenated SQL.
-  await sql`
-    INSERT INTO survey_submissions
-      (station_code, direction, feature, note, name, email, locale, viewport, env, submitted_at)
-    VALUES (
-      ${submission.stationCode.toUpperCase()},
-      ${submission.direction},
-      ${JSON.stringify(submission.feature)},
-      ${submission.note ?? null},
-      ${submission.name ?? null},
-      ${submission.email ?? null},
-      ${submission.locale ?? null},
-      ${submission.viewport ?? null},
-      ${submission.env ?? null},
-      ${submission.submittedAt}
-    )
-  `;
+  const writes = submissions.map(
+    (submission) => sql`
+      INSERT INTO survey_submissions
+        (station_code, direction, feature, note, name, email, locale, viewport, env, submitted_at)
+      VALUES (
+        ${submission.stationCode.toUpperCase()},
+        ${submission.direction},
+        ${JSON.stringify(submission.feature)},
+        ${submission.note ?? null},
+        ${submission.name ?? null},
+        ${submission.email ?? null},
+        ${submission.locale ?? null},
+        ${submission.viewport ?? null},
+        ${submission.env ?? null},
+        ${submission.submittedAt}
+      )
+    `,
+  );
+  await sql.transaction(writes);
+}
+
+/** One submission, by way of the batch above. */
+export async function saveSubmission(submission: SurveySubmission): Promise<void> {
+  await saveSubmissions([submission]);
 }
 
 /** The queue, oldest first: whoever surveyed a platform first is reviewed first. */

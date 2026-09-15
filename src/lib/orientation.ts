@@ -19,11 +19,19 @@ export type DoorSide = "left" | "right";
 /**
  * How a station's platforms are arranged.
  *
- *   island  — one platform between the two tracks
- *   side    — two platforms with the tracks between them
- *   stacked — one direction per level
+ *   island       — one platform between the two tracks
+ *   split-island — island platforms with an extra track running between them,
+ *                  used by services that terminate or branch off rather than
+ *                  running through: the Circle Line trains that turn back at
+ *                  Paya Lebar, the Changi shuttle at Tanah Merah. The defining
+ *                  fact is that centre track, because it means each direction
+ *                  gets its OWN platform. It looks like an island from where a
+ *                  commuter stands and behaves like side platforms for
+ *                  everything here.
+ *   side         — two platforms with the tracks between them
+ *   stacked      — one direction per level
  */
-export type PlatformLayout = "island" | "side" | "stacked";
+export type PlatformLayout = "island" | "split-island" | "side" | "stacked";
 
 export interface StationLayout {
   layout: PlatformLayout;
@@ -52,12 +60,44 @@ export interface StationLayout {
 export function sideFromLayout(layout: PlatformLayout): DoorSide | null {
   switch (layout) {
     case "island":
+    // A split island's revenue tracks are still the outer pair with the
+    // platforms inboard of them, so a train sees its platform on the same
+    // side as it would at an ordinary island. Only the centre track differs,
+    // and nothing revenue-carrying stops at it.
+    case "split-island":
       return "right";
     case "side":
       return "left";
     case "stacked":
       return null;
   }
+}
+
+/**
+ * Whether one surveyed feature serves both directions at this station.
+ *
+ * On an island platform the escalator, the stairs and the lift stand on the
+ * one platform between the two tracks, so a surveyor on either face is
+ * describing the same physical thing. Recording it twice is wasted effort at
+ * best; at worst the two rows drift apart and the app contradicts itself.
+ * Side and stacked platforms are genuinely separate places, and what is on one
+ * says nothing about the other.
+ *
+ * This is about the platform, NOT about door numbering. A doorIndex is stored
+ * from the low-code end and is already direction-independent, so the shared
+ * feature keeps the same doorIndex both ways — toCarPosition() is what turns
+ * it into the car and door a commuter sees, and that differs per direction on
+ * its own. Mirroring the stored index as well would move the feature to the
+ * far end of the platform.
+ */
+export function servesBothDirections(layout: PlatformLayout | null): boolean {
+  // Deliberately not "split-island". Paya Lebar's Circle Line platforms are
+  // islands by shape and the infobox counts them as such, but a third track
+  // runs between them for terminating trains — so the two directions stand on
+  // two different platforms, and an escalator on one is not on the other.
+  // Treating them as one wrote four features onto platforms that never had
+  // them, and every one of them looked like a field survey.
+  return layout === "island";
 }
 
 export interface PlatformOrientation {
@@ -109,8 +149,8 @@ export function layoutFor(stationCode: string): StationLayout | null {
 
 export function validateLayout(input: Partial<StationLayout>): string[] {
   const errors: string[] = [];
-  if (!["island", "side", "stacked"].includes(input.layout as string)) {
-    errors.push('layout must be "island", "side" or "stacked"');
+  if (!["island", "split-island", "side", "stacked"].includes(input.layout as string)) {
+    errors.push('layout must be "island", "split-island", "side" or "stacked"');
   }
   if (!input.source) errors.push("source is required");
   if (input.confidence !== "verified") {

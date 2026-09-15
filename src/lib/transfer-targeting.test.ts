@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { chooseFeature, leadsToTarget, type PlatformFeature } from "@/lib/feature-types";
+import {
+  chooseFeature,
+  leadsToTarget,
+  sameFeature,
+  type PlatformFeature,
+} from "@/lib/feature-types";
 
 const base = {
   source: "survey",
@@ -76,3 +81,89 @@ describe("chooseFeature refuses to invent a match", () => {
     expect(chooseFeature([down, stairs], "escalator", "CCL")).toBe(stairs);
   });
 });
+
+/**
+ * A platform is not a set of equally good choices.
+ *
+ * The stairs at the far end of Paya Lebar genuinely reach Exits A and E, and a
+ * surveyor who left them off would be hiding a real way out. But anyone sent
+ * to them has been sent the long way round. Before `secondary` the dataset had
+ * only two options, both wrong: record them and mislead, or omit them and lie
+ * by omission.
+ */
+describe("a way that works but is not the best one", () => {
+  const nearStairs: PlatformFeature = {
+    ...base, type: "stairs", doorIndex: 10, leadsTo: ["A", "E"],
+  };
+  const farStairs: PlatformFeature = {
+    ...base, type: "stairs", doorIndex: 6, leadsTo: ["A", "E"], secondary: true,
+  };
+
+  it("sends people to the better one when both reach the exit", () => {
+    // Listed first, so this fails if the rule is really just "take the first".
+    expect(chooseFeature([farStairs, nearStairs], "stairs", "A")).toBe(nearStairs);
+  });
+
+  it("still offers the long way round when it is the only way", () => {
+    expect(chooseFeature([farStairs], "stairs", "A")).toBe(farStairs);
+  });
+
+  it("does not demote it past a different kind of device", () => {
+    // The preference is usually a need, not a taste: someone who asked for a
+    // lift is not helped by being given good stairs instead.
+    const lift: PlatformFeature = {
+      ...base, type: "lift", doorIndex: 18, leadsTo: ["A"], secondary: true,
+    };
+    const escalator: PlatformFeature = {
+      ...base, type: "escalator", doorIndex: 4, leadsTo: ["A"], travel: "up",
+    };
+    expect(chooseFeature([escalator, lift], "lift", "A")).toBe(lift);
+  });
+
+  it("ignores it for an exit it does not reach", () => {
+    expect(chooseFeature([farStairs, nearStairs], "stairs", "C")).toBeNull();
+  });
+
+  it("prefers the better one when no target is given at all", () => {
+    expect(chooseFeature([farStairs, nearStairs], "stairs")).toBe(nearStairs);
+  });
+})
+
+/**
+ * One lift, two answers.
+ *
+ * A lift on an island platform has a facing. At Paya Lebar its door opens
+ * toward the Eunos-bound side, so someone alighting there steps almost into
+ * it while someone on the other face walks around the shaft and is better off
+ * a few doors along. Matching on type and door alone made that read as two
+ * lifts on a platform that has one.
+ */
+describe("the same physical thing, seen from both platforms", () => {
+  const fromEunosSide: PlatformFeature = {
+    ...base, type: "lift", id: "EW8-lift-1", doorIndex: 24, leadsTo: ["A"],
+  };
+  const fromAljuniedSide: PlatformFeature = {
+    ...base, type: "lift", id: "EW8-lift-1", doorIndex: 17, leadsTo: ["A"],
+  };
+
+  it("knows a staggered lift is one lift", () => {
+    expect(sameFeature(fromEunosSide, fromAljuniedSide)).toBe(true);
+  });
+
+  it("still tells two genuinely different lifts apart", () => {
+    expect(sameFeature(fromEunosSide, { ...fromAljuniedSide, id: "EW8-lift-2" })).toBe(false);
+  });
+
+  it("falls back to type and door when nothing carries an id", () => {
+    const a: PlatformFeature = { ...base, type: "stairs", doorIndex: 6, leadsTo: [] };
+    expect(sameFeature(a, { ...a })).toBe(true);
+    expect(sameFeature(a, { ...a, doorIndex: 7 })).toBe(false);
+  });
+
+  it("never merges an identified thing with an unidentified one", () => {
+    // Silently absorbing an untagged record into an identified one would lose
+    // a real feature, which is worse than carrying one too many.
+    const untagged: PlatformFeature = { ...base, type: "lift", doorIndex: 24, leadsTo: ["A"] };
+    expect(sameFeature(fromEunosSide, untagged)).toBe(false);
+  });
+})
