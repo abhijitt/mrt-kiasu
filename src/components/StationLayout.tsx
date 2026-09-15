@@ -8,11 +8,19 @@ import { FEATURE_GLYPH } from "./PlatformDiagram";
 /**
  * Pixel-art plan of a station's platforms, with what stands on them.
  *
- * Drawn from the low-code end of the line to the high-code end, with the
- * neighbouring stations naming both ends. That is the one orientation that is
- * true whichever way the reader is travelling — the platform diagram already
- * answers the direction-relative question, and giving this one a direction too
- * would make the two pictures contradict each other for half of all readers.
+ * Drawn from the low-code end of the line to the high-code end. That is the one
+ * orientation true whichever way the reader is travelling — the platform
+ * diagram already answers the direction-relative question, and giving this one
+ * a direction too would make the two pictures contradict each other for half of
+ * all readers.
+ *
+ * Every arrow on the plan points the way the thing it labels actually lies.
+ * There used to be two arrow systems: the ends of the plan said "← Dakota"
+ * because Dakota is off to the left, while each platform said "→ Dakota"
+ * meaning trains here run to Dakota. Both were true and they pointed opposite
+ * ways at the same station name in the same picture. Now a destination is
+ * written at the end of the platform it lies towards, with the arrow pointing
+ * at that end, and the separate end labels are gone: the platforms say it.
  *
  * Only surveyed features are drawn. An estimate is a guess about where an exit
  * surfaces; putting guesses on a floor plan would make the plan look checked.
@@ -37,7 +45,6 @@ export interface LayoutBlockView {
   layout: "island" | "split-island" | "side" | "stacked" | null;
   totalDoors: number | null;
   platforms: LayoutPlatformView[];
-  ends: { low: string | null; high: string | null };
 }
 
 /** Drawing geometry, in viewBox units. */
@@ -95,10 +102,12 @@ function rowsFor(block: LayoutBlockView, centreTrackLabel: string): Row[] {
 }
 
 function heightOf(rows: Row[]): number {
-  return rows.reduce(
+  // Typed, because G.gap alone is a literal type and reduce would infer the
+  // accumulator from the array instead of from it.
+  return rows.reduce<number>(
     (h, r) =>
       h + (r.kind === "track" ? G.trackH + (r.label ? 10 : 0) : G.captionH + G.platformH) + G.gap,
-    G.gap + 16,
+    G.gap,
   );
 }
 
@@ -113,7 +122,7 @@ export function StationLayout({ block }: { block: LayoutBlockView }) {
   const xFor = (doorIndex: number) =>
     G.padX + (total ? ((doorIndex - 0.5) / total) * inner : inner / 2);
 
-  let y = G.gap + 16;
+  let y = G.gap;
   const drawn: React.ReactNode[] = [];
 
   rows.forEach((row, i) => {
@@ -164,15 +173,27 @@ export function StationLayout({ block }: { block: LayoutBlockView }) {
     // with more than a couple of things on the platform.
     drawn.push(
       <g key={`p${i}`}>
-        <text
-          x={G.padX}
-          y={y + 7}
-          fontSize={7}
-          fill="var(--fg-faint)"
-          fontFamily="var(--font-pixel)"
-        >
-          {p.towards.map((name) => `\u2192 ${name}`).join("   ")}
-        </text>
+        {p.directions.map((direction, di) => {
+          // "asc" runs towards the high-code end, which is the right of the
+          // plan — the same assumption toCarPosition makes when it decides
+          // which end of the train the nose is at.
+          const rightwards = direction === "asc";
+          return (
+            <text
+              key={direction}
+              x={rightwards ? G.padX + inner : G.padX}
+              y={y + 7}
+              textAnchor={rightwards ? "end" : "start"}
+              fontSize={7}
+              fill="var(--fg-faint)"
+              fontFamily="var(--font-pixel)"
+            >
+              {rightwards
+                ? `${p.towards[di]} \u2192`
+                : `\u2190 ${p.towards[di]}`}
+            </text>
+          );
+        })}
         <rect
           x={G.padX}
           y={y + G.captionH}
@@ -207,18 +228,6 @@ export function StationLayout({ block }: { block: LayoutBlockView }) {
             </text>
           );
         })}
-        {p.features.length === 0 && (
-          <text
-            x={G.width / 2}
-            y={y + G.captionH + G.platformH / 2 + 3}
-            textAnchor="middle"
-            fontSize={8}
-            fill="var(--fg-faint)"
-            fontFamily="var(--font-pixel)"
-          >
-            {t("layout.notSurveyed")}
-          </text>
-        )}
       </g>,
     );
     y += G.captionH + G.platformH + G.gap;
@@ -236,20 +245,6 @@ export function StationLayout({ block }: { block: LayoutBlockView }) {
         layout: t(`layout.${block.layout ?? "unknown"}` as MessageKey),
       })}
     >
-      {/* The ends carry the orientation, so the plan needs no direction. */}
-      <text x={2} y={11} fontSize={7} fill="var(--fg-faint)" fontFamily="var(--font-pixel)">
-        {block.ends.low ? `← ${block.ends.low}` : ""}
-      </text>
-      <text
-        x={G.width - 2}
-        y={11}
-        textAnchor="end"
-        fontSize={7}
-        fill="var(--fg-faint)"
-        fontFamily="var(--font-pixel)"
-      >
-        {block.ends.high ? `${block.ends.high} →` : ""}
-      </text>
       {drawn}
     </svg>
   );

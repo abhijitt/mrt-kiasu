@@ -227,12 +227,30 @@ export function StationScreen(p: Props) {
                     Grouped by platform, because at a split island the two
                     platforms have their own escalators and a flat list made
                     one station's two look like one platform's duplicates. */}
-                {block.platforms.map((pf, pi) =>
-                  pf.features.length === 0 ? null : (
+                {block.platforms.map((pf, pi) => (
                     <div key={`list-${pi}`} className="mt-2">
                       {block.platforms.length > 1 && (
                         <p className="font-pixel text-[9px] uppercase text-fg-faint">
-                          {pf.towards.map((name) => `→ ${name}`).join("   ")}
+                          {/* Same arrow rule as the plan above: the arrow
+                              points at the end of the platform that
+                              destination lies towards. Pointing every caption
+                              right made the list contradict the picture it
+                              sits under. */}
+                          {pf.directions
+                            .map((d, di) =>
+                              d === "asc"
+                                ? `${pf.towards[di]} →`
+                                : `← ${pf.towards[di]}`,
+                            )
+                            .join("   ")}
+                        </p>
+                      )}
+                      {/* Said in HTML rather than inside the SVG, where it
+                          could not wrap and overflowed the platform in any
+                          language wordier than English. */}
+                      {pf.features.length === 0 && (
+                        <p className="mt-1 text-xs text-fg-faint">
+                          {t("layout.notSurveyed")}
                         </p>
                       )}
                       <ul className="mt-1 flex flex-col gap-1">
@@ -258,8 +276,7 @@ export function StationScreen(p: Props) {
                         ))}
                       </ul>
                     </div>
-                  ),
-                )}
+                ))}
               </div>
             ))}
           </div>

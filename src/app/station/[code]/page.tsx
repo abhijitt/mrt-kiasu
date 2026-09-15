@@ -99,7 +99,6 @@ export default async function StationPage({
           layout: b.layout,
           totalDoors: b.totalDoors,
           platforms: b.platforms,
-          ends: b.ends,
         }))}
     />
   );
