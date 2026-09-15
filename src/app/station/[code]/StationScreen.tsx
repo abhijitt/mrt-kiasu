@@ -13,6 +13,10 @@ import { useLineName } from "@/i18n/useLineName";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { groupByExit, type Landmark } from "@/lib/landmark-types";
 import { ExitLandmarks } from "@/components/ExitLandmarks";
+import { StationLayout, type LayoutBlockView } from "@/components/StationLayout";
+import { SurveyProgress } from "@/components/SurveyProgress";
+import { FEATURE_GLYPH } from "@/components/PlatformDiagram";
+import { DEVICE_TYPES } from "@/lib/feature-types";
 import type { LocalisedTrivia } from "@/lib/trivia";
 import type { Locale } from "@/i18n/config";
 import { type LineCode } from "@/lib/lines";
@@ -47,6 +51,18 @@ interface Props {
   platforms: { direction: "asc" | "desc"; nextStop: string }[];
   /** Whether any estimated position exists for this station. */
   hasEstimates: boolean;
+  /** The plan of every line's platforms here. */
+  layoutBlocks: LayoutBlockView[];
+  /** How completely each platform here has been surveyed. */
+  coverage: {
+    direction: "asc" | "desc";
+    exitsCovered: number;
+    exitsTotal: number;
+    transfersCovered: number;
+    transfersTotal: number;
+    started: boolean;
+    complete: boolean;
+  }[];
 }
 
 export function StationScreen(p: Props) {
@@ -169,6 +185,106 @@ export function StationScreen(p: Props) {
           <a className="mt-2 inline-block text-xs text-fg-faint underline" href={trivia.url}>
             {t("common.source")}
           </a>
+        </section>
+      )}
+
+      {p.layoutBlocks.length > 0 && (
+        <section className="pixel-box p-4">
+          <h2 className="font-pixel text-xs uppercase text-fg-muted">
+            {t("station.layoutHeading")}
+          </h2>
+          <div className="mt-3 flex flex-col gap-5">
+            {p.layoutBlocks.map((block) => (
+              <div key={block.code}>
+                <p className="font-pixel text-[10px] uppercase" style={{ color: `var(${block.colorVar})` }}>
+                  {block.code} · {lineName(block.line)}
+                  <span className="ml-2 text-fg-faint">
+                    {t(`layout.${block.layout ?? "unknown"}` as MessageKey)}
+                  </span>
+                </p>
+                <div className="mt-2 border-3 border-[var(--border)] bg-bg-sunken p-2">
+                  <StationLayout block={block} />
+                </div>
+                {/* Where each thing leads, in a list rather than on the plan.
+                    Printed against the glyphs it crowded them off the platform
+                    the moment a station had more than a couple of exits.
+                    Grouped by platform, because at a split island the two
+                    platforms have their own escalators and a flat list made
+                    one station's two look like one platform's duplicates. */}
+                {block.platforms.map((pf, pi) =>
+                  pf.features.length === 0 ? null : (
+                    <div key={`list-${pi}`} className="mt-2">
+                      {block.platforms.length > 1 && (
+                        <p className="font-pixel text-[9px] uppercase text-fg-faint">
+                          {pf.towards.map((name) => `→ ${name}`).join("   ")}
+                        </p>
+                      )}
+                      <ul className="mt-1 flex flex-col gap-1">
+                        {pf.features.map((lf, i) => (
+                          <li
+                            key={`${lf.feature.type}-${lf.doors.join("-")}-${i}`}
+                            className="flex gap-2 text-xs text-fg-muted"
+                          >
+                            <span className="text-fg">{FEATURE_GLYPH[lf.feature.type]}</span>
+                            <span>
+                              {t(`mode.${lf.feature.type}` as MessageKey)}
+                              {" · "}
+                              {/* Two doors means one thing reached from either
+                                  side of an island platform, not two things. */}
+                              {lf.doors.length > 1
+                                ? t("layout.doorEither", { doors: lf.doors.join(" / ") })
+                                : t("layout.door", { door: lf.doors[0] })}
+                              {lf.feature.leadsTo.length > 0 &&
+                                ` → ${lf.feature.leadsTo.join(", ")}`}
+                              {lf.feature.secondary && ` · ${t("layout.secondary")}`}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ),
+                )}
+              </div>
+            ))}
+          </div>
+          {/* The glyphs mean nothing on their own, and a plan whose symbols
+              have to be guessed at is a puzzle rather than a map. */}
+          <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-fg-muted">
+            {DEVICE_TYPES.map((type) => (
+              <span key={type}>
+                <span className="mr-1 text-fg">{FEATURE_GLYPH[type]}</span>
+                {t(`mode.${type}` as MessageKey)}
+              </span>
+            ))}
+          </p>
+          {/* The completion figure belongs here, next to the plan it measures
+              and one section above the button that fixes it. On the settings
+              page it is a statistic; here it is a prompt. */}
+          {p.coverage.length > 0 && (
+            <div className="mt-4 border-t-2 border-[var(--border)] pt-3">
+              {p.coverage.map((c) => {
+                const done = c.exitsCovered + c.transfersCovered;
+                const total = c.exitsTotal + c.transfersTotal;
+                const towards = p.platforms.find(
+                  (pl) => pl.direction === c.direction,
+                )?.nextStop;
+                return (
+                  <div key={c.direction} className="mt-2">
+                    <SurveyProgress
+                      label={t("station.coverageTowards", { station: towards ?? c.direction })}
+                      done={c.complete ? total : done}
+                      total={total}
+                      tone={c.complete ? "accent" : "candidate"}
+                    />
+                  </div>
+                );
+              })}
+              <p className="mt-2 text-xs text-fg-faint">
+                {t("station.coverageMeaning")}
+              </p>
+            </div>
+          )}
+          <p className="mt-3 text-xs text-fg-faint">{t("station.layoutNote")}</p>
         </section>
       )}
 

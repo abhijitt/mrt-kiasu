@@ -17,6 +17,7 @@ import { useKiasuScore } from "@/lib/useKiasuScore";
 import { minutes } from "@/lib/kiasu-score";
 import type { FeatureType } from "@/lib/feature-types";
 import { useI18n } from "@/i18n/I18nProvider";
+import { SurveyProgress } from "@/components/SurveyProgress";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { FARE_TYPES } from "@/lib/fare-types";
 import { LOCALE_NAMES } from "@/i18n/config";
@@ -35,6 +36,12 @@ const THEME_KEY: Record<ThemeChoice, MessageKey> = {
 
 interface Props {
   /** Computed on the server so the client never imports the datasets. */
+  coverage: {
+    platforms: { total: number; started: number; complete: number };
+    stations: { total: number; started: number; complete: number };
+    completeStations: string[];
+    notSurveyable: number;
+  };
   stats: {
     verifiedPlatforms: number;
     verifiedFeatures: number;
@@ -43,7 +50,7 @@ interface Props {
   };
 }
 
-export function SettingsScreen({ stats }: Props) {
+export function SettingsScreen({ stats, coverage }: Props) {
   const { settings, update, loaded } = useSettings();
   const { score, reset: resetScore } = useKiasuScore();
   const [justUnlocked, setJustUnlocked] = useState(false);
@@ -302,9 +309,43 @@ export function SettingsScreen({ stats }: Props) {
             estimated: stats.estimatedFeatures,
           })}
         </p>
+        {/* Two meters, not one. "Started" counts platforms where anything at
+            all is recorded; "complete" counts the ones where every exit and
+            every transfer can actually be reached. Reporting only the first
+            would let the number climb while the app still had nothing to say
+            to someone heading for a particular exit. */}
+        <div className="mt-4 flex flex-col gap-3">
+          <SurveyProgress
+            label={t("settings.platformsComplete")}
+            done={coverage.platforms.complete}
+            total={coverage.platforms.total}
+          />
+          <SurveyProgress
+            label={t("settings.platformsStarted")}
+            done={coverage.platforms.started}
+            total={coverage.platforms.total}
+            tone="candidate"
+          />
+        </div>
+        <p className="mt-3 text-sm leading-relaxed text-fg">
+          {coverage.stations.complete > 0
+            ? t("settings.coverageStations", {
+                count: coverage.stations.complete,
+                stations: coverage.completeStations.join(", "),
+              })
+            : t("settings.coverageNoStations")}
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-fg-muted">
+          {t("settings.coverageComplete")}
+        </p>
         <p className="mt-2 text-sm leading-relaxed text-fg-muted">
           {t("settings.coverageNote")}
         </p>
+        {coverage.notSurveyable > 0 && (
+          <p className="mt-2 text-xs leading-relaxed text-fg-faint">
+            {t("settings.coverageExcluded", { count: coverage.notSurveyable })}
+          </p>
+        )}
       </section>
 
       <Link

@@ -5,6 +5,8 @@ import { RETIRED_CODES, STATIONS, getStation } from "@/lib/stations";
 import { getFeatures, hasVerifiedData } from "@/lib/positions";
 import { landmarksForCodes } from "@/lib/landmarks";
 import { platformDirections } from "@/lib/network";
+import { stationLayout } from "@/lib/station-layout";
+import { stationCoverage } from "@/lib/survey-coverage";
 import { timesForCodes } from "@/lib/train-times";
 import { anniversaryYears, derivedFacts, getTriviaAllLocales } from "@/lib/trivia";
 import { StationScreen } from "./StationScreen";
@@ -85,6 +87,18 @@ export default async function StationPage({
         nextStop: p.nextStop.name,
       }))}
       hasEstimates={getFeatures(station.code, "desc").length > 0}
+      // Every line at this station, not just this code's: a commuter standing
+      // at Paya Lebar is at one station, whichever page they opened.
+      coverage={stationCoverage(station.code)}
+      layoutBlocks={stationLayout(station.code).map((b) => ({
+        code: b.code,
+        line: b.line,
+        colorVar: b.colorVar,
+        layout: b.layout,
+        totalDoors: b.totalDoors,
+        platforms: b.platforms,
+        ends: b.ends,
+      }))}
     />
   );
 }
