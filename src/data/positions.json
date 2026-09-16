@@ -12,7 +12,7 @@
     "layouts": "Keyed by station code without direction, since a layout describes the station. Requires source and confidence exactly as everything else does."
   },
   "_status": {
-    "surveyed": 22,
+    "surveyed": 32,
     "note": "No platform has been surveyed yet, for door positions or for which side the doors open. No public dataset provides either (verified against LTA DataMall, data.gov.sg, SMRT and SBS Transit), so every entry must come from a field survey or an OSM-derived candidate that a person has then checked. The app shows 'not yet mapped' until an entry exists — it does not estimate.",
     "lastUpdated": "2026-09-16",
     "orientationSurveyed": 4,
@@ -329,6 +329,276 @@
         "confidence": "verified",
         "sourceNote": "Field survey at Paya Lebar",
         "verifiedAt": "2026-09-15"
+      }
+    ],
+    "CC6:desc": [
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A"
+        ],
+        "doorIndex": 3,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stadium",
+        "verifiedAt": "2026-09-16"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 7,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stadium",
+        "verifiedAt": "2026-09-16"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 7,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stadium",
+        "verifiedAt": "2026-09-16"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "B"
+        ],
+        "doorIndex": 10,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stadium",
+        "verifiedAt": "2026-09-16"
+      }
+    ],
+    "CC6:asc": [
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A"
+        ],
+        "doorIndex": 3,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stadium — not surveyed from this platform; inferred from the desc survey because CC6 is an island platform",
+        "verifiedAt": "2026-09-16",
+        "impliedFrom": "desc"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 7,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stadium — not surveyed from this platform; inferred from the desc survey because CC6 is an island platform",
+        "verifiedAt": "2026-09-16",
+        "impliedFrom": "desc"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 7,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stadium — not surveyed from this platform; inferred from the desc survey because CC6 is an island platform",
+        "verifiedAt": "2026-09-16",
+        "impliedFrom": "desc"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "B"
+        ],
+        "doorIndex": 10,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stadium — not surveyed from this platform; inferred from the desc survey because CC6 is an island platform",
+        "verifiedAt": "2026-09-16",
+        "impliedFrom": "desc"
+      }
+    ],
+    "CC2:desc": [
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 2,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bras Basah",
+        "verifiedAt": "2026-09-16"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 2,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bras Basah",
+        "verifiedAt": "2026-09-16"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 6,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bras Basah",
+        "verifiedAt": "2026-09-16"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "C",
+          "D",
+          "E"
+        ],
+        "doorIndex": 7,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bras Basah",
+        "verifiedAt": "2026-09-16"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "C",
+          "D",
+          "E"
+        ],
+        "doorIndex": 11,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bras Basah",
+        "verifiedAt": "2026-09-16"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "C",
+          "D",
+          "E"
+        ],
+        "doorIndex": 11,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bras Basah",
+        "verifiedAt": "2026-09-16"
+      }
+    ],
+    "CC2:asc": [
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 2,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
+        "verifiedAt": "2026-09-16",
+        "impliedFrom": "desc"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 2,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
+        "verifiedAt": "2026-09-16",
+        "impliedFrom": "desc"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 6,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
+        "verifiedAt": "2026-09-16",
+        "impliedFrom": "desc"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "C",
+          "D",
+          "E"
+        ],
+        "doorIndex": 7,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
+        "verifiedAt": "2026-09-16",
+        "impliedFrom": "desc"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "C",
+          "D",
+          "E"
+        ],
+        "doorIndex": 11,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
+        "verifiedAt": "2026-09-16",
+        "impliedFrom": "desc"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "C",
+          "D",
+          "E"
+        ],
+        "doorIndex": 11,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
+        "verifiedAt": "2026-09-16",
+        "impliedFrom": "desc"
       }
     ]
   },
