@@ -490,7 +490,10 @@
         "source": "survey",
         "leadsTo": [
           "A",
-          "B"
+          "B",
+          "C",
+          "D",
+          "E"
         ],
         "doorIndex": 6,
         "confidence": "verified",
@@ -501,6 +504,8 @@
         "type": "lift",
         "source": "survey",
         "leadsTo": [
+          "A",
+          "B",
           "C",
           "D",
           "E"
@@ -599,7 +604,10 @@
         "source": "survey",
         "leadsTo": [
           "A",
-          "B"
+          "B",
+          "C",
+          "D",
+          "E"
         ],
         "doorIndex": 6,
         "confidence": "verified",
@@ -611,6 +619,8 @@
         "type": "lift",
         "source": "survey",
         "leadsTo": [
+          "A",
+          "B",
           "C",
           "D",
           "E"
