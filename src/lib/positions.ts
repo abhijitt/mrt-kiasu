@@ -169,13 +169,18 @@ export function validateFeature(
   if (!Array.isArray(feature.leadsTo)) {
     errors.push("leadsTo must be an array (use [] if it leads nowhere specific)");
   }
-  if (feature.secondary !== undefined && typeof feature.secondary !== "boolean") {
-    errors.push("secondary must be true or false");
-  }
-  // "There is a better one" is meaningless when nothing says where this goes:
-  // it would demote the feature against nothing and hide it for no reason.
-  if (feature.secondary && (feature.leadsTo ?? []).length === 0) {
-    errors.push("secondary needs leadsTo — say what it reaches before saying it reaches it badly");
+  const demoted = feature.secondaryFor;
+  if (demoted !== undefined && !Array.isArray(demoted)) {
+    errors.push("secondaryFor must be an array of targets");
+  } else if (demoted) {
+    // Demoting a target this does not even reach would be a claim about
+    // somewhere else, and would quietly do nothing.
+    const reaches = (feature.leadsTo ?? []).map((t) => String(t).toUpperCase());
+    for (const t of demoted) {
+      if (!reaches.includes(String(t).toUpperCase())) {
+        errors.push(`secondaryFor "${t}" is not in leadsTo — it cannot be a worse way somewhere it does not go`);
+      }
+    }
   }
 
   return errors;

@@ -270,7 +270,10 @@ export function StationScreen(p: Props) {
                                 : t("layout.door", { door: lf.doors[0] })}
                               {lf.feature.leadsTo.length > 0 &&
                                 ` → ${lf.feature.leadsTo.join(", ")}`}
-                              {lf.feature.secondary && ` · ${t("layout.secondary")}`}
+                              {(lf.feature.secondaryFor ?? []).length > 0 &&
+                                ` · ${t("layout.secondaryFor", {
+                                  targets: lf.feature.secondaryFor!.join(", "),
+                                })}`}
                             </span>
                           </li>
                         ))}

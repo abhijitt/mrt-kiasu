@@ -162,10 +162,13 @@
           "E"
         ],
         "doorIndex": 6,
-        "secondary": true,
         "confidence": "verified",
         "sourceNote": "Field survey at Paya Lebar",
-        "verifiedAt": "2026-09-15"
+        "verifiedAt": "2026-09-15",
+        "secondaryFor": [
+          "A",
+          "E"
+        ]
       },
       {
         "type": "escalator",
@@ -251,10 +254,13 @@
           "E"
         ],
         "doorIndex": 6,
-        "secondary": true,
         "confidence": "verified",
         "sourceNote": "Field survey at Paya Lebar",
-        "verifiedAt": "2026-09-15"
+        "verifiedAt": "2026-09-15",
+        "secondaryFor": [
+          "A",
+          "E"
+        ]
       },
       {
         "type": "escalator",
@@ -444,24 +450,40 @@
         "travel": "up",
         "leadsTo": [
           "A",
-          "B"
+          "B",
+          "C",
+          "D",
+          "E"
         ],
         "doorIndex": 2,
         "confidence": "verified",
         "sourceNote": "Field survey at Bras Basah",
-        "verifiedAt": "2026-09-16"
+        "verifiedAt": "2026-09-16",
+        "secondaryFor": [
+          "C",
+          "D",
+          "E"
+        ]
       },
       {
         "type": "stairs",
         "source": "survey",
         "leadsTo": [
           "A",
-          "B"
+          "B",
+          "C",
+          "D",
+          "E"
         ],
         "doorIndex": 2,
         "confidence": "verified",
         "sourceNote": "Field survey at Bras Basah",
-        "verifiedAt": "2026-09-16"
+        "verifiedAt": "2026-09-16",
+        "secondaryFor": [
+          "C",
+          "D",
+          "E"
+        ]
       },
       {
         "type": "lift",
@@ -495,12 +517,18 @@
         "leadsTo": [
           "C",
           "D",
-          "E"
+          "E",
+          "A",
+          "B"
         ],
         "doorIndex": 11,
         "confidence": "verified",
         "sourceNote": "Field survey at Bras Basah",
-        "verifiedAt": "2026-09-16"
+        "verifiedAt": "2026-09-16",
+        "secondaryFor": [
+          "A",
+          "B"
+        ]
       },
       {
         "type": "stairs",
@@ -508,12 +536,18 @@
         "leadsTo": [
           "C",
           "D",
-          "E"
+          "E",
+          "A",
+          "B"
         ],
         "doorIndex": 11,
         "confidence": "verified",
         "sourceNote": "Field survey at Bras Basah",
-        "verifiedAt": "2026-09-16"
+        "verifiedAt": "2026-09-16",
+        "secondaryFor": [
+          "A",
+          "B"
+        ]
       }
     ],
     "CC2:asc": [
@@ -523,26 +557,42 @@
         "travel": "up",
         "leadsTo": [
           "A",
-          "B"
+          "B",
+          "C",
+          "D",
+          "E"
         ],
         "doorIndex": 2,
         "confidence": "verified",
         "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
         "verifiedAt": "2026-09-16",
-        "impliedFrom": "desc"
+        "impliedFrom": "desc",
+        "secondaryFor": [
+          "C",
+          "D",
+          "E"
+        ]
       },
       {
         "type": "stairs",
         "source": "survey",
         "leadsTo": [
           "A",
-          "B"
+          "B",
+          "C",
+          "D",
+          "E"
         ],
         "doorIndex": 2,
         "confidence": "verified",
         "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
         "verifiedAt": "2026-09-16",
-        "impliedFrom": "desc"
+        "impliedFrom": "desc",
+        "secondaryFor": [
+          "C",
+          "D",
+          "E"
+        ]
       },
       {
         "type": "lift",
@@ -578,13 +628,19 @@
         "leadsTo": [
           "C",
           "D",
-          "E"
+          "E",
+          "A",
+          "B"
         ],
         "doorIndex": 11,
         "confidence": "verified",
         "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
         "verifiedAt": "2026-09-16",
-        "impliedFrom": "desc"
+        "impliedFrom": "desc",
+        "secondaryFor": [
+          "A",
+          "B"
+        ]
       },
       {
         "type": "stairs",
@@ -592,13 +648,19 @@
         "leadsTo": [
           "C",
           "D",
-          "E"
+          "E",
+          "A",
+          "B"
         ],
         "doorIndex": 11,
         "confidence": "verified",
         "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
         "verifiedAt": "2026-09-16",
-        "impliedFrom": "desc"
+        "impliedFrom": "desc",
+        "secondaryFor": [
+          "A",
+          "B"
+        ]
       }
     ]
   },

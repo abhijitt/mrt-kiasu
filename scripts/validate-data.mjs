@@ -193,11 +193,15 @@ async function main() {
       if (f.impliedFrom !== undefined && !["asc", "desc"].includes(f.impliedFrom)) {
         errors.push(`${at}: impliedFrom must be "asc" or "desc"`);
       }
-      if (f.secondary !== undefined && typeof f.secondary !== "boolean") {
-        errors.push(`${at}: secondary must be true or false`);
-      }
-      if (f.secondary && (f.leadsTo ?? []).length === 0) {
-        errors.push(`${at}: secondary needs leadsTo to be demoted against`);
+      if (f.secondaryFor !== undefined && !Array.isArray(f.secondaryFor)) {
+        errors.push(`${at}: secondaryFor must be an array of targets`);
+      } else if (f.secondaryFor) {
+        const reaches = (f.leadsTo ?? []).map((t) => String(t).toUpperCase());
+        for (const t of f.secondaryFor) {
+          if (!reaches.includes(String(t).toUpperCase())) {
+            errors.push(`${at}: secondaryFor "${t}" is not in leadsTo`);
+          }
+        }
       }
       const VALID_TRAVEL = ["up", "down", "reversible"];
       if (f.travel !== undefined && !VALID_TRAVEL.includes(f.travel)) {

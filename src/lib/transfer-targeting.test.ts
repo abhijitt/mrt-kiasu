@@ -96,7 +96,7 @@ describe("a way that works but is not the best one", () => {
     ...base, type: "stairs", doorIndex: 10, leadsTo: ["A", "E"],
   };
   const farStairs: PlatformFeature = {
-    ...base, type: "stairs", doorIndex: 6, leadsTo: ["A", "E"], secondary: true,
+    ...base, type: "stairs", doorIndex: 6, leadsTo: ["A", "E"], secondaryFor: ["A", "E"],
   };
 
   it("sends people to the better one when both reach the exit", () => {
@@ -112,7 +112,7 @@ describe("a way that works but is not the best one", () => {
     // The preference is usually a need, not a taste: someone who asked for a
     // lift is not helped by being given good stairs instead.
     const lift: PlatformFeature = {
-      ...base, type: "lift", doorIndex: 18, leadsTo: ["A"], secondary: true,
+      ...base, type: "lift", doorIndex: 18, leadsTo: ["A"], secondaryFor: ["A"],
     };
     const escalator: PlatformFeature = {
       ...base, type: "escalator", doorIndex: 4, leadsTo: ["A"], travel: "up",
@@ -126,6 +126,39 @@ describe("a way that works but is not the best one", () => {
 
   it("prefers the better one when no target is given at all", () => {
     expect(chooseFeature([farStairs, nearStairs], "stairs")).toBe(nearStairs);
+  });
+
+  /**
+   * Bras Basah: one escalator at each end of the platform. Each is the obvious
+   * choice for the exits at its own end and a trek to the ones at the other.
+   * A flag on the feature could only have said both were bad, or neither.
+   */
+  describe("best to one place and the long way to another", () => {
+    const northEnd: PlatformFeature = {
+      ...base, type: "escalator", doorIndex: 2, travel: "up",
+      leadsTo: ["A", "B", "C"], secondaryFor: ["C"],
+    };
+    const southEnd: PlatformFeature = {
+      ...base, type: "escalator", doorIndex: 11, travel: "up",
+      leadsTo: ["A", "B", "C"], secondaryFor: ["A", "B"],
+    };
+    const platform = [northEnd, southEnd];
+
+    it("sends each exit to the end it belongs to", () => {
+      expect(chooseFeature(platform, "escalator", "A")).toBe(northEnd);
+      expect(chooseFeature(platform, "escalator", "B")).toBe(northEnd);
+      expect(chooseFeature(platform, "escalator", "C")).toBe(southEnd);
+    });
+
+    it("does not demote a feature that is best somewhere", () => {
+      // With no target the question is whether it is ever the best way to
+      // anywhere. Both are, so the first listed stands.
+      expect(chooseFeature(platform, "escalator")).toBe(northEnd);
+    });
+
+    it("still offers the long way when it is the only way", () => {
+      expect(chooseFeature([southEnd], "escalator", "A")).toBe(southEnd);
+    });
   });
 })
 

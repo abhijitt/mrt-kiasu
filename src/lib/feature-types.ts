@@ -85,20 +85,23 @@ export interface PlatformFeature {
   /** Escalators only: which way it runs. */
   travel?: Travel;
   /**
-   * True when this reaches its targets but something else on the same
-   * platform reaches them better.
+   * The targets in `leadsTo` this reaches, but not as well as something else
+   * on the same platform does.
    *
-   * A platform is not a set of equally good choices. The stairs at the far end
-   * of Paya Lebar genuinely lead to Exits A and E — a surveyor who left them
-   * off would be hiding a real way out — but anyone sent to them has been sent
-   * the long way round. Without this the dataset had only two options, both
-   * wrong: record them and mislead, or omit them and lie by omission.
+   * Per target, not per feature, because "worse" is rarely a property of the
+   * thing itself. At Bras Basah the escalator at one end of the platform is
+   * the best way to Exits A and B and a longer way round to C, D and E; the
+   * escalator at the other end is exactly the reverse. A flag on the feature
+   * could only have said both were bad, or that neither was.
    *
-   * Relative to the other features on THIS platform, not an absolute judgement,
-   * and never a reason to hide anything: a secondary feature is still shown
-   * when it is the only one that fits.
+   * Listing every target it reaches says the feature is never the best way to
+   * anywhere — the far stairs at Paya Lebar, which do lead to Exits A and E
+   * but send you the length of the platform to get there.
+   *
+   * Never a reason to hide anything: a demoted feature is still offered when
+   * it is the only one that fits.
    */
-  secondary?: boolean;
+  secondaryFor?: string[];
   /**
    * Set when nobody surveyed this platform: the record was inferred from the
    * other direction because the station is an island platform, where one
@@ -135,6 +138,23 @@ export function sameFeature(a: PlatformFeature, b: PlatformFeature): boolean {
   return a.type === b.type && a.doorIndex === b.doorIndex;
 }
 
+/**
+ * Whether this is the long way round to where the reader is heading.
+ *
+ * With no target in mind the question is whether the feature is ever the best
+ * way to anywhere: one that is second-best to some places and first to others
+ * must not be demoted wholesale, or the Bras Basah escalator that is the
+ * obvious choice for Exit A would lose to nothing in particular.
+ */
+export function isLongWayTo(f: PlatformFeature, target?: string | null): boolean {
+  const demoted = f.secondaryFor ?? [];
+  if (demoted.length === 0) return false;
+  if (target) return demoted.some((t) => t.toUpperCase() === target.toUpperCase());
+  return f.leadsTo.every((t) =>
+    demoted.some((d) => d.toUpperCase() === t.toUpperCase()),
+  );
+}
+
 /** Case-insensitive: `target` is an exit code or a line code, indifferently. */
 export function leadsToTarget(f: PlatformFeature, target: string): boolean {
   return f.leadsTo.some((t) => t.toUpperCase() === target.toUpperCase());
@@ -152,10 +172,10 @@ export function leadsToTarget(f: PlatformFeature, target: string): boolean {
  * which happened from the returned feature's `type` and `confidence`, and the
  * UI says so rather than implying the preference was applied.
  *
- * Within each of those tiers a feature the surveyor marked `secondary` loses
- * to one they did not. It loses within its tier and no further: someone who
- * asked for a lift and can only reach a roundabout one still gets the lift,
- * because the preference is usually a need.
+ * Within each of those tiers a feature the surveyor marked as the long way
+ * round TO THIS TARGET loses to one they did not. It loses within its tier and
+ * no further: someone who asked for a lift and can only reach a roundabout one
+ * still gets the lift, because the preference is usually a need.
  */
 export function chooseFeature(
   features: PlatformFeature[],
@@ -165,7 +185,7 @@ export function chooseFeature(
   const matches = (f: PlatformFeature) => !target || leadsToTarget(f, target);
   const usable = (f: PlatformFeature) => matches(f) && servesAlighting(f);
   const best = (fits: (f: PlatformFeature) => boolean) =>
-    features.find((f) => fits(f) && !f.secondary) ?? features.find(fits);
+    features.find((f) => fits(f) && !isLongWayTo(f, target)) ?? features.find(fits);
 
   return (
     best((f) => f.type === preference && usable(f)) ??

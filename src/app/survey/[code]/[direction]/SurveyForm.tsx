@@ -57,10 +57,13 @@ function Step({
 
 function Choice({
   active,
+  demoted = false,
   onClick,
   children,
 }: {
   active: boolean;
+  /** Reached, but the long way round. Drawn as an outline, not a fill. */
+  demoted?: boolean;
   onClick: () => void;
   children: React.ReactNode;
 }) {
@@ -70,7 +73,13 @@ function Choice({
       onClick={onClick}
       aria-pressed={active}
       className="pixel-btn font-pixel px-2 py-3 text-[10px] uppercase leading-tight"
-      style={active ? { background: "var(--accent)", color: "var(--accent-fg)" } : undefined}
+      style={
+        demoted
+          ? { borderColor: "var(--accent)", color: "var(--accent)" }
+          : active
+            ? { background: "var(--accent)", color: "var(--accent-fg)" }
+            : undefined
+      }
     >
       {children}
     </button>
@@ -99,7 +108,10 @@ export function SurveyForm({
   const [types, setTypes] = useState<FeatureType[]>(["escalator"]);
   const [travel, setTravel] = useState<Travel>("up");
   const [leadsTo, setLeadsTo] = useState<string[]>([]);
-  const [secondary, setSecondary] = useState(false);
+  // Targets this reaches the long way round. A subset of leadsTo, because one
+  // escalator is routinely the obvious choice for one end of a station and a
+  // trek to the other.
+  const [secondaryFor, setSecondaryFor] = useState<string[]>([]);
   const [status, setStatus] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
   const [note, setNote] = useState("");
@@ -133,13 +145,26 @@ export function SurveyForm({
       return prev.length === 1 ? prev : prev.filter((x) => x !== id);
     });
     setLeadsTo([]);
-    setSecondary(false);
+    setSecondaryFor([]);
   }
 
+  /**
+   * Three states, cycled by tapping: not here, the best way here, the long way
+   * round. A separate control for the third state would have had to apply to
+   * the whole feature, which is the one thing this cannot mean — the escalator
+   * that is best for Exit A is often the trek to Exit D.
+   */
   function toggleTarget(target: string) {
-    setLeadsTo((prev) =>
-      prev.includes(target) ? prev.filter((x) => x !== target) : [...prev, target],
-    );
+    const listed = leadsTo.includes(target);
+    const demoted = secondaryFor.includes(target);
+    if (!listed) {
+      setLeadsTo([...leadsTo, target]);
+    } else if (!demoted) {
+      setSecondaryFor([...secondaryFor, target]);
+    } else {
+      setLeadsTo(leadsTo.filter((x) => x !== target));
+      setSecondaryFor(secondaryFor.filter((x) => x !== target));
+    }
   }
 
   function nudge(delta: number) {
@@ -170,9 +195,11 @@ export function SurveyForm({
       sourceNote: `Field survey at ${stationName}`,
       // Only escalators have a meaningful direction; stairs and lifts serve both.
       ...(id === "escalator" ? { travel } : {}),
-      // Meaningless without targets to be second-best for, and the control
-      // that sets it is only shown once there are some.
-      ...(secondary && leadsTo.length > 0 ? { secondary: true } : {}),
+      // Only the ones still listed: a target tapped all the way off must not
+      // linger here as a worse way to somewhere this no longer goes.
+      ...(secondaryFor.length > 0
+        ? { secondaryFor: secondaryFor.filter((x) => leadsTo.includes(x)) }
+        : {}),
     }));
 
     const json = JSON.stringify(
@@ -334,9 +361,11 @@ export function SurveyForm({
                 <Choice
                   key={`exit-${code}`}
                   active={leadsTo.includes(code)}
+                  demoted={secondaryFor.includes(code)}
                   onClick={() => toggleTarget(code)}
                 >
                   {t("route.exitLabel", { code })}
+                  {secondaryFor.includes(code) && ` ${t("survey.longWayMark")}`}
                 </Choice>
               ))}
             </div>
@@ -353,9 +382,11 @@ export function SurveyForm({
                 <Choice
                   key={`line-${code}`}
                   active={leadsTo.includes(code)}
+                  demoted={secondaryFor.includes(code)}
                   onClick={() => toggleTarget(code)}
                 >
                   {code}
+                  {secondaryFor.includes(code) && ` ${t("survey.longWayMark")}`}
                 </Choice>
               ))}
             </div>
@@ -366,28 +397,10 @@ export function SurveyForm({
           <p className="text-sm text-fg-muted">{t("survey.noExits")}</p>
         )}
 
-        {/* A platform is not a set of equally good choices. The stairs at the
-            far end do reach Exit A — leaving them out would hide a real way
-            out — but anyone sent there has gone the long way round. Only
-            offered once something is selected, because "there is a better one"
-            says nothing until this one says where it goes. */}
         {leadsTo.length > 0 && (
-          <label className="mt-4 flex items-start gap-3 border-t-2 border-[var(--border)] pt-4">
-            <input
-              type="checkbox"
-              checked={secondary}
-              onChange={(e) => setSecondary(e.target.checked)}
-              className="mt-1 h-5 w-5 shrink-0 accent-[var(--accent)]"
-            />
-            <span>
-              <span className="font-pixel text-[10px] uppercase text-fg">
-                {t("survey.secondaryLabel")}
-              </span>
-              <span className="mt-1 block text-sm leading-relaxed text-fg-muted">
-                {t("survey.secondaryHint")}
-              </span>
-            </span>
-          </label>
+          <p className="mt-4 border-t-2 border-[var(--border)] pt-3 text-sm leading-relaxed text-fg-muted">
+            {t("survey.longWayHint")}
+          </p>
         )}
       </Step>
 
