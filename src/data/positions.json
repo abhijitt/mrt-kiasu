@@ -173,14 +173,14 @@
       {
         "type": "escalator",
         "source": "survey",
-        "travel": "up",
+        "travel": "down",
         "leadsTo": [
           "A",
           "E"
         ],
         "doorIndex": 10,
         "confidence": "verified",
-        "sourceNote": "Field survey at Paya Lebar (platform is elevated, so this escalator descends to the concourse; travel says up because up is what reaches the exit)",
+        "sourceNote": "Field survey at Paya Lebar (platform is elevated, so this escalator descends to the concourse)",
         "verifiedAt": "2026-09-15"
       },
       {
@@ -216,7 +216,7 @@
       {
         "type": "escalator",
         "source": "survey",
-        "travel": "up",
+        "travel": "down",
         "leadsTo": [
           "B",
           "C",
@@ -226,7 +226,7 @@
         ],
         "doorIndex": 21,
         "confidence": "verified",
-        "sourceNote": "Field survey at Paya Lebar (platform is elevated, so this escalator descends to the concourse; travel says up because up is what reaches the exit)",
+        "sourceNote": "Field survey at Paya Lebar (platform is elevated, so this escalator descends to the concourse)",
         "verifiedAt": "2026-09-15"
       },
       {
@@ -265,14 +265,14 @@
       {
         "type": "escalator",
         "source": "survey",
-        "travel": "up",
+        "travel": "down",
         "leadsTo": [
           "A",
           "E"
         ],
         "doorIndex": 10,
         "confidence": "verified",
-        "sourceNote": "Field survey at Paya Lebar (platform is elevated, so this escalator descends to the concourse; travel says up because up is what reaches the exit)",
+        "sourceNote": "Field survey at Paya Lebar (platform is elevated, so this escalator descends to the concourse)",
         "verifiedAt": "2026-09-15"
       },
       {
@@ -290,7 +290,7 @@
       {
         "type": "escalator",
         "source": "survey",
-        "travel": "up",
+        "travel": "down",
         "leadsTo": [
           "B",
           "C",
@@ -300,7 +300,7 @@
         ],
         "doorIndex": 21,
         "confidence": "verified",
-        "sourceNote": "Field survey at Paya Lebar (platform is elevated, so this escalator descends to the concourse; travel says up because up is what reaches the exit)",
+        "sourceNote": "Field survey at Paya Lebar (platform is elevated, so this escalator descends to the concourse)",
         "verifiedAt": "2026-09-15"
       },
       {

@@ -71,14 +71,66 @@ describe("chooseFeature refuses to invent a match", () => {
     expect(chooseFeature(fs, "escalator", "B")).toBeNull();
   });
 
-  it("still skips a down-only escalator when targeting", () => {
+  it("takes a surveyed down escalator to a line below this one", () => {
+    // This asserted the opposite until Bayfront showed why it was wrong: the
+    // Downtown Line is BELOW the Circle Line platform, so the escalator down
+    // is the one you want, and passing over it for the stairs was the bug.
     const down: PlatformFeature = {
+      ...base, type: "escalator", doorIndex: 2, leadsTo: ["DTL"], travel: "down",
+    };
+    const stairs: PlatformFeature = {
+      ...base, type: "stairs", doorIndex: 6, leadsTo: ["DTL"],
+    };
+    expect(chooseFeature([down, stairs], "escalator", "DTL")).toBe(down);
+  });
+
+  it("still skips a down-only escalator nobody has checked", () => {
+    const guessed: PlatformFeature = {
       ...base, type: "escalator", doorIndex: 2, leadsTo: ["CCL"], travel: "down",
+      source: "estimate", confidence: "estimate",
     };
     const stairs: PlatformFeature = {
       ...base, type: "stairs", doorIndex: 6, leadsTo: ["CCL"],
     };
-    expect(chooseFeature([down, stairs], "escalator", "CCL")).toBe(stairs);
+    expect(chooseFeature([guessed, stairs], "escalator", "CCL")).toBe(stairs);
+  });
+});
+
+/**
+ * Which way the steps move is not the same question as whether they help.
+ *
+ * The old rule excluded every down-only escalator, on the assumption that
+ * alighting always means going up. Paya Lebar's East West platform is
+ * elevated, so down is the way out; Bayfront's Circle Line platform has the
+ * exit above it and the Downtown Line below it. No fact about the station
+ * settles either, so the surveyor does.
+ */
+describe("a down escalator that is the way out", () => {
+  const elevatedExit: PlatformFeature = {
+    ...base, type: "escalator", doorIndex: 10, leadsTo: ["A"], travel: "down",
+  };
+  const toDeeperLine: PlatformFeature = {
+    ...base, type: "escalator", doorIndex: 4, leadsTo: ["DTL"], travel: "down",
+  };
+
+  it("offers a surveyed down escalator that leads where you are going", () => {
+    expect(chooseFeature([elevatedExit], "escalator", "A")).toBe(elevatedExit);
+    expect(chooseFeature([toDeeperLine], "escalator", "DTL")).toBe(toDeeperLine);
+  });
+
+  it("still hides a down escalator nobody checked", () => {
+    // An estimate is a guess about where an exit surfaces, and a guessed
+    // down-only escalator is exactly the one that strands someone.
+    const guessed: PlatformFeature = {
+      ...elevatedExit, confidence: "estimate", source: "estimate",
+    };
+    expect(chooseFeature([guessed], "escalator", "A")).toBeNull();
+  });
+
+  it("still hides a surveyed down escalator that says nothing about where it goes", () => {
+    expect(
+      chooseFeature([{ ...elevatedExit, leadsTo: [] }], "escalator"),
+    ).toBeNull();
   });
 });
 

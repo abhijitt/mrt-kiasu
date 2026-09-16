@@ -207,8 +207,9 @@ async function main() {
       if (f.travel !== undefined && !VALID_TRAVEL.includes(f.travel)) {
         errors.push(`${at}: travel must be one of ${VALID_TRAVEL.join(", ")}`);
       }
-      // A down-only escalator cannot serve someone alighting, so a surveyed
-      // escalator must say which way it runs.
+      // Still required, but for the commuter's sake rather than the router's:
+      // knowing the steps come down at you is worth being told. It no longer
+      // decides whether the escalator is offered — see servesAlighting().
       if (f.type === "escalator" && f.confidence === "verified" && !f.travel) {
         errors.push(`${at}: travel is required for a surveyed escalator`);
       }

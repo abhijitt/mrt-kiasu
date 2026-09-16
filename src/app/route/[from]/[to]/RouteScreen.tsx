@@ -211,6 +211,17 @@ function Guidance({
         {/* Under the picture it describes: it is a caption on the diagram, not
             a separate announcement competing with the car number above it. */}
         {arrivalDoor}
+
+        {/* Which way the steps move, where a surveyor recorded it. Worth
+            saying plainly rather than implying: down is the way out at an
+            elevated platform like Paya Lebar's East West Line, and the way to
+            the Downtown Line from Bayfront's Circle Line platform. Someone
+            told only "escalator" would look for the up one and not find it. */}
+        {feature.type === "escalator" && feature.travel && (
+          <p className="mt-1 text-xs text-fg-muted">
+            {t(`route.travel.${feature.travel}` as MessageKey)}
+          </p>
+        )}
       </div>
 
       {/* Gao only, by request. Both notes below say the answer above is not the

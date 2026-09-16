@@ -116,12 +116,27 @@ export interface PlatformFeature {
   offsetM?: number;
 }
 
-/** Usable by someone alighting and heading for the exit. */
+/**
+ * Usable by someone alighting and heading for where this leads.
+ *
+ * This used to exclude every down-only escalator, on the assumption that a
+ * commuter getting off a train always needs to go up. That assumption is
+ * wrong twice over. At an elevated platform like Paya Lebar's East West Line,
+ * down IS the way out — the dataset had to record those escalators as running
+ * "up" to stop the app hiding them from the very people they serve. And at a
+ * deep interchange like Bayfront, the exit is up and the Downtown Line is
+ * down from the same platform, so no fact about the station could decide it.
+ *
+ * So the assumption is gone. Where a person stood on the platform and recorded
+ * that an escalator leads somewhere, it leads there, whichever way its steps
+ * move; `travel` is kept to tell a commuter what to expect, not to overrule
+ * the surveyor. An estimate is a different matter — nobody checked it, and a
+ * guessed down-only escalator is still worth excluding.
+ */
 export function servesAlighting(f: PlatformFeature): boolean {
   if (f.type !== "escalator") return true;
-  // Unrecorded direction is treated as usable but is worth re-surveying;
-  // only a known down-only escalator is excluded.
-  return f.travel !== "down";
+  if (f.travel !== "down") return true;
+  return f.confidence === "verified" && f.leadsTo.length > 0;
 }
 
 /**
