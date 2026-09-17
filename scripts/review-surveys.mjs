@@ -15,6 +15,8 @@
  *   DATABASE_URL='...' node scripts/review-surveys.mjs --approve 12 --approve 15
  *   DATABASE_URL='...' node scripts/review-surveys.mjs --reject 13
  *   DATABASE_URL='...' node scripts/review-surveys.mjs --approve 46 --approve 47 --id EW9-lift-1
+ *   DATABASE_URL='...' node scripts/review-surveys.mjs --approve 3 --leads-to A,B,C
+ *   DATABASE_URL='...' node scripts/review-surveys.mjs --confirm 5 --confirm 6
  *
  * With no flags it lists the queue and changes nothing. Production and beta
  * point at different database branches, so review each where it lives.
@@ -95,6 +97,45 @@ function sharedId() {
 const linkAs = sharedId();
 
 /**
+ * Exits and lines a reviewer fills in for a row that named none.
+ *
+ * A lift is the case that keeps arriving blank, and blank is not what the
+ * surveyor meant: for anyone who needs a lift it is the only way out, so it
+ * reaches every exit whether or not the form was told. Filling that in is
+ * reviewer knowledge, not a survey, so it says so in the record.
+ *
+ * Only fills a blank. Replacing targets a surveyor did name would be
+ * overruling them, which is a louder act than this flag should be able to do
+ * quietly — reject the row and ask instead.
+ */
+function reviewerTargets() {
+  const argv = process.argv.slice(2);
+  const found = argv.flatMap((a, i) => (a === "--leads-to" ? [argv[i + 1]] : []));
+  if (found.length === 0) return null;
+  if (found.length > 1) {
+    console.error("--leads-to can only be given once.");
+    process.exit(1);
+  }
+  const targets = (found[0] ?? "")
+    .split(",")
+    .map((t) => t.trim().toUpperCase())
+    .filter(Boolean);
+  if (targets.length === 0) {
+    console.error("--leads-to needs a comma-separated list, e.g. --leads-to A,B,C");
+    process.exit(1);
+  }
+  if (approve.length === 0) {
+    console.error("--leads-to does nothing without --approve.");
+    process.exit(1);
+  }
+  return targets;
+}
+
+const fillTargets = reviewerTargets();
+
+const confirm = idsFor("--confirm");
+
+/**
  * Every claim in the submission, because this is what a reviewer decides on.
  *
  * `secondaryFor` was missing here once, and the omission cost more than a
@@ -126,6 +167,10 @@ function describe(row) {
  * once assumed — and slicing a Date's own format, then swapping "T" for a
  * space, ate the T in "Thu".
  */
+function today() {
+  return new Date().toISOString().slice(0, 10);
+}
+
 function when(value) {
   const d = value instanceof Date ? value : new Date(value);
   return Number.isNaN(d.getTime())
@@ -187,7 +232,16 @@ async function applyToDataset(row, id) {
   // With an id, sameFeature() stops asking where the door is and starts asking
   // which thing this is — so a second survey of the one lift replaces the
   // inference standing in for it rather than landing beside it.
-  const feature = id ? { ...row.feature, id } : row.feature;
+  let feature = id ? { ...row.feature, id } : row.feature;
+  if (fillTargets && (feature.leadsTo ?? []).length === 0) {
+    feature = {
+      ...feature,
+      leadsTo: fillTargets,
+      sourceNote:
+        `${feature.sourceNote} — leadsTo filled in on review ${today()}: the ` +
+        `survey named none, and a reviewer read it as reaching ${fillTargets.join(", ")}`,
+    };
+  }
 
   put(raw, `${station}:${row.direction}`, feature);
   const keys = [`${station}:${row.direction}`];
@@ -213,7 +267,7 @@ async function applyToDataset(row, id) {
   raw._status = {
     ...raw._status,
     surveyed: all.filter((f) => f.confidence === "verified" && !f.impliedFrom).length,
-    lastUpdated: new Date().toISOString().slice(0, 10),
+    lastUpdated: today(),
   };
 
   await writeFile(POSITIONS, JSON.stringify(raw, null, 2) + "\n");
@@ -223,6 +277,65 @@ async function applyToDataset(row, id) {
     surveyed: raw._status.surveyed,
     bothWays: keys.length > 1,
   };
+}
+
+/**
+ * Whether a submission says the same thing as a record already held.
+ *
+ * Deliberately strict: a confirmation is the strongest evidence this dataset
+ * can carry — two people, on different days, who have never seen each other's
+ * answer — and it is worth nothing if it quietly tolerates a disagreement.
+ * Anything that does not match exactly goes back to the reviewer to look at.
+ */
+function sameClaim(a, b) {
+  const set = (x) => [...(x ?? [])].map((t) => String(t).toUpperCase()).sort().join(",");
+  return (
+    a.type === b.type &&
+    a.doorIndex === b.doorIndex &&
+    set(a.leadsTo) === set(b.leadsTo) &&
+    (a.travel ?? null) === (b.travel ?? null) &&
+    set(a.secondaryFor) === set(b.secondaryFor)
+  );
+}
+
+/**
+ * Records that someone else stood on the platform and saw the same thing.
+ *
+ * Approving this would be wrong twice over: it would overwrite a record with
+ * an identical one, dragging verifiedAt backwards to the older survey, and it
+ * would count a second sighting as a second feature. Rejecting it would be
+ * worse — filing corroboration as a discredited claim. So it is its own
+ * outcome, and what it changes is the one thing that actually improved: the
+ * record now says two people saw it independently.
+ *
+ * The surveyor is not named. They gave a name to the form, not to a public
+ * dataset, and "a second surveyor" carries the whole of the evidence.
+ */
+async function confirmInDataset(row) {
+  const raw = JSON.parse(await readFile(POSITIONS, "utf8"));
+  const key = `${row.station_code.toUpperCase()}:${row.direction}`;
+  const held = (raw.platforms[key] ?? []).filter((f) => !f.impliedFrom);
+  const match = held.find((f) => sameClaim(f, row.feature));
+
+  if (!match) {
+    const near = held.filter((f) => f.type === row.feature.type);
+    return {
+      ok: false,
+      why: near.length
+        ? `${key} holds ${near.map((f) => `${f.type} at door ${f.doorIndex}`).join(", ")}, ` +
+          `not ${row.feature.type} at door ${row.feature.doorIndex}`
+        : `${key} holds no surveyed ${row.feature.type} to confirm`,
+    };
+  }
+
+  const already = / — independently confirmed/.test(match.sourceNote);
+  if (!already) {
+    match.sourceNote +=
+      ` — independently confirmed on ${String(when(row.submitted_at)).slice(0, 10)} ` +
+      `by a second surveyor`;
+    await writeFile(POSITIONS, JSON.stringify(raw, null, 2) + "\n");
+  }
+  return { ok: true, key, already, feature: match };
 }
 
 async function fetchOne(id) {
@@ -253,6 +366,13 @@ for (const id of approve) {
     continue;
   }
   approvedType ??= row.feature.type;
+  if (fillTargets && (row.feature.leadsTo ?? []).length > 0) {
+    console.error(
+      `#${id}: --leads-to would overrule the surveyor, who named ` +
+        `${row.feature.leadsTo.join(", ")}. Reject the row and ask them instead.`,
+    );
+    continue;
+  }
   if (linkAs && row.feature.type !== approvedType) {
     console.error(
       `#${id}: --id ${linkAs} would link a ${row.feature.type} to a ` +
@@ -270,6 +390,34 @@ for (const id of approve) {
       `${result.surveyed} surveyed overall)` +
       (result.bothWays ? " — island platform, so the other side gets it as inferred" : "") +
       (linkAs ? ` — as ${linkAs}` : ""),
+  );
+}
+
+for (const id of confirm) {
+  const row = await fetchOne(id);
+  if (!row) {
+    console.error(`#${id}: no such submission`);
+    continue;
+  }
+  if (row.status !== "pending") {
+    console.error(`#${id}: already ${row.status}, leaving it alone`);
+    continue;
+  }
+  const result = await confirmInDataset(row);
+  if (!result.ok) {
+    // Never let a disagreement become a confirmation: the whole value of this
+    // outcome is that a row which differs cannot reach it.
+    console.error(`#${id}: does not match what is held — ${result.why}. Not confirmed.`);
+    continue;
+  }
+  await sql`
+    UPDATE survey_submissions SET status = 'confirmed', reviewed_at = now() WHERE id = ${id}
+  `;
+  changed = changed || !result.already;
+  console.log(
+    `confirmed #${id}: ${result.key} ${result.feature.type} at door ` +
+      `${result.feature.doorIndex} independently seen by a second surveyor` +
+      (result.already ? " (already noted)" : ""),
   );
 }
 
@@ -305,5 +453,8 @@ if (changed) {
   );
 } else if (pending.length > 0) {
   console.log("\n  --approve <id>   write it into positions.json");
+  console.log("  --confirm <id>   it agrees with what is held: note the second sighting");
   console.log("  --reject <id>    record the decision and leave the dataset alone");
+  console.log("  --id <name>      approve several rows as one physical thing");
+  console.log("  --leads-to <a,b> fill in the targets of an approved row that named none");
 }
