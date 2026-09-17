@@ -17,6 +17,7 @@
  *   DATABASE_URL='...' node scripts/review-surveys.mjs --approve 46 --approve 47 --id EW9-lift-1
  *   DATABASE_URL='...' node scripts/review-surveys.mjs --approve 3 --leads-to A,B,C
  *   DATABASE_URL='...' node scripts/review-surveys.mjs --confirm 5 --confirm 6
+ *   DATABASE_URL='...' node scripts/review-surveys.mjs --reject 2 --because "..."
  *
  * With no flags it lists the queue and changes nothing. Production and beta
  * point at different database branches, so review each where it lives.
@@ -134,6 +135,37 @@ function reviewerTargets() {
 const fillTargets = reviewerTargets();
 
 const confirm = idsFor("--confirm");
+
+/**
+ * Why the rows rejected in this run were rejected.
+ *
+ * Rejected rows are kept because a discarded claim is evidence — about the
+ * platform, and about a surveyor whose next claim is worth weighing. Evidence
+ * with no reason attached is much weaker evidence: "rejected" alone cannot
+ * tell a careless reading apart from one that lost a close argument against
+ * another survey, and the second is worth revisiting on the platform.
+ */
+function rejectionReason() {
+  const argv = process.argv.slice(2);
+  const found = argv.flatMap((a, i) => (a === "--because" ? [argv[i + 1]] : []));
+  if (found.length === 0) return null;
+  if (found.length > 1) {
+    console.error("--because can only be given once.");
+    process.exit(1);
+  }
+  const text = (found[0] ?? "").trim();
+  if (!text || text.startsWith("--")) {
+    console.error("--because needs a reason in quotes.");
+    process.exit(1);
+  }
+  if (reject.length === 0) {
+    console.error("--because does nothing without --reject.");
+    process.exit(1);
+  }
+  return text;
+}
+
+const because = rejectionReason();
 
 /**
  * Every claim in the submission, because this is what a reviewer decides on.
@@ -429,10 +461,17 @@ for (const id of reject) {
   }
   // Rows are never deleted: a rejected claim is evidence about the platform
   // and about who sent it, and a later claim that disagrees is worth comparing.
+  const note = because
+    ? `${row.note ? `${row.note}\n` : ""}[rejected ${today()}: ${because}]`
+    : row.note;
   await sql`
-    UPDATE survey_submissions SET status = 'rejected', reviewed_at = now() WHERE id = ${id}
+    UPDATE survey_submissions
+    SET status = 'rejected', reviewed_at = now(), note = ${note}
+    WHERE id = ${id}
   `;
-  console.log(`rejected #${id} (${row.station_code}:${row.direction})`);
+  console.log(
+    `rejected #${id} (${row.station_code}:${row.direction})` + (because ? ` — ${because}` : ""),
+  );
 }
 
 const pending = await sql`
@@ -457,4 +496,5 @@ if (changed) {
   console.log("  --reject <id>    record the decision and leave the dataset alone");
   console.log("  --id <name>      approve several rows as one physical thing");
   console.log("  --leads-to <a,b> fill in the targets of an approved row that named none");
+  console.log("  --because <why>  record why the rejected rows were rejected");
 }
