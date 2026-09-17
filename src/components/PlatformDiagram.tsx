@@ -4,18 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import { LINES, type LineCode } from "@/lib/lines";
 import { avatarSprite, type AvatarId, type SkinToneId } from "./Avatar";
 import { toCarPosition, type Direction } from "@/lib/doors";
-import type { FeatureType, PlatformFeature } from "@/lib/feature-types";
+import type { PlatformFeature } from "@/lib/feature-types";
+import { FeatureMark } from "./FeatureMark";
 
 /** Rendered height in CSS pixels, identical for every line. */
 const DIAGRAM_HEIGHT = 132;
-
-/** Shared with the station plan, so one device reads the same in both. */
-export const FEATURE_GLYPH: Record<FeatureType, string> = {
-  escalator: "▟",
-  lift: "▤",
-  stairs: "▚",
-  exit: "↑",
-};
 
 interface Props {
   line: LineCode;
@@ -361,16 +354,14 @@ export function PlatformDiagram({
             const soft = f.confidence !== "verified";
             return (
               <g key={`${f.type}-${f.doorIndex}-${i}`}>
-                <text
-                  x={d.x + DOOR_W / 2}
-                  y={TRAIN_Y - 12}
-                  textAnchor="middle"
-                  fontSize={15}
-                  fill={soft ? "var(--candidate)" : "var(--fg)"}
+                <FeatureMark
+                  type={f.type}
+                  size={15}
+                  x={d.x + DOOR_W / 2 - 7.5}
+                  y={TRAIN_Y - 24}
+                  color={soft ? "var(--candidate)" : "var(--fg)"}
                   opacity={soft ? 0.8 : 1}
-                >
-                  {FEATURE_GLYPH[f.type]}
-                </text>
+                />
                 {f.leadsTo.length > 0 && (
                   <text
                     x={d.x + DOOR_W / 2}

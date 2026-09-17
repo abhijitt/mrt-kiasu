@@ -3,7 +3,7 @@
 import { useI18n, type MessageKey } from "@/i18n/I18nProvider";
 import type { FeatureType, PlatformFeature } from "@/lib/feature-types";
 import type { LineCode } from "@/lib/lines";
-import { FEATURE_GLYPH } from "./PlatformDiagram";
+import { FeatureMark } from "./FeatureMark";
 
 /**
  * Pixel-art plan of a station's platforms, with what stands on them.
@@ -54,9 +54,65 @@ const G = {
   trackH: 8,
   /** Caption line above the bar, then the bar itself. */
   captionH: 9,
-  platformH: 22,
+  platformH: 26,
   gap: 5,
 } as const;
+
+/** Edge length of a device mark, in viewBox units. */
+const MARK_SIZE = 14;
+
+/**
+ * Least centre-to-centre spacing between two marks, in viewBox units.
+ *
+ * Wider than the mark itself, on purpose. Escalators and stairs share a
+ * landing constantly, and the block characters this replaced left 1.3 units
+ * between them — under two pixels once drawn, which read as a single smudge.
+ */
+const MARK_PITCH = 20;
+
+/**
+ * Where each mark sits along the bar, in the order the features are given.
+ *
+ * Fanning only the features at an identical door was not enough. A door is
+ * 10.8 units wide on a 24-door line and a mark is 14, so a lift at door 9
+ * beside stairs at door 10 collides just as badly as two things at door 10 —
+ * it simply had not happened yet in the four stations surveyed so far.
+ *
+ * So: group anything close enough to touch, fan each group about the middle
+ * of its own doors, then walk left to right enforcing the spacing outright.
+ * The fan keeps a landing pointing at where it actually is; the walk is what
+ * makes "no two marks touch" true rather than usually true.
+ */
+export function markPositions(centres: number[], lo: number, hi: number): number[] {
+  const order = centres.map((x, i) => ({ i, x })).sort((a, b) => a.x - b.x);
+
+  const groups: (typeof order)[] = [];
+  for (const m of order) {
+    const last = groups.at(-1);
+    if (last && m.x - last.at(-1)!.x < MARK_PITCH) last.push(m);
+    else groups.push([m]);
+  }
+  for (const g of groups) {
+    const middle = g.reduce((sum, m) => sum + m.x, 0) / g.length;
+    g.forEach((m, k) => {
+      m.x = middle + (k - (g.length - 1) / 2) * MARK_PITCH;
+    });
+  }
+
+  let prev = -Infinity;
+  for (const m of order) {
+    m.x = Math.max(m.x, prev + MARK_PITCH, lo);
+    prev = m.x;
+  }
+  // A landing near either end would otherwise hang its marks off the bar,
+  // which reads as a thing that is not on the platform.
+  const over = prev - hi;
+  if (over > 0) for (const m of order) m.x = Math.max(m.x - over, lo);
+
+  const out = new Array<number>(centres.length);
+  for (const m of order) out[m.i] = m.x;
+  return out;
+}
 
 /** Caption type size, in viewBox units. */
 const CAPTION_SIZE = 7;
@@ -261,23 +317,23 @@ export function StationLayout({ block }: { block: LayoutBlockView }) {
             Escalators and stairs share a landing constantly, so glyphs at one
             door are fanned out around it. Drawn at the same x they stacked
             into an unreadable blot that looked like a single odd symbol. */}
-        {p.features.map((lf, k) => {
-          const atThisDoor = p.features.filter((o) => o.doors[0] === lf.doors[0]);
-          const rank = atThisDoor.indexOf(lf);
-          const spread = (rank - (atThisDoor.length - 1) / 2) * 10;
-          return (
-            <text
-              key={`${lf.feature.type}-${lf.doors[0]}-${k}`}
-              x={xFor(lf.doors[0]) + spread}
-              y={y + capH + G.platformH / 2 + 6}
-              textAnchor="middle"
-              fontSize={14}
-              fill="var(--fg)"
-            >
-              {FEATURE_GLYPH[lf.feature.type as FeatureType]}
-            </text>
+        {(() => {
+          const at = markPositions(
+            p.features.map((lf) => xFor(lf.doors[0])),
+            G.padX + MARK_SIZE / 2,
+            G.padX + inner - MARK_SIZE / 2,
           );
-        })}
+          return p.features.map((lf, k) => (
+            <FeatureMark
+              key={`${lf.feature.type}-${lf.doors[0]}-${k}`}
+              type={lf.feature.type as FeatureType}
+              size={MARK_SIZE}
+              x={at[k] - MARK_SIZE / 2}
+              y={y + capH + (G.platformH - MARK_SIZE) / 2}
+              color="var(--fg)"
+            />
+          ));
+        })()}
       </g>,
     );
     y += capH + G.platformH + G.gap;

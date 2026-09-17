@@ -15,7 +15,7 @@ import { groupByExit, type Landmark } from "@/lib/landmark-types";
 import { ExitLandmarks } from "@/components/ExitLandmarks";
 import { StationLayout, type LayoutBlockView } from "@/components/StationLayout";
 import { SurveyProgress } from "@/components/SurveyProgress";
-import { FEATURE_GLYPH } from "@/components/PlatformDiagram";
+import { FeatureMark } from "@/components/FeatureMark";
 import { DEVICE_TYPES } from "@/lib/feature-types";
 import type { LocalisedTrivia } from "@/lib/trivia";
 import type { Locale } from "@/i18n/config";
@@ -259,7 +259,11 @@ export function StationScreen(p: Props) {
                             key={`${lf.feature.type}-${lf.doors.join("-")}-${i}`}
                             className="flex gap-2 text-xs text-fg-muted"
                           >
-                            <span className="text-fg">{FEATURE_GLYPH[lf.feature.type]}</span>
+                            <FeatureMark
+                              type={lf.feature.type}
+                              size={12}
+                              className="mt-0.5 shrink-0 text-fg"
+                            />
                             <span>
                               {t(`mode.${lf.feature.type}` as MessageKey)}
                               {" · "}
@@ -288,7 +292,11 @@ export function StationScreen(p: Props) {
           <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-fg-muted">
             {DEVICE_TYPES.map((type) => (
               <span key={type}>
-                <span className="mr-1 text-fg">{FEATURE_GLYPH[type]}</span>
+                <FeatureMark
+                  type={type}
+                  size={12}
+                  className="mr-1 inline-block align-[-0.15em] text-fg"
+                />
                 {t(`mode.${type}` as MessageKey)}
               </span>
             ))}
