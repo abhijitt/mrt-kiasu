@@ -77,3 +77,56 @@ describe("choosing an exit re-targets the door", () => {
     }
   });
 });
+
+/**
+ * Aljunied, surveyed from both faces on 2026-09-17.
+ *
+ * One island platform holding the two cases the door model exists for: a lift
+ * whose shaft faces one side, so the best door genuinely differs by direction,
+ * and a staircase at the far end that really does reach both exits but is
+ * ~90 m from them. Neither can be expressed by a door number alone.
+ */
+describe("Aljunied's one lift and its far staircase", () => {
+  it("gives each face its own door for the same shaft", () => {
+    const asc = findExitGuidance("EW9", "asc", "lift", "A")!;
+    const desc = findExitGuidance("EW9", "desc", "lift", "A")!;
+    // One physical lift, so one id...
+    expect(asc.id).toBe("EW9-lift-1");
+    expect(desc.id).toBe(asc.id);
+    // ...but the door faces the Kallang-bound side, so the other side walks
+    // around the shaft. This is a stagger, not a mirror: a mirrored door 9
+    // would be 16, at the wrong end of the platform entirely.
+    expect(asc.doorIndex).toBe(9);
+    expect(desc.doorIndex).toBe(10);
+  });
+
+  it("sends people to the near staircase, not the one at the far end", () => {
+    // Both reach A and B. Only one of them is a reasonable walk.
+    for (const direction of ["asc", "desc"] as const) {
+      for (const exit of ["A", "B"]) {
+        expect(findExitGuidance("EW9", direction, "stairs", exit)!.doorIndex).toBe(19);
+      }
+    }
+  });
+
+  it("keeps the far staircase in the dataset rather than hiding it", () => {
+    // Omitting it would be a lie by omission: it is a real way out, and the
+    // only one for someone already standing at that end of the platform.
+    const far = getFeatures("EW9", "desc").find((f) => f.doorIndex === 6)!;
+    expect(far.type).toBe("stairs");
+    expect(far.leadsTo).toEqual(["A", "B"]);
+    expect(far.secondaryFor).toHaveLength(2);
+  });
+
+  it("puts the escalator at the same spot for both directions", () => {
+    const asc = findExitGuidance("EW9", "asc", "escalator", "A")!;
+    const desc = findExitGuidance("EW9", "desc", "escalator", "A")!;
+    expect(asc.doorIndex).toBe(desc.doorIndex);
+    // The platform is elevated, so the way out is down. The rule that assumed
+    // otherwise would have refused to offer this at all.
+    expect(asc.travel).toBe("down");
+    expect(toCarPosition(asc.doorIndex, "EWL", "asc").car).not.toBe(
+      toCarPosition(desc.doorIndex, "EWL", "desc").car,
+    );
+  });
+});

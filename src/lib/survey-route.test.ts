@@ -118,21 +118,27 @@ describe("POST /api/survey", () => {
     expect(saveSubmissions).not.toHaveBeenCalled();
   });
 
-  it("refuses 'there is a better one' when nothing says where this one goes", async () => {
-    // Demoting a feature against nothing would just hide it.
-    const res = await POST(post({ features: [{ ...stairs, leadsTo: [], secondary: true }] }));
+  it("refuses 'there is a better one' for somewhere it does not go", async () => {
+    // These two read the same on a form and mean opposite things: "the stairs
+    // are the long way to C" is a fact about the stairs, while demoting a
+    // target they never reach is a claim about somewhere else entirely, and
+    // would quietly do nothing.
+    const res = await POST(post({ features: [{ ...stairs, secondaryFor: ["C"] }] }));
 
     expect(res.status).toBe(400);
-    expect((await res.json()).details.join(" ")).toContain("secondary needs leadsTo");
+    expect((await res.json()).details.join(" ")).toContain("is not in leadsTo");
     expect(saveSubmissions).not.toHaveBeenCalled();
   });
 
-  it("accepts a feature marked as the long way round", async () => {
-    const res = await POST(post({ features: [{ ...stairs, secondary: true }] }));
+  it("accepts a feature marked as the long way round to one of its targets", async () => {
+    // Bras Basah: one escalator at each end, each the obvious choice for the
+    // exits at its own end and a trek to the ones at the other. The demotion
+    // has to name which.
+    const res = await POST(post({ features: [{ ...stairs, secondaryFor: ["E"] }] }));
 
     expect(res.status).toBe(200);
-    const rows = saveSubmissions.mock.calls[0][0] as { feature: { secondary?: boolean } }[];
-    expect(rows[0].feature.secondary).toBe(true);
+    const rows = saveSubmissions.mock.calls[0][0] as { feature: { secondaryFor?: string[] } }[];
+    expect(rows[0].feature.secondaryFor).toEqual(["E"]);
   });
 
   it("tells the form to keep the work when the write fails", async () => {
