@@ -58,6 +58,46 @@ const G = {
   gap: 5,
 } as const;
 
+/** Caption type size, in viewBox units. */
+const CAPTION_SIZE = 7;
+
+/**
+ * Width of one caption character, in viewBox units.
+ *
+ * Press Start 2P is monospace at 1em per character, but the arrows fall back
+ * to another face and run wider. Measured in the browser rather than assumed:
+ * "← Botanic Gardens" reports a 127.7-unit bounding box across 17 characters
+ * at size 7, so 7.51. Rounded up, because under-estimating is what puts two
+ * names back on one line.
+ */
+const CAPTION_CHAR = 7.6;
+
+/**
+ * Clear space demanded between two captions sharing a line, in viewBox units.
+ *
+ * Roughly two characters. They never strictly overlapped — Farrer Road, the
+ * worst pair on the network, left 4.6 units between "← Botanic Gardens" and
+ * "Holland Village →" — but a gap narrower than one space reads as a single
+ * place name, which is worse than an obvious collision because it looks
+ * deliberate.
+ */
+const CAPTION_MIN_GAP = 16;
+
+/**
+ * How many lines this platform's captions need.
+ *
+ * An island platform is one bar serving both directions, so its two captions
+ * belong on one line, at the end each points to. Where the names are too long
+ * for that to stay legible they stack instead — still anchored to their own
+ * ends, so the arrows keep meaning what they mean.
+ */
+export function captionLines(towards: string[], inner: number): number {
+  if (towards.length < 2) return 1;
+  // Two extra characters each: the arrow and the space beside it.
+  const chars = towards.reduce((n, name) => n + name.length + 2, 0);
+  return chars * CAPTION_CHAR + CAPTION_MIN_GAP <= inner ? 1 : 2;
+}
+
 type Row =
   | { kind: "track"; label?: string }
   | { kind: "platform"; platform: LayoutPlatformView };
@@ -101,12 +141,16 @@ function rowsFor(block: LayoutBlockView, centreTrackLabel: string): Row[] {
   }
 }
 
-function heightOf(rows: Row[]): number {
+function heightOf(rows: Row[], inner: number): number {
   // Typed, because G.gap alone is a literal type and reduce would infer the
   // accumulator from the array instead of from it.
   return rows.reduce<number>(
     (h, r) =>
-      h + (r.kind === "track" ? G.trackH + (r.label ? 10 : 0) : G.captionH + G.platformH) + G.gap,
+      h +
+      (r.kind === "track"
+        ? G.trackH + (r.label ? 10 : 0)
+        : G.captionH * captionLines(r.platform.towards, inner) + G.platformH) +
+      G.gap,
     G.gap,
   );
 }
@@ -114,8 +158,8 @@ function heightOf(rows: Row[]): number {
 export function StationLayout({ block }: { block: LayoutBlockView }) {
   const { t } = useI18n();
   const rows = rowsFor(block, t("layout.centreTrack"));
-  const height = heightOf(rows);
   const inner = G.width - G.padX * 2;
+  const height = heightOf(rows, inner);
   const total = block.totalDoors;
 
   /** Fraction along the platform, measured from the low-code end. */
@@ -168,6 +212,8 @@ export function StationLayout({ block }: { block: LayoutBlockView }) {
     }
 
     const p = row.platform;
+    const lines = captionLines(p.towards, inner);
+    const capH = G.captionH * lines;
     // The caption sits ABOVE the bar rather than inside it. Inside, it shared
     // the bar with the feature glyphs and the two overlapped at every station
     // with more than a couple of things on the platform.
@@ -178,13 +224,17 @@ export function StationLayout({ block }: { block: LayoutBlockView }) {
           // plan — the same assumption toCarPosition makes when it decides
           // which end of the train the nose is at.
           const rightwards = direction === "asc";
+          // Stacked, the left-pointing name reads first. Each still sits at
+          // the end it points to, so a second line costs height and nothing
+          // else — the arrow never stops meaning "that way".
+          const line = lines === 1 || !rightwards ? 0 : 1;
           return (
             <text
               key={direction}
               x={rightwards ? G.padX + inner : G.padX}
-              y={y + 7}
+              y={y + 7 + line * G.captionH}
               textAnchor={rightwards ? "end" : "start"}
-              fontSize={7}
+              fontSize={CAPTION_SIZE}
               fill="var(--fg-faint)"
               fontFamily="var(--font-pixel)"
             >
@@ -196,7 +246,7 @@ export function StationLayout({ block }: { block: LayoutBlockView }) {
         })}
         <rect
           x={G.padX}
-          y={y + G.captionH}
+          y={y + capH}
           width={inner}
           height={G.platformH}
           fill="var(--bg-raised)"
@@ -219,7 +269,7 @@ export function StationLayout({ block }: { block: LayoutBlockView }) {
             <text
               key={`${lf.feature.type}-${lf.doors[0]}-${k}`}
               x={xFor(lf.doors[0]) + spread}
-              y={y + G.captionH + G.platformH / 2 + 6}
+              y={y + capH + G.platformH / 2 + 6}
               textAnchor="middle"
               fontSize={14}
               fill="var(--fg)"
@@ -230,7 +280,7 @@ export function StationLayout({ block }: { block: LayoutBlockView }) {
         })}
       </g>,
     );
-    y += G.captionH + G.platformH + G.gap;
+    y += capH + G.platformH + G.gap;
   });
 
   return (
