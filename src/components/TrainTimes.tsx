@@ -63,29 +63,40 @@ export function TrainTimes({ times }: { times: Partial<Record<ServiceDay, TrainT
           <p className="font-pixel text-[10px] uppercase text-fg-muted">
             {t(`times.${day}` as MessageKey)}
           </p>
-          <div className="mt-2 flex flex-col gap-2">
-            {times[day]!.map((row) => (
-              <div key={row.towards} className="pixel-box-sm p-3">
-                <p className="text-sm text-fg-muted">
-                  {t("times.towards", { station: row.towards })}
-                </p>
-                <div className="mt-1 flex items-baseline gap-4">
-                  <span className="text-base text-fg">
-                    <span className="font-pixel mr-2 text-[10px] uppercase text-fg-faint">
-                      {t("times.first")}
-                    </span>
-                    {row.first}
-                  </span>
-                  <span className="text-base text-fg">
-                    <span className="font-pixel mr-2 text-[10px] uppercase text-fg-faint">
-                      {t("times.last")}
-                    </span>
-                    {row.last}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* A table, not a stack of cards.
+              Every row here answers the same two questions, so the labels
+              belong at the top of two columns rather than repeated beside
+              each of up to twelve times. At an interchange this section was
+              taller than everything else on the page put together. */}
+          <table className="mt-2 w-full border-collapse text-sm">
+            <caption className="sr-only">{t(`times.${day}` as MessageKey)}</caption>
+            <thead>
+              <tr className="font-pixel text-[9px] uppercase text-fg-faint">
+                <th scope="col" className="pb-1 text-left font-normal">
+                  <span className="sr-only">{t("times.title")}</span>
+                </th>
+                <th scope="col" className="pb-1 pl-3 text-right font-normal">
+                  {t("times.first")}
+                </th>
+                <th scope="col" className="pb-1 pl-3 text-right font-normal">
+                  {t("times.last")}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {times[day]!.map((row) => (
+                <tr key={row.towards} className="border-t border-[var(--border-soft)]">
+                  <td className="py-1.5 pr-2 text-fg-muted">
+                    {t("times.towards", { station: row.towards })}
+                  </td>
+                  {/* Tabular figures, so four departures read as a column of
+                      times rather than four ragged strings. */}
+                  <td className="py-1.5 pl-3 text-right tabular-nums text-fg">{row.first}</td>
+                  <td className="py-1.5 pl-3 text-right tabular-nums text-fg">{row.last}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       ))}
       {/* Annotated, not rewritten.
