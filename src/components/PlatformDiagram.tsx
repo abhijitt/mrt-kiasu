@@ -6,9 +6,14 @@ import { avatarSprite, type AvatarId, type SkinToneId } from "./Avatar";
 import { toCarPosition, type Direction } from "@/lib/doors";
 import type { PlatformFeature } from "@/lib/feature-types";
 import { FeatureMark } from "./FeatureMark";
+import { shortTargets, spreadOut } from "@/lib/declutter";
 
 /** Rendered height in CSS pixels, identical for every line. */
 const DIAGRAM_HEIGHT = 132;
+
+/** Edge length of a device mark, and the size of the label above it. */
+const MARK_SIZE = 15;
+const LABEL_SIZE = 9;
 
 interface Props {
   line: LineCode;
@@ -348,35 +353,83 @@ export function PlatformDiagram({
               </g>
             ))}
 
-          {features.map((f, i) => {
-            const d = doors.find((x) => x.doorIndex === f.doorIndex);
-            if (!d) return null;
-            const soft = f.confidence !== "verified";
+          {(() => {
+            /* By landing, not by feature.
+               An escalator and the stairs beside it are one landing: drawn
+               per feature they put two marks on the same point and wrote
+               their target lists over each other, and the neighbouring door
+               18 units away joined in. What came out at Paya Lebar was
+               "A/BDC/D/E/F.EXCL/DZCCL", which is four labels. */
+            const landings = [...new Set(features.map((f) => f.doorIndex))]
+              .map((doorIndex) => ({
+                doorIndex,
+                at: doors.find((d) => d.doorIndex === doorIndex),
+                here: features.filter((f) => f.doorIndex === doorIndex),
+              }))
+              .filter((l) => l.at)
+              .map((l) => ({ ...l, x: l.at!.x + DOOR_W / 2 }));
+            if (landings.length === 0) return null;
+
+            const marks = landings.flatMap((l) => l.here.map((f) => ({ f, x: l.x })));
+            const markX = spreadOut(
+              marks.map((m) => m.x),
+              // Same daylight between two marks as the station plan leaves.
+              MARK_SIZE + 6,
+              MARK_SIZE / 2,
+              width - MARK_SIZE / 2,
+            );
+            // One pitch for every label, taken from the widest: Press Start 2P
+            // is monospace, so the widest is simply the longest.
+            const texts = landings.map((l) =>
+              shortTargets(l.here.flatMap((f) => f.leadsTo)),
+            );
+            const widest = Math.max(...texts.map((t) => t.length)) * LABEL_SIZE;
+            // Anchored over the marks as drawn, not over the door they came
+            // from. The two rows are decluttered separately and by different
+            // amounts, and a label that stays behind ends up captioning its
+            // neighbour's landing — which is worse than a label that moved.
+            let taken = 0;
+            const labelX = spreadOut(
+              landings.map((l) => {
+                const mine = markX.slice(taken, (taken += l.here.length));
+                return mine.reduce((sum, x) => sum + x, 0) / mine.length;
+              }),
+              widest + LABEL_SIZE,
+              widest / 2,
+              width - widest / 2,
+            );
+
             return (
-              <g key={`${f.type}-${f.doorIndex}-${i}`}>
-                <FeatureMark
-                  type={f.type}
-                  size={15}
-                  x={d.x + DOOR_W / 2 - 7.5}
-                  y={TRAIN_Y - 24}
-                  color={soft ? "var(--candidate)" : "var(--fg)"}
-                  opacity={soft ? 0.8 : 1}
-                />
-                {f.leadsTo.length > 0 && (
-                  <text
-                    x={d.x + DOOR_W / 2}
-                    y={TRAIN_Y - 25}
-                    textAnchor="middle"
-                    fontSize={9}
-                    fill="var(--fg-muted)"
-                    fontFamily="var(--font-pixel)"
-                  >
-                    {f.leadsTo.join("/")}
-                  </text>
+              <g>
+                {marks.map((m, i) => (
+                  <FeatureMark
+                    key={`${m.f.type}-${m.f.doorIndex}-${i}`}
+                    type={m.f.type}
+                    size={MARK_SIZE}
+                    x={markX[i] - MARK_SIZE / 2}
+                    y={TRAIN_Y - 24}
+                    color={m.f.confidence !== "verified" ? "var(--candidate)" : "var(--fg)"}
+                    opacity={m.f.confidence !== "verified" ? 0.8 : 1}
+                  />
+                ))}
+                {landings.map((l, i) =>
+                  texts[i] ? (
+                    <text
+                      key={l.doorIndex}
+                      x={labelX[i]}
+                      y={TRAIN_Y - 28}
+                      textAnchor="middle"
+                      fontSize={LABEL_SIZE}
+                      fill="var(--fg-muted)"
+                      fontFamily="var(--font-pixel)"
+                    >
+                      {texts[i]}
+                    </text>
+                  ) : null,
                 )}
               </g>
             );
-          })}
+          })()}
 
           {target &&
             avatar &&
