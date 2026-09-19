@@ -35,6 +35,16 @@ export interface PlatformCoverage {
   transfersTotal: number;
   /** Something is recorded here. */
   started: boolean;
+  /**
+   * Whether anyone has actually stood on this platform.
+   *
+   * An island platform's far face is filled in from the near one, which is
+   * enough to route someone and is why the meter can read 100% there. It is
+   * not a survey, and the difference matters: Aljunied's lift faces one side,
+   * so its best door genuinely differs by direction and the inference had it
+   * a door out. A platform with only inferred records is still worth a visit.
+   */
+  surveyedHere: boolean;
   /** Every exit and every transfer at this station can be reached. */
   complete: boolean;
 }
@@ -69,6 +79,7 @@ function coverageFor(code: string, direction: "asc" | "desc"): PlatformCoverage 
     transfersCovered,
     transfersTotal: transfers.length,
     started: features.length > 0,
+    surveyedHere: features.some((f) => !f.impliedFrom),
     // An exit-less station cannot fail the exit test, which is right: there is
     // nothing there to point anyone at.
     complete:

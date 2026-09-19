@@ -63,3 +63,34 @@ describe("survey coverage", () => {
     expect(stationCoverage("BP1")).toEqual([]);
   });
 });
+
+/**
+ * Routing from a platform and having stood on it are different claims.
+ *
+ * An island platform's far face is filled in from the near one, which is
+ * enough to route someone — so its meter reads 100% — but nobody has been
+ * there. Calling both "mapped" is how the station page came to say one
+ * platform was surveyed directly above a meter reading 100% for two.
+ */
+describe("surveyed here is not the same as covered", () => {
+  it("separates a surveyed face from its inferred twin", () => {
+    // Bras Basah: surveyed towards Esplanade, mirrored to the other side.
+    const both = stationCoverage("CC2");
+    expect(both).toHaveLength(2);
+    expect(both.filter((c) => c.surveyedHere)).toHaveLength(1);
+    // Both still route, which is what the meter is about.
+    expect(both.every((c) => c.complete)).toBe(true);
+  });
+
+  it("counts both faces where both were actually surveyed", () => {
+    // Aljunied: surveyed from each platform, which is how the staggered lift
+    // was caught — the inference had its door a place out.
+    const both = stationCoverage("EW9");
+    expect(both.filter((c) => c.surveyedHere)).toHaveLength(2);
+  });
+
+  it("claims nothing for a platform nobody has recorded", () => {
+    const none = stationCoverage("EW30");
+    expect(none.every((c) => !c.surveyedHere && !c.started)).toBe(true);
+  });
+});

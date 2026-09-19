@@ -61,6 +61,7 @@ interface Props {
     transfersCovered: number;
     transfersTotal: number;
     started: boolean;
+    surveyedHere: boolean;
     complete: boolean;
   }[];
 }
@@ -84,6 +85,14 @@ export function StationScreen(p: Props) {
   // Whether a survey can be handed in at all: LRT has no sourced door
   // geometry, so there is no grid to survey against and the tool cannot open.
   const canSurvey = p.canGiveDoorGuidance && p.platforms.length > 0;
+
+  // Where someone has actually stood — which is not what the coverage meters
+  // measure. A meter reads 100% on a platform whose records were all inferred
+  // from the other face, because inferred positions still route people. Both
+  // were called "mapped", which is how the page came to claim one platform
+  // was surveyed while the meter above it read 100% for two.
+  const surveyedDirections = p.coverage.filter((c) => c.surveyedHere).length;
+  const inferredDirections = p.coverage.filter((c) => !c.surveyedHere && c.started).length;
 
   const byExit = groupByExit(p.landmarks);
   // LTA's exit list is the authority on which exits exist; OpenStreetMap only
@@ -476,15 +485,32 @@ export function StationScreen(p: Props) {
             exits to estimate from; the rest have estimates. Claiming
             "estimated positions are shown" where none exist was simply false,
             and the survey link 404'd on all 42 LRT stations. */}
+        {/* Counted, not assumed.
+            The count here was the literal 1 — so a station surveyed from both
+            faces still claimed one was missing, and a terminus with a single
+            platform direction was told it had two. */}
         <p className="mt-3 text-sm leading-relaxed text-fg">
           {!p.canGiveDoorGuidance
             ? t("station.noFleetData")
-            : p.hasVerified
-              ? t("station.mappedDirections", { count: 1 })
-              : p.hasEstimates
-                ? t("station.notMapped")
-                : t("station.noEstimateBasis")}
+            : surveyedDirections > 0 && surveyedDirections === p.coverage.length
+              ? t("station.allMapped")
+              : surveyedDirections > 0
+                ? t("station.mappedDirections", {
+                    count: surveyedDirections,
+                    total: p.coverage.length,
+                  })
+                : p.hasEstimates
+                  ? t("station.notMapped")
+                  : t("station.noEstimateBasis")}
         </p>
+        {/* Said plainly, because a platform the app can already route from
+            looks finished, and the one thing a second survey catches is the
+            thing inference cannot know. */}
+        {inferredDirections > 0 && surveyedDirections > 0 && (
+          <p className="mt-2 text-sm leading-relaxed text-fg-muted">
+            {t("station.inferredOthers")}
+          </p>
+        )}
         {canSurvey && (
           <div className="mt-3 flex flex-col gap-2">
             <p className="text-sm leading-relaxed text-fg-muted">{t("station.surveyWhy")}</p>
