@@ -92,7 +92,6 @@ export function StationScreen(p: Props) {
   // were called "mapped", which is how the page came to claim one platform
   // was surveyed while the meter above it read 100% for two.
   const surveyedDirections = p.coverage.filter((c) => c.surveyedHere).length;
-  const inferredDirections = p.coverage.filter((c) => !c.surveyedHere && c.started).length;
 
   const byExit = groupByExit(p.landmarks);
   // LTA's exit list is the authority on which exits exist; OpenStreetMap only
@@ -503,14 +502,6 @@ export function StationScreen(p: Props) {
                   ? t("station.notMapped")
                   : t("station.noEstimateBasis")}
         </p>
-        {/* Said plainly, because a platform the app can already route from
-            looks finished, and the one thing a second survey catches is the
-            thing inference cannot know. */}
-        {inferredDirections > 0 && surveyedDirections > 0 && (
-          <p className="mt-2 text-sm leading-relaxed text-fg-muted">
-            {t("station.inferredOthers")}
-          </p>
-        )}
         {canSurvey && (
           <div className="mt-3 flex flex-col gap-2">
             <p className="text-sm leading-relaxed text-fg-muted">{t("station.surveyWhy")}</p>

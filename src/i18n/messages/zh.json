@@ -67,7 +67,6 @@
   "station.coverageTowards": "已测绘，往 {station} 方向",
   "station.coverageMeaning": "统计本站有多少出口和换乘，可以通过已记录的设施真正抵达。",
   "station.mappedDirections": "{total} 个月台方向中已实地勘察 {count} 个。",
-  "station.inferredOthers": "其余是根据该次勘察推算的——值得到现场确认，因为电梯的最佳车门可能因方向而异。",
   "station.allMapped": "这里的每个月台都已勘察过。若有变动，欢迎提交更正。",
   "station.notMapped": "尚未实地勘查。以下为估算位置，均已标明。",
   "station.helpMap": "帮忙绘制这个车站",

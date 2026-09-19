@@ -67,7 +67,6 @@
   "station.coverageTowards": "Mapped, towards {station}",
   "station.coverageMeaning": "Counts the exits and transfers here that something recorded can actually get you to.",
   "station.mappedDirections": "Surveyed on {count} of {total} platform directions.",
-  "station.inferredOthers": "The other is filled in from that survey — worth confirming on the spot, since a lift's best door can differ by direction.",
   "station.allMapped": "Every platform here has been surveyed. A correction is still welcome if something has changed.",
   "station.notMapped": "Not yet surveyed. Estimated positions are shown, marked as estimates.",
   "station.helpMap": "Help map this station",

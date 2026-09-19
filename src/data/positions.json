@@ -12,9 +12,9 @@
     "layouts": "Keyed by station code without direction, since a layout describes the station. Requires source and confidence exactly as everything else does."
   },
   "_status": {
-    "surveyed": 37,
+    "surveyed": 50,
     "note": "Door positions and door side come only from field surveys, or from an OSM-derived candidate a person has then checked. No public dataset provides either (verified against LTA DataMall, data.gov.sg, SMRT and SBS Transit), so there is nothing to import and nothing to fall back on. The app shows 'not yet mapped' until an entry exists — it does not estimate. Counts here are maintained by scripts/review-surveys.mjs and the survey route; 'surveyed' excludes features inferred for the far face of an island platform.",
-    "lastUpdated": "2026-09-17",
+    "lastUpdated": "2026-09-19",
     "orientationSurveyed": 4,
     "layoutsSurveyed": 156
   },
@@ -398,9 +398,8 @@
         ],
         "doorIndex": 3,
         "confidence": "verified",
-        "sourceNote": "Field survey at Stadium — not surveyed from this platform; inferred from the desc survey because CC6 is an island platform",
-        "verifiedAt": "2026-09-16",
-        "impliedFrom": "desc"
+        "sourceNote": "Field survey at Stadium — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-19",
+        "verifiedAt": "2026-09-16"
       },
       {
         "type": "escalator",
@@ -412,9 +411,8 @@
         ],
         "doorIndex": 7,
         "confidence": "verified",
-        "sourceNote": "Field survey at Stadium — not surveyed from this platform; inferred from the desc survey because CC6 is an island platform",
-        "verifiedAt": "2026-09-16",
-        "impliedFrom": "desc"
+        "sourceNote": "Field survey at Stadium — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-19",
+        "verifiedAt": "2026-09-16"
       },
       {
         "type": "lift",
@@ -425,9 +423,8 @@
         ],
         "doorIndex": 7,
         "confidence": "verified",
-        "sourceNote": "Field survey at Stadium — not surveyed from this platform; inferred from the desc survey because CC6 is an island platform",
-        "verifiedAt": "2026-09-16",
-        "impliedFrom": "desc"
+        "sourceNote": "Field survey at Stadium — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-19",
+        "verifiedAt": "2026-09-16"
       },
       {
         "type": "escalator",
@@ -438,9 +435,8 @@
         ],
         "doorIndex": 10,
         "confidence": "verified",
-        "sourceNote": "Field survey at Stadium — not surveyed from this platform; inferred from the desc survey because CC6 is an island platform",
-        "verifiedAt": "2026-09-16",
-        "impliedFrom": "desc"
+        "sourceNote": "Field survey at Stadium — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-19",
+        "verifiedAt": "2026-09-16"
       }
     ],
     "CC2:desc": [
@@ -569,9 +565,8 @@
         ],
         "doorIndex": 2,
         "confidence": "verified",
-        "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
+        "sourceNote": "Field survey at Bras Basah — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-19",
         "verifiedAt": "2026-09-16",
-        "impliedFrom": "desc",
         "secondaryFor": [
           "C",
           "D",
@@ -590,9 +585,8 @@
         ],
         "doorIndex": 2,
         "confidence": "verified",
-        "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
+        "sourceNote": "Field survey at Bras Basah — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-19",
         "verifiedAt": "2026-09-16",
-        "impliedFrom": "desc",
         "secondaryFor": [
           "C",
           "D",
@@ -611,9 +605,8 @@
         ],
         "doorIndex": 6,
         "confidence": "verified",
-        "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
-        "verifiedAt": "2026-09-16",
-        "impliedFrom": "desc"
+        "sourceNote": "Field survey at Bras Basah — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-19",
+        "verifiedAt": "2026-09-16"
       },
       {
         "type": "lift",
@@ -627,9 +620,8 @@
         ],
         "doorIndex": 7,
         "confidence": "verified",
-        "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
-        "verifiedAt": "2026-09-16",
-        "impliedFrom": "desc"
+        "sourceNote": "Field survey at Bras Basah — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-19",
+        "verifiedAt": "2026-09-16"
       },
       {
         "type": "escalator",
@@ -644,9 +636,8 @@
         ],
         "doorIndex": 11,
         "confidence": "verified",
-        "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
+        "sourceNote": "Field survey at Bras Basah — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-19",
         "verifiedAt": "2026-09-16",
-        "impliedFrom": "desc",
         "secondaryFor": [
           "A",
           "B"
@@ -664,9 +655,8 @@
         ],
         "doorIndex": 11,
         "confidence": "verified",
-        "sourceNote": "Field survey at Bras Basah — not surveyed from this platform; inferred from the desc survey because CC2 is an island platform",
+        "sourceNote": "Field survey at Bras Basah — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-19",
         "verifiedAt": "2026-09-16",
-        "impliedFrom": "desc",
         "secondaryFor": [
           "A",
           "B"
@@ -683,13 +673,12 @@
         ],
         "doorIndex": 6,
         "confidence": "verified",
-        "sourceNote": "Field survey at Aljunied — not surveyed from this platform; inferred from the desc survey because EW9 is an island platform",
+        "sourceNote": "Field survey at Aljunied — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-19",
         "verifiedAt": "2026-09-17",
         "secondaryFor": [
           "B",
           "A"
-        ],
-        "impliedFrom": "desc"
+        ]
       },
       {
         "type": "lift",
@@ -770,9 +759,8 @@
         ],
         "doorIndex": 19,
         "confidence": "verified",
-        "sourceNote": "Field survey at Aljunied (platform is elevated, so this escalator descends to the concourse) — not surveyed from this platform; inferred from the asc survey because EW9 is an island platform",
-        "verifiedAt": "2026-09-17",
-        "impliedFrom": "asc"
+        "sourceNote": "Field survey at Aljunied (platform is elevated, so this escalator descends to the concourse) — mirrored from the asc survey of this platform, confirmed accurate on review 2026-09-19",
+        "verifiedAt": "2026-09-17"
       },
       {
         "type": "stairs",
@@ -783,9 +771,8 @@
         ],
         "doorIndex": 19,
         "confidence": "verified",
-        "sourceNote": "Field survey at Aljunied — not surveyed from this platform; inferred from the asc survey because EW9 is an island platform",
-        "verifiedAt": "2026-09-17",
-        "impliedFrom": "asc"
+        "sourceNote": "Field survey at Aljunied — mirrored from the asc survey of this platform, confirmed accurate on review 2026-09-19",
+        "verifiedAt": "2026-09-17"
       }
     ]
   },

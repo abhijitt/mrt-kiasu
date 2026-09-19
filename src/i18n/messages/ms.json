@@ -67,7 +67,6 @@
   "station.coverageTowards": "Dipetakan, ke arah {station}",
   "station.coverageMeaning": "Mengira pintu keluar dan pertukaran di sini yang benar-benar boleh dicapai melalui sesuatu yang direkodkan.",
   "station.mappedDirections": "Ditinjau di {count} daripada {total} arah platform.",
-  "station.inferredOthers": "Yang lain diisi daripada tinjauan itu — berbaloi disahkan di tempat, kerana pintu terbaik untuk lif boleh berbeza mengikut arah.",
   "station.allMapped": "Setiap platform di sini telah ditinjau. Pembetulan tetap dialu-alukan jika ada perubahan.",
   "station.notMapped": "Belum ditinjau. Kedudukan anggaran ditunjukkan dan ditanda sebagai anggaran.",
   "station.helpMap": "Bantu petakan stesen ini",

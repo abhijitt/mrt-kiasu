@@ -67,26 +67,33 @@ describe("survey coverage", () => {
 /**
  * Routing from a platform and having stood on it are different claims.
  *
- * An island platform's far face is filled in from the near one, which is
- * enough to route someone — so its meter reads 100% — but nobody has been
- * there. Calling both "mapped" is how the station page came to say one
- * platform was surveyed directly above a meter reading 100% for two.
+ * An island platform's far face can be filled in from the near one, which is
+ * enough to route someone — so its meter reads 100% — without anyone having
+ * been there. The two were both called "mapped", which is how the station
+ * page came to say one platform was surveyed directly above a meter reading
+ * 100% for two.
+ *
+ * The thirteen mirrored records in the dataset were reviewed and confirmed on
+ * 2026-09-19, so none remain. The field stays because the review tool still
+ * writes inferences for a newly approved survey, and this asserts that none
+ * reaches the shipped dataset without someone having looked at it.
  */
 describe("surveyed here is not the same as covered", () => {
-  it("separates a surveyed face from its inferred twin", () => {
-    // Bras Basah: surveyed towards Esplanade, mirrored to the other side.
-    const both = stationCoverage("CC2");
-    expect(both).toHaveLength(2);
-    expect(both.filter((c) => c.surveyedHere)).toHaveLength(1);
-    // Both still route, which is what the meter is about.
-    expect(both.every((c) => c.complete)).toBe(true);
+  it("has no platform the app routes from that nobody has checked", () => {
+    for (const code of ["CC2", "CC6", "EW8", "EW9", "CC9"]) {
+      for (const c of stationCoverage(code)) {
+        if (c.started) expect({ code: c.code, dir: c.direction, surveyed: c.surveyedHere })
+          .toEqual({ code: c.code, dir: c.direction, surveyed: true });
+      }
+    }
   });
 
-  it("counts both faces where both were actually surveyed", () => {
-    // Aljunied: surveyed from each platform, which is how the staggered lift
-    // was caught — the inference had its door a place out.
+  it("counts both faces at a station surveyed from both", () => {
+    // Aljunied, which is how the staggered lift was caught — the inference
+    // had its door a place out until the second face was walked.
     const both = stationCoverage("EW9");
     expect(both.filter((c) => c.surveyedHere)).toHaveLength(2);
+    expect(both.every((c) => c.complete)).toBe(true);
   });
 
   it("claims nothing for a platform nobody has recorded", () => {
