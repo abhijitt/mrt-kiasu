@@ -27,12 +27,55 @@ const COLOR: Record<Level, string> = {
   NA: "var(--crowd-na)",
 };
 
-const HEIGHT: Record<Level, string> = {
-  l: "35%",
-  m: "65%",
-  h: "100%",
-  NA: "12%",
+/** Bar height as a fraction of what a "high" bar gets. */
+const LEVEL: Record<Level, number> = {
+  l: 0.35,
+  m: 0.65,
+  h: 1,
+  NA: 0.12,
 };
+
+/**
+ * Plot height in pixels for a window whose busiest moment is "high".
+ *
+ * The plot used to be this tall always, with the bars anchored to the bottom.
+ * That is right for a busy afternoon and wrong the rest of the time: four
+ * quiet hours drew 22px of bar under 42px of reserved emptiness, and after the
+ * crowd sections merged that void sat directly under the "Later" heading and
+ * read as a rendering fault.
+ *
+ * So the plot is only as tall as the busiest moment in the window needs. Bars
+ * keep their proportions to each other, which is what the chart is for — when
+ * does it get worse — and the absolute level is carried by the colour, which
+ * does not change. A flat quiet stretch draws a short strip, which is honest
+ * about being flat and quiet.
+ */
+const PLOT_H = 64;
+
+/** Shortest the plot may get, so an all-quiet window is still a chart. */
+const PLOT_MIN = 26;
+
+const peakOf = (levels: Level[]) => Math.max(...levels.map((l) => LEVEL[l]));
+
+/** How tall to draw the plot for one window of levels, in pixels. */
+export function plotHeight(levels: Level[]): number {
+  if (levels.length === 0) return PLOT_MIN;
+  return Math.max(PLOT_MIN, Math.round(PLOT_H * peakOf(levels)));
+}
+
+/**
+ * One bar's share of the plot, as a percentage.
+ *
+ * Relative to the busiest moment in the same window, so the shape of the
+ * afternoon survives the plot being shortened — which is the part of the chart
+ * anyone reads. Where the window is quiet enough that PLOT_MIN takes over, the
+ * bars are a little taller than their absolute share; the colour still says
+ * which level each one is.
+ */
+export function barShare(level: Level, levels: Level[]): number {
+  if (levels.length === 0) return 0;
+  return (LEVEL[level] / peakOf(levels)) * 100;
+}
 
 /** How far ahead is useful to plan. Beyond this the reader stops caring. */
 const HOURS_AHEAD = 4;
@@ -120,16 +163,26 @@ export function CrowdForecast({
       hour12: false,
     });
 
+  const levels = upcoming.map((i) => i.CrowdLevel);
+
   return (
     <div className="mt-3">
       {/* Bars and labels are separate rows: nesting the labels inside each
           column let a wrapped label shove its bar off the shared baseline. */}
-      <div className="flex h-16 items-end gap-1" role="img" aria-label={t("forecast.title")}>
+      <div
+        className="flex items-end gap-1"
+        style={{ height: plotHeight(levels) }}
+        role="img"
+        aria-label={t("forecast.title")}
+      >
         {upcoming.map((i) => (
           <div
             key={i.Start}
             className="flex-1 border-2 border-[var(--border)]"
-            style={{ height: HEIGHT[i.CrowdLevel], background: COLOR[i.CrowdLevel] }}
+            style={{
+              height: `${barShare(i.CrowdLevel, levels)}%`,
+              background: COLOR[i.CrowdLevel],
+            }}
             title={`${fmt(i.at)} · ${t(
               `crowd.${
                 i.CrowdLevel === "l"

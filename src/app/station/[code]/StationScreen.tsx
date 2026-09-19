@@ -156,19 +156,48 @@ export function StationScreen(p: Props) {
         </section>
       )}
 
-      {/* Now and later are one question asked twice.
-          As two cards, "How crowded now" and "How crowded later" put a
-          near-identical heading on consecutive boxes and made the reader
-          compare across a gap to answer "is this about to get worse". */}
-      <section className="pixel-box anim-enter anim-enter-2 p-4">
+      {/* One section, because they were always one question.
+          The exits were a row of bare letters and "what's near each exit" was
+          a separate card further down listing a different set of letters —
+          only the exits OpenStreetMap happens to know something about. A
+          reader comparing the two had to work out that Exit D appearing in
+          one and not the other meant "nothing recorded", not "not an exit". */}
+      <section className="pixel-box p-4">
         <h2 className="font-pixel text-xs uppercase text-fg-muted">
-          {t("station.crowding")}
+          {t("station.exits")}
         </h2>
-        <CrowdLevel stationCode={p.code} line={p.lineCode} />
-        <h3 className="font-pixel mt-4 text-[10px] uppercase text-fg-muted">
-          {t("station.crowdLater")}
-        </h3>
-        <CrowdForecast stationCode={p.code} line={p.lineCode} />
+        {allExits.length > 0 ? (
+          <>
+            {anyLandmarks ? (
+              <ul className="mt-3 flex flex-col gap-3">
+                {allExits.map((code) => (
+                  <ExitLandmarks key={code} code={code} items={byExit[code] ?? []} />
+                ))}
+              </ul>
+            ) : (
+              // Nothing is known about any of them, so say it once rather
+              // than printing the same empty line under every exit.
+              <>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {allExits.map((code) => (
+                    <li key={code} className="pixel-box-sm font-pixel px-3 py-1.5 text-xs">
+                      {code}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-sm text-fg-muted">{t("station.noLandmarks")}</p>
+              </>
+            )}
+            <p className="mt-3 text-xs text-fg-faint">
+              {t("station.exitCount", { count: allExits.length })}
+            </p>
+            {anyLandmarks && (
+              <p className="mt-1 text-xs text-fg-faint">{t("station.landmarkNote")}</p>
+            )}
+          </>
+        ) : (
+          <p className="mt-3 text-sm text-fg-muted">{t("station.noExitData")}</p>
+        )}
       </section>
 
       {/* Ahead of everything else on the page: if the network is shut, no
@@ -361,48 +390,19 @@ export function StationScreen(p: Props) {
         )}
       </section>
 
-      {/* One section, because they were always one question.
-          The exits were a row of bare letters and "what's near each exit" was
-          a separate card further down listing a different set of letters —
-          only the exits OpenStreetMap happens to know something about. A
-          reader comparing the two had to work out that Exit D appearing in
-          one and not the other meant "nothing recorded", not "not an exit". */}
-      <section className="pixel-box p-4">
+      {/* Now and later are one question asked twice.
+          As two cards, "How crowded now" and "How crowded later" put a
+          near-identical heading on consecutive boxes and made the reader
+          compare across a gap to answer "is this about to get worse". */}
+      <section className="pixel-box anim-enter anim-enter-2 p-4">
         <h2 className="font-pixel text-xs uppercase text-fg-muted">
-          {t("station.exits")}
+          {t("station.crowding")}
         </h2>
-        {allExits.length > 0 ? (
-          <>
-            {anyLandmarks ? (
-              <ul className="mt-3 flex flex-col gap-3">
-                {allExits.map((code) => (
-                  <ExitLandmarks key={code} code={code} items={byExit[code] ?? []} />
-                ))}
-              </ul>
-            ) : (
-              // Nothing is known about any of them, so say it once rather
-              // than printing the same empty line under every exit.
-              <>
-                <ul className="mt-3 flex flex-wrap gap-2">
-                  {allExits.map((code) => (
-                    <li key={code} className="pixel-box-sm font-pixel px-3 py-1.5 text-xs">
-                      {code}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-3 text-sm text-fg-muted">{t("station.noLandmarks")}</p>
-              </>
-            )}
-            <p className="mt-3 text-xs text-fg-faint">
-              {t("station.exitCount", { count: allExits.length })}
-            </p>
-            {anyLandmarks && (
-              <p className="mt-1 text-xs text-fg-faint">{t("station.landmarkNote")}</p>
-            )}
-          </>
-        ) : (
-          <p className="mt-3 text-sm text-fg-muted">{t("station.noExitData")}</p>
-        )}
+        <CrowdLevel stationCode={p.code} line={p.lineCode} />
+        <h3 className="font-pixel mt-4 text-[10px] uppercase text-fg-muted">
+          {t("station.crowdLater")}
+        </h3>
+        <CrowdForecast stationCode={p.code} line={p.lineCode} />
       </section>
 
       {/* The prose and the figures are the same subject, so they are one card.
