@@ -82,9 +82,14 @@ export function StationScreen(p: Props) {
     : null;
 
   const byExit = groupByExit(p.landmarks);
-  const exitCodes = Object.keys(byExit).sort((a, b) =>
+  // LTA's exit list is the authority on which exits exist; OpenStreetMap only
+  // says what stands near some of them. Union rather than either alone, so an
+  // exit with nothing recorded is still listed and a landmark filed under an
+  // exit LTA has not published is not silently dropped.
+  const allExits = [...new Set([...p.exits, ...Object.keys(byExit)])].sort((a, b) =>
     a.localeCompare(b, undefined, { numeric: true }),
   );
+  const anyLandmarks = Object.keys(byExit).length > 0;
 
   return (
     <div className="min-h-dvh">
@@ -186,21 +191,6 @@ export function StationScreen(p: Props) {
             stationCodes={[p.code, ...p.interchanges.map((i) => i.code)]}
             stationName={p.name}
           />
-        </section>
-      )}
-
-      {trivia && (
-        <section className="pixel-box p-4">
-          <h2 className="font-pixel text-xs uppercase text-fg-muted">
-            {t("station.summary")}
-          </h2>
-          <p className="mt-3 text-base leading-relaxed text-fg">{trivia.summary}</p>
-          {trivia.translated && (
-            <p className="mt-2 text-xs text-fg-faint">{t("station.machineTranslated")}</p>
-          )}
-          <a className="mt-2 inline-block text-xs text-fg-faint underline" href={trivia.url}>
-            {t("common.source")}
-          </a>
         </section>
       )}
 
@@ -370,53 +360,71 @@ export function StationScreen(p: Props) {
         )}
       </section>
 
-      {exitCodes.length > 0 ? (
-        <section className="pixel-box p-4">
-          <h2 className="font-pixel text-xs uppercase text-fg-muted">
-            {t("station.nearbyLandmarks")}
-          </h2>
-          <ul className="mt-3 flex flex-col gap-3">
-            {exitCodes.map((code) => (
-              <ExitLandmarks key={code} code={code} items={byExit[code]} />
-            ))}
-          </ul>
-          <p className="mt-3 text-xs text-fg-faint">{t("station.landmarkNote")}</p>
-        </section>
-      ) : (
-        <section className="pixel-box p-4">
-          <h2 className="font-pixel text-xs uppercase text-fg-muted">
-            {t("station.nearbyLandmarks")}
-          </h2>
-          <p className="mt-3 text-sm text-fg-muted">{t("station.noLandmarks")}</p>
-        </section>
-      )}
-
+      {/* One section, because they were always one question.
+          The exits were a row of bare letters and "what's near each exit" was
+          a separate card further down listing a different set of letters —
+          only the exits OpenStreetMap happens to know something about. A
+          reader comparing the two had to work out that Exit D appearing in
+          one and not the other meant "nothing recorded", not "not an exit". */}
       <section className="pixel-box p-4">
         <h2 className="font-pixel text-xs uppercase text-fg-muted">
           {t("station.exits")}
         </h2>
-        {p.exits.length > 0 ? (
+        {allExits.length > 0 ? (
           <>
-            <ul className="mt-3 flex flex-wrap gap-2">
-              {p.exits.map((code) => (
-                <li key={code} className="pixel-box-sm font-pixel px-3 py-1.5 text-xs">
-                  {code}
-                </li>
-              ))}
-            </ul>
+            {anyLandmarks ? (
+              <ul className="mt-3 flex flex-col gap-3">
+                {allExits.map((code) => (
+                  <ExitLandmarks key={code} code={code} items={byExit[code] ?? []} />
+                ))}
+              </ul>
+            ) : (
+              // Nothing is known about any of them, so say it once rather
+              // than printing the same empty line under every exit.
+              <>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {allExits.map((code) => (
+                    <li key={code} className="pixel-box-sm font-pixel px-3 py-1.5 text-xs">
+                      {code}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-sm text-fg-muted">{t("station.noLandmarks")}</p>
+              </>
+            )}
             <p className="mt-3 text-xs text-fg-faint">
-              {t("station.exitCount", { count: p.exits.length })}
+              {t("station.exitCount", { count: allExits.length })}
             </p>
+            {anyLandmarks && (
+              <p className="mt-1 text-xs text-fg-faint">{t("station.landmarkNote")}</p>
+            )}
           </>
         ) : (
           <p className="mt-3 text-sm text-fg-muted">{t("station.noExitData")}</p>
         )}
       </section>
 
+      {/* The prose and the figures are the same subject, so they are one card.
+          Apart, "About" sat high on the page describing the station in words
+          while the numbers it was describing — when it opened, how deep it is,
+          how many platforms — were several sections further down. */}
       <section className="pixel-box p-4">
         <h2 className="font-pixel text-xs uppercase text-fg-muted">
           {t("station.goodToKnow")}
         </h2>
+        {trivia && (
+          <>
+            <p className="mt-3 text-base leading-relaxed text-fg">{trivia.summary}</p>
+            {trivia.translated && (
+              <p className="mt-2 text-xs text-fg-faint">{t("station.machineTranslated")}</p>
+            )}
+            {/* The link belongs to the prose above it, not to the figures
+                below, several of which come from elsewhere. */}
+            <a className="mt-2 inline-block text-xs text-fg-faint underline" href={trivia.url}>
+              {t("common.source")}
+            </a>
+          </>
+        )}
         <dl className="mt-3 flex flex-col gap-3">
           {opened && (
             <div>

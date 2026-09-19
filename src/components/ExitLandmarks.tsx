@@ -9,17 +9,29 @@ import type { Landmark } from "@/lib/landmark-types";
 const PREVIEW = 4;
 
 /**
- * One exit's landmarks, nearest first, truncated until asked.
+ * One exit, and the landmarks nearest it, truncated until asked.
  *
  * A dense station can list a dozen places per exit; printing them all turned
- * the page into a wall and buried the exits further down. Four is enough to
- * recognise where an exit comes out.
+ * the page into a wall. Four is enough to recognise where an exit comes out.
+ *
+ * An exit with nothing recorded still appears. It is a real way out of the
+ * station, and listing only the exits OpenStreetMap happens to know about
+ * would quietly shorten the station.
  */
 export function ExitLandmarks({ code, items }: { code: string; items: Landmark[] }) {
   const t = useT();
   const [expanded, setExpanded] = useState(false);
   const shown = expanded ? items : items.slice(0, PREVIEW);
   const hidden = items.length - shown.length;
+
+  if (items.length === 0) {
+    return (
+      <li className="pixel-box-sm p-3">
+        <p className="font-pixel text-xs">{t("station.landmarkKind.exit", { code })}</p>
+        <p className="mt-2 text-sm text-fg-muted">{t("station.landmarkNone")}</p>
+      </li>
+    );
+  }
 
   return (
     <li className="pixel-box-sm p-3">
