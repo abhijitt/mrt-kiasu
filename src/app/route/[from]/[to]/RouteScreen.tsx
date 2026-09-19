@@ -8,7 +8,7 @@ import { LiftStatus, usePrefersLift } from "@/components/LiftStatus";
 import { PlatformDiagram } from "@/components/PlatformDiagram";
 import { toCarPosition, type Direction } from "@/lib/doors";
 import { secondsSaved } from "@/lib/walking";
-import { backupDoor, doorBreakdown, fleetSource, savedWorking } from "@/lib/gao";
+import { backupDoor, doorBreakdown, fleetSource, otherWaysOut, savedWorking } from "@/lib/gao";
 import { useKiasuScore } from "@/lib/useKiasuScore";
 import { JourneyEstimate } from "@/components/JourneyEstimate";
 // fare-types, not fare: this is a client component, and fare.ts imports the
@@ -84,8 +84,14 @@ function Guidance({
   legKey,
   doorSide,
   arrivalDoor,
+  features,
+  target,
 }: {
   feature: PlatformFeature | null;
+  /** Everything recorded on this platform, for naming a second way out. */
+  features: PlatformFeature[];
+  /** The exit or line this leg is aiming at, if any. */
+  target: string | null;
   line: LineCode;
   direction: Direction;
   /** The platform this guidance is about — where the leg ends. */
@@ -155,6 +161,11 @@ function Guidance({
   const working = gao && feature.offsetM !== undefined ? savedWorking(feature.offsetM, line) : null;
   const backup = gao && !isEstimate ? backupDoor(feature.doorIndex, line) : null;
   const backupPosition = backup ? toCarPosition(backup.doorIndex, line, direction) : null;
+  // Two different answers to "it's packed": one door over is for a crowd at
+  // the door, another landing is for a crowd at the landing.
+  const others = gao && !isEstimate ? otherWaysOut(features, feature, target, line) : [];
+  const alsoHere = others.filter((o) => o.sameLanding);
+  const elsewhere = others.filter((o) => !o.sameLanding).slice(0, 2);
 
   return (
     <div className="mt-4">
@@ -349,18 +360,47 @@ function Guidance({
         </div>
       )}
 
-      {backup && backupPosition && (
+      {((backup && backupPosition) || elsewhere.length > 0) && (
         <div className="pixel-box-sm mt-3 p-3">
           <p className="font-pixel text-[10px] uppercase text-fg-muted">
             {t("gao.backupTitle")}
           </p>
-          <p className="mt-2 text-sm leading-relaxed text-fg">
-            {t("gao.backupBody", {
-              car: backupPosition.car,
-              ordinal: ORDINALS[backupPosition.doorInCar - 1] ?? backupPosition.doorInCar,
-              loss: backup.extraSeconds,
-            })}
-          </p>
+          {backup && backupPosition && (
+            <p className="mt-2 text-sm leading-relaxed text-fg">
+              {t("gao.backupBody", {
+                car: backupPosition.car,
+                ordinal: ORDINALS[backupPosition.doorInCar - 1] ?? backupPosition.doorInCar,
+                loss: backup.extraSeconds,
+              })}
+            </p>
+          )}
+          {/* The device beside the one we sent you to. Quiet, because it is
+              the same walk — worth knowing, not worth deciding on. */}
+          {alsoHere.length > 0 && (
+            <p className="mt-1 text-xs leading-relaxed text-fg-faint">
+              {alsoHere
+                .map((o) => t("gao.alsoHere", { device: t(`mode.${o.feature.type}` as MessageKey) }))
+                .join(" ")}
+            </p>
+          )}
+          {/* The other landing. This is the one worth walking to when the
+              crowd is not at your door but at the escalator itself. */}
+          {elsewhere.map((o) => {
+            const at = toCarPosition(o.feature.doorIndex, line, direction);
+            return (
+              <p
+                key={`${o.feature.type}-${o.feature.doorIndex}`}
+                className="mt-2 text-sm leading-relaxed text-fg-muted"
+              >
+                {t(o.longWay ? "gao.otherWayLong" : "gao.otherWay", {
+                  device: t(`mode.${o.feature.type}` as MessageKey),
+                  car: at.car,
+                  ordinal: ORDINALS[at.doorInCar - 1] ?? at.doorInCar,
+                  loss: o.extraSeconds,
+                })}
+              </p>
+            );
+          })}
         </div>
       )}
 
@@ -531,6 +571,8 @@ export function RouteScreen(p: Props) {
               platformCode={leg.toCode}
               showPreferenceNote={loaded}
               targetMissed={targetMissed}
+              features={leg.features}
+              target={target}
               legKey={`${p.originName}|${p.destinationName}|${i}`}
               doorSide={leg.boardingSide ?? undefined}
               arrivalDoor={

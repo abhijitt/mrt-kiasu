@@ -9,6 +9,13 @@
 
 import { LINES, doorsPerTrain, type LineCode } from "./lines";
 import type { Direction } from "./doors";
+import {
+  isLongWayTo,
+  leadsToTarget,
+  sameFeature,
+  servesAlighting,
+  type PlatformFeature,
+} from "./feature-types";
 import { trainLengthM, WALKING_SPEED_MS } from "./walking";
 
 /** Which end of the train a door is counted from, once direction is applied. */
@@ -104,6 +111,64 @@ export function backupDoor(doorIndex: number, line: LineCode): BackupDoor | null
     doorIndex: towardMiddle,
     extraSeconds: Math.max(1, Math.round(spacingM / WALKING_SPEED_MS)),
   };
+}
+
+export interface OtherWay {
+  feature: PlatformFeature;
+  /** Extra walking against the recommended door, in seconds. */
+  extraSeconds: number;
+  /** Same spot on the platform — a different device on one landing. */
+  sameLanding: boolean;
+  /** Reaches the target, but by the long way round. */
+  longWay: boolean;
+}
+
+/**
+ * The other ways off this platform that still reach where you are going.
+ *
+ * backupDoor() answers a narrow question — this door is a scrum, is the next
+ * one along any good — and the answer is arithmetic, so it holds anywhere.
+ * But it is the wrong question when the whole landing is packed: at Paya
+ * Lebar, standing one door from a mobbed escalator leaves you in the same
+ * crowd, while the stairs eleven doors down reach the same exits with nobody
+ * on them. The platform data has known about that second landing all along
+ * and the page never mentioned it.
+ *
+ * Only surveyed features, and only ones that reach the target: an estimate is
+ * a guess at where an exit surfaces, and sending someone the length of a
+ * platform on a guess is worse than saying nothing. Ranked by the walk, with
+ * a landing that is the long way round ranked after one that is not, because
+ * "further away" and "the wrong end of the station" are different costs.
+ */
+export function otherWaysOut(
+  features: PlatformFeature[],
+  chosen: PlatformFeature,
+  target: string | null,
+  line: LineCode,
+): OtherWay[] {
+  const total = doorsPerTrain(line);
+  const lengthM = trainLengthM(line);
+  if (total === null || lengthM === null) return [];
+  const spacingM = lengthM / total;
+
+  return features
+    .filter(
+      (f) =>
+        !sameFeature(f, chosen) &&
+        f.confidence !== "estimate" &&
+        servesAlighting(f) &&
+        (!target || leadsToTarget(f, target)),
+    )
+    .map((f) => ({
+      feature: f,
+      extraSeconds: Math.round((Math.abs(f.doorIndex - chosen.doorIndex) * spacingM) / WALKING_SPEED_MS),
+      sameLanding: f.doorIndex === chosen.doorIndex,
+      longWay: isLongWayTo(f, target),
+    }))
+    .sort(
+      (a, b) =>
+        Number(a.longWay) - Number(b.longWay) || a.extraSeconds - b.extraSeconds,
+    );
 }
 
 function round1(n: number): number {

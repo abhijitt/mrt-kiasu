@@ -4,7 +4,7 @@ import { useState, useSyncExternalStore } from "react";
 import { useT } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { adjustmentsFor, isoDateOf } from "@/lib/service-adjustments";
-import { serviceDayOf, type TrainTime } from "@/lib/service-status";
+import { holidayOn, holidaysCover, serviceDayOf, type TrainTime } from "@/lib/service-status";
 
 /**
  * Today's date, read the way the app reads any other browser state.
@@ -47,7 +47,9 @@ export function TrainTimes({ times }: { times: Partial<Record<ServiceDay, TrainT
   // Falling back to the current date rather than to a guess: sgDayOfWeek reads
   // the Singapore calendar wherever it runs, so the server and the first
   // client render agree and nothing jumps at hydration.
-  const serviceDay = serviceDayOf(today ? new Date(`${today}T12:00:00`) : new Date());
+  const when = today ? new Date(`${today}T12:00:00`) : new Date();
+  const serviceDay = serviceDayOf(when);
+  const holiday = holidayOn(when);
 
   // Derived during render from the snapshot above, so this stays pure: the
   // same date and the same rows always give the same answer.
@@ -70,10 +72,22 @@ export function TrainTimes({ times }: { times: Partial<Record<ServiceDay, TrainT
   const available = DAYS.filter((d) => times[d]?.length);
   // A station with only one set of times has nothing to collapse, and a
   // toggle offering to hide nothing is worse than no toggle.
-  const shown = allDays || !available.includes(serviceDay) ? available : [serviceDay];
+  //
+  // Past the last year MOM has gazetted, we cannot tell a holiday from an
+  // ordinary Monday — so rather than show one timetable that might be the
+  // wrong one, show all three and let the reader pick, which is what this did
+  // before the list existed.
+  const canCollapse = holidaysCover(when) && available.includes(serviceDay);
+  const shown = allDays || !canCollapse ? available : [serviceDay];
 
   return (
     <div className="mt-3 flex flex-col gap-4">
+      {/* Said out loud, because "Sun & PH" on a Tuesday looks like a bug. */}
+      {holiday && !allDays && canCollapse && (
+        <p className="text-sm leading-relaxed text-fg-muted">
+          {t("times.holidayToday", { holiday })}
+        </p>
+      )}
       {shown.map((day) => (
         <div key={day}>
           <p className="font-pixel text-[10px] uppercase text-fg-muted">

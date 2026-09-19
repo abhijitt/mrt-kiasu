@@ -8,7 +8,8 @@
  */
 
 import type { LineCode } from "./lines";
-import { sgDayOfWeek } from "./sg-time";
+import { sgDayOfWeek, sgIsoDate } from "./sg-time";
+import holidays from "@/data/holidays.json";
 
 export type ServiceDay = "weekday" | "saturday" | "sunday";
 
@@ -42,12 +43,40 @@ export type Status =
 /** Warn this far ahead of the last train. */
 export const LAST_TRAIN_WARNING_MINUTES = 45;
 
-/** Which timetable applies. Public holidays follow the Sunday timetable. */
+const HOLIDAYS: Record<string, string> = holidays.dates;
+
+/** The gazetted holiday on this date, or null. Exported for the copy. */
+export function holidayOn(date: Date): string | null {
+  return HOLIDAYS[sgIsoDate(date)] ?? null;
+}
+
+/**
+ * Which timetable applies.
+ *
+ * Public holidays follow the Sunday timetable, whatever day of the week they
+ * land on — so a holiday Monday is "sunday" here, and so is a holiday
+ * Saturday. MOM lists a Sunday holiday twice, once on the day and once as the
+ * Monday "(Observed)", and it is the second that changes a timetable; both
+ * resolve correctly without special-casing, the first because it is a Sunday
+ * already.
+ *
+ * Outside the years the dataset covers this falls back to the day of the
+ * week, which is what the app did everywhere before the list existed. That is
+ * a quiet wrong answer on a future holiday rather than a crash — see
+ * holidaysCover(), which is how the UI knows not to promise too much.
+ */
 export function serviceDayOf(date: Date): ServiceDay {
+  if (holidayOn(date)) return "sunday";
   const day = sgDayOfWeek(date);
   if (day === 0) return "sunday";
   if (day === 6) return "saturday";
   return "weekday";
+}
+
+/** Whether the holiday list has anything to say about this date's year. */
+export function holidaysCover(date: Date): boolean {
+  const year = sgIsoDate(date).slice(0, 4);
+  return year >= holidays.years.first && year <= holidays.years.last;
 }
 
 function toMinutes(hhmm: string): number {

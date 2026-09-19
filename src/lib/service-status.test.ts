@@ -1,15 +1,22 @@
 import { describe, expect, it } from "vitest";
 import {
-  connectionAtRisk,
   LAST_TRAIN_WARNING_MINUTES,
+  connectionAtRisk,
+  holidayOn,
+  holidaysCover,
   serviceDayOf,
   statusFor,
-  worstStatus,
   type TrainTime,
+  worstStatus,
 } from "./service-status";
+import { sgDayOfWeek } from "./sg-time";
 
 /** Bishan towards Marina South Pier, weekday: real values from the feed. */
-const ROW: TrainTime = { towards: "Marina South Pier", first: "06:09", last: "23:40" };
+const ROW: TrainTime = {
+  towards: "Marina South Pier",
+  first: "06:09",
+  last: "23:40",
+};
 /** A direction whose last train is after midnight, which is the tricky case. */
 const LATE: TrainTime = { towards: "Clockwise", first: "05:42", last: "00:37" };
 
@@ -45,7 +52,9 @@ describe("status through the day", () => {
   });
 
   it("does not warn while the last train is still far off", () => {
-    expect(statusFor(ROW, at(23, 40 - LAST_TRAIN_WARNING_MINUTES - 5)).kind).toBe("running");
+    expect(
+      statusFor(ROW, at(23, 40 - LAST_TRAIN_WARNING_MINUTES - 5)).kind,
+    ).toBe("running");
   });
 });
 
@@ -83,7 +92,10 @@ describe("services that run past midnight", () => {
 describe("worst status", () => {
   it("reports the most urgent of several directions", () => {
     expect(
-      worstStatus([{ kind: "running" }, { kind: "lastSoon", last: "23:40", minutesLeft: 10 }]).kind,
+      worstStatus([
+        { kind: "running" },
+        { kind: "lastSoon", last: "23:40", minutesLeft: 10 },
+      ]).kind,
     ).toBe("lastSoon");
     expect(
       worstStatus([
@@ -94,7 +106,9 @@ describe("worst status", () => {
   });
 
   it("is running when everything is running", () => {
-    expect(worstStatus([{ kind: "running" }, { kind: "running" }]).kind).toBe("running");
+    expect(worstStatus([{ kind: "running" }, { kind: "running" }]).kind).toBe(
+      "running",
+    );
   });
 });
 
@@ -115,5 +129,52 @@ describe("connections", () => {
   it("handles a connection running past midnight", () => {
     expect(connectionAtRisk(LATE, at(23, 50), 20)).toBe(false);
     expect(connectionAtRisk(LATE, at(23, 50), 60)).toBe(true);
+  });
+});
+
+/**
+ * The timetable on a public holiday is Sunday's, whatever weekday it is.
+ *
+ * Until MOM's list was imported the app could not tell a holiday Monday from
+ * an ordinary one. That was harmless while all three timetables were on
+ * screen for the reader to pick from; once the station page showed only
+ * today's, it would have shown the weekday times on the eleven days a year
+ * when they are wrong.
+ */
+describe("public holidays run a Sunday timetable", () => {
+  const sg = (iso: string) => new Date(`${iso}T04:00:00Z`); // noon in Singapore
+
+  it("treats a holiday weekday as Sunday", () => {
+    // Good Friday 2026 is a Friday; Labour Day is a Friday; CNY is a Tuesday.
+    expect(serviceDayOf(sg("2026-04-03"))).toBe("sunday");
+    expect(serviceDayOf(sg("2026-05-01"))).toBe("sunday");
+    expect(serviceDayOf(sg("2026-02-17"))).toBe("sunday");
+  });
+
+  it("treats the Monday in lieu as Sunday", () => {
+    // National Day 2026 falls on a Sunday, so the Monday is gazetted too and
+    // it is the Monday that actually changes a timetable.
+    expect(holidayOn(sg("2026-08-10"))).toBe("National Day (Observed)");
+    expect(serviceDayOf(sg("2026-08-10"))).toBe("sunday");
+  });
+
+  it("overrides Saturday too, not only weekdays", () => {
+    // Hari Raya Puasa 2026 is a Saturday. Saturday and Sunday timetables
+    // differ, so defaulting to "saturday" here would be the wrong one.
+    expect(sgDayOfWeek(sg("2026-03-21"))).toBe(6);
+    expect(serviceDayOf(sg("2026-03-21"))).toBe("sunday");
+  });
+
+  it("leaves an ordinary day alone", () => {
+    expect(serviceDayOf(sg("2026-04-02"))).toBe("weekday");
+    expect(serviceDayOf(sg("2026-04-04"))).toBe("saturday");
+    expect(holidayOn(sg("2026-04-02"))).toBeNull();
+  });
+
+  it("knows which years it can answer for", () => {
+    // Outside MOM's gazetted range the answer is a guess, and the UI shows
+    // every timetable rather than one that might be the wrong one.
+    expect(holidaysCover(sg("2026-04-02"))).toBe(true);
+    expect(holidaysCover(sg("2040-04-02"))).toBe(false);
   });
 });

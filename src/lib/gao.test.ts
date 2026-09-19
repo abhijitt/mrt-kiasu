@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { backupDoor, doorBreakdown, savedWorking } from "./gao";
+import { backupDoor, doorBreakdown, otherWaysOut, savedWorking } from "./gao";
+import type { PlatformFeature } from "./feature-types";
 import { secondsSaved, trainLengthM } from "./walking";
 import { toCarPosition } from "./doors";
 import { LINES, doorsPerTrain, type LineCode } from "./lines";
@@ -114,5 +115,83 @@ describe("clamp disclosure", () => {
     for (const offset of [-169, -35, 0, 200]) {
       expect(savedWorking(offset, "CCL")!.seconds).toBe(secondsSaved(offset, "CCL"));
     }
+  });
+});
+
+/**
+ * The other way off the platform.
+ *
+ * backupDoor answers "this door is a scrum, is the next one along any good",
+ * which is arithmetic and holds anywhere. It is the wrong question when the
+ * crowd is at the landing rather than the door: standing one door from a
+ * mobbed escalator leaves you in the same crowd. Paya Lebar's East West
+ * platform has the answer recorded — stairs eleven doors away reaching the
+ * same exits — and the page never mentioned them.
+ */
+describe("other ways off the platform", () => {
+  const base = {
+    source: "survey",
+    confidence: "verified",
+    verifiedAt: "2026-09-15",
+    sourceNote: "Field survey",
+  } as const;
+
+  const escalator: PlatformFeature = {
+    ...base, type: "escalator", doorIndex: 10, leadsTo: ["A", "E"], travel: "down",
+  };
+  const stairsHere: PlatformFeature = {
+    ...base, type: "stairs", doorIndex: 10, leadsTo: ["A", "E"],
+  };
+  const farStairs: PlatformFeature = {
+    ...base, type: "stairs", doorIndex: 21, leadsTo: ["A", "E"],
+  };
+  const otherExit: PlatformFeature = {
+    ...base, type: "escalator", doorIndex: 2, leadsTo: ["B"], travel: "down",
+  };
+  const platform = [escalator, stairsHere, farStairs, otherExit];
+
+  it("names the far landing that reaches the same exit", () => {
+    const ways = otherWaysOut(platform, escalator, "A", "EWL");
+    expect(ways.map((w) => w.feature.doorIndex)).toEqual([10, 21]);
+    expect(ways.find((w) => w.feature.doorIndex === 21)!.extraSeconds).toBeGreaterThan(30);
+  });
+
+  it("marks the device on the same landing as no walk at all", () => {
+    const here = otherWaysOut(platform, escalator, "A", "EWL")[0];
+    expect(here.sameLanding).toBe(true);
+    expect(here.extraSeconds).toBe(0);
+    expect(here.feature.type).toBe("stairs");
+  });
+
+  it("leaves out what does not reach where you are going", () => {
+    // The escalator at door 2 serves exit B. Offering it to someone heading
+    // for A would send them out of the wrong end of the station.
+    expect(otherWaysOut(platform, escalator, "A", "EWL").map((w) => w.feature)).not.toContain(
+      otherExit,
+    );
+    expect(otherWaysOut(platform, escalator, "B", "EWL").map((w) => w.feature)).toEqual([otherExit]);
+  });
+
+  it("never offers an estimate as the backup", () => {
+    // A guess at where an exit surfaces is not something to walk a platform
+    // for. It is fine as the headline answer, clearly marked; it is not fine
+    // as "go here instead".
+    const guess: PlatformFeature = {
+      type: "exit", doorIndex: 20, leadsTo: ["A"], source: "estimate",
+      confidence: "estimate", sourceNote: "projected", offsetM: -30,
+    };
+    expect(otherWaysOut([escalator, guess], escalator, "A", "EWL")).toEqual([]);
+  });
+
+  it("ranks the long way round after a plain longer walk", () => {
+    const demoted: PlatformFeature = { ...farStairs, doorIndex: 12, secondaryFor: ["A"] };
+    const ways = otherWaysOut([escalator, demoted, farStairs], escalator, "A", "EWL");
+    // Door 12 is the shorter walk, but it is the wrong end of the station.
+    expect(ways[0].feature.doorIndex).toBe(21);
+    expect(ways.at(-1)!.longWay).toBe(true);
+  });
+
+  it("does not offer the door you are already standing at", () => {
+    expect(otherWaysOut([escalator], escalator, "A", "EWL")).toEqual([]);
   });
 });
