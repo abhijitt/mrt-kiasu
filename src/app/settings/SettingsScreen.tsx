@@ -309,23 +309,29 @@ export function SettingsScreen({ stats, coverage }: Props) {
             estimated: stats.estimatedFeatures,
           })}
         </p>
-        {/* Two meters, not one. "Started" counts platforms where anything at
-            all is recorded; "complete" counts the ones where every exit and
-            every transfer can actually be reached. Reporting only the first
-            would let the number climb while the app still had nothing to say
-            to someone heading for a particular exit. */}
+        {/* One meter, unless they disagree.
+            "Started" counts platforms where anything at all is recorded;
+            "complete" counts the ones where every exit and every transfer can
+            actually be reached. The distinction still matters — reporting
+            only the first would let the number climb while the app had
+            nothing to say to someone heading for a particular exit — but in
+            practice a platform is surveyed in one visit or not at all, so the
+            two figures are the same and two identical bars are just noise.
+            The second appears if a partial survey ever lands. */}
         <div className="mt-4 flex flex-col gap-3">
           <SurveyProgress
             label={t("settings.platformsComplete")}
             done={coverage.platforms.complete}
             total={coverage.platforms.total}
           />
-          <SurveyProgress
-            label={t("settings.platformsStarted")}
-            done={coverage.platforms.started}
-            total={coverage.platforms.total}
-            tone="candidate"
-          />
+          {coverage.platforms.started !== coverage.platforms.complete && (
+            <SurveyProgress
+              label={t("settings.platformsStarted")}
+              done={coverage.platforms.started}
+              total={coverage.platforms.total}
+              tone="candidate"
+            />
+          )}
         </div>
         <p className="mt-3 text-sm leading-relaxed text-fg">
           {coverage.stations.complete > 0

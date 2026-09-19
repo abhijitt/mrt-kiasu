@@ -64,8 +64,6 @@
   "station.layoutHeading": "Station layout",
   "station.layoutNote": "Drawn from what surveyors recorded. Estimates are not shown here — a guess on a floor plan looks like a fact.",
   "station.layoutUnknown": "Nobody has recorded how the platforms here are arranged.",
-  "station.coverageTowards": "Mapped, towards {station}",
-  "station.coverageMeaning": "Counts the exits and transfers here that something recorded can actually get you to.",
   "station.mappedDirections": "Surveyed on {count} of {total} platform directions.",
   "station.allMapped": "Every platform here has been surveyed. A correction is still welcome if something has changed.",
   "station.notMapped": "Not yet surveyed. Estimated positions are shown, marked as estimates.",

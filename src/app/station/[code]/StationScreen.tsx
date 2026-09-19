@@ -14,7 +14,6 @@ import type { MessageKey } from "@/i18n/I18nProvider";
 import { groupByExit, type Landmark } from "@/lib/landmark-types";
 import { ExitLandmarks, previewFor } from "@/components/ExitLandmarks";
 import { StationLayout, type LayoutBlockView } from "@/components/StationLayout";
-import { SurveyProgress } from "@/components/SurveyProgress";
 import { FeatureMark } from "@/components/FeatureMark";
 import { DEVICE_TYPES } from "@/lib/feature-types";
 import type { LocalisedTrivia } from "@/lib/trivia";
@@ -338,33 +337,6 @@ export function StationScreen(p: Props) {
               </span>
             ))}
           </p>
-          {/* The completion figure belongs here, next to the plan it measures
-              and one section above the button that fixes it. On the settings
-              page it is a statistic; here it is a prompt. */}
-          {p.coverage.length > 0 && (
-            <div className="mt-4 border-t-2 border-[var(--border)] pt-3">
-              {p.coverage.map((c) => {
-                const done = c.exitsCovered + c.transfersCovered;
-                const total = c.exitsTotal + c.transfersTotal;
-                const towards = p.platforms.find(
-                  (pl) => pl.direction === c.direction,
-                )?.nextStop;
-                return (
-                  <div key={c.direction} className="mt-2">
-                    <SurveyProgress
-                      label={t("station.coverageTowards", { station: towards ?? c.direction })}
-                      done={c.complete ? total : done}
-                      total={total}
-                      tone={c.complete ? "accent" : "candidate"}
-                    />
-                  </div>
-                );
-              })}
-              <p className="mt-2 text-xs text-fg-faint">
-                {t("station.coverageMeaning")}
-              </p>
-            </div>
-          )}
           <p className="mt-3 text-xs text-fg-faint">{t("station.layoutNote")}</p>
         </section>
       )}

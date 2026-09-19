@@ -64,8 +64,6 @@
   "station.layoutHeading": "Susun atur stesen",
   "station.layoutNote": "Dilukis daripada apa yang dicatat peninjau. Anggaran tidak ditunjukkan di sini — tekaan pada pelan lantai kelihatan seperti fakta.",
   "station.layoutUnknown": "Belum ada sesiapa merekodkan susunan platform di sini.",
-  "station.coverageTowards": "Dipetakan, ke arah {station}",
-  "station.coverageMeaning": "Mengira pintu keluar dan pertukaran di sini yang benar-benar boleh dicapai melalui sesuatu yang direkodkan.",
   "station.mappedDirections": "Ditinjau di {count} daripada {total} arah platform.",
   "station.allMapped": "Setiap platform di sini telah ditinjau. Pembetulan tetap dialu-alukan jika ada perubahan.",
   "station.notMapped": "Belum ditinjau. Kedudukan anggaran ditunjukkan dan ditanda sebagai anggaran.",
