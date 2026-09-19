@@ -156,17 +156,18 @@ export function StationScreen(p: Props) {
         </section>
       )}
 
+      {/* Now and later are one question asked twice.
+          As two cards, "How crowded now" and "How crowded later" put a
+          near-identical heading on consecutive boxes and made the reader
+          compare across a gap to answer "is this about to get worse". */}
       <section className="pixel-box anim-enter anim-enter-2 p-4">
         <h2 className="font-pixel text-xs uppercase text-fg-muted">
-          {t("station.crowdNow")}
+          {t("station.crowding")}
         </h2>
         <CrowdLevel stationCode={p.code} line={p.lineCode} />
-      </section>
-
-      <section className="pixel-box anim-enter p-4">
-        <h2 className="font-pixel text-xs uppercase text-fg-muted">
-          {t("forecast.title")}
-        </h2>
+        <h3 className="font-pixel mt-4 text-[10px] uppercase text-fg-muted">
+          {t("station.crowdLater")}
+        </h3>
         <CrowdForecast stationCode={p.code} line={p.lineCode} />
       </section>
 
