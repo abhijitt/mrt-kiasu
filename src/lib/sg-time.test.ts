@@ -50,9 +50,23 @@ describe("the callers follow the same clock", () => {
   it("picks the timetable by the Singapore day", () => {
     // Still Sunday in Singapore at 23:59, though UTC has been Sunday all along.
     expect(serviceDayOf(LATE_EVENING)).toBe("sunday");
-    // Monday in Singapore while UTC still says Sunday — the case that decides
-    // whether a commuter gets the weekday timetable or the weekend one.
-    expect(serviceDayOf(JUST_PAST_MIDNIGHT)).toBe("weekday");
+    // 00:30 Monday in Singapore. This asserted "weekday" — the calendar day —
+    // until the trains were checked: at 00:30 the ones still running are
+    // Sunday's, and Monday's first is more than four hours off. Reading the
+    // weekday rows to someone waiting on a platform reported a different
+    // status from the actual service for 32 of 418 directions.
+    expect(serviceDayOf(JUST_PAST_MIDNIGHT)).toBe("sunday");
+    // The property this file is really about still holds: the answer depends
+    // on the Singapore clock, not on where the code runs.
+    expect(sgIsoDate(JUST_PAST_MIDNIGHT)).toBe("2026-09-14");
+  });
+
+  it("starts the next service day once trains are running again", () => {
+    // 06:00 Monday in Singapore, after the first train.
+    expect(serviceDayOf(new Date("2026-09-13T22:00:00Z"))).toBe("weekday");
+    // 03:59 Monday is still Sunday's service; 04:00 is not.
+    expect(serviceDayOf(new Date("2026-09-13T19:59:00Z"))).toBe("sunday");
+    expect(serviceDayOf(new Date("2026-09-13T20:00:00Z"))).toBe("weekday");
   });
 
   it("dates a service adjustment by the Singapore day", () => {

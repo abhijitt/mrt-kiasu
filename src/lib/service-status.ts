@@ -8,7 +8,7 @@
  */
 
 import type { LineCode } from "./lines";
-import { sgDayOfWeek, sgIsoDate } from "./sg-time";
+import { sgDayOfWeek, sgIsoDate, sgMinutesOfDay } from "./sg-time";
 import holidays from "@/data/holidays.json";
 
 export type ServiceDay = "weekday" | "saturday" | "sunday";
@@ -45,9 +45,41 @@ export const LAST_TRAIN_WARNING_MINUTES = 45;
 
 const HOLIDAYS: Record<string, string> = holidays.dates;
 
-/** The gazetted holiday on this date, or null. Exported for the copy. */
+/**
+ * When a service day starts, in minutes after midnight.
+ *
+ * Not midnight. A timetable runs from the morning's first train to the last
+ * one, which is usually after midnight — that is the whole reason the copy
+ * has to say times past midnight belong to the night before. Across the whole
+ * feed the last train anywhere is 02:02 and the earliest first is 05:13, so
+ * 04:00 sits in a gap when nothing is running and no choice can be wrong.
+ */
+const SERVICE_STARTS_AT = 4 * 60;
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+/**
+ * The calendar date whose timetable is in force.
+ *
+ * At 00:30 on a Sunday the trains still running are Saturday's, and so is the
+ * timetable that describes them. Picking the day by the calendar date alone
+ * had the app reading Sunday's rows to someone standing on a platform waiting
+ * for Saturday's last train: at 00:15, 32 of 418 directions reported a
+ * different status from the service actually running, including "last train
+ * soon" where it had in fact gone.
+ */
+export function serviceDate(date: Date): Date {
+  return sgMinutesOfDay(date) < SERVICE_STARTS_AT
+    ? new Date(date.getTime() - DAY_MS)
+    : date;
+}
+
+/** Named without rolling, so the roll is never applied twice. */
+const holidayNamed = (on: Date): string | null => HOLIDAYS[sgIsoDate(on)] ?? null;
+
+/** The gazetted holiday whose timetable is in force, or null. */
 export function holidayOn(date: Date): string | null {
-  return HOLIDAYS[sgIsoDate(date)] ?? null;
+  return holidayNamed(serviceDate(date));
 }
 
 /**
@@ -66,8 +98,9 @@ export function holidayOn(date: Date): string | null {
  * holidaysCover(), which is how the UI knows not to promise too much.
  */
 export function serviceDayOf(date: Date): ServiceDay {
-  if (holidayOn(date)) return "sunday";
-  const day = sgDayOfWeek(date);
+  const on = serviceDate(date);
+  if (holidayNamed(on)) return "sunday";
+  const day = sgDayOfWeek(on);
   if (day === 0) return "sunday";
   if (day === 6) return "saturday";
   return "weekday";
@@ -75,7 +108,7 @@ export function serviceDayOf(date: Date): ServiceDay {
 
 /** Whether the holiday list has anything to say about this date's year. */
 export function holidaysCover(date: Date): boolean {
-  const year = sgIsoDate(date).slice(0, 4);
+  const year = sgIsoDate(serviceDate(date)).slice(0, 4);
   return year >= holidays.years.first && year <= holidays.years.last;
 }
 

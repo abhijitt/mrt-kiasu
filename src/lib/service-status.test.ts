@@ -8,6 +8,7 @@ import {
   statusFor,
   type TrainTime,
   worstStatus,
+  serviceDate,
 } from "./service-status";
 import { sgDayOfWeek } from "./sg-time";
 
@@ -176,5 +177,56 @@ describe("public holidays run a Sunday timetable", () => {
     // every timetable rather than one that might be the wrong one.
     expect(holidaysCover(sg("2026-04-02"))).toBe(true);
     expect(holidaysCover(sg("2040-04-02"))).toBe(false);
+  });
+});
+
+/**
+ * A service day ends with its last train, not at midnight.
+ *
+ * This is what the timetable footnote has always been getting at — times past
+ * midnight belong to the night before. The note was true and the code was
+ * not: the day was picked from the calendar date, so at 00:30 on a Sunday the
+ * app read Sunday's rows to someone waiting for Saturday's last train. While
+ * all three timetables were on screen a reader could find the right one
+ * themselves; showing today's alone took that away.
+ */
+describe("the small hours belong to the night before", () => {
+  // 2026-09-19 is a Saturday, so 00:30 on the 20th is Saturday's last trains.
+  const sgAt = (iso: string, hhmm: string) => {
+    const [h, m] = hhmm.split(":").map(Number);
+    return new Date(`${iso}T${String(h - 8).padStart(2, "0")}:${String(m).padStart(2, "0")}:00Z`);
+  };
+
+  it("reads Saturday's timetable at half past midnight on Sunday", () => {
+    expect(serviceDayOf(sgAt("2026-09-20", "12:30"))).toBe("sunday");
+    expect(serviceDayOf(new Date("2026-09-19T16:30:00Z"))).toBe("saturday");
+  });
+
+  it("switches over in the gap when nothing is running", () => {
+    // Across the whole feed the last train is 02:02 and the first is 05:13,
+    // so 04:00 cannot be wrong for anyone.
+    expect(serviceDayOf(new Date("2026-09-19T19:59:00Z"))).toBe("saturday");
+    expect(serviceDayOf(new Date("2026-09-19T20:00:00Z"))).toBe("sunday");
+  });
+
+  it("keeps a holiday's timetable running into the next morning", () => {
+    // Good Friday 2026 is 3 April. At 00:30 on the Saturday the trains still
+    // running are the holiday's, and the holiday runs a Sunday timetable.
+    expect(holidayOn(new Date("2026-04-03T16:30:00Z"))).toBe("Good Friday");
+    expect(serviceDayOf(new Date("2026-04-03T16:30:00Z"))).toBe("sunday");
+    // By the afternoon it is an ordinary Saturday again.
+    expect(holidayOn(new Date("2026-04-04T06:00:00Z"))).toBeNull();
+    expect(serviceDayOf(new Date("2026-04-04T06:00:00Z"))).toBe("saturday");
+  });
+
+  it("rolls back exactly one day, not two", () => {
+    // serviceDayOf and holidayOn both need the rolled date, and a draft where
+    // one called the other subtracted a day twice. 00:30 on 4 April would
+    // then have landed on the 2nd, an ordinary Thursday, instead of Good
+    // Friday — the same answer as having no holiday list at all.
+    const at0030 = new Date("2026-04-03T16:30:00Z");
+    expect(serviceDate(at0030).getTime()).toBe(at0030.getTime() - 24 * 60 * 60 * 1000);
+    expect(holidayOn(at0030)).toBe("Good Friday");
+    expect(serviceDayOf(at0030)).toBe("sunday");
   });
 });
