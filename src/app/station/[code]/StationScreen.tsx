@@ -91,6 +91,12 @@ export function StationScreen(p: Props) {
   // were called "mapped", which is how the page came to claim one platform
   // was surveyed while the meter above it read 100% for two.
   const surveyedDirections = p.coverage.filter((c) => c.surveyedHere).length;
+  // Whether the plan has anything on it. The bars and tracks are drawn from
+  // the recorded layout, which most stations have; the marks come from
+  // surveys, which most stations do not.
+  const anythingDrawn = p.layoutBlocks.some((b) =>
+    b.platforms.some((pl) => pl.features.length > 0),
+  );
 
   const byExit = groupByExit(p.landmarks);
   // LTA's exit list is the authority on which exits exist; OpenStreetMap only
@@ -323,21 +329,29 @@ export function StationScreen(p: Props) {
               </div>
             ))}
           </div>
-          {/* The glyphs mean nothing on their own, and a plan whose symbols
-              have to be guessed at is a puzzle rather than a map. */}
-          <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-fg-muted">
-            {DEVICE_TYPES.map((type) => (
-              <span key={type}>
-                <FeatureMark
-                  type={type}
-                  size={12}
-                  className="mr-1 inline-block align-[-0.15em] text-fg"
-                />
-                {t(`mode.${type}` as MessageKey)}
-              </span>
-            ))}
-          </p>
-          <p className="mt-3 text-xs text-fg-faint">{t("station.layoutNote")}</p>
+          {/* Both of these describe marks on the plan, so neither belongs on a
+              plan with no marks on it. The legend explained symbols that were
+              not there, and the credit thanked surveyors for a platform none
+              of them has stood on. */}
+          {anythingDrawn && (
+            <>
+              {/* The glyphs mean nothing on their own, and a plan whose symbols
+                  have to be guessed at is a puzzle rather than a map. */}
+              <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-fg-muted">
+                {DEVICE_TYPES.map((type) => (
+                  <span key={type}>
+                    <FeatureMark
+                      type={type}
+                      size={12}
+                      className="mr-1 inline-block align-[-0.15em] text-fg"
+                    />
+                    {t(`mode.${type}` as MessageKey)}
+                  </span>
+                ))}
+              </p>
+              <p className="mt-3 text-xs text-fg-faint">{t("station.layoutNote")}</p>
+            </>
+          )}
         </section>
       )}
 
