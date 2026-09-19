@@ -12,7 +12,7 @@ import { useI18n } from "@/i18n/I18nProvider";
 import { useLineName } from "@/i18n/useLineName";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { groupByExit, type Landmark } from "@/lib/landmark-types";
-import { ExitLandmarks } from "@/components/ExitLandmarks";
+import { ExitLandmarks, previewFor } from "@/components/ExitLandmarks";
 import { StationLayout, type LayoutBlockView } from "@/components/StationLayout";
 import { SurveyProgress } from "@/components/SurveyProgress";
 import { FeatureMark } from "@/components/FeatureMark";
@@ -80,6 +80,10 @@ export function StationScreen(p: Props) {
         year: "numeric",
       })
     : null;
+
+  // Whether a survey can be handed in at all: LRT has no sourced door
+  // geometry, so there is no grid to survey against and the tool cannot open.
+  const canSurvey = p.canGiveDoorGuidance && p.platforms.length > 0;
 
   const byExit = groupByExit(p.landmarks);
   // LTA's exit list is the authority on which exits exist; OpenStreetMap only
@@ -169,9 +173,14 @@ export function StationScreen(p: Props) {
         {allExits.length > 0 ? (
           <>
             {anyLandmarks ? (
-              <ul className="mt-3 flex flex-col gap-3">
+              <ul className="mt-3 flex flex-col gap-2">
                 {allExits.map((code) => (
-                  <ExitLandmarks key={code} code={code} items={byExit[code] ?? []} />
+                  <ExitLandmarks
+                    key={code}
+                    code={code}
+                    items={byExit[code] ?? []}
+                    preview={previewFor(allExits.length)}
+                  />
                 ))}
               </ul>
             ) : (
@@ -352,44 +361,6 @@ export function StationScreen(p: Props) {
         </section>
       )}
 
-      <section className="pixel-box p-4">
-        <h2 className="font-pixel text-xs uppercase text-fg-muted">
-          {t("station.doorPositions")}
-        </h2>
-        {/* Three genuinely different situations, which the old single message
-            conflated: LRT has no fleet data so no guidance is possible at all
-            and the survey tool cannot open; a couple of MRT stations have no
-            exits to estimate from; the rest have estimates. Claiming
-            "estimated positions are shown" where none exist was simply false,
-            and the survey link 404'd on all 42 LRT stations. */}
-        <p className="mt-3 text-sm leading-relaxed text-fg">
-          {!p.canGiveDoorGuidance
-            ? t("station.noFleetData")
-            : p.hasVerified
-              ? t("station.mappedDirections", { count: 1 })
-              : p.hasEstimates
-                ? t("station.notMapped")
-                : t("station.noEstimateBasis")}
-        </p>
-        {p.canGiveDoorGuidance && p.platforms.length > 0 && (
-          <div className="mt-3 flex flex-col gap-2">
-            <p className="text-sm text-fg-muted">{t("station.surveyPick")}</p>
-            {/* One button per platform. Named by the next stop rather than the
-                terminus, because that is what a surveyor can check against the
-                strip map without trusting us to have guessed the line's end. */}
-            {p.platforms.map((platform) => (
-              <Link
-                key={platform.direction}
-                href={`/survey/${p.code}/${platform.direction}`}
-                className="pixel-btn font-pixel block px-4 py-3 text-center text-xs uppercase"
-              >
-                {t("station.surveyTowards", { station: platform.nextStop })}
-              </Link>
-            ))}
-          </div>
-        )}
-      </section>
-
       {/* Now and later are one question asked twice.
           As two cards, "How crowded now" and "How crowded later" put a
           near-identical heading on consecutive boxes and made the reader
@@ -486,6 +457,52 @@ export function StationScreen(p: Props) {
             </div>
           ))}
         </dl>
+      </section>
+
+      {/* An ask, not a readout.
+          Titled "Door positions" this read as one more fact about the station,
+          and the two buttons under it looked like navigation. Where a survey
+          is possible the heading says so and the block explains what handing
+          in a survey actually involves; where it is not — the 42 LRT stations
+          with no fleet data — inviting help we cannot accept would be worse
+          than the old title, so it keeps it. */}
+      <section className="pixel-box p-4">
+        <h2 className="font-pixel text-xs uppercase text-fg-muted">
+          {t(canSurvey ? "station.helpMap" : "station.doorPositions")}
+        </h2>
+        {/* Three genuinely different situations, which the old single message
+            conflated: LRT has no fleet data so no guidance is possible at all
+            and the survey tool cannot open; a couple of MRT stations have no
+            exits to estimate from; the rest have estimates. Claiming
+            "estimated positions are shown" where none exist was simply false,
+            and the survey link 404'd on all 42 LRT stations. */}
+        <p className="mt-3 text-sm leading-relaxed text-fg">
+          {!p.canGiveDoorGuidance
+            ? t("station.noFleetData")
+            : p.hasVerified
+              ? t("station.mappedDirections", { count: 1 })
+              : p.hasEstimates
+                ? t("station.notMapped")
+                : t("station.noEstimateBasis")}
+        </p>
+        {canSurvey && (
+          <div className="mt-3 flex flex-col gap-2">
+            <p className="text-sm leading-relaxed text-fg-muted">{t("station.surveyWhy")}</p>
+            <p className="mt-1 text-sm text-fg-muted">{t("station.surveyPick")}</p>
+            {/* One button per platform. Named by the next stop rather than the
+                terminus, because that is what a surveyor can check against the
+                strip map without trusting us to have guessed the line's end. */}
+            {p.platforms.map((platform) => (
+              <Link
+                key={platform.direction}
+                href={`/survey/${p.code}/${platform.direction}`}
+                className="pixel-btn font-pixel block px-4 py-3 text-center text-xs uppercase"
+              >
+                {t("station.surveyTowards", { station: platform.nextStop })}
+              </Link>
+            ))}
+          </div>
+        )}
       </section>
 
       <Link

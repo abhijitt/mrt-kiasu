@@ -1,10 +1,10 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { useT } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { adjustmentsFor, isoDateOf } from "@/lib/service-adjustments";
-import type { TrainTime } from "@/lib/service-status";
+import { serviceDayOf, type TrainTime } from "@/lib/service-status";
 
 /**
  * Today's date, read the way the app reads any other browser state.
@@ -33,10 +33,21 @@ const DAYS: ServiceDay[] = ["weekday", "saturday", "sunday"];
  * Grouped by day first because that is the question people actually arrive
  * with — "is it a Sunday timetable tonight" — and because the three sets
  * genuinely differ.
+ *
+ * Only today's is open. At Dhoby Ghaut the three sets are eighteen rows, and
+ * two of them describe a day that is not today: 778px of the page, more than
+ * a fifth of it, to answer a question nobody asked. The other days are one tap
+ * away, which is the right price for the rarer question.
  */
 export function TrainTimes({ times }: { times: Partial<Record<ServiceDay, TrainTime[]>> | null }) {
   const t = useT();
   const today = useSyncExternalStore(subscribeToDate, todaySnapshot, todayOnServer);
+  const [allDays, setAllDays] = useState(false);
+
+  // Falling back to the current date rather than to a guess: sgDayOfWeek reads
+  // the Singapore calendar wherever it runs, so the server and the first
+  // client render agree and nothing jumps at hydration.
+  const serviceDay = serviceDayOf(today ? new Date(`${today}T12:00:00`) : new Date());
 
   // Derived during render from the snapshot above, so this stays pure: the
   // same date and the same rows always give the same answer.
@@ -56,9 +67,14 @@ export function TrainTimes({ times }: { times: Partial<Record<ServiceDay, TrainT
     return <p className="mt-3 text-sm leading-relaxed text-fg-muted">{t("times.none")}</p>;
   }
 
+  const available = DAYS.filter((d) => times[d]?.length);
+  // A station with only one set of times has nothing to collapse, and a
+  // toggle offering to hide nothing is worse than no toggle.
+  const shown = allDays || !available.includes(serviceDay) ? available : [serviceDay];
+
   return (
     <div className="mt-3 flex flex-col gap-4">
-      {DAYS.filter((d) => times[d]?.length).map((day) => (
+      {shown.map((day) => (
         <div key={day}>
           <p className="font-pixel text-[10px] uppercase text-fg-muted">
             {t(`times.${day}` as MessageKey)}
@@ -113,6 +129,15 @@ export function TrainTimes({ times }: { times: Partial<Record<ServiceDay, TrainT
           <p className="mt-2 text-xs leading-relaxed text-fg-faint">{a.sourceNote}</p>
         </div>
       ))}
+      {available.length > shown.length || allDays ? (
+        <button
+          type="button"
+          onClick={() => setAllDays((v) => !v)}
+          className="font-pixel self-start text-[10px] uppercase text-fg-muted underline"
+        >
+          {allDays ? t("times.justToday") : t("times.otherDays")}
+        </button>
+      ) : null}
       <p className="text-xs leading-relaxed text-fg-faint">{t("times.source")}</p>
     </div>
   );
