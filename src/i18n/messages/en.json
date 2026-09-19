@@ -62,7 +62,7 @@
   "station.noExitData": "No exit data available.",
   "station.doorPositions": "Door positions",
   "station.layoutHeading": "Station layout",
-  "station.layoutNote": "Drawn from what surveyors recorded. Estimates are not shown here — a guess on a floor plan looks like a fact.",
+  "station.layoutNote": "Recorded by surveyors on the platform.",
   "station.layoutUnknown": "Nobody has recorded how the platforms here are arranged.",
   "station.mappedDirections": "Surveyed on {count} of {total} platform directions.",
   "station.allMapped": "Every platform here has been surveyed. A correction is still welcome if something has changed.",

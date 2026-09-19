@@ -62,7 +62,7 @@
   "station.noExitData": "Tiada data pintu keluar.",
   "station.doorPositions": "Kedudukan pintu",
   "station.layoutHeading": "Susun atur stesen",
-  "station.layoutNote": "Dilukis daripada apa yang dicatat peninjau. Anggaran tidak ditunjukkan di sini — tekaan pada pelan lantai kelihatan seperti fakta.",
+  "station.layoutNote": "Direkodkan oleh peninjau di platform.",
   "station.layoutUnknown": "Belum ada sesiapa merekodkan susunan platform di sini.",
   "station.mappedDirections": "Ditinjau di {count} daripada {total} arah platform.",
   "station.allMapped": "Setiap platform di sini telah ditinjau. Pembetulan tetap dialu-alukan jika ada perubahan.",
