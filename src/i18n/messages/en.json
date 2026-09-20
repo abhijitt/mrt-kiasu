@@ -457,7 +457,7 @@
   "fare.title": "How much it costs",
   "fare.amount": "{amount} by card, {type} fare.",
   "settings.fareType": "Which card you tap",
-  "settings.fareTypeHint": "Concession fares are a lot lower — a student pays less than half the adult fare.",
+  "settings.fareTypeHint": "Every fare shown is worked out for this card.",
   "fareType.adult": "Adult",
   "fareType.adult.inline": "adult",
   "fareType.adult.hint": "Default — the standard card fare",
