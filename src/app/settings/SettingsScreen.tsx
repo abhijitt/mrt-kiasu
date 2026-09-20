@@ -20,7 +20,7 @@ import { useI18n } from "@/i18n/I18nProvider";
 import { SurveyProgress } from "@/components/SurveyProgress";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { FARE_TYPES } from "@/lib/fare-types";
-import { LOCALE_NAMES } from "@/i18n/config";
+import { LOCALES, LOCALE_NAMES, LOCALE_SHORT } from "@/i18n/config";
 
 const EXIT_MODES: FeatureType[] = ["escalator", "lift", "stairs"];
 // The five the PTC publishes a table for, and the five LTA's own calculator
@@ -66,7 +66,7 @@ export function SettingsScreen({ stats, coverage }: Props) {
   const visibleAvatars = AVATAR_IDS.filter(
     (id) => !SECRET_AVATARS.includes(id) || settings.unlocked.includes(id),
   );
-  const { t, locale } = useI18n();
+  const { t, locale, setLocale } = useI18n();
 
   return (
     <div className="min-h-dvh">
@@ -74,14 +74,47 @@ export function SettingsScreen({ stats, coverage }: Props) {
 
       <main className="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-16 pt-5">
 
+      {/* A picker, not a readout.
+          This printed the heading "Language", then the current language, then
+          "Language · English" again — the middle line said what the third one
+          repeated, and neither could be acted on. The switcher in the top bar
+          stays where it is, because someone stranded in a script they cannot
+          read needs it visible rather than two taps into Settings; but having
+          arrived here expecting to change a setting, this is where they will
+          look for it.
+
+          Each language is named in its own script, so the row you want is
+          legible whichever one you are stuck in. The English name rides along
+          for the same reason the old third line existed: "Chinese" is what
+          you search for when 中文 means nothing to you. */}
       <section className="pixel-box anim-enter p-4">
         <h2 className="font-pixel text-xs uppercase text-fg-muted">
           {t("settings.language")}
         </h2>
-        <p className="mt-3 text-base text-fg">{LOCALE_NAMES[locale].native}</p>
-        <p className="mt-1 text-xs text-fg-faint">
-          {t("common.language")} · {LOCALE_NAMES[locale].english}
-        </p>
+        <div className="mt-3 flex flex-col gap-2">
+          {LOCALES.map((code) => {
+            const active = code === locale;
+            return (
+              <button
+                key={code}
+                type="button"
+                lang={code}
+                onClick={() => setLocale(code)}
+                aria-pressed={active}
+                className="pixel-btn flex items-center gap-3 px-3 py-3 text-left"
+                style={
+                  active ? { background: "var(--accent)", color: "var(--accent-fg)" } : undefined
+                }
+              >
+                <span className="font-pixel w-8 shrink-0 text-xs">{LOCALE_SHORT[code]}</span>
+                <span className="text-base">{LOCALE_NAMES[code].native}</span>
+                {LOCALE_NAMES[code].english !== LOCALE_NAMES[code].native && (
+                  <span className="text-sm opacity-70">{LOCALE_NAMES[code].english}</span>
+                )}
+              </button>
+            );
+          })}
+        </div>
       </section>
 
       <section className="pixel-box anim-enter p-4">
