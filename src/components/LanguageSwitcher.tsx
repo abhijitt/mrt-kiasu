@@ -8,8 +8,14 @@ import { LOCALES, LOCALE_NAMES, LOCALE_SHORT } from "@/i18n/config";
  * Language button. Sits beside Settings rather than inside it, because
  * someone who has landed on a page in a language they cannot read needs the
  * switch to be visible, not two taps deep.
+ *
+ * Settings shows the same control in a different coat: there the current
+ * language is already written out beside it, so the trigger says "Change"
+ * rather than repeating the language a third time. One component either way,
+ * because the fiddly part is the dismiss behaviour — outside taps, Escape —
+ * and having two copies of that is how one of them ends up not working.
  */
-export function LanguageSwitcher() {
+export function LanguageSwitcher({ variant = "hud" }: { variant?: "hud" | "inline" }) {
   const { locale, setLocale, t } = useI18n();
   const [open, setOpen] = useState(false);
   const wrapper = useRef<HTMLDivElement>(null);
@@ -33,23 +39,35 @@ export function LanguageSwitcher() {
   }, [open]);
 
   return (
-    <div ref={wrapper} className="relative">
+    <div ref={wrapper} className={variant === "hud" ? "relative" : "relative flex flex-col items-end"}>
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-haspopup="listbox"
         aria-label={t("common.language")}
-        className="hud-btn font-pixel flex h-12 w-12 items-center justify-center text-sm"
+        className={
+          variant === "hud"
+            ? "hud-btn font-pixel flex h-12 w-12 items-center justify-center text-sm"
+            : "pixel-btn font-pixel px-3 py-2 text-[10px] uppercase"
+        }
       >
-        {LOCALE_SHORT[locale]}
+        {variant === "hud" ? LOCALE_SHORT[locale] : t("common.change")}
       </button>
 
+      {/* In the bar it floats; in Settings it opens in place.
+          .pixel-box notches its corners with a clip-path, and a clip-path
+          clips absolutely positioned descendants too — so the floating list
+          was being sliced off at the edge of the card that contained it. */}
       {open && (
         <ul
           role="listbox"
           aria-label={t("common.language")}
-          className="pixel-box absolute right-0 z-30 mt-2 w-44 overflow-hidden"
+          className={
+            variant === "hud"
+              ? "pixel-box absolute right-0 z-30 mt-2 w-44 overflow-hidden"
+              : "pixel-box mt-2 w-44 overflow-hidden"
+          }
         >
           {LOCALES.map((code) => {
             const active = code === locale;
