@@ -521,38 +521,35 @@ export function RouteScreen(p: Props) {
               >
                 {line.shortName}
               </span>
+              {/* Four lines became two, on the pattern the summary above uses:
+                  the thing you want, then its label underneath.
+
+                  "Leg 1" was the largest type in the card and the least worth
+                  reading — the cards are in order and the heading below says
+                  whether you are changing or getting out. Where you are riding
+                  from and to is what makes one card different from the next,
+                  so it is the title now.
+
+                  The headsign is gone from here and not lost: it is drawn at
+                  the nose of the train forty pixels below, where it is checked
+                  against the platform sign. It was in both places.
+
+                  No "via" list, as before. On a long leg it ran to several
+                  lines of station names for something a commuter does not
+                  read, and the strip map above the door has it. */}
               <div className="min-w-0">
-                <p className="font-pixel text-xs uppercase text-fg-muted">
-                  {isFinalLeg ? t("route.finalLeg") : t("route.leg", { n: i + 1 })}
-                </p>
                 <p className="text-base leading-snug text-fg">
+                  {leg.fromName} → {leg.toName}
+                </p>
+                <p className="font-pixel mt-1 text-[9px] uppercase leading-relaxed text-fg-muted">
                   {lineName(leg.line)}
+                  {" · "}
+                  {t(leg.stopNames.length === 0 ? "route.stop" : "route.stops", {
+                    count: leg.stopNames.length + 1,
+                  })}
                 </p>
               </div>
             </div>
-
-            <p className="mt-3 text-base text-fg">
-              {leg.fromName} → {leg.toName}
-            </p>
-            <p className="mt-1 text-sm text-fg-muted">
-              {t(leg.stopNames.length === 0 ? "route.stop" : "route.stops", {
-                count: leg.stopNames.length + 1,
-              })}{" "}
-              {/* The headsign, not the alighting station: this is the line a
-                  commuter checks against the platform sign, and the station
-                  they get off at is already on the line above. Falls back
-                  where the feed has no headsign for this platform. */}
-              ·{" "}
-              {leg.headsign === null
-                ? t("route.towards", { station: leg.towards })
-                : leg.headsignIsPlace
-                  ? t("route.towards", { station: leg.headsign })
-                  : t("route.headsign", { headsign: leg.headsign })}
-              {/* No "via" list. On a long leg it ran to several lines of station
-                  names for something a commuter does not read: they want the
-                  stop count and the train to board, and the strip map above the
-                  door has the full list if they want it. */}
-            </p>
 
             {/* The device is named and drawn. Scanning three legs for "which
                 one is the lift", a word in a row of identical rows is slower
