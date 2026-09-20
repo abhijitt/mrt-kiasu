@@ -218,14 +218,26 @@ try {
   /**
    * Run times and dwells in seconds, which together reproduce any leg exactly.
    *
-   * Measured rather than assumed: the scheduled time between two stations is
-   * identical on every trip — spread 0.0 across hundreds of trips on every
-   * pair checked — so one number per pair is exact, not an average, and
-   * carrying trip identity through the journey would buy nothing.
+   * Measured rather than assumed, and the median rather than the mean,
+   * because it is not quite one number per pair. 177 of 213 pairs do run
+   * identically on every trip. The other 36 vary, and not by time of day —
+   * within a single hour you find both figures. They vary by DIRECTION and by
+   * service pattern: the Circle Line takes 180s from CC14 to CC15 clockwise
+   * and 120s anticlockwise, and CC17 to CC19 is 300s except on Dhoby
+   * Ghaut-bound trips, which take 120s.
    *
-   * Dwell is likewise a flat 30 or 40 seconds per station. It was previously
-   * discarded entirely, since hop times were measured departure-to-arrival,
-   * so every intermediate stop silently cost nothing.
+   * The key is the unordered pair, so those two directions are merged and the
+   * median picks whichever side has more trips. Fixing that means keying on
+   * direction here and in everything downstream; until then a merged real
+   * figure is still much closer than the flat rate it replaced.
+   *
+   * Dwell is likewise a flat 30 or 40 seconds per station — the whole feed
+   * holds three values, 0s, 30s and 40s, and the mean sits at 39.5s in every
+   * hour of the day. It does not grow late at night; 23:00 is the lowest hour
+   * at 35.9s, dragged down by terminating trips whose last stop has no dwell
+   * at all. It was previously discarded entirely, since hop times were
+   * measured departure-to-arrival, so every intermediate stop silently cost
+   * nothing.
    */
   const hopSecondsSamples = new Map();
   const dwellSamples = new Map();

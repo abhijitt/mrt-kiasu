@@ -7,7 +7,7 @@
  * across an interchange.
  */
 
-import { GRAPH, RIDE_MINUTES, TRANSFER_MINUTES, directionBetween } from "./network";
+import { GRAPH, TRANSFER_MINUTES, directionBetween, rideMinutes } from "./network";
 import { getGroup, getStation, type Station } from "./stations";
 import { lineFromStationCode, LINES, type LineCode } from "./lines";
 import type { Direction } from "./doors";
@@ -161,6 +161,24 @@ function toLegs(path: string[]): RouteLeg[] {
   return legs;
 }
 
+/**
+ * Riding time along a path, in seconds, skipping the transfer steps.
+ *
+ * A transfer is two codes for one building, so there is no hop between them
+ * and no run time to look up — the walk is charged separately.
+ */
+function rideSeconds(path: string[]): number {
+  let total = 0;
+  for (let i = 1; i < path.length; i++) {
+    const from = path[i - 1];
+    const to = path[i];
+    const sameStation = getStation(from)?.interchanges.some((x) => x.code === to);
+    if (sameStation) continue;
+    total += rideMinutes(from, to) * 60;
+  }
+  return total;
+}
+
 export function planRoute(from: string, to: string): Route | null {
   const path = shortestPath(from, to);
   if (!path || path.length < 2) return null;
@@ -175,8 +193,11 @@ export function planRoute(from: string, to: string): Route | null {
     legs,
     stopCount: rideEdges,
     interchangeCount,
+    // Summed along the path the router actually chose, from the same figures
+    // it chose it with. Counting edges and multiplying by a flat rate gave a
+    // different answer from the one the graph had just minimised.
     approxMinutes: Math.round(
-      rideEdges * RIDE_MINUTES + interchangeCount * TRANSFER_MINUTES,
+      rideSeconds(path) / 60 + interchangeCount * TRANSFER_MINUTES,
     ),
     path,
   };

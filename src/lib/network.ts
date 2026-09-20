@@ -10,6 +10,7 @@
  */
 
 import { STATIONS, type Station } from "./stations";
+import trainTimes from "@/data/train-times.json";
 import { LINES, type LineCode } from "./lines";
 
 /**
@@ -68,13 +69,46 @@ export interface Edge {
 }
 
 /**
- * Typical dwell-plus-run time between adjacent stations, and the time lost
- * changing platforms. Both are approximations used to RANK routes; the UI
- * reports stops and interchanges as the concrete figures and labels any
- * duration as approximate. LTA does not publish inter-station run times.
+ * Fallback run time for a pair the timetable does not cover, and the time
+ * lost changing platforms.
+ *
+ * RIDE_MINUTES used to be the cost of every hop on the network. It no longer
+ * is: LTA's GTFS feed carries a scheduled run time for each pair, so the
+ * router uses the real figure and falls back to this only where the feed is
+ * silent. The old flat rate quietly preferred routes with fewer, longer hops
+ * over ones with more, shorter ones — Buona Vista to Bugis is the case that
+ * showed it.
+ *
+ * TRANSFER_MINUTES is still an assumption, and a known one: LTA omits the
+ * GTFS transfers.txt that would carry min_transfer_time, so nothing publishes
+ * platform-to-platform walking times. See src/data/transfers.json.
  */
 export const RIDE_MINUTES = 2.2;
 export const TRANSFER_MINUTES = 5;
+
+const HOP_SECONDS = trainTimes.hopSeconds as Record<string, number>;
+const DWELL_SECONDS = trainTimes.dwellSeconds as Record<string, number>;
+
+/**
+ * What riding one hop costs, in minutes.
+ *
+ * The run to the next station plus the time standing at it. Dwell belongs in
+ * the cost because a route's stops are most of what makes it slow: nine short
+ * East West hops and eight longer Circle and Downtown ones differ by barely a
+ * minute of running and a whole stop of standing.
+ *
+ * Keyed on the unordered pair, which is how the feed stores it. That merges
+ * the two directions, and on 36 of 213 pairs they genuinely differ — the
+ * Circle Line runs CC14 to CC15 in 180s clockwise and 120s anticlockwise.
+ * Worth fixing at the importer, but a merged real figure still beats a flat
+ * one everywhere.
+ */
+export function rideMinutes(from: string, to: string): number {
+  const key = from < to ? `${from}|${to}` : `${to}|${from}`;
+  const run = HOP_SECONDS[key];
+  if (run === undefined) return RIDE_MINUTES;
+  return (run + (DWELL_SECONDS[to] ?? 0)) / 60;
+}
 
 function splitCode(code: string): { prefix: string; num: number | null } {
   const m = code.toUpperCase().match(/^([A-Z]+)(\d*)$/);
@@ -88,11 +122,6 @@ function buildGraph(): Map<string, Edge[]> {
     if (!graph.has(from)) graph.set(from, []);
     graph.get(from)!.push({ to, kind, cost });
   };
-  const link = (a: string, b: string, kind: EdgeKind, cost: number) => {
-    add(a, b, kind, cost);
-    add(b, a, kind, cost);
-  };
-
   const byCode = new Map(STATIONS.map((s) => [s.code, s]));
 
   // 1. Consecutive codes within a prefix are consecutive stations.
@@ -108,13 +137,21 @@ function buildGraph(): Map<string, Edge[]> {
       .filter((x) => x.num !== null)
       .sort((a, b) => a.num! - b.num!);
     for (let i = 0; i + 1 < ordered.length; i++) {
-      link(ordered[i].s.code, ordered[i + 1].s.code, "ride", RIDE_MINUTES);
+      // Added per direction rather than through link(): the dwell belongs to
+      // whichever station you pull into, so the two ways along one track are
+      // not quite the same cost.
+      const a = ordered[i].s.code;
+      const b = ordered[i + 1].s.code;
+      add(a, b, "ride", rideMinutes(a, b));
+      add(b, a, "ride", rideMinutes(b, a));
     }
   }
 
   // 2. Junctions that codes cannot express.
   for (const [a, b] of EXPLICIT_LINKS) {
-    if (byCode.has(a) && byCode.has(b)) link(a, b, "ride", RIDE_MINUTES);
+    if (!byCode.has(a) || !byCode.has(b)) continue;
+    add(a, b, "ride", rideMinutes(a, b));
+    add(b, a, "ride", rideMinutes(b, a));
   }
 
   // 3. Interchanges: the same physical station under several codes.

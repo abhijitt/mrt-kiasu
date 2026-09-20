@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { planRoute, planRouteBetweenStations } from "./routing";
-import { GRAPH, neighbours } from "./network";
+import { GRAPH, RIDE_MINUTES, TRANSFER_MINUTES, neighbours, rideMinutes } from "./network";
 import { STATIONS, getStation } from "./stations";
 
 /** Every station should be reachable from every other on a connected network. */
@@ -154,5 +154,56 @@ describe("planRouteBetweenStations", () => {
   it("returns null for the same station or an unknown name", () => {
     expect(planRouteBetweenStations("Serangoon", "Serangoon")).toBeNull();
     expect(planRouteBetweenStations("Serangoon", "Atlantis")).toBeNull();
+  });
+});
+
+/**
+ * Routing on the timetable rather than on a flat rate.
+ *
+ * Every hop used to cost RIDE_MINUTES, which quietly preferred routes with
+ * fewer, longer hops to ones with more, shorter ones. LTA's GTFS feed has
+ * carried a scheduled run time per pair since the timetable import landed;
+ * the journey display used it and the router did not, so the planner could
+ * choose a path its own figures called slower.
+ */
+describe("ride costs come from the timetable", () => {
+  it("prices a hop at its scheduled run time plus the dwell it ends in", () => {
+    // CC21 to CC22 is 120s in the feed, and every dwell on the network is 40s.
+    expect(rideMinutes("CC21", "CC22")).toBeCloseTo((120 + 40) / 60, 5);
+  });
+
+  it("charges the dwell of the station you pull into, each way", () => {
+    // The same track, opposite directions: the arriving station differs, and
+    // on the Circle Line the run time can differ too.
+    expect(rideMinutes("CC14", "CC15")).toBeGreaterThan(0);
+    expect(rideMinutes("CC15", "CC14")).toBeGreaterThan(0);
+  });
+
+  it("falls back only where the feed is silent", () => {
+    // Exactly one pair on the network has no scheduled figure.
+    expect(rideMinutes("CG1", "EW4")).toBe(RIDE_MINUTES);
+  });
+
+  it("tells hops of different lengths apart", () => {
+    // The flat rate could not: TE3 to TE4 is 420s, TE12 to TE13 is 60s.
+    expect(rideMinutes("TE3", "TE4")).toBeGreaterThan(rideMinutes("TE12", "TE13") * 4);
+  });
+
+  it("reports a duration the graph would agree with", () => {
+    // approxMinutes used to count edges and multiply by the flat rate, which
+    // is a different sum from the one Dijkstra had just minimised.
+    const r = planRouteBetweenStations("Buona Vista", "Bugis")!;
+    let ride = 0;
+    for (let i = 1; i < r.path.length; i++) {
+      const from = r.path[i - 1];
+      const to = r.path[i];
+      // A path can open or close on a transfer — Buona Vista is entered as
+      // CC22 and ridden from EW21 — and a transfer is a walk, not a hop.
+      if (getStation(from)?.interchanges.some((x) => x.code === to)) continue;
+      ride += rideMinutes(from, to);
+    }
+    expect(r.approxMinutes).toBe(
+      Math.round(ride + r.interchangeCount * TRANSFER_MINUTES),
+    );
   });
 });
