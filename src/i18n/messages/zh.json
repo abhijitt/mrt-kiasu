@@ -189,7 +189,7 @@
   "exit.chooseHeading": "你实际要去哪里？",
   "route.targetingExit": "以 {code} 号出口为目标",
   "route.preferenceApplied": "已按你的偏好：{mode}",
-  "route.preferenceUnavailable": "你的偏好（{mode}）需要实地勘查过的月台。以下为出口位置。",
+  "route.preferenceUnavailable": "此月台尚未记录{mode}。",
   "route.preferenceOther": "此处没有记录{mode}。以下为{actual}。",
   "route.targetUnknown": "此月台没有任何设施记录为通往{target}，以下是我们所知最接近的。",
   "route.changePreference": "更改",

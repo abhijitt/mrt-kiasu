@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { useT } from "@/i18n/I18nProvider";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { groupByExit, searchLandmarks, type Landmark } from "@/lib/landmark-types";
+import { previewFor } from "@/components/ExitLandmarks";
 
 interface Props {
   exits: string[];
@@ -13,8 +14,14 @@ interface Props {
   onSelect: (exitCode: string | null) => void;
 }
 
-/** How many to show per exit before searching. */
-const PREVIEW_PER_EXIT = 3;
+/**
+ * How many to show per exit before searching.
+ *
+ * Fewer where a station has many exits, on the same rule the station page
+ * uses: Bugis has eight, and three landmarks apiece put half the route page
+ * inside this one control.
+ */
+const previewCount = previewFor;
 
 /**
  * Pick the way out by the thing you are actually going to, not by exit letter.
@@ -88,7 +95,9 @@ export function ExitPicker({ exits, landmarks, selected, onSelect }: Props) {
             const isSelected = selected === code;
             // When searching, lead with what matched; otherwise the closest few.
             const show =
-              matched.length > 0 ? matched.slice(0, 5) : nearby.slice(0, PREVIEW_PER_EXIT);
+              matched.length > 0
+                ? matched.slice(0, 5)
+                : nearby.slice(0, previewCount(results.length));
             return (
               <li key={code}>
                 <button
@@ -109,12 +118,13 @@ export function ExitPicker({ exits, landmarks, selected, onSelect }: Props) {
                     {show.length > 0 ? (
                       <ul className="flex flex-col gap-0.5">
                         {show.map((l) => (
-                          <li key={`${l.name}-${l.kind}`} className="text-sm leading-snug">
+                          // Clipped rather than wrapped: a long name spilling
+                          // onto three lines made two exits look like four.
+                          <li key={`${l.name}-${l.kind}`} className="truncate text-sm">
                             {l.name}
                             <span className="text-xs opacity-70">
                               {" "}
-                              · {t(`landmark.${l.kind}` as MessageKey)}
-                              {l.street ? ` · ${l.street}` : ""} · {l.metres} m
+                              · {t(`landmark.${l.kind}` as MessageKey)} · {l.metres} m
                             </span>
                           </li>
                         ))}

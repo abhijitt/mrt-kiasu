@@ -270,8 +270,13 @@ function Guidance({
 
       {/* Refusing to imply a targeted answer. Several escalators can sit on one
           platform serving different places; if none is recorded as serving the
-          one you asked for, picking the first is a guess and is labelled one. */}
-      {gao && targetMissed && (
+          one you asked for, picking the first is a guess and is labelled one.
+
+          Not where the answer is already an estimate. "Nothing is recorded as
+          leading to the Thomson-East Coast Line" is true of a platform where
+          nothing is recorded at all, and saying it beneath a note that says
+          the platform is unsurveyed is the same fact for the third time. */}
+      {gao && targetMissed && !isEstimate && (
         // The paragraph IS the box. A bordered <span> is inline, so its border
         // splits down the middle when the text wraps — which this text always
         // does on a phone. Every other box in here escapes that by sitting in

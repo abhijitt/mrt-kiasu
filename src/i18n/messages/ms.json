@@ -189,7 +189,7 @@
   "exit.chooseHeading": "Ke mana sebenarnya anda pergi?",
   "route.targetingExit": "Menyasarkan Pintu Keluar {code}",
   "route.preferenceApplied": "Mengikut pilihan anda: {mode}",
-  "route.preferenceUnavailable": "Pilihan anda ({mode}) memerlukan platform yang telah ditinjau. Ini kedudukan pintu keluar sebaliknya.",
+  "route.preferenceUnavailable": "Tiada {mode} direkodkan di platform ini lagi.",
   "route.preferenceOther": "Tiada {mode} direkod di sini. Ini {actual} sebaliknya.",
   "route.targetUnknown": "Tiada apa-apa di platform ini direkod sebagai menuju ke {target}, jadi ini yang terbaik kami ada.",
   "route.changePreference": "Tukar",
