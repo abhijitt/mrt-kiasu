@@ -112,7 +112,7 @@
   "settings.platformsStarted": "已有记录的月台",
   "settings.coverageStations": "已有 {count} 个车站的所有月台完成测绘：{stations}。",
   "settings.coverageNoStations": "还没有车站完成测绘。",
-  "settings.coverageExcluded": "{lines}不在统计之内：没有公开来源提供这些列车的长度，因此无从指出车门位置。",
+  "settings.coverageExcluded": "{lines}不在统计之内。",
   "settings.privacy": "无需登录，无需账号，不做追踪。设置只存在这个浏览器里。",
   "theme.auto": "自动",
   "theme.light": "浅色",

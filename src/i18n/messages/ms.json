@@ -112,7 +112,7 @@
   "settings.platformsStarted": "Platform dengan apa-apa rekod",
   "settings.coverageStations": "{count} stesen dipetakan sepenuhnya di setiap platform: {stations}.",
   "settings.coverageNoStations": "Belum ada stesen yang dipetakan sepenuhnya.",
-  "settings.coverageExcluded": "{lines} dikecualikan: tiada sumber terbitan memberikan panjang kereta api itu, jadi tiada pintu untuk ditunjukkan.",
+  "settings.coverageExcluded": "{lines} dikecualikan.",
   "settings.privacy": "Tiada log masuk, tiada akaun, tiada penjejakan. Tetapan disimpan dalam pelayar ini sahaja.",
   "theme.auto": "Auto",
   "theme.light": "Cerah",

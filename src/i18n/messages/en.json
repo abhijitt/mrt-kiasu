@@ -112,7 +112,7 @@
   "settings.platformsStarted": "Platforms with anything recorded",
   "settings.coverageStations": "{count} station(s) fully mapped on every platform: {stations}.",
   "settings.coverageNoStations": "No station is fully mapped yet.",
-  "settings.coverageExcluded": "{lines} are left out: no published source gives those trains' length, so there is no door to point at.",
+  "settings.coverageExcluded": "{lines} are left out.",
   "settings.privacy": "No login, no account, no tracking. Settings are stored only in this browser.",
   "theme.auto": "Auto",
   "theme.light": "Light",
