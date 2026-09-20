@@ -9,6 +9,7 @@ import { PlatformDiagram } from "@/components/PlatformDiagram";
 import { toCarPosition, type Direction } from "@/lib/doors";
 import { secondsSaved } from "@/lib/walking";
 import { backupDoor, doorBreakdown, fleetSource, otherWaysOut, savedWorking } from "@/lib/gao";
+import { DoorSideMark, FeatureMark } from "@/components/FeatureMark";
 import { useKiasuScore } from "@/lib/useKiasuScore";
 import { JourneyEstimate } from "@/components/JourneyEstimate";
 // fare-types, not fare: this is a client component, and fare.ts imports the
@@ -553,14 +554,22 @@ export function RouteScreen(p: Props) {
                   door has the full list if they want it. */}
             </p>
 
-            <p className="font-pixel mt-4 text-xs uppercase text-fg-muted">
-              {isFinalLeg
-                ? t("route.standHereFor", {
-                    target: t(`mode.${preference}.target` as MessageKey),
-                  })
-                : t("route.standHereChange", {
-                    line: nextLeg ? lineName(nextLeg.line) : "",
-                  })}
+            {/* The device is named and drawn. Scanning three legs for "which
+                one is the lift", a word in a row of identical rows is slower
+                to find than the only picture of a lift on the page. */}
+            <p className="font-pixel mt-4 flex items-center gap-2 text-xs uppercase text-fg-muted">
+              {isFinalLeg && (
+                <FeatureMark type={preference} size={14} className="shrink-0 text-fg" />
+              )}
+              <span>
+                {isFinalLeg
+                  ? t("route.standHereFor", {
+                      target: t(`mode.${preference}.target` as MessageKey),
+                    })
+                  : t("route.standHereChange", {
+                      line: nextLeg ? lineName(nextLeg.line) : "",
+                    })}
+              </span>
             </p>
 
             <Guidance
@@ -596,6 +605,11 @@ export function RouteScreen(p: Props) {
                           : undefined
                     }
                   >
+                    <DoorSideMark
+                      side={leg.doorSide.side}
+                      className="mr-1.5 inline-block align-[-0.2em]"
+                      style={{ color: "var(--verified)" }}
+                    />
                     <span style={{ color: "var(--verified)" }}>
                       {t(leg.doorSide.side === "left" ? "doors.left" : "doors.right")}
                     </span>{" "}

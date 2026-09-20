@@ -79,3 +79,35 @@ export function FeatureMark({ type, size = 16, ...rest }: Props) {
     </svg>
   );
 }
+
+/**
+ * Which side of the train opens, drawn as the train and the platform beside it.
+ *
+ * "Doors open on the right when you get off at Bugis" is a sentence carrying
+ * one bit: left or right. The sentence stays, because it is unambiguous and
+ * the mark is not a convention anyone has learnt yet — but the mark is what
+ * the eye finds when scanning three legs for which way to turn.
+ */
+export function DoorSideMark({
+  side,
+  size = 14,
+  ...rest
+}: React.SVGProps<SVGSVGElement> & { side: "left" | "right"; size?: number }) {
+  const train: Rect = side === "right" ? [0, 5, 9, 6] : [7, 5, 9, 6];
+  const platform: Rect = side === "right" ? [11, 3, 5, 10] : [0, 3, 5, 10];
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      width={size}
+      height={size}
+      fill="currentColor"
+      aria-hidden="true"
+      focusable="false"
+      {...rest}
+    >
+      {[train, platform].map(([x, y, w, h], i) => (
+        <rect key={i} x={x} y={y} width={w} height={h} opacity={i === 0 ? 0.55 : 1} />
+      ))}
+    </svg>
+  );
+}
