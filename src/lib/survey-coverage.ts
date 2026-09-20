@@ -1,5 +1,5 @@
 import "server-only";
-import { hasTrainGeometry } from "./lines";
+import { hasTrainGeometry, type LineCode } from "./lines";
 import { STATIONS } from "./stations";
 import { platformKey } from "./positions";
 import type { PlatformFeature } from "./feature-types";
@@ -58,6 +58,17 @@ export interface SurveyCoverage {
   inProgress: PlatformCoverage[];
   /** Platforms excluded because their line has no sourced train geometry. */
   notSurveyable: number;
+  /**
+   * The lines those platforms are on.
+   *
+   * Derived rather than written down. "84 platforms are left out" reads as an
+   * apology for a gap in the survey, when it is nothing of the kind: no
+   * published source gives an LRT train's length, so there is no door to point
+   * at and never was. Naming the lines says which stations are affected, and
+   * deriving the names means the sentence cannot go stale if a line gains
+   * fleet data or a new one arrives without it.
+   */
+  notSurveyableLines: LineCode[];
 }
 
 function coverageFor(code: string, direction: "asc" | "desc"): PlatformCoverage {
@@ -92,11 +103,13 @@ function coverageFor(code: string, direction: "asc" | "desc"): PlatformCoverage 
 export function surveyCoverage(): SurveyCoverage {
   const rows: PlatformCoverage[] = [];
   let notSurveyable = 0;
+  const excludedLines = new Set<LineCode>();
 
   for (const station of STATIONS) {
     for (const direction of ["asc", "desc"] as const) {
       if (!hasTrainGeometry(station.line)) {
         notSurveyable++;
+        excludedLines.add(station.line);
         continue;
       }
       rows.push(coverageFor(station.code, direction));
@@ -131,6 +144,7 @@ export function surveyCoverage(): SurveyCoverage {
           (a.exitsTotal - a.exitsCovered + (a.transfersTotal - a.transfersCovered)),
       ),
     notSurveyable,
+    notSurveyableLines: [...excludedLines],
   };
 }
 

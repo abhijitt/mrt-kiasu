@@ -17,6 +17,8 @@ import { useKiasuScore } from "@/lib/useKiasuScore";
 import { minutes } from "@/lib/kiasu-score";
 import type { FeatureType } from "@/lib/feature-types";
 import { useI18n } from "@/i18n/I18nProvider";
+import { useLineName } from "@/i18n/useLineName";
+import type { LineCode } from "@/lib/lines";
 import { SurveyProgress } from "@/components/SurveyProgress";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { FARE_TYPES } from "@/lib/fare-types";
@@ -42,6 +44,7 @@ interface Props {
     stations: { total: number; started: number; complete: number };
     completeStations: string[];
     notSurveyable: number;
+    notSurveyableLines: LineCode[];
   };
   stats: {
     verifiedPlatforms: number;
@@ -68,6 +71,7 @@ export function SettingsScreen({ stats, coverage }: Props) {
     (id) => !SECRET_AVATARS.includes(id) || settings.unlocked.includes(id),
   );
   const { t, locale } = useI18n();
+  const lineName = useLineName();
 
   return (
     <div className="min-h-dvh">
@@ -350,14 +354,22 @@ export function SettingsScreen({ stats, coverage }: Props) {
             : t("settings.coverageNoStations")}
         </p>
         <p className="mt-2 text-sm leading-relaxed text-fg-muted">
-          {t("settings.coverageComplete")}
-        </p>
-        <p className="mt-2 text-sm leading-relaxed text-fg-muted">
           {t("settings.coverageNote")}
         </p>
-        {coverage.notSurveyable > 0 && (
+        {/* Named, not counted. "84 platforms are left out" reads as an
+            apology for a gap in the survey; it is the LRT, where no published
+            source gives a train's length, so there is no door to point at and
+            never was. Derived from the data so it cannot go stale. */}
+        {coverage.notSurveyableLines.length > 0 && (
           <p className="mt-2 text-xs leading-relaxed text-fg-faint">
-            {t("settings.coverageExcluded", { count: coverage.notSurveyable })}
+            {t("settings.coverageExcluded", {
+              // Joined by the locale's own rules: English wants an "and"
+              // before the last one, and not every language wants a comma.
+              lines: new Intl.ListFormat(locale, {
+                style: "long",
+                type: "conjunction",
+              }).format(coverage.notSurveyableLines.map(lineName)),
+            })}
           </p>
         )}
       </section>
