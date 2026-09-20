@@ -207,3 +207,39 @@ describe("ride costs come from the timetable", () => {
     );
   });
 });
+
+/**
+ * A hop is not the same both ways.
+ *
+ * Hop keys used to be sorted, pooling the two directions so the median
+ * reported whichever had more trips. On 11 pairs the feed schedules them
+ * differently — the Circle Line runs CC14 to CC15 in 120s one way and 180s
+ * the other — and an anticlockwise rider was quietly given the clockwise
+ * figure, or the reverse.
+ */
+describe("hop times are kept per direction", () => {
+  it("gives each way its own figure where the timetable does", () => {
+    const clockwise = rideMinutes("CC14", "CC15");
+    const other = rideMinutes("CC15", "CC14");
+    expect(clockwise).not.toBeCloseTo(other, 5);
+    // Dwell is the same at both ends, so the gap is the run time itself.
+    expect(Math.abs(clockwise - other) * 60).toBeCloseTo(60, 5);
+  });
+
+  it("agrees both ways where the timetable does", () => {
+    expect(rideMinutes("EW20", "EW21")).toBeCloseTo(rideMinutes("EW21", "EW20"), 5);
+  });
+
+  it("falls back to the other direction rather than to the flat rate", () => {
+    // Nothing should reach RIDE_MINUTES except the one pair with no figure at
+    // all; a pair ridden only one way must borrow from that way.
+    let flat = 0;
+    for (const [from, edges] of GRAPH)
+      for (const e of edges)
+        if (e.kind === "ride" && Math.abs(e.cost - RIDE_MINUTES) < 1e-9) {
+          expect(`${from}|${e.to}`).toMatch(/^(CG1\|EW4|EW4\|CG1)$/);
+          flat++;
+        }
+    expect(flat).toBe(2);
+  });
+});

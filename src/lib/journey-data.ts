@@ -101,9 +101,16 @@ export function journeyPayload(
     for (let i = 1; i < leg.path.length; i++) {
       const a = leg.path[i - 1];
       const b = leg.path[i];
-      const key = a < b ? `${a}|${b}` : `${b}|${a}`;
-      if (HOPS[key] !== undefined) hops[key] = HOPS[key];
-      if (HOP_SECONDS[key] !== undefined) hopSeconds[key] = HOP_SECONDS[key];
+      // Carried under the key the browser will look up: the direction this
+      // leg is actually ridden in, or the reverse where that is all there is.
+      for (const [key, source, into] of [
+        [`${a}|${b}`, HOPS, hops],
+        [`${b}|${a}`, HOPS, hops],
+        [`${a}|${b}`, HOP_SECONDS, hopSeconds],
+        [`${b}|${a}`, HOP_SECONDS, hopSeconds],
+      ] as const) {
+        if (source[key] !== undefined) into[key] = source[key];
+      }
       if (DWELL_SECONDS[b] !== undefined) dwellSeconds[b] = DWELL_SECONDS[b];
     }
   }

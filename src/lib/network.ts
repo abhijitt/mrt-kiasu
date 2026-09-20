@@ -97,15 +97,14 @@ const DWELL_SECONDS = trainTimes.dwellSeconds as Record<string, number>;
  * East West hops and eight longer Circle and Downtown ones differ by barely a
  * minute of running and a whole stop of standing.
  *
- * Keyed on the unordered pair, which is how the feed stores it. That merges
- * the two directions, and on 36 of 213 pairs they genuinely differ — the
- * Circle Line runs CC14 to CC15 in 180s clockwise and 120s anticlockwise.
- * Worth fixing at the importer, but a merged real figure still beats a flat
- * one everywhere.
+ * Keyed in travel order, because 36 of 213 pairs genuinely differ by
+ * direction — the Circle Line runs CC14 to CC15 in 180s clockwise and 120s
+ * anticlockwise.
  */
 export function rideMinutes(from: string, to: string): number {
-  const key = from < to ? `${from}|${to}` : `${to}|${from}`;
-  const run = HOP_SECONDS[key];
+  // This direction first, the other as a fallback: a few pairs are only ever
+  // ridden one way in the feed, and one direction's figure beats none.
+  const run = HOP_SECONDS[`${from}|${to}`] ?? HOP_SECONDS[`${to}|${from}`];
   if (run === undefined) return RIDE_MINUTES;
   return (run + (DWELL_SECONDS[to] ?? 0)) / 60;
 }

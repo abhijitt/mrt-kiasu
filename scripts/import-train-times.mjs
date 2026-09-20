@@ -202,7 +202,10 @@ try {
       const d = toMinutes(rows[i].arrival_time) - toMinutes(rows[i - 1].departure_time);
       // A negative or absurd gap means a malformed row, not a slow train.
       if (!Number.isFinite(d) || d < 0 || d > 20) continue;
-      const key = from < to ? `${from}|${to}` : `${to}|${from}`;
+      // Keyed in travel order. Sorting the pair pooled the two directions
+      // and the median then picked whichever had more trips, losing a real
+      // difference on 36 pairs.
+      const key = `${from}|${to}`;
       (hopSamples.get(key) ?? hopSamples.set(key, []).get(key)).push(d);
     }
   }
@@ -226,10 +229,10 @@ try {
    * and 120s anticlockwise, and CC17 to CC19 is 300s except on Dhoby
    * Ghaut-bound trips, which take 120s.
    *
-   * The key is the unordered pair, so those two directions are merged and the
-   * median picks whichever side has more trips. Fixing that means keying on
-   * direction here and in everything downstream; until then a merged real
-   * figure is still much closer than the flat rate it replaced.
+   * So the key is the pair in travel order: "CC14|CC15" is the clockwise
+   * run and "CC15|CC14" the anticlockwise one. Readers look up the direction
+   * they are travelling and fall back to the reverse where the feed only ever
+   * ran one way.
    *
    * Dwell is likewise a flat 30 or 40 seconds per station — the whole feed
    * holds three values, 0s, 30s and 40s, and the mean sits at 39.5s in every
@@ -255,7 +258,7 @@ try {
         if (!prev || prev === c) continue;
         const t = toSeconds(rows[i].arrival_time) - toSeconds(rows[i - 1].departure_time);
         if (t < 0 || t > 1800) continue;
-        const key = prev < c ? `${prev}|${c}` : `${c}|${prev}`;
+        const key = `${prev}|${c}`;
         (hopSecondsSamples.get(key) ?? hopSecondsSamples.set(key, []).get(key)).push(t);
       }
     }

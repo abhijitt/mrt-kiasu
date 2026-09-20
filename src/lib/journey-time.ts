@@ -72,6 +72,22 @@ function expectedWait(headwayMinutes: number): number {
   return headwayMinutes / 2;
 }
 
+/**
+ * A hop's figure, looked up in the direction of travel.
+ *
+ * Hop keys are ordered now — "CC14|CC15" is the clockwise run and
+ * "CC15|CC14" the anticlockwise one, which on 36 pairs are different numbers.
+ * The reverse is tried second because a few pairs are only ever ridden one
+ * way in the feed, and one direction's figure beats none.
+ */
+export function hopValue(
+  map: Record<string, number> | undefined,
+  from: string,
+  to: string,
+): number | undefined {
+  return map?.[`${from}|${to}`] ?? map?.[`${to}|${from}`];
+}
+
 export function estimateJourney(input: JourneyInputs): JourneyBreakdown {
   const { path, hops, headway, day, hour, transfers, transferWalkMinutes } = input;
 
@@ -85,10 +101,10 @@ export function estimateJourney(input: JourneyInputs): JourneyBreakdown {
   for (let i = 1; i < path.length; i++) {
     const a = path[i - 1];
     const b = path[i];
-    const key = a < b ? `${a}|${b}` : `${b}|${a}`;
-    // A transfer is a walk between platforms, not a train ride.
-    if (transferPairs.has(key)) continue;
-    const hop = hops[key];
+    // A transfer is the same walk either way, so it is matched on the sorted
+    // pair; a ride is not, so it is looked up in the direction travelled.
+    if (transferPairs.has(a < b ? `${a}|${b}` : `${b}|${a}`)) continue;
+    const hop = hopValue(hops, a, b);
     if (hop === undefined) unknownHops++;
     rideMinutes += hop ?? FALLBACK_HOP_MINUTES;
   }
@@ -188,12 +204,11 @@ function rideMinutesFor(
   for (let i = 1; i < path.length; i++) {
     const a = path[i - 1];
     const b = path[i];
-    const key = a < b ? `${a}|${b}` : `${b}|${a}`;
-    const exact = hopSeconds?.[key];
+    const exact = hopValue(hopSeconds, a, b);
     if (exact !== undefined) {
       seconds += exact;
     } else {
-      const hop = hops[key];
+      const hop = hopValue(hops, a, b);
       if (hop === undefined) unknown++;
       seconds += (hop ?? FALLBACK_HOP_MINUTES) * 60;
     }
