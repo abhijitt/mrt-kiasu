@@ -42,7 +42,7 @@
   "route.travel.down": "Eskalator ini turun.",
   "route.travel.reversible": "Eskalator ini bertukar arah mengikut waktu puncak, jadi periksa dahulu.",
   "route.estimateTitle": "Anggaran",
-  "route.estimateBody": "Dikira daripada lokasi {exit}, bukan daripada pemeriksaan di platform. Tepat dalam lingkungan ±30 m, jadi kami beri gerabak, bukan pintu.",
+  "route.estimateBody": "Diunjurkan daripada kedudukan {exit}, bukan ditinjau. Tepat kepada gerabak, bukan pintu.",
   "route.estimateExitFallback": "pintu keluar",
   "route.exitLabel": "Pintu Keluar {code}",
   "route.verifiedOn": "Disahkan di platform pada {date}.",

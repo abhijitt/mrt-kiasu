@@ -42,7 +42,7 @@
   "route.travel.down": "This escalator goes down.",
   "route.travel.reversible": "This escalator switches direction with the peak, so check before you step on.",
   "route.estimateTitle": "Estimate",
-  "route.estimateBody": "Worked out from where {exit} surfaces, not from anyone checking the platform. Good to about ±30 m, so we give you the car, not the door.",
+  "route.estimateBody": "Projected from {exit}'s position, not surveyed. Accurate to the car, not the door.",
   "route.estimateExitFallback": "the exit",
   "route.exitLabel": "Exit {code}",
   "route.verifiedOn": "Verified on the platform on {date}.",
