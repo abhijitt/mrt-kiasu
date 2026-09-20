@@ -222,7 +222,11 @@ export function SettingsScreen({ stats, coverage }: Props) {
         </div>
       </section>
 
-      <section className="pixel-box anim-enter p-4">
+      {/* Linked to from the route page, where the note about a preference
+          that could not be honoured offers to change it. Settings is long
+          enough that landing at the top of it is barely better than not
+          linking at all. scroll-mt clears the fixed bar above. */}
+      <section id="head-for" className="pixel-box anim-enter scroll-mt-24 p-4">
         <h2 className="font-pixel text-xs uppercase text-fg-muted">
           {t("settings.headFor")}
         </h2>

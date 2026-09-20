@@ -258,6 +258,13 @@ function Guidance({
                   t("route.preferenceOther", { mode: modeLabel, actual: actualDevice })
                 : t("route.preferenceUnavailable", { mode: modeLabel })}
           </span>
+          {/* Next to the sentence it acts on, and pointed at the setting
+              rather than the top of a long page. It used to sit after the
+              survey invitation, where "Change" read as an offer to change
+              that. */}
+          <Link href="/settings#head-for" className="text-xs text-fg-muted underline">
+            {t("route.changePreference")}
+          </Link>
           {/* Telling someone their preference could not be honoured, and
               leaving it there, asks them to accept a worse answer. The reason
               is that nobody has surveyed this platform — and the person
@@ -271,9 +278,6 @@ function Guidance({
               {t("route.surveyThisPlatform")}
             </Link>
           )}
-          <Link href="/settings" className="text-xs text-fg-muted underline">
-            {t("route.changePreference")}
-          </Link>
         </p>
       )}
 
