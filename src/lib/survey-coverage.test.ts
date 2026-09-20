@@ -101,3 +101,26 @@ describe("surveyed here is not the same as covered", () => {
     expect(none.every((c) => !c.surveyedHere && !c.started)).toBe(true);
   });
 });
+
+/**
+ * The settings page says "All LRT lines are left out" as a flat statement
+ * rather than listing what it derived, which is easier to read and true only
+ * as long as nothing else lacks a published train.
+ *
+ * This is where that holds. If an MRT line ever arrives without fleet data —
+ * a new line before LTA publishes its rolling stock, say — the sentence
+ * becomes a lie and this fails, rather than the page quietly under-reporting
+ * what it cannot survey.
+ */
+describe("the lines left out are the LRT, and only the LRT", () => {
+  it("excludes every LRT line", () => {
+    const excluded = surveyCoverage().notSurveyableLines;
+    expect([...excluded].sort()).toEqual(["BPLRT", "PGLRT", "SKLRT"]);
+  });
+
+  it("excludes nothing that is not an LRT line", () => {
+    for (const line of surveyCoverage().notSurveyableLines) {
+      expect(line.endsWith("LRT")).toBe(true);
+    }
+  });
+});
