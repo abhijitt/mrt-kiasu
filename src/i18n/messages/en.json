@@ -384,7 +384,7 @@
   "score.title": "Your kiasu score",
   "score.body": "{minutes} minutes of walking skipped across {journeys} trips planned.",
   "score.bodySeconds": "{seconds} seconds of walking skipped across {journeys} trips planned.",
-  "score.since": "Since {date}. Counts trips you planned here, not trips we know you took. On this device only — we never see it.",
+  "score.since": "Since {date}. Counts trips planned here, not journeys taken. Stored locally; never transmitted.",
   "score.empty": "Plan a trip and this starts counting.",
   "score.reset": "Reset",
   "map.showGeographic": "Show true positions",
