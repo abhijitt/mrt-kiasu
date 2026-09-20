@@ -210,12 +210,6 @@ export function StationScreen(p: Props) {
                 <p className="mt-3 text-sm text-fg-muted">{t("station.noLandmarks")}</p>
               </>
             )}
-            <p className="mt-3 text-xs text-fg-faint">
-              {t("station.exitCount", { count: allExits.length })}
-            </p>
-            {anyLandmarks && (
-              <p className="mt-1 text-xs text-fg-faint">{t("station.landmarkNote")}</p>
-            )}
           </>
         ) : (
           <p className="mt-3 text-sm text-fg-muted">{t("station.noExitData")}</p>

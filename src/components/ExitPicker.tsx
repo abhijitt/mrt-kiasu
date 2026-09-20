@@ -130,7 +130,6 @@ export function ExitPicker({ exits, landmarks, selected, onSelect }: Props) {
         </ul>
       )}
 
-      <p className="text-xs text-fg-faint">{t("station.landmarkNote")}</p>
     </div>
   );
 }

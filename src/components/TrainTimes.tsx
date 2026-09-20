@@ -162,7 +162,6 @@ export function TrainTimes({ times }: { times: Partial<Record<ServiceDay, TrainT
           {allDays ? t("times.justToday") : t("times.otherDays")}
         </button>
       ) : null}
-      <p className="text-xs leading-relaxed text-fg-faint">{t("times.source")}</p>
     </div>
   );
 }
