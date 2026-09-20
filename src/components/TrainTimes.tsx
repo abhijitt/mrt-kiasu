@@ -90,21 +90,28 @@ export function TrainTimes({ times }: { times: Partial<Record<ServiceDay, TrainT
       )}
       {shown.map((day) => (
         <div key={day}>
-          <p className="font-pixel text-[10px] uppercase text-fg-muted">
+          <p id={`times-${day}`} className="font-pixel text-[10px] uppercase text-fg-muted">
             {t(`times.${day}` as MessageKey)}
           </p>
           {/* A table, not a stack of cards.
               Every row here answers the same two questions, so the labels
               belong at the top of two columns rather than repeated beside
               each of up to twelve times. At an interchange this section was
-              taller than everything else on the page put together. */}
-          <table className="mt-2 w-full border-collapse text-sm">
-            <caption className="sr-only">{t(`times.${day}` as MessageKey)}</caption>
+              taller than everything else on the page put together.
+
+              Named by the heading above it rather than by a caption of its
+              own. A caption repeating that heading, and a hidden corner cell
+              repeating the section title, made the card read "First and last
+              train / Saturday / Saturday / First and last train" to anyone
+              taking it as text. Both were text already on the screen. */}
+          <table
+            aria-labelledby={`times-${day}`}
+            className="mt-2 w-full border-collapse text-sm"
+          >
             <thead>
               <tr className="font-pixel text-[9px] uppercase text-fg-faint">
-                <th scope="col" className="pb-1 text-left font-normal">
-                  <span className="sr-only">{t("times.title")}</span>
-                </th>
+                {/* The corner names nothing, so it claims nothing. */}
+                <td />
                 <th scope="col" className="pb-1 pl-3 text-right font-normal">
                   {t("times.first")}
                 </th>
@@ -116,9 +123,12 @@ export function TrainTimes({ times }: { times: Partial<Record<ServiceDay, TrainT
             <tbody>
               {times[day]!.map((row) => (
                 <tr key={row.towards} className="border-t border-[var(--border-soft)]">
-                  <td className="py-1.5 pr-2 text-fg-muted">
+                  {/* The destination is what names the row, so it is the row's
+                      header: a screen reader then reads "Towards HarbourFront,
+                      First, 06:12" instead of three bare numbers. */}
+                  <th scope="row" className="py-1.5 pr-2 text-left font-normal text-fg-muted">
                     {t("times.towards", { station: row.towards })}
-                  </td>
+                  </th>
                   {/* Tabular figures, so four departures read as a column of
                       times rather than four ragged strings. */}
                   <td className="py-1.5 pl-3 text-right tabular-nums text-fg">{row.first}</td>
