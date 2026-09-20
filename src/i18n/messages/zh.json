@@ -384,7 +384,7 @@
   "score.title": "你的 kiasu 分数",
   "score.body": "在规划的 {journeys} 趟行程中少走了 {minutes} 分钟。",
   "score.bodySeconds": "在规划的 {journeys} 趟行程中少走了 {seconds} 秒。",
-  "score.since": "自 {date} 起。统计在此规划的行程，而非实际乘车记录。仅存于本机，绝不上传。",
+  "score.since": "自 {date} 起。统计在此规划的行程。仅存于本机，绝不上传。",
   "score.empty": "规划一趟行程，就会开始计算。",
   "score.reset": "重置",
   "map.showGeographic": "显示真实位置",

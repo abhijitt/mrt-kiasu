@@ -384,7 +384,7 @@
   "score.title": "Skor kiasu anda",
   "score.body": "{minutes} minit berjalan dijimatkan merentasi {journeys} perjalanan yang dirancang.",
   "score.bodySeconds": "{seconds} saat berjalan dijimatkan merentasi {journeys} perjalanan yang dirancang.",
-  "score.since": "Sejak {date}. Mengira perjalanan yang dirancang di sini, bukan perjalanan yang dibuat. Disimpan secara setempat; tidak pernah dihantar.",
+  "score.since": "Sejak {date}. Mengira perjalanan yang dirancang di sini. Disimpan secara setempat; tidak pernah dihantar.",
   "score.empty": "Rancang satu perjalanan dan ini mula mengira.",
   "score.reset": "Set semula",
   "map.showGeographic": "Tunjuk kedudukan sebenar",
