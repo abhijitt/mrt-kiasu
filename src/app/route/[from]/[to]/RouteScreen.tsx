@@ -265,19 +265,6 @@ function Guidance({
           <Link href="/settings#head-for" className="text-xs text-fg-muted underline">
             {t("route.changePreference")}
           </Link>
-          {/* Telling someone their preference could not be honoured, and
-              leaving it there, asks them to accept a worse answer. The reason
-              is that nobody has surveyed this platform — and the person
-              reading this is about to stand on it. */}
-          {!preferenceHonoured && !actualDevice && (
-            <Link
-              href={`/survey/${platformCode}/${direction}`}
-              className="text-xs underline"
-              style={{ color: "var(--accent)" }}
-            >
-              {t("route.surveyThisPlatform")}
-            </Link>
-          )}
         </p>
       )}
 
@@ -420,7 +407,18 @@ function Guidance({
             exit: feature.leadsTo.length
               ? t("route.exitLabel", { code: feature.leadsTo[0] })
               : t("route.estimateExitFallback"),
-          })}
+          })}{" "}
+          {/* Attached to "not surveyed" rather than to the note above about
+              the preference. This is the sentence that names the gap, and the
+              person reading it is about to stand on the platform that would
+              close it. */}
+          <Link
+            href={`/survey/${platformCode}/${direction}`}
+            className="underline"
+            style={{ color: "var(--accent)" }}
+          >
+            {t("route.surveyThisPlatform")}
+          </Link>
         </p>
       ) : (
         <p className="mt-2 text-xs text-fg-muted">
