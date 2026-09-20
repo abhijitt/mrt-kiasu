@@ -457,7 +457,7 @@
   "fare.title": "How much it costs",
   "fare.amount": "{amount} by card, {type} fare.",
   "settings.fareType": "Which card you tap",
-  "settings.fareTypeHint": "Every fare shown is worked out for this card.",
+  "settings.fareTypeHint": "Sets the rate used in every fare calculation.",
   "fareType.adult": "Adult",
   "fareType.adult.inline": "adult",
   "fareType.adult.hint": "Default — the standard card fare",

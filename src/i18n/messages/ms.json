@@ -457,7 +457,7 @@
   "fare.title": "Berapa tambangnya",
   "fare.amount": "{amount} dengan kad, tambang {type}.",
   "settings.fareType": "Kad yang anda tap",
-  "settings.fareTypeHint": "Setiap tambang yang dipaparkan dikira untuk kad ini.",
+  "settings.fareTypeHint": "Menetapkan kadar yang digunakan dalam setiap pengiraan tambang.",
   "fareType.adult": "Dewasa",
   "fareType.adult.inline": "dewasa",
   "fareType.adult.hint": "Lalai — tambang kad biasa",

@@ -457,7 +457,7 @@
   "fare.title": "车费多少",
   "fare.amount": "刷卡 {amount}，{type}票价。",
   "settings.fareType": "你刷哪种卡",
-  "settings.fareTypeHint": "所显示的车费均按此卡种计算。",
+  "settings.fareTypeHint": "设定所有车费计算所采用的费率。",
   "fareType.adult": "成人",
   "fareType.adult.inline": "成人",
   "fareType.adult.hint": "预设——标准刷卡车费",
