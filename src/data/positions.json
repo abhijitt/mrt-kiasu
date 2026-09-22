@@ -12,9 +12,9 @@
     "layouts": "Keyed by station code without direction, since a layout describes the station. Requires source and confidence exactly as everything else does."
   },
   "_status": {
-    "surveyed": 50,
+    "surveyed": 53,
     "note": "Door positions and door side come only from field surveys, or from an OSM-derived candidate a person has then checked. No public dataset provides either (verified against LTA DataMall, data.gov.sg, SMRT and SBS Transit), so there is nothing to import and nothing to fall back on. The app shows 'not yet mapped' until an entry exists — it does not estimate. Counts here are maintained by scripts/review-surveys.mjs and the survey route; 'surveyed' excludes features inferred for the far face of an island platform.",
-    "lastUpdated": "2026-09-19",
+    "lastUpdated": "2026-09-22",
     "orientationSurveyed": 4,
     "layoutsSurveyed": 156
   },
@@ -773,6 +773,103 @@
         "confidence": "verified",
         "sourceNote": "Field survey at Aljunied — mirrored from the asc survey of this platform, confirmed accurate on review 2026-09-19",
         "verifiedAt": "2026-09-17"
+      }
+    ],
+    "DT20:asc": [
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 5,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Fort Canning (an up and a down escalator both stand here) — leadsTo filled in on review 2026-09-22: the survey named none, and a reviewer read it as reaching A, B",
+        "verifiedAt": "2026-09-22"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 10,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Fort Canning — leadsTo filled in on review 2026-09-22: the survey named none, and a reviewer read it as reaching A, B",
+        "verifiedAt": "2026-09-22",
+        "secondaryFor": [
+          "A",
+          "B"
+        ]
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 10,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Fort Canning — leadsTo filled in on review 2026-09-22: the survey named none, and a reviewer read it as reaching A, B",
+        "verifiedAt": "2026-09-22",
+        "secondaryFor": [
+          "A",
+          "B"
+        ]
+      }
+    ],
+    "DT20:desc": [
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 5,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Fort Canning (an up and a down escalator both stand here) — leadsTo filled in on review 2026-09-22: the survey named none, and a reviewer read it as reaching A, B — not surveyed from this platform; inferred from the asc survey because DT20 is an island platform",
+        "verifiedAt": "2026-09-22",
+        "impliedFrom": "asc"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 10,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Fort Canning — leadsTo filled in on review 2026-09-22: the survey named none, and a reviewer read it as reaching A, B — not surveyed from this platform; inferred from the asc survey because DT20 is an island platform",
+        "verifiedAt": "2026-09-22",
+        "impliedFrom": "asc",
+        "secondaryFor": [
+          "A",
+          "B"
+        ]
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 10,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Fort Canning — leadsTo filled in on review 2026-09-22: the survey named none, and a reviewer read it as reaching A, B — not surveyed from this platform; inferred from the asc survey because DT20 is an island platform",
+        "verifiedAt": "2026-09-22",
+        "impliedFrom": "asc",
+        "secondaryFor": [
+          "A",
+          "B"
+        ]
       }
     ]
   },

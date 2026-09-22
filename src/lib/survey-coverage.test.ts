@@ -4,6 +4,12 @@ import { describe, expect, it, vi } from "vitest";
 vi.mock("server-only", () => ({}));
 
 const { stationCoverage, surveyCoverage } = await import("./survey-coverage");
+const { STATIONS } = await import("./stations");
+// The surveyed records only. getFeatures() blends in the estimated exit
+// positions, which carry no impliedFrom and would read as first-hand.
+const { platforms } = (await import("@/data/positions.json")).default as {
+  platforms: Record<string, { impliedFrom?: string }[]>;
+};
 
 /**
  * What "surveyed" is allowed to mean.
@@ -73,19 +79,33 @@ describe("survey coverage", () => {
  * page came to say one platform was surveyed directly above a meter reading
  * 100% for two.
  *
- * The thirteen mirrored records in the dataset were reviewed and confirmed on
- * 2026-09-19, so none remain. The field stays because the review tool still
- * writes inferences for a newly approved survey, and this asserts that none
- * reaches the shipped dataset without someone having looked at it.
+ * A fresh inference is legitimate — approving an island survey writes one for
+ * the opposite face, and it stands until someone walks that face. What must
+ * never happen is the app presenting one as a survey. This asserted the
+ * stronger claim that none exists, over a list of five station codes written
+ * by hand; Fort Canning was surveyed from one face on 2026-09-22 and slipped
+ * past it, which is what a hand-written list of everything does eventually.
  */
 describe("surveyed here is not the same as covered", () => {
-  it("has no platform the app routes from that nobody has checked", () => {
-    for (const code of ["CC2", "CC6", "EW8", "EW9", "CC9"]) {
-      for (const c of stationCoverage(code)) {
-        if (c.started) expect({ code: c.code, dir: c.direction, surveyed: c.surveyedHere })
-          .toEqual({ code: c.code, dir: c.direction, surveyed: true });
+  it("never reports an inferred platform as surveyed", () => {
+    // Every station, not a list: the point is to catch the next one.
+    for (const station of STATIONS) {
+      for (const c of stationCoverage(station.code)) {
+        if (!c.started) continue;
+        const recorded = platforms[`${c.code}:${c.direction}`] ?? [];
+        const anyFirstHand = recorded.some((f) => !f.impliedFrom);
+        expect({ code: c.code, dir: c.direction, surveyedHere: c.surveyedHere })
+          .toEqual({ code: c.code, dir: c.direction, surveyedHere: anyFirstHand });
       }
     }
+  });
+
+  it("knows Fort Canning's far face is inference, not survey", () => {
+    // Surveyed towards Expo only. The station page says "Surveyed on 1 of 2
+    // platform directions" because of this, which is the honest answer.
+    const both = stationCoverage("DT20");
+    expect(both.filter((c) => c.surveyedHere)).toHaveLength(1);
+    expect(both.every((c) => c.complete)).toBe(true);
   });
 
   it("counts both faces at a station surveyed from both", () => {
