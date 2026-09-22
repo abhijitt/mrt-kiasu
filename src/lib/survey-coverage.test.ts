@@ -80,11 +80,12 @@ describe("survey coverage", () => {
  * 100% for two.
  *
  * A fresh inference is legitimate — approving an island survey writes one for
- * the opposite face, and it stands until someone walks that face. What must
- * never happen is the app presenting one as a survey. This asserted the
- * stronger claim that none exists, over a list of five station codes written
- * by hand; Fort Canning was surveyed from one face on 2026-09-22 and slipped
- * past it, which is what a hand-written list of everything does eventually.
+ * the opposite face, and it stands until someone checks it. What must never
+ * happen is the app presenting one as a survey. This asserted the stronger
+ * claim that none exists, over a list of five station codes written by hand;
+ * Fort Canning's mirrored face slipped past it on 2026-09-22, which is what a
+ * hand-written list of everything does eventually. It scans every station now,
+ * so the next one cannot.
  */
 describe("surveyed here is not the same as covered", () => {
   it("never reports an inferred platform as surveyed", () => {
@@ -100,11 +101,13 @@ describe("surveyed here is not the same as covered", () => {
     }
   });
 
-  it("knows Fort Canning's far face is inference, not survey", () => {
-    // Surveyed towards Expo only. The station page says "Surveyed on 1 of 2
-    // platform directions" because of this, which is the honest answer.
+  it("counts a confirmed mirror as surveyed", () => {
+    // Fort Canning was walked towards Expo and the far face mirrored from it.
+    // The surveyor then checked the mirrored positions and confirmed them on
+    // 2026-09-23, which makes them first-hand: an inference is a guess only
+    // until someone looks, and someone looked.
     const both = stationCoverage("DT20");
-    expect(both.filter((c) => c.surveyedHere)).toHaveLength(1);
+    expect(both.filter((c) => c.surveyedHere)).toHaveLength(2);
     expect(both.every((c) => c.complete)).toBe(true);
   });
 
