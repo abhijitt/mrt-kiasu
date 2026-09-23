@@ -2,6 +2,7 @@ import { notFound, redirect } from "next/navigation";
 import { isCanonicalSlug, stationSlug } from "@/lib/station-slug";
 import { getFeatures } from "@/lib/positions";
 import { planRouteBetweenStations } from "@/lib/routing";
+import { roundedVolume, volumesFor } from "@/lib/volumes";
 import { getGroup, getStation } from "@/lib/stations";
 import { landmarksForCodes } from "@/lib/landmarks";
 import { journeyPayload } from "@/lib/journey-data";
@@ -113,6 +114,11 @@ export default async function RoutePage({
       fare={fare}
       originName={origin.name}
       destinationName={destination.name}
+      // Tap-OUT, not tap-in: on this page the reader is arriving.
+      destinationTaps={(() => {
+        const v = volumesFor(destination.codes[0]);
+        return v ? roundedVolume(v.weekday.out) : null;
+      })()}
       destinationCode={destination.primaryCode}
       destinationExits={exits}
       destinationCodes={destination.codes}

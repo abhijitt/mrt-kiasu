@@ -45,6 +45,7 @@
   "route.verified": "已实地核实。",
   "route.noGuidance": "{station} 暂无车门指引 — 连估算也没有，因为陆交局的出口数据未涵盖此站。",
   "route.exitsAt": "{station} 的出口",
+  "route.tapsOut": "平日平均约有 {count} 人在此结束行程，你将是其中之一。",
   "route.noExits": "陆交局数据中暂无此站的出口资料。",
   "route.aboutStation": "关于 {station}",
   "route.notFound": "找不到这两站之间的路线。",

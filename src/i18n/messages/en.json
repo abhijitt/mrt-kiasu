@@ -45,6 +45,7 @@
   "route.verified": "Verified on the platform.",
   "route.noGuidance": "No door guidance for {station} yet — not even an estimate, because LTA's exit data does not cover this station.",
   "route.exitsAt": "Exits at {station}",
+  "route.tapsOut": "You'll be one of about {count} people who finish a journey here on an average weekday.",
   "route.noExits": "No exit data for this station in LTA's dataset yet.",
   "route.aboutStation": "About {station}",
   "route.notFound": "No route found between these stations.",

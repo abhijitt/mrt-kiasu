@@ -45,6 +45,7 @@
   "route.verified": "Disahkan di platform.",
   "route.noGuidance": "Tiada panduan pintu untuk {station} lagi — anggaran pun tiada, kerana data pintu keluar LTA tidak meliputi stesen ini.",
   "route.exitsAt": "Pintu keluar di {station}",
+  "route.tapsOut": "Anda akan menjadi salah seorang daripada kira-kira {count} orang yang menamatkan perjalanan di sini pada hari biasa.",
   "route.noExits": "Tiada data pintu keluar untuk stesen ini dalam set data LTA.",
   "route.aboutStation": "Mengenai {station}",
   "route.notFound": "Tiada laluan dijumpai antara stesen ini.",

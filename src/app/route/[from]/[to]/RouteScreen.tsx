@@ -17,7 +17,7 @@ import { JourneyEstimate } from "@/components/JourneyEstimate";
 import type { Fare } from "@/lib/fare-types";
 import type { JourneyPayload } from "@/lib/journey-data";
 import { LINES, type LineCode } from "@/lib/lines";
-import { useT } from "@/i18n/I18nProvider";
+import { useI18n, useT } from "@/i18n/I18nProvider";
 import { useLineName } from "@/i18n/useLineName";
 import type { MessageKey } from "@/i18n/I18nProvider";
 import { useSettings } from "@/lib/settings";
@@ -61,6 +61,8 @@ interface Props {
   originName: string;
   destinationName: string;
   destinationCode: string;
+  /** Journeys ended at the destination on an average weekday, rounded. */
+  destinationTaps: number | null;
   destinationExits: string[];
   destinationCodes: string[];
   destinationLandmarks: Landmark[];
@@ -438,7 +440,7 @@ function Guidance({
 }
 
 export function RouteScreen(p: Props) {
-  const t = useT();
+  const { t, locale } = useI18n();
   const lineName = useLineName();
   const { settings, loaded } = useSettings();
   const [selectedExit, setSelectedExit] = useState<string | null>(null);
@@ -640,6 +642,15 @@ export function RouteScreen(p: Props) {
         <p className="mt-2 text-sm text-fg-muted">
           {t("route.exitsAt", { station: p.destinationName })}
         </p>
+        {/* Tap-outs here, where the station page quotes tap-ins. This page
+            knows which way the reader is travelling, so it can use the half
+            of the figure that is about them: they are arriving, and the
+            people they will be among are the ones getting off. */}
+        {p.destinationTaps !== null && (
+          <p className="mt-1 text-sm leading-relaxed text-fg-muted">
+            {t("route.tapsOut", { count: p.destinationTaps.toLocaleString(locale) })}
+          </p>
+        )}
         <div className="mt-3">
           {p.destinationExits.length > 0 ? (
             <ExitPicker
