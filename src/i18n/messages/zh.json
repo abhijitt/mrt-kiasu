@@ -450,6 +450,7 @@
   "layout.alt": "{station} 月台平面图：{layout}布局。",
   "layout.legend": "图例",
   "layout.secondaryFor": "到 {targets} 是绕远路",
+  "layout.targetToward": "{target}（往{terminus}）",
   "layout.doorEither": "第 {doors} 道门，视你从哪个方向来",
   "layout.door": "第 {door} 道门",
   "doors.onArrival": "（在{station}下车时）。",

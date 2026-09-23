@@ -450,6 +450,7 @@
   "layout.alt": "Plan of the platforms at {station}: {layout} layout.",
   "layout.legend": "Key",
   "layout.secondaryFor": "the long way to {targets}",
+  "layout.targetToward": "{target} to {terminus}",
   "layout.doorEither": "door {doors}, depending which way you came",
   "layout.door": "door {door}",
   "doors.onArrival": "when you get off at {station}.",

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { LINES, hasTrainGeometry } from "@/lib/lines";
-import { RETIRED_CODES, STATIONS, getStation } from "@/lib/stations";
+import { RETIRED_CODES, STATIONS, getStation, terminusOf } from "@/lib/stations";
 import { getFeatures, hasVerifiedData } from "@/lib/positions";
 import { landmarksForCodes } from "@/lib/landmarks";
 import { platformDirections } from "@/lib/network";
@@ -89,6 +89,15 @@ export default async function StationPage({
       }))}
       hasEstimates={getFeatures(station.code, "desc").length > 0}
       coverage={stationCoverage(station.code)}
+      // A transfer can be recorded to one direction of the next line —
+      // "DTL:desc" — and the reader needs the name on the sign, not "desc".
+      // Only this station's interchange lines, so the list stays a few names.
+      termini={Object.fromEntries(
+        station.interchanges.map((i) => [
+          i.line,
+          { asc: terminusOf(i.line, "asc"), desc: terminusOf(i.line, "desc") },
+        ]),
+      )}
       // One number out of a 34 KB file, picked and rounded on the server.
       taps={(() => {
         const v = volumesFor(station.code);

@@ -15,7 +15,7 @@ import { groupByExit, type Landmark } from "@/lib/landmark-types";
 import { ExitLandmarks, previewFor } from "@/components/ExitLandmarks";
 import { StationLayout, type LayoutBlockView } from "@/components/StationLayout";
 import { FeatureMark } from "@/components/FeatureMark";
-import { DEVICE_TYPES } from "@/lib/feature-types";
+import { DEVICE_TYPES, splitTarget } from "@/lib/feature-types";
 import type { LocalisedTrivia } from "@/lib/trivia";
 import type { Locale } from "@/i18n/config";
 import { type LineCode } from "@/lib/lines";
@@ -70,12 +70,20 @@ interface Props {
    * and rounding belongs with the data rather than with the rendering.
    */
   taps: number | null;
+  /** Each interchange line's two termini, for naming a directed transfer. */
+  termini: Record<string, { asc: string | null; desc: string | null }>;
 }
 
 export function StationScreen(p: Props) {
   const { t, locale } = useI18n();
   const prefersLift = usePrefersLift();
   const lineName = useLineName();
+  /** "DTL:desc" reads as "DTL to Bukit Panjang"; "A" and "DTL" read as themselves. */
+  const targetName = (entry: string) => {
+    const { code, direction } = splitTarget(entry);
+    const end = direction ? p.termini[code]?.[direction] : null;
+    return end ? t("layout.targetToward", { target: code, terminus: end }) : code;
+  };
   // Chosen here rather than on the server because the locale is a client-side
   // preference; only this one station's variants were shipped.
   const trivia = p.triviaByLocale[locale] ?? p.triviaByLocale.en ?? null;
@@ -316,10 +324,10 @@ export function StationScreen(p: Props) {
                                 ? t("layout.doorEither", { doors: lf.doors.join(" / ") })
                                 : t("layout.door", { door: lf.doors[0] })}
                               {lf.feature.leadsTo.length > 0 &&
-                                ` → ${lf.feature.leadsTo.join(", ")}`}
+                                ` → ${lf.feature.leadsTo.map(targetName).join(", ")}`}
                               {(lf.feature.secondaryFor ?? []).length > 0 &&
                                 ` · ${t("layout.secondaryFor", {
-                                  targets: lf.feature.secondaryFor!.join(", "),
+                                  targets: lf.feature.secondaryFor!.map(targetName).join(", "),
                                 })}`}
                             </span>
                           </li>

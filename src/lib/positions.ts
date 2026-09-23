@@ -168,6 +168,14 @@ export function validateFeature(
   }
   if (!Array.isArray(feature.leadsTo)) {
     errors.push("leadsTo must be an array (use [] if it leads nowhere specific)");
+  } else {
+    // "DTL:up" would read as plain "DTL" and quietly match both directions,
+    // which is the one thing a directed target exists to prevent.
+    for (const t of feature.leadsTo) {
+      if (String(t).includes(":") && !/^[A-Z]+:(asc|desc)$/i.test(String(t))) {
+        errors.push(`leadsTo "${t}" names a direction other than asc or desc`);
+      }
+    }
   }
   const demoted = feature.secondaryFor;
   if (demoted !== undefined && !Array.isArray(demoted)) {

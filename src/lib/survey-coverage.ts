@@ -2,7 +2,7 @@ import "server-only";
 import { hasTrainGeometry, type LineCode } from "./lines";
 import { STATIONS } from "./stations";
 import { platformKey } from "./positions";
-import type { PlatformFeature } from "./feature-types";
+import { splitTarget, type PlatformFeature } from "./feature-types";
 import positionsData from "@/data/positions.json";
 
 /**
@@ -74,7 +74,9 @@ export interface SurveyCoverage {
 function coverageFor(code: string, direction: "asc" | "desc"): PlatformCoverage {
   const station = STATIONS.find((s) => s.code === code)!;
   const features = surveyed[platformKey(code, direction)] ?? [];
-  const reached = new Set(features.flatMap((f) => f.leadsTo.map((t) => t.toUpperCase())));
+  // "DTL:desc" reaches the DTL. Coverage asks whether the line is reached
+  // at all, not in which direction.
+  const reached = new Set(features.flatMap((f) => f.leadsTo.map((t) => splitTarget(t).code)));
 
   const exits = station.exits.map((e) => e.code.toUpperCase());
   const transfers = station.interchanges.map((i) => i.line.toUpperCase());

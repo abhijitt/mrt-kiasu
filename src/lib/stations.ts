@@ -108,6 +108,19 @@ export function stationsOnLine(line: LineCode): Station[] {
 }
 
 /**
+ * The end of the line a direction heads for: "desc" towards the lowest code,
+ * "asc" towards the highest. DTL "desc" is Bukit Panjang, "asc" is Expo —
+ * the names on the platform signs, which is what a person matches against.
+ */
+export function terminusOf(line: string, direction: "asc" | "desc"): string | null {
+  // Interchanges name LRT lines too, which have no entry here.
+  if (!(line in LINES)) return null;
+  const on = stationsOnLine(line as LineCode);
+  if (on.length === 0) return null;
+  return (direction === "desc" ? on[0] : on[on.length - 1]).name;
+}
+
+/**
  * One entry per physical station, merging interchange codes.
  * Used wherever a person picks a place rather than a platform.
  */

@@ -225,7 +225,21 @@ async function main() {
         const known = exitCodesByCode.get(stationCode.toUpperCase()) ?? new Set();
         const lines = interchangeLinesByCode.get(stationCode.toUpperCase()) ?? new Set();
         for (const target of f.leadsTo) {
-          const t = String(target).toUpperCase();
+          // A transfer can name one direction of the next line — "DTL:desc",
+          // where the two directions are different levels. The direction must
+          // be asc or desc and the line must still be one you can change to.
+          const [code, direction] = String(target).split(":");
+          if (direction !== undefined) {
+            if (!/^(asc|desc)$/i.test(direction)) {
+              errors.push(`${at}: leadsTo "${target}" names a direction other than asc or desc`);
+            } else if (!lines.has(code.toUpperCase())) {
+              errors.push(
+                `${at}: leadsTo "${target}" is a directed transfer to a line you cannot change to here (${[...lines].join(", ") || "none"})`,
+              );
+            }
+            continue;
+          }
+          const t = code.toUpperCase();
           if (lines.has(t) || known.has(t)) continue;
           if (known.size === 0) {
             // No exit data for this station, so an unrecognised target may be

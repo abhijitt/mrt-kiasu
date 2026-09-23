@@ -12,9 +12,9 @@
     "layouts": "Keyed by station code without direction, since a layout describes the station. Requires source and confidence exactly as everything else does."
   },
   "_status": {
-    "surveyed": 56,
+    "surveyed": 90,
     "note": "Door positions and door side come only from field surveys, or from an OSM-derived candidate a person has then checked. No public dataset provides either (verified against LTA DataMall, data.gov.sg, SMRT and SBS Transit), so there is nothing to import and nothing to fall back on. The app shows 'not yet mapped' until an entry exists — it does not estimate. Counts here are maintained by scripts/review-surveys.mjs and the survey route; 'surveyed' excludes features inferred for the far face of an island platform.",
-    "lastUpdated": "2026-09-23",
+    "lastUpdated": "2026-09-24",
     "orientationSurveyed": 4,
     "layoutsSurveyed": 156
   },
@@ -868,6 +868,482 @@
           "B"
         ]
       }
+    ],
+    "DT13:asc": [
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 1,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Rochor",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 3,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Rochor",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 8,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Rochor",
+        "verifiedAt": "2026-09-23"
+      }
+    ],
+    "DT13:desc": [
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 1,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Rochor — mirrored from the asc survey of this platform, confirmed accurate on review 2026-09-24",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 3,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Rochor — mirrored from the asc survey of this platform, confirmed accurate on review 2026-09-24",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B"
+        ],
+        "doorIndex": 8,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Rochor — mirrored from the asc survey of this platform, confirmed accurate on review 2026-09-24",
+        "verifiedAt": "2026-09-23"
+      }
+    ],
+    "DT9:asc": [
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "CCL"
+        ],
+        "doorIndex": 4,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Botanic Gardens — leadsTo filled in on review 2026-09-23: the survey named none, and a reviewer read it as reaching A, B, CCL",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "CCL"
+        ],
+        "doorIndex": 7,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Botanic Gardens — leadsTo filled in on review 2026-09-23: the survey named none, and a reviewer read it as reaching A, B, CCL",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B",
+          "CCL"
+        ],
+        "doorIndex": 11,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Botanic Gardens — leadsTo filled in on review 2026-09-23: the survey named none, and a reviewer read it as reaching A, B, CCL",
+        "verifiedAt": "2026-09-23"
+      }
+    ],
+    "DT9:desc": [
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "CCL"
+        ],
+        "doorIndex": 4,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Botanic Gardens — leadsTo filled in on review 2026-09-23: the survey named none, and a reviewer read it as reaching A, B, CCL — mirrored from the asc survey of this platform, confirmed accurate on review 2026-09-24",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "CCL"
+        ],
+        "doorIndex": 7,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Botanic Gardens — leadsTo filled in on review 2026-09-23: the survey named none, and a reviewer read it as reaching A, B, CCL — mirrored from the asc survey of this platform, confirmed accurate on review 2026-09-24",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B",
+          "CCL"
+        ],
+        "doorIndex": 11,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Botanic Gardens — leadsTo filled in on review 2026-09-23: the survey named none, and a reviewer read it as reaching A, B, CCL — mirrored from the asc survey of this platform, confirmed accurate on review 2026-09-24",
+        "verifiedAt": "2026-09-23"
+      }
+    ],
+    "DT10:desc": [
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "2",
+          "3",
+          "4",
+          "5",
+          "TEL"
+        ],
+        "doorIndex": 1,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens — moved from door 9 to door 1 on review 2026-09-23: the survey picture drew this level nose-right when the train runs left, and the surveyor's note places this bank at the first door in the direction of travel. Confirmed with the surveyor: the TEL pathway is at the front end of a Bukit Panjang-bound train, the same end as on the Expo level",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "2",
+          "3",
+          "4",
+          "5",
+          "TEL"
+        ],
+        "doorIndex": 1,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens — moved from door 9 to door 1 on review 2026-09-23: the survey picture drew this level nose-right when the train runs left, and the surveyor's note places this bank at the first door in the direction of travel. Confirmed with the surveyor: the TEL pathway is at the front end of a Bukit Panjang-bound train, the same end as on the Expo level",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "2",
+          "3",
+          "4",
+          "5",
+          "TEL"
+        ],
+        "doorIndex": 1,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens — moved from door 9 to door 1 on review 2026-09-23: the survey picture drew this level nose-right when the train runs left, and the surveyor's note places this bank at the first door in the direction of travel. Confirmed with the surveyor: the TEL pathway is at the front end of a Bukit Panjang-bound train, the same end as on the Expo level",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "1"
+        ],
+        "doorIndex": 8,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "1"
+        ],
+        "doorIndex": 8,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "1"
+        ],
+        "doorIndex": 8,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens",
+        "verifiedAt": "2026-09-23"
+      }
+    ],
+    "DT10:asc": [
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "TEL"
+        ],
+        "doorIndex": 4,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "TEL"
+        ],
+        "doorIndex": 4,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "TEL"
+        ],
+        "doorIndex": 4,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "1",
+          "2",
+          "3",
+          "5",
+          "4"
+        ],
+        "doorIndex": 11,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "1",
+          "2",
+          "3",
+          "5",
+          "4"
+        ],
+        "doorIndex": 11,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "1",
+          "2",
+          "3",
+          "5",
+          "4"
+        ],
+        "doorIndex": 11,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens",
+        "verifiedAt": "2026-09-23"
+      }
+    ],
+    "TE11:desc": [
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "1",
+          "2",
+          "3",
+          "5",
+          "4",
+          "DTL"
+        ],
+        "doorIndex": 2,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens",
+        "verifiedAt": "2026-09-23",
+        "id": "TE11-lift-1"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "DTL:asc"
+        ],
+        "doorIndex": 2,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens — DTL narrowed to the Expo level on review 2026-09-24, from the surveyor note: the DTL at Stevens is stacked, and this escalator reaches only one of its levels",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "1",
+          "2",
+          "3",
+          "5",
+          "4",
+          "DTL"
+        ],
+        "doorIndex": 9,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "down",
+        "leadsTo": [
+          "DTL:desc"
+        ],
+        "doorIndex": 13,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens — DTL narrowed to the Bukit Panjang level on review 2026-09-24, from the surveyor note: the DTL at Stevens is stacked, and this escalator reaches only one of its levels",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "doorIndex": 19,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens",
+        "verifiedAt": "2026-09-23"
+      }
+    ],
+    "TE11:asc": [
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "1",
+          "2",
+          "3",
+          "5",
+          "4",
+          "DTL"
+        ],
+        "doorIndex": 1,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens",
+        "verifiedAt": "2026-09-23",
+        "id": "TE11-lift-1"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "DTL:asc"
+        ],
+        "doorIndex": 2,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens — DTL narrowed to the Expo level on review 2026-09-24, from the surveyor note: the DTL at Stevens is stacked, and this escalator reaches only one of its levels — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-24",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "1",
+          "2",
+          "3",
+          "5",
+          "4",
+          "DTL"
+        ],
+        "doorIndex": 9,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-24",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "down",
+        "leadsTo": [
+          "DTL:desc"
+        ],
+        "doorIndex": 13,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens — DTL narrowed to the Bukit Panjang level on review 2026-09-24, from the surveyor note: the DTL at Stevens is stacked, and this escalator reaches only one of its levels — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-24",
+        "verifiedAt": "2026-09-23"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "doorIndex": 19,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Stevens — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-24",
+        "verifiedAt": "2026-09-23"
+      }
     ]
   },
   "orientation": {
@@ -898,6 +1374,20 @@
       "confidence": "verified",
       "verifiedAt": "2026-08-26",
       "sourceNote": "Field observation. Downtown Line runs DT1 Bukit Panjang to DT35 Expo, so towards Expo is ascending codes and towards Bukit Panjang is descending. Towards Bukit Panjang: doors open on the left."
+    },
+    "DT10:desc": {
+      "side": "left",
+      "source": "survey",
+      "confidence": "verified",
+      "verifiedAt": "2026-09-23",
+      "sourceNote": "Field observation. The level for trains towards Bukit Panjang: the train runs to the left seen from the platform, so the doors open on its left. The survey picture drew it the other way, which is how this was found."
+    },
+    "DT10:asc": {
+      "side": "right",
+      "source": "survey",
+      "confidence": "verified",
+      "verifiedAt": "2026-09-23",
+      "sourceNote": "Field observation. The level for trains towards Expo: the survey picture, drawn with the doors on the right, matched the platform."
     }
   },
   "layouts": {
@@ -1207,14 +1697,14 @@
       "source": "wikipedia",
       "confidence": "verified",
       "verifiedAt": "2026-08-25",
-      "sourceNote": "Infobox at Stevens MRT station: 4 (Split platform"
+      "sourceNote": "Infobox at Stevens MRT station: 4 (2 stacked platforms, 1 island platform). The stacked pair is the Downtown Line, one direction per level."
     },
     "TE11": {
-      "layout": "stacked",
+      "layout": "island",
       "source": "wikipedia",
       "confidence": "verified",
-      "verifiedAt": "2026-08-25",
-      "sourceNote": "Infobox at Stevens MRT station: 4 (Split platform"
+      "verifiedAt": "2026-09-24",
+      "sourceNote": "Infobox at Stevens MRT station: 4 (2 stacked platforms, 1 island platform). The stacked pair is the Downtown Line; the Thomson-East Coast Line is the island. Corrected 2026-09-24: the earlier record was cut off at \"Split platform\" and applied the DTL arrangement to both lines. Agrees with the field survey, which found the TEL escalators and stairs the same from both faces."
     },
     "DT11": {
       "layout": "island",

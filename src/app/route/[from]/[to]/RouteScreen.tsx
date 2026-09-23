@@ -24,6 +24,7 @@ import { useSettings } from "@/lib/settings";
 import type { Landmark } from "@/lib/landmark-types";
 import {
   chooseFeature,
+  transferTarget,
   DEVICE_TYPES,
   type FeatureType,
   type PlatformFeature,
@@ -504,14 +505,23 @@ export function RouteScreen(p: Props) {
         // interchange you are heading for the next line. The data no longer
         // distinguishes the two, so neither does the lookup — an escalator
         // recorded as serving both is found by either question.
-        const target = isFinalLeg ? selectedExit : (nextLeg?.line ?? null);
+        //
+        // The next line is asked for with its direction, because at a
+        // stacked interchange the two directions are different levels
+        // reached by different escalators. A record naming only the line
+        // still answers, so this narrows nothing that was not recorded.
+        const target = isFinalLeg
+          ? selectedExit
+          : nextLeg
+            ? transferTarget(nextLeg.line, nextLeg.direction)
+            : null;
         const targeted = target ? chooseFeature(leg.features, preference, target) : null;
         const feature = targeted ?? chooseFeature(leg.features, preference, null);
         const targetMissed =
           target && !targeted && feature
             ? isFinalLeg
               ? t("route.exitLabel", { code: target })
-              : lineName(target as LineCode)
+              : lineName(nextLeg.line)
             : null;
 
         return (

@@ -164,15 +164,56 @@ export function sameFeature(a: PlatformFeature, b: PlatformFeature): boolean {
 export function isLongWayTo(f: PlatformFeature, target?: string | null): boolean {
   const demoted = f.secondaryFor ?? [];
   if (demoted.length === 0) return false;
-  if (target) return demoted.some((t) => t.toUpperCase() === target.toUpperCase());
+  if (target) return demoted.some((t) => targetMatches(t, target));
   return f.leadsTo.every((t) =>
     demoted.some((d) => d.toUpperCase() === t.toUpperCase()),
   );
 }
 
-/** Case-insensitive: `target` is an exit code or a line code, indifferently. */
+/**
+ * A transfer that only reaches one direction of the next line.
+ *
+ * At Stevens the TEL platform has two ways down to the Downtown Line, and they
+ * are not interchangeable: the DTL there is stacked, one level per direction,
+ * so the down escalator reaches the Bukit Panjang platform and a different
+ * escalator reaches the Expo one. "DTL" alone would send half the people
+ * changing there to the wrong level. Written "DTL:desc", in the same terms as
+ * a platform key, and read by {@link targetMatches}.
+ */
+export function transferTarget(line: string, direction: "asc" | "desc"): string {
+  return `${line}:${direction}`;
+}
+
+/** "dtl:DESC" -> { code: "DTL", direction: "desc" }; "a" -> { code: "A" }. */
+export function splitTarget(entry: string): { code: string; direction?: "asc" | "desc" } {
+  const [code, dir] = entry.split(":");
+  const direction = dir?.toLowerCase();
+  return direction === "asc" || direction === "desc"
+    ? { code: code.toUpperCase(), direction }
+    : { code: code.toUpperCase() };
+}
+
+/**
+ * Whether a recorded target answers the question being asked.
+ *
+ * Case-insensitive, and a side that names no direction covers both: a lift
+ * recorded as reaching "DTL" reaches either platform, and someone who only
+ * knows they are changing to the DTL is served by the Bukit Panjang escalator
+ * as much as by any other. Only when BOTH name a direction can they disagree.
+ */
+export function targetMatches(entry: string, target: string): boolean {
+  const a = splitTarget(entry);
+  const b = splitTarget(target);
+  if (a.code !== b.code) return false;
+  return !a.direction || !b.direction || a.direction === b.direction;
+}
+
+/**
+ * `target` is an exit code, a line code, or a line code with a direction —
+ * "A", "DTL", "DTL:desc" — indifferently.
+ */
 export function leadsToTarget(f: PlatformFeature, target: string): boolean {
-  return f.leadsTo.some((t) => t.toUpperCase() === target.toUpperCase());
+  return f.leadsTo.some((t) => targetMatches(t, target));
 }
 
 /**

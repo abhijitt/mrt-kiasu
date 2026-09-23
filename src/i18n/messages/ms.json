@@ -450,6 +450,7 @@
   "layout.alt": "Pelan platform di {station}: susun atur {layout}.",
   "layout.legend": "Petunjuk",
   "layout.secondaryFor": "jalan jauh ke {targets}",
+  "layout.targetToward": "{target} ke {terminus}",
   "layout.doorEither": "pintu {doors}, bergantung arah anda datang",
   "layout.door": "pintu {door}",
   "doors.onArrival": "semasa anda turun di {station}.",

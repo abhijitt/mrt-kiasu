@@ -18,6 +18,7 @@
  *   DATABASE_URL='...' node scripts/review-surveys.mjs --approve 3 --leads-to A,B,C
  *   DATABASE_URL='...' node scripts/review-surveys.mjs --confirm 5 --confirm 6
  *   DATABASE_URL='...' node scripts/review-surveys.mjs --reject 2 --because "..."
+ *   DATABASE_URL='...' node scripts/review-surveys.mjs --approve 68 --door 1 --because "..."
  *
  * With no flags it lists the queue and changes nothing. Production and beta
  * point at different database branches, so review each where it lives.
@@ -98,6 +99,40 @@ function sharedId() {
 const linkAs = sharedId();
 
 /**
+ * A door the reviewer moves the approved rows to.
+ *
+ * For when the survey picture was wrong and the surveyor said so in words.
+ * A stacked platform with no door side on record is drawn nose-right, and on
+ * a level where the train really runs left the surveyor is matching a mirror
+ * image — so a note like "first door in moving direction" is the evidence and
+ * the tapped door is not. Only the reviewer can reconcile the two, and the
+ * record says that is what happened.
+ */
+function reviewerDoor() {
+  const argv = process.argv.slice(2);
+  const found = argv.flatMap((a, i) => (a === "--door" ? [argv[i + 1]] : []));
+  if (found.length === 0) return null;
+  if (found.length > 1) {
+    console.error("--door can only be given once.");
+    process.exit(1);
+  }
+  const door = Number(found[0]);
+  if (!Number.isInteger(door) || door < 1) {
+    console.error(`--door needs a door number counted from the low-code end, got ${found[0] ?? "nothing"}`);
+    process.exit(1);
+  }
+  if (approve.length === 0) {
+    console.error("--door does nothing without --approve.");
+    process.exit(1);
+  }
+  if (!because) {
+    console.error("--door needs --because: moving a surveyed door has to say why.");
+    process.exit(1);
+  }
+  return door;
+}
+
+/**
  * Exits and lines a reviewer fills in for a row that named none.
  *
  * A lift is the case that keeps arriving blank, and blank is not what the
@@ -158,14 +193,15 @@ function rejectionReason() {
     console.error("--because needs a reason in quotes.");
     process.exit(1);
   }
-  if (reject.length === 0) {
-    console.error("--because does nothing without --reject.");
+  if (reject.length === 0 && !process.argv.includes("--door")) {
+    console.error("--because does nothing without --reject or --door.");
     process.exit(1);
   }
   return text;
 }
 
 const because = rejectionReason();
+const moveTo = reviewerDoor();
 
 /**
  * Every claim in the submission, because this is what a reviewer decides on.
@@ -272,6 +308,16 @@ async function applyToDataset(row, id) {
       sourceNote:
         `${feature.sourceNote} — leadsTo filled in on review ${today()}: the ` +
         `survey named none, and a reviewer read it as reaching ${fillTargets.join(", ")}`,
+    };
+  }
+
+  if (moveTo !== null && moveTo !== feature.doorIndex) {
+    feature = {
+      ...feature,
+      doorIndex: moveTo,
+      sourceNote:
+        `${feature.sourceNote} — moved from door ${feature.doorIndex} to door ${moveTo} ` +
+        `on review ${today()}: ${because}`,
     };
   }
 
@@ -496,5 +542,6 @@ if (changed) {
   console.log("  --reject <id>    record the decision and leave the dataset alone");
   console.log("  --id <name>      approve several rows as one physical thing");
   console.log("  --leads-to <a,b> fill in the targets of an approved row that named none");
+  console.log("  --door <n>       move approved rows to door n (needs --because)");
   console.log("  --because <why>  record why the rejected rows were rejected");
 }

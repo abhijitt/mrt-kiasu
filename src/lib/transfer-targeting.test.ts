@@ -1,10 +1,15 @@
 import { describe, expect, it } from "vitest";
 import {
   chooseFeature,
+  isLongWayTo,
   leadsToTarget,
   sameFeature,
+  splitTarget,
+  targetMatches,
+  transferTarget,
   type PlatformFeature,
 } from "@/lib/feature-types";
+import { validateFeature } from "@/lib/positions";
 
 const base = {
   source: "survey",
@@ -252,3 +257,81 @@ describe("the same physical thing, seen from both platforms", () => {
     expect(sameFeature(fromEunosSide, untagged)).toBe(false);
   });
 })
+
+/**
+ * Stevens, from the TEL platform. The DTL here is stacked — one level per
+ * direction — so the two ways down are not interchangeable: the down escalator
+ * reaches the Bukit Panjang level and the up escalator the Expo one. The lift
+ * serves both levels and says only "DTL".
+ */
+describe("a transfer can reach only one direction of the next line", () => {
+  const toBukitPanjang: PlatformFeature = {
+    ...base, type: "escalator", doorIndex: 13, leadsTo: ["DTL:desc"], travel: "down",
+  };
+  const toExpo: PlatformFeature = {
+    ...base, type: "escalator", doorIndex: 2, leadsTo: ["DTL:asc"], travel: "up",
+  };
+  const lift: PlatformFeature = {
+    ...base, type: "lift", doorIndex: 2, leadsTo: ["1", "2", "DTL"],
+  };
+  const stevens = [toExpo, lift, toBukitPanjang];
+
+  it("sends someone changing towards Bukit Panjang to the down escalator", () => {
+    expect(chooseFeature(stevens, "escalator", transferTarget("DTL", "desc"))).toBe(toBukitPanjang);
+  });
+
+  it("and someone changing towards Expo to the other one", () => {
+    expect(chooseFeature(stevens, "escalator", transferTarget("DTL", "asc"))).toBe(toExpo);
+  });
+
+  it("lets a record naming only the line answer either direction", () => {
+    expect(chooseFeature(stevens, "lift", "DTL:desc")).toBe(lift);
+    expect(chooseFeature(stevens, "lift", "DTL:asc")).toBe(lift);
+  });
+
+  it("lets a question naming only the line find a directed record", () => {
+    expect(leadsToTarget(toBukitPanjang, "DTL")).toBe(true);
+  });
+
+  it("never matches the other direction", () => {
+    expect(targetMatches("DTL:desc", "DTL:asc")).toBe(false);
+    expect(leadsToTarget(toExpo, "DTL:desc")).toBe(false);
+  });
+
+  it("does not let a directed target leak into another line", () => {
+    expect(targetMatches("DTL:desc", "TEL:desc")).toBe(false);
+  });
+
+  it("ignores case the way every other target does", () => {
+    expect(targetMatches("dtl:DESC", "DTL:desc")).toBe(true);
+    expect(splitTarget("dtl:DESC")).toEqual({ code: "DTL", direction: "desc" });
+  });
+
+  it("demotes the long way only in the direction it was marked for", () => {
+    const roundabout = { ...toBukitPanjang, secondaryFor: ["DTL:desc"] };
+    expect(isLongWayTo(roundabout, "DTL:desc")).toBe(true);
+    expect(isLongWayTo(roundabout, "DTL:asc")).toBe(false);
+  });
+
+  it("treats every existing record, which names no direction, exactly as before", () => {
+    // Any target without a direction behaves as the old exact match did.
+    expect(chooseFeature(platform, "escalator", "CCL:asc")).toBe(toCorridor);
+    expect(chooseFeature(platform, "escalator", "C")).toBe(toExit);
+  });
+});
+
+describe("the dataset refuses a direction it cannot read", () => {
+  const feature = {
+    ...base, type: "escalator" as const, doorIndex: 3, travel: "up" as const,
+  };
+
+  it("accepts asc and desc", () => {
+    expect(validateFeature({ ...feature, leadsTo: ["DTL:desc", "A"] }, "DTL")).toEqual([]);
+  });
+
+  it("rejects anything else rather than reading it as the bare line", () => {
+    expect(validateFeature({ ...feature, leadsTo: ["DTL:up"] }, "DTL")).toContainEqual(
+      'leadsTo "DTL:up" names a direction other than asc or desc',
+    );
+  });
+});

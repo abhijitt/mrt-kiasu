@@ -450,6 +450,7 @@
   "layout.alt": "{station} நடைமேடைகளின் வரைபடம்: {layout} அமைப்பு.",
   "layout.legend": "விளக்கம்",
   "layout.secondaryFor": "{targets} க்கு சுற்று வழி",
+  "layout.targetToward": "{target} ({terminus} நோக்கி)",
   "layout.doorEither": "கதவு {doors}, நீங்கள் எந்தத் திசையில் வந்தீர்கள் என்பதைப் பொறுத்து",
   "layout.door": "கதவு {door}",
   "doors.onArrival": "{station} இல் இறங்கும்போது.",

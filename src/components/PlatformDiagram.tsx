@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { LINES, type LineCode } from "@/lib/lines";
 import { avatarSprite, type AvatarId, type SkinToneId } from "./Avatar";
 import { toCarPosition, type Direction } from "@/lib/doors";
-import type { PlatformFeature } from "@/lib/feature-types";
+import { splitTarget, type PlatformFeature } from "@/lib/feature-types";
 import { FeatureMark } from "./FeatureMark";
 import { shortTargets, spreadOut } from "@/lib/declutter";
 
@@ -381,7 +381,10 @@ export function PlatformDiagram({
             // One pitch for every label, taken from the widest: Press Start 2P
             // is monospace, so the widest is simply the longest.
             const texts = landings.map((l) =>
-              shortTargets(l.here.flatMap((f) => f.leadsTo)),
+              // The line alone: a caption is a few characters of pixel type,
+              // and "DTL:desc" is data, not something to read. The station
+              // page's list is where the direction is spelled out.
+              shortTargets(l.here.flatMap((f) => f.leadsTo.map((t) => splitTarget(t).code))),
             );
             const widest = Math.max(...texts.map((t) => t.length)) * LABEL_SIZE;
             // Anchored over the marks as drawn, not over the door they came
