@@ -24,7 +24,8 @@
     "import:times": "node scripts/import-train-times.mjs",
     "import:fares": "node scripts/import-fare-distances.mjs",
     "import:layouts": "node scripts/import-platform-layouts.mjs",
-    "import:holidays": "node scripts/import-holidays.mjs"
+    "import:holidays": "node scripts/import-holidays.mjs",
+    "import:volumes": "node scripts/import-volumes.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "1.1.0",

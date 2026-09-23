@@ -42,6 +42,8 @@ const NEEDLES = [
   // Every station pair is ~300 KB. The route page needs one number out of it,
   // worked out on the server.
   { name: "fare-distances.json", needle: "LTA Fare Calculator (MRT/LRT trip distance)" },
+  // 34 KB of tap counts for one sentence quoting one of them.
+  { name: "volumes.json", needle: "Passenger Volume by Train Stations" },
 ];
 
 async function jsFiles(dir) {

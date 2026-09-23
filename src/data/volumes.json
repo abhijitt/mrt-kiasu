@@ -1,0 +1,2181 @@
+{
+  "_source": {
+    "dataset": "Passenger Volume by Train Stations",
+    "agency": "Land Transport Authority",
+    "endpoint": "https://datamall2.mytransport.sg/ltaodataservice/PV/Train",
+    "month": "2026-08",
+    "retrieved": "2026-09-23",
+    "derivation": "LTA publishes monthly totals per station, by day type and hour. Summed over the hours, then divided by the number of days of that type in 2026-08 — 20 weekdays and 11 weekends/holidays, with MOM's gazetted holidays counted as the latter, which is how LTA groups them. An interchange is published once under a joined code such as EW8/CC9, since a tap happens at a station rather than a platform; every code naming that station carries the same figure.",
+    "caveat": "Taps, not people: a return trip is two taps at two stations. The freshest month LTA has published, so it lags by several weeks.",
+    "holidaysInMonth": [
+      "2026-08-09 National Day",
+      "2026-08-10 National Day (Observed)"
+    ]
+  },
+  "days": {
+    "weekday": 20,
+    "weekend": 11
+  },
+  "stations": {
+    "BP1": {
+      "weekday": {
+        "in": 39665,
+        "out": 43529
+      },
+      "weekend": {
+        "in": 30306,
+        "out": 33047
+      }
+    },
+    "BP2": {
+      "weekday": {
+        "in": 3387,
+        "out": 2618
+      },
+      "weekend": {
+        "in": 2270,
+        "out": 1886
+      }
+    },
+    "BP3": {
+      "weekday": {
+        "in": 4776,
+        "out": 4012
+      },
+      "weekend": {
+        "in": 3278,
+        "out": 2869
+      }
+    },
+    "BP4": {
+      "weekday": {
+        "in": 4799,
+        "out": 4744
+      },
+      "weekend": {
+        "in": 1365,
+        "out": 1289
+      }
+    },
+    "BP5": {
+      "weekday": {
+        "in": 2194,
+        "out": 1934
+      },
+      "weekend": {
+        "in": 1644,
+        "out": 1545
+      }
+    },
+    "BP6": {
+      "weekday": {
+        "in": 42470,
+        "out": 44109
+      },
+      "weekend": {
+        "in": 29412,
+        "out": 31222
+      }
+    },
+    "BP7": {
+      "weekday": {
+        "in": 1243,
+        "out": 1183
+      },
+      "weekend": {
+        "in": 835,
+        "out": 856
+      }
+    },
+    "BP8": {
+      "weekday": {
+        "in": 2149,
+        "out": 2159
+      },
+      "weekend": {
+        "in": 1497,
+        "out": 1485
+      }
+    },
+    "BP9": {
+      "weekday": {
+        "in": 2319,
+        "out": 2331
+      },
+      "weekend": {
+        "in": 2037,
+        "out": 1999
+      }
+    },
+    "BP10": {
+      "weekday": {
+        "in": 3439,
+        "out": 3406
+      },
+      "weekend": {
+        "in": 2502,
+        "out": 2568
+      }
+    },
+    "BP11": {
+      "weekday": {
+        "in": 4149,
+        "out": 3379
+      },
+      "weekend": {
+        "in": 2910,
+        "out": 2511
+      }
+    },
+    "BP12": {
+      "weekday": {
+        "in": 3645,
+        "out": 2908
+      },
+      "weekend": {
+        "in": 2137,
+        "out": 1719
+      }
+    },
+    "BP13": {
+      "weekday": {
+        "in": 1373,
+        "out": 1148
+      },
+      "weekend": {
+        "in": 1044,
+        "out": 876
+      }
+    },
+    "CC1": {
+      "weekday": {
+        "in": 33966,
+        "out": 31291
+      },
+      "weekend": {
+        "in": 32736,
+        "out": 31024
+      }
+    },
+    "CC2": {
+      "weekday": {
+        "in": 5109,
+        "out": 5514
+      },
+      "weekend": {
+        "in": 3876,
+        "out": 3884
+      }
+    },
+    "CC3": {
+      "weekday": {
+        "in": 7364,
+        "out": 7117
+      },
+      "weekend": {
+        "in": 9742,
+        "out": 8761
+      }
+    },
+    "CC4": {
+      "weekday": {
+        "in": 22493,
+        "out": 23128
+      },
+      "weekend": {
+        "in": 19870,
+        "out": 20450
+      }
+    },
+    "CC5": {
+      "weekday": {
+        "in": 5173,
+        "out": 5350
+      },
+      "weekend": {
+        "in": 6087,
+        "out": 6713
+      }
+    },
+    "CC6": {
+      "weekday": {
+        "in": 6383,
+        "out": 6485
+      },
+      "weekend": {
+        "in": 17704,
+        "out": 19637
+      }
+    },
+    "CC7": {
+      "weekday": {
+        "in": 6173,
+        "out": 6536
+      },
+      "weekend": {
+        "in": 6757,
+        "out": 6285
+      }
+    },
+    "CC8": {
+      "weekday": {
+        "in": 8771,
+        "out": 7947
+      },
+      "weekend": {
+        "in": 6678,
+        "out": 6537
+      }
+    },
+    "CC9": {
+      "weekday": {
+        "in": 47813,
+        "out": 48653
+      },
+      "weekend": {
+        "in": 49909,
+        "out": 50470
+      }
+    },
+    "CC10": {
+      "weekday": {
+        "in": 20232,
+        "out": 19268
+      },
+      "weekend": {
+        "in": 14833,
+        "out": 14134
+      }
+    },
+    "CC11": {
+      "weekday": {
+        "in": 22405,
+        "out": 22943
+      },
+      "weekend": {
+        "in": 11683,
+        "out": 11395
+      }
+    },
+    "CC12": {
+      "weekday": {
+        "in": 10469,
+        "out": 9228
+      },
+      "weekend": {
+        "in": 6377,
+        "out": 5979
+      }
+    },
+    "CC13": {
+      "weekday": {
+        "in": 59584,
+        "out": 61695
+      },
+      "weekend": {
+        "in": 51331,
+        "out": 52409
+      }
+    },
+    "CC14": {
+      "weekday": {
+        "in": 9458,
+        "out": 8945
+      },
+      "weekend": {
+        "in": 5268,
+        "out": 5028
+      }
+    },
+    "CC15": {
+      "weekday": {
+        "in": 37820,
+        "out": 24184
+      },
+      "weekend": {
+        "in": 24871,
+        "out": 16347
+      }
+    },
+    "CC16": {
+      "weekday": {
+        "in": 8956,
+        "out": 8808
+      },
+      "weekend": {
+        "in": 5145,
+        "out": 5218
+      }
+    },
+    "CC17": {
+      "weekday": {
+        "in": 11044,
+        "out": 9835
+      },
+      "weekend": {
+        "in": 5132,
+        "out": 5076
+      }
+    },
+    "CC19": {
+      "weekday": {
+        "in": 6689,
+        "out": 7048
+      },
+      "weekend": {
+        "in": 7619,
+        "out": 8112
+      }
+    },
+    "CC20": {
+      "weekday": {
+        "in": 6069,
+        "out": 6089
+      },
+      "weekend": {
+        "in": 4315,
+        "out": 4430
+      }
+    },
+    "CC21": {
+      "weekday": {
+        "in": 10822,
+        "out": 11609
+      },
+      "weekend": {
+        "in": 9473,
+        "out": 9631
+      }
+    },
+    "CC22": {
+      "weekday": {
+        "in": 33503,
+        "out": 31782
+      },
+      "weekend": {
+        "in": 18587,
+        "out": 17675
+      }
+    },
+    "CC23": {
+      "weekday": {
+        "in": 17698,
+        "out": 17620
+      },
+      "weekend": {
+        "in": 3619,
+        "out": 3484
+      }
+    },
+    "CC24": {
+      "weekday": {
+        "in": 31602,
+        "out": 30157
+      },
+      "weekend": {
+        "in": 9290,
+        "out": 8952
+      }
+    },
+    "CC25": {
+      "weekday": {
+        "in": 8056,
+        "out": 7429
+      },
+      "weekend": {
+        "in": 5146,
+        "out": 4531
+      }
+    },
+    "CC26": {
+      "weekday": {
+        "in": 7106,
+        "out": 7328
+      },
+      "weekend": {
+        "in": 3273,
+        "out": 3444
+      }
+    },
+    "CC27": {
+      "weekday": {
+        "in": 10385,
+        "out": 10195
+      },
+      "weekend": {
+        "in": 2001,
+        "out": 2075
+      }
+    },
+    "CC28": {
+      "weekday": {
+        "in": 4829,
+        "out": 5249
+      },
+      "weekend": {
+        "in": 3718,
+        "out": 3690
+      }
+    },
+    "CC29": {
+      "weekday": {
+        "in": 49731,
+        "out": 49229
+      },
+      "weekend": {
+        "in": 55854,
+        "out": 54397
+      }
+    },
+    "CC30": {
+      "weekday": {
+        "in": 178,
+        "out": 137
+      },
+      "weekend": {
+        "in": 188,
+        "out": 177
+      }
+    },
+    "CC31": {
+      "weekday": {
+        "in": 2264,
+        "out": 2239
+      },
+      "weekend": {
+        "in": 2254,
+        "out": 2299
+      }
+    },
+    "CC32": {
+      "weekday": {
+        "in": 2095,
+        "out": 2052
+      },
+      "weekend": {
+        "in": 1058,
+        "out": 1203
+      }
+    },
+    "CC33": {
+      "weekday": {
+        "in": 7415,
+        "out": 6946
+      },
+      "weekend": {
+        "in": 3797,
+        "out": 5327
+      }
+    },
+    "CC34": {
+      "weekday": {
+        "in": 32935,
+        "out": 31076
+      },
+      "weekend": {
+        "in": 49265,
+        "out": 44614
+      }
+    },
+    "DT1": {
+      "weekday": {
+        "in": 42470,
+        "out": 44109
+      },
+      "weekend": {
+        "in": 29412,
+        "out": 31222
+      }
+    },
+    "DT2": {
+      "weekday": {
+        "in": 4843,
+        "out": 4213
+      },
+      "weekend": {
+        "in": 2165,
+        "out": 1687
+      }
+    },
+    "DT3": {
+      "weekday": {
+        "in": 7474,
+        "out": 6651
+      },
+      "weekend": {
+        "in": 5551,
+        "out": 4960
+      }
+    },
+    "DT4": {
+      "weekday": {
+        "in": 2424,
+        "out": 2417
+      },
+      "weekend": {
+        "in": 1877,
+        "out": 1804
+      }
+    },
+    "DT5": {
+      "weekday": {
+        "in": 16458,
+        "out": 16429
+      },
+      "weekend": {
+        "in": 14371,
+        "out": 13675
+      }
+    },
+    "DT6": {
+      "weekday": {
+        "in": 8962,
+        "out": 7975
+      },
+      "weekend": {
+        "in": 5008,
+        "out": 4571
+      }
+    },
+    "DT7": {
+      "weekday": {
+        "in": 4503,
+        "out": 5511
+      },
+      "weekend": {
+        "in": 2921,
+        "out": 3165
+      }
+    },
+    "DT8": {
+      "weekday": {
+        "in": 6613,
+        "out": 6180
+      },
+      "weekend": {
+        "in": 2883,
+        "out": 2899
+      }
+    },
+    "DT9": {
+      "weekday": {
+        "in": 6689,
+        "out": 7048
+      },
+      "weekend": {
+        "in": 7619,
+        "out": 8112
+      }
+    },
+    "DT10": {
+      "weekday": {
+        "in": 5117,
+        "out": 3871
+      },
+      "weekend": {
+        "in": 3112,
+        "out": 2277
+      }
+    },
+    "DT11": {
+      "weekday": {
+        "in": 57679,
+        "out": 60064
+      },
+      "weekend": {
+        "in": 47275,
+        "out": 49253
+      }
+    },
+    "DT12": {
+      "weekday": {
+        "in": 27359,
+        "out": 28974
+      },
+      "weekend": {
+        "in": 32014,
+        "out": 35504
+      }
+    },
+    "DT13": {
+      "weekday": {
+        "in": 10957,
+        "out": 11373
+      },
+      "weekend": {
+        "in": 10039,
+        "out": 10819
+      }
+    },
+    "DT14": {
+      "weekday": {
+        "in": 54254,
+        "out": 55861
+      },
+      "weekend": {
+        "in": 56934,
+        "out": 58095
+      }
+    },
+    "DT15": {
+      "weekday": {
+        "in": 22493,
+        "out": 23128
+      },
+      "weekend": {
+        "in": 19870,
+        "out": 20450
+      }
+    },
+    "DT16": {
+      "weekday": {
+        "in": 32935,
+        "out": 31076
+      },
+      "weekend": {
+        "in": 49265,
+        "out": 44614
+      }
+    },
+    "DT17": {
+      "weekday": {
+        "in": 25085,
+        "out": 26065
+      },
+      "weekend": {
+        "in": 4812,
+        "out": 4915
+      }
+    },
+    "DT18": {
+      "weekday": {
+        "in": 18189,
+        "out": 19369
+      },
+      "weekend": {
+        "in": 5196,
+        "out": 5532
+      }
+    },
+    "DT19": {
+      "weekday": {
+        "in": 50202,
+        "out": 49000
+      },
+      "weekend": {
+        "in": 49594,
+        "out": 49193
+      }
+    },
+    "DT20": {
+      "weekday": {
+        "in": 6802,
+        "out": 7308
+      },
+      "weekend": {
+        "in": 4959,
+        "out": 5282
+      }
+    },
+    "DT21": {
+      "weekday": {
+        "in": 10385,
+        "out": 10554
+      },
+      "weekend": {
+        "in": 8169,
+        "out": 8486
+      }
+    },
+    "DT22": {
+      "weekday": {
+        "in": 10004,
+        "out": 10755
+      },
+      "weekend": {
+        "in": 11985,
+        "out": 12880
+      }
+    },
+    "DT23": {
+      "weekday": {
+        "in": 5415,
+        "out": 5606
+      },
+      "weekend": {
+        "in": 2629,
+        "out": 2824
+      }
+    },
+    "DT24": {
+      "weekday": {
+        "in": 6158,
+        "out": 5761
+      },
+      "weekend": {
+        "in": 3548,
+        "out": 3617
+      }
+    },
+    "DT25": {
+      "weekday": {
+        "in": 4987,
+        "out": 5020
+      },
+      "weekend": {
+        "in": 3266,
+        "out": 3376
+      }
+    },
+    "DT26": {
+      "weekday": {
+        "in": 20232,
+        "out": 19268
+      },
+      "weekend": {
+        "in": 14833,
+        "out": 14134
+      }
+    },
+    "DT27": {
+      "weekday": {
+        "in": 11186,
+        "out": 11142
+      },
+      "weekend": {
+        "in": 6903,
+        "out": 6939
+      }
+    },
+    "DT28": {
+      "weekday": {
+        "in": 12942,
+        "out": 12463
+      },
+      "weekend": {
+        "in": 8413,
+        "out": 8484
+      }
+    },
+    "DT29": {
+      "weekday": {
+        "in": 8734,
+        "out": 7924
+      },
+      "weekend": {
+        "in": 5452,
+        "out": 5248
+      }
+    },
+    "DT30": {
+      "weekday": {
+        "in": 10459,
+        "out": 10016
+      },
+      "weekend": {
+        "in": 6698,
+        "out": 6582
+      }
+    },
+    "DT31": {
+      "weekday": {
+        "in": 10349,
+        "out": 10597
+      },
+      "weekend": {
+        "in": 6155,
+        "out": 6460
+      }
+    },
+    "DT32": {
+      "weekday": {
+        "in": 56368,
+        "out": 58465
+      },
+      "weekend": {
+        "in": 46396,
+        "out": 46017
+      }
+    },
+    "DT33": {
+      "weekday": {
+        "in": 20566,
+        "out": 18836
+      },
+      "weekend": {
+        "in": 12078,
+        "out": 11701
+      }
+    },
+    "DT34": {
+      "weekday": {
+        "in": 6267,
+        "out": 5621
+      },
+      "weekend": {
+        "in": 3500,
+        "out": 3241
+      }
+    },
+    "DT35": {
+      "weekday": {
+        "in": 16397,
+        "out": 16475
+      },
+      "weekend": {
+        "in": 15323,
+        "out": 15400
+      }
+    },
+    "CG1": {
+      "weekday": {
+        "in": 16397,
+        "out": 16475
+      },
+      "weekend": {
+        "in": 15323,
+        "out": 15400
+      }
+    },
+    "CG2": {
+      "weekday": {
+        "in": 21258,
+        "out": 19741
+      },
+      "weekend": {
+        "in": 25496,
+        "out": 23331
+      }
+    },
+    "EW1": {
+      "weekday": {
+        "in": 32679,
+        "out": 31870
+      },
+      "weekend": {
+        "in": 25152,
+        "out": 24860
+      }
+    },
+    "EW2": {
+      "weekday": {
+        "in": 56368,
+        "out": 58465
+      },
+      "weekend": {
+        "in": 46396,
+        "out": 46017
+      }
+    },
+    "EW3": {
+      "weekday": {
+        "in": 18306,
+        "out": 18989
+      },
+      "weekend": {
+        "in": 14106,
+        "out": 14518
+      }
+    },
+    "EW4": {
+      "weekday": {
+        "in": 18198,
+        "out": 16596
+      },
+      "weekend": {
+        "in": 13309,
+        "out": 12456
+      }
+    },
+    "EW5": {
+      "weekday": {
+        "in": 31868,
+        "out": 32412
+      },
+      "weekend": {
+        "in": 27144,
+        "out": 27463
+      }
+    },
+    "EW6": {
+      "weekday": {
+        "in": 11136,
+        "out": 12787
+      },
+      "weekend": {
+        "in": 9252,
+        "out": 10028
+      }
+    },
+    "EW7": {
+      "weekday": {
+        "in": 14570,
+        "out": 16353
+      },
+      "weekend": {
+        "in": 12041,
+        "out": 13174
+      }
+    },
+    "EW8": {
+      "weekday": {
+        "in": 47813,
+        "out": 48653
+      },
+      "weekend": {
+        "in": 49909,
+        "out": 50470
+      }
+    },
+    "EW9": {
+      "weekday": {
+        "in": 23434,
+        "out": 23487
+      },
+      "weekend": {
+        "in": 23127,
+        "out": 23924
+      }
+    },
+    "EW10": {
+      "weekday": {
+        "in": 11857,
+        "out": 12225
+      },
+      "weekend": {
+        "in": 13385,
+        "out": 14113
+      }
+    },
+    "EW11": {
+      "weekday": {
+        "in": 19265,
+        "out": 20179
+      },
+      "weekend": {
+        "in": 17125,
+        "out": 17790
+      }
+    },
+    "EW12": {
+      "weekday": {
+        "in": 54254,
+        "out": 55861
+      },
+      "weekend": {
+        "in": 56934,
+        "out": 58095
+      }
+    },
+    "EW13": {
+      "weekday": {
+        "in": 45766,
+        "out": 45584
+      },
+      "weekend": {
+        "in": 57706,
+        "out": 56687
+      }
+    },
+    "EW14": {
+      "weekday": {
+        "in": 67365,
+        "out": 67143
+      },
+      "weekend": {
+        "in": 20084,
+        "out": 21365
+      }
+    },
+    "EW15": {
+      "weekday": {
+        "in": 41966,
+        "out": 43115
+      },
+      "weekend": {
+        "in": 16544,
+        "out": 17324
+      }
+    },
+    "EW16": {
+      "weekday": {
+        "in": 40250,
+        "out": 38337
+      },
+      "weekend": {
+        "in": 19953,
+        "out": 19220
+      }
+    },
+    "EW17": {
+      "weekday": {
+        "in": 25658,
+        "out": 26977
+      },
+      "weekend": {
+        "in": 18957,
+        "out": 20383
+      }
+    },
+    "EW18": {
+      "weekday": {
+        "in": 19313,
+        "out": 20069
+      },
+      "weekend": {
+        "in": 12918,
+        "out": 13558
+      }
+    },
+    "EW19": {
+      "weekday": {
+        "in": 18705,
+        "out": 17528
+      },
+      "weekend": {
+        "in": 13022,
+        "out": 12916
+      }
+    },
+    "EW20": {
+      "weekday": {
+        "in": 14817,
+        "out": 14995
+      },
+      "weekend": {
+        "in": 9785,
+        "out": 10001
+      }
+    },
+    "EW21": {
+      "weekday": {
+        "in": 33503,
+        "out": 31782
+      },
+      "weekend": {
+        "in": 18587,
+        "out": 17675
+      }
+    },
+    "EW22": {
+      "weekday": {
+        "in": 13269,
+        "out": 13824
+      },
+      "weekend": {
+        "in": 4188,
+        "out": 4821
+      }
+    },
+    "EW23": {
+      "weekday": {
+        "in": 50641,
+        "out": 53124
+      },
+      "weekend": {
+        "in": 39271,
+        "out": 40120
+      }
+    },
+    "EW24": {
+      "weekday": {
+        "in": 71875,
+        "out": 73432
+      },
+      "weekend": {
+        "in": 65495,
+        "out": 64337
+      }
+    },
+    "EW25": {
+      "weekday": {
+        "in": 15490,
+        "out": 13595
+      },
+      "weekend": {
+        "in": 12586,
+        "out": 12114
+      }
+    },
+    "EW26": {
+      "weekday": {
+        "in": 38348,
+        "out": 34418
+      },
+      "weekend": {
+        "in": 28274,
+        "out": 25706
+      }
+    },
+    "EW27": {
+      "weekday": {
+        "in": 47260,
+        "out": 57502
+      },
+      "weekend": {
+        "in": 40764,
+        "out": 45892
+      }
+    },
+    "EW28": {
+      "weekday": {
+        "in": 39340,
+        "out": 30683
+      },
+      "weekend": {
+        "in": 26638,
+        "out": 23126
+      }
+    },
+    "EW29": {
+      "weekday": {
+        "in": 17802,
+        "out": 18568
+      },
+      "weekend": {
+        "in": 11250,
+        "out": 12372
+      }
+    },
+    "EW30": {
+      "weekday": {
+        "in": 5117,
+        "out": 4649
+      },
+      "weekend": {
+        "in": 2947,
+        "out": 2602
+      }
+    },
+    "EW31": {
+      "weekday": {
+        "in": 5632,
+        "out": 5023
+      },
+      "weekend": {
+        "in": 3952,
+        "out": 3200
+      }
+    },
+    "EW32": {
+      "weekday": {
+        "in": 6593,
+        "out": 6059
+      },
+      "weekend": {
+        "in": 5411,
+        "out": 5431
+      }
+    },
+    "EW33": {
+      "weekday": {
+        "in": 6826,
+        "out": 5902
+      },
+      "weekend": {
+        "in": 5733,
+        "out": 4832
+      }
+    },
+    "NE1": {
+      "weekday": {
+        "in": 49731,
+        "out": 49229
+      },
+      "weekend": {
+        "in": 55854,
+        "out": 54397
+      }
+    },
+    "NE3": {
+      "weekday": {
+        "in": 40250,
+        "out": 38337
+      },
+      "weekend": {
+        "in": 19953,
+        "out": 19220
+      }
+    },
+    "NE4": {
+      "weekday": {
+        "in": 50202,
+        "out": 49000
+      },
+      "weekend": {
+        "in": 49594,
+        "out": 49193
+      }
+    },
+    "NE5": {
+      "weekday": {
+        "in": 15615,
+        "out": 16383
+      },
+      "weekend": {
+        "in": 12077,
+        "out": 13373
+      }
+    },
+    "NE6": {
+      "weekday": {
+        "in": 33966,
+        "out": 31291
+      },
+      "weekend": {
+        "in": 32736,
+        "out": 31024
+      }
+    },
+    "NE7": {
+      "weekday": {
+        "in": 27359,
+        "out": 28974
+      },
+      "weekend": {
+        "in": 32014,
+        "out": 35504
+      }
+    },
+    "NE8": {
+      "weekday": {
+        "in": 27410,
+        "out": 30023
+      },
+      "weekend": {
+        "in": 35597,
+        "out": 37492
+      }
+    },
+    "NE9": {
+      "weekday": {
+        "in": 26634,
+        "out": 24356
+      },
+      "weekend": {
+        "in": 19620,
+        "out": 17621
+      }
+    },
+    "NE10": {
+      "weekday": {
+        "in": 18014,
+        "out": 18133
+      },
+      "weekend": {
+        "in": 12790,
+        "out": 12614
+      }
+    },
+    "NE11": {
+      "weekday": {
+        "in": 16778,
+        "out": 17149
+      },
+      "weekend": {
+        "in": 13010,
+        "out": 13260
+      }
+    },
+    "NE12": {
+      "weekday": {
+        "in": 59584,
+        "out": 61695
+      },
+      "weekend": {
+        "in": 51331,
+        "out": 52409
+      }
+    },
+    "NE13": {
+      "weekday": {
+        "in": 24267,
+        "out": 24490
+      },
+      "weekend": {
+        "in": 21258,
+        "out": 20878
+      }
+    },
+    "NE14": {
+      "weekday": {
+        "in": 31701,
+        "out": 31396
+      },
+      "weekend": {
+        "in": 24322,
+        "out": 23719
+      }
+    },
+    "NE15": {
+      "weekday": {
+        "in": 25487,
+        "out": 25593
+      },
+      "weekend": {
+        "in": 19790,
+        "out": 20056
+      }
+    },
+    "NE16": {
+      "weekday": {
+        "in": 48436,
+        "out": 49738
+      },
+      "weekend": {
+        "in": 37437,
+        "out": 38163
+      }
+    },
+    "NE17": {
+      "weekday": {
+        "in": 46614,
+        "out": 45387
+      },
+      "weekend": {
+        "in": 41825,
+        "out": 40558
+      }
+    },
+    "NE18": {
+      "weekday": {
+        "in": 13780,
+        "out": 13563
+      },
+      "weekend": {
+        "in": 11814,
+        "out": 11629
+      }
+    },
+    "NS1": {
+      "weekday": {
+        "in": 71875,
+        "out": 73432
+      },
+      "weekend": {
+        "in": 65495,
+        "out": 64337
+      }
+    },
+    "NS2": {
+      "weekday": {
+        "in": 30405,
+        "out": 33317
+      },
+      "weekend": {
+        "in": 22579,
+        "out": 24461
+      }
+    },
+    "NS3": {
+      "weekday": {
+        "in": 21752,
+        "out": 20393
+      },
+      "weekend": {
+        "in": 16843,
+        "out": 16318
+      }
+    },
+    "NS4": {
+      "weekday": {
+        "in": 39665,
+        "out": 43529
+      },
+      "weekend": {
+        "in": 30306,
+        "out": 33047
+      }
+    },
+    "NS5": {
+      "weekday": {
+        "in": 31903,
+        "out": 30518
+      },
+      "weekend": {
+        "in": 22997,
+        "out": 22790
+      }
+    },
+    "NS7": {
+      "weekday": {
+        "in": 28688,
+        "out": 27085
+      },
+      "weekend": {
+        "in": 30696,
+        "out": 26646
+      }
+    },
+    "NS8": {
+      "weekday": {
+        "in": 23239,
+        "out": 18176
+      },
+      "weekend": {
+        "in": 16282,
+        "out": 12851
+      }
+    },
+    "NS9": {
+      "weekday": {
+        "in": 57420,
+        "out": 70028
+      },
+      "weekend": {
+        "in": 48969,
+        "out": 55185
+      }
+    },
+    "NS10": {
+      "weekday": {
+        "in": 45347,
+        "out": 39894
+      },
+      "weekend": {
+        "in": 31968,
+        "out": 29089
+      }
+    },
+    "NS11": {
+      "weekday": {
+        "in": 42810,
+        "out": 43365
+      },
+      "weekend": {
+        "in": 33592,
+        "out": 33602
+      }
+    },
+    "NS12": {
+      "weekday": {
+        "in": 23885,
+        "out": 21714
+      },
+      "weekend": {
+        "in": 17262,
+        "out": 16082
+      }
+    },
+    "NS13": {
+      "weekday": {
+        "in": 53264,
+        "out": 58103
+      },
+      "weekend": {
+        "in": 42899,
+        "out": 45610
+      }
+    },
+    "NS14": {
+      "weekday": {
+        "in": 38245,
+        "out": 34077
+      },
+      "weekend": {
+        "in": 27993,
+        "out": 25123
+      }
+    },
+    "NS15": {
+      "weekday": {
+        "in": 24034,
+        "out": 22590
+      },
+      "weekend": {
+        "in": 10743,
+        "out": 9772
+      }
+    },
+    "NS16": {
+      "weekday": {
+        "in": 43299,
+        "out": 48062
+      },
+      "weekend": {
+        "in": 33859,
+        "out": 36728
+      }
+    },
+    "NS17": {
+      "weekday": {
+        "in": 37820,
+        "out": 24184
+      },
+      "weekend": {
+        "in": 24871,
+        "out": 16347
+      }
+    },
+    "NS18": {
+      "weekday": {
+        "in": 16525,
+        "out": 15449
+      },
+      "weekend": {
+        "in": 11864,
+        "out": 11492
+      }
+    },
+    "NS19": {
+      "weekday": {
+        "in": 37590,
+        "out": 39376
+      },
+      "weekend": {
+        "in": 29248,
+        "out": 30303
+      }
+    },
+    "NS20": {
+      "weekday": {
+        "in": 43112,
+        "out": 42489
+      },
+      "weekend": {
+        "in": 26349,
+        "out": 25642
+      }
+    },
+    "NS21": {
+      "weekday": {
+        "in": 57679,
+        "out": 60064
+      },
+      "weekend": {
+        "in": 47275,
+        "out": 49253
+      }
+    },
+    "NS22": {
+      "weekday": {
+        "in": 60082,
+        "out": 64121
+      },
+      "weekend": {
+        "in": 71975,
+        "out": 74103
+      }
+    },
+    "NS23": {
+      "weekday": {
+        "in": 32796,
+        "out": 34467
+      },
+      "weekend": {
+        "in": 34909,
+        "out": 35842
+      }
+    },
+    "NS24": {
+      "weekday": {
+        "in": 33966,
+        "out": 31291
+      },
+      "weekend": {
+        "in": 32736,
+        "out": 31024
+      }
+    },
+    "NS25": {
+      "weekday": {
+        "in": 45766,
+        "out": 45584
+      },
+      "weekend": {
+        "in": 57706,
+        "out": 56687
+      }
+    },
+    "NS26": {
+      "weekday": {
+        "in": 67365,
+        "out": 67143
+      },
+      "weekend": {
+        "in": 20084,
+        "out": 21365
+      }
+    },
+    "NS27": {
+      "weekday": {
+        "in": 7415,
+        "out": 6946
+      },
+      "weekend": {
+        "in": 3797,
+        "out": 5327
+      }
+    },
+    "NS28": {
+      "weekday": {
+        "in": 2059,
+        "out": 1826
+      },
+      "weekend": {
+        "in": 3714,
+        "out": 3542
+      }
+    },
+    "PE1": {
+      "weekday": {
+        "in": 4057,
+        "out": 4120
+      },
+      "weekend": {
+        "in": 3198,
+        "out": 3266
+      }
+    },
+    "PE2": {
+      "weekday": {
+        "in": 6279,
+        "out": 5929
+      },
+      "weekend": {
+        "in": 4620,
+        "out": 4433
+      }
+    },
+    "PE3": {
+      "weekday": {
+        "in": 6626,
+        "out": 6906
+      },
+      "weekend": {
+        "in": 5266,
+        "out": 5387
+      }
+    },
+    "PE4": {
+      "weekday": {
+        "in": 1914,
+        "out": 1676
+      },
+      "weekend": {
+        "in": 1729,
+        "out": 1613
+      }
+    },
+    "PE5": {
+      "weekday": {
+        "in": 6777,
+        "out": 6191
+      },
+      "weekend": {
+        "in": 4869,
+        "out": 4562
+      }
+    },
+    "PE6": {
+      "weekday": {
+        "in": 7535,
+        "out": 7477
+      },
+      "weekend": {
+        "in": 6108,
+        "out": 5886
+      }
+    },
+    "PE7": {
+      "weekday": {
+        "in": 4141,
+        "out": 4329
+      },
+      "weekend": {
+        "in": 3285,
+        "out": 3229
+      }
+    },
+    "PTC": {
+      "weekday": {
+        "in": 46614,
+        "out": 45387
+      },
+      "weekend": {
+        "in": 41825,
+        "out": 40558
+      }
+    },
+    "PW1": {
+      "weekday": {
+        "in": 1596,
+        "out": 2017
+      },
+      "weekend": {
+        "in": 1978,
+        "out": 2531
+      }
+    },
+    "PW2": {
+      "weekday": {
+        "in": 148,
+        "out": 153
+      },
+      "weekend": {
+        "in": 231,
+        "out": 241
+      }
+    },
+    "PW3": {
+      "weekday": {
+        "in": 1040,
+        "out": 999
+      },
+      "weekend": {
+        "in": 740,
+        "out": 731
+      }
+    },
+    "PW4": {
+      "weekday": {
+        "in": 4228,
+        "out": 4067
+      },
+      "weekend": {
+        "in": 4152,
+        "out": 3973
+      }
+    },
+    "PW5": {
+      "weekday": {
+        "in": 2843,
+        "out": 3072
+      },
+      "weekend": {
+        "in": 2946,
+        "out": 3104
+      }
+    },
+    "PW6": {
+      "weekday": {
+        "in": 1891,
+        "out": 1541
+      },
+      "weekend": {
+        "in": 1267,
+        "out": 1061
+      }
+    },
+    "PW7": {
+      "weekday": {
+        "in": 3451,
+        "out": 3803
+      },
+      "weekend": {
+        "in": 2787,
+        "out": 2940
+      }
+    },
+    "SE1": {
+      "weekday": {
+        "in": 4745,
+        "out": 4824
+      },
+      "weekend": {
+        "in": 3342,
+        "out": 3509
+      }
+    },
+    "SE2": {
+      "weekday": {
+        "in": 5898,
+        "out": 5538
+      },
+      "weekend": {
+        "in": 4651,
+        "out": 4550
+      }
+    },
+    "SE3": {
+      "weekday": {
+        "in": 3393,
+        "out": 3244
+      },
+      "weekend": {
+        "in": 2448,
+        "out": 2463
+      }
+    },
+    "SE4": {
+      "weekday": {
+        "in": 3896,
+        "out": 3815
+      },
+      "weekend": {
+        "in": 3222,
+        "out": 3152
+      }
+    },
+    "SE5": {
+      "weekday": {
+        "in": 3292,
+        "out": 3125
+      },
+      "weekend": {
+        "in": 2276,
+        "out": 2254
+      }
+    },
+    "STC": {
+      "weekday": {
+        "in": 48436,
+        "out": 49738
+      },
+      "weekend": {
+        "in": 37437,
+        "out": 38163
+      }
+    },
+    "SW1": {
+      "weekday": {
+        "in": 2673,
+        "out": 1291
+      },
+      "weekend": {
+        "in": 1707,
+        "out": 844
+      }
+    },
+    "SW2": {
+      "weekday": {
+        "in": 4168,
+        "out": 2245
+      },
+      "weekend": {
+        "in": 3977,
+        "out": 2625
+      }
+    },
+    "SW3": {
+      "weekday": {
+        "in": 2179,
+        "out": 1206
+      },
+      "weekend": {
+        "in": 1466,
+        "out": 1076
+      }
+    },
+    "SW4": {
+      "weekday": {
+        "in": 3103,
+        "out": 2849
+      },
+      "weekend": {
+        "in": 2485,
+        "out": 2618
+      }
+    },
+    "SW5": {
+      "weekday": {
+        "in": 6593,
+        "out": 6412
+      },
+      "weekend": {
+        "in": 5802,
+        "out": 5356
+      }
+    },
+    "SW6": {
+      "weekday": {
+        "in": 2061,
+        "out": 3350
+      },
+      "weekend": {
+        "in": 1785,
+        "out": 2158
+      }
+    },
+    "SW7": {
+      "weekday": {
+        "in": 1090,
+        "out": 2018
+      },
+      "weekend": {
+        "in": 1024,
+        "out": 1530
+      }
+    },
+    "SW8": {
+      "weekday": {
+        "in": 883,
+        "out": 1649
+      },
+      "weekend": {
+        "in": 694,
+        "out": 1103
+      }
+    },
+    "TE1": {
+      "weekday": {
+        "in": 9345,
+        "out": 7646
+      },
+      "weekend": {
+        "in": 4644,
+        "out": 3972
+      }
+    },
+    "TE2": {
+      "weekday": {
+        "in": 57420,
+        "out": 70028
+      },
+      "weekend": {
+        "in": 48969,
+        "out": 55185
+      }
+    },
+    "TE3": {
+      "weekday": {
+        "in": 14487,
+        "out": 13484
+      },
+      "weekend": {
+        "in": 8999,
+        "out": 8291
+      }
+    },
+    "TE4": {
+      "weekday": {
+        "in": 6222,
+        "out": 5984
+      },
+      "weekend": {
+        "in": 5231,
+        "out": 4998
+      }
+    },
+    "TE5": {
+      "weekday": {
+        "in": 7348,
+        "out": 7430
+      },
+      "weekend": {
+        "in": 5492,
+        "out": 5476
+      }
+    },
+    "TE6": {
+      "weekday": {
+        "in": 14061,
+        "out": 13074
+      },
+      "weekend": {
+        "in": 9934,
+        "out": 9632
+      }
+    },
+    "TE7": {
+      "weekday": {
+        "in": 7791,
+        "out": 7659
+      },
+      "weekend": {
+        "in": 4996,
+        "out": 4928
+      }
+    },
+    "TE8": {
+      "weekday": {
+        "in": 10509,
+        "out": 10399
+      },
+      "weekend": {
+        "in": 10412,
+        "out": 9596
+      }
+    },
+    "TE9": {
+      "weekday": {
+        "in": 11044,
+        "out": 9835
+      },
+      "weekend": {
+        "in": 5132,
+        "out": 5076
+      }
+    },
+    "TE11": {
+      "weekday": {
+        "in": 5372,
+        "out": 4918
+      },
+      "weekend": {
+        "in": 3699,
+        "out": 3707
+      }
+    },
+    "TE12": {
+      "weekday": {
+        "in": 5510,
+        "out": 5910
+      },
+      "weekend": {
+        "in": 3826,
+        "out": 3904
+      }
+    },
+    "TE13": {
+      "weekday": {
+        "in": 4865,
+        "out": 5248
+      },
+      "weekend": {
+        "in": 3948,
+        "out": 4066
+      }
+    },
+    "TE14": {
+      "weekday": {
+        "in": 60082,
+        "out": 64121
+      },
+      "weekend": {
+        "in": 71975,
+        "out": 74103
+      }
+    },
+    "TE15": {
+      "weekday": {
+        "in": 10407,
+        "out": 11093
+      },
+      "weekend": {
+        "in": 9218,
+        "out": 9529
+      }
+    },
+    "TE16": {
+      "weekday": {
+        "in": 8735,
+        "out": 8158
+      },
+      "weekend": {
+        "in": 7637,
+        "out": 7373
+      }
+    },
+    "TE17": {
+      "weekday": {
+        "in": 40250,
+        "out": 38337
+      },
+      "weekend": {
+        "in": 19953,
+        "out": 19220
+      }
+    },
+    "TE18": {
+      "weekday": {
+        "in": 12240,
+        "out": 11836
+      },
+      "weekend": {
+        "in": 12395,
+        "out": 11889
+      }
+    },
+    "TE19": {
+      "weekday": {
+        "in": 15824,
+        "out": 16266
+      },
+      "weekend": {
+        "in": 3763,
+        "out": 3703
+      }
+    },
+    "TE20": {
+      "weekday": {
+        "in": 7415,
+        "out": 6946
+      },
+      "weekend": {
+        "in": 3797,
+        "out": 5327
+      }
+    },
+    "TE22": {
+      "weekday": {
+        "in": 3122,
+        "out": 4225
+      },
+      "weekend": {
+        "in": 6970,
+        "out": 8359
+      }
+    },
+    "TE23": {
+      "weekday": {
+        "in": 2940,
+        "out": 3056
+      },
+      "weekend": {
+        "in": 5709,
+        "out": 5834
+      }
+    },
+    "TE24": {
+      "weekday": {
+        "in": 3674,
+        "out": 3608
+      },
+      "weekend": {
+        "in": 3255,
+        "out": 3031
+      }
+    },
+    "TE25": {
+      "weekday": {
+        "in": 3107,
+        "out": 3246
+      },
+      "weekend": {
+        "in": 2813,
+        "out": 2786
+      }
+    },
+    "TE26": {
+      "weekday": {
+        "in": 11712,
+        "out": 12138
+      },
+      "weekend": {
+        "in": 13910,
+        "out": 13308
+      }
+    },
+    "TE27": {
+      "weekday": {
+        "in": 7076,
+        "out": 6571
+      },
+      "weekend": {
+        "in": 5175,
+        "out": 5219
+      }
+    },
+    "TE28": {
+      "weekday": {
+        "in": 4472,
+        "out": 4819
+      },
+      "weekend": {
+        "in": 3415,
+        "out": 3824
+      }
+    },
+    "TE29": {
+      "weekday": {
+        "in": 4011,
+        "out": 3988
+      },
+      "weekend": {
+        "in": 3319,
+        "out": 3380
+      }
+    }
+  }
+}

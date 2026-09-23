@@ -7,6 +7,7 @@ import { landmarksForCodes } from "@/lib/landmarks";
 import { platformDirections } from "@/lib/network";
 import { stationLayout } from "@/lib/station-layout";
 import { stationCoverage } from "@/lib/survey-coverage";
+import { roundedVolume, volumesFor } from "@/lib/volumes";
 import { timesForCodes } from "@/lib/train-times";
 import { anniversaryYears, derivedFacts, getTriviaAllLocales } from "@/lib/trivia";
 import { StationScreen } from "./StationScreen";
@@ -88,6 +89,11 @@ export default async function StationPage({
       }))}
       hasEstimates={getFeatures(station.code, "desc").length > 0}
       coverage={stationCoverage(station.code)}
+      // One number out of a 34 KB file, picked and rounded on the server.
+      taps={(() => {
+        const v = volumesFor(station.code);
+        return v ? roundedVolume(v.weekday.in) : null;
+      })()}
       // This line's platforms only. The other lines here are a tap away from
       // the interchange list, which is where a reader looking for them goes.
       layoutBlocks={[stationLayout(station.code)]

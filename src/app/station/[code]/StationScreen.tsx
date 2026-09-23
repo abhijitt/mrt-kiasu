@@ -63,6 +63,13 @@ interface Props {
     surveyedHere: boolean;
     complete: boolean;
   }[];
+  /**
+   * Journeys started here on an average weekday, already rounded.
+   *
+   * One number rather than the four in the dataset: the sentence quotes one,
+   * and rounding belongs with the data rather than with the rendering.
+   */
+  taps: number | null;
 }
 
 export function StationScreen(p: Props) {
@@ -386,6 +393,21 @@ export function StationScreen(p: Props) {
           </>
         )}
         <dl className="mt-3 flex flex-col gap-3">
+          {/* Said to the reader rather than about the station. "47,800 daily
+              entries" is a statistic; "you're one of about 48,000 people who
+              start a journey here" is the same number and a thing to feel.
+
+              The weekday figure whatever day it is read on, because the
+              sentence says so: this is a fact about the station, not about
+              today. Rounded on the server, where the data lives. */}
+          {p.taps !== null && (
+            <div>
+              <dt className="text-xs text-fg-muted">{t("station.tapsLabel")}</dt>
+              <dd className="text-base leading-relaxed text-fg">
+                {t("station.tapsWeekday", { count: p.taps.toLocaleString(locale) })}
+              </dd>
+            </div>
+          )}
           {opened && (
             <div>
               <dt className="text-xs text-fg-muted">{t("station.opened")}</dt>
