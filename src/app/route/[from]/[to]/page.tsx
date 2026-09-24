@@ -10,7 +10,58 @@ import { headsignFor } from "@/lib/train-times";
 import { serviceDayOf } from "@/lib/service-status";
 import { fareBetween } from "@/lib/fare";
 import { doorSideFor, layoutFor } from "@/lib/orientation";
+import { isIndexedRoute } from "@/lib/indexed-routes";
 import { RouteScreen, type LegView } from "./RouteScreen";
+import type { Metadata } from "next";
+
+/**
+ * Every route page gets its own title and description, so a shared link reads
+ * as the journey it is. Only the pairs in indexed-routes are listed in search,
+ * though: the rest are the destination's station page again with a few words
+ * about the trip, and would compete with it. They stay followable, so a
+ * crawler that lands on one still reaches the station pages it links to.
+ */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ from: string; to: string }>;
+}): Promise<Metadata> {
+  const { from, to } = await params;
+  const origin = getGroup(decodeURIComponent(from));
+  const destination = getGroup(decodeURIComponent(to));
+  if (!origin || !destination) return { title: "Not found" };
+
+  const route = planRouteBetweenStations(origin.name, destination.name);
+  const fare = fareBetween(origin.primaryCode, destination.primaryCode);
+  const title = `${origin.name} to ${destination.name} by MRT — MRT Kiasu`;
+  const trip = route
+    ? [
+        `${route.stopCount} ${route.stopCount === 1 ? "stop" : "stops"}`,
+        route.interchangeCount > 0
+          ? `${route.interchangeCount} ${route.interchangeCount === 1 ? "change" : "changes"}`
+          : "no changes",
+        `about ${Math.round(route.approxMinutes)} min`,
+        fare ? `$${(fare.byType.adult.cents / 100).toFixed(2)} adult card fare` : null,
+      ]
+        .filter(Boolean)
+        .join(", ")
+    : null;
+  const description =
+    `${trip ? `${trip}. ` : ""}Which car and door to board at ${origin.name} ` +
+    `for the quickest way out at ${destination.name}.`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/route/${stationSlug(origin.name)}/${stationSlug(destination.name)}`,
+    },
+    openGraph: { title, description, type: "article" },
+    ...(isIndexedRoute(origin.name, destination.name)
+      ? {}
+      : { robots: { index: false, follow: true } }),
+  };
+}
 
 export default async function RoutePage({
   params,

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { LINES, hasTrainGeometry } from "@/lib/lines";
-import { RETIRED_CODES, STATIONS, getStation, terminusOf } from "@/lib/stations";
+import { RETIRED_CODES, STATIONS, canonicalCode, getStation, terminusOf } from "@/lib/stations";
 import { getFeatures, hasVerifiedData } from "@/lib/positions";
 import { landmarksForCodes } from "@/lib/landmarks";
 import { platformDirections } from "@/lib/network";
@@ -23,7 +23,15 @@ export async function generateMetadata({
 
   const line = LINES[station.line];
   const exits = station.exits.length;
-  const title = `${station.name} (${station.code}) — MRT Kiasu`;
+  // An interchange is listed in search under one of its codes, and that page
+  // stands for the whole station — so it names every code. The others keep
+  // their own, since each is one line's view of the station.
+  const canonical = canonicalCode(station);
+  const codes =
+    canonical === station.code
+      ? [station.code, ...station.interchanges.map((i) => i.code)].join(" / ")
+      : station.code;
+  const title = `${station.name} (${codes}) — MRT Kiasu`;
   const description = exits
     ? `Which door to stand at when you get off at ${station.name} on the ${line.name}. ${exits} exits, nearby landmarks, live crowding.`
     : `${station.name} on the ${line.name}: live crowding, station facts and door guidance.`;
@@ -31,7 +39,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `/station/${station.code}` },
+    alternates: { canonical: `/station/${canonical}` },
     openGraph: { title, description, type: "article" },
   };
 }

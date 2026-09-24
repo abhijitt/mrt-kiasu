@@ -7,7 +7,7 @@
  */
 
 import stationsData from "@/data/stations.json";
-import { LINES, lineFromStationCode, type LineCode } from "./lines";
+import { LINES, LINE_ORDER, lineFromStationCode, type LineCode } from "./lines";
 import { stationSlug } from "./station-slug";
 
 export interface Exit {
@@ -155,6 +155,32 @@ export const STATION_GROUPS: StationGroup[] = (() => {
   }
   return [...groups.values()].sort((a, b) => a.name.localeCompare(b.name));
 })();
+
+/**
+ * The one station page an interchange is listed under in search.
+ *
+ * Every code keeps its page — /station/CC9 carries the Circle Line's own
+ * platforms, neighbours and trains, which /station/EW8 does not — but the
+ * pages are otherwise the same station, and several addresses competing for
+ * "Paya Lebar MRT" dilute each other. This names the one to point them at.
+ *
+ * Not STATION_GROUPS' primaryCode, which is simply the first code in the file
+ * and is used for routing. That would make the Bukit Panjang LRT page the face
+ * of Bukit Panjang. This takes the line that opened first, which is also the
+ * code people and signage lead with — EW8 for Paya Lebar, NS24 for Dhoby Ghaut
+ * — and never changes as data arrives, because a canonical that moves is
+ * worse than a slightly arguable one that stays put.
+ */
+export function canonicalCode(station: Station): string {
+  const codes = [station, ...station.interchanges.map((i) => getStation(i.code))].filter(
+    (s): s is Station => s !== null,
+  );
+  const rank = (s: Station) => {
+    const i = LINE_ORDER.indexOf(s.line);
+    return i === -1 ? LINE_ORDER.length : i;
+  };
+  return codes.reduce((best, s) => (rank(s) < rank(best) ? s : best)).code;
+}
 
 /**
  * Finds a station by name or by URL slug.
