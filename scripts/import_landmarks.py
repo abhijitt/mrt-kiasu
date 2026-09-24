@@ -50,7 +50,22 @@ MAX_DISTANCE_M = 700
 # Gardens) lost its slot to eight garden features tagged as "attractions".
 # One deduplicated list per station, each entry carrying its nearest exit, goes
 # much further on the same budget and makes the picker's search useful.
-MAX_PER_STATION = 40
+#
+# How many a station keeps depends on how many it has. A fixed 40 gave Tai
+# Seng all 30 of its landmarks, reaching 670 m out, and gave Telok Ayer 40 of
+# 176, stopping at 255 m - Lau Pa Sat, the best-known place there, missed by
+# two metres. The median station has 29 in range and was never capped at all;
+# the cap only ever bit in the dense core. So a station keeps at least
+# MIN_PER_STATION, and half of what is in range beyond that, up to
+# MAX_PER_STATION. In the CBD that reaches about 400 m, roughly where the next
+# station's own list takes over; anything further mostly belongs to it.
+MIN_PER_STATION = 40
+MAX_PER_STATION = 100
+
+
+def keep_for(candidates: int) -> int:
+    """How many of a station's in-range landmarks to keep."""
+    return min(MAX_PER_STATION, max(MIN_PER_STATION, round(candidates / 2)))
 
 # Bounding box beats an area lookup here: the whole-island area query with this
 # many tag groups times out on the public Overpass instances.
@@ -282,7 +297,7 @@ def main() -> None:
                         entry["terms"] = p["terms"]
                     best[key] = entry
 
-        items = sorted(best.values(), key=lambda x: x["metres"])[:MAX_PER_STATION]
+        items = sorted(best.values(), key=lambda x: x["metres"])[: keep_for(len(best))]
         if items:
             result[s_["code"]] = items
             total += len(items)
@@ -294,7 +309,9 @@ def main() -> None:
             "method": (
                 f"Computed: straight-line distance from each exit to named OSM places "
                 f"within {MAX_DISTANCE_M} m, deduplicated per station with each landmark "
-                f"keeping its nearest exit. No official exit-to-landmark dataset exists."
+                f"keeping its nearest exit. Each station keeps half of what is in range, "
+                f"at least {MIN_PER_STATION} and at most {MAX_PER_STATION}, nearest first. "
+                f"No official exit-to-landmark dataset exists."
             ),
             "caveat": "Straight-line distances, not walking routes.",
             "importedAt": __import__("datetime").date.today().isoformat(),
