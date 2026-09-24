@@ -4,7 +4,7 @@
     "exits": "LTA MRT Station Exit via data.gov.sg",
     "method": "Computed: straight-line distance from each exit to named OSM places within 700 m, deduplicated per station with each landmark keeping its nearest exit. No official exit-to-landmark dataset exists.",
     "caveat": "Straight-line distances, not walking routes.",
-    "importedAt": "2026-08-24"
+    "importedAt": "2026-09-24"
   },
   "stations": {
     "BP1": [
@@ -109,7 +109,7 @@
         "kind": "park",
         "exit": "B",
         "metres": 595,
-        "terms": "akh takh"
+        "terms": "takh akh"
       },
       {
         "name": "Tembusu Park",
@@ -232,7 +232,7 @@
         "kind": "park",
         "exit": "A",
         "metres": 511,
-        "terms": "akh takh"
+        "terms": "takh akh"
       },
       {
         "name": "CCK Family Clinic",
@@ -717,7 +717,7 @@
         "exit": "A",
         "metres": 530,
         "street": "Woodlands Road",
-        "terms": "national university polyclinics woodlands road bppsnh bppasnh nup"
+        "terms": "national university polyclinics woodlands road bppasnh bppsnh nup"
       },
       {
         "name": "Hillion Mall",
@@ -888,7 +888,7 @@
         "exit": "A",
         "metres": 252,
         "street": "Woodlands Road",
-        "terms": "national university polyclinics woodlands road bppsnh bppasnh nup"
+        "terms": "national university polyclinics woodlands road bppasnh bppsnh nup"
       },
       {
         "name": "Bukit Panjang Gospel Chapel",
@@ -928,7 +928,7 @@
         "exit": "D",
         "metres": 344,
         "street": "Gangsa Road",
-        "terms": "ministry education gangsa road gss me moe"
+        "terms": "ministry education gangsa road gss moe me"
       },
       {
         "name": "Former Teck Whye Secondary School Campus",
@@ -1152,7 +1152,7 @@
         "exit": "A",
         "metres": 420,
         "street": "Gangsa Road",
-        "terms": "ministry education gangsa road gss me moe"
+        "terms": "ministry education gangsa road gss moe me"
       },
       {
         "name": "Bukit Panjang Community Club",
@@ -1263,7 +1263,8 @@
         "kind": "hawker",
         "exit": "A",
         "metres": 636,
-        "terms": "ntuc foodfare bphcam bphcm nf"
+        "street": "Bukit Panjang Ring Road",
+        "terms": "ntuc foodfare ring road bphcam bphcm nf"
       },
       {
         "name": "Ga Hock coffeeshop",
@@ -1332,7 +1333,8 @@
         "kind": "hawker",
         "exit": "A",
         "metres": 195,
-        "terms": "ntuc foodfare bphcam bphcm nf"
+        "street": "Bukit Panjang Ring Road",
+        "terms": "ntuc foodfare ring road bphcam bphcm nf"
       },
       {
         "name": "Prohealth",
@@ -1536,7 +1538,8 @@
         "kind": "hawker",
         "exit": "A",
         "metres": 252,
-        "terms": "ntuc foodfare bphcam bphcm nf"
+        "street": "Bukit Panjang Ring Road",
+        "terms": "ntuc foodfare ring road bphcam bphcm nf"
       },
       {
         "name": "Pasar @ Level 2",
@@ -2096,7 +2099,7 @@
         "exit": "A",
         "metres": 649,
         "street": "Woodlands Road",
-        "terms": "national university polyclinics woodlands road bppsnh bppasnh nup"
+        "terms": "national university polyclinics woodlands road bppasnh bppsnh nup"
       },
       {
         "name": "Senja Soka Centre",
@@ -2129,7 +2132,7 @@
         "exit": "A",
         "metres": 215,
         "street": "Woodlands Road",
-        "terms": "national university polyclinics woodlands road bppsnh bppasnh nup"
+        "terms": "national university polyclinics woodlands road bppasnh bppsnh nup"
       },
       {
         "name": "Senja-Cashew Swimming Complex",
@@ -2418,7 +2421,7 @@
         "name": "Fort Canning Tree Tunnel",
         "kind": "attraction",
         "exit": "A",
-        "metres": 139,
+        "metres": 138,
         "terms": "fctt"
       },
       {
@@ -2564,7 +2567,7 @@
         "kind": "college",
         "exit": "A",
         "metres": 319,
-        "terms": "management university scis socais smu"
+        "terms": "management university socais scis smu"
       },
       {
         "name": "Por Vida Skateboarding",
@@ -2585,7 +2588,7 @@
         "name": "GR.ID",
         "kind": "mall",
         "exit": "A",
-        "metres": 339,
+        "metres": 333,
         "street": "Selegie Road",
         "terms": "selegie road gi"
       },
@@ -2661,7 +2664,7 @@
         "name": "Singapore Management University",
         "kind": "university",
         "exit": "B",
-        "metres": 20,
+        "metres": 18,
         "street": "Victoria Street",
         "terms": "smu victoria street"
       },
@@ -2669,8 +2672,16 @@
         "name": "Singapore Management University Campus",
         "kind": "university",
         "exit": "B",
-        "metres": 20,
+        "metres": 18,
         "terms": "smuc smu"
+      },
+      {
+        "name": "Koufu",
+        "kind": "hawker",
+        "exit": "B",
+        "metres": 34,
+        "street": "Stamford Road",
+        "terms": "smu stamford road"
       },
       {
         "name": "Food Dynasty",
@@ -2693,21 +2704,21 @@
         "exit": "B",
         "metres": 57,
         "street": "Stamford Road",
-        "terms": "group stamford road tcc cc cg tcg"
+        "terms": "group stamford road tcc cc tcg cg"
       },
       {
         "name": "Jews of Singapore Museum",
         "kind": "museum",
         "exit": "E",
         "metres": 68,
-        "terms": "jsm josm"
+        "terms": "josm jsm"
       },
       {
         "name": "School of Computing and Information Systems 1",
         "kind": "college",
         "exit": "D",
         "metres": 70,
-        "terms": "management university scis socais smu"
+        "terms": "management university socais scis smu"
       },
       {
         "name": "Cathedral of the Good Shepherd",
@@ -2715,7 +2726,7 @@
         "exit": "B",
         "metres": 82,
         "street": "Queen Street",
-        "terms": "queen street cgs cotgs"
+        "terms": "queen street cotgs cgs"
       },
       {
         "name": "Admin Building",
@@ -2751,7 +2762,7 @@
         "exit": "E",
         "metres": 105,
         "street": "Queen Street",
-        "terms": "queen street cspp cospap"
+        "terms": "queen street cospap cspp"
       },
       {
         "name": "Local",
@@ -2773,7 +2784,7 @@
         "kind": "college",
         "exit": "B",
         "metres": 122,
-        "terms": "management university lkcsb lkcsob smu"
+        "terms": "management university lkcsob lkcsb smu"
       },
       {
         "name": "Victoria Hotel",
@@ -2810,7 +2821,7 @@
         "name": "Oxford Hotel",
         "kind": "hotel",
         "exit": "A",
-        "metres": 138,
+        "metres": 139,
         "street": "Queen Street",
         "terms": "queen street oh"
       },
@@ -2847,19 +2858,19 @@
         "terms": "bencoolen street hm"
       },
       {
+        "name": "China Cultural Centre",
+        "kind": "communityClub",
+        "exit": "A",
+        "metres": 159,
+        "terms": "government ccc goc gc"
+      },
+      {
         "name": "Grace (Singapore Chinese Christian) Church",
         "kind": "worship",
         "exit": "A",
         "metres": 161,
         "street": "Queen Street",
         "terms": "queen street gsccc"
-      },
-      {
-        "name": "China Cultural Centre",
-        "kind": "communityClub",
-        "exit": "A",
-        "metres": 162,
-        "terms": "government ccc gc goc"
       },
       {
         "name": "School of Economics / School of Computing and Information Systems 2",
@@ -2943,7 +2954,7 @@
         "exit": "E",
         "metres": 205,
         "street": "Bencoolen Street",
-        "terms": "nanyang academy fine arts bencoolen street nc nafan naofan"
+        "terms": "nanyang academy fine arts bencoolen street nc naofan nafan"
       },
       {
         "name": "Kwa Geok Choo Law Library",
@@ -2951,14 +2962,6 @@
         "exit": "B",
         "metres": 206,
         "terms": "management university kgcll smu"
-      },
-      {
-        "name": "National Museum of Singapore",
-        "kind": "museum",
-        "exit": "C",
-        "metres": 210,
-        "street": "Stamford Road",
-        "terms": "stamford road nmos nms"
       }
     ],
     "CC3": [
@@ -3013,7 +3016,7 @@
         "kind": "hotel",
         "exit": "G",
         "metres": 117,
-        "terms": "ss sts"
+        "terms": "sts ss"
       },
       {
         "name": "South Beach Avenue",
@@ -3073,7 +3076,7 @@
         "kind": "hawker",
         "exit": "G",
         "metres": 230,
-        "terms": "junction fp tfp fj"
+        "terms": "junction tfp fp fj"
       },
       {
         "name": "Long Bar",
@@ -3201,7 +3204,7 @@
         "exit": "D",
         "metres": 330,
         "street": "Raffles Avenue",
-        "terms": "raffles avenue etob etotb"
+        "terms": "raffles avenue etotb etob"
       },
       {
         "name": "ST Signature Coliving Hostel",
@@ -3500,7 +3503,7 @@
         "exit": "C",
         "metres": 548,
         "street": "Beach Road",
-        "terms": "beach road sh tsh"
+        "terms": "beach road tsh sh"
       },
       {
         "name": "Project Send",
@@ -3594,13 +3597,6 @@
         "exit": "A",
         "metres": 204,
         "terms": "ccgm"
-      },
-      {
-        "name": "Kampong Glam",
-        "kind": "attraction",
-        "exit": "A",
-        "metres": 206,
-        "terms": "kg"
       },
       {
         "name": "T Medical Clinic (City Gate)",
@@ -3781,7 +3777,7 @@
         "kind": "worship",
         "exit": "A",
         "metres": 491,
-        "terms": "jag jaog"
+        "terms": "jaog jag"
       },
       {
         "name": "Aliwal Park Hotel",
@@ -3872,6 +3868,13 @@
         "metres": 596,
         "street": "Beach Road",
         "terms": "beach road pwvk"
+      },
+      {
+        "name": "Arab Street",
+        "kind": "attraction",
+        "exit": "A",
+        "metres": 617,
+        "terms": "as"
       }
     ],
     "CC6": [
@@ -3917,7 +3920,7 @@
         "kind": "clinic",
         "exit": "B",
         "metres": 134,
-        "terms": "bc tbc"
+        "terms": "tbc bc"
       },
       {
         "name": "Leisure Park Kallang",
@@ -4096,7 +4099,7 @@
         "exit": "B",
         "metres": 169,
         "street": "Old Airport Road",
-        "terms": "old airport road kefmfc kefmafc"
+        "terms": "old airport road kefmafc kefmfc"
       },
       {
         "name": "Dakota Crescent Playground",
@@ -4386,7 +4389,7 @@
         "kind": "park",
         "exit": "B",
         "metres": 139,
-        "terms": "pfc pafc"
+        "terms": "pafc pfc"
       },
       {
         "name": "Broadrick Secondary School",
@@ -4688,6 +4691,28 @@
         "terms": "paya lebar road"
       },
       {
+        "name": "True Medical Clinic",
+        "kind": "clinic",
+        "exit": "E",
+        "metres": 46,
+        "terms": "tmc"
+      },
+      {
+        "name": "Shaw Theatres",
+        "kind": "cinema",
+        "exit": "E",
+        "metres": 50,
+        "terms": "st"
+      },
+      {
+        "name": "Masjid Wak Tanjong",
+        "kind": "worship",
+        "exit": "F",
+        "metres": 59,
+        "street": "Paya Lebar Road",
+        "terms": "majlis ugama islam singapura paya lebar road mwt muis"
+      },
+      {
         "name": "Paya Lebar Square",
         "kind": "mall",
         "exit": "B",
@@ -4696,26 +4721,10 @@
         "terms": "road pls"
       },
       {
-        "name": "Masjid Wak Tanjong",
-        "kind": "worship",
-        "exit": "C",
-        "metres": 78,
-        "street": "Paya Lebar Road",
-        "terms": "majlis ugama islam singapura paya lebar road mwt muis"
-      },
-      {
-        "name": "True Medical Clinic",
-        "kind": "clinic",
-        "exit": "A",
-        "metres": 84,
-        "terms": "tmc"
-      },
-      {
-        "name": "Shaw Theatres",
-        "kind": "cinema",
-        "exit": "A",
-        "metres": 92,
-        "terms": "st"
+        "name": "Kopitiam",
+        "kind": "hawker",
+        "exit": "E",
+        "metres": 70
       },
       {
         "name": "Madrasah Wak Tanjong Al-Islamiah",
@@ -4723,12 +4732,6 @@
         "exit": "D",
         "metres": 96,
         "terms": "mwtai"
-      },
-      {
-        "name": "Kopitiam",
-        "kind": "hawker",
-        "exit": "A",
-        "metres": 112
       },
       {
         "name": "Malaysia Chiak!",
@@ -4783,6 +4786,14 @@
         "terms": "psmg"
       },
       {
+        "name": "Tanjong Katong Complex",
+        "kind": "mall",
+        "exit": "E",
+        "metres": 231,
+        "street": "Geylang Road",
+        "terms": "geylang road tkc"
+      },
+      {
         "name": "SingPost Centre",
         "kind": "mall",
         "exit": "A",
@@ -4803,14 +4814,6 @@
         "metres": 250,
         "street": "Geylang Road",
         "terms": "geylang road mlc"
-      },
-      {
-        "name": "Tanjong Katong Complex",
-        "kind": "mall",
-        "exit": "D",
-        "metres": 252,
-        "street": "Geylang Road",
-        "terms": "geylang road tkc"
       },
       {
         "name": "City Plaza",
@@ -4876,20 +4879,20 @@
         "terms": "sims avenue mcbc"
       },
       {
+        "name": "Haig Road Food Centre",
+        "kind": "hawker",
+        "exit": "E",
+        "metres": 395,
+        "street": "Haig Road",
+        "terms": "hrfc"
+      },
+      {
         "name": "Geylang United Temple",
         "kind": "worship",
         "exit": "A",
         "metres": 396,
         "street": "Eunos Road 5",
         "terms": "eunos road 5 gut"
-      },
-      {
-        "name": "Haig Road Food Centre",
-        "kind": "hawker",
-        "exit": "D",
-        "metres": 399,
-        "street": "Haig Road",
-        "terms": "hrfc"
       },
       {
         "name": "Haig Road Market",
@@ -4908,18 +4911,18 @@
         "terms": "jalan afifi ahpl"
       },
       {
+        "name": "culinary studio",
+        "kind": "school",
+        "exit": "E",
+        "metres": 434,
+        "terms": "cs"
+      },
+      {
         "name": "Lorong 40 Geylang Playground",
         "kind": "park",
         "exit": "D",
         "metres": 441,
         "terms": "lgp"
-      },
-      {
-        "name": "culinary studio",
-        "kind": "school",
-        "exit": "A",
-        "metres": 459,
-        "terms": "cs"
       },
       {
         "name": "Tibetan Buddhist Centre",
@@ -4932,25 +4935,32 @@
       {
         "name": "South East CDC",
         "kind": "government",
-        "exit": "A",
-        "metres": 498,
+        "exit": "E",
+        "metres": 474,
         "street": "Engku Aman Turn",
         "terms": "engku aman turn sec"
       },
       {
         "name": "Geylang Serai Community Club",
         "kind": "communityClub",
-        "exit": "A",
-        "metres": 499,
+        "exit": "E",
+        "metres": 477,
         "street": "Engku Aman Turn",
         "terms": "engku aman turn gscc"
       },
       {
         "name": "PPIS Family Service Centre (East)",
         "kind": "communityClub",
-        "exit": "A",
-        "metres": 514,
+        "exit": "E",
+        "metres": 490,
         "terms": "pfsce"
+      },
+      {
+        "name": "Geylang Serai Heritage Gallery",
+        "kind": "museum",
+        "exit": "E",
+        "metres": 498,
+        "terms": "gshg"
       },
       {
         "name": "Geylang Polyclinic",
@@ -4966,14 +4976,7 @@
         "exit": "D",
         "metres": 518,
         "street": "Sandy Lane",
-        "terms": "sandy lane colqp coolqop"
-      },
-      {
-        "name": "Geylang Serai Heritage Gallery",
-        "kind": "museum",
-        "exit": "A",
-        "metres": 520,
-        "terms": "gshg"
+        "terms": "sandy lane coolqop colqp"
       },
       {
         "name": "Geylang East Swimming Complex",
@@ -4983,489 +4986,7 @@
         "terms": "gesc"
       }
     ],
-    "CC34": [
-      {
-        "name": "The Shoppes at Marina Bay Sands",
-        "kind": "mall",
-        "exit": "D",
-        "metres": 148,
-        "street": "Bayfront Avenue",
-        "terms": "bayfront avenue sambs tsambs"
-      },
-      {
-        "name": "Marina Bay Sands",
-        "kind": "hotel",
-        "exit": "B",
-        "metres": 154,
-        "street": "Bayfront Avenue",
-        "terms": "bayfront avenue mbs"
-      },
-      {
-        "name": "Spectra",
-        "kind": "attraction",
-        "exit": "D",
-        "metres": 247
-      },
-      {
-        "name": "Red Dot Design Museum",
-        "kind": "museum",
-        "exit": "E",
-        "metres": 268,
-        "street": "Marina Boulevard",
-        "terms": "marina boulevard rddm"
-      },
-      {
-        "name": "Rasapura Masters",
-        "kind": "hawker",
-        "exit": "C",
-        "metres": 322,
-        "terms": "rm"
-      },
-      {
-        "name": "ArtScience Museum",
-        "kind": "museum",
-        "exit": "D",
-        "metres": 360,
-        "street": "Bayfront Avenue",
-        "terms": "bayfront avenue am"
-      },
-      {
-        "name": "Colonial Garden",
-        "kind": "attraction",
-        "exit": "B",
-        "metres": 374,
-        "terms": "cg"
-      },
-      {
-        "name": "Garden Pod",
-        "kind": "hotel",
-        "exit": "A",
-        "metres": 450,
-        "terms": "gp"
-      },
-      {
-        "name": "Silver Garden",
-        "kind": "attraction",
-        "exit": "B",
-        "metres": 450,
-        "terms": "sg"
-      },
-      {
-        "name": "OCBC Skyway",
-        "kind": "attraction",
-        "exit": "B",
-        "metres": 467,
-        "terms": "os"
-      },
-      {
-        "name": "Light Show: Garden Rhapsody",
-        "kind": "attraction",
-        "exit": "B",
-        "metres": 474,
-        "terms": "lsgr"
-      },
-      {
-        "name": "Supertree Grove",
-        "kind": "attraction",
-        "exit": "B",
-        "metres": 477,
-        "terms": "sg"
-      },
-      {
-        "name": "Marina Bay Link Mall",
-        "kind": "mall",
-        "exit": "E",
-        "metres": 516,
-        "terms": "mblm"
-      },
-      {
-        "name": "Helix Bridge",
-        "kind": "attraction",
-        "exit": "C",
-        "metres": 525,
-        "terms": "hb"
-      },
-      {
-        "name": "Supertree Dining",
-        "kind": "hawker",
-        "exit": "B",
-        "metres": 533,
-        "terms": "sd"
-      },
-      {
-        "name": "Fullerton Healthcare",
-        "kind": "clinic",
-        "exit": "E",
-        "metres": 572,
-        "terms": "fh"
-      },
-      {
-        "name": "The Lawn@Marina Bay",
-        "kind": "park",
-        "exit": "E",
-        "metres": 575,
-        "terms": "lmb tlmb"
-      },
-      {
-        "name": "Secret Life of Trees",
-        "kind": "attraction",
-        "exit": "B",
-        "metres": 577,
-        "terms": "slot slt"
-      },
-      {
-        "name": "Gardens by the Bay",
-        "kind": "park",
-        "exit": "B",
-        "metres": 602,
-        "terms": "south garden gbtb gbb"
-      },
-      {
-        "name": "The Fullerton Bay Hotel",
-        "kind": "hotel",
-        "exit": "E",
-        "metres": 614,
-        "street": "Collyer Quay",
-        "terms": "collyer quay tfbh fbh"
-      },
-      {
-        "name": "Workforce Singapore",
-        "kind": "government",
-        "exit": "E",
-        "metres": 663,
-        "street": "Marina Boulevard",
-        "terms": "wsg marina boulevard ws"
-      },
-      {
-        "name": "Malaysia Chiak!",
-        "kind": "hawker",
-        "exit": "E",
-        "metres": 671,
-        "terms": "mc"
-      },
-      {
-        "name": "Singapore Labour Foundation",
-        "kind": "government",
-        "exit": "E",
-        "metres": 673,
-        "street": "Marina Boulevard",
-        "terms": "marina boulevard slf"
-      },
-      {
-        "name": "Golden Garden",
-        "kind": "attraction",
-        "exit": "B",
-        "metres": 674,
-        "terms": "gg"
-      },
-      {
-        "name": "Merlion Park",
-        "kind": "park",
-        "exit": "D",
-        "metres": 687,
-        "terms": "mp"
-      }
-    ],
-    "CC33": [
-      {
-        "name": "Malaysia Chiak!",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 105,
-        "terms": "mc"
-      },
-      {
-        "name": "Marina One",
-        "kind": "mall",
-        "exit": "1",
-        "metres": 168,
-        "terms": "mo"
-      },
-      {
-        "name": "Fullerton Healthcare",
-        "kind": "clinic",
-        "exit": "1",
-        "metres": 259,
-        "terms": "fh"
-      },
-      {
-        "name": "Central Linear Park",
-        "kind": "park",
-        "exit": "1",
-        "metres": 297,
-        "terms": "clp"
-      },
-      {
-        "name": "The Lawn@Marina Bay",
-        "kind": "park",
-        "exit": "1",
-        "metres": 346,
-        "terms": "lmb tlmb"
-      },
-      {
-        "name": "Red Dot Design Museum",
-        "kind": "museum",
-        "exit": "1",
-        "metres": 362,
-        "street": "Marina Boulevard",
-        "terms": "marina boulevard rddm"
-      },
-      {
-        "name": "Marina Bay Link Mall",
-        "kind": "mall",
-        "exit": "1",
-        "metres": 402,
-        "terms": "mblm"
-      },
-      {
-        "name": "The Westin Singapore",
-        "kind": "hotel",
-        "exit": "1",
-        "metres": 422,
-        "street": "Marina View",
-        "terms": "marina view tws ws"
-      },
-      {
-        "name": "乐福阁",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 510
-      },
-      {
-        "name": "Hello",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 511
-      },
-      {
-        "name": "W Singapore - Marina View",
-        "kind": "hotel",
-        "exit": "1",
-        "metres": 519,
-        "terms": "wsmv"
-      },
-      {
-        "name": "Shenton Food Hall",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 522,
-        "terms": "sfh"
-      },
-      {
-        "name": "Mr Popiah (Local Delights)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 545,
-        "terms": "mpld"
-      },
-      {
-        "name": "Shree Ganga",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 548,
-        "terms": "sg"
-      },
-      {
-        "name": "Singapore Chinese Cultural Centre",
-        "kind": "museum",
-        "exit": "5",
-        "metres": 549,
-        "street": "Straits Boulevard",
-        "terms": "straits boulevard sccc"
-      },
-      {
-        "name": "Yong Kee (BBQ Seafood)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 549,
-        "terms": "ykbs"
-      },
-      {
-        "name": "Thunder Tea Rice",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 550,
-        "terms": "ttr"
-      },
-      {
-        "name": "Kongfu Zai (Chicken Rice)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 553,
-        "terms": "kzcr"
-      },
-      {
-        "name": "Loy Kee (Yong Tau Foo)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 555,
-        "terms": "lkytf"
-      },
-      {
-        "name": "Teochew City (Mixed Rice)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 556,
-        "terms": "tcmr"
-      },
-      {
-        "name": "Hao Jia (Ban Mian)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 558,
-        "terms": "hjbm"
-      },
-      {
-        "name": "Kway Chap (Pig's Organ Soup)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 559,
-        "terms": "kcpsos"
-      },
-      {
-        "name": "Claypot Bak Kuh Teh",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 561,
-        "terms": "cbkt"
-      },
-      {
-        "name": "Seng Keng (Local Delights)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 564,
-        "terms": "skld"
-      },
-      {
-        "name": "Fishing (Fish Soup)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 564,
-        "terms": "ffs"
-      },
-      {
-        "name": "Lau Pa Sat",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 573,
-        "street": "Raffles Quay",
-        "terms": "kopitiam telok ayer market raffles quay lps"
-      },
-      {
-        "name": "Bao Luo Wan Xiang",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 574,
-        "terms": "blwx"
-      },
-      {
-        "name": "Hao Heng (Dim Sum)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 576,
-        "terms": "hhds"
-      },
-      {
-        "name": "Sunny Viet",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 577,
-        "terms": "sv"
-      },
-      {
-        "name": "Gustoso Grill (Pasta Western Food)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 577,
-        "terms": "ggpwf"
-      },
-      {
-        "name": "Delhi Express (Indian Cuisine)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 580,
-        "terms": "deic"
-      },
-      {
-        "name": "Qiu Lian (Ban Miam)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 584,
-        "terms": "qlbm"
-      },
-      {
-        "name": "Marina Bay Neighbourhood Police Centre",
-        "kind": "police",
-        "exit": "5",
-        "metres": 585,
-        "terms": "npc mbnpc"
-      },
-      {
-        "name": "Song Kee (Noodle House)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 585,
-        "terms": "sknh"
-      },
-      {
-        "name": "The Beef House (Homemade Beefball Noodles)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 585,
-        "terms": "bhhbn tbhhbn"
-      },
-      {
-        "name": "Workforce Singapore",
-        "kind": "government",
-        "exit": "1",
-        "metres": 586,
-        "street": "Marina Boulevard",
-        "terms": "wsg marina boulevard ws"
-      },
-      {
-        "name": "Mama Thai",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 587,
-        "terms": "mt"
-      },
-      {
-        "name": "Healthy Carbs",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 588,
-        "terms": "hc"
-      },
-      {
-        "name": "Lai Heng (Char Kway Teow)",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 589,
-        "terms": "lhckt"
-      },
-      {
-        "name": "Biryani Point",
-        "kind": "hawker",
-        "exit": "1",
-        "metres": 590,
-        "terms": "bp"
-      }
-    ],
     "CC10": [
-      {
-        "name": "Public Transport Security Command TransCom",
-        "kind": "police",
-        "exit": "B",
-        "metres": 39,
-        "terms": "ptsct"
-      },
-      {
-        "name": "Geylang Neighbourhood Police Post",
-        "kind": "police",
-        "exit": "B",
-        "metres": 49,
-        "terms": "npp gnpp"
-      },
       {
         "name": "Lord Buddha Temple (four face buddha)",
         "kind": "worship",
@@ -5496,7 +5017,7 @@
         "exit": "A",
         "metres": 184,
         "street": "Paya Lebar Road",
-        "terms": "paya lebar road lcm tlcam"
+        "terms": "paya lebar road tlcam lcm"
       },
       {
         "name": "Tien Sen Tua Temple",
@@ -5525,7 +5046,14 @@
         "kind": "park",
         "exit": "D",
         "metres": 302,
-        "terms": "mpfc mpafc"
+        "terms": "mpafc mpfc"
+      },
+      {
+        "name": "Ang Liang Medical Hall",
+        "kind": "clinic",
+        "exit": "E",
+        "metres": 337,
+        "terms": "almh"
       },
       {
         "name": "7 Stars Coffee Shop",
@@ -5576,7 +5104,7 @@
         "exit": "D",
         "metres": 399,
         "street": "Aljunied Avenue 2",
-        "terms": "aljunied avenue 2 bag baog"
+        "terms": "aljunied avenue 2 baog bag"
       },
       {
         "name": "Circuit Road Hawker Centre",
@@ -5696,7 +5224,7 @@
         "exit": "D",
         "metres": 601,
         "street": "Sallim Road",
-        "terms": "sallim road css coss"
+        "terms": "sallim road coss css"
       },
       {
         "name": "Games Garage",
@@ -5737,7 +5265,7 @@
         "kind": "clinic",
         "exit": "C",
         "metres": 72,
-        "terms": "cts tcts"
+        "terms": "tcts cts"
       },
       {
         "name": "Boulder Planet",
@@ -5906,7 +5434,7 @@
         "exit": "B",
         "metres": 612,
         "street": "MacPherson Road",
-        "terms": "macpherson road fr tfr"
+        "terms": "macpherson road tfr fr"
       },
       {
         "name": "Bunga Rampai Park",
@@ -5935,6 +5463,13 @@
         "exit": "B",
         "metres": 639,
         "terms": "lmc"
+      },
+      {
+        "name": "Ang Liang Medical Hall",
+        "kind": "clinic",
+        "exit": "B",
+        "metres": 649,
+        "terms": "almh"
       },
       {
         "name": "Ubi 33 Food House",
@@ -6018,6 +5553,13 @@
         "exit": "A",
         "metres": 378,
         "terms": "tdos"
+      },
+      {
+        "name": "Tam Chiak Kopitiam",
+        "kind": "hawker",
+        "exit": "B",
+        "metres": 393,
+        "terms": "tck"
       },
       {
         "name": "Kensington Sq Recreation Area",
@@ -6195,7 +5737,7 @@
         "kind": "school",
         "exit": "A",
         "metres": 79,
-        "terms": "das dasslc daosslc"
+        "terms": "das daosslc dasslc"
       },
       {
         "name": "SparkleTots Pre-school",
@@ -6578,7 +6120,7 @@
         "exit": "B",
         "metres": 681,
         "street": "Burghley Drive",
-        "terms": "burghley drive colgcps cologcps"
+        "terms": "burghley drive cologcps colgcps"
       },
       {
         "name": "Serangoon Central Village",
@@ -6845,13 +6387,6 @@
         "terms": "jalan pemimpin cpmt"
       },
       {
-        "name": "Bishan Harmony Park",
-        "kind": "park",
-        "exit": "C",
-        "metres": 621,
-        "terms": "bhp"
-      },
-      {
         "name": "Bishan Active Park",
         "kind": "park",
         "exit": "B",
@@ -6876,6 +6411,14 @@
       {
         "name": "Raffles Institution",
         "kind": "school",
+        "exit": "C",
+        "metres": 671,
+        "street": "Raffles Institution Lane",
+        "terms": "lane ri"
+      },
+      {
+        "name": "Raffles Institution",
+        "kind": "college",
         "exit": "C",
         "metres": 671,
         "street": "Raffles Institution Lane",
@@ -7054,7 +6597,7 @@
         "exit": "2",
         "metres": 90,
         "street": "Toa Payoh Rise",
-        "terms": "ministry education toa payoh rise ls me moe"
+        "terms": "ministry education toa payoh rise ls moe me"
       },
       {
         "name": "Marymount Convent School",
@@ -7070,7 +6613,7 @@
         "exit": "4",
         "metres": 333,
         "street": "Thomson Road",
-        "terms": "msf thomson road msfd mosafd"
+        "terms": "msf thomson road mosafd msfd"
       },
       {
         "name": "Seventh Day Adventist Community Church",
@@ -7117,7 +6660,7 @@
         "exit": "4",
         "metres": 490,
         "street": "Lorong 1 Toa Payoh",
-        "terms": "sisters infant jesus convent thr holy lorong 1 ctpps sij sotij"
+        "terms": "sisters infant jesus convent thr holy lorong 1 ctpps sotij sij"
       },
       {
         "name": "Mount Alvernia Hospital",
@@ -7147,7 +6690,7 @@
         "exit": "4",
         "metres": 565,
         "street": "Lorong 1 Toa Payoh",
-        "terms": "sisters infant jesus convent thr holy lorong 1 ctpss sij sotij"
+        "terms": "sisters infant jesus convent thr holy lorong 1 ctpss sotij sij"
       },
       {
         "name": "Toa Payoh West CC",
@@ -7240,7 +6783,7 @@
         "kind": "attraction",
         "exit": "A",
         "metres": 259,
-        "terms": "hs has"
+        "terms": "has hs"
       },
       {
         "name": "Bukit Timah Neighbourhood Police Centre",
@@ -7322,7 +6865,7 @@
         "exit": "B",
         "metres": 443,
         "street": "Bukit Timah Road",
-        "terms": "road nusbt nuosbt"
+        "terms": "road nuosbt nusbt"
       },
       {
         "name": "Kuan Yin San Temple",
@@ -7362,7 +6905,7 @@
         "exit": "A",
         "metres": 492,
         "street": "Duke's Road",
-        "terms": "duke s road lcor lcoor"
+        "terms": "duke s road lcoor lcor"
       },
       {
         "name": "C J Koh Law Library",
@@ -7425,7 +6968,7 @@
         "exit": "B",
         "metres": 607,
         "street": "Evans Road",
-        "terms": "evans road mesrc moesrc me moe"
+        "terms": "evans road moesrc mesrc moe me"
       },
       {
         "name": "Healing Garden",
@@ -7577,7 +7120,7 @@
         "exit": "A",
         "metres": 545,
         "street": "Duke's Road",
-        "terms": "duke s road lcor lcoor"
+        "terms": "duke s road lcoor lcor"
       },
       {
         "name": "Singapore Botanic Gardens Gallop Extension",
@@ -8034,7 +7577,7 @@
         "kind": "school",
         "exit": "A",
         "metres": 591,
-        "terms": "megm moegm"
+        "terms": "moegm megm"
       },
       {
         "name": "one-north Park Fusionopolis North",
@@ -8203,6 +7746,14 @@
         "metres": 306,
         "street": "One-north Gateway",
         "terms": "one north gateway eap"
+      },
+      {
+        "name": "Stage One",
+        "kind": "government",
+        "exit": "A",
+        "metres": 310,
+        "street": "Ayer Rajah Crescent",
+        "terms": "ayer rajah crescent so"
       },
       {
         "name": "Train Pod @ one north",
@@ -8388,7 +7939,7 @@
         "name": "On The Ridge",
         "kind": "hawker",
         "exit": "A",
-        "metres": 621,
+        "metres": 628,
         "terms": "otr or"
       },
       {
@@ -8397,14 +7948,6 @@
         "exit": "B",
         "metres": 629,
         "terms": "entsc"
-      },
-      {
-        "name": "MindChamps PreSchool @ Biopolis",
-        "kind": "school",
-        "exit": "B",
-        "metres": 632,
-        "street": "Biopolis Drive",
-        "terms": "drive mpb"
       }
     ],
     "CC24": [
@@ -8412,29 +7955,29 @@
         "name": "On The Ridge",
         "kind": "hawker",
         "exit": "C",
-        "metres": 24,
+        "metres": 33,
         "terms": "otr or"
       },
       {
         "name": "The Dining Avenue",
         "kind": "hawker",
-        "exit": "C",
-        "metres": 43,
-        "terms": "da tda"
-      },
-      {
-        "name": "Juz Eat",
-        "kind": "hawker",
-        "exit": "C",
-        "metres": 44,
-        "terms": "je"
+        "exit": "D",
+        "metres": 45,
+        "terms": "tda da"
       },
       {
         "name": "Red Spot",
         "kind": "hawker",
         "exit": "D",
-        "metres": 47,
+        "metres": 45,
         "terms": "rs"
+      },
+      {
+        "name": "Juz Eat",
+        "kind": "hawker",
+        "exit": "D",
+        "metres": 53,
+        "terms": "je"
       },
       {
         "name": "National University Hospital",
@@ -8454,7 +7997,7 @@
         "name": "Kopitiam",
         "kind": "hawker",
         "exit": "A",
-        "metres": 236
+        "metres": 234
       },
       {
         "name": "Citadines Science Park Singapore",
@@ -8486,6 +8029,14 @@
         "metres": 347,
         "street": "Ayer Rajah Crescent",
         "terms": "ayer rajah crescent dmc"
+      },
+      {
+        "name": "Stage One",
+        "kind": "government",
+        "exit": "A",
+        "metres": 351,
+        "street": "Ayer Rajah Crescent",
+        "terms": "ayer rajah crescent so"
       },
       {
         "name": "Yong Loo Lin School of Medicine",
@@ -8663,7 +8214,7 @@
         "kind": "museum",
         "exit": "A",
         "metres": 274,
-        "terms": "sram tsroam"
+        "terms": "tsroam sram"
       },
       {
         "name": "Immigration & Checkpoints Authority",
@@ -8881,7 +8432,7 @@
         "exit": "A",
         "metres": 446,
         "street": "Malan Road",
-        "terms": "ministry education malan road aost ast me moe"
+        "terms": "ministry education malan road aost ast moe me"
       },
       {
         "name": "NTU Centre for Contemporary Art Singapore",
@@ -9121,10 +8672,18 @@
         "terms": "et"
       },
       {
-        "name": "Kopitiam",
+        "name": "Kopitiam Food Hall",
         "kind": "hawker",
         "exit": "E",
-        "metres": 55
+        "metres": 55,
+        "terms": "foodfare kfh fk"
+      },
+      {
+        "name": "Raffles Medical",
+        "kind": "clinic",
+        "exit": "B",
+        "metres": 67,
+        "terms": "rm"
       },
       {
         "name": "Food Republic",
@@ -9227,7 +8786,7 @@
         "kind": "attraction",
         "exit": "A",
         "metres": 650,
-        "terms": "psbhdp psbohdp"
+        "terms": "psbohdp psbhdp"
       },
       {
         "name": "Mount Faber Park",
@@ -9235,6 +8794,474 @@
         "exit": "A",
         "metres": 657,
         "terms": "mfp"
+      }
+    ],
+    "CC33": [
+      {
+        "name": "Malaysia Chiak!",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 105,
+        "terms": "mc"
+      },
+      {
+        "name": "Marina One",
+        "kind": "mall",
+        "exit": "1",
+        "metres": 168,
+        "terms": "mo"
+      },
+      {
+        "name": "Fullerton Healthcare",
+        "kind": "clinic",
+        "exit": "1",
+        "metres": 259,
+        "terms": "fh"
+      },
+      {
+        "name": "Central Linear Park",
+        "kind": "park",
+        "exit": "1",
+        "metres": 297,
+        "terms": "clp"
+      },
+      {
+        "name": "The Lawn@Marina Bay",
+        "kind": "park",
+        "exit": "1",
+        "metres": 346,
+        "terms": "tlmb lmb"
+      },
+      {
+        "name": "Red Dot Design Museum",
+        "kind": "museum",
+        "exit": "1",
+        "metres": 362,
+        "street": "Marina Boulevard",
+        "terms": "marina boulevard rddm"
+      },
+      {
+        "name": "Marina Bay Link Mall",
+        "kind": "mall",
+        "exit": "1",
+        "metres": 402,
+        "terms": "mblm"
+      },
+      {
+        "name": "The Westin Singapore",
+        "kind": "hotel",
+        "exit": "1",
+        "metres": 422,
+        "street": "Marina View",
+        "terms": "marina view tws ws"
+      },
+      {
+        "name": "乐福阁",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 510
+      },
+      {
+        "name": "Hello",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 511
+      },
+      {
+        "name": "W Singapore - Marina View",
+        "kind": "hotel",
+        "exit": "1",
+        "metres": 519,
+        "terms": "wsmv"
+      },
+      {
+        "name": "Shenton Food Hall",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 522,
+        "terms": "sfh"
+      },
+      {
+        "name": "Mr Popiah (Local Delights)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 545,
+        "terms": "mpld"
+      },
+      {
+        "name": "Shree Ganga",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 548,
+        "terms": "sg"
+      },
+      {
+        "name": "Singapore Chinese Cultural Centre",
+        "kind": "museum",
+        "exit": "5",
+        "metres": 549,
+        "street": "Straits Boulevard",
+        "terms": "straits boulevard sccc"
+      },
+      {
+        "name": "Yong Kee (BBQ Seafood)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 549,
+        "terms": "ykbs"
+      },
+      {
+        "name": "Thunder Tea Rice",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 550,
+        "terms": "ttr"
+      },
+      {
+        "name": "Kongfu Zai (Chicken Rice)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 553,
+        "terms": "kzcr"
+      },
+      {
+        "name": "Loy Kee (Yong Tau Foo)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 555,
+        "terms": "lkytf"
+      },
+      {
+        "name": "Teochew City (Mixed Rice)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 556,
+        "terms": "tcmr"
+      },
+      {
+        "name": "Hao Jia (Ban Mian)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 558,
+        "terms": "hjbm"
+      },
+      {
+        "name": "Kway Chap (Pig's Organ Soup)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 559,
+        "terms": "kcpsos"
+      },
+      {
+        "name": "Claypot Bak Kuh Teh",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 561,
+        "terms": "cbkt"
+      },
+      {
+        "name": "Seng Keng (Local Delights)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 564,
+        "terms": "skld"
+      },
+      {
+        "name": "Fishing (Fish Soup)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 564,
+        "terms": "ffs"
+      },
+      {
+        "name": "Lau Pa Sat",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 573,
+        "street": "Raffles Quay",
+        "terms": "kopitiam telok ayer market raffles quay lps"
+      },
+      {
+        "name": "Bao Luo Wan Xiang",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 574,
+        "terms": "blwx"
+      },
+      {
+        "name": "Hao Heng (Dim Sum)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 576,
+        "terms": "hhds"
+      },
+      {
+        "name": "Sunny Viet",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 577,
+        "terms": "sv"
+      },
+      {
+        "name": "Gustoso Grill (Pasta Western Food)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 577,
+        "terms": "ggpwf"
+      },
+      {
+        "name": "Delhi Express (Indian Cuisine)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 580,
+        "terms": "deic"
+      },
+      {
+        "name": "Qiu Lian (Ban Miam)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 584,
+        "terms": "qlbm"
+      },
+      {
+        "name": "Marina Bay Neighbourhood Police Centre",
+        "kind": "police",
+        "exit": "5",
+        "metres": 585,
+        "terms": "npc mbnpc"
+      },
+      {
+        "name": "Song Kee (Noodle House)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 585,
+        "terms": "sknh"
+      },
+      {
+        "name": "The Beef House (Homemade Beefball Noodles)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 585,
+        "terms": "tbhhbn bhhbn"
+      },
+      {
+        "name": "Workforce Singapore",
+        "kind": "government",
+        "exit": "1",
+        "metres": 586,
+        "street": "Marina Boulevard",
+        "terms": "wsg marina boulevard ws"
+      },
+      {
+        "name": "Mama Thai",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 587,
+        "terms": "mt"
+      },
+      {
+        "name": "Healthy Carbs",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 588,
+        "terms": "hc"
+      },
+      {
+        "name": "Lai Heng (Char Kway Teow)",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 589,
+        "terms": "lhckt"
+      },
+      {
+        "name": "Biryani Point",
+        "kind": "hawker",
+        "exit": "1",
+        "metres": 590,
+        "terms": "bp"
+      }
+    ],
+    "CC34": [
+      {
+        "name": "The Shoppes at Marina Bay Sands",
+        "kind": "mall",
+        "exit": "D",
+        "metres": 148,
+        "street": "Bayfront Avenue",
+        "terms": "bayfront avenue tsambs sambs"
+      },
+      {
+        "name": "Marina Bay Sands",
+        "kind": "hotel",
+        "exit": "B",
+        "metres": 154,
+        "street": "Bayfront Avenue",
+        "terms": "bayfront avenue mbs"
+      },
+      {
+        "name": "Spectra",
+        "kind": "attraction",
+        "exit": "D",
+        "metres": 247
+      },
+      {
+        "name": "Red Dot Design Museum",
+        "kind": "museum",
+        "exit": "E",
+        "metres": 268,
+        "street": "Marina Boulevard",
+        "terms": "marina boulevard rddm"
+      },
+      {
+        "name": "Rasapura Masters",
+        "kind": "hawker",
+        "exit": "C",
+        "metres": 322,
+        "terms": "rm"
+      },
+      {
+        "name": "ArtScience Museum",
+        "kind": "museum",
+        "exit": "D",
+        "metres": 360,
+        "street": "Bayfront Avenue",
+        "terms": "bayfront avenue am"
+      },
+      {
+        "name": "Colonial Garden",
+        "kind": "attraction",
+        "exit": "B",
+        "metres": 374,
+        "terms": "cg"
+      },
+      {
+        "name": "Garden Pod",
+        "kind": "hotel",
+        "exit": "A",
+        "metres": 450,
+        "terms": "gp"
+      },
+      {
+        "name": "Silver Garden",
+        "kind": "attraction",
+        "exit": "B",
+        "metres": 450,
+        "terms": "sg"
+      },
+      {
+        "name": "OCBC Skyway",
+        "kind": "attraction",
+        "exit": "B",
+        "metres": 467,
+        "terms": "os"
+      },
+      {
+        "name": "Light Show: Garden Rhapsody",
+        "kind": "attraction",
+        "exit": "B",
+        "metres": 474,
+        "terms": "lsgr"
+      },
+      {
+        "name": "Supertree Grove",
+        "kind": "attraction",
+        "exit": "B",
+        "metres": 477,
+        "terms": "sg"
+      },
+      {
+        "name": "Marina Bay Link Mall",
+        "kind": "mall",
+        "exit": "E",
+        "metres": 516,
+        "terms": "mblm"
+      },
+      {
+        "name": "Helix Bridge",
+        "kind": "attraction",
+        "exit": "C",
+        "metres": 525,
+        "terms": "hb"
+      },
+      {
+        "name": "Supertree Dining",
+        "kind": "hawker",
+        "exit": "B",
+        "metres": 533,
+        "terms": "sd"
+      },
+      {
+        "name": "Fullerton Healthcare",
+        "kind": "clinic",
+        "exit": "E",
+        "metres": 572,
+        "terms": "fh"
+      },
+      {
+        "name": "The Lawn@Marina Bay",
+        "kind": "park",
+        "exit": "E",
+        "metres": 575,
+        "terms": "tlmb lmb"
+      },
+      {
+        "name": "Secret Life of Trees",
+        "kind": "attraction",
+        "exit": "B",
+        "metres": 577,
+        "terms": "slot slt"
+      },
+      {
+        "name": "Gardens by the Bay",
+        "kind": "park",
+        "exit": "B",
+        "metres": 602,
+        "terms": "south garden gbtb gbb"
+      },
+      {
+        "name": "The Fullerton Bay Hotel",
+        "kind": "hotel",
+        "exit": "E",
+        "metres": 614,
+        "street": "Collyer Quay",
+        "terms": "collyer quay tfbh fbh"
+      },
+      {
+        "name": "Workforce Singapore",
+        "kind": "government",
+        "exit": "E",
+        "metres": 663,
+        "street": "Marina Boulevard",
+        "terms": "wsg marina boulevard ws"
+      },
+      {
+        "name": "Malaysia Chiak!",
+        "kind": "hawker",
+        "exit": "E",
+        "metres": 671,
+        "terms": "mc"
+      },
+      {
+        "name": "Singapore Labour Foundation",
+        "kind": "government",
+        "exit": "E",
+        "metres": 673,
+        "street": "Marina Boulevard",
+        "terms": "marina boulevard slf"
+      },
+      {
+        "name": "Golden Garden",
+        "kind": "attraction",
+        "exit": "B",
+        "metres": 674,
+        "terms": "gg"
+      },
+      {
+        "name": "Merlion Park",
+        "kind": "park",
+        "exit": "D",
+        "metres": 687,
+        "terms": "mp"
       }
     ],
     "DT1": [
@@ -9349,7 +9376,7 @@
         "exit": "A",
         "metres": 252,
         "street": "Woodlands Road",
-        "terms": "national university polyclinics woodlands road bppsnh bppasnh nup"
+        "terms": "national university polyclinics woodlands road bppasnh bppsnh nup"
       },
       {
         "name": "Bukit Panjang Gospel Chapel",
@@ -9389,7 +9416,7 @@
         "exit": "D",
         "metres": 344,
         "street": "Gangsa Road",
-        "terms": "ministry education gangsa road gss me moe"
+        "terms": "ministry education gangsa road gss moe me"
       },
       {
         "name": "Former Teck Whye Secondary School Campus",
@@ -9611,7 +9638,7 @@
         "exit": "A",
         "metres": 571,
         "street": "Chestnut Drive",
-        "terms": "chestnut drive colqpps colqopps"
+        "terms": "chestnut drive colqopps colqpps"
       },
       {
         "name": "Greenridge Secondary School",
@@ -9619,7 +9646,7 @@
         "exit": "A",
         "metres": 578,
         "street": "Gangsa Road",
-        "terms": "ministry education gangsa road gss me moe"
+        "terms": "ministry education gangsa road gss moe me"
       },
       {
         "name": "MINDEF HQ",
@@ -9699,7 +9726,7 @@
         "exit": "A",
         "metres": 440,
         "street": "Chestnut Drive",
-        "terms": "chestnut drive colqpps colqopps"
+        "terms": "chestnut drive colqopps colqpps"
       },
       {
         "name": "Chapel Of St Joseph",
@@ -9833,14 +9860,6 @@
         "terms": "upper bukit timah road zv"
       },
       {
-        "name": "Pei Hwa Presbyterian Primary School",
-        "kind": "school",
-        "exit": "C",
-        "metres": 203,
-        "street": "Pei Wah Avenue",
-        "terms": "wah avenue phpps"
-      },
-      {
         "name": "Mandarin Central & Dental Centre",
         "kind": "clinic",
         "exit": "B",
@@ -9855,6 +9874,14 @@
         "metres": 220,
         "street": "Jalan Jurong Kechil",
         "terms": "jalan jurong kechil cc"
+      },
+      {
+        "name": "Pei Hwa Presbyterian Primary School",
+        "kind": "school",
+        "exit": "C",
+        "metres": 236,
+        "street": "Pei Wah Avenue",
+        "terms": "wah avenue phpps"
       },
       {
         "name": "Beeh Low See Buddhist Temple",
@@ -9918,7 +9945,7 @@
         "exit": "A",
         "metres": 329,
         "street": "Hindhede Road",
-        "terms": "hindhede road cs cos"
+        "terms": "hindhede road cos cs"
       },
       {
         "name": "Hoover Park",
@@ -10011,7 +10038,7 @@
         "name": "Methodist Girls' School",
         "kind": "school",
         "exit": "A",
-        "metres": 307,
+        "metres": 301,
         "street": "Blackmore Drive",
         "terms": "blackmore drive mgs"
       },
@@ -10228,7 +10255,7 @@
         "exit": "A",
         "metres": 523,
         "street": "Duke's Road",
-        "terms": "duke s road lcor lcoor"
+        "terms": "duke s road lcoor lcor"
       },
       {
         "name": "Happy Fish",
@@ -10369,7 +10396,7 @@
         "kind": "attraction",
         "exit": "A",
         "metres": 259,
-        "terms": "hs has"
+        "terms": "has hs"
       },
       {
         "name": "Bukit Timah Neighbourhood Police Centre",
@@ -10451,7 +10478,7 @@
         "exit": "B",
         "metres": 443,
         "street": "Bukit Timah Road",
-        "terms": "road nusbt nuosbt"
+        "terms": "road nuosbt nusbt"
       },
       {
         "name": "Kuan Yin San Temple",
@@ -10491,7 +10518,7 @@
         "exit": "A",
         "metres": 492,
         "street": "Duke's Road",
-        "terms": "duke s road lcor lcoor"
+        "terms": "duke s road lcoor lcor"
       },
       {
         "name": "C J Koh Law Library",
@@ -10554,7 +10581,7 @@
         "exit": "B",
         "metres": 607,
         "street": "Evans Road",
-        "terms": "evans road mesrc moesrc me moe"
+        "terms": "evans road moesrc mesrc moe me"
       },
       {
         "name": "Healing Garden",
@@ -10706,7 +10733,7 @@
         "exit": "3",
         "metres": 668,
         "street": "Evans Road",
-        "terms": "evans road mesrc moesrc me moe"
+        "terms": "evans road moesrc mesrc moe me"
       }
     ],
     "DT11": [
@@ -10729,7 +10756,7 @@
         "name": "Sheraton Towers Singapore",
         "kind": "hotel",
         "exit": "A",
-        "metres": 173,
+        "metres": 167,
         "street": "Scotts Road",
         "terms": "scotts road sts"
       },
@@ -10755,7 +10782,7 @@
         "exit": "C",
         "metres": 219,
         "street": "Bukit Timah Road",
-        "terms": "bukit timah road cjclds tcojcolds"
+        "terms": "bukit timah road tcojcolds cjclds"
       },
       {
         "name": "Life Bible-Presbyterian Church",
@@ -10773,11 +10800,12 @@
         "terms": "osr"
       },
       {
-        "name": "National Environment Authority (NEA)",
+        "name": "Environment Building",
         "kind": "government",
         "exit": "B",
-        "metres": 280,
-        "terms": "nean"
+        "metres": 264,
+        "street": "Scotts Road",
+        "terms": "national authority nea scotts road eb nean"
       },
       {
         "name": "Newton Life Church",
@@ -10791,8 +10819,8 @@
         "name": "Ministry Of Education Language Centre (Newton)",
         "kind": "school",
         "exit": "B",
-        "metres": 291,
-        "terms": "moelcn melcn"
+        "metres": 290,
+        "terms": "moe moelcn melcn"
       },
       {
         "name": "Hakka Methodist Church",
@@ -10883,7 +10911,7 @@
         "name": "York Hotel",
         "kind": "hotel",
         "exit": "B",
-        "metres": 664,
+        "metres": 632,
         "street": "Mount Elizabeth",
         "terms": "mount elizabeth yh"
       },
@@ -10925,7 +10953,7 @@
         "exit": "E",
         "metres": 79,
         "street": "Kerbau Road",
-        "terms": "kerbau road httn hottn"
+        "terms": "kerbau road hottn httn"
       },
       {
         "name": "Colourful house in little India",
@@ -11219,7 +11247,7 @@
         "exit": "B",
         "metres": 41,
         "street": "Perak Road",
-        "terms": "perak road gm tgm"
+        "terms": "perak road tgm gm"
       },
       {
         "name": "Perak Hotel",
@@ -11484,7 +11512,7 @@
         "exit": "A",
         "metres": 238,
         "street": "Bencoolen Street",
-        "terms": "nanyang academy fine arts bencoolen street nc nafan naofan"
+        "terms": "nanyang academy fine arts bencoolen street nc naofan nafan"
       },
       {
         "name": "Tamil Methodist Church (HKBP Singapore)",
@@ -11579,7 +11607,7 @@
         "exit": "G",
         "metres": 119,
         "street": "Beach Road",
-        "terms": "beach road sh tsh"
+        "terms": "beach road tsh sh"
       },
       {
         "name": "Malaysia Boleh",
@@ -11700,7 +11728,7 @@
         "exit": "A",
         "metres": 219,
         "street": "Ophir Road",
-        "terms": "ophir road coll coolol"
+        "terms": "ophir road coolol coll"
       },
       {
         "name": "Village Hotel (Bugis)",
@@ -12057,7 +12085,7 @@
         "exit": "C",
         "metres": 548,
         "street": "Beach Road",
-        "terms": "beach road sh tsh"
+        "terms": "beach road tsh sh"
       },
       {
         "name": "Project Send",
@@ -12135,7 +12163,7 @@
         "exit": "D",
         "metres": 148,
         "street": "Bayfront Avenue",
-        "terms": "bayfront avenue sambs tsambs"
+        "terms": "bayfront avenue tsambs sambs"
       },
       {
         "name": "Marina Bay Sands",
@@ -12249,7 +12277,7 @@
         "kind": "park",
         "exit": "E",
         "metres": 575,
-        "terms": "lmb tlmb"
+        "terms": "tlmb lmb"
       },
       {
         "name": "Secret Life of Trees",
@@ -12324,7 +12352,7 @@
         "kind": "park",
         "exit": "B",
         "metres": 87,
-        "terms": "lmb tlmb"
+        "terms": "tlmb lmb"
       },
       {
         "name": "Marina Bay Link Mall",
@@ -12508,7 +12536,7 @@
         "kind": "hawker",
         "exit": "F",
         "metres": 248,
-        "terms": "bhhbn tbhhbn"
+        "terms": "tbhhbn bhhbn"
       },
       {
         "name": "Lai Heng (Char Kway Teow)",
@@ -12597,6 +12625,13 @@
     ],
     "DT18": [
       {
+        "name": "The Clan Hotel (NOT in the Manulife Tower)",
+        "kind": "hotel",
+        "exit": "D",
+        "metres": 22,
+        "terms": "tchnitmt chnimt"
+      },
+      {
         "name": "Fuk Tak Chi",
         "kind": "museum",
         "exit": "B",
@@ -12606,17 +12641,10 @@
       {
         "name": "Amoy Hotel",
         "kind": "hotel",
-        "exit": "B",
-        "metres": 58,
+        "exit": "D",
+        "metres": 50,
         "street": "Telok Ayer Street",
         "terms": "telok ayer street ah"
-      },
-      {
-        "name": "The Clan Hotel (NOT in the Manulife Tower)",
-        "kind": "hotel",
-        "exit": "B",
-        "metres": 63,
-        "terms": "tchnitmt chnimt"
       },
       {
         "name": "Nagore Durgha Indian Muslim Heritage Centre",
@@ -12643,6 +12671,13 @@
         "terms": "street tacs"
       },
       {
+        "name": "Icon Link @ Club Street",
+        "kind": "mall",
+        "exit": "E",
+        "metres": 97,
+        "terms": "ilcs"
+      },
+      {
         "name": "Telok Ayer Green",
         "kind": "park",
         "exit": "A",
@@ -12656,10 +12691,18 @@
         "metres": 106
       },
       {
+        "name": "Mercure ICON Singapore City Centre",
+        "kind": "hotel",
+        "exit": "E",
+        "metres": 108,
+        "street": "Club Street",
+        "terms": "street miscc"
+      },
+      {
         "name": "Citikids Academy",
         "kind": "school",
-        "exit": "A",
-        "metres": 116,
+        "exit": "E",
+        "metres": 114,
         "street": "Amoy Street",
         "terms": "amoy street ca"
       },
@@ -12680,11 +12723,35 @@
         "terms": "telok ayer street mbm"
       },
       {
+        "name": "iStay.inn",
+        "kind": "hotel",
+        "exit": "E",
+        "metres": 186,
+        "street": "South Bridge Road",
+        "terms": "south bridge road ii"
+      },
+      {
+        "name": "Hong Hock Eating House",
+        "kind": "hawker",
+        "exit": "E",
+        "metres": 190,
+        "street": "South Bridge Road",
+        "terms": "south bridge road hheh"
+      },
+      {
         "name": "Parkway Shenton Medical Group",
         "kind": "clinic",
         "exit": "A",
         "metres": 192,
         "terms": "psmg"
+      },
+      {
+        "name": "Heritage Collection on Chinatown",
+        "kind": "hotel",
+        "exit": "E",
+        "metres": 210,
+        "street": "South Bridge Road",
+        "terms": "south bridge road hcoc"
       },
       {
         "name": "Masjid Al-Abrar",
@@ -12703,11 +12770,12 @@
         "terms": "market street oprp"
       },
       {
-        "name": "Icon Link @ Club Street",
-        "kind": "mall",
-        "exit": "B",
+        "name": "Yueh Hai Ching Temple",
+        "kind": "worship",
+        "exit": "D",
         "metres": 231,
-        "terms": "ilcs"
+        "street": "Phillip Street",
+        "terms": "phillip street yhct"
       },
       {
         "name": "Turkish Cuisine",
@@ -12717,12 +12785,20 @@
         "terms": "tc"
       },
       {
-        "name": "Yueh Hai Ching Temple",
-        "kind": "worship",
-        "exit": "B",
-        "metres": 237,
-        "street": "Phillip Street",
-        "terms": "phillip street yhct"
+        "name": "Zi Jung Cultural Centre",
+        "kind": "communityClub",
+        "exit": "E",
+        "metres": 236,
+        "street": "South Bridge Road",
+        "terms": "south bridge road zjcc"
+      },
+      {
+        "name": "Backpacker's (Inn Chinatown 2)",
+        "kind": "hotel",
+        "exit": "E",
+        "metres": 238,
+        "street": "Mosque Street",
+        "terms": "mosque street bsic"
       },
       {
         "name": "Central Food (Mixed Veg Rice)",
@@ -12753,14 +12829,6 @@
         "terms": "jytf"
       },
       {
-        "name": "Mercure ICON Singapore City Centre",
-        "kind": "hotel",
-        "exit": "A",
-        "metres": 241,
-        "street": "Club Street",
-        "terms": "street miscc"
-      },
-      {
         "name": "AS (Indian Classic Cuisine)",
         "kind": "hawker",
         "exit": "A",
@@ -12768,11 +12836,25 @@
         "terms": "aicc"
       },
       {
+        "name": "Masjid Jamae (Chulia)",
+        "kind": "worship",
+        "exit": "E",
+        "metres": 243,
+        "street": "South Bridge Road",
+        "terms": "majlis ugama islam singapura south bridge road mjc muis"
+      },
+      {
         "name": "Healthy Carbs",
         "kind": "hawker",
         "exit": "C",
         "metres": 243,
         "terms": "hc"
+      },
+      {
+        "name": "MobileDoctorClinic",
+        "kind": "clinic",
+        "exit": "E",
+        "metres": 243
       },
       {
         "name": "Song Kee (Noodle House)",
@@ -12800,7 +12882,7 @@
         "kind": "hawker",
         "exit": "C",
         "metres": 247,
-        "terms": "bhhbn tbhhbn"
+        "terms": "tbhhbn bhhbn"
       },
       {
         "name": "Delhi Express (Indian Cuisine)",
@@ -12837,57 +12919,6 @@
         "exit": "C",
         "metres": 255,
         "terms": "hhds"
-      },
-      {
-        "name": "The Medical Clinic",
-        "kind": "clinic",
-        "exit": "B",
-        "metres": 255,
-        "street": "Phillip Street",
-        "terms": "phillip street mc tmc"
-      },
-      {
-        "name": "Lau Pa Sat",
-        "kind": "hawker",
-        "exit": "C",
-        "metres": 257,
-        "street": "Raffles Quay",
-        "terms": "kopitiam telok ayer market raffles quay lps"
-      },
-      {
-        "name": "Bao Luo Wan Xiang",
-        "kind": "hawker",
-        "exit": "C",
-        "metres": 258,
-        "terms": "blwx"
-      },
-      {
-        "name": "Seng Keng (Local Delights)",
-        "kind": "hawker",
-        "exit": "C",
-        "metres": 267,
-        "terms": "skld"
-      },
-      {
-        "name": "Fishing (Fish Soup)",
-        "kind": "hawker",
-        "exit": "C",
-        "metres": 269,
-        "terms": "ffs"
-      },
-      {
-        "name": "Claypot Bak Kuh Teh",
-        "kind": "hawker",
-        "exit": "C",
-        "metres": 271,
-        "terms": "cbkt"
-      },
-      {
-        "name": "Kway Chap (Pig's Organ Soup)",
-        "kind": "hawker",
-        "exit": "C",
-        "metres": 272,
-        "terms": "kcpsos"
       }
     ],
     "DT19": [
@@ -13062,6 +13093,14 @@
         "terms": "pftc"
       },
       {
+        "name": "lyf Chinatown Singapore",
+        "kind": "hotel",
+        "exit": "F",
+        "metres": 102,
+        "street": "Mosque Street",
+        "terms": "mosque street lcs"
+      },
+      {
         "name": "Yes Chinatown Pt. Hotel",
         "kind": "hotel",
         "exit": "A",
@@ -13188,13 +13227,6 @@
         "metres": 198,
         "street": "Keong Saik Road",
         "terms": "keong saik road tssh"
-      },
-      {
-        "name": "Tiong Shian Food Court",
-        "kind": "hawker",
-        "exit": "A",
-        "metres": 200,
-        "terms": "tsfc"
       }
     ],
     "DT20": [
@@ -13207,18 +13239,12 @@
         "terms": "tank road stt"
       },
       {
-        "name": "Rollermania",
-        "kind": "sports",
-        "exit": "A",
-        "metres": 219
-      },
-      {
         "name": "The Robertson House by The Crest Collection",
         "kind": "hotel",
         "exit": "A",
         "metres": 233,
         "street": "Unity Street",
-        "terms": "unity street rhbcc trhbtcc"
+        "terms": "unity street trhbtcc rhbcc"
       },
       {
         "name": "Robertson Quay Hotel",
@@ -13251,20 +13277,12 @@
         "terms": "merbau road srt"
       },
       {
-        "name": "SG Hawker",
-        "kind": "hawker",
-        "exit": "A",
-        "metres": 321,
-        "street": "Clarke Quay",
-        "terms": "clarke quay sh"
-      },
-      {
         "name": "Church of the Sacred Heart",
         "kind": "worship",
         "exit": "B",
         "metres": 362,
         "street": "Tank Road",
-        "terms": "tank road csh cotsh"
+        "terms": "tank road cotsh csh"
       },
       {
         "name": "METT Singapore",
@@ -13302,7 +13320,7 @@
         "kind": "museum",
         "exit": "B",
         "metres": 403,
-        "terms": "artisan s garden adea tadaea"
+        "terms": "artisan s garden tadaea adea"
       },
       {
         "name": "Battlebox Visitor Centre",
@@ -13395,7 +13413,7 @@
         "exit": "B",
         "metres": 481,
         "street": "Hill Street",
-        "terms": "mci hill street mddi moddai"
+        "terms": "mci hill street moddai mddi"
       },
       {
         "name": "Park Regis",
@@ -13503,6 +13521,22 @@
         "metres": 558,
         "street": "New Bridge Road",
         "terms": "new bridge road jcqh"
+      },
+      {
+        "name": "Oxley Thanksgiving Residence",
+        "kind": "hotel",
+        "exit": "B",
+        "metres": 559,
+        "street": "River Valley Road",
+        "terms": "river valley road otr"
+      },
+      {
+        "name": "21 Carpenter",
+        "kind": "hotel",
+        "exit": "A",
+        "metres": 562,
+        "street": "Carpenter Street",
+        "terms": "street"
       }
     ],
     "DT21": [
@@ -13526,14 +13560,14 @@
         "exit": "A",
         "metres": 25,
         "street": "Bencoolen Street",
-        "terms": "nanyang academy fine arts bencoolen street nc nafan naofan"
+        "terms": "nanyang academy fine arts bencoolen street nc naofan nafan"
       },
       {
         "name": "School of Computing and Information Systems 1",
         "kind": "college",
         "exit": "C",
         "metres": 31,
-        "terms": "management university scis socais smu"
+        "terms": "management university socais scis smu"
       },
       {
         "name": "V Hotel Bencoolen",
@@ -13618,19 +13652,19 @@
         "terms": "hbbs"
       },
       {
-        "name": "Singapore Management University",
-        "kind": "university",
-        "exit": "B",
-        "metres": 92,
-        "terms": "smu"
-      },
-      {
         "name": "Local",
         "kind": "hotel",
         "exit": "A",
         "metres": 94,
         "street": "Bencoolen Street",
         "terms": "bencoolen street"
+      },
+      {
+        "name": "Singapore Management University",
+        "kind": "university",
+        "exit": "B",
+        "metres": 96,
+        "terms": "smu"
       },
       {
         "name": "Hotel Mi",
@@ -13645,7 +13679,7 @@
         "kind": "museum",
         "exit": "B",
         "metres": 103,
-        "terms": "jsm josm"
+        "terms": "josm jsm"
       },
       {
         "name": "Bgain 261",
@@ -13676,7 +13710,7 @@
         "exit": "A",
         "metres": 147,
         "street": "Middle Road",
-        "terms": "middle road ocpf ocfpaf"
+        "terms": "middle road ocfpaf ocpf"
       },
       {
         "name": "Church of Saints Peter and Paul",
@@ -13684,7 +13718,7 @@
         "exit": "A",
         "metres": 154,
         "street": "Queen Street",
-        "terms": "queen street cspp cospap"
+        "terms": "queen street cospap cspp"
       },
       {
         "name": "National Museum of Singapore",
@@ -13695,17 +13729,10 @@
         "terms": "stamford road nmos nms"
       },
       {
-        "name": "China Cultural Centre",
-        "kind": "communityClub",
-        "exit": "A",
-        "metres": 168,
-        "terms": "government ccc gc goc"
-      },
-      {
         "name": "Oxford Hotel",
         "kind": "hotel",
         "exit": "A",
-        "metres": 173,
+        "metres": 171,
         "street": "Queen Street",
         "terms": "queen street oh"
       },
@@ -13715,15 +13742,22 @@
         "exit": "C",
         "metres": 174,
         "street": "Stamford Road",
-        "terms": "group stamford road tcc cc cg tcg"
+        "terms": "group stamford road tcc cc tcg cg"
       },
       {
-        "name": "GR.ID",
-        "kind": "mall",
+        "name": "China Cultural Centre",
+        "kind": "communityClub",
         "exit": "A",
-        "metres": 198,
-        "street": "Selegie Road",
-        "terms": "selegie road gi"
+        "metres": 174,
+        "terms": "government ccc goc gc"
+      },
+      {
+        "name": "Koufu",
+        "kind": "hawker",
+        "exit": "C",
+        "metres": 193,
+        "street": "Stamford Road",
+        "terms": "smu stamford road"
       },
       {
         "name": "Nineteen Kitchen",
@@ -13732,6 +13766,14 @@
         "metres": 200,
         "street": "Waterloo Street",
         "terms": "waterloo street nk"
+      },
+      {
+        "name": "GR.ID",
+        "kind": "mall",
+        "exit": "A",
+        "metres": 200,
+        "street": "Selegie Road",
+        "terms": "selegie road gi"
       },
       {
         "name": "School of Accountancy",
@@ -13756,13 +13798,6 @@
         "terms": "middle road hlb"
       },
       {
-        "name": "Singapore Management University Campus",
-        "kind": "university",
-        "exit": "C",
-        "metres": 207,
-        "terms": "smuc smu"
-      },
-      {
         "name": "Orchard Road Presbyterian Church",
         "kind": "worship",
         "exit": "C",
@@ -13777,6 +13812,13 @@
         "metres": 208,
         "street": "Middle Road",
         "terms": "middle road fc"
+      },
+      {
+        "name": "Singapore Management University Campus",
+        "kind": "university",
+        "exit": "C",
+        "metres": 209,
+        "terms": "smuc smu"
       },
       {
         "name": "Por Vida Skateboarding",
@@ -13800,13 +13842,6 @@
         "metres": 212,
         "street": "Fort Canning Road",
         "terms": "fort canning road wmc"
-      },
-      {
-        "name": "Gao Feng Food Court",
-        "kind": "hawker",
-        "exit": "A",
-        "metres": 216,
-        "terms": "gffc"
       }
     ],
     "DT22": [
@@ -13911,7 +13946,7 @@
         "exit": "A",
         "metres": 203,
         "street": "Ophir Road",
-        "terms": "ophir road coll coolol"
+        "terms": "ophir road coolol coll"
       },
       {
         "name": "DSC",
@@ -13942,7 +13977,7 @@
         "exit": "A",
         "metres": 244,
         "street": "Perak Road",
-        "terms": "perak road gm tgm"
+        "terms": "perak road tgm gm"
       },
       {
         "name": "FoodPlace 25 Ltd",
@@ -14392,7 +14427,7 @@
         "kind": "clinic",
         "exit": "B",
         "metres": 435,
-        "terms": "ca tca"
+        "terms": "tca ca"
       },
       {
         "name": "Fragrance Hotel (Imperial)",
@@ -14470,7 +14505,7 @@
         "exit": "A",
         "metres": 386,
         "street": "Geylang Bahru Lane",
-        "terms": "geylang bahru lane seab seaab"
+        "terms": "geylang bahru lane seaab seab"
       },
       {
         "name": "Kallang Park Connector",
@@ -14546,7 +14581,7 @@
         "exit": "B",
         "metres": 99,
         "street": "Sallim Road",
-        "terms": "sallim road css coss"
+        "terms": "sallim road coss css"
       },
       {
         "name": "Canossa Catholic Primary School",
@@ -14588,12 +14623,12 @@
         "terms": "majlis ugama islam singapura road msm muis"
       },
       {
-        "name": "MacPherson Primary School",
+        "name": "Maris Stella High School (Primary)",
         "kind": "school",
         "exit": "B",
         "metres": 320,
         "street": "Mattar Road",
-        "terms": "mattar road mps"
+        "terms": "mattar road mshsp"
       },
       {
         "name": "MacPherson Community Club",
@@ -14618,13 +14653,6 @@
         "terms": "crmafc crmfc"
       },
       {
-        "name": "Aljunied Park",
-        "kind": "park",
-        "exit": "A",
-        "metres": 394,
-        "terms": "ap"
-      },
-      {
         "name": "Sheng Yuan Food Street",
         "kind": "hawker",
         "exit": "A",
@@ -14638,6 +14666,13 @@
         "exit": "B",
         "metres": 399,
         "terms": "crmafc crmfc"
+      },
+      {
+        "name": "Aljunied Park",
+        "kind": "park",
+        "exit": "A",
+        "metres": 401,
+        "terms": "ap"
       },
       {
         "name": "Chin Choo Clinic",
@@ -14669,6 +14704,13 @@
         "terms": "lmc"
       },
       {
+        "name": "Ang Liang Medical Hall",
+        "kind": "clinic",
+        "exit": "B",
+        "metres": 467,
+        "terms": "almh"
+      },
+      {
         "name": "Huang Lao Xian Shi Temple",
         "kind": "worship",
         "exit": "A",
@@ -14697,7 +14739,7 @@
         "exit": "A",
         "metres": 549,
         "street": "MacPherson Road",
-        "terms": "macpherson road fr tfr"
+        "terms": "macpherson road tfr fr"
       },
       {
         "name": "7 Stars Coffee Shop",
@@ -14711,7 +14753,7 @@
         "kind": "park",
         "exit": "B",
         "metres": 590,
-        "terms": "mpfc mpafc"
+        "terms": "mpafc mpfc"
       },
       {
         "name": "St Andrew's Nursing Home (Aljunied)",
@@ -14742,7 +14784,7 @@
         "exit": "B",
         "metres": 647,
         "street": "Aljunied Avenue 2",
-        "terms": "aljunied avenue 2 bag baog"
+        "terms": "aljunied avenue 2 baog bag"
       },
       {
         "name": "MacPherson Linear Park",
@@ -14776,20 +14818,6 @@
     ],
     "DT26": [
       {
-        "name": "Public Transport Security Command TransCom",
-        "kind": "police",
-        "exit": "B",
-        "metres": 39,
-        "terms": "ptsct"
-      },
-      {
-        "name": "Geylang Neighbourhood Police Post",
-        "kind": "police",
-        "exit": "B",
-        "metres": 49,
-        "terms": "npp gnpp"
-      },
-      {
         "name": "Lord Buddha Temple (four face buddha)",
         "kind": "worship",
         "exit": "B",
@@ -14819,7 +14847,7 @@
         "exit": "A",
         "metres": 184,
         "street": "Paya Lebar Road",
-        "terms": "paya lebar road lcm tlcam"
+        "terms": "paya lebar road tlcam lcm"
       },
       {
         "name": "Tien Sen Tua Temple",
@@ -14848,7 +14876,14 @@
         "kind": "park",
         "exit": "D",
         "metres": 302,
-        "terms": "mpfc mpafc"
+        "terms": "mpafc mpfc"
+      },
+      {
+        "name": "Ang Liang Medical Hall",
+        "kind": "clinic",
+        "exit": "E",
+        "metres": 337,
+        "terms": "almh"
       },
       {
         "name": "7 Stars Coffee Shop",
@@ -14899,7 +14934,7 @@
         "exit": "D",
         "metres": 399,
         "street": "Aljunied Avenue 2",
-        "terms": "aljunied avenue 2 bag baog"
+        "terms": "aljunied avenue 2 baog bag"
       },
       {
         "name": "Circuit Road Hawker Centre",
@@ -15019,7 +15054,7 @@
         "exit": "D",
         "metres": 601,
         "street": "Sallim Road",
-        "terms": "sallim road css coss"
+        "terms": "sallim road coss css"
       },
       {
         "name": "Games Garage",
@@ -15278,7 +15313,7 @@
         "kind": "worship",
         "exit": "C",
         "metres": 220,
-        "terms": "bcc bcoc"
+        "terms": "bcoc bcc"
       },
       {
         "name": "Eastern Medical Centre",
@@ -16099,7 +16134,7 @@
         "kind": "clinic",
         "exit": "D",
         "metres": 225,
-        "terms": "wytfcs wytfcas"
+        "terms": "wytfcas wytfcs"
       },
       {
         "name": "AcuHealth TCM Medical Centre",
@@ -16273,7 +16308,7 @@
         "exit": "C",
         "metres": 248,
         "street": "Somapah Road",
-        "terms": "somapah road suotadc sutdc sutd suotad"
+        "terms": "somapah road suotadc sutdc suotad sutd"
       },
       {
         "name": "SUTD Multifunction Sport Center",
@@ -16435,7 +16470,7 @@
         "exit": "C",
         "metres": 670,
         "street": "Somapah Road",
-        "terms": "somapah road suotadc sutdc sutd suotad"
+        "terms": "somapah road suotadc sutdc suotad sutd"
       },
       {
         "name": "SUTD Multifunction Sport Center",
@@ -16539,7 +16574,7 @@
         "exit": "C",
         "metres": 670,
         "street": "Somapah Road",
-        "terms": "somapah road suotadc sutdc sutd suotad"
+        "terms": "somapah road suotadc sutdc suotad sutd"
       },
       {
         "name": "SUTD Multifunction Sport Center",
@@ -16754,7 +16789,7 @@
         "kind": "park",
         "exit": "B",
         "metres": 110,
-        "terms": "cg tcg"
+        "terms": "tcg cg"
       },
       {
         "name": "Pasir Ris Mall",
@@ -17381,14 +17416,6 @@
         "terms": "road sdbbh"
       },
       {
-        "name": "Study Corner",
-        "kind": "library",
-        "exit": "A",
-        "metres": 535,
-        "street": "New Upper Changi Road",
-        "terms": "new upper changi road sc"
-      },
-      {
         "name": "Tanah Merah Neighbourhood Police Post",
         "kind": "police",
         "exit": "A",
@@ -17461,7 +17488,7 @@
         "exit": "A",
         "metres": 663,
         "street": "Bedok Road",
-        "terms": "bedok road cg cog"
+        "terms": "bedok road cog cg"
       },
       {
         "name": "Jalan Pari Dedap Playground",
@@ -17937,7 +17964,7 @@
         "exit": "A",
         "metres": 638,
         "street": "Siglap Hill",
-        "terms": "siglap hill olps olops"
+        "terms": "siglap hill olops olps"
       },
       {
         "name": "Lor Marican Park",
@@ -18047,7 +18074,7 @@
         "name": "Masjid Darul Aman",
         "kind": "worship",
         "exit": "C",
-        "metres": 235,
+        "metres": 233,
         "street": "Jalan Eunos",
         "terms": "majlis ugama islam singapura jalan eunos mda muis"
       },
@@ -18240,7 +18267,8 @@
         "kind": "mall",
         "exit": "B",
         "metres": 619,
-        "terms": "jcc"
+        "street": "Joo Chiat Road",
+        "terms": "road jcc"
       },
       {
         "name": "GoodDoctors Medical Clinic",
@@ -18268,6 +18296,28 @@
         "terms": "paya lebar road"
       },
       {
+        "name": "True Medical Clinic",
+        "kind": "clinic",
+        "exit": "E",
+        "metres": 46,
+        "terms": "tmc"
+      },
+      {
+        "name": "Shaw Theatres",
+        "kind": "cinema",
+        "exit": "E",
+        "metres": 50,
+        "terms": "st"
+      },
+      {
+        "name": "Masjid Wak Tanjong",
+        "kind": "worship",
+        "exit": "F",
+        "metres": 59,
+        "street": "Paya Lebar Road",
+        "terms": "majlis ugama islam singapura paya lebar road mwt muis"
+      },
+      {
         "name": "Paya Lebar Square",
         "kind": "mall",
         "exit": "B",
@@ -18276,26 +18326,10 @@
         "terms": "road pls"
       },
       {
-        "name": "Masjid Wak Tanjong",
-        "kind": "worship",
-        "exit": "C",
-        "metres": 78,
-        "street": "Paya Lebar Road",
-        "terms": "majlis ugama islam singapura paya lebar road mwt muis"
-      },
-      {
-        "name": "True Medical Clinic",
-        "kind": "clinic",
-        "exit": "A",
-        "metres": 84,
-        "terms": "tmc"
-      },
-      {
-        "name": "Shaw Theatres",
-        "kind": "cinema",
-        "exit": "A",
-        "metres": 92,
-        "terms": "st"
+        "name": "Kopitiam",
+        "kind": "hawker",
+        "exit": "E",
+        "metres": 70
       },
       {
         "name": "Madrasah Wak Tanjong Al-Islamiah",
@@ -18303,12 +18337,6 @@
         "exit": "D",
         "metres": 96,
         "terms": "mwtai"
-      },
-      {
-        "name": "Kopitiam",
-        "kind": "hawker",
-        "exit": "A",
-        "metres": 112
       },
       {
         "name": "Malaysia Chiak!",
@@ -18363,6 +18391,14 @@
         "terms": "psmg"
       },
       {
+        "name": "Tanjong Katong Complex",
+        "kind": "mall",
+        "exit": "E",
+        "metres": 231,
+        "street": "Geylang Road",
+        "terms": "geylang road tkc"
+      },
+      {
         "name": "SingPost Centre",
         "kind": "mall",
         "exit": "A",
@@ -18383,14 +18419,6 @@
         "metres": 250,
         "street": "Geylang Road",
         "terms": "geylang road mlc"
-      },
-      {
-        "name": "Tanjong Katong Complex",
-        "kind": "mall",
-        "exit": "D",
-        "metres": 252,
-        "street": "Geylang Road",
-        "terms": "geylang road tkc"
       },
       {
         "name": "City Plaza",
@@ -18456,20 +18484,20 @@
         "terms": "sims avenue mcbc"
       },
       {
+        "name": "Haig Road Food Centre",
+        "kind": "hawker",
+        "exit": "E",
+        "metres": 395,
+        "street": "Haig Road",
+        "terms": "hrfc"
+      },
+      {
         "name": "Geylang United Temple",
         "kind": "worship",
         "exit": "A",
         "metres": 396,
         "street": "Eunos Road 5",
         "terms": "eunos road 5 gut"
-      },
-      {
-        "name": "Haig Road Food Centre",
-        "kind": "hawker",
-        "exit": "D",
-        "metres": 399,
-        "street": "Haig Road",
-        "terms": "hrfc"
       },
       {
         "name": "Haig Road Market",
@@ -18488,18 +18516,18 @@
         "terms": "jalan afifi ahpl"
       },
       {
+        "name": "culinary studio",
+        "kind": "school",
+        "exit": "E",
+        "metres": 434,
+        "terms": "cs"
+      },
+      {
         "name": "Lorong 40 Geylang Playground",
         "kind": "park",
         "exit": "D",
         "metres": 441,
         "terms": "lgp"
-      },
-      {
-        "name": "culinary studio",
-        "kind": "school",
-        "exit": "A",
-        "metres": 459,
-        "terms": "cs"
       },
       {
         "name": "Tibetan Buddhist Centre",
@@ -18512,25 +18540,32 @@
       {
         "name": "South East CDC",
         "kind": "government",
-        "exit": "A",
-        "metres": 498,
+        "exit": "E",
+        "metres": 474,
         "street": "Engku Aman Turn",
         "terms": "engku aman turn sec"
       },
       {
         "name": "Geylang Serai Community Club",
         "kind": "communityClub",
-        "exit": "A",
-        "metres": 499,
+        "exit": "E",
+        "metres": 477,
         "street": "Engku Aman Turn",
         "terms": "engku aman turn gscc"
       },
       {
         "name": "PPIS Family Service Centre (East)",
         "kind": "communityClub",
-        "exit": "A",
-        "metres": 514,
+        "exit": "E",
+        "metres": 490,
         "terms": "pfsce"
+      },
+      {
+        "name": "Geylang Serai Heritage Gallery",
+        "kind": "museum",
+        "exit": "E",
+        "metres": 498,
+        "terms": "gshg"
       },
       {
         "name": "Geylang Polyclinic",
@@ -18546,14 +18581,7 @@
         "exit": "D",
         "metres": 518,
         "street": "Sandy Lane",
-        "terms": "sandy lane colqp coolqop"
-      },
-      {
-        "name": "Geylang Serai Heritage Gallery",
-        "kind": "museum",
-        "exit": "A",
-        "metres": 520,
-        "terms": "gshg"
+        "terms": "sandy lane coolqop colqp"
       },
       {
         "name": "Geylang East Swimming Complex",
@@ -18578,7 +18606,7 @@
         "exit": "B",
         "metres": 111,
         "street": "Geylang East Central",
-        "terms": "ministry education east central gmss me moe"
+        "terms": "ministry education east central gmss moe me"
       },
       {
         "name": "Ji Xiang Vegetarian",
@@ -18628,13 +18656,6 @@
         "terms": "sims avenue eb"
       },
       {
-        "name": "Media Resource Library",
-        "kind": "library",
-        "exit": "B",
-        "metres": 157,
-        "terms": "mrl"
-      },
-      {
         "name": "Cheng Kak Si",
         "kind": "worship",
         "exit": "B",
@@ -18648,7 +18669,7 @@
         "exit": "B",
         "metres": 186,
         "street": "Geylang East Central",
-        "terms": "ministry education east central gmsp me moe"
+        "terms": "ministry education east central gmsp moe me"
       },
       {
         "name": "The Other Clinic",
@@ -18680,6 +18701,13 @@
         "metres": 226,
         "street": "Lorong 27 Geylang",
         "terms": "lorong 27 geylang ptkt"
+      },
+      {
+        "name": "Christalite Methodist Chapel",
+        "kind": "worship",
+        "exit": "B",
+        "metres": 229,
+        "terms": "cmc"
       },
       {
         "name": "Qing Long Guang",
@@ -18894,7 +18922,7 @@
         "exit": "A",
         "metres": 160,
         "street": "Geylang Road",
-        "terms": "geylang road rch trch"
+        "terms": "geylang road trch rch"
       },
       {
         "name": "Balance&Cleanse",
@@ -19283,7 +19311,7 @@
         "kind": "clinic",
         "exit": "B",
         "metres": 278,
-        "terms": "ca tca"
+        "terms": "tca ca"
       },
       {
         "name": "Foodmaster",
@@ -19417,7 +19445,7 @@
         "kind": "worship",
         "exit": "A",
         "metres": 396,
-        "terms": "jag jaog"
+        "terms": "jaog jag"
       },
       {
         "name": "People's Association",
@@ -19550,7 +19578,7 @@
         "exit": "G",
         "metres": 119,
         "street": "Beach Road",
-        "terms": "beach road sh tsh"
+        "terms": "beach road tsh sh"
       },
       {
         "name": "Malaysia Boleh",
@@ -19671,7 +19699,7 @@
         "exit": "A",
         "metres": 219,
         "street": "Ophir Road",
-        "terms": "ophir road coll coolol"
+        "terms": "ophir road coolol coll"
       },
       {
         "name": "Village Hotel (Bugis)",
@@ -19840,7 +19868,7 @@
         "kind": "hotel",
         "exit": "A",
         "metres": 104,
-        "terms": "ss sts"
+        "terms": "sts ss"
       },
       {
         "name": "The Capitol Kempinski Hotel",
@@ -19870,7 +19898,7 @@
         "kind": "hawker",
         "exit": "A",
         "metres": 138,
-        "terms": "junction fp tfp fj"
+        "terms": "junction tfp fp fj"
       },
       {
         "name": "Peninsula Plaza",
@@ -19921,7 +19949,7 @@
         "kind": "clinic",
         "exit": "B",
         "metres": 203,
-        "terms": "hr thr"
+        "terms": "thr hr"
       },
       {
         "name": "APT. Stamford Place",
@@ -19959,7 +19987,7 @@
         "kind": "college",
         "exit": "D",
         "metres": 222,
-        "terms": "management university lkcsb lkcsob smu"
+        "terms": "management university lkcsob lkcsb smu"
       },
       {
         "name": "Esplanade Xchange",
@@ -20020,7 +20048,7 @@
         "exit": "D",
         "metres": 297,
         "street": "Queen Street",
-        "terms": "queen street cgs cotgs"
+        "terms": "queen street cotgs cgs"
       },
       {
         "name": "Climb Central",
@@ -20093,7 +20121,7 @@
         "name": "Singapore Management University",
         "kind": "university",
         "exit": "D",
-        "metres": 344,
+        "metres": 342,
         "street": "Victoria Street",
         "terms": "smu victoria street"
       }
@@ -20159,7 +20187,7 @@
         "exit": "H",
         "metres": 193,
         "street": "Fullerton Square",
-        "terms": "square fh tfh"
+        "terms": "square tfh fh"
       },
       {
         "name": "The Medical Clinic",
@@ -20167,7 +20195,7 @@
         "exit": "B",
         "metres": 200,
         "street": "Phillip Street",
-        "terms": "phillip street mc tmc"
+        "terms": "phillip street tmc mc"
       },
       {
         "name": "Delhi Express (Indian Cuisine)",
@@ -20267,7 +20295,7 @@
         "kind": "hawker",
         "exit": "F",
         "metres": 223,
-        "terms": "bhhbn tbhhbn"
+        "terms": "tbhhbn bhhbn"
       },
       {
         "name": "Kway Chap (Pig's Organ Soup)",
@@ -20497,6 +20525,13 @@
         "terms": "tras link oh"
       },
       {
+        "name": "MAS Gallery",
+        "kind": "museum",
+        "exit": "H",
+        "metres": 108,
+        "terms": "mg"
+      },
+      {
         "name": "Carlton City Hotel",
         "kind": "hotel",
         "exit": "A",
@@ -20542,7 +20577,7 @@
         "exit": "A",
         "metres": 188,
         "street": "Tanjong Pagar Plaza",
-        "terms": "plaza tpmfc tpmafc"
+        "terms": "plaza tpmafc tpmfc"
       },
       {
         "name": "Board of Architects",
@@ -20689,14 +20724,6 @@
         "metres": 311,
         "street": "Robinson Road",
         "terms": "robinson road"
-      },
-      {
-        "name": "Masjid Haji Muhammad Salleh",
-        "kind": "worship",
-        "exit": "H",
-        "metres": 318,
-        "street": "Palmer Road",
-        "terms": "majlis ugama islam singapura palmer road mhms muis"
       }
     ],
     "EW16": [
@@ -20766,7 +20793,7 @@
         "kind": "police",
         "exit": "5",
         "metres": 94,
-        "terms": "ministry home affairs cnb mha moha"
+        "terms": "ministry home affairs cnb moha mha"
       },
       {
         "name": "New Majestic Hotel",
@@ -21036,7 +21063,7 @@
         "kind": "clinic",
         "exit": "A",
         "metres": 30,
-        "terms": "cpfc capfc"
+        "terms": "capfc cpfc"
       },
       {
         "name": "Happy Hawkers",
@@ -21212,7 +21239,7 @@
         "exit": "B",
         "metres": 360,
         "street": "Jalan Bukit Ho Swee",
-        "terms": "jalan bukit ho swee seab seaab"
+        "terms": "jalan bukit ho swee seaab seab"
       },
       {
         "name": "Jin Lan Miao",
@@ -21314,7 +21341,7 @@
         "kind": "clinic",
         "exit": "A",
         "metres": 18,
-        "terms": "rcs rcas"
+        "terms": "rcas rcs"
       },
       {
         "name": "Minmed Clinic (Redhill)",
@@ -21375,7 +21402,7 @@
         "kind": "worship",
         "exit": "A",
         "metres": 240,
-        "terms": "cg cog"
+        "terms": "cog cg"
       },
       {
         "name": "80 Eating House",
@@ -21499,7 +21526,7 @@
         "exit": "A",
         "metres": 421,
         "street": "Lengkok Bahru",
-        "terms": "ministry social family development msfd lengkok bahru ev msfdm mosafdm"
+        "terms": "ministry social family development msfd lengkok bahru ev mosafdm msfdm"
       },
       {
         "name": "Class Room 3",
@@ -21581,7 +21608,7 @@
         "kind": "college",
         "exit": "B",
         "metres": 589,
-        "terms": "eaim eaiom"
+        "terms": "eaiom eaim"
       },
       {
         "name": "Bukit Merah Community Hub",
@@ -21675,7 +21702,7 @@
         "kind": "hawker",
         "exit": "D",
         "metres": 376,
-        "terms": "mlmfc mlmafc"
+        "terms": "mlmafc mlmfc"
       },
       {
         "name": "Queenstown Baptist Church",
@@ -21754,7 +21781,7 @@
         "name": "Dawson Place",
         "kind": "mall",
         "exit": "B",
-        "metres": 563,
+        "metres": 553,
         "street": "Strathmore Avenue",
         "terms": "strathmore avenue dp"
       },
@@ -22291,7 +22318,7 @@
         "kind": "school",
         "exit": "A",
         "metres": 591,
-        "terms": "megm moegm"
+        "terms": "moegm megm"
       },
       {
         "name": "one-north Park Fusionopolis North",
@@ -22432,7 +22459,7 @@
         "kind": "university",
         "exit": "A",
         "metres": 402,
-        "terms": "tuma tuoma"
+        "terms": "tuoma tuma"
       },
       {
         "name": "DigiPen Singapore",
@@ -22447,7 +22474,7 @@
         "kind": "college",
         "exit": "A",
         "metres": 415,
-        "terms": "ug uog"
+        "terms": "uog ug"
       },
       {
         "name": "Hilltop Haven",
@@ -22547,7 +22574,7 @@
         "exit": "A",
         "metres": 94,
         "street": "Commonwealth Avenue West",
-        "terms": "commonwealth avenue west cm tcm"
+        "terms": "commonwealth avenue west tcm cm"
       },
       {
         "name": "VariNice Eating House",
@@ -22588,12 +22615,12 @@
         "terms": "clementi avenue 2 cfcs"
       },
       {
-        "name": "Boleh Boleh!",
+        "name": "Hawkers' Street @ Clementi Mall",
         "kind": "hawker",
         "exit": "A",
         "metres": 148,
         "street": "Commonwealth Ave West",
-        "terms": "commonwealth ave west bb"
+        "terms": "commonwealth ave west hscm"
       },
       {
         "name": "Clementi Polyclinic",
@@ -22609,7 +22636,7 @@
         "exit": "C",
         "metres": 153,
         "street": "Clementi Avenue 2",
-        "terms": "clementi avenue 2 nc tnc"
+        "terms": "clementi avenue 2 tnc nc"
       },
       {
         "name": "Clementi Market",
@@ -22817,11 +22844,12 @@
     ],
     "EW24": [
       {
-        "name": "Cathay Cineplex",
+        "name": "Shaw Theatres JEM",
         "kind": "cinema",
         "exit": "C",
         "metres": 44,
-        "terms": "cc"
+        "street": "JEM",
+        "terms": "stj"
       },
       {
         "name": "Kopitiam",
@@ -23383,7 +23411,7 @@
         "name": "Jurong West Secondary School",
         "kind": "school",
         "exit": "A",
-        "metres": 446,
+        "metres": 451,
         "street": "Jurong West Street 65",
         "terms": "street 65 jwss"
       },
@@ -23413,9 +23441,9 @@
         "name": "Frontier Primary School",
         "kind": "school",
         "exit": "A",
-        "metres": 662,
+        "metres": 663,
         "street": "Jurong West Street 61",
-        "terms": "ministry education jurong west street 61 fps me moe"
+        "terms": "ministry education jurong west street 61 fps moe me"
       }
     ],
     "EW28": [
@@ -23423,7 +23451,7 @@
         "name": "Kimly Coffeeshop",
         "kind": "hawker",
         "exit": "A",
-        "metres": 9,
+        "metres": 21,
         "street": "Jurong West Street 41",
         "terms": "jurong west street 41 kc"
       },
@@ -23455,7 +23483,7 @@
         "name": "Jurong West Primary School",
         "kind": "school",
         "exit": "B",
-        "metres": 265,
+        "metres": 261,
         "street": "Jurong West Street 61",
         "terms": "street 61 jwps"
       },
@@ -23463,9 +23491,9 @@
         "name": "Frontier Primary School",
         "kind": "school",
         "exit": "A",
-        "metres": 284,
+        "metres": 282,
         "street": "Jurong West Street 61",
-        "terms": "ministry education jurong west street 61 fps me moe"
+        "terms": "ministry education jurong west street 61 fps moe me"
       },
       {
         "name": "Jurong West Sports Complex",
@@ -23480,28 +23508,29 @@
         "kind": "hawker",
         "exit": "A",
         "metres": 366,
-        "street": "Soon Lee Drive",
-        "terms": "soon lee drive ksl"
+        "street": "Soon Lee Street",
+        "terms": "soon lee street ksl"
       },
       {
-        "name": "Jurong West Hawker Centre",
+        "name": "Jurong West Hawker Centre and Market",
         "kind": "hawker",
         "exit": "B",
-        "metres": 372,
-        "terms": "jwhc"
+        "metres": 383,
+        "street": "Jurong West Street 61",
+        "terms": "street 61 jwhcam jwhcm"
       },
       {
         "name": "Housing & Development Board",
         "kind": "government",
         "exit": "B",
-        "metres": 428,
+        "metres": 405,
         "terms": "hdb"
       },
       {
         "name": "Pioneer Mall",
         "kind": "mall",
         "exit": "B",
-        "metres": 430,
+        "metres": 429,
         "street": "Jurong West Street 61",
         "terms": "jurong west street 61 pm"
       },
@@ -23517,14 +23546,14 @@
         "name": "Yunnan Park",
         "kind": "park",
         "exit": "B",
-        "metres": 470,
+        "metres": 468,
         "terms": "yp"
       },
       {
         "name": "Koufu",
         "kind": "hawker",
         "exit": "B",
-        "metres": 476
+        "metres": 470
       },
       {
         "name": "Nanyang Neighbourhood Police Post",
@@ -23535,10 +23564,26 @@
         "terms": "jurong west street 71 nnpp"
       },
       {
+        "name": "iSPACE Eating House",
+        "kind": "hawker",
+        "exit": "A",
+        "metres": 514,
+        "street": "Soon Lee Street",
+        "terms": "soon lee street ieh"
+      },
+      {
+        "name": "S111 Eating House",
+        "kind": "hawker",
+        "exit": "A",
+        "metres": 556,
+        "street": "Soon Lee Street",
+        "terms": "soon lee street seh"
+      },
+      {
         "name": "Jurong West Secondary School",
         "kind": "school",
         "exit": "A",
-        "metres": 614,
+        "metres": 609,
         "street": "Jurong West Street 65",
         "terms": "street 65 jwss"
       },
@@ -23569,16 +23614,9 @@
         "name": "Fairprice Hub",
         "kind": "mall",
         "exit": "A",
-        "metres": 163,
+        "metres": 157,
         "street": "Joon Koon Circle",
         "terms": "joon koon circle fh"
-      },
-      {
-        "name": "Kartright Speedway",
-        "kind": "attraction",
-        "exit": "B",
-        "metres": 425,
-        "terms": "ks"
       },
       {
         "name": "The Army Museum of Singapore",
@@ -23586,22 +23624,15 @@
         "exit": "B",
         "metres": 459,
         "street": "Upper Jurong Road",
-        "terms": "upper jurong road ams tamos"
+        "terms": "upper jurong road tamos ams"
       },
       {
         "name": "Singapore Discovery Centre",
         "kind": "museum",
         "exit": "B",
-        "metres": 524,
+        "metres": 525,
         "street": "Upper Jurong Road",
         "terms": "upper jurong road sdc"
-      },
-      {
-        "name": "SAFTI Military Institute",
-        "kind": "school",
-        "exit": "B",
-        "metres": 601,
-        "terms": "smi"
       }
     ],
     "EW33": [
@@ -23623,10 +23654,18 @@
         "terms": "et"
       },
       {
-        "name": "Kopitiam",
+        "name": "Kopitiam Food Hall",
         "kind": "hawker",
         "exit": "E",
-        "metres": 55
+        "metres": 55,
+        "terms": "foodfare kfh fk"
+      },
+      {
+        "name": "Raffles Medical",
+        "kind": "clinic",
+        "exit": "B",
+        "metres": 67,
+        "terms": "rm"
       },
       {
         "name": "Food Republic",
@@ -23729,7 +23768,7 @@
         "kind": "attraction",
         "exit": "A",
         "metres": 650,
-        "terms": "psbhdp psbohdp"
+        "terms": "psbohdp psbhdp"
       },
       {
         "name": "Mount Faber Park",
@@ -23806,7 +23845,7 @@
         "kind": "police",
         "exit": "5",
         "metres": 94,
-        "terms": "ministry home affairs cnb mha moha"
+        "terms": "ministry home affairs cnb moha mha"
       },
       {
         "name": "New Majestic Hotel",
@@ -24220,6 +24259,14 @@
         "terms": "pftc"
       },
       {
+        "name": "lyf Chinatown Singapore",
+        "kind": "hotel",
+        "exit": "F",
+        "metres": 102,
+        "street": "Mosque Street",
+        "terms": "mosque street lcs"
+      },
+      {
         "name": "Yes Chinatown Pt. Hotel",
         "kind": "hotel",
         "exit": "A",
@@ -24346,13 +24393,6 @@
         "metres": 198,
         "street": "Keong Saik Road",
         "terms": "keong saik road tssh"
-      },
-      {
-        "name": "Tiong Shian Food Court",
-        "kind": "hawker",
-        "exit": "A",
-        "metres": 200,
-        "terms": "tsfc"
       }
     ],
     "NE5": [
@@ -24512,14 +24552,6 @@
         "terms": "merchant road pr"
       },
       {
-        "name": "SG Hawker",
-        "kind": "hawker",
-        "exit": "C",
-        "metres": 154,
-        "street": "Clarke Quay",
-        "terms": "clarke quay sh"
-      },
-      {
         "name": "Ministry of Culture, Community & Youth",
         "kind": "government",
         "exit": "F",
@@ -24603,7 +24635,7 @@
         "exit": "E",
         "metres": 204,
         "street": "South Bridge Road",
-        "terms": "south bridge road hca hcta"
+        "terms": "south bridge road hcta hca"
       },
       {
         "name": "Ministry of Digital Development and Information",
@@ -24611,13 +24643,7 @@
         "exit": "F",
         "metres": 205,
         "street": "Hill Street",
-        "terms": "mci hill street mddi moddai"
-      },
-      {
-        "name": "Rollermania",
-        "kind": "sports",
-        "exit": "C",
-        "metres": 221
+        "terms": "mci hill street moddai mddi"
       },
       {
         "name": "BK Eating House",
@@ -24661,6 +24687,22 @@
         "metres": 256,
         "street": "New Bridge Road",
         "terms": "new bridge road lc"
+      },
+      {
+        "name": "5footway.inn",
+        "kind": "hotel",
+        "exit": "E",
+        "metres": 256,
+        "street": "Boat Quay",
+        "terms": "boat quay fi"
+      },
+      {
+        "name": "Quarters",
+        "kind": "hotel",
+        "exit": "E",
+        "metres": 263,
+        "street": "Circular Road",
+        "terms": "circular road"
       }
     ],
     "NE6": [
@@ -24727,7 +24769,7 @@
         "name": "Fort Canning Tree Tunnel",
         "kind": "attraction",
         "exit": "A",
-        "metres": 139,
+        "metres": 138,
         "terms": "fctt"
       },
       {
@@ -24873,7 +24915,7 @@
         "kind": "college",
         "exit": "A",
         "metres": 319,
-        "terms": "management university scis socais smu"
+        "terms": "management university socais scis smu"
       },
       {
         "name": "Por Vida Skateboarding",
@@ -24894,7 +24936,7 @@
         "name": "GR.ID",
         "kind": "mall",
         "exit": "A",
-        "metres": 339,
+        "metres": 333,
         "street": "Selegie Road",
         "terms": "selegie road gi"
       },
@@ -24994,7 +25036,7 @@
         "exit": "E",
         "metres": 79,
         "street": "Kerbau Road",
-        "terms": "kerbau road httn hottn"
+        "terms": "kerbau road hottn httn"
       },
       {
         "name": "Colourful house in little India",
@@ -25355,7 +25397,7 @@
         "exit": "A",
         "metres": 91,
         "street": "Farrer Park Station Road",
-        "terms": "company station road fph fpc tfpc"
+        "terms": "company station road fph tfpc fpc"
       },
       {
         "name": "OrthoSportsAtConnexion",
@@ -25384,7 +25426,7 @@
         "exit": "A",
         "metres": 108,
         "street": "Serangoon Road",
-        "terms": "road sh tsh"
+        "terms": "road tsh sh"
       },
       {
         "name": "One Farrer Hotel & Spa",
@@ -25678,7 +25720,7 @@
         "exit": "C",
         "metres": 250,
         "street": "Serangoon Road",
-        "terms": "nacional healthcare group serangoon road kpltc kpaltc nhg"
+        "terms": "nacional healthcare group serangoon road kpaltc kpltc nhg"
       },
       {
         "name": "SpacePod @hive",
@@ -25686,7 +25728,7 @@
         "exit": "C",
         "metres": 318,
         "street": "Serangoon Road",
-        "terms": "hostel serangoon road sh hh thh"
+        "terms": "hostel serangoon road sh thh hh"
       },
       {
         "name": "Trinity Mediplus",
@@ -26156,7 +26198,7 @@
         "exit": "A",
         "metres": 88,
         "street": "Bidadari Park Drive",
-        "terms": "bidadari park drive wm twm"
+        "terms": "bidadari park drive twm wm"
       },
       {
         "name": "Parkway MediCentre",
@@ -26243,6 +26285,13 @@
         "metres": 560,
         "street": "Cedar Avenue",
         "terms": "avenue cgss"
+      },
+      {
+        "name": "Tam Chiak Kopitiam",
+        "kind": "hawker",
+        "exit": "C",
+        "metres": 581,
+        "terms": "tck"
       },
       {
         "name": "Cedar Primary School",
@@ -26340,7 +26389,7 @@
         "kind": "school",
         "exit": "A",
         "metres": 79,
-        "terms": "das dasslc daosslc"
+        "terms": "das daosslc dasslc"
       },
       {
         "name": "SparkleTots Pre-school",
@@ -26662,7 +26711,7 @@
         "exit": "B",
         "metres": 245,
         "street": "Lowland Road",
-        "terms": "lowland road budc tbudc"
+        "terms": "lowland road tbudc budc"
       },
       {
         "name": "7 Stars",
@@ -26786,7 +26835,7 @@
         "exit": "B",
         "metres": 512,
         "street": "Lim Ah Pin Road",
-        "terms": "lim ah pin road cc coc"
+        "terms": "lim ah pin road coc cc"
       },
       {
         "name": "Aroozoo Avenue Playground",
@@ -27029,6 +27078,14 @@
         "terms": "rp"
       },
       {
+        "name": "The Midtown",
+        "kind": "mall",
+        "exit": "B",
+        "metres": 303,
+        "street": "Upper Serangoon Road",
+        "terms": "upper serangoon road tm"
+      },
+      {
         "name": "Fun With Abacus",
         "kind": "school",
         "exit": "B",
@@ -27076,7 +27133,7 @@
         "kind": "clinic",
         "exit": "B",
         "metres": 324,
-        "terms": "ccc tccc"
+        "terms": "tccc ccc"
       },
       {
         "name": "Dr Plus Medical & Paincare Hougang",
@@ -27135,7 +27192,7 @@
         "name": "Harmony Park",
         "kind": "park",
         "exit": "B",
-        "metres": 407,
+        "metres": 409,
         "terms": "hp"
       },
       {
@@ -27151,14 +27208,6 @@
         "exit": "C",
         "metres": 532,
         "terms": "ass"
-      },
-      {
-        "name": "CHIJ (Our Lady of the Nativity) Primary School",
-        "kind": "school",
-        "exit": "B",
-        "metres": 542,
-        "street": "Upper Serangoon Road",
-        "terms": "upper serangoon road colotnps colnps"
       }
     ],
     "NE15": [
@@ -27177,12 +27226,10 @@
         "terms": "smg"
       },
       {
-        "name": "ProHealth Medical Group",
+        "name": "ProHealth",
         "kind": "clinic",
         "exit": "B",
-        "metres": 36,
-        "street": "Compassvale Link",
-        "terms": "compassvale link pmg"
+        "metres": 36
       },
       {
         "name": "NTWU Canteen",
@@ -27291,7 +27338,7 @@
         "kind": "worship",
         "exit": "A",
         "metres": 310,
-        "terms": "cjclds tcojcolds"
+        "terms": "tcojcolds cjclds"
       },
       {
         "name": "Food Paradise",
@@ -27317,11 +27364,11 @@
         "terms": "compassvale bow sc"
       },
       {
-        "name": "Healthway Medical",
+        "name": "Health way Medical",
         "kind": "clinic",
         "exit": "B",
         "metres": 418,
-        "terms": "hm"
+        "terms": "hwm"
       },
       {
         "name": "Happy Hawkers",
@@ -27350,7 +27397,7 @@
         "kind": "clinic",
         "exit": "A",
         "metres": 491,
-        "terms": "otfcs totfcs"
+        "terms": "totfcs otfcs"
       },
       {
         "name": "Anchorvale 303 Foodcourt",
@@ -27447,7 +27494,7 @@
         "kind": "clinic",
         "exit": "A",
         "metres": 54,
-        "terms": "ksc tksc"
+        "terms": "tksc ksc"
       },
       {
         "name": "Eu Yan Sang",
@@ -27483,7 +27530,7 @@
         "kind": "school",
         "exit": "D",
         "metres": 106,
-        "terms": "das dasslc daosslc"
+        "terms": "das daosslc dasslc"
       },
       {
         "name": "Compassvale Mast Residents' Network",
@@ -27632,7 +27679,7 @@
         "exit": "C",
         "metres": 489,
         "street": "Compassvale Walk",
-        "terms": "ministry education compassvale walk skps me moe"
+        "terms": "ministry education compassvale walk skps moe me"
       },
       {
         "name": "Koufu @ SKGH",
@@ -27965,7 +28012,7 @@
         "name": "Punggol Waterway Park",
         "kind": "park",
         "exit": "B",
-        "metres": 531,
+        "metres": 534,
         "terms": "pwp"
       },
       {
@@ -28002,11 +28049,12 @@
     ],
     "NS1": [
       {
-        "name": "Cathay Cineplex",
+        "name": "Shaw Theatres JEM",
         "kind": "cinema",
         "exit": "C",
         "metres": 44,
-        "terms": "cc"
+        "street": "JEM",
+        "terms": "stj"
       },
       {
         "name": "Kopitiam",
@@ -28338,20 +28386,20 @@
         "terms": "fjfc"
       },
       {
+        "name": "Lian Hua Primary School",
+        "kind": "school",
+        "exit": "A",
+        "metres": 672,
+        "street": "Bukit Batok Street 52",
+        "terms": "bukit batok street 52 lhps"
+      },
+      {
         "name": "Bukit Batok Presbyterian Church",
         "kind": "worship",
         "exit": "D",
         "metres": 672,
         "street": "Bukit Batok Street 11",
         "terms": "street 11 bbpc"
-      },
-      {
-        "name": "Lian Hua Primary School",
-        "kind": "school",
-        "exit": "A",
-        "metres": 673,
-        "street": "Bukit Batok Street 52",
-        "terms": "bukit batok street 52 lhps"
       }
     ],
     "NS3": [
@@ -28379,6 +28427,21 @@
         "terms": "batok west avenue 5 bgsh"
       },
       {
+        "name": "Sin Huat Lee Restaurant",
+        "kind": "hawker",
+        "exit": "C",
+        "metres": 112,
+        "street": "Bukit Batok Street 31",
+        "terms": "bukit batok street 31 shlr"
+      },
+      {
+        "name": "Chang Cheng Mee Wah",
+        "kind": "hawker",
+        "exit": "C",
+        "metres": 159,
+        "terms": "ccmw"
+      },
+      {
         "name": "Bukit Gombak Stadium",
         "kind": "stadium",
         "exit": "B",
@@ -28386,11 +28449,28 @@
         "terms": "bgs"
       },
       {
+        "name": "Perdaus",
+        "kind": "communityClub",
+        "exit": "D",
+        "metres": 176,
+        "street": "Bukit Batok Street 31",
+        "terms": "bukit batok street 31"
+      },
+      {
+        "name": "Air Padang",
+        "kind": "hawker",
+        "exit": "C",
+        "metres": 201,
+        "street": "Bukit Batok Street 31",
+        "terms": "bukit batok street 31 ap"
+      },
+      {
         "name": "Meng Soon Huat Food Centre",
         "kind": "hawker",
         "exit": "D",
-        "metres": 211,
-        "terms": "mshfc"
+        "metres": 222,
+        "street": "Bukit Batok Street 31",
+        "terms": "bukit batok street 31 mshfc"
       },
       {
         "name": "Kedai Kopi",
@@ -28424,11 +28504,12 @@
         "terms": "npp hknnpp"
       },
       {
-        "name": "food clique",
+        "name": "foodclique",
         "kind": "hawker",
         "exit": "D",
-        "metres": 316,
-        "terms": "fc"
+        "metres": 319,
+        "street": "Bukit Batok Street 34",
+        "terms": "bukit batok street 34"
       },
       {
         "name": "Bukit Batok Town Park",
@@ -28456,17 +28537,9 @@
         "name": "Eightways",
         "kind": "hawker",
         "exit": "D",
-        "metres": 500,
+        "metres": 525,
         "street": "Bukit Batok West Avenue 5",
         "terms": "bukit batok west avenue 5"
-      },
-      {
-        "name": "Bukit Gombak Community Centre",
-        "kind": "communityClub",
-        "exit": "D",
-        "metres": 530,
-        "street": "Bukit Batok West Avenue 5",
-        "terms": "batok west avenue 5 bgcc"
       },
       {
         "name": "Lian Hua Primary School",
@@ -28608,7 +28681,7 @@
         "kind": "park",
         "exit": "B",
         "metres": 595,
-        "terms": "akh takh"
+        "terms": "takh akh"
       },
       {
         "name": "Tembusu Park",
@@ -28912,12 +28985,12 @@
         "terms": "nea wshc"
       },
       {
-        "name": "Marsiling Mall Hawker Centre",
+        "name": "Marsiling Mall",
         "kind": "mall",
         "exit": "B",
         "metres": 623,
         "street": "Woodlands Street 12",
-        "terms": "woodlands street 12 mmhc"
+        "terms": "woodlands street 12 mm"
       },
       {
         "name": "Woodlands Sports Hall",
@@ -28939,7 +29012,7 @@
         "exit": "B",
         "metres": 684,
         "street": "Woodlands Avenue 1",
-        "terms": "woodlands avenue 1 csa cosa"
+        "terms": "woodlands avenue 1 cosa csa"
       },
       {
         "name": "Woodlands Town Park East",
@@ -29207,14 +29280,6 @@
         "terms": "chmi"
       },
       {
-        "name": "Healthway Medical (Admiralty)",
-        "kind": "clinic",
-        "exit": "C",
-        "metres": 106,
-        "street": "Woodlands Drive 70",
-        "terms": "woodlands drive 70 hma"
-      },
-      {
         "name": "Woodlands Galaxy Community Club",
         "kind": "communityClub",
         "exit": "D",
@@ -29324,7 +29389,9 @@
         "name": "888 Plaza",
         "kind": "mall",
         "exit": "B",
-        "metres": 638
+        "metres": 637,
+        "street": "Woodlands Drive 50",
+        "terms": "woodlands drive 50"
       }
     ],
     "NS11": [
@@ -29340,7 +29407,7 @@
         "name": "Sun Plaza",
         "kind": "mall",
         "exit": "B",
-        "metres": 71,
+        "metres": 72,
         "street": "Sembawang Drive",
         "terms": "sembawang drive sp"
       },
@@ -29470,8 +29537,7 @@
         "kind": "clinic",
         "exit": "C",
         "metres": 566,
-        "street": "406 Sembawang Drive",
-        "terms": "406 sembawang drive hm"
+        "terms": "hm"
       },
       {
         "name": "Montreal Green",
@@ -29951,6 +30017,14 @@
         "terms": "gp"
       },
       {
+        "name": "Live Turtle Museum",
+        "kind": "museum",
+        "exit": "B",
+        "metres": 421,
+        "street": "Chencharu Close",
+        "terms": "chencharu close ltm"
+      },
+      {
         "name": "United Health Family Clinic & Surgery",
         "kind": "clinic",
         "exit": "D",
@@ -29971,7 +30045,8 @@
         "kind": "worship",
         "exit": "D",
         "metres": 484,
-        "terms": "gsy"
+        "street": "Yishun Ring Road",
+        "terms": "ring road gsy"
       },
       {
         "name": "Rainbow Centre - Yishun Park School",
@@ -29980,13 +30055,6 @@
         "metres": 514,
         "street": "Yishun Street 61",
         "terms": "street 61 rcyps"
-      },
-      {
-        "name": "Live Turtle Museum",
-        "kind": "museum",
-        "exit": "B",
-        "metres": 516,
-        "terms": "ltm"
       },
       {
         "name": "Dong Shan Temple",
@@ -30773,13 +30841,6 @@
         "terms": "jalan pemimpin cpmt"
       },
       {
-        "name": "Bishan Harmony Park",
-        "kind": "park",
-        "exit": "C",
-        "metres": 621,
-        "terms": "bhp"
-      },
-      {
         "name": "Bishan Active Park",
         "kind": "park",
         "exit": "B",
@@ -30804,6 +30865,14 @@
       {
         "name": "Raffles Institution",
         "kind": "school",
+        "exit": "C",
+        "metres": 671,
+        "street": "Raffles Institution Lane",
+        "terms": "lane ri"
+      },
+      {
+        "name": "Raffles Institution",
+        "kind": "college",
         "exit": "C",
         "metres": 671,
         "street": "Raffles Institution Lane",
@@ -30889,13 +30958,6 @@
         "terms": "moe braddell rise rgss"
       },
       {
-        "name": "Bishan Harmony Park",
-        "kind": "park",
-        "exit": "A",
-        "metres": 463,
-        "terms": "bhp"
-      },
-      {
         "name": "Toa Payoh Seu Teck Sean Tong",
         "kind": "worship",
         "exit": "C",
@@ -30964,7 +31026,7 @@
         "exit": "B",
         "metres": 656,
         "street": "Toa Payoh Rise",
-        "terms": "ministry education toa payoh rise ls me moe"
+        "terms": "ministry education toa payoh rise ls moe me"
       },
       {
         "name": "Bishan East Open Space",
@@ -31022,7 +31084,7 @@
         "name": "HDB Hub",
         "kind": "mall",
         "exit": "A",
-        "metres": 94,
+        "metres": 96,
         "street": "Lorong 6 Toa Payoh",
         "terms": "lorong 6 toa payoh hh"
       },
@@ -31039,7 +31101,7 @@
         "exit": "A",
         "metres": 104,
         "street": "Lorong 6 Toa Payoh",
-        "terms": "hdb lorong 6 toa payoh cea cfea"
+        "terms": "hdb lorong 6 toa payoh cfea cea"
       },
       {
         "name": "Housing & Development Board",
@@ -31209,7 +31271,7 @@
         "exit": "D",
         "metres": 429,
         "street": "Lorong 1 Toa Payoh",
-        "terms": "sisters infant jesus convent thr holy lorong 1 ctpss sij sotij"
+        "terms": "sisters infant jesus convent thr holy lorong 1 ctpss sotij sij"
       },
       {
         "name": "Church of the Risen Christ",
@@ -31248,7 +31310,7 @@
         "exit": "D",
         "metres": 456,
         "street": "Lorong 1 Toa Payoh",
-        "terms": "sisters infant jesus convent thr holy lorong 1 ctpps sij sotij"
+        "terms": "sisters infant jesus convent thr holy lorong 1 ctpps sotij sij"
       },
       {
         "name": "Sun Yat Sen Nanyang Museum",
@@ -31420,7 +31482,7 @@
         "exit": "A",
         "metres": 199,
         "street": "Thomson Road",
-        "terms": "novena thomson road csa cosa"
+        "terms": "novena thomson road cosa csa"
       },
       {
         "name": "Tan Tock Seng Hospital",
@@ -31597,7 +31659,7 @@
         "kind": "hospital",
         "exit": "A",
         "metres": 455,
-        "terms": "btflc btfalc"
+        "terms": "btfalc btflc"
       }
     ],
     "NS21": [
@@ -31620,7 +31682,7 @@
         "name": "Sheraton Towers Singapore",
         "kind": "hotel",
         "exit": "A",
-        "metres": 173,
+        "metres": 167,
         "street": "Scotts Road",
         "terms": "scotts road sts"
       },
@@ -31646,7 +31708,7 @@
         "exit": "C",
         "metres": 219,
         "street": "Bukit Timah Road",
-        "terms": "bukit timah road cjclds tcojcolds"
+        "terms": "bukit timah road tcojcolds cjclds"
       },
       {
         "name": "Life Bible-Presbyterian Church",
@@ -31664,11 +31726,12 @@
         "terms": "osr"
       },
       {
-        "name": "National Environment Authority (NEA)",
+        "name": "Environment Building",
         "kind": "government",
         "exit": "B",
-        "metres": 280,
-        "terms": "nean"
+        "metres": 264,
+        "street": "Scotts Road",
+        "terms": "national authority nea scotts road eb nean"
       },
       {
         "name": "Newton Life Church",
@@ -31682,8 +31745,8 @@
         "name": "Ministry Of Education Language Centre (Newton)",
         "kind": "school",
         "exit": "B",
-        "metres": 291,
-        "terms": "moelcn melcn"
+        "metres": 290,
+        "terms": "moe moelcn melcn"
       },
       {
         "name": "Hakka Methodist Church",
@@ -31774,7 +31837,7 @@
         "name": "York Hotel",
         "kind": "hotel",
         "exit": "B",
-        "metres": 664,
+        "metres": 632,
         "street": "Mount Elizabeth",
         "terms": "mount elizabeth yh"
       },
@@ -32019,14 +32082,6 @@
         "terms": "meh"
       },
       {
-        "name": "Boulder World",
-        "kind": "sports",
-        "exit": "3",
-        "metres": 308,
-        "street": "Orchard Road",
-        "terms": "orchard road bw"
-      },
-      {
         "name": "Parkway Cancer Centre",
         "kind": "clinic",
         "exit": "3",
@@ -32082,20 +32137,28 @@
         "terms": "claymore road ppo"
       },
       {
-        "name": "York Hotel",
-        "kind": "hotel",
-        "exit": "1",
-        "metres": 373,
-        "street": "Mount Elizabeth",
-        "terms": "mount elizabeth yh"
-      },
-      {
         "name": "Orchard RendezVous Hotel",
         "kind": "hotel",
         "exit": "11",
         "metres": 396,
         "street": "Tanglin Road",
         "terms": "far east hospitality tanglin road orh feh"
+      },
+      {
+        "name": "York Hotel",
+        "kind": "hotel",
+        "exit": "1",
+        "metres": 398,
+        "street": "Mount Elizabeth",
+        "terms": "mount elizabeth yh"
+      },
+      {
+        "name": "Delfi Orchard",
+        "kind": "mall",
+        "exit": "11",
+        "metres": 399,
+        "street": "Orchard Road",
+        "terms": "road do"
       }
     ],
     "NS23": [
@@ -32120,7 +32183,7 @@
         "exit": "C",
         "metres": 33,
         "street": "Orchard Road",
-        "terms": "shangri la hotels resorts orchard road hjo slhr slhar"
+        "terms": "shangri la hotels resorts orchard road hjo slhar slhr"
       },
       {
         "name": "313@Somerset",
@@ -32186,7 +32249,7 @@
         "name": "Orchard Gateway @ Emerald",
         "kind": "mall",
         "exit": "B",
-        "metres": 109,
+        "metres": 105,
         "street": "Orchard Road",
         "terms": "road oge"
       },
@@ -32266,14 +32329,6 @@
         "metres": 185,
         "street": "Orchard Road",
         "terms": "frasers property orchard road tc fp"
-      },
-      {
-        "name": "Shiok Shiok Night Market",
-        "kind": "hawker",
-        "exit": "D",
-        "metres": 189,
-        "street": "Cavenagh Road",
-        "terms": "cavenagh road ssnm"
       },
       {
         "name": "Orchard Plaza",
@@ -32405,6 +32460,14 @@
         "metres": 280,
         "street": "Orchard Road",
         "terms": "orchard road chs"
+      },
+      {
+        "name": "Concorde Hotel",
+        "kind": "hotel",
+        "exit": "D",
+        "metres": 284,
+        "street": "Orchard Road",
+        "terms": "orchard road ch"
       }
     ],
     "NS24": [
@@ -32471,7 +32534,7 @@
         "name": "Fort Canning Tree Tunnel",
         "kind": "attraction",
         "exit": "A",
-        "metres": 139,
+        "metres": 138,
         "terms": "fctt"
       },
       {
@@ -32617,7 +32680,7 @@
         "kind": "college",
         "exit": "A",
         "metres": 319,
-        "terms": "management university scis socais smu"
+        "terms": "management university socais scis smu"
       },
       {
         "name": "Por Vida Skateboarding",
@@ -32638,7 +32701,7 @@
         "name": "GR.ID",
         "kind": "mall",
         "exit": "A",
-        "metres": 339,
+        "metres": 333,
         "street": "Selegie Road",
         "terms": "selegie road gi"
       },
@@ -32754,7 +32817,7 @@
         "kind": "hotel",
         "exit": "A",
         "metres": 104,
-        "terms": "ss sts"
+        "terms": "sts ss"
       },
       {
         "name": "The Capitol Kempinski Hotel",
@@ -32784,7 +32847,7 @@
         "kind": "hawker",
         "exit": "A",
         "metres": 138,
-        "terms": "junction fp tfp fj"
+        "terms": "junction tfp fp fj"
       },
       {
         "name": "Peninsula Plaza",
@@ -32835,7 +32898,7 @@
         "kind": "clinic",
         "exit": "B",
         "metres": 203,
-        "terms": "hr thr"
+        "terms": "thr hr"
       },
       {
         "name": "APT. Stamford Place",
@@ -32873,7 +32936,7 @@
         "kind": "college",
         "exit": "D",
         "metres": 222,
-        "terms": "management university lkcsb lkcsob smu"
+        "terms": "management university lkcsob lkcsb smu"
       },
       {
         "name": "Esplanade Xchange",
@@ -32934,7 +32997,7 @@
         "exit": "D",
         "metres": 297,
         "street": "Queen Street",
-        "terms": "queen street cgs cotgs"
+        "terms": "queen street cotgs cgs"
       },
       {
         "name": "Climb Central",
@@ -33007,7 +33070,7 @@
         "name": "Singapore Management University",
         "kind": "university",
         "exit": "D",
-        "metres": 344,
+        "metres": 342,
         "street": "Victoria Street",
         "terms": "smu victoria street"
       }
@@ -33073,7 +33136,7 @@
         "exit": "H",
         "metres": 193,
         "street": "Fullerton Square",
-        "terms": "square fh tfh"
+        "terms": "square tfh fh"
       },
       {
         "name": "The Medical Clinic",
@@ -33081,7 +33144,7 @@
         "exit": "B",
         "metres": 200,
         "street": "Phillip Street",
-        "terms": "phillip street mc tmc"
+        "terms": "phillip street tmc mc"
       },
       {
         "name": "Delhi Express (Indian Cuisine)",
@@ -33181,7 +33244,7 @@
         "kind": "hawker",
         "exit": "F",
         "metres": 223,
-        "terms": "bhhbn tbhhbn"
+        "terms": "tbhhbn bhhbn"
       },
       {
         "name": "Kway Chap (Pig's Organ Soup)",
@@ -33337,7 +33400,7 @@
         "kind": "park",
         "exit": "1",
         "metres": 346,
-        "terms": "lmb tlmb"
+        "terms": "tlmb lmb"
       },
       {
         "name": "Red Dot Design Museum",
@@ -33549,7 +33612,7 @@
         "kind": "hawker",
         "exit": "1",
         "metres": 585,
-        "terms": "bhhbn tbhhbn"
+        "terms": "tbhhbn bhhbn"
       },
       {
         "name": "Workforce Singapore",
@@ -34187,7 +34250,7 @@
         "exit": "B",
         "metres": 591,
         "street": "Punggol Drive",
-        "terms": "ministry education punggol drive wps me moe"
+        "terms": "ministry education punggol drive wps moe me"
       },
       {
         "name": "Greendale Secondary School",
@@ -34256,7 +34319,7 @@
         "exit": "B",
         "metres": 207,
         "street": "Punggol Drive",
-        "terms": "ministry education punggol drive wps me moe"
+        "terms": "ministry education punggol drive wps moe me"
       },
       {
         "name": "Leong Eating House",
@@ -34412,7 +34475,7 @@
         "exit": "A",
         "metres": 315,
         "street": "Edgefield Plains",
-        "terms": "ministry education edgefield plains ops me moe"
+        "terms": "ministry education edgefield plains ops moe me"
       },
       {
         "name": "Happy Hawkers",
@@ -34503,7 +34566,7 @@
         "exit": "B",
         "metres": 699,
         "street": "Punggol Drive",
-        "terms": "ministry education punggol drive wps me moe"
+        "terms": "ministry education punggol drive wps moe me"
       }
     ],
     "PE7": [
@@ -34521,7 +34584,7 @@
         "exit": "A",
         "metres": 249,
         "street": "Edgefield Plains",
-        "terms": "ministry education edgefield plains ops me moe"
+        "terms": "ministry education edgefield plains ops moe me"
       },
       {
         "name": "Common Green",
@@ -34670,7 +34733,7 @@
         "name": "Punggol Waterway Park",
         "kind": "park",
         "exit": "A",
-        "metres": 636,
+        "metres": 631,
         "terms": "pwp"
       },
       {
@@ -34678,7 +34741,7 @@
         "kind": "school",
         "exit": "A",
         "metres": 643,
-        "terms": "aacsa aaocsa"
+        "terms": "aaocsa aacsa"
       },
       {
         "name": "GM",
@@ -34952,7 +35015,7 @@
         "name": "Punggol Waterway Park",
         "kind": "park",
         "exit": "B",
-        "metres": 531,
+        "metres": 534,
         "terms": "pwp"
       },
       {
@@ -34992,7 +35055,7 @@
         "name": "Punggol Waterway Park",
         "kind": "park",
         "exit": "A",
-        "metres": 40,
+        "metres": 37,
         "terms": "pwp"
       },
       {
@@ -35016,7 +35079,7 @@
         "kind": "school",
         "exit": "A",
         "metres": 121,
-        "terms": "aacsa aaocsa"
+        "terms": "aaocsa aacsa"
       },
       {
         "name": "ServiceSG Centre",
@@ -35249,7 +35312,7 @@
         "kind": "school",
         "exit": "B",
         "metres": 298,
-        "terms": "aacsa aaocsa"
+        "terms": "aaocsa aacsa"
       },
       {
         "name": "Campus Heart",
@@ -35274,17 +35337,17 @@
         "terms": "way gpdd"
       },
       {
+        "name": "Punggol Waterway Park",
+        "kind": "park",
+        "exit": "B",
+        "metres": 431,
+        "terms": "pwp"
+      },
+      {
         "name": "Wholesome",
         "kind": "hawker",
         "exit": "A",
         "metres": 433
-      },
-      {
-        "name": "Punggol Waterway Park",
-        "kind": "park",
-        "exit": "B",
-        "metres": 434,
-        "terms": "pwp"
       },
       {
         "name": "Punggol Regional Library",
@@ -35425,7 +35488,7 @@
         "exit": "A",
         "metres": 698,
         "street": "Ponggol Twenty-Fourth Avenue",
-        "terms": "ponggol twenty fourth avenue rlcc rolcc"
+        "terms": "ponggol twenty fourth avenue rolcc rlcc"
       },
       {
         "name": "Fo Guang Shan (Singapore)",
@@ -35450,7 +35513,7 @@
         "exit": "A",
         "metres": 290,
         "street": "Ponggol Twenty-Fourth Avenue",
-        "terms": "ponggol twenty fourth avenue rlcc rolcc"
+        "terms": "ponggol twenty fourth avenue rolcc rlcc"
       },
       {
         "name": "GovTech (Punggol Digital District)",
@@ -35852,19 +35915,19 @@
         "terms": "pfc"
       },
       {
-        "name": "Punggol Waterway Park",
-        "kind": "park",
-        "exit": "B",
-        "metres": 553,
-        "terms": "pwp"
-      },
-      {
         "name": "Northshore Plaza I",
         "kind": "mall",
         "exit": "B",
         "metres": 558,
         "street": "Northshore Drive",
         "terms": "drive npi"
+      },
+      {
+        "name": "Punggol Waterway Park",
+        "kind": "park",
+        "exit": "B",
+        "metres": 559,
+        "terms": "pwp"
       },
       {
         "name": "Play Facto School",
@@ -35942,7 +36005,7 @@
         "kind": "school",
         "exit": "B",
         "metres": 626,
-        "terms": "aacsa aaocsa"
+        "terms": "aaocsa aacsa"
       },
       {
         "name": "One Punggol Community Club",
@@ -36278,7 +36341,7 @@
         "name": "Punggol Waterway Park",
         "kind": "park",
         "exit": "B",
-        "metres": 683,
+        "metres": 689,
         "terms": "pwp"
       },
       {
@@ -36347,6 +36410,14 @@
         "metres": 336,
         "street": "Punggol Central",
         "terms": "punggol central cott ct"
+      },
+      {
+        "name": "Punggol West Neighbourhood Police Post",
+        "kind": "police",
+        "exit": "A",
+        "metres": 337,
+        "street": "Sumang Lane",
+        "terms": "sumang lane pwnpp"
       },
       {
         "name": "Punggol Green Primary School",
@@ -36639,7 +36710,7 @@
         "kind": "school",
         "exit": "A",
         "metres": 497,
-        "terms": "das dasslc daosslc"
+        "terms": "das daosslc dasslc"
       },
       {
         "name": "Koufu",
@@ -36691,7 +36762,7 @@
         "exit": "A",
         "metres": 567,
         "street": "Compassvale Walk",
-        "terms": "ministry education compassvale walk skps me moe"
+        "terms": "ministry education compassvale walk skps moe me"
       },
       {
         "name": "Common Green",
@@ -36792,7 +36863,7 @@
         "kind": "clinic",
         "exit": "A",
         "metres": 696,
-        "terms": "ksc tksc"
+        "terms": "tksc ksc"
       },
       {
         "name": "Morning Star Sengkang",
@@ -36844,7 +36915,8 @@
         "kind": "worship",
         "exit": "A",
         "metres": 253,
-        "terms": "sct"
+        "street": "Rivervale Crescent",
+        "terms": "rivervale crescent sct"
       },
       {
         "name": "Sengkang Joint Testing & Vaccination Centre",
@@ -36865,9 +36937,10 @@
       {
         "name": "Arulmigu Velmurugan Muneeswarar Temple",
         "kind": "worship",
-        "exit": "B",
-        "metres": 369,
-        "terms": "avmt"
+        "exit": "A",
+        "metres": 365,
+        "street": "Rivervale Crescent",
+        "terms": "rivervale crescent avmt"
       },
       {
         "name": "CHIJ St Joseph's Convent",
@@ -36966,7 +37039,7 @@
         "name": "North Spring Primary School",
         "kind": "school",
         "exit": "B",
-        "metres": 207,
+        "metres": 211,
         "street": "Rivervale Street",
         "terms": "rivervale street nsps"
       },
@@ -36974,15 +37047,17 @@
         "name": "Sengkang Combined Temple",
         "kind": "worship",
         "exit": "A",
-        "metres": 224,
-        "terms": "sct"
+        "metres": 228,
+        "street": "Rivervale Crescent",
+        "terms": "rivervale crescent sct"
       },
       {
         "name": "Arulmigu Velmurugan Muneeswarar Temple",
         "kind": "worship",
         "exit": "A",
-        "metres": 311,
-        "terms": "avmt"
+        "metres": 306,
+        "street": "Rivervale Crescent",
+        "terms": "rivervale crescent avmt"
       },
       {
         "name": "The Coffeehood & Tea Hall",
@@ -37199,7 +37274,7 @@
         "exit": "A",
         "metres": 691,
         "street": "Compassvale Walk",
-        "terms": "ministry education compassvale walk skps me moe"
+        "terms": "ministry education compassvale walk skps moe me"
       },
       {
         "name": "Rivervale Community Centre",
@@ -37342,6 +37417,13 @@
         "terms": "compassvale link hh"
       },
       {
+        "name": "Health way Medical",
+        "kind": "clinic",
+        "exit": "A",
+        "metres": 561,
+        "terms": "hwm"
+      },
+      {
         "name": "Mutual Healthcare Medical Clinic",
         "kind": "clinic",
         "exit": "A",
@@ -37383,7 +37465,7 @@
         "exit": "A",
         "metres": 668,
         "street": "Compassvale Walk",
-        "terms": "ministry education compassvale walk skps me moe"
+        "terms": "ministry education compassvale walk skps moe me"
       },
       {
         "name": "Sengkang Family Service Centre @206B",
@@ -37411,11 +37493,11 @@
         "terms": "compassvale link hh"
       },
       {
-        "name": "Healthway Medical",
+        "name": "Health way Medical",
         "kind": "clinic",
         "exit": "B",
         "metres": 74,
-        "terms": "hm"
+        "terms": "hwm"
       },
       {
         "name": "Compassvale Lane Park",
@@ -37459,7 +37541,7 @@
         "kind": "worship",
         "exit": "B",
         "metres": 268,
-        "terms": "cjclds tcojcolds"
+        "terms": "tcojcolds cjclds"
       },
       {
         "name": "Sengkang Secondary School",
@@ -37507,12 +37589,10 @@
         "terms": "punggol road ptbt"
       },
       {
-        "name": "ProHealth Medical Group",
+        "name": "ProHealth",
         "kind": "clinic",
         "exit": "B",
-        "metres": 416,
-        "street": "Compassvale Link",
-        "terms": "compassvale link pmg"
+        "metres": 416
       },
       {
         "name": "Kopitiam City",
@@ -37567,6 +37647,13 @@
         "kind": "hawker",
         "exit": "A",
         "metres": 493
+      },
+      {
+        "name": "Healthway Medical",
+        "kind": "clinic",
+        "exit": "A",
+        "metres": 494,
+        "terms": "hm"
       },
       {
         "name": "Food Paradise",
@@ -37682,14 +37769,7 @@
         "exit": "A",
         "metres": 621,
         "street": "Compassvale Walk",
-        "terms": "ministry education compassvale walk skps me moe"
-      },
-      {
-        "name": "Kidslink Children's Clinic",
-        "kind": "clinic",
-        "exit": "A",
-        "metres": 648,
-        "terms": "kcsc"
+        "terms": "ministry education compassvale walk skps moe me"
       }
     ],
     "STC": [
@@ -37728,7 +37808,7 @@
         "kind": "clinic",
         "exit": "A",
         "metres": 54,
-        "terms": "ksc tksc"
+        "terms": "tksc ksc"
       },
       {
         "name": "Eu Yan Sang",
@@ -37764,7 +37844,7 @@
         "kind": "school",
         "exit": "D",
         "metres": 106,
-        "terms": "das dasslc daosslc"
+        "terms": "das daosslc dasslc"
       },
       {
         "name": "Compassvale Mast Residents' Network",
@@ -37913,7 +37993,7 @@
         "exit": "C",
         "metres": 489,
         "street": "Compassvale Walk",
-        "terms": "ministry education compassvale walk skps me moe"
+        "terms": "ministry education compassvale walk skps moe me"
       },
       {
         "name": "Koufu @ SKGH",
@@ -38112,7 +38192,7 @@
         "kind": "school",
         "exit": "B",
         "metres": 434,
-        "terms": "das dasslc daosslc"
+        "terms": "das daosslc dasslc"
       },
       {
         "name": "7 stars Coffeeshop (hokkien mee)",
@@ -38231,7 +38311,7 @@
         "kind": "clinic",
         "exit": "B",
         "metres": 524,
-        "terms": "ksc tksc"
+        "terms": "tksc ksc"
       },
       {
         "name": "Nan Chiau Primary School",
@@ -38785,7 +38865,7 @@
         "exit": "B",
         "metres": 630,
         "street": "Sengkang West Avenue",
-        "terms": "allgreen properties sengkang west avenue sm tsm ap"
+        "terms": "allgreen properties sengkang west avenue tsm sm ap"
       },
       {
         "name": "Etern Medical Clinic (Sengkang)",
@@ -38861,7 +38941,7 @@
         "exit": "A",
         "metres": 68,
         "street": "Sengkang West Avenue",
-        "terms": "allgreen properties sengkang west avenue sm tsm ap"
+        "terms": "allgreen properties sengkang west avenue tsm sm ap"
       },
       {
         "name": "Etern Medical Clinic (Sengkang)",
@@ -39200,7 +39280,7 @@
         "exit": "A",
         "metres": 444,
         "street": "Sengkang West Avenue",
-        "terms": "allgreen properties sengkang west avenue sm tsm ap"
+        "terms": "allgreen properties sengkang west avenue tsm sm ap"
       },
       {
         "name": "Singapura Heritage",
@@ -39328,7 +39408,7 @@
         "kind": "clinic",
         "exit": "B",
         "metres": 549,
-        "terms": "otfcs totfcs"
+        "terms": "totfcs otfcs"
       },
       {
         "name": "Common Green",
@@ -39365,7 +39445,7 @@
         "kind": "clinic",
         "exit": "B",
         "metres": 32,
-        "terms": "otfcs totfcs"
+        "terms": "totfcs otfcs"
       },
       {
         "name": "Anchorvale 303 Foodcourt",
@@ -39516,7 +39596,7 @@
         "kind": "worship",
         "exit": "A",
         "metres": 544,
-        "terms": "cjclds tcojcolds"
+        "terms": "tcojcolds cjclds"
       },
       {
         "name": "Buangkok Community Centre",
@@ -39542,12 +39622,10 @@
         "terms": "anchorvale link ncps"
       },
       {
-        "name": "ProHealth Medical Group",
+        "name": "ProHealth",
         "kind": "clinic",
         "exit": "A",
-        "metres": 588,
-        "street": "Compassvale Link",
-        "terms": "compassvale link pmg"
+        "metres": 588
       },
       {
         "name": "Compassvale Mast Residents' Network",
@@ -39862,11 +39940,11 @@
         "terms": "wspc"
       },
       {
-        "name": "Woodlands Hospital",
+        "name": "Woodlands Health Campus",
         "kind": "hospital",
         "exit": "5",
         "metres": 145,
-        "terms": "wh"
+        "terms": "whc"
       },
       {
         "name": "Woodlands Healing Garden",
@@ -40191,7 +40269,7 @@
         "kind": "clinic",
         "exit": "5",
         "metres": 282,
-        "terms": "yfcs yfcas"
+        "terms": "yfcas yfcs"
       },
       {
         "name": "CHIJ St Nicholas Girls' School",
@@ -40461,7 +40539,7 @@
         "kind": "clinic",
         "exit": "1",
         "metres": 618,
-        "terms": "yfcs yfcas"
+        "terms": "yfcas yfcs"
       },
       {
         "name": "Jin Ying Tang Temple",
@@ -40522,7 +40600,7 @@
         "exit": "3",
         "metres": 72,
         "street": "Upper Thomson Road",
-        "terms": "upper thomson road chs coths"
+        "terms": "upper thomson road coths chs"
       },
       {
         "name": "Zeh Shing Keong Temple",
@@ -40544,7 +40622,7 @@
         "kind": "clinic",
         "exit": "1",
         "metres": 119,
-        "terms": "ycgcsw ycgcsfw"
+        "terms": "ycgcsfw ycgcsw"
       },
       {
         "name": "Mar Thoma Syrian Church in Singapore",
@@ -40691,7 +40769,7 @@
         "exit": "3",
         "metres": 503,
         "street": "Sin Ming Road",
-        "terms": "sin ming road cs cos"
+        "terms": "sin ming road cos cs"
       },
       {
         "name": "Pool Deck",
@@ -40752,7 +40830,7 @@
         "exit": "2",
         "metres": 90,
         "street": "Toa Payoh Rise",
-        "terms": "ministry education toa payoh rise ls me moe"
+        "terms": "ministry education toa payoh rise ls moe me"
       },
       {
         "name": "Marymount Convent School",
@@ -40768,7 +40846,7 @@
         "exit": "4",
         "metres": 333,
         "street": "Thomson Road",
-        "terms": "msf thomson road msfd mosafd"
+        "terms": "msf thomson road mosafd msfd"
       },
       {
         "name": "Seventh Day Adventist Community Church",
@@ -40815,7 +40893,7 @@
         "exit": "4",
         "metres": 490,
         "street": "Lorong 1 Toa Payoh",
-        "terms": "sisters infant jesus convent thr holy lorong 1 ctpps sij sotij"
+        "terms": "sisters infant jesus convent thr holy lorong 1 ctpps sotij sij"
       },
       {
         "name": "Mount Alvernia Hospital",
@@ -40845,7 +40923,7 @@
         "exit": "4",
         "metres": 565,
         "street": "Lorong 1 Toa Payoh",
-        "terms": "sisters infant jesus convent thr holy lorong 1 ctpss sij sotij"
+        "terms": "sisters infant jesus convent thr holy lorong 1 ctpss sotij sij"
       },
       {
         "name": "Toa Payoh West CC",
@@ -40992,7 +41070,7 @@
         "exit": "3",
         "metres": 668,
         "street": "Evans Road",
-        "terms": "evans road mesrc moesrc me moe"
+        "terms": "evans road moesrc mesrc moe me"
       }
     ],
     "TE12": [
@@ -41040,7 +41118,7 @@
         "kind": "government",
         "exit": "2",
         "metres": 253,
-        "terms": "mfas mofas"
+        "terms": "mofas mfas"
       },
       {
         "name": "Marsh Garden",
@@ -41128,7 +41206,7 @@
         "exit": "2",
         "metres": 541,
         "street": "Cuscaden Road",
-        "terms": "shangri la hotels resorts cuscaden road jst slhr slhar"
+        "terms": "shangri la hotels resorts cuscaden road jst slhar slhr"
       },
       {
         "name": "Vanda Miss Joaquim",
@@ -41183,7 +41261,7 @@
         "exit": "1",
         "metres": 78,
         "street": "Cuscaden Road",
-        "terms": "shangri la hotels resorts cuscaden road jst slhr slhar"
+        "terms": "shangri la hotels resorts cuscaden road jst slhar slhr"
       },
       {
         "name": "Tanglin Mall",
@@ -41261,7 +41339,7 @@
         "kind": "government",
         "exit": "1",
         "metres": 578,
-        "terms": "mfas mofas"
+        "terms": "mofas mfas"
       },
       {
         "name": "Four Seasons Hotel",
@@ -41558,14 +41636,6 @@
         "terms": "meh"
       },
       {
-        "name": "Boulder World",
-        "kind": "sports",
-        "exit": "3",
-        "metres": 308,
-        "street": "Orchard Road",
-        "terms": "orchard road bw"
-      },
-      {
         "name": "Parkway Cancer Centre",
         "kind": "clinic",
         "exit": "3",
@@ -41621,20 +41691,28 @@
         "terms": "claymore road ppo"
       },
       {
-        "name": "York Hotel",
-        "kind": "hotel",
-        "exit": "1",
-        "metres": 373,
-        "street": "Mount Elizabeth",
-        "terms": "mount elizabeth yh"
-      },
-      {
         "name": "Orchard RendezVous Hotel",
         "kind": "hotel",
         "exit": "11",
         "metres": 396,
         "street": "Tanglin Road",
         "terms": "far east hospitality tanglin road orh feh"
+      },
+      {
+        "name": "York Hotel",
+        "kind": "hotel",
+        "exit": "1",
+        "metres": 398,
+        "street": "Mount Elizabeth",
+        "terms": "mount elizabeth yh"
+      },
+      {
+        "name": "Delfi Orchard",
+        "kind": "mall",
+        "exit": "11",
+        "metres": 399,
+        "street": "Orchard Road",
+        "terms": "road do"
       }
     ],
     "TE15": [
@@ -41828,7 +41906,7 @@
         "exit": "4",
         "metres": 511,
         "street": "Grange Road",
-        "terms": "mehgr moehgr"
+        "terms": "moehgr mehgr"
       },
       {
         "name": "The Ground Theatre",
@@ -41885,7 +41963,7 @@
         "exit": "1",
         "metres": 570,
         "street": "Kim Yam Road",
-        "terms": "lo behold group kim yam road bb lbg tlbg"
+        "terms": "lo behold group kim yam road bb tlbg lbg"
       },
       {
         "name": "Equilibrium Mixed Martial Arts",
@@ -41898,7 +41976,7 @@
         "name": "Fraser Suites",
         "kind": "hotel",
         "exit": "2",
-        "metres": 585,
+        "metres": 582,
         "street": "River Valley Road",
         "terms": "frasers hospitality river valley road fs fh"
       },
@@ -41908,7 +41986,7 @@
         "exit": "1",
         "metres": 586,
         "street": "Kim Yam Road",
-        "terms": "kim yam road sbl tsbl"
+        "terms": "kim yam road tsbl sbl"
       },
       {
         "name": "Mama Shelter Singapore Orchard",
@@ -41924,7 +42002,7 @@
         "exit": "2",
         "metres": 602,
         "street": "Jalan Bukit Ho Swee",
-        "terms": "jalan bukit ho swee seab seaab"
+        "terms": "jalan bukit ho swee seaab seab"
       },
       {
         "name": "The Warehouse",
@@ -42055,7 +42133,7 @@
         "name": "Tiong Bahru Market",
         "kind": "market",
         "exit": "1",
-        "metres": 262,
+        "metres": 263,
         "street": "Seng Poh Road",
         "terms": "seng poh road tbm"
       },
@@ -42133,7 +42211,7 @@
         "exit": "3",
         "metres": 354,
         "street": "Jalan Bukit Ho Swee",
-        "terms": "jalan bukit ho swee seab seaab"
+        "terms": "jalan bukit ho swee seaab seab"
       },
       {
         "name": "M Social Singapore",
@@ -42319,7 +42397,7 @@
         "kind": "police",
         "exit": "5",
         "metres": 94,
-        "terms": "ministry home affairs cnb mha moha"
+        "terms": "ministry home affairs cnb moha mha"
       },
       {
         "name": "New Majestic Hotel",
@@ -42583,7 +42661,7 @@
         "exit": "2",
         "metres": 51,
         "street": "Erskine Road",
-        "terms": "erskine road sh tsh"
+        "terms": "erskine road tsh sh"
       },
       {
         "name": "Buddha Tooth Relic Temple",
@@ -43104,7 +43182,7 @@
         "kind": "hawker",
         "exit": "6",
         "metres": 304,
-        "terms": "bhhbn tbhhbn"
+        "terms": "tbhhbn bhhbn"
       },
       {
         "name": "Lau Pa Sat",
@@ -43191,7 +43269,7 @@
         "kind": "park",
         "exit": "1",
         "metres": 346,
-        "terms": "lmb tlmb"
+        "terms": "tlmb lmb"
       },
       {
         "name": "Red Dot Design Museum",
@@ -43403,7 +43481,7 @@
         "kind": "hawker",
         "exit": "1",
         "metres": 585,
-        "terms": "bhhbn tbhhbn"
+        "terms": "tbhhbn bhhbn"
       },
       {
         "name": "Workforce Singapore",
@@ -43631,7 +43709,7 @@
         "kind": "clinic",
         "exit": "2",
         "metres": 567,
-        "terms": "bc tbc"
+        "terms": "tbc bc"
       },
       {
         "name": "Sport Singapore",
@@ -43722,7 +43800,7 @@
         "exit": "1",
         "metres": 467,
         "street": "Broadrick Road",
-        "terms": "broadrick road mc mfc"
+        "terms": "broadrick road mfc mc"
       },
       {
         "name": "Jalan Batu Park",
@@ -43880,7 +43958,7 @@
         "name": "Odeon Katong Shopping Complex",
         "kind": "mall",
         "exit": "3",
-        "metres": 682,
+        "metres": 681,
         "street": "Mountbatten Road",
         "terms": "mountbatten road oksc"
       },
@@ -44047,7 +44125,7 @@
         "exit": "3",
         "metres": 109,
         "street": "Marine Parade Road",
-        "terms": "marine parade road cs cos"
+        "terms": "marine parade road cos cs"
       },
       {
         "name": "Mary Chia Beauty and Slimming Specialist",
@@ -44075,7 +44153,7 @@
         "kind": "clinic",
         "exit": "1",
         "metres": 119,
-        "terms": "uhfbs uhfabs"
+        "terms": "uhfabs uhfbs"
       },
       {
         "name": "De Tian Coffee Shop",
@@ -44283,7 +44361,7 @@
         "exit": "3",
         "metres": 270,
         "street": "East Coast Road",
-        "terms": "marine parade east coast road sh tsh"
+        "terms": "marine parade east coast road tsh sh"
       },
       {
         "name": "Jalan Buloh Perindu Playground",
@@ -44411,7 +44489,7 @@
         "exit": "3",
         "metres": 680,
         "street": "Chapel Road",
-        "terms": "chapel road chf cothf"
+        "terms": "chapel road cothf chf"
       },
       {
         "name": "Staccato Music School",
@@ -44453,6 +44531,14 @@
         "terms": "sp"
       },
       {
+        "name": "Sekolah Indonesia Singapura",
+        "kind": "school",
+        "exit": "2",
+        "metres": 302,
+        "street": "Siglap Road",
+        "terms": "siglap road sis"
+      },
+      {
         "name": "Siglap South Community Centre",
         "kind": "communityClub",
         "exit": "3",
@@ -44461,12 +44547,12 @@
         "terms": "palm road sscc"
       },
       {
-        "name": "C & K Family Clinic",
+        "name": "Family Clinic",
         "kind": "clinic",
         "exit": "3",
         "metres": 361,
         "street": "Upper East Coast Road",
-        "terms": "upper east coast road ckfc"
+        "terms": "upper east coast road fc"
       },
       {
         "name": "Siglap Neighbourhood Police Post",
@@ -44489,7 +44575,7 @@
         "exit": "3",
         "metres": 444,
         "street": "Upper East Coast Rd",
-        "terms": "upper east coast rd eag eaog"
+        "terms": "upper east coast rd eaog eag"
       },
       {
         "name": "Health Partners Medical Clinic",
@@ -44580,7 +44666,7 @@
         "exit": "4",
         "metres": 167,
         "street": "Upper East Coast Road",
-        "terms": "upper east coast road cagc caogc"
+        "terms": "upper east coast road caogc cagc"
       },
       {
         "name": "Singapore Hokkien Huay Kuan",
@@ -44617,7 +44703,7 @@
         "name": "Siglap Community Centre",
         "kind": "communityClub",
         "exit": "4",
-        "metres": 626,
+        "metres": 625,
         "street": "Bedok South Road",
         "terms": "bedok south road scc"
       },

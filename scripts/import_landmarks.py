@@ -162,7 +162,10 @@ def acronyms(text: str) -> list[str]:
     trimmed = "".join(
         w[0] for w in words if w.lower() not in {"of", "the", "and", "for"}
     ).lower()
-    return [a for a in {full, trimmed} if len(a) >= 2]
+    # A list, not a set: set order changes between Python runs, which
+    # reordered the search terms of 222 landmarks on a re-import that changed
+    # nothing about them and buried the real changes in the diff.
+    return [a for a in dict.fromkeys([full, trimmed]) if len(a) >= 2]
 
 
 def search_terms(tags: dict, name: str) -> tuple[str, str]:
