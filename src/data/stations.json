@@ -10,7 +10,7 @@
     "stage6": "CC30 Keppel, CC31 Cantonment and CC32 Prince Edward Road: names and codes from LTA GTFS stops.txt; opened 2026-07-12 per Wikidata (P1619). Not in LTA's station exit dataset, so they carry no exits, like Punggol Coast and Hume. Applied by apply_stage6() in scripts/import_stations.py.",
     "coord": "Only present where LTA's station exit dataset has no entry yet, so the map has somewhere to draw the station: the stop coordinate from LTA GTFS Schedule (Train). Everywhere else the map uses the mean of the real exits.",
     "exitSupplement": "An exit carrying a \"source\" field is not in LTA's exit dataset and was added from the sources recorded under _source.supplement in exits.json.",
-    "importedAt": "2026-09-15"
+    "importedAt": "2026-09-24"
   },
   "stations": [
     {
@@ -1828,6 +1828,18 @@
           "code": "C",
           "lng": 103.8488417,
           "lat": 1.2822507
+        },
+        {
+          "code": "D",
+          "lng": 103.8482623,
+          "lat": 1.2827647,
+          "source": "osm+survey"
+        },
+        {
+          "code": "E",
+          "lng": 103.8475842,
+          "lat": 1.2827746,
+          "source": "osm+survey"
         }
       ],
       "dataGaps": []

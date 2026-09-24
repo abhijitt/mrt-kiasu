@@ -3,7 +3,7 @@
     "dataset": "LTA MRT Station Exit",
     "url": "https://data.gov.sg/datasets/d_b39d3a0871985372d7e1637193335da5/view",
     "licence": "Singapore Open Data Licence",
-    "importedAt": "2026-09-15",
+    "importedAt": "2026-09-24",
     "featureCount": 613,
     "supplement": [
       {
@@ -19,6 +19,20 @@
         "code": "F",
         "source": "osm+survey",
         "evidence": "OSM node 3986226733 (railway=subway_entrance, ref=F, v4 2025-09-06), whose mapper noted 'no official letter i think'. The field survey of 2026-09-15 read it as F from the platform, which is the signage evidence that note was missing."
+      },
+      {
+        "station": "Telok Ayer",
+        "kind": "MRT",
+        "code": "D",
+        "source": "osm+survey",
+        "evidence": "OSM node 12629717594 (railway=subway_entrance, ref=D, wheelchair=yes, v1 2025-03-02), corroborated by field survey 2026-09-24 naming Exits D and E from the DT18 platform."
+      },
+      {
+        "station": "Telok Ayer",
+        "kind": "MRT",
+        "code": "E",
+        "source": "osm+survey",
+        "evidence": "OSM node 13569227098 (railway=subway_entrance, ref=E, 'to ICON Link @ Club Street', v1 2026-02-16) and Wikipedia's Telok Ayer article, which dates that link to February 2026; corroborated by field survey 2026-09-24 naming Exit E from the DT18 platform."
       }
     ]
   },
@@ -3839,6 +3853,18 @@
           "code": "C",
           "lng": 103.8488417,
           "lat": 1.2822507
+        },
+        {
+          "code": "D",
+          "lng": 103.8482623,
+          "lat": 1.2827647,
+          "source": "osm+survey"
+        },
+        {
+          "code": "E",
+          "lng": 103.8475842,
+          "lat": 1.2827746,
+          "source": "osm+survey"
         }
       ]
     },

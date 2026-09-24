@@ -256,10 +256,18 @@ async function main() {
 
       // Two features of the same type on one platform must each say where they
       // lead, or the app cannot tell them apart and would have to guess.
+      //
+      // Except a down escalator that leads nowhere: it brings people onto the
+      // platform, servesAlighting() never offers it to anyone getting off, so
+      // there is no choice for it to be confused in. Recording it is still
+      // worth doing — it is on the plan, and it is why the door beside it is
+      // not the way out — and "nowhere" is the true answer for it.
+      const arrivingOnly = f.type === "escalator" && f.travel === "down";
       if (
         Array.isArray(f.leadsTo) &&
         f.leadsTo.length === 0 &&
         f.confidence !== "estimate" &&
+        !arrivingOnly &&
         features.some((o) => o !== f && o.type === f.type)
       ) {
         errors.push(

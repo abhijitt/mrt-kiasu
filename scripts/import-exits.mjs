@@ -84,6 +84,31 @@ const SUPPLEMENT = [
       "2026-09-15 read it as F from the platform, which is the signage evidence " +
       "that note was missing.",
   },
+  {
+    station: "Telok Ayer",
+    kind: "MRT",
+    code: "D",
+    lng: 103.8482623,
+    lat: 1.2827647,
+    source: "osm+survey",
+    evidence:
+      "OSM node 12629717594 (railway=subway_entrance, ref=D, wheelchair=yes, " +
+      "v1 2025-03-02), corroborated by field survey 2026-09-24 naming Exits D " +
+      "and E from the DT18 platform.",
+  },
+  {
+    station: "Telok Ayer",
+    kind: "MRT",
+    code: "E",
+    lng: 103.8475842,
+    lat: 1.2827746,
+    source: "osm+survey",
+    evidence:
+      "OSM node 13569227098 (railway=subway_entrance, ref=E, 'to ICON Link @ " +
+      "Club Street', v1 2026-02-16) and Wikipedia's Telok Ayer article, which " +
+      "dates that link to February 2026; corroborated by field survey " +
+      "2026-09-24 naming Exit E from the DT18 platform.",
+  },
 ];
 
 async function main() {

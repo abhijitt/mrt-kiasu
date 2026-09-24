@@ -12,7 +12,7 @@
     "layouts": "Keyed by station code without direction, since a layout describes the station. Requires source and confidence exactly as everything else does."
   },
   "_status": {
-    "surveyed": 90,
+    "surveyed": 111,
     "note": "Door positions and door side come only from field surveys, or from an OSM-derived candidate a person has then checked. No public dataset provides either (verified against LTA DataMall, data.gov.sg, SMRT and SBS Transit), so there is nothing to import and nothing to fall back on. The app shows 'not yet mapped' until an entry exists — it does not estimate. Counts here are maintained by scripts/review-surveys.mjs and the survey route; 'surveyed' excludes features inferred for the far face of an island platform.",
     "lastUpdated": "2026-09-24",
     "orientationSurveyed": 4,
@@ -1343,6 +1343,381 @@
         "confidence": "verified",
         "sourceNote": "Field survey at Stevens — mirrored from the desc survey of this platform, confirmed accurate on review 2026-09-24",
         "verifiedAt": "2026-09-23"
+      }
+    ],
+    "DT17:desc": [
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "doorIndex": 1,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Downtown — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C, D, E, F",
+        "verifiedAt": "2026-09-24"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "doorIndex": 2,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Downtown — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C, D, E, F — marked the long way to every exit on review 2026-09-24, from the surveyor note: the stairs at door 9 are closer to the only gantry",
+        "verifiedAt": "2026-09-24",
+        "secondaryFor": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "doorIndex": 5,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Downtown — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C, D, E, F",
+        "verifiedAt": "2026-09-24"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "doorIndex": 9,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Downtown — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C, D, E, F",
+        "verifiedAt": "2026-09-24"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "down",
+        "leadsTo": [],
+        "doorIndex": 10,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Downtown",
+        "verifiedAt": "2026-09-24"
+      }
+    ],
+    "DT17:asc": [
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "doorIndex": 1,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Downtown — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C, D, E, F",
+        "verifiedAt": "2026-09-24"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "doorIndex": 2,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Downtown — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C, D, E, F — marked the long way to every exit on review 2026-09-24, from the surveyor note: the stairs at door 9 are closer to the only gantry",
+        "verifiedAt": "2026-09-24",
+        "secondaryFor": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "doorIndex": 6,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Downtown — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C, D, E, F",
+        "verifiedAt": "2026-09-24"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "doorIndex": 9,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Downtown — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C, D, E, F",
+        "verifiedAt": "2026-09-24"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "down",
+        "leadsTo": [],
+        "doorIndex": 10,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Downtown — travel corrected to down on review 2026-09-24: the form recorded up, and the surveyor note describes the escalator coming down onto the platform, the same as the one at door 10 on the other side",
+        "verifiedAt": "2026-09-24"
+      }
+    ],
+    "DT18:desc": [
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "doorIndex": 5,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Telok Ayer — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C, D, E",
+        "verifiedAt": "2026-09-24"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "doorIndex": 6,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Telok Ayer — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C, D, E",
+        "verifiedAt": "2026-09-24"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "down",
+        "leadsTo": [],
+        "doorIndex": 9,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Telok Ayer",
+        "verifiedAt": "2026-09-24"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "doorIndex": 11,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Telok Ayer — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C, D, E",
+        "verifiedAt": "2026-09-24"
+      }
+    ],
+    "DT18:asc": [
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "doorIndex": 5,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Telok Ayer — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C, D, E",
+        "verifiedAt": "2026-09-24"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "doorIndex": 6,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Telok Ayer — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C, D, E",
+        "verifiedAt": "2026-09-24"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "down",
+        "leadsTo": [],
+        "doorIndex": 9,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Telok Ayer",
+        "verifiedAt": "2026-09-24"
+      },
+      {
+        "type": "stairs",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "doorIndex": 11,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Telok Ayer — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C, D, E",
+        "verifiedAt": "2026-09-24"
+      }
+    ],
+    "DT21:asc": [
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B",
+          "C"
+        ],
+        "doorIndex": 3,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bencoolen — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C",
+        "verifiedAt": "2026-09-24"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C"
+        ],
+        "doorIndex": 6,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bencoolen — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C",
+        "verifiedAt": "2026-09-24"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B",
+          "C"
+        ],
+        "doorIndex": 10,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bencoolen — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C",
+        "verifiedAt": "2026-09-24"
+      }
+    ],
+    "DT21:desc": [
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B",
+          "C"
+        ],
+        "doorIndex": 3,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bencoolen — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C — not surveyed from this platform; inferred from the asc survey because DT21 is an island platform",
+        "verifiedAt": "2026-09-24",
+        "impliedFrom": "asc"
+      },
+      {
+        "type": "lift",
+        "source": "survey",
+        "leadsTo": [
+          "A",
+          "B",
+          "C"
+        ],
+        "doorIndex": 6,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bencoolen — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C — not surveyed from this platform; inferred from the asc survey because DT21 is an island platform",
+        "verifiedAt": "2026-09-24",
+        "impliedFrom": "asc"
+      },
+      {
+        "type": "escalator",
+        "source": "survey",
+        "travel": "up",
+        "leadsTo": [
+          "A",
+          "B",
+          "C"
+        ],
+        "doorIndex": 10,
+        "confidence": "verified",
+        "sourceNote": "Field survey at Bencoolen — leadsTo filled in on review 2026-09-24: the survey named none, and a reviewer read it as reaching A, B, C — not surveyed from this platform; inferred from the asc survey because DT21 is an island platform",
+        "verifiedAt": "2026-09-24",
+        "impliedFrom": "asc"
       }
     ]
   },
