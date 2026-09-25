@@ -125,7 +125,17 @@ describe("provenance is present on every entry", () => {
 });
 
 describe("date helpers", () => {
-  it("formats the local calendar date", () => {
-    expect(isoDateOf(new Date("2026-08-26T23:59:00"))).toBe("2026-08-26");
+  // Instants with their offset written out. A bare "2026-08-26T23:59:00" is
+  // the machine's local time, so it named a different moment on a Singapore
+  // laptop than on the UTC server, and this test passed on one and failed on
+  // the other.
+  it("gives Singapore's calendar date, whatever zone the machine is in", () => {
+    expect(isoDateOf(new Date("2026-08-26T23:59:00+08:00"))).toBe("2026-08-26");
+  });
+
+  it("turns the date over at Singapore's midnight, not the server's", () => {
+    // 16:00 UTC is midnight in Singapore. A UTC server still reads the 26th.
+    expect(isoDateOf(new Date("2026-08-26T15:59:00Z"))).toBe("2026-08-26");
+    expect(isoDateOf(new Date("2026-08-26T16:00:00Z"))).toBe("2026-08-27");
   });
 });

@@ -13,5 +13,11 @@ export default defineConfig({
   test: {
     environment: "node",
     include: ["src/**/*.test.ts", "src/**/*.test.tsx"],
+    // The servers run on UTC — Vercel's and CI's both — while a developer
+    // here is usually on Singapore time, and code that must give Singapore's
+    // answer regardless is exactly what that difference hides. A test that
+    // assumed the machine was in Singapore passed locally for twelve days
+    // while CI failed on it. Every run is UTC, so local and CI cannot differ.
+    env: { TZ: "UTC" },
   },
 });
