@@ -1,0 +1,20 @@
+{
+  "_source": {
+    "authority": "Public Transport Council",
+    "basis": "2016 Fare Review Exercise. When rail fares became purely distance-based, eight station pairs would have paid more despite the overall reduction that year; the PTC kept them cheaper with a fixed discount off the band fare, so no commuter was worse off.",
+    "confirmedBy": "PTC reply to an enquiry of 31 August 2026, received 2026-09-25: Bishan to Toa Payoh is 2.1 km, in the up-to-3.2 km band at $1.28 adult, less a 4-cent exception, so $1.24.",
+    "announcement": "https://www.ptc.gov.sg/media-centre/newsroom/ptc-reduces-bus-and-rail-fares/",
+    "checked": "LTA fare calculator, all five card types for all eight pairs, 2026-09-25. Adult and Workfare are discounted; Student, Senior and Persons with Disabilities pay the band fare on these pairs.",
+    "note": "Discounts in cents, applied to the band fare, because that is how the PTC states them. Keys are the sorted station pair as in fare-distances.json. These are the same eight pairs the fare import flagged as disagreeing with the band table on 2026-09-13."
+  },
+  "pairs": {
+    "CC15|EW18": { "adult": -4, "workfare": -4 },
+    "CC15|NS14": { "adult": -4, "workfare": -4 },
+    "CC15|NS19": { "adult": -4, "workfare": -4 },
+    "CG1|EW9": { "adult": -4, "workfare": -4 },
+    "EW18|NS14": { "adult": -4, "workfare": -4 },
+    "EW18|NS19": { "adult": -4, "workfare": -4 },
+    "EW19|NS22": { "adult": -6, "workfare": -6 },
+    "NS14|NS19": { "adult": -4, "workfare": -4 }
+  }
+}

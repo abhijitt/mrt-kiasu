@@ -397,12 +397,20 @@ async function loadStations() {
 async function loadBands() {
   const raw = JSON.parse(await readFile(join(root, "src", "data", "fare-bands.json"), "utf8"));
   const bands = raw.bands.adult;
-  return (units) => {
+  // The PTC's eight fare exceptions are part of what LTA charges, so the
+  // self-check prices them in. Otherwise they would be flagged on every run,
+  // and a genuinely new disagreement would sit unnoticed among eight known
+  // ones.
+  const exceptions = JSON.parse(
+    await readFile(join(root, "src", "data", "fare-exceptions.json"), "utf8"),
+  ).pairs;
+  return (units, pair) => {
+    const off = exceptions[pair]?.adult ?? 0;
     for (const [, toKm, cents] of bands) {
-      if (toKm === null) return cents;
-      if (units <= Math.round(toKm * 100)) return cents;
+      if (toKm === null) return cents + off;
+      if (units <= Math.round(toKm * 100)) return cents + off;
     }
-    return bands[bands.length - 1][2];
+    return bands[bands.length - 1][2] + off;
   };
 }
 
@@ -475,8 +483,8 @@ async function main() {
       const { distance, fare } = await fetchWithRetry(a, b);
       distances[key(a, b)] = distance;
       // Self-check, one pair at a time.
-      if (priceOf(distance) !== fare) {
-        mismatches.push({ pair: key(a, b), units: distance, ours: priceOf(distance), theirs: fare });
+      if (priceOf(distance, key(a, b)) !== fare) {
+        mismatches.push({ pair: key(a, b), units: distance, ours: priceOf(distance, key(a, b)), theirs: fare });
       }
     } catch (err) {
       failures.push({ pair: key(a, b), error: String(err.message ?? err) });

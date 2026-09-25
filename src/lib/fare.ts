@@ -24,6 +24,7 @@
 
 import distanceData from "@/data/fare-distances.json";
 import bandData from "@/data/fare-bands.json";
+import exceptionData from "@/data/fare-exceptions.json";
 import { STATIONS } from "./stations";
 import {
   bandFromBands,
@@ -145,11 +146,33 @@ export function fareBetween(fromCode: string, toCode: string): Fare | null {
   const units = distanceBetween(fromCode, toCode);
   if (units === null) return null;
 
+  const exceptions = exceptionFor(fromCode, toCode);
   const byType = {} as Record<FareType, FarePrice>;
   for (const type of FARE_TYPES) {
     const [fromKm, toKm, cents] = bandFromBands(units, BANDS[type]);
-    byType[type] = { cents, band: { fromKm, toKm } };
+    const off = exceptions?.[type];
+    byType[type] = off
+      ? { cents: cents + off, band: { fromKm, toKm }, exception: off }
+      : { cents, band: { fromKm, toKm } };
   }
   return { units, effective: FARE_TABLE_EFFECTIVE, byType };
+}
+
+/**
+ * The PTC's fare exceptions: eight pairs that pay less than their band.
+ *
+ * When rail fares went purely distance-based in 2016, these pairs would have
+ * paid more in a year when every fare fell, so the PTC kept them a fixed few
+ * cents cheaper. Nothing about the distance says so — it is a decision, not
+ * geometry — which is why it is its own sourced file rather than a tweak to
+ * the bands. LTA's calculator applies it to Adult and Workfare fares only.
+ */
+const EXCEPTIONS = exceptionData.pairs as Record<string, Partial<Record<FareType, number>>>;
+
+function exceptionFor(fromCode: string, toCode: string) {
+  const from = stationOf(fromCode);
+  const to = stationOf(toCode);
+  if (!from || !to || from === to) return null;
+  return EXCEPTIONS[[from, to].sort().join("|")] ?? null;
 }
 

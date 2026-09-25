@@ -9,6 +9,7 @@ import {
 } from "./fare";
 import { stationOf } from "./fare";
 import { STATIONS } from "./stations";
+import distances from "@/data/fare-distances.json";
 
 /**
  * Fares are the one figure on the page that a commuter can check against the
@@ -160,5 +161,51 @@ describe("formatting", () => {
   it("writes distance at the one decimal LTA publishes", () => {
     expect(formatDistance(1330)).toBe("13.3 km");
     expect(formatDistance(40)).toBe("0.4 km");
+  });
+});
+
+/**
+ * The PTC's 2016 fare exceptions. Their reply of 2026-09-25 worked Bishan to
+ * Toa Payoh through: 2.1 km, up-to-3.2 km band, $1.28 adult, less 4 cents.
+ */
+describe("fare exceptions", () => {
+  it("charges Bishan to Toa Payoh what the PTC says it costs", () => {
+    const fare = fareBetween("NS17", "NS19")!;
+    expect(fare.byType.adult.cents).toBe(124);
+    expect(fare.byType.adult.exception).toBe(-4);
+  });
+
+  it("finds the exception whichever code names the station, either way round", () => {
+    for (const [a, b] of [["CC15", "NS19"], ["NS19", "NS17"], ["NS19", "CC15"]]) {
+      expect(fareBetween(a, b)!.byType.adult.cents, `${a}-${b}`).toBe(124);
+    }
+  });
+
+  it("discounts Workfare too, and leaves the other concessions on their band", () => {
+    const fare = fareBetween("NS17", "NS19")!;
+    expect(fare.byType.workfare.exception).toBe(-4);
+    for (const type of ["student", "senior", "disabilities"] as const) {
+      expect(fare.byType[type].exception, type).toBeUndefined();
+    }
+  });
+
+  it("keeps the working honest: band price plus the exception is the price", () => {
+    const fare = fareBetween("EW19", "NS22")!;
+    const p = fare.byType.adult;
+    expect(p.cents - p.exception!).toBe(fareForDistance(fare.units, "adult"));
+    expect(p.exception).toBe(-6);
+  });
+
+  it("explains every fare LTA's calculator disagreed with the band table on", () => {
+    // Recorded by the import from LTA's own fares. Each must now come out right.
+    for (const m of distances._fareMismatches ?? []) {
+      const [a, b] = m.pair.split("|");
+      expect(fareBetween(a, b)!.byType.adult.cents, m.pair).toBe(m.theirs);
+    }
+  });
+
+  it("touches no other pair", () => {
+    // Bishan to Novena shares a station with an exception and has none.
+    expect(fareBetween("NS17", "NS20")!.byType.adult.exception).toBeUndefined();
   });
 });

@@ -101,7 +101,7 @@ function lineOf(stationCode) {
 }
 
 async function main() {
-  const [positions, stations, exits, estimates, landmarks, adjustments, fareDistances, fareBands] =
+  const [positions, stations, exits, estimates, landmarks, adjustments, fareDistances, fareBands, fareExceptions] =
     await Promise.all([
       read("src/data/positions.json"),
       read("src/data/stations.json"),
@@ -111,6 +111,7 @@ async function main() {
       read("src/data/service-adjustments.json"),
       read("src/data/fare-distances.json"),
       read("src/data/fare-bands.json"),
+      read("src/data/fare-exceptions.json"),
     ]);
 
   const knownStations = new Set(stations.stations.map((s) => s.code.toUpperCase()));
@@ -570,15 +571,38 @@ async function main() {
     }
   }
 
-  // LTA's own calculator disagrees with the PTC table on a handful of pairs,
-  // recorded by the importer rather than smoothed over. A jump in the count
-  // means something changed at their end and wants looking at, not ignoring.
-  const KNOWN_FARE_MISMATCHES = 8;
-  const mismatches = fareDistances._fareMismatches ?? [];
-  if (mismatches.length > KNOWN_FARE_MISMATCHES) {
+  // The PTC's fare exceptions: a few cents off the band for pairs that would
+  // otherwise have paid more when fares went distance-based in 2016. Each must
+  // be a real pair, and a discount — a surcharge would be a different claim.
+  const exceptionPairs = fareExceptions.pairs ?? {};
+  if (!fareExceptions._source?.confirmedBy) errors.push("fare-exceptions: missing _source.confirmedBy");
+  for (const [pair, byType] of Object.entries(exceptionPairs)) {
+    if (farePairs[pair] === undefined) errors.push(`fare-exceptions: "${pair}" is not a priced pair`);
+    for (const [type, off] of Object.entries(byType)) {
+      if (!fareBands.bands?.[type]) errors.push(`fare-exceptions: ${pair} names unknown fare type "${type}"`);
+      if (!Number.isInteger(off) || off >= 0) {
+        errors.push(`fare-exceptions: ${pair} ${type} must be a negative whole number of cents, got ${off}`);
+      }
+    }
+  }
+
+  // LTA's own calculator can disagree with the band table, and the importer
+  // records where rather than smoothing it over. The eight the PTC explained
+  // are fare exceptions now; any disagreement they do not account for means
+  // something changed at LTA's end and wants looking at, not ignoring.
+  const adultBand = (units) => {
+    for (const [, toKm, cents] of fareBands.bands.adult) {
+      if (toKm === null || units <= Math.round(toKm * 100)) return cents;
+    }
+    return fareBands.bands.adult.at(-1)[2];
+  };
+  const unexplained = (fareDistances._fareMismatches ?? []).filter(
+    (m) => adultBand(m.units) + (exceptionPairs[m.pair]?.adult ?? 0) !== m.theirs,
+  );
+  for (const m of unexplained) {
     warnings.push(
-      `fare-distances: ${mismatches.length} pairs where LTA's fare differs from the PTC table ` +
-        `(was ${KNOWN_FARE_MISMATCHES}) — re-check before trusting the band table`,
+      `fare-distances: ${m.pair} costs ${m.theirs} at LTA against ${adultBand(m.units)} from the band ` +
+        `table, and no fare exception explains it — re-check before trusting the band table`,
     );
   }
 

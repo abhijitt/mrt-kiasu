@@ -35,6 +35,15 @@ export interface FarePrice {
    * showing the working must not import either.
    */
   band: { fromKm: number; toKm: number | null };
+  /**
+   * A PTC fare exception, in cents off the band fare — always negative.
+   *
+   * Eight station pairs kept a discount when fares went purely distance-based
+   * in 2016, so that none of them paid more. `cents` above already includes
+   * it; this is carried so the working can say why the price is not the
+   * band's.
+   */
+  exception?: number;
 }
 
 export interface Fare {

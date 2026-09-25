@@ -167,9 +167,19 @@ export function JourneyEstimate(props: Props) {
               {t("fare.gaoBody", {
                 distance: formatDistance(props.fare.units),
                 band: bandLabel(price.band, t),
-                amount: formatFare(price.cents),
+                // The band's own price, so the working adds up when an
+                // exception then takes a few cents off it.
+                amount: formatFare(price.cents - (price.exception ?? 0)),
               })}
             </p>
+            {price.exception && (
+              <p className="text-sm leading-relaxed text-fg-muted">
+                {t("fare.exception", {
+                  discount: formatFare(-price.exception),
+                  amount: formatFare(price.cents),
+                })}
+              </p>
+            )}
             <p className="text-xs leading-relaxed text-fg-faint">
               {t("fare.gaoSource", { effective: props.fare.effective })}
             </p>
