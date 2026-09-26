@@ -139,6 +139,7 @@
   "survey.optional": "（选填）",
   "survey.buttonHint": "按钮标示为 车厢.车门，以驶向{direction}的列车视角。",
   "survey.save": "保存位置",
+  "survey.aboutToSend": "即将发送",
   "survey.saving": "保存中…",
   "survey.saved": "已保存。此月台共 {count} 项记录。做得好！",
   "survey.step4": "还有要补充的吗？",

@@ -139,6 +139,7 @@
   "survey.optional": "(pilihan)",
   "survey.buttonHint": "Butang dilabel gerabak.pintu seperti dilihat dari tren menuju {direction}.",
   "survey.save": "Simpan kedudukan",
+  "survey.aboutToSend": "Akan dihantar",
   "survey.saving": "Menyimpan…",
   "survey.saved": "Disimpan. {count} ciri di platform ini. Steady lah.",
   "survey.step4": "Ada apa-apa lagi?",

@@ -1725,9 +1725,9 @@
           "A",
           "B"
         ],
-        "doorIndex": 1,
+        "doorIndex": 7,
         "confidence": "verified",
-        "sourceNote": "Field survey at Hillview — leadsTo filled in on review 2026-09-26: the survey named none, and a reviewer read it as reaching A, B",
+        "sourceNote": "Field survey at Hillview — leadsTo filled in on review 2026-09-26: the survey named none, and a reviewer read it as reaching A, B — moved from door 1 to door 7 on review 2026-09-26: the surveyor placed the lift one door along from the escalator at door 8, toward the back of the train. The form recorded door 1 because a save left its button disabled, the reload that followed cleared the selected door, and the back arrow from no selection lands on door 1",
         "verifiedAt": "2026-09-26"
       },
       {
@@ -1764,9 +1764,9 @@
           "A",
           "B"
         ],
-        "doorIndex": 1,
+        "doorIndex": 7,
         "confidence": "verified",
-        "sourceNote": "Field survey at Hillview — leadsTo filled in on review 2026-09-26: the survey named none, and a reviewer read it as reaching A, B — mirrored from the asc survey of this platform, confirmed accurate by the surveyor, whose note reads \"Platform is mirrored\", on review 2026-09-26",
+        "sourceNote": "Field survey at Hillview — leadsTo filled in on review 2026-09-26: the survey named none, and a reviewer read it as reaching A, B — mirrored from the asc survey of this platform, confirmed accurate by the surveyor, whose note reads \"Platform is mirrored\", on review 2026-09-26 — moved from door 1 to door 7 on review 2026-09-26: the surveyor placed the lift one door along from the escalator at door 8, toward the back of the train. The form recorded door 1 because a save left its button disabled, the reload that followed cleared the selected door, and the back arrow from no selection lands on door 1",
         "verifiedAt": "2026-09-26"
       },
       {

@@ -113,7 +113,17 @@ export function SurveyForm({
   // trek to the other.
   const [secondaryFor, setSecondaryFor] = useState<string[]>([]);
   const [status, setStatus] = useState<string | null>(null);
-  const [sent, setSent] = useState(false);
+  // While a request is in flight, so one tap cannot send twice. It used to be
+  // a flag that stayed set after the first save, which disabled the button
+  // for good: recording the next thing meant reloading the page, the reload
+  // cleared the door, and "one door along" from the empty selection landed
+  // on door 1. That put Hillview's lift at the far end of the train.
+  const [saving, setSaving] = useState(false);
+  // What this visit has sent, drawn on the diagram so the next item can be
+  // placed relative to it. Pending review, so not in `existing`.
+  const [submitted, setSubmitted] = useState<PlatformFeature[]>([]);
+  // Where the arrows start from once the form has been cleared.
+  const [lastDoor, setLastDoor] = useState<number | null>(null);
   const [note, setNote] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -168,10 +178,7 @@ export function SurveyForm({
   }
 
   function nudge(delta: number) {
-    setDoorIndex((prev) => {
-      const next = (prev ?? 1) + delta;
-      return Math.min(totalDoors, Math.max(1, next));
-    });
+    setDoorIndex((prev) => nudgeDoor(prev ?? lastDoor, delta, totalDoors));
   }
 
   function describeDoor(idx: number): string {
@@ -224,6 +231,7 @@ export function SurveyForm({
     );
 
     setStatus(t("survey.saving"));
+    setSaving(true);
     try {
       const res = await fetch("/api/survey", {
         method: "POST",
@@ -246,11 +254,11 @@ export function SurveyForm({
             : t("survey.submitted"),
         );
         setPayload(null);
-        setSent(true);
+        clearAfterSave(features);
       } else if (res.ok && body) {
         setStatus(t("survey.saved", { count: body.count }));
         setPayload(null);
-        setSent(true);
+        clearAfterSave(features);
       } else if (res.status === 429) {
         // Too many submissions from this address. Say so, and keep the work:
         // one carrier can put a whole platform behind a single IP, so this
@@ -269,7 +277,26 @@ export function SurveyForm({
     } catch {
       setStatus(t("survey.offline"));
       setPayload(json);
+    } finally {
+      setSaving(false);
     }
+  }
+
+  /**
+   * Clears everything about the item just recorded, so the next starts clean
+   * and nothing from this one can ride along into it unnoticed. The surveyor's
+   * name and email stay: they describe who is surveying, not what. Only on
+   * success — a failed save keeps every field, so no work is lost.
+   */
+  function clearAfterSave(features: PlatformFeature[]) {
+    setSubmitted((prev) => [...prev, ...features]);
+    setLastDoor(doorIndex);
+    setDoorIndex(null);
+    setTypes(["escalator"]);
+    setTravel("up");
+    setLeadsTo([]);
+    setSecondaryFor([]);
+    setNote("");
   }
 
   return (
@@ -282,7 +309,7 @@ export function SurveyForm({
           <PlatformDiagram
             line={line}
             direction={direction}
-            features={existing}
+            features={[...existing, ...submitted]}
             highlightDoorIndex={doorIndex ?? undefined}
             towards={towards}
             avatar={doorIndex != null ? settings.avatar : undefined}
@@ -446,10 +473,39 @@ export function SurveyForm({
         </label>
       </Step>
 
+      {/* What will be sent, with the door as a number. "Car 2 · 1st door" is
+          easy to misread under a moving train; "door 1 of 12" at a landing in
+          the middle of the platform is not, and is how the Hillview lift would
+          have been caught before it was sent. */}
+      {doorIndex != null && position && (
+        <div className="pixel-box-sm p-3" role="status" aria-live="polite">
+          <p className="font-pixel text-[10px] uppercase text-fg-muted">{t("survey.aboutToSend")}</p>
+          <p className="mt-2 text-sm leading-relaxed">
+            {types
+              .map((id) =>
+                id === "escalator"
+                  ? `${t(`mode.${id}` as MessageKey)} (${t(`travel.${travel}` as MessageKey).toLowerCase()})`
+                  : t(`mode.${id}` as MessageKey),
+              )
+              .join(t("survey.andJoin"))}
+          </p>
+          <p className="mt-1 text-sm leading-relaxed">
+            {describeDoor(doorIndex)} ·{" "}
+            <strong>
+              {t("gao.doorIndex", {
+                index: position.doorFromFront,
+                total: totalDoors,
+                end: t("gao.endFront"),
+              })}
+            </strong>
+          </p>
+        </div>
+      )}
+
       <button
         type="button"
         onClick={save}
-        disabled={!ready || sent}
+        disabled={!ready || saving}
         className="pixel-btn font-pixel px-4 py-4 text-xs uppercase"
         style={
           ready ? { background: "var(--accent)", color: "var(--accent-fg)" } : undefined
@@ -470,4 +526,15 @@ export function SurveyForm({
       )}
     </div>
   );
+}
+
+/**
+ * One arrow press. Moves from `from`, the selected door or else the last one
+ * saved, and stays on the train. With neither there is no "one along" to
+ * mean, so the press selects the middle door, where the surveyor can see it,
+ * instead of stepping off the end of an empty selection onto door 1.
+ */
+export function nudgeDoor(from: number | null, delta: number, totalDoors: number): number {
+  if (from == null) return Math.ceil(totalDoors / 2);
+  return Math.min(totalDoors, Math.max(1, from + delta));
 }

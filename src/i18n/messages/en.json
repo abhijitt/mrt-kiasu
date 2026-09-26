@@ -139,6 +139,7 @@
   "survey.optional": "(optional)",
   "survey.buttonHint": "Buttons are labelled car.door as seen from a train heading towards {direction}.",
   "survey.save": "Save position",
+  "survey.aboutToSend": "About to send",
   "survey.saving": "Saving…",
   "survey.saved": "Saved. {count} features on this platform. Steady lah.",
   "survey.step4": "Anything to add?",
